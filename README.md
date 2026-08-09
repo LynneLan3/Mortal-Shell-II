@@ -24,7 +24,7 @@ sitemap.xml
 vercel.json                              强制 URL 带斜杠(保证 canonical 一致)
 ```
 
-正式站点：部署后填入真实 Vercel URL（见第 3 节）。
+正式站点：`https://hot-words-mortal-shell-ii.vercel.app/`
 
 ---
 
@@ -67,7 +67,9 @@ vercel --prod           # 正式发布到生产环境
 
 ## 3. 部署后：正式 URL 在哪里替换
 
-项目初始使用占位域名 `hot-words-mortal-shell-ii.vercel.app`。部署拿到真实 `https://xxx.vercel.app` 后，在以下文件替换域名（保留路径）：
+> **状态：已完成。** 正式域名是：`https://hot-words-mortal-shell-ii.vercel.app`
+
+若之后换成自定义域名，在以下文件替换域名（保留路径）：
 
 | 文件 | 需要替换的内容 |
 |---|---|
@@ -85,7 +87,7 @@ grep -rl "旧域名" . --include="*.html" --include="*.xml" --include="*.txt" \
 
 ## 4. canonical / sitemap 是否需要替换域名
 
-**需要**。Canonical URL 必须和 Google 实际抓取到的域名完全一致。
+**需要**（换自定义域名时）。当前 canonical / sitemap / robots 已与正式 Vercel 域名一致。
 
 ---
 

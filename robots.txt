@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hot-words-mortal-shell-ii.vercel.app/sitemap.xml
+Sitemap: https://mortal-shell-ii.vercel.app/sitemap.xml

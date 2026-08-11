@@ -41,7 +41,7 @@ export const game: GameConfig = {
 	name: 'Mortal Shell II',
 	shortName: 'Mortal Shell II',
 	description:
-		'A source-led guide to Mortal Shell II covering its confirmed release, platforms, single-player positioning, gameplay, and PC requirements.',
+		'A source-led guide to Mortal Shell II covering its confirmed release, Open Beta, platforms, gameplay, and PC requirements.',
 	tagline: 'Confirmed release information and practical player guides for the standalone action-RPG sequel.',
 	siteUrl: 'https://mortal-shell-ii.vercel.app/',
 	hubPath: '/mortal-shell-ii/',
@@ -54,7 +54,8 @@ export const game: GameConfig = {
 	portal: {
 		popularQuestions: [
 			{ label: 'When does Mortal Shell II release?', href: '/mortal-shell-ii/release-date/' },
-			{ label: 'What gameplay is confirmed?', href: '/mortal-shell-ii/gameplay/' },
+			{ label: 'How do I play the Open Beta?', href: '/mortal-shell-ii/open-beta/' },
+			{ label: 'Does beta progress carry over?', href: '/mortal-shell-ii/beta-progress-carry-over/' },
 			{ label: 'What are the PC requirements?', href: '/mortal-shell-ii/system-requirements/' },
 		],
 		showRecentlyUpdated: true,
@@ -64,14 +65,14 @@ export const game: GameConfig = {
 		{
 			id: 'combat-exploration',
 			label: 'Gameplay',
-			description: 'Confirmed combat, Shell, weapon, exploration, and dungeon information.',
+			description: 'Confirmed combat, Shell, weapon, exploration, dungeon, and Open Beta encounter information.',
 			icon: 'puzzle',
 			order: 1,
 		},
 		{
 			id: 'game-info',
 			label: 'Game Info',
-			description: 'Release date, platforms, editions, and developer/publisher context.',
+			description: 'Release date, platforms, Open Beta access, and developer/publisher context.',
 			icon: 'information',
 			order: 2,
 		},

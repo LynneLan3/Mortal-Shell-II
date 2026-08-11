@@ -4,7 +4,7 @@ description: Current minimum PC system requirements for Mortal Shell II as liste
 category: pc-requirements
 slug: mortal-shell-ii/system-requirements
 status: confirmed
-featured: true
+featured: false
 quickAnswer: Steam currently lists Windows 10/11, 16 GB RAM, DirectX 12, 70 GB storage, and an SSD requirement in the Mortal Shell II minimum PC table.
 related:
   - mortal-shell-ii/release-date

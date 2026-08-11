@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mortal-shell-ii.vercel.app/sitemap.xml

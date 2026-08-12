@@ -32,6 +32,8 @@ export interface GameConfig {
 	platforms: readonly string[];
 	accentColor: string;
 	heroImage?: string;
+	heroAlt?: string;
+	heroPosition?: string;
 	logoImage?: string;
 	categories: readonly GameCategory[];
 	portal?: GamePortalConfig;
@@ -51,6 +53,9 @@ export const game: GameConfig = {
 	publisher: 'Playstack',
 	platforms: ['PC via Steam', 'PlayStation 5', 'Xbox Series X|S'],
 	accentColor: '#7c3aed',
+	heroImage: 'hero.jpg',
+	heroAlt: 'Official Steam artwork for Mortal Shell II',
+	heroPosition: 'center',
 	portal: {
 		popularQuestions: [
 			{ label: 'When does Mortal Shell II release?', href: '/mortal-shell-ii/release-date/' },

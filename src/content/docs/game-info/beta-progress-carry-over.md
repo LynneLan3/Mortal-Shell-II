@@ -1,6 +1,6 @@
 ---
 title: "Mortal Shell II Beta Progress Carry Over, Rewards, and Skip Prologue"
-description: What carries over from the Mortal Shell II Open Beta, including The Flayed Harbinger reward, the Marrow Keep prologue skip, and what resets at launch.
+description: Mortal Shell II beta save progress does not fully carry over. See what resets at launch, which beta reward you keep, and how the Prologue skip works.
 category: game-info
 slug: mortal-shell-ii/beta-progress-carry-over
 status: confirmed
@@ -73,16 +73,22 @@ GamesRadar reports that the skip returns you to your first visit to the Keep rat
 
 Reaching Magdalena is **not** the stated requirement for the skip. Magdalena is a later Open Beta encounter; the carry-over condition named by the store is Marrow Keep.
 
-## What you actually start with in the full game
+## Do Mortal Shell II Beta Saves Carry Over?
 
-Based on the current official wording, a player who used the Open Beta should expect:
+Official listings treat **beta save transfer** and **beta launch benefits** as different things.
 
-1. A **new save** for the full release, not a restored Open Beta inventory.
-2. The option to claim **The Flayed Harbinger** cosmetic.
-3. The option to **skip the Prologue** if they progressed beyond the Marrow Keep.
-4. Currency, weapons, Shells, collectibles, and other discovered items **reset**.
+### Beta save / normal progression
 
-Until launch-day patch notes say otherwise, do not assume additional hidden transfer for levels, map completion, or dungeon unlocks.
+Your Open Beta save does **not** become a full launch save. Expect a **new save** for the full release. Currency, weapons, Shells, collectibles, and other discovered items **reset**. Until launch-day patch notes say otherwise, do not assume extra transfer for levels, map completion, or dungeon unlocks.
+
+### Beta benefits / entitlements
+
+What does carry forward are launch entitlements, not a restored inventory:
+
+1. Claim **The Flayed Harbinger** cosmetic at launch if you played the Open Beta.
+2. Optionally **skip the Prologue** if you progressed beyond the Marrow Keep.
+
+Save transfer ≠ beta reward / launch benefit.
 
 ## FAQ
 

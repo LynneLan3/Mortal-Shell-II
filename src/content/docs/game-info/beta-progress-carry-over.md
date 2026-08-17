@@ -12,7 +12,7 @@ related:
 sidebar:
   order: 3
   badge: Confirmed
-lastUpdated: 2026-08-15
+lastUpdated: 2026-08-17
 ---
 
 ## Does Mortal Shell 2 beta progress carry over?
@@ -21,15 +21,16 @@ lastUpdated: 2026-08-15
 
 Complete inventory and normal progression reset at launch. Only explicit beta launch benefits remain: **The Flayed Harbinger** cosmetic for playing the Open Beta, and an optional **Prologue skip** if you progressed beyond **Marrow Keep**.
 
-| Beta progress / reward | Full release |
-| --- | --- |
-| Currency | ❌ Resets |
-| Weapons | ❌ Resets |
-| Shells | ❌ Resets |
-| Collectibles | ❌ Resets |
-| Other discovered items | ❌ Resets |
-| The Flayed Harbinger cosmetic | ✅ Available at launch after playing the beta |
-| Prologue skip | ✅ Unlocked if you progressed beyond Marrow Keep |
+| Beta progress or reward | Full release | What it means |
+| --- | --- | --- |
+| Full beta save / story progress | Does not transfer | Your complete Open Beta save does not transfer into the full game. |
+| Currency | Resets | Starts fresh at launch. |
+| Weapons | Resets | Weapons found in the Open Beta are not kept. |
+| Shells | Resets | Possessed Shells do not stay unlocked as saved progress. |
+| Collectibles | Resets | Collectibles found in the Open Beta reset. |
+| Other discovered items | Resets | Other items found during the Open Beta reset. |
+| The Flayed Harbinger | Unlocks for full release | Play the Open Beta; a developer-marked Steam answer says more than 30 minutes automatically unlocks it. |
+| Prologue skip | Unlockable launch option | Optional skip if you progressed beyond Marrow Keep. |
 
 **Your beta save itself is not transferred; these are launch rewards or unlocks, not restored beta progression.**
 
@@ -68,7 +69,9 @@ What the official Steam listing confirms:
 - It is available to **claim in the full game at launch**.
 - It is described as a cosmetic reward, not a combat upgrade.
 
-Steam does not publish a playtime threshold. Play the Open Beta on the account you will use at launch, then claim the cosmetic when Mortal Shell II releases on August 20, 2026.
+The Open Beta store listing does not print a playtime number. A **developer-marked Steam discussion answer** (Aug 13, 2026) adds that playing the Open Beta for **more than 30 minutes** automatically unlocks The Flayed Harbinger, and that save data still does not transfer.
+
+Play the Open Beta on the account you will use at launch, then claim the cosmetic when Mortal Shell II releases on August 20, 2026.
 
 ## How the Marrow Keep Prologue skip works
 
@@ -123,6 +126,10 @@ Currency, weapons, Shells, collectibles, and other discovered items reset. Do no
 
 Yes for the documented rewards: The Flayed Harbinger cosmetic (play the beta) and the Prologue skip (progress beyond Marrow Keep). Those are launch unlocks, not a restored save.
 
+### How long do I need to play for The Flayed Harbinger?
+
+A developer Steam post says **more than 30 minutes** of Open Beta play automatically unlocks The Flayed Harbinger. The Open Beta store listing only says to play the Open Beta; it does not print a playtime number.
+
 ### Does Mortal Shell 2 demo progress carry over?
 
 Searchers sometimes call the Open Beta a “demo.” The current official product is the **Open Beta**, and the same rule applies: full progress does not transfer to the full game. Only the confirmed launch benefits above apply.
@@ -137,7 +144,8 @@ Progress **beyond the Marrow Keep** during the Open Beta. The skip is optional a
 
 ## Sources
 
-- [Mortal Shell II - Open Beta on Steam](https://store.steampowered.com/app/4711740/Mortal_Shell_II__Open_Beta/) — checked 2026-08-11
-- [Mortal Shell II Open Beta on Xbox](https://www.xbox.com/en-us/games/store/mortal-shell-ii-open-beta/9N1NPQRFBGTX) — checked 2026-08-11
+- [Mortal Shell II - Open Beta on Steam](https://store.steampowered.com/app/4711740/Mortal_Shell_II__Open_Beta/) — official PROGRESS CARRY-OVER copy; checked 2026-08-17
+- [Mortal Shell II Open Beta on Xbox](https://www.xbox.com/en-us/games/store/mortal-shell-ii-open-beta/9N1NPQRFBGTX) — matching official listing; checked 2026-08-11
+- [save transfer to full game (Steam Discussions)](https://steamcommunity.com/app/2584270/discussions/0/418424007826605250/) — developer-marked answer: more than 30 minutes unlocks The Flayed Harbinger; save data does not transfer; checked 2026-08-17
 - [Does your progress transfer from the Mortal Shell 2 beta? (GamesRadar+)](https://www.gamesradar.com/games/rpg/mortal-shell-2-beta-rewards-progress/) — secondary reporting around the Marrow Keep skip
 - [Mortal Shell II release date](/mortal-shell-ii/release-date/) — full release August 20, 2026

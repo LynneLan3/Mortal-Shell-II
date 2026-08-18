@@ -7,6 +7,7 @@ status: confirmed
 featured: false
 quickAnswer: Official descriptions position Mortal Shell II as a single-player action RPG with high-stakes combat, possessable warrior Shells, deeper weapon upgrades, an interconnected open world, and dungeons.
 related:
+  - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/magdalena
   - mortal-shell-ii/release-date
   - mortal-shell-ii/system-requirements
@@ -30,7 +31,7 @@ These are the stable, high-level facts supported by the current Steam, official 
 - The world is presented as interconnected and includes dungeons.
 - Current store listings identify single-player features.
 
-The current Open Beta uses that opening slice as a preview route toward [Magdalena, the Lady of the Woods](/mortal-shell-ii/magdalena/).
+The current Open Beta uses that opening slice as a preview route toward [Magdalena, the Lady of the Woods](/mortal-shell-ii/magdalena/). For how Mortal Shell II actually changes challenge after launch — the Slayer Seal, Night Mode, and the lack of an Easy/Normal/Hard menu — see the [difficulty and Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/).
 
 For the launch date and confirmed platforms, see the [Mortal Shell II release guide](/mortal-shell-ii/release-date/). For the PC specification table, see [Mortal Shell II system requirements](/mortal-shell-ii/system-requirements/).
 

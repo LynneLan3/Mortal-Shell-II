@@ -8,6 +8,7 @@ featured: false
 quickAnswer: Official descriptions position Mortal Shell II as a single-player action RPG with high-stakes combat, possessable warrior Shells, deeper weapon upgrades, an interconnected open world, and dungeons.
 related:
   - mortal-shell-ii/slayer-seal-difficulty
+  - mortal-shell-ii/map-fragments
   - mortal-shell-ii/magdalena
   - mortal-shell-ii/release-date
   - mortal-shell-ii/system-requirements

@@ -72,3 +72,28 @@ Intentional omissions for evidence quality:
 - No fixed `135K/hour` claim in title, description, or quick answer due to insufficient multi-source, fully measured confirmation across current launch conditions.
 - No invented exact hourly values for Sunken Village or universal leveling-cost tables.
 - No additional speculative pages (build tier list, full progression, weapons index, map page, boss pages) created in this batch.
+
+## 2026-08-18 content batch (Launch / Advanced Access): Map Fragment locations
+
+New launch-window Guide added:
+
+- `/mortal-shell-ii/map-fragments/` — focused on the active map-fragment search intent cluster, with a route-first table and region-by-region location breakdown.
+
+Evidence and constraints used:
+
+- Map system behavior cross-checked across GamesRadar, GameRant, and games.gg launch-window guides: exploration alone does not clear fog; fragments are collected from crow-marked Ruk statue pedestals; reveal applies immediately on pickup.
+- Total count cross-checked to `11` fragments with `5` in Fainweald and `6` in Mammon from overlapping launch sources and Sat Nav trophy wording (PowerPyx + multiple guides).
+- The first Fainweald fragment route (Widow's Overlook -> arena bypass -> tree -> jump pad -> Ruk statue) had multi-source step-level support and was used as the highest-confidence detailed route block.
+- Remaining regional anchors and nearest-beacon landmarks for all 11 entries were assembled from an Aug 18 launch guide and constrained to conservative phrasing where route precision is lower.
+- Progression-gate note kept explicit for routes that mention corruption-blocked branches (One-Legged Wolf side), without inventing fixed unlock thresholds in the page body.
+
+Conflict handling:
+
+- One Aug 18 source contains an internal inconsistency (`4 + 7`) in a summary line while the same article body and cross-sources consistently present `5 + 6`.
+- The page uses `5 + 6 = 11` and explicitly documents the conflict and resolution rule.
+
+Intentional omissions for evidence quality:
+
+- No Interactive Map page, no collectibles mega-index, and no coordinate-style claims.
+- No unsupported statement that fragments are universally non-missable under all conditions; phrased as progression-gated with no reliable permanent-lock proof in current launch sources.
+- No guessed NPC turn-in flow; current evidence supports instant map reveal on pickup.

@@ -1,12 +1,13 @@
 ---
-title: "Mortal Shell 2 Release Date, Early Access, Preload & Unlock Time"
-description: Mortal Shell 2 releases August 20, 2026. Devout Edition Advanced Access starts August 17 (up to 72 hours early). Preload and exact unlock time are not officially confirmed yet.
+title: "Mortal Shell 2 Release Date & Unlock Time"
+description: "Mortal Shell 2 Standard Edition unlocks August 20, 2026 at 1:00 PM UTC. Devout Edition Advanced Access is live now (started August 17 at 1:00 PM UTC). See official unlock times by edition."
 category: game-info
 slug: mortal-shell-ii/release-date
 status: confirmed
 featured: true
-quickAnswer: Mortal Shell II releases worldwide on August 20, 2026. The Devout Edition includes up to 72 hours of Advanced Access, and Steam currently lists Advanced Access starting August 17. Preload and an exact unlock clock time are not officially confirmed yet.
+quickAnswer: "Standard Edition unlocks August 20, 2026 at 1:00 PM UTC. Devout Edition Advanced Access is already live — it started August 17, 2026 at 1:00 PM UTC, up to 72 hours early. Those clock times are the current PlayStation Store listings."
 related:
+  - mortal-shell-ii/skip-prologue
   - mortal-shell-ii/beta-progress-carry-over
   - mortal-shell-ii/open-beta
   - mortal-shell-ii/gameplay
@@ -14,64 +15,77 @@ related:
 sidebar:
   order: 1
   badge: Confirmed
-lastUpdated: 2026-08-16
+lastUpdated: 2026-08-18
 ---
 
-## When does Mortal Shell 2 release?
+## Mortal Shell II release date
 
-Mortal Shell II is scheduled for **worldwide release on August 20, 2026**.
+**Standard Edition:** August 20, 2026 at **1:00 PM UTC**.
 
-That is the full/standard launch date confirmed across the official website and current store listings for PC via Steam, PlayStation 5, and Xbox Series X|S.
+**Devout Edition:** Advanced Access is **live now**. It started August 17, 2026 at **1:00 PM UTC**, up to 72 hours before the standard launch.
 
-## When does Advanced Access start?
+The difference is access timing, not a different game. Devout Edition is the digital deluxe path with Advanced Access and the Obsidian skin set. Standard Edition is the full game on August 20.
 
-**Current status (Steam):** Advanced Access starts **August 17, 2026**.
+Those clock times come from the current PlayStation Store listings. Steam’s official announcement confirms Devout Edition owners can play now, and that the general release remains **Thursday, August 20**. Steam’s store page still lists the Standard Edition date as August 20 without publishing a separate clock time.
 
-Official site copy for the Devout Edition promises **up to 72 hours** of Advanced Access ahead of the August 20 release. Steam’s full-game listing currently shows **Advance Access / Advanced Access starting August 17**, with the Devout Edition framed as playing up to **3 days ahead** of full release.
+## What time does Mortal Shell II release?
 
-This page treats August 17 as the current store-listed Advanced Access start date, not as a calculated unlock clock time.
+PlayStation Store lists a worldwide unlock of **1:00 PM UTC** for both editions, three days apart.
 
-## How do you get early access?
+Local times below are conversions of that official UTC listing. They are not separate regional store times.
 
-Early play before August 20 is tied to the **Devout Edition**, not to the free Open Beta.
+| Region / Time Zone | Unlock Time |
+| --- | --- |
+| UTC (PlayStation Store listing) | 1:00 PM |
+| Pacific Time (PDT) | 6:00 AM |
+| Central Time (CDT) | 8:00 AM |
+| Eastern Time (EDT) | 9:00 AM |
+| United Kingdom (BST) | 2:00 PM |
+| Central Europe (CEST) | 3:00 PM |
 
-Confirmed path:
+Use that table for both dates:
 
-1. Pre-order or purchase the **Devout Edition**.
-2. That edition includes **up to 72 hours of Advanced Access**.
-3. Steam currently lists that Advanced Access window as starting **August 17**.
+- **Devout Edition / Advanced Access:** August 17, 2026 at the times above — already live as of this page’s check.
+- **Standard Edition:** August 20, 2026 at the times above.
 
-The free [Open Beta](/mortal-shell-ii/open-beta/) is a separate limited preview. It is not the same product as Devout Edition Advanced Access for the full game.
+Xbox listings reviewed for this Guide confirm the August 17 / August 20 dates. They do not publish their own clock time in the copy checked here.
+
+## Devout Edition / Advanced Access release time
+
+Devout Edition Advanced Access **started August 17, 2026 at 1:00 PM UTC** on PlayStation Store, and is playable now.
+
+Official Steam news (August 17, 2026) says that if you pre-ordered the Devout Edition on any platform such as Steam, you can start playing **right now**, up to 72 hours ahead of the general release on Thursday, August 20.
+
+The official site frames Devout Edition as **up to 72 hours** of Advanced Access plus the **Obsidian skin set** for the eight playable Shells.
+
+This is not the free [Open Beta](/mortal-shell-ii/open-beta/). Advanced Access is early play of the full game for Devout Edition owners.
+
+## Standard Edition release time
+
+Standard Edition players wait for the worldwide launch on **August 20, 2026**.
+
+PlayStation Store currently lists that unlock as **1:00 PM UTC**. Steam still shows the Standard Edition as coming August 20, with a countdown rather than a published clock time.
+
+If you only need the base game, Standard Edition is the August 20 path. It does not include the Devout Edition Advanced Access window.
 
 ## Standard vs Devout Edition
 
 | Edition | Launch timing | Confirmed extras |
 | --- | --- | --- |
-| Standard Edition | Full release on **August 20, 2026** | Base game |
-| Devout Edition | **Up to 72 hours Advanced Access**; Steam currently lists start on **August 17** | Advanced Access plus the **Obsidian skin set** for the eight playable Shells (official site) |
+| Standard Edition | Full release **August 20, 2026**, **1:00 PM UTC** (PlayStation Store) | Base game |
+| Devout Edition | **Advanced Access live now**; started **August 17, 2026**, **1:00 PM UTC** (PlayStation Store), up to 72 hours early | Advanced Access plus the **Obsidian skin set** for the eight playable Shells (official site) |
 
 A separate **Revered Edition** is described on the official site as a **PS5 physical** collector edition. This page does not treat Revered Edition packaging extras as confirmed Advanced Access; only the Devout Edition is officially tied to the early-access window above.
 
 Store prices can change. Check the live Steam, PlayStation, or Xbox listing for current pricing.
 
-## Can you preload Mortal Shell 2?
+## Can you preload Mortal Shell II?
 
-**Not officially confirmed yet.**
+**Not officially confirmed as a dated preload window.**
 
-Current store and official messaging reviewed for this Guide confirm pre-order / pre-purchase availability and the August 17 Advanced Access / August 20 release dates. They do **not** publish a confirmed preload start date or platform-by-platform preload checklist.
+Current official messaging confirms pre-order / pre-purchase availability, Devout Edition Advanced Access, and the August 20 Standard Edition date. It does **not** publish a confirmed preload start date or a platform-by-platform preload checklist.
 
-Until Cold Symmetry, Playstack, or a platform storefront states preload timing, treat preload as unconfirmed.
-
-## What time does Mortal Shell 2 unlock?
-
-**Not officially confirmed yet.**
-
-Confirmed calendar dates:
-
-- Advanced Access: **August 17, 2026** (current Steam listing)
-- Full release: **August 20, 2026**
-
-Exact clock times, time zones, and whether every platform unlocks at the same moment are **not** stated in the official sources used for this page. This Guide does not invent or convert unlock times.
+Devout Edition owners can already download and play. Until Cold Symmetry, Playstack, or a platform storefront states a Standard Edition preload start time, treat that preload window as unconfirmed.
 
 ## What platforms is it releasing on?
 
@@ -83,16 +97,39 @@ Confirmed platforms for the August 20, 2026 release:
 
 Developer: **Cold Symmetry**. Publisher: **Playstack**.
 
-Whether Advanced Access, preload, and unlock clocks are fully synchronized across PC, PS5, and Xbox is **not officially confirmed yet**. Use each platform’s store listing for the latest status.
-
 ## Does beta progress carry over?
 
-Only in a limited way. Full Open Beta saves do **not** transfer into the full release. Official listings document launch benefits such as **The Flayed Harbinger** cosmetic and an optional **Prologue skip** after progressing beyond **Marrow Keep**, while currency, weapons, Shells, collectibles, and other discovered items reset.
+Only in a limited way. Full Open Beta saves do **not** transfer into the full release. Official listings document launch benefits such as **The Flayed Harbinger** cosmetic and an optional **[Prologue skip](/mortal-shell-ii/skip-prologue/)** after progressing beyond **Marrow Keep**, while currency, weapons, Shells, collectibles, and other discovered items reset.
 
 For the full reset / reward breakdown, see [Does Mortal Shell 2 beta progress carry over?](/mortal-shell-ii/beta-progress-carry-over/).
 
+## FAQ
+
+### When does Mortal Shell II release?
+
+Standard Edition releases **August 20, 2026**. Devout Edition Advanced Access started **August 17, 2026** and is already playable.
+
+### What time does Mortal Shell II unlock?
+
+PlayStation Store lists **1:00 PM UTC** for both editions: August 17 for Devout Edition Advanced Access, August 20 for Standard Edition. Steam has not published a separate clock time; it confirms Devout access is live now and Standard Edition remains August 20.
+
+### When can Standard Edition players play?
+
+**August 20, 2026.** PlayStation Store lists that unlock at **1:00 PM UTC**.
+
+### When does Devout Edition access start?
+
+It **already started** on **August 17, 2026 at 1:00 PM UTC** (PlayStation Store). Official Steam news says Devout Edition owners can play now, up to 72 hours ahead of August 20.
+
+### Is Mortal Shell II already playable?
+
+**Yes, if you own the Devout Edition.** Standard Edition players wait until August 20. The free Open Beta is a separate limited preview, not the full game.
+
 ## Sources
 
-- [Mortal Shell II on Steam](https://store.steampowered.com/app/2584270/Mortal_Shell_II/) — release date, Advanced Access starts Aug 17, Devout Edition early-play framing; checked 2026-08-16
-- [Official Mortal Shell II website](https://mortalshell2.com/) — August 20 worldwide release; Devout Edition up to 72 hours advanced access; Obsidian skin set; Revered Edition PS5 physical context; checked 2026-08-16
+- [Mortal Shell II on PlayStation Store](https://store.playstation.com/en-us/product/EP3495-PPSA34008_00-0114153686334597) — Standard Edition listed as 8/20/2026, 1:00 PM UTC; checked 2026-08-18
+- [Mortal Shell II: Devout Edition on PlayStation Store](https://store.playstation.com/en-gb/product/EP3495-PPSA34008_00-0281085410214617) — Devout Edition listed as 17/8/2026, 1:00 PM UTC; checked 2026-08-18
+- [Mortal Shell II: Now Available via Advance Access (Steam News)](https://store.steampowered.com/news/app/2584270/view/690891687156780290) — Devout Edition playable now on Steam and other platforms; general release Thursday August 20; checked 2026-08-18
+- [Mortal Shell II on Steam](https://store.steampowered.com/app/2584270/Mortal_Shell_II/) — Standard Edition August 20, 2026; Advance Access on now for Devout Edition; checked 2026-08-18
+- [Official Mortal Shell II website](https://mortalshell2.com/) — Advanced Access now live; August 20 worldwide release; Devout Edition up to 72 hours advanced access; Obsidian skin set; Revered Edition PS5 physical context; checked 2026-08-18
 - [Playstack announcement](https://www.playstack.com/news/mortalshell2-announcement/) — developer / publisher identity

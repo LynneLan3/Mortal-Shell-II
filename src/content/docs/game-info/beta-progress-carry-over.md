@@ -13,14 +13,14 @@ related:
 sidebar:
   order: 3
   badge: Confirmed
-lastUpdated: 2026-08-17
+lastUpdated: 2026-08-18
 ---
 
 ## Does Mortal Shell 2 beta progress carry over?
 
 **No — your full Open Beta save does not carry over to the full game.**
 
-Complete inventory and normal progression reset at launch. Only explicit beta launch benefits remain: **The Flayed Harbinger** cosmetic for playing the Open Beta, and an optional **Prologue skip** if you progressed beyond **Marrow Keep**.
+Complete inventory and normal progression reset at launch. Only explicit beta launch benefits remain: **The Flayed Harbinger** cosmetic for playing the Open Beta, and an optional **[Prologue skip](/mortal-shell-ii/skip-prologue/)** if you progressed beyond **Marrow Keep**.
 
 | Beta progress or reward | Full release | What it means |
 | --- | --- | --- |
@@ -42,7 +42,7 @@ For how to download the preview and what it contains, see the [Open Beta guide](
 Official Steam and Xbox Open Beta listings confirm two launch benefits:
 
 1. **The Flayed Harbinger** — exclusive cosmetic, claimable in the full game at launch if you played the Open Beta.
-2. **Prologue skip** — optional unlock if you progress **beyond the Marrow Keep** during the Open Beta.
+2. **[Prologue skip](/mortal-shell-ii/skip-prologue/)** — optional unlock if you progress **beyond the Marrow Keep** during the Open Beta. See the dedicated skip guide for who can use it and what it changes.
 
 The listings describe “select progress carrying forward,” then spell out these limits. They do not say your Open Beta save file becomes your launch save.
 
@@ -127,7 +127,7 @@ Currency, weapons, Shells, collectibles, and other discovered items reset. Do no
 
 ### Do Mortal Shell 2 beta rewards carry over?
 
-Yes for the documented rewards: The Flayed Harbinger cosmetic (play the beta) and the Prologue skip (progress beyond Marrow Keep). Those are launch unlocks, not a restored save.
+Yes for the documented rewards: The Flayed Harbinger cosmetic (play the beta) and the [Prologue skip](/mortal-shell-ii/skip-prologue/) (progress beyond Marrow Keep). Those are launch unlocks, not a restored save.
 
 ### How long do I need to play for The Flayed Harbinger?
 
@@ -143,7 +143,7 @@ No. Official copy lists **Shells** and **Weapons** among the things that reset. 
 
 ### How do I unlock the Prologue skip?
 
-Progress **beyond the Marrow Keep** during the Open Beta. The skip is optional at full release. Defeating Magdalena is not the stated requirement.
+Progress **beyond the Marrow Keep** during the Open Beta. The skip is optional at full release. Defeating Magdalena is not the stated requirement. Full details are on the [Mortal Shell 2 Skip Prologue](/mortal-shell-ii/skip-prologue/) guide.
 
 ## Sources
 

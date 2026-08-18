@@ -150,3 +150,46 @@ Permanent fix status (checked 2026-08-18):
 - Steam News Hub has no Hotfix 1.1 / later patch after Hotfix 1.0.
 
 Intentional omissions: no standalone Keyboard Bindings / Controls Guide page; no Input.ini / CFG / DX11 / AppData-wipe / full SaveGames deletion advice; no claimed side effects beyond the two named files.
+
+## 2026-08-18 content batch (Launch / Advanced Access): Axe & Dagger / Chapel Key / Shrine of Trials
+
+External hotspot clustered during Advanced Access / launch window on **2026-08-17 / 2026-08-18**:
+
+- `mortal shell 2 axe dagger`
+- `mortal shell 2 axe dagger location`
+- `mortal shell 2 how to get axe dagger`
+- `mortal shell 2 chapel key`
+- `mortal shell 2 chapel key location`
+- `mortal shell 2 shrine of trials`
+- `mortal shell 2 shrine of trials puzzle`
+- `mortal shell 2 gaze upon your king`
+- `mortal shell 2 gaze upon your king puzzle`
+- `mortal shell 2 weapon shrine puzzle`
+
+Decision: **CREATE** `/mortal-shell-ii/axe-dagger/` as one URL for the full task chain. Do **not** split Chapel Key, Shrine of Trials, Gaze Upon Your King, or an All Weapons index.
+
+Why one URL: launch evidence treats these as one route (key → chapel door → shrine puzzles → pedestal), not four independent topics.
+
+Launch vs Open Beta:
+
+- **Launch (multi-source, Aug 17–18):** Axe & Dagger is the Shrine of Trials reward. Chapel Key required. Pickup is a pedestal/slab after the knight.
+- **Open Beta / stale wiki (Fextralife weapon page, last edited 16 July 2026):** weapon on a round table inside Mushroom Village Gate Beacon. Do not publish that as the current location.
+- Key pickup itself (bonfire + illusory arch + statue rope) is the same shape as preview coverage; the **weapon resting place** is what searchers get wrong.
+
+Evidence used (checked 2026-08-18):
+
+- Name / type: dual-wield axe + dagger pair. Launch guides use **Axe & Dagger**; wiki/trophy text also uses **Axe and Dagger**. Same weapon.
+- Chapel Key: launch item name on Fextralife (edited 2026-08-18). GamesRadar (updated 12 Aug 2026) and July wiki still say Mushroom Village Key for the same statue/rope pickup.
+- Chapel door: west / Hunter / Grisha Pup side of Mushroom Village Beacon (GameTyrant Chapel Key; Fextralife Shrine of Trials). GameTyrant Axe article’s “north” is treated as weaker than the dedicated key article.
+- Gaze Upon Your King: face the plaque statue and move backwards into an illusory wall. Multi-source. GosuNoob’s two backward dodges is a launch-specific input that matches “back and back”; walking backwards also appears in GameTyrant.
+- After puzzles: knight, then interact with pedestal/slab. Not a knight drop.
+
+Conflicts recorded, not fused:
+
+- Exact two-block hit order differs across GameRant / GosuNoob / GameTyrant. Page publishes the shared plate-occupancy mechanic, a floor-groove rule, the heavy-attack precision tip, and one documented launch sequence.
+- First-room descent: launch wiki notes a lift; a beta-labeled GamesWatch page mentions a pool. Page does not treat the pool as launch-confirmed.
+- Fextralife **Axe and Dagger** weapon page remains the July Gate Beacon text and was used only as the beta-contrast source.
+
+Competition: GameRant, GosuNoob, GameTyrant, Nerdschalk, and Fextralife shrine/key pages already cover parts of the cluster. Opportunity is one launch-accurate URL that also warns about the stale Gate Beacon location.
+
+Intentional omissions: no All Weapons page, no standalone Chapel Key / Shrine of Trials / puzzle-hub URLs, no Axe & Dagger build, no weapon tier list, no Gorf quest page. Other launch hotspots seen while researching (Forgotten Crossbow, Axatana, Great Martyr’s Blade) were recorded only, not built.

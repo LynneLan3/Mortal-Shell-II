@@ -62,6 +62,7 @@ export const game: GameConfig = {
 			{ label: 'How do I skip the prologue?', href: '/mortal-shell-ii/skip-prologue/' },
 			{ label: 'How do I farm Gloom fast?', href: '/mortal-shell-ii/gloom-farm/' },
 			{ label: 'Where are all the Map Fragments?', href: '/mortal-shell-ii/map-fragments/' },
+			{ label: 'Where do I get the Axe & Dagger?', href: '/mortal-shell-ii/axe-dagger/' },
 			{ label: 'How do I change difficulty?', href: '/mortal-shell-ii/slayer-seal-difficulty/' },
 			{ label: 'How do I play the Open Beta?', href: '/mortal-shell-ii/open-beta/' },
 			{ label: 'Does beta progress carry over?', href: '/mortal-shell-ii/beta-progress-carry-over/' },

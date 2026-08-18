@@ -8,6 +8,7 @@ featured: false
 quickAnswer: Steam currently lists Windows 10/11, 16 GB RAM, DirectX 12, 70 GB storage, and an SSD requirement in the Mortal Shell II minimum PC table.
 related:
   - mortal-shell-ii/release-date
+  - mortal-shell-ii/crashing-pc
   - mortal-shell-ii/gameplay
 sidebar:
   order: 1
@@ -34,6 +35,8 @@ The listing was checked on 2026-08-11. Requirements can change before release, s
 The reviewed Steam listing did not provide a filled recommended table that could be safely transcribed. This Guide intentionally does not invent recommended CPU, GPU, memory, or storage values.
 
 For the release date and platforms, see [Mortal Shell II release information](/mortal-shell-ii/release-date/).
+
+If the game closes or freezes on PC during the launch window, see [Mortal Shell 2 crashing on PC — Hotfix 1.0 and fixes](/mortal-shell-ii/crashing-pc/).
 
 ## Source
 

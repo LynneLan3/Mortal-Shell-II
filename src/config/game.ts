@@ -64,6 +64,7 @@ export const game: GameConfig = {
 			{ label: 'How do I play the Open Beta?', href: '/mortal-shell-ii/open-beta/' },
 			{ label: 'Does beta progress carry over?', href: '/mortal-shell-ii/beta-progress-carry-over/' },
 			{ label: 'What are the PC requirements?', href: '/mortal-shell-ii/system-requirements/' },
+			{ label: 'Why does Mortal Shell 2 keep crashing?', href: '/mortal-shell-ii/crashing-pc/' },
 		],
 		showRecentlyUpdated: true,
 		maxRecent: 3,

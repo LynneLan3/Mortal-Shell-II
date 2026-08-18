@@ -97,3 +97,29 @@ Intentional omissions for evidence quality:
 - No Interactive Map page, no collectibles mega-index, and no coordinate-style claims.
 - No unsupported statement that fragments are universally non-missable under all conditions; phrased as progression-gated with no reliable permanent-lock proof in current launch sources.
 - No guessed NPC turn-in flow; current evidence supports instant map reveal on pickup.
+
+## 2026-08-18 content update: Gloombound Stone on Gloom Farm
+
+External hotspot appeared in launch-window coverage on **2026-08-17 / 2026-08-18** (Advanced Access / launch-build Tarstone lists and location notes), clustering around:
+
+- `mortal shell 2 gloombound stone`
+- `mortal shell 2 gloombound stone location`
+- `mortal shell 2 how to get more gloom`
+- `mortal shell 2 increase gloom drops`
+- `mortal shell 2 gloom farm tarstone`
+
+Decision: **UPDATE** `/mortal-shell-ii/gloom-farm/` rather than CREATE `/gloombound-stone/` or an All Tarstones page. The query intent is Gloom-efficiency / farm-adjacent, and the existing farm page already owns the leveling-loop cluster.
+
+Evidence used (checked 2026-08-18):
+
+- Name, type, and effect: Support Tarstone; equip to Shell; slain foes drop more Gloom (AltChar All Tarstones, 2026-08-17; Fextralife Gloombound Stone, edited 2026-08-17; games.gg Tiel build, 2026-08-17).
+- Location: bone chest in Stones of Remembrance; south approach from Blackridge Pass Beacon through a Mether’s Breath corruption arch (Fextralife Stones of Remembrance, edited 2026-08-18; North Gate walkthrough). Alternate landmark: southeast of Stonebled Gate.
+- Not the Gloombound Flame / Night Mode item.
+
+Return-number uncertainty:
+
+- Existing `~450–500` and `~2000–2056` figures come from GamerFuzion / GRILLAZ launch farm coverage that does **not** state Gloombound Stone was equipped.
+- Numbers were kept unchanged. Page now labels them as community-reported estimates that vary by setup and whether Gloom-boosting effects are active.
+- Wiki-only first-rank / upgrade percentages were **not** published.
+
+Intentional omissions: no standalone Gloombound Stone page, no All Tarstones / Best Tarstones page, no invented per-run or hourly recasts from an unverified percentage.

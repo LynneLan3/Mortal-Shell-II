@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Gloom Farm: Best Early Locations & Level Up Fast"
-description: "Launch-build Mortal Shell 2 Gloom farming routes for Widow's Overlook, Gate Beacon, and Sunken Village, including requirements, reset loops, and realistic per-run returns."
+description: "Launch-build Mortal Shell 2 Gloom farming routes for Widow's Overlook, Gate Beacon, and Sunken Village, including the Gloombound Stone Gloom boost, reset loops, and realistic per-run returns."
 category: combat-exploration
 slug: mortal-shell-ii/gloom-farm
 status: needs-verification
 featured: true
-quickAnswer: "You can start farming Gloom as soon as you reach Fainweald after Marrow Keep unlocks leveling. For a safer early loop, use Widow’s Overlook or nearby Sunken Village enemies; for faster returns later, run the Gate Beacon route with Emberseed-infused sidearm shots. Spend Gloom often at Beacons because death drops it."
+quickAnswer: "You can start farming Gloom as soon as you reach Fainweald after Marrow Keep unlocks leveling. For a safer early loop, use Widow’s Overlook or nearby Sunken Village enemies; for faster returns later, run the Gate Beacon route with Emberseed-infused sidearm shots. If you already have the Gloombound Stone, equip it before farming because slain foes drop more Gloom while it is slotted. Spend Gloom often at Beacons because death drops it."
 related:
   - mortal-shell-ii/skip-prologue
   - mortal-shell-ii/slayer-seal-difficulty
@@ -39,7 +39,36 @@ So if your goal is “level up fast,” this page focuses on farming routes that
 | Gate Beacon elite/boss loop | Early-mid Fainweald, after route setup | ~2000–2056 from commonly cited launch videos/guides | Medium | Best with sidearm + Emberseed burn setup |
 | Sunken Village nearby enemies | Mid-early once reached | Consistent but lower than optimized Gate loops | Low | No special setup needed |
 
-These are launch-window, community-tested numbers and route notes, not official developer tables.
+These are launch-window community estimates, not official developer tables. Exact return varies by setup and whether Gloom-boosting effects such as the Gloombound Stone are active. The stone is an optional Gloom boost for any of these loops, not a route requirement.
+
+## Use the Gloombound Stone to increase Gloom gains
+
+The Gloombound Stone is a Support Tarstone. It is not required to farm Gloom, but it is the current launch pickup most directly tied to increasing Gloom from enemy kills. If you have it, slot it into a Shell Support slot before you run any of the loops on this page.
+
+### What does the Gloombound Stone do?
+
+Current launch guides describe the same core effect: while the Gloombound Stone is equipped, **slain foes drop more Gloom**. It is a passive Support effect on your Shell, not an Infusion you fire like Emberseed.
+
+It is not the same item as the **Gloombound Flame** used for Night Mode. You do need it equipped for the bonus to apply. Launch sources also describe Tarstones as upgradeable later at the Tarforge after you have the Etching Needle; higher ranks are said to increase effectiveness, but public writeups do not consistently verify a first-rank percentage, so this page does not invent one. Current descriptions apply the bonus to slain foes in general and do not document a separate enemy-type restriction.
+
+### Where to find the Gloombound Stone
+
+Nearest reliable landmark: **Blackridge Pass Beacon**, north of Widow’s Overlook.
+
+1. From Widow’s Overlook, head north and rest at Blackridge Pass Beacon.
+2. Continue north through Blackridge Cliffs to the stone arch blocked by corruption.
+3. Use Mether’s Breath to cleanse that wall, then enter **Stones of Remembrance** (the greener graveyard / garden area).
+4. Loot the **bone chest** in the ruins there for the Gloombound Stone.
+
+If you are already at **Stonebled Gate** in Sanguine Caverns, current location notes place the same chest in Stones of Remembrance southeast of that beacon, by the water-edge ruins.
+
+No source lists a named boss kill as the chest’s direct requirement, but the south approach is progression-gated by the corruption wall and Mether’s Breath. Current launch sources treat this as a world chest, not a documented permanently missable pickup.
+
+### Do you need it for Gloom farming?
+
+No. Widow’s Overlook, Gate Beacon, and Sunken Village all work without it. The stone only improves efficiency once you have a Support slot free.
+
+Early players should not detour through Blackridge corruption just to start farming. Pick it up when you are already pushing north, then equip it for every later loop.
 
 ## Widow's Overlook early Gloom farm
 
@@ -63,7 +92,7 @@ Community launch guides describe this as a repeatable adds loop in the Widow’s
 ### Reset and returns
 
 - **Reset:** Resting at the Beacon respawns the loop.
-- **Approx. return:** Some launch guides cite about **450–500 Gloom per lap**.
+- **Approx. return:** Some launch guides cite about **450–500 Gloom per lap**. Treat this as a community-reported estimate; exact return varies by setup and whether Gloom-boosting effects are active.
 - **Run time:** Usually short laps, depending on your route comfort and whether you fully clear or only take fast targets.
 
 This is usually the best **Beginner** option when you want stable early levels without relying on a specific infusion setup.
@@ -105,7 +134,7 @@ Emberseed location references currently point to the Passenger’s Shrine path t
 #### Reset and returns
 
 - **Reset:** Beacon rest.
-- **Approx. return:** commonly cited around **2000–2056 Gloom per run** for the main target.
+- **Approx. return:** commonly cited around **2000–2056 Gloom per run** for the main target. Treat this as a community-reported estimate; exact return varies by setup and whether Gloom-boosting effects are active.
 - **Run time:** usually under a minute in optimized demonstrations, but varies heavily by execution.
 
 This is the primary **Faster** option once your build and route consistency are ready.
@@ -190,6 +219,18 @@ For low-risk early play, Widow’s Overlook or Sunken Village loops are easier t
 
 No. You can farm with basic enemy loops first. Emberseed mainly improves the speed and consistency of the faster Gate elite route.
 
+### Where is the Gloombound Stone?
+
+In Stones of Remembrance, north of Blackridge Pass Beacon. The south approach uses Mether’s Breath to cleanse the corruption-blocked stone arch, then loot the bone chest in the ruins. If you are already at Stonebled Gate, current notes place the same chest southeast of that beacon.
+
+### Does the Gloombound Stone increase Gloom drops?
+
+Yes. Current launch guides describe it as a Support Tarstone that makes slain foes drop more Gloom while it is equipped on your Shell. Public sources do not agree on a verified first-rank percentage.
+
+### Do I need the Gloombound Stone to farm Gloom?
+
+No. It is an optional efficiency pickup, not a requirement for Widow’s Overlook, Gate Beacon, or Sunken Village. Farm those loops first if you are still early, then equip the stone once you have it.
+
 ### Is Widow's Overlook farm available immediately?
 
 It is an early-area route, but performance improves once you stabilize nearby threats and run a short repeatable path from the beacon.
@@ -211,3 +252,8 @@ After leveling unlocks at Marrow Keep, guides describe level-up availability at 
 - [Do This FIRST in Mortal Shell 2! (YouTube, GRILLAZ)](https://www.youtube.com/watch?v=U7NplpDTIxA) — launch-window route demonstration and per-run cited figures; checked 2026-08-18
 - [Emberseed Stone (Fextralife)](https://mortalshell2.wiki.fextralife.com/Emberseed+Stone) — current location and effect details; checked 2026-08-18
 - [Mortal Shell 2: How To Upgrade Shells (AltChar)](https://www.altchar.com/guides/mortal-shell-2-how-to-upgrade-shells-a1rIW7S8eaMf) — Gloom vs Glimpse progression distinction and Shell Points context; checked 2026-08-18
+- [Mortal Shell 2: All Tarstones And What They Do (AltChar)](https://www.altchar.com/guides/mortal-shell-2-all-tarstones-and-what-they-do-aRhuj6s7rrZA) — Gloombound Stone listed as a Support Tarstone: slain foes drop more Gloom; published 2026-08-17, checked 2026-08-18
+- [Gloombound Stone (Fextralife)](https://mortalshell2.wiki.fextralife.com/Gloombound+Stone) — Support Tarstone, Shell equip, Stones of Remembrance bone-chest location; last edited 2026-08-17, checked 2026-08-18
+- [Stones of Remembrance (Fextralife)](https://mortalshell2.wiki.fextralife.com/Stones+of+Remembrance) — area access and bone-chest pickup note; last edited 2026-08-18, checked 2026-08-18
+- [Walkthrough - North Gate: The Crimson Maws (Fextralife)](https://mortalshell2.wiki.fextralife.com/Walkthrough_-_North_Gate:_The_Crimson_Maws) — Blackridge Pass → corruption arch → Stones of Remembrance route; checked 2026-08-18
+- [Mortal Shell 2 Guide: Best Build for Tiel (games.gg)](https://games.gg/mortal-shell-ii/guides/mortal-shell-2-best-build-for-tiel/) — launch-window Support-slot use of Gloombound Stone for Gloom income; updated 2026-08-17, checked 2026-08-18

@@ -50,6 +50,7 @@ A developer-marked Steam answer (August 13, 2026) confirms you will be able to s
 Official listings do not publish the exact in-game prompt. They describe it as an option when you start the full game.
 
 For how to download and play the preview, see the [Open Beta guide](/mortal-shell-ii/open-beta/).
+If you skip and want to stabilize early levels quickly, use the [Gloom farm and level-up route guide](/mortal-shell-ii/gloom-farm/).
 
 ## What happens when you skip the Prologue?
 

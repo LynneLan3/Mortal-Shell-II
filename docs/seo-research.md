@@ -50,3 +50,25 @@ No full Shell roster, full-game boss order, Weapon Upgrade Guide, Martyr's Tomb 
 ## Migration decision
 
 The existing public Guide URLs and static SEO architecture are preserved. The generic root landing and site chrome are made Mortal Shell II-specific so the root is not an unrelated indexable template page. No deployment or Vercel configuration change is made.
+
+## 2026-08-18 content batch (Launch / Advanced Access): Gloom farm & level up fast
+
+New launch-window Guide added:
+
+- `/mortal-shell-ii/gloom-farm/` — focused on early-to-mid Gloom farming routes validated against current launch/Advanced Access coverage, not Open Beta-only assumptions.
+
+Evidence and constraints used:
+
+- Level-up and Gloom role confirmed from launch guides (GameRant, GamesRadar): Gloom is Harbinger leveling currency at Beacons and is separate from Coins and other progression resources.
+- Route candidates cross-checked from launch-window reports/videos and current wiki pages:
+  - Widow’s Overlook loop (early, lower-risk; community estimate around 450–500 per lap),
+  - Gate Beacon loops (safer adds loop plus faster elite route; community figures around 2000–2056 per run when optimized),
+  - Sunken Village nearby-enemy loop (lower-risk, steady repeat route).
+- Emberseed Stone setup and location verified against current references (Mushroom Village Beacon/Passenger’s Shrine path), used as an optimization requirement for the faster Gate route.
+- Day-one patch context included to avoid stale farm assumptions from removed late-game spawners.
+
+Intentional omissions for evidence quality:
+
+- No fixed `135K/hour` claim in title, description, or quick answer due to insufficient multi-source, fully measured confirmation across current launch conditions.
+- No invented exact hourly values for Sunken Village or universal leveling-cost tables.
+- No additional speculative pages (build tier list, full progression, weapons index, map page, boss pages) created in this batch.

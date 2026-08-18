@@ -123,3 +123,30 @@ Return-number uncertainty:
 - Wiki-only first-rank / upgrade percentages were **not** published.
 
 Intentional omissions: no standalone Gloombound Stone page, no All Tarstones / Best Tarstones page, no invented per-run or hourly recasts from an unverified percentage.
+
+## 2026-08-18 content update: Keyboard Bindings crash on `/crashing-pc/`
+
+External hotspot appeared during Advanced Access on **2026-08-17** (developer Steam post; re-checked 2026-08-18).
+
+Search intents:
+
+- `mortal shell 2 keyboard bindings crash`
+- `mortal shell 2 keybind crash`
+- `mortal shell 2 controls crash`
+
+Decision: **UPDATE** `/mortal-shell-ii/crashing-pc/` rather than CREATE a Keyboard Bindings, Controls, or dedicated keybind-crash page. The query is a specific PC crash symptom; the existing Crash page already owns launch-window crash / hotfix / workaround intent.
+
+Official evidence (checked 2026-08-18):
+
+- Source: Steam developer post by **XBIGY** — [Crash on keyboards binding menu (Fix Instructions)](https://steamcommunity.com/app/2584270/discussions/0/418424310691125754/), posted **2026-08-17 09:32 AM PDT** (`data-timestamp` 1786984360). Marked `[developer]`. No last-edit marker; 0 replies at re-check.
+- Confirmed: PC crash when opening the **Keyboard Bindings** menu in Settings; multiple reports received; permanent fix in progress.
+- Official temporary workaround: delete **only** `EnhancedInputUserSettings.sav` and `SpartaGameSettings.sav` from `\Users\[Your Username]\AppData\Local\MortalShell2\Saved\SaveGames` (equivalent: `%LOCALAPPDATA%\MortalShell2\Saved\SaveGames\`).
+- Official post does **not** state: close Steam; what each file stores; graphics/controls reset; delete other `.sav` files; delete the whole SaveGames folder.
+
+Permanent fix status (checked 2026-08-18):
+
+- No official announcement that Keyboard Bindings crash is fixed.
+- Hotfix 1.0 posted later the same day (2026-08-17 4:35 PM PDT) for “several” crashes; it does not name this issue.
+- Steam News Hub has no Hotfix 1.1 / later patch after Hotfix 1.0.
+
+Intentional omissions: no standalone Keyboard Bindings / Controls Guide page; no Input.ini / CFG / DX11 / AppData-wipe / full SaveGames deletion advice; no claimed side effects beyond the two named files.

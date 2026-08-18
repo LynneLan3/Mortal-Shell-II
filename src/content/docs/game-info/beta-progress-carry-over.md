@@ -7,6 +7,7 @@ status: confirmed
 featured: true
 quickAnswer: No — your full Open Beta save does not carry over. Currency, weapons, Shells, collectibles, and other discovered items reset. Playing the beta unlocks The Flayed Harbinger cosmetic, and progressing beyond Marrow Keep unlocks a Prologue-skip option.
 related:
+  - mortal-shell-ii/skip-prologue
   - mortal-shell-ii/open-beta
   - mortal-shell-ii/release-date
 sidebar:
@@ -85,6 +86,8 @@ Confirmed from official listings:
 GamesRadar reports that the skip returns you to your first visit to the Keep rather than erasing the opening entirely, and that this point comes after the Tar Golem fight. That is secondary reporting around the official Marrow Keep condition. This Guide treats “beyond the Marrow Keep” as the rule that matters.
 
 Reaching Magdalena is **not** the stated requirement for the skip. Magdalena is a later Open Beta encounter; the carry-over condition named by the store is Marrow Keep.
+
+For the exact unlock requirement and what the skip changes, see the [Mortal Shell 2 Prologue skip guide](/mortal-shell-ii/skip-prologue/).
 
 ## Do beta saves transfer to the full game?
 

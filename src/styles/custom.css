@@ -208,6 +208,14 @@ a { color: inherit; }
 
 /* ─── StarlightPage shell (route hub / guides / category) ─── */
 
+/* Our PageFrame override drops the upstream <style> block; restore the
+   column stacking layout it provided so header sits above the main frame
+   instead of beside it. */
+.page {
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 .main-frame { padding-top: calc(var(--ms-nav-h) + var(--sl-mobile-toc-height, 0rem)); }
 html[data-has-sidebar] .main-frame,
 html:has([data-route-hub]) .main-frame,

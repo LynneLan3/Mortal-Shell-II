@@ -17,22 +17,6 @@ sidebar:
 lastUpdated: 2026-08-18
 ---
 
-## Quick Answer
-
-- **Weapon:** Axe & Dagger (also listed as Axe and Dagger), a dual-wield axe-and-dagger pair.
-- **Launch location:** pedestal / slab at the end of the **Shrine of Trials**.
-- **Nearest Beacon:** Mushroom Village Beacon.
-- **Required key:** yes — the **Chapel Key** (older guides still call this the Mushroom Village Key).
-- **Puzzle:** face the king statue, then move backwards into the illusory wall; after that, park sliding stone blocks on pressure plates.
-- **Beta warning:** Open Beta pages that put the weapon on a table inside **Mushroom Village Gate Beacon** do not match the current launch route.
-
-| Step | What you need to do | Key location |
-| --- | --- | --- |
-| 1 | Find the Chapel Key | Hidden statue at the bonfire / illusory arch, right of Mushroom Village Beacon |
-| 2 | Reach the Shrine of Trials | Locked chapel on the west / Hunter side of the same beacon |
-| 3 | Solve "Gaze Upon Your King" | Face the king statue, then move backwards into the opposite wall |
-| 4 | Claim Axe & Dagger | Pedestal in the final shrine room after the knight |
-
 ## Where is the Axe & Dagger in Mortal Shell 2?
 
 In the **2026-08-17 / 2026-08-18 launch and Advanced Access build**, Axe & Dagger is an early dual-wield weapon inside the **Shrine of Trials** dungeon.

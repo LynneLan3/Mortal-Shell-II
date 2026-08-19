@@ -1,0 +1,30 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import AllGuides from '../../components/AllGuides.astro';
+import { game } from '../../config/game';
+---
+
+<StarlightPage
+	frontmatter={{
+		title: 'All Mortal Shell II Guides — 15 Guides Across 5 Routes',
+		description:
+			'Browse every Mortal Shell II guide on this site, sorted by route: launch and setup, early weapons, progression, exploration, and boss encounters.',
+		template: 'doc',
+		pagefind: true,
+		lastUpdated: false,
+		prev: false,
+		next: false,
+		tableOfContents: false,
+		head: [
+			{
+				tag: 'link',
+				attrs: {
+					rel: 'canonical',
+					href: `${game.siteUrl.replace(/\/+$/, '')}/mortal-shell-ii/guides/`,
+				},
+			},
+		],
+	}}
+>
+	<AllGuides />
+</StarlightPage>

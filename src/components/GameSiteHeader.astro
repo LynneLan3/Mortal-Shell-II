@@ -1,0 +1,56 @@
+---
+import Search from '@astrojs/starlight/components/Search.astro';
+import { game } from '../config/game';
+
+const path = Astro.url.pathname.replace(/\/+$/, '');
+const routesActive = path === game.allRoutesPath.replace(/\/+$/, '');
+const guidesActive = path === game.guidesPath.replace(/\/+$/, '');
+const homePath = game.hubPath.replace(/\/+$/, '');
+
+const navLinks = [
+	{ label: 'Routes', href: game.allRoutesPath, active: routesActive },
+	{ label: 'Guides', href: game.guidesPath, active: guidesActive },
+	{ label: 'Latest', href: `${homePath}#latest`, active: false },
+	{ label: 'About', href: `${homePath}#about`, active: false },
+];
+---
+
+<header class="ms-nav" data-site-header>
+	<div class="ms-nav__inner">
+		<a class="ms-brand" href={game.hubPath} aria-label={`${game.name} — Guide & Field Manual home`}>
+			<span class="ms-brand__title">MORTAL&nbsp;SHELL&nbsp;II</span>
+			<span class="ms-brand__sub">FIELD GUIDE</span>
+		</a>
+
+		<nav class="ms-nav__links" aria-label="Primary">
+			{navLinks.map((link) => (
+				<a class:list={['ms-nav__link', link.active && 'is-active']} href={link.href}>
+					{link.label}
+				</a>
+			))}
+		</nav>
+
+		<div class="ms-nav__tools">
+			<div class="ms-nav__search">
+				<Search />
+			</div>
+			<a class="ms-nav__cta" href="/mortal-shell-ii/start/">Start Here</a>
+		</div>
+
+		<details class="ms-nav__mobile">
+			<summary class="ms-nav__burger" aria-label="Open menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</summary>
+			<div class="ms-nav__panel">
+				{navLinks.map((link) => (
+					<a class:list={['ms-nav__panel-link', link.active && 'is-active']} href={link.href}>
+						{link.label}
+					</a>
+				))}
+				<a class="ms-nav__panel-cta" href="/mortal-shell-ii/start/">Start Here</a>
+			</div>
+		</details>
+	</div>
+</header>

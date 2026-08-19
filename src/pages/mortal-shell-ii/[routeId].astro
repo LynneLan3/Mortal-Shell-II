@@ -1,0 +1,29 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { game } from '../../config/game';
+import RouteHub from '../../components/RouteHub.astro';
+
+export function getStaticPaths() {
+	return game.routes.map((route) => ({
+		params: { routeId: route.id },
+		props: { route },
+	}));
+}
+
+const { route } = Astro.props;
+---
+
+<StarlightPage
+	frontmatter={{
+		title: `${route.label}: ${route.title}`,
+		description: route.intro,
+		template: 'doc',
+		pagefind: false,
+		lastUpdated: false,
+		prev: false,
+		next: false,
+		tableOfContents: false,
+	}}
+>
+	<RouteHub route={route} />
+</StarlightPage>

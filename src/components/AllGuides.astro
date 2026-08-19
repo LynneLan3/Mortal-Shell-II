@@ -1,0 +1,97 @@
+---
+import { game } from '../config/game';
+import { getGuides, guideHref } from '../lib/guides';
+import { editorialForGuide } from '../lib/routes';
+import { headerVisual } from '../lib/guideVisuals';
+
+const allGuides = await getGuides();
+const totalGuides = game.routes.reduce((sum, r) => sum + r.guides.length, 0);
+const keyArt = '/images/hero-keyart.png';
+
+const routeSections = game.routes.map((route) => ({
+	route,
+	guides: route.guides
+		.map((slug) => allGuides.find((g) => g.id.endsWith(slug)))
+		.filter(Boolean),
+}));
+---
+
+<div class="ag" data-guides-index>
+	<header class="ag-header">
+		<span class="ag-eyebrow">GUIDE INDEX · {totalGuides} GUIDES · {game.routes.length} ROUTES</span>
+		<h1 class="ag-title">Every guide, sorted by route.</h1>
+		<p class="ag-intro">
+			Fifteen focused guides across five routes. Browse by route below, or jump straight to the
+			decision you are solving right now.
+		</p>
+		<nav class="ag-shortcuts" aria-label="Routes">
+			{game.routes.map((route) => (
+				<a class="ag-shortcut" href={route.path}>
+					<span class="ag-shortcut__num">{route.number}</span>
+					<span class="ag-shortcut__name">{route.editorialName}</span>
+				</a>
+			))}
+		</nav>
+	</header>
+
+	{routeSections.map(({ route, guides }) => (
+		<section class="ag-group" id={route.id}>
+			<header class="ag-group__head">
+				<div class="ag-group__media">
+					<img
+						src={route.image ?? keyArt}
+						alt={route.imageAlt ?? ''}
+						width="1280" height="640"
+						loading="lazy"
+						style={route.imagePosition ? `object-position: ${route.imagePosition}` : ''}
+					/>
+				</div>
+				<div class="ag-group__copy">
+					<span class="ag-eyebrow">{route.number} · {route.label}</span>
+					<h2 class="ag-group__title">{route.editorialName}</h2>
+					<p class="ag-group__intro">{route.intro}</p>
+					<p class="ag-group__context">{route.context}</p>
+					<a class="ag-group__cta" href={route.path}>Open complete route →</a>
+				</div>
+			</header>
+
+			<div class="ag-grid">
+				{guides.map((g) => {
+					const img =
+						headerVisual(g!) ?? {
+							src: route.image ?? keyArt,
+							alt: route.imageAlt ?? 'Mortal Shell II key art',
+							position: route.imagePosition,
+						};
+					const ed = editorialForGuide(g!);
+					const status = g!.data.status ?? '';
+					return (
+						<a class="ag-card" href={guideHref(g!)}>
+							<div class="ag-card__img">
+								<img
+									src={img.src}
+									alt={img.alt || ''}
+									width="640" height="360"
+									loading="lazy"
+									style={img.position ? `object-position: ${img.position}` : ''}
+								/>
+							</div>
+							<div class="ag-card__body">
+								{ed && <span class="ag-card__eyebrow">{ed.eyebrow}</span>}
+								<span class="ag-card__title">{ed?.shortTitle || g!.data.sidebar?.label || g!.data.title}</span>
+								{ed?.shortDesc && <span class="ag-card__desc">{ed.shortDesc}</span>}
+								{!ed?.shortDesc && g!.data.description && (
+									<span class="ag-card__desc">{g!.data.description}</span>
+								)}
+								<span class="ag-card__meta">
+									{status && <span class="ag-card__status">{status}</span>}
+									<span class="ag-card__cta">Open guide →</span>
+								</span>
+							</div>
+						</a>
+					);
+				})}
+			</div>
+		</section>
+	))}
+</div>

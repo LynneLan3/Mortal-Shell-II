@@ -5,3 +5,10 @@ node_modules/
 \.astro/
 dist/
 research/
+
+# local screenshot acceptance artifacts
+.tmp_accept/
+.tmp_final/
+.tmp_screens/
+.tmp_shots/
+screenshots/

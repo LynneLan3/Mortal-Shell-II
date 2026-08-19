@@ -17,13 +17,6 @@ sidebar:
 lastUpdated: 2026-08-18
 ---
 
-## Quick Answer
-
-- **Total:** 11 map fragments confirmed in current launch/Advanced Access coverage.
-- **Purpose:** each fragment reveals fog for its section of the overworld map.
-- **Do you need all 11?** no, you can progress without full collection, but navigation is much easier when you collect them.
-- **Order on this page:** region-first (Fainweald 1-5, then Mammon 1-6), because that matches how most routes open naturally.
-
 ## What do Map Fragments do in Mortal Shell 2?
 
 Map fragments are not passive collectibles. In current launch guides, the map does **not** clear just by walking through an area. Instead, you must travel to crow-marked Ruk statues and interact with the pedestal in front of each statue.

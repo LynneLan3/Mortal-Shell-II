@@ -1,5 +1,4 @@
 ---
-import GameSiteFooter from '../GameSiteFooter.astro';
 import NextInRoute from '../NextInRoute.astro';
 import { isCategoryLandingPath } from '../../lib/guides';
 
@@ -18,9 +17,7 @@ const isArticle =
 ---
 
 {isArticle && (
-	<div class="nir-mobile">
+	<div class="nir-desktop">
 		<NextInRoute />
 	</div>
 )}
-
-<GameSiteFooter />

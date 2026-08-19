@@ -1,0 +1,47 @@
+---
+import { game } from '../config/game';
+
+const routes = game.routes;
+---
+
+<div class="tp" data-gameplay-hub>
+	<header class="tp-intro">
+		<span class="tp-eyebrow">GUIDE ROUTES · FIVE PATHS</span>
+		<h1 class="tp-title">Start with what you need next.</h1>
+		<p class="tp-intro__text">
+			Every guide on this site is organised as part of a continuous route. Choose the decision
+			in front of you — launch and setup, an early weapon, growth, exploration, or a named
+			trial — and follow the connected guides in order.
+		</p>
+	</header>
+
+	<div class="tp-routes">
+		{routes.map((route, i) => (
+			<section
+				class:list={[
+					'tp-panel',
+					i % 2 === 0 ? 'tp-panel--img-start' : 'tp-panel--text-start',
+				]}
+			>
+				<div class="tp-panel__media">
+					<img
+						src={route.image}
+						alt={route.imageAlt ?? ''}
+						width="1280" height="800"
+						loading="lazy"
+						style={route.imagePosition ? `object-position: ${route.imagePosition}` : ''}
+					/>
+				</div>
+				<div class="tp-panel__copy">
+					<span class="tp-panel__num">{route.number}</span>
+					<span class="tp-panel__label">{route.label}</span>
+					<span class="tp-panel__editorial">{route.editorialName}</span>
+					<h2 class="tp-panel__title">{route.title}</h2>
+					<p class="tp-panel__intro">{route.intro}</p>
+					<p class="tp-panel__context">{route.context}</p>
+					<a class="tp-panel__cta" href={route.path}>Follow this route →</a>
+				</div>
+			</section>
+		))}
+	</div>
+</div>

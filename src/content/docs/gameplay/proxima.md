@@ -17,15 +17,6 @@ sidebar:
 lastUpdated: 2026-08-19
 ---
 
-## Quick Answer
-
-- **Shell:** **Proxima** is a new Shell discovered at the **Shattered Beacon**, north of **Blackridge Pass**.
-- **Timing:** Proxima can be unlocked **shortly after completing the Prologue**. Current evidence does not show any boss, key, Ova, Mether's Breath, specific weapon, or specific Shell requirement.
-- **Route:** Marrow Keep → northern transporter → Widow's Overlook → Blackridge Pass → Shattered Beacon.
-- **Unlock:** Enter the Shattered Beacon, interact with the Unknown Shell, complete the short memory sequence, and Proxima is yours.
-
----
-
 ## Where Is Proxima?
 
 Proxima is found inside the **Shattered Beacon**, a dungeon located north of the **Blackridge Pass Beacon** in an elevated area. You reach the Shattered Beacon by traveling north from Marrow Keep through Widow's Overlook and Blackridge Pass.

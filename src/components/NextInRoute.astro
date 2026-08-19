@@ -1,0 +1,53 @@
+---
+import { game } from '../config/game';
+import { getGuides, guideHref } from '../lib/guides';
+import { routeForGuide, routeNeighborsForGuide } from '../lib/routes';
+import { headerVisual } from '../lib/guideVisuals';
+
+const entry = Astro.locals.starlightRoute.entry;
+const route = routeForGuide(entry);
+if (!route) return;
+
+const allGuides = await getGuides();
+const neighbors = routeNeighborsForGuide(entry);
+const nextGuides = (neighbors?.next ?? [])
+	.map((slug) => allGuides.find((g) => g.id.endsWith(slug)))
+	.filter(Boolean);
+
+const fallbackImg = route.image ?? '/images/hero-keyart.png';
+const fallbackAlt = route.imageAlt ?? 'Mortal Shell II key art';
+---
+
+<aside class="nir" data-next-in-route>
+	<span class="nir__label">NEXT IN THIS ROUTE</span>
+	<p class="nir__desc">Continue with the decision most likely to come next.</p>
+
+	{nextGuides.length > 0 ? (
+		<div class="nir__list">
+			{nextGuides.map((g) => {
+				const suffix = g!.id.split('/').pop() ?? '';
+				const ed = route.guideEditorial?.[suffix];
+				const img = headerVisual(g!) ?? { src: fallbackImg, alt: fallbackAlt };
+				return (
+					<a class="nir__card" href={guideHref(g!)}>
+						<div class="nir__img">
+							<img src={img.src} alt={img.alt || ''} width="640" height="360" loading="lazy" />
+						</div>
+						<div class="nir__body">
+							{ed && <span class="nir__eyebrow">{ed.eyebrow}</span>}
+							<span class="nir__title">{ed?.shortTitle || g!.data.sidebar?.label || g!.data.title}</span>
+							<span class="nir__cta">Open guide →</span>
+						</div>
+					</a>
+				);
+			})}
+		</div>
+	) : (
+		<p class="nir__end">You have reached the end of this route.</p>
+	)}
+
+	<nav class="nir__nav">
+		<a class="nir__nav-back" href={route.path}>← Back to {route.editorialName}</a>
+		<a class="nir__nav-all" href={game.allRoutesPath}>Choose another route →</a>
+	</nav>
+</aside>

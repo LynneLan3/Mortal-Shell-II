@@ -7,6 +7,9 @@ const { text } = Astro.props;
 ---
 
 <aside class="gw-answer" aria-label="Quick Answer">
-	<p class="gw-answer__label">Quick Answer</p>
+	<div class="gw-answer__head">
+		<span class="gw-answer__icon">⚡</span>
+		<span class="gw-answer__label">Quick Answer</span>
+	</div>
 	<p class="gw-answer__text">{text}</p>
 </aside>

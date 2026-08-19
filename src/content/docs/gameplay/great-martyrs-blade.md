@@ -7,9 +7,9 @@ status: confirmed
 featured: true
 quickAnswer: The Great Martyr's Blade is at the end of the Martyr's Prison route. You can obtain it relatively early after the Prologue, but not during the Prologue or at literal game start. The supported path starts from Widow's Overlook, passes through the Holding Cells via an upper-level shortcut, and continues into Martyr's Prison. Clear the final chamber and pick up the Great Martyr's Blade on-site.
 related:
-  - mortal-shell-ii/gameplay
-  - mortal-shell-ii/axe-dagger
   - mortal-shell-ii/axatana
+  - mortal-shell-ii/axe-dagger
+  - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/magdalena
@@ -19,15 +19,6 @@ sidebar:
   badge: Launch
 lastUpdated: 2026-08-19
 ---
-
-## Quick Answer
-
-- **Location:** the **Great Martyr's Blade** is at the end of the **Martyr's Prison** route, reached through **Widow's Overlook**, **Holding Cells Dungeon**, and related shortcuts.
-- **Timing:** you can get it **relatively early** — an optional post-Prologue weapon route — but **not** during the Prologue and **not** at literal game start.
-- **Route shape:** from **Widow's Overlook**, travel toward **Mushroom Village Beacon** and **Blackridge Hamlet**, enter the **Holding Cells** well dungeon, stay on the **upper hidden route**, then continue into **Martyr's Prison**.
-- **Pickup:** after clearing the **final chamber** enemies, a **gated / treasure room** opens and you **pick up the Great Martyr's Blade** directly. It is not an NPC reward or boss drop in the checked evidence.
-
-Some early-route guides begin after defeating [Magdalena](/mortal-shell-ii/magdalena/) and using **Ova** / **Mether's Breath** to clear the required corruption on this path. That timing is **transcript-supported**, not a universal UI lock confirmed for every save state.
 
 ## Where is the Great Martyr's Blade?
 

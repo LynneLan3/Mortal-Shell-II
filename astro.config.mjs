@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import { game } from './src/config/game.ts';
 import { sidebarFromCategories } from './src/config/sidebar.ts';
 import { categoryHref } from './src/lib/category-url.ts';
+import rehypeSectionVisuals from './src/lib/rehype-section-visuals.ts';
 
 function isCategoryLandingUrl(page) {
 	const path = new URL(page).pathname.replace(/\/+$/, '') || '/';
@@ -35,14 +36,20 @@ export default defineConfig({
 			],
 			sidebar: sidebarFromCategories(),
 			components: {
+				PageFrame: './src/components/overrides/PageFrame.astro',
+				PageSidebar: './src/components/overrides/PageSidebar.astro',
+				TableOfContents: './src/components/overrides/TableOfContents.astro',
+				MobileTableOfContents: './src/components/overrides/MobileTableOfContents.astro',
+				Pagination: './src/components/overrides/Pagination.astro',
 				PageTitle: './src/components/overrides/PageTitle.astro',
 				Footer: './src/components/overrides/Footer.astro',
-				SiteTitle: './src/components/overrides/SiteTitle.astro',
-				Header: './src/components/overrides/Header.astro',
 			},
 		}),
 	sitemap({
-			filter: (page) => !isCategoryLandingUrl(page) && (new URL(page).pathname.replace(/\/+$/, '') || '/') !== '/',
-		}),
+		filter: (page) => !isCategoryLandingUrl(page) && (new URL(page).pathname.replace(/\/+$/, '') || '/') !== '/',
+	}),
 	],
+	markdown: {
+		rehypePlugins: [rehypeSectionVisuals],
+	},
 });

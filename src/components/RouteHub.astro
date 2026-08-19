@@ -1,0 +1,111 @@
+---
+import { game, type GameRoute } from '../config/game';
+import { getGuides, guideHref } from '../lib/guides';
+import { nextRoute } from '../lib/routes';
+
+interface Props {
+	route: GameRoute;
+}
+
+const { route } = Astro.props;
+const allGuides = await getGuides();
+const routeGuides = route.guides
+	.map((slug) => allGuides.find((g) => g.id.endsWith(slug)))
+	.filter(Boolean);
+
+const next = nextRoute(route);
+const allRoutesPath = game.allRoutesPath;
+---
+
+<div class="rh" data-route-hub>
+	{route.image && (
+		<div class="rh-hero">
+			<img
+				class="rh-hero__bg"
+				src={route.image}
+				alt={route.imageAlt || ''}
+				width="1920" height="800"
+				loading="eager"
+				style={route.imagePosition ? `object-position: ${route.imagePosition}` : ''}
+			/>
+			<div class="rh-hero__overlay"></div>
+		</div>
+	)}
+
+	<div class="rh-inner">
+		<nav class="rh-back">
+			<a href={allRoutesPath}>← All Guide Routes</a>
+		</nav>
+
+		<header class="rh-header">
+			<span class="rh-editorial">{route.editorialName}</span>
+			<span class="rh-label">{route.number} · {route.label}</span>
+			<h1 class="rh-title">{route.title}</h1>
+			<p class="rh-intro">{route.intro}</p>
+			<p class="rh-context">{route.context}</p>
+			<p class="rh-chain">
+				This route chains {route.guides.length} {route.guides.length === 1 ? 'guide' : 'guides'} in
+				order. Each page answers one question and points to the next decision, so you can keep
+				moving without dropping the thread.
+			</p>
+		</header>
+
+		{routeGuides.some((g) => g!.data.quickAnswer) && (
+			<section class="rh-fast">
+				<header class="rh-fast__head">
+					<span class="rh-eyebrow">FAST ANSWERS</span>
+					<h2 class="rh-fast__title">Three questions, answered.</h2>
+					<p class="rh-fast__desc">The fastest way out of the most common stops on this route.</p>
+				</header>
+				<div class="rh-fast__list">
+					{routeGuides.filter((g) => g!.data.quickAnswer).slice(0, 3).map((g) => {
+						const qa = g!.data.quickAnswer as string;
+						const short = qa.length > 200 ? qa.slice(0, 197) + '…' : qa;
+						const suffix = g!.id.split('/').pop() ?? '';
+						const ed = route.guideEditorial?.[suffix];
+						return (
+							<div class="rh-qa">
+								<h3 class="rh-qa__q">{ed?.shortTitle || g!.data.sidebar?.label || g!.data.title}</h3>
+								<p class="rh-qa__a">{short}</p>
+								<a class="rh-qa__link" href={guideHref(g!)}>Read the evidence →</a>
+							</div>
+						);
+					})}
+				</div>
+			</section>
+		)}
+
+		<section class="rh-follow">
+			<header class="rh-follow__head">
+				<span class="rh-eyebrow">FOLLOW THE ROUTE</span>
+				<h2 class="rh-follow__title">Continue without losing the thread.</h2>
+				<p class="rh-follow__desc">Each guide answers one intent and points to the next useful decision.</p>
+			</header>
+			<div class="rh-follow__list">
+				{routeGuides.map((g) => {
+					const suffix = g!.id.split('/').pop() ?? '';
+					const ed = route.guideEditorial?.[suffix];
+					return (
+						<a class="rh-guide" href={guideHref(g!)}>
+							<div class="rh-guide__body">
+								{ed && <span class="rh-guide__eyebrow">{ed.eyebrow}</span>}
+								<h3 class="rh-guide__title">{ed?.shortTitle || g!.data.sidebar?.label || g!.data.title}</h3>
+								<p class="rh-guide__desc">{ed?.shortDesc || (g!.data.description?.length > 130 ? g!.data.description.slice(0, 127) + '…' : g!.data.description)}</p>
+							</div>
+							<span class="rh-guide__cta">Open guide →</span>
+						</a>
+					);
+				})}
+			</div>
+		</section>
+
+		<nav class="rh-nav">
+			<a class="rh-nav__link" href={allRoutesPath}>← All Routes</a>
+			{next && (
+				<a class="rh-nav__link" href={next.path}>
+					Next: {next.editorialName} →
+				</a>
+			)}
+		</nav>
+	</div>
+</div>

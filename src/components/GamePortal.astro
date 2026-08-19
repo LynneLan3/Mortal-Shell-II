@@ -2,163 +2,359 @@
 import { Image } from 'astro:assets';
 import { game } from '../config/game';
 import { resolveGameAsset } from '../lib/assets';
-import { categoryIdOf, categoryOf, getGuides, guideHref, sortGuides } from '../lib/guides';
-import CategorySummaryCard from './CategorySummaryCard.astro';
-import GuideGrid from './GuideGrid.astro';
+import { getGuides, guideHref } from '../lib/guides';
+import { editorialForGuide } from '../lib/routes';
 
 const guides = await getGuides();
-const heroImage = resolveGameAsset(game.heroImage);
+const heroImage = resolveGameAsset('hero-keyart.png') ?? resolveGameAsset(game.heroImage);
 const heroPosition = game.heroPosition ?? 'center';
-const categories = [...game.categories].sort((a, b) => a.order - b.order);
+const routes = game.routes;
+const totalGuides = routes.reduce((sum, r) => sum + r.guides.length, 0);
 
-const featured = guides.filter((entry) => entry.data.featured).sort(sortGuides).slice(0, 4);
+const keyArt = '/images/hero-keyart.png';
 
-const sections = categories
-	.map((category) => ({
-		category,
-		entries: guides.filter((entry) => categoryIdOf(entry) === category.id).sort(sortGuides),
-	}))
-	.filter((section) => section.entries.length > 0);
+const recentlyUpdated = guides
+	.filter((entry) => entry.data.lastUpdated instanceof Date)
+	.sort((a, b) => (b.data.lastUpdated as Date).getTime() - (a.data.lastUpdated as Date).getTime())
+	.slice(0, 3);
 
-const popularQuestions = game.portal?.popularQuestions ?? [];
-const showRecentlyUpdated = game.portal?.showRecentlyUpdated !== false;
-const maxRecent = game.portal?.maxRecent ?? 3;
-const showAbout = game.portal?.showAbout !== false;
+const latestDate =
+	recentlyUpdated[0]?.data.lastUpdated instanceof Date
+		? recentlyUpdated[0].data.lastUpdated.toISOString().slice(0, 10)
+		: game.releaseDate;
 
-const recentlyUpdated = showRecentlyUpdated
-	? guides
-			.filter((entry) => entry.data.lastUpdated instanceof Date)
-			.sort((a, b) => {
-				const dateA = a.data.lastUpdated as Date;
-				const dateB = b.data.lastUpdated as Date;
-				return dateB.getTime() - dateA.getTime();
-			})
-			.slice(0, maxRecent)
-	: [];
+const allRoutesPath = game.allRoutesPath;
+const guidesPath = game.guidesPath;
+
+const guideBySlug = (slug: string) => guides.find((g) => g.id.endsWith(slug));
+const cardFor = (slug: string, img: string, position?: string) => {
+	const guide = guideBySlug(slug);
+	const editorial = guide ? editorialForGuide(guide) : undefined;
+	return { slug, href: guide ? guideHref(guide) : `/mortal-shell-ii/${slug}/`, img, position, guide, editorial };
+};
+
+// 00 / CHOOSE YOUR ROUTE — five tall cards, every card has an image.
+const routeCards = routes.map((route) => ({
+	route,
+	img: route.image ?? keyArt,
+	position: route.imagePosition,
+}));
+
+// 01 / START HERE — four high-value guides, 2x2 editorial grid.
+const startHere = [
+	cardFor('release-date', keyArt, 'center 30%'),
+	cardFor('great-martyrs-blade', '/images/great-martyrs-blade/great-martyrs-blade-acquired.png', 'center 40%'),
+	cardFor('slayer-seal-difficulty', '/images/slayer-seal/slayer-seal-gloomslayer-effects.webp', 'center'),
+	cardFor('map-fragments', '/images/great-martyrs-blade/great-martyrs-blade-widows-overlook.png', 'center 30%'),
+];
+
+// FEATURE SPLIT — one core concept, existing facts only.
+const featureSplit = {
+	img: '/images/hero-keyart.png',
+	alt: 'Mortal Shell II key art',
+	eyebrow: 'WHAT IS CONFIRMED?',
+	title: 'High-stakes combat, possessable Shells, one interconnected world.',
+	intro:
+		'Mortal Shell II is a single-player action RPG built around the same ritual: harden your body, possess fallen warriors, and strike when the opening appears.',
+	bullets: [
+		'Possessable Shells replace hit points with new playstyles',
+		'Deeper weapon upgrades and a larger moveset than the first game',
+		'Interconnected open world with dungeons and Shattered Beacons',
+	],
+	cta: { label: 'Open the gameplay overview →', href: allRoutesPath },
+};
+
+// WORLD AT A GLANCE — editorial copy + visual mosaic, every tile links to a real route/guide.
+const worldGlance = {
+	eyebrow: 'THE WORLD AT A GLANCE',
+	title: 'Combat, exploration, and progression are connected.',
+	intro:
+		'These in-game captures lead into the guide that explains the system shown. Each route is a chain of decisions, not a list of pages.',
+	tiles: [
+		{ img: '/images/great-martyrs-blade/great-martyrs-blade-acquired.png', alt: "Acquiring the Great Martyr's Blade", label: 'Weapons', text: 'Three early weapon routes through Fainweald and Mammon.', href: '/mortal-shell-ii/weapons/', size: 'large' },
+		{ img: '/images/slayer-seal/slayer-seal-gloomslayer-effects.webp', alt: 'Slayer Seal effects', label: 'Progression', text: 'Farm Gloom, tune difficulty, activate Night Mode.', href: '/mortal-shell-ii/power/', size: 'small' },
+		{ img: '/images/proxima/proxima-shattered-beacon.png', alt: 'Shattered Beacon', label: 'Exploration', text: 'Collect map fragments and unlock Shells.', href: '/mortal-shell-ii/explore/', size: 'small' },
+	],
+};
+
+// 02 / FIELD NOTES — eight curated guides, 3-column desktop.
+const fieldNotes = [
+	'great-martyrs-blade',
+	'gloom-farm',
+	'map-fragments',
+	'slayer-seal-difficulty',
+	'axatana',
+	'system-requirements',
+	'gloombound-flame',
+	'beta-progress-carry-over',
+].map((slug) => cardFor(slug, keyArt)).filter((x) => x.guide);
+
+// 03 / LATEST — recently updated guides, three editorial cards with images.
+const latestCards = recentlyUpdated.map((entry) => {
+	const route = game.routes.find((r) => r.guides.includes(entry.id.split('/').pop() ?? ''));
+	const updated = entry.data.lastUpdated as Date;
+	return {
+		entry,
+		href: guideHref(entry),
+		route,
+		img: route?.image ?? keyArt,
+		position: route?.imagePosition,
+		date: updated.toISOString().slice(0, 10),
+	};
+});
 ---
 
-<div class="gw-portal">
-	<section class:list={['gw-hero', heroImage && 'gw-hero--media']}>
-		{
-			heroImage && (
-				<div class="gw-hero__visual">
-					<Image
-						src={heroImage}
-						alt={game.heroAlt ?? game.name}
-						width={1920}
-						height={620}
-						widths={[800, 1280, 1920]}
-						sizes="(min-width: 50em) 48rem, 100vw"
-						loading="eager"
-						fetchpriority="high"
-						style={{ objectPosition: heroPosition }}
-					/>
-				</div>
-			)
-		}
-		<div class="gw-hero__copy">
-			<p class="gw-hero__kicker">Guide & Wiki</p>
-			<h1 id="_top">{game.hubTitle ?? `${game.name} Guide & Wiki`}</h1>
-			<p class="gw-hero__tagline">{game.tagline}</p>
-			<p class="gw-hero__meta">
-				{game.releaseDate}
-				{' · '}
-				{game.platforms.join(' · ')}
-				{' · '}
-				{game.developer}
-			</p>
+<div class="hp" data-homepage>
+	{/* B. IMMERSIVE HERO */}
+	<section class="hp-hero">
+		{heroImage && (
+			<div class="hp-hero__bg">
+				<Image
+					src={heroImage}
+					alt={game.heroAlt ?? game.name}
+					width={1920}
+					height={820}
+					widths={[800, 1280, 1920]}
+					sizes="100vw"
+					loading="eager"
+					fetchpriority="high"
+					style={{ objectPosition: heroPosition }}
+				/>
+			</div>
+		)}
+		<div class="hp-hero__content">
+			<p class="hp-hero__kicker">Mortal Shell II · Guide &amp; Field Manual</p>
+			<h1 class="hp-hero__title">{game.hubTitle ?? `${game.name} Guide`}</h1>
+			<p class="hp-hero__tagline">{game.tagline}</p>
+			<div class="hp-hero__actions">
+				<a class="hp-hero__cta hp-hero__cta--primary" href="/mortal-shell-ii/start/">Start Here</a>
+				<a class="hp-hero__cta hp-hero__cta--secondary" href={guidesPath}>Browse Guides</a>
+			</div>
+		</div>
+
+		{/* C. FACT STRIP */}
+		<dl class="hp-facts">
+			<div class="hp-fact"><dt>Guides</dt><dd>{totalGuides}</dd></div>
+			<div class="hp-fact"><dt>Routes</dt><dd>{routes.length}</dd></div>
+			<div class="hp-fact"><dt>Build</dt><dd>Launch</dd></div>
+			<div class="hp-fact"><dt>Updated</dt><dd>{latestDate}</dd></div>
+		</dl>
+	</section>
+
+	{/* D. 00 / CHOOSE YOUR ROUTE */}
+	<section class="hp-routes" id="choose-route">
+		<div class="hp-inner">
+			<header class="hp-sect-head">
+				<span class="hp-number">00</span>
+				<span class="hp-eyebrow">Choose Your Route</span>
+				<h2 class="hp-sect-title">Do not browse at random.</h2>
+				<p class="hp-sect-desc">Start with the decision in front of you, then follow the connected guides in order.</p>
+			</header>
+			<div class="hp-routes__list">
+				{routeCards.map(({ route }) => (
+					<a class="hp-route" href={route.path}>
+						<div class="hp-route__img">
+							<img
+								src={route.img}
+								alt={route.imageAlt ?? ''}
+								width="640" height="360"
+								loading="lazy"
+								style={route.position ? `object-position: ${route.position}` : ''}
+							/>
+						</div>
+						<div class="hp-route__body">
+							<div class="hp-route__head">
+								<span class="hp-route__eyebrow">{route.editorialName}</span>
+								<span class="hp-route__num-label">{route.number} · {route.label}</span>
+							</div>
+							<h3 class="hp-route__title">{route.title}</h3>
+							<p class="hp-route__desc">{route.intro}</p>
+							<span class="hp-route__foot">
+								<span class="hp-route__count">{route.guides.length} {route.guides.length === 1 ? 'guide' : 'guides'}</span>
+								<span class="hp-route__arrow">Follow route →</span>
+							</span>
+						</div>
+					</a>
+				))}
+			</div>
 		</div>
 	</section>
 
-	{
-		popularQuestions.length > 0 && (
-			<section class="gw-section">
-				<h2>Popular Questions</h2>
-				<ul class="gw-questions">
-					{popularQuestions.map((question) => (
-						<li>
-							<a class="gw-chip" href={question.href}>
-								{question.label}
-							</a>
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
+	{/* E. 01 / START HERE */}
+	<section class="hp-start">
+		<div class="hp-inner">
+			<header class="hp-sect-head">
+				<span class="hp-number">01</span>
+				<span class="hp-eyebrow">Start Here</span>
+				<h2 class="hp-sect-title">Your first session, already planned.</h2>
+				<p class="hp-sect-desc">Get the confirmed answers first. Save walkthrough deep-dives for after you begin.</p>
+			</header>
+			<div class="hp-start__grid">
+				{startHere.map((item) => (
+					<a class="hp-start__card" href={item.href}>
+						<div class="hp-start__img">
+							<img
+								src={item.img}
+								alt=""
+								width="640" height="360"
+								loading="lazy"
+								style={item.position ? `object-position: ${item.position}` : ''}
+							/>
+						</div>
+						<div class="hp-start__body">
+							{item.editorial && <span class="hp-start__eyebrow">{item.editorial.eyebrow}</span>}
+							<span class="hp-start__q">{item.editorial?.shortTitle || item.guide?.data.title}</span>
+							{item.editorial?.shortDesc && <span class="hp-start__desc">{item.editorial.shortDesc}</span>}
+							<span class="hp-start__arrow">Open guide →</span>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
 
-	{
-		featured.length > 0 && (
-			<section class="gw-section">
-				<h2>Start Here</h2>
-				<GuideGrid entries={featured} featured />
-			</section>
-		)
-	}
+	{/* F. FEATURE SPLIT */}
+	<section class="hp-feature">
+		<div class="hp-inner">
+			<div class="hp-feature__card">
+				<div class="hp-feature__img">
+					<img src={featureSplit.img} alt={featureSplit.alt} width="1280" height="800" loading="lazy" />
+				</div>
+				<div class="hp-feature__body">
+					<span class="hp-eyebrow">{featureSplit.eyebrow}</span>
+					<h2 class="hp-feature__title">{featureSplit.title}</h2>
+					<p class="hp-feature__intro">{featureSplit.intro}</p>
+					<ul class="hp-feature__bullets">
+						{featureSplit.bullets.map((b) => <li>{b}</li>)}
+					</ul>
+					<a class="hp-feature__cta" href={featureSplit.cta.href}>{featureSplit.cta.label}</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	{
-		sections.length > 0 && (
-			<section class="gw-section">
-				<h2>Browse Guides</h2>
-				<div class="gw-browse">
-					{sections.map(({ category, entries }) => (
-						<CategorySummaryCard {category} {entries} />
+	{/* G. WORLD AT A GLANCE */}
+	<section class="hp-world">
+		<div class="hp-inner">
+			<div class="hp-world__layout">
+				<div class="hp-world__copy">
+					<span class="hp-number">02</span>
+					<span class="hp-eyebrow">{worldGlance.eyebrow}</span>
+					<h2 class="hp-sect-title">{worldGlance.title}</h2>
+					<p class="hp-sect-desc">{worldGlance.intro}</p>
+				</div>
+				<div class="hp-world__mosaic">
+					{worldGlance.tiles.map((w) => (
+						<a class:list={['hp-tile', w.size === 'large' && 'hp-tile--large']} href={w.href}>
+							<div class="hp-tile__img">
+								<img src={w.img} alt={w.alt} width="640" height="360" loading="lazy" />
+							</div>
+							<div class="hp-tile__copy">
+								<span class="hp-tile__label">{w.label}</span>
+								<p class="hp-tile__text">{w.text}</p>
+								<span class="hp-tile__cta">Explore route →</span>
+							</div>
+						</a>
 					))}
 				</div>
-			</section>
-		)
-	}
+			</div>
+		</div>
+	</section>
 
-	{
-		recentlyUpdated.length > 0 && (
-			<section class="gw-section">
-				<h2>Recently Updated</h2>
-				<ul class="gw-recent">
-					{recentlyUpdated.map((entry) => {
-						const category = categoryOf(entry);
-						const updated = entry.data.lastUpdated as Date;
-						return (
-							<li>
-								<a href={guideHref(entry)}>
-									<span class="gw-recent__title">{entry.data.title}</span>
-									<span class="gw-recent__meta">
-										{category?.label}
-										{category && ' · '}
-										<time datetime={updated.toISOString()}>{updated.toISOString().slice(0, 10)}</time>
-									</span>
-								</a>
-							</li>
-						);
-					})}
+	{/* H. 02 / FIELD NOTES */}
+	<section class="hp-notes">
+		<div class="hp-inner">
+			<header class="hp-sect-head">
+				<span class="hp-number">03</span>
+				<span class="hp-eyebrow">Field Notes</span>
+				<h2 class="hp-sect-title">{totalGuides} focused guides. No filler pages.</h2>
+				<p class="hp-sect-desc">Every page answers a real player query or a mechanic the developer has confirmed.</p>
+			</header>
+			<div class="hp-notes__list">
+				{fieldNotes.map(({ guide, editorial, href }) => (
+					<a class="hp-note" href={href}>
+						{editorial && <span class="hp-note__eyebrow">{editorial.eyebrow}</span>}
+						<span class="hp-note__title">{editorial?.shortTitle || guide!.data.sidebar?.label || guide!.data.title}</span>
+						{editorial?.shortDesc && <span class="hp-note__desc">{editorial.shortDesc}</span>}
+						<span class="hp-note__foot">
+							<span class="hp-note__meta">{guide!.data.status ?? ''}</span>
+							<span class="hp-note__cta">Open guide →</span>
+						</span>
+					</a>
+				))}
+			</div>
+			<a class="hp-notes__all" href={allRoutesPath}>See the complete guide index →</a>
+		</div>
+	</section>
+
+	{/* I. 03 / LATEST */}
+	{latestCards.length > 0 && (
+		<section class="hp-latest" id="latest">
+			<div class="hp-inner">
+				<header class="hp-sect-head">
+					<span class="hp-number">04</span>
+					<span class="hp-eyebrow">Latest</span>
+					<h2 class="hp-sect-title">The latest facts already have a next step.</h2>
+					<p class="hp-sect-desc">Recently updated guides, in the order they were revised.</p>
+				</header>
+				<div class="hp-latest__list">
+					{latestCards.map((card) => (
+						<a class="hp-latest__card" href={card.href}>
+							<div class="hp-latest__img">
+								<img
+									src={card.img}
+									alt=""
+									width="640" height="360"
+									loading="lazy"
+									style={card.position ? `object-position: ${card.position}` : ''}
+								/>
+							</div>
+							<div class="hp-latest__body">
+								<span class="hp-latest__date">{card.date} · {card.route?.label ?? 'Guide'}</span>
+								<span class="hp-latest__title">{card.entry.data.title}</span>
+								<span class="hp-latest__arrow">Open guide →</span>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	)}
+
+	{/* J. EDITORIAL / EVIDENCE BAND */}
+	<section class="hp-evidence">
+		<div class="hp-inner">
+			<div class="hp-evidence__inner">
+				<span class="hp-eyebrow">Editorial Standard</span>
+				<h2 class="hp-evidence__title">Official facts and tested play stay separate.</h2>
+				<p class="hp-evidence__text">
+					Verified facts are sourced from official announcements and in-game evidence. Anything
+					unconfirmed is marked as such — we do not invent weapon locations, boss steps, or
+					collectible counts before the evidence exists.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* K. ABOUT */}
+	<section class="hp-about" id="about">
+		<div class="hp-inner">
+			<div class="hp-about__grid">
+				<div class="hp-about__copy">
+					<span class="hp-eyebrow">About This Guide</span>
+					<h2 class="hp-about__title">A field guide, not a walkthrough farm.</h2>
+					<p class="hp-about__text">
+						{game.name} is developed by {game.developer} and published by {game.publisher}.
+						This independent guide organises confirmed information into five routes, so a player
+						can answer one decision at a time without losing the thread.
+					</p>
+				</div>
+				<ul class="hp-about__facts">
+					<li><span>Release</span><strong>{game.releaseDate}</strong></li>
+					<li><span>Platforms</span><strong>{game.platforms.join(' · ')}</strong></li>
+					<li><span>Routes</span><strong>{routes.length} guide routes</strong></li>
 				</ul>
-			</section>
-		)
-	}
-
-	{
-		showAbout && (
-			<section class="gw-section gw-about">
-				<h2>About {game.name}</h2>
-				<p class="gw-about__desc">{game.description}</p>
-				<dl class="gw-facts">
-					<div>
-						<dt>Release</dt>
-						<dd>{game.releaseDate}</dd>
-					</div>
-					<div>
-						<dt>Developer</dt>
-						<dd>{game.developer}</dd>
-					</div>
-					<div>
-						<dt>Publisher</dt>
-						<dd>{game.publisher}</dd>
-					</div>
-					<div>
-						<dt>Platforms</dt>
-						<dd>{game.platforms.join(' · ')}</dd>
-					</div>
-				</dl>
-			</section>
-		)
-	}
+			</div>
+		</div>
+	</section>
 </div>

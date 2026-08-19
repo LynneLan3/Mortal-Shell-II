@@ -1,0 +1,46 @@
+---
+import { game } from '../config/game';
+
+const routes = game.routes;
+const homePath = game.hubPath;
+---
+
+<footer class="ms-footer" data-site-footer>
+	<div class="ms-footer__inner">
+		<div class="ms-footer__brand">
+			<span class="ms-footer__title">MORTAL SHELL II</span>
+			<span class="ms-footer__subtitle">FIELD GUIDE</span>
+			<p class="ms-footer__statement">
+				A source-led field guide to Mortal Shell II — confirmed release timing, Open Beta,
+				weapons, progression, exploration, and the named trials that guard each path.
+			</p>
+		</div>
+
+		<nav class="ms-footer__col" aria-label="Routes">
+			<span class="ms-footer__label">Routes</span>
+			<ul>
+				{routes.map((r) => (
+					<li><a href={r.path}>{r.number} · {r.editorialName}</a></li>
+				))}
+			</ul>
+		</nav>
+
+		<nav class="ms-footer__col" aria-label="Site">
+			<span class="ms-footer__label">Site</span>
+			<ul>
+				<li><a href={game.allRoutesPath}>All Guide Routes</a></li>
+				<li><a href={game.guidesPath}>All Guides</a></li>
+				<li><a href={`${homePath}#latest`}>Latest</a></li>
+				<li><a href={`${homePath}#about`}>About</a></li>
+			</ul>
+		</nav>
+
+		<div class="ms-footer__disclaimer">
+			<p>
+				Mortal Shell II is developed by Cold Symmetry and published by Playstack. This
+				independent field guide is not affiliated with either company. Confirmed facts are
+				sourced from official announcements; anything unconfirmed is clearly marked as such.
+			</p>
+		</div>
+	</div>
+</footer>

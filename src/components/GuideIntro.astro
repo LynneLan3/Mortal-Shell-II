@@ -1,0 +1,49 @@
+---
+import QuickAnswer from './QuickAnswer.astro';
+import { visualContext } from '../lib/guideVisuals';
+
+const { entry } = Astro.locals.starlightRoute;
+const headings = (Astro.locals.starlightRoute.headings ?? []) as { slug: string; text: string; depth: number }[];
+const tocHeadings = headings.filter((h) => h.depth === 2);
+const mainHeadings = tocHeadings.filter((h) => !['faq', 'sources', 'source'].includes(h.slug));
+const vc = visualContext(entry);
+---
+
+<div class="gd-intro">
+	{entry.data.quickAnswer && <QuickAnswer text={entry.data.quickAnswer} />}
+
+	{mainHeadings.length > 2 && (
+		<nav class="gd-otp" aria-label="On this page">
+			<span class="gd-otp__label">ON THIS PAGE</span>
+			<ol class="gd-otp__list">
+				{mainHeadings.map((h, i) => (
+					<li>
+						<a href={`#${h.slug}`}>
+							<span class="gd-otp__num">{String(i + 1).padStart(2, '0')}</span>
+							{h.text}
+						</a>
+					</li>
+				))}
+			</ol>
+		</nav>
+	)}
+
+	{vc.length > 0 && (
+		<div class="gd-vc" aria-label="Visual context">
+			<span class="gd-vc__label">VISUAL CONTEXT</span>
+			<div class="gd-vc__grid">
+				{vc.map((v, i) => (
+					<figure class:list={['gd-vc__slot', i === 0 && 'gd-vc__slot--lead']}>
+						<img
+							src={v.src}
+							alt={v.alt}
+							width="800" height="500"
+							loading="lazy"
+							style={v.position ? `object-position: ${v.position}` : ''}
+						/>
+					</figure>
+				))}
+			</div>
+		</div>
+	)}
+</div>

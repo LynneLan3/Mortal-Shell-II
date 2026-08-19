@@ -13,6 +13,7 @@ related:
   - mortal-shell-ii/axatana
   - mortal-shell-ii/great-martyrs-blade
   - mortal-shell-ii/map-fragments
+  - mortal-shell-ii/proxima
   - mortal-shell-ii/magdalena
   - mortal-shell-ii/release-date
   - mortal-shell-ii/system-requirements

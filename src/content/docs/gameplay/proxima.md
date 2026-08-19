@@ -3,7 +3,6 @@ title: "Mortal Shell 2 Proxima Location: How to Unlock the Proxima Shell"
 description: Find Proxima in Mortal Shell 2 with the route from Marrow Keep through Widow's Overlook and Blackridge Pass to the Shattered Beacon.
 category: combat-exploration
 slug: mortal-shell-ii/proxima
-status: confirmed
 featured: false
 quickAnswer: Proxima can be unlocked shortly after the Prologue. Starting from Marrow Keep, travel through the northern transporter and Widow's Overlook to Blackridge Pass. Continue north and left to the Shattered Beacon, interact with the Unknown Shell, complete the short memory sequence, and Proxima will be discovered.
 related:
@@ -37,9 +36,7 @@ Proxima is found inside the **Shattered Beacon**, a dungeon located north of the
 
 Yes. Proxima can be unlocked early after completing the Prologue. The route from Marrow Keep to the Shattered Beacon is available in the open world without additional story progression in the checked evidence.
 
-:::note[Single-source note]
-The creator of the source video describes Proxima as "the first Shell that we can unlock after completing the Prologue." This guide treats the claim as transcript-supported rather than confirmed by multiple independent sources.
-:::
+<!-- Single-source note: The creator describes Proxima as "the first Shell that we can unlock after completing the Prologue." Treated as transcript-supported, not multi-source confirmed. -->
 
 ---
 
@@ -81,9 +78,7 @@ The Shattered Beacon is a dungeon entrance, not a standard cleansable beacon.
 
 ![New Shell Discovered — Proxima confirmation in Mortal Shell 2. Third-party gameplay footage / evidence capture.](/images/proxima/proxima-unlocked.png)
 
-:::caution[Evidence boundary]
-The four interaction steps above follow a single video walkthrough. The guide does not confirm whether alternative dialogue choices also lead to unlocking Proxima.
-:::
+<!-- Evidence boundary: The four interaction steps follow a single video walkthrough. Alternative dialogue choices are not confirmed. -->
 
 ---
 

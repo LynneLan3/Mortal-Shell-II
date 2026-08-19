@@ -11,6 +11,7 @@ related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/axe-dagger
   - mortal-shell-ii/axatana
+  - mortal-shell-ii/great-martyrs-blade
   - mortal-shell-ii/map-fragments
   - mortal-shell-ii/magdalena
   - mortal-shell-ii/release-date
@@ -35,7 +36,7 @@ These are the stable, high-level facts supported by the current Steam, official 
 - The world is presented as interconnected and includes dungeons.
 - Current store listings identify single-player features.
 
-The current Open Beta uses that opening slice as a preview route toward [Magdalena, the Lady of the Woods](/mortal-shell-ii/magdalena/). For how Mortal Shell II actually changes challenge after launch — the Slayer Seal, Night Mode, and the lack of an Easy/Normal/Hard menu — see the [difficulty and Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/). For the specific Night Mode item route, see the [Gloombound Flame location guide](/mortal-shell-ii/gloombound-flame/). For an early Mammon-route weapon pickup from Marrow Keep, see the [Axatana location guide](/mortal-shell-ii/axatana/).
+The current Open Beta uses that opening slice as a preview route toward [Magdalena, the Lady of the Woods](/mortal-shell-ii/magdalena/). For how Mortal Shell II actually changes challenge after launch — the Slayer Seal, Night Mode, and the lack of an Easy/Normal/Hard menu — see the [difficulty and Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/). For the specific Night Mode item route, see the [Gloombound Flame location guide](/mortal-shell-ii/gloombound-flame/). For an early Mammon-route weapon pickup from Marrow Keep, see the [Axatana location guide](/mortal-shell-ii/axatana/). For the Martyr's Prison route to the Great Martyr's Blade from Widow's Overlook, see the [Great Martyr's Blade location guide](/mortal-shell-ii/great-martyrs-blade/).
 
 For the launch date and confirmed platforms, see the [Mortal Shell II release guide](/mortal-shell-ii/release-date/). For the PC specification table, see [Mortal Shell II system requirements](/mortal-shell-ii/system-requirements/).
 

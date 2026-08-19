@@ -8,6 +8,7 @@ featured: true
 quickAnswer: "Mortal Shell II has no traditional Easy / Normal / Hard menu. To make combat easier, equip the optional Slayer Seal in Marrow Keep. To make it harder, turn on Night Mode with the Gloombound Flame. Whether the Slayer Seal disables achievements or trophies is not officially documented; launch reports conflict, so read the in-game warning before you equip it."
 related:
   - mortal-shell-ii/gameplay
+  - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/skip-prologue
   - mortal-shell-ii/release-date
 sidebar:
@@ -43,10 +44,20 @@ You can pick it up after you reach **Marrow Keep**, the hub after the Prologue. 
 
 Short route, consistent across GamesRadar, GameRant, and Fextralife:
 
+<figure>
+  <img src="/images/slayer-seal/marrow-keep-beacon-start.webp" alt="Starting route from the Marrow Keep Beacon toward the Slayer Seal location in Mortal Shell 2." width="1280" height="720" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />
+  <figcaption>Start from the Marrow Keep Beacon, then head left toward the outer path. Gameplay footage via ConCon.</figcaption>
+</figure>
+
 1. Reach Marrow Keep (including via the [Prologue skip](/mortal-shell-ii/skip-prologue/) if you unlocked it).
 2. From the Keep interior, go toward **Merrick** (the blacksmith).
 3. Continue to the outdoor / clifftop area to the right of Merrick’s room.
 4. Interact with the **stone throne** on that ledge. The Slayer Seal is on the throne.
+
+<figure>
+  <img src="/images/slayer-seal/slayer-seal-chair-pickup.webp" alt="Slayer Seal pickup location on a chair-like stone monument near the top of Marrow Keep in Mortal Shell 2." width="1280" height="720" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />
+  <figcaption>The Slayer Seal is on the chair-like stone monument near the top of Marrow Keep. Gameplay footage via ConCon.</figcaption>
+</figure>
 
 Picking it up only puts it in your inventory. Launch guides agree the restriction, if any, is tied to **equipping** it from the Seals tab, not to collecting it.
 
@@ -57,6 +68,11 @@ Confirmed from the in-game Seal description plus launch-guide writeups of the eq
 - **Gloomslayer:** Sidearms deal **Break** damage.
 - **Riposte recovery:** Some **Health** and **Resolve** are restored when you Riposte.
 - **Slayer Punch:** A charged gap-closer that deals heavy Break damage. Launch guides say it can auto-Riposte if the punch Breaks the enemy, and that it is bound to **Q** on PC.
+
+<figure>
+  <img src="/images/slayer-seal/slayer-seal-gloomslayer-effects.webp" alt="Slayer Seal inventory description showing Gloomslayer and Slayer Punch effects in Mortal Shell 2." width="1280" height="908" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />
+  <figcaption>The in-game Slayer Seal description shows Gloomslayer adding Break Damage and restoring Health and Resolve on Ripostes. Gameplay footage via Shark R.</figcaption>
+</figure>
 
 What is **not** in the official item text:
 
@@ -109,6 +125,8 @@ How launch guides say you turn it on:
 4. Talk to **Thestus** and choose **Call forth the Night**.
 
 GameRant says you turn it off by talking to Thestus again and choosing **Seek Daylight**. That matches the “reversible harder mode” description in other launch guides.
+
+For the exact pickup route and activation steps, see the [Gloombound Flame location and Night Mode guide](/mortal-shell-ii/gloombound-flame/).
 
 Reported Night Mode effects (player-tested, not official patch notes):
 

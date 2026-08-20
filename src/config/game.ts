@@ -4,6 +4,7 @@ export interface GameCategory {
 	description: string;
 	icon: string;
 	order: number;
+	contentDir?: string;
 }
 
 export interface GamePortalQuestion {
@@ -94,6 +95,7 @@ export const game: GameConfig = {
 			description: 'Confirmed combat, Shell, weapon, exploration, dungeon, and Open Beta encounter information.',
 			icon: 'puzzle',
 			order: 1,
+			contentDir: 'gameplay',
 		},
 		{
 			id: 'game-info',

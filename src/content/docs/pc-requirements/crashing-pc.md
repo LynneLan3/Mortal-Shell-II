@@ -5,7 +5,7 @@ category: pc-requirements
 slug: mortal-shell-ii/crashing-pc
 status: needs-verification
 featured: true
-quickAnswer: "Hotfix 2.0 is live on Steam. It ships misc crash fixes plus stability and performance improvements, fixes the Slayer Seal beacon-menu UI lock, and fixes players stealing enemy weapons during ripostes. Cold Symmetry has not claimed every crash is fixed. If you still crash after updating, retest the exact scenario, try the community Frame Generation workaround for loading crashes, and file a bug report on Steam."
+quickAnswer: "Hotfix 2.0 is live on Steam but does not fix every crash. If the game crashes on loading, try turning Frame Generation off. The Keyboard Bindings menu crash has a developer-acknowledged workaround — delete two settings files as described below. Update first, then retest."
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
@@ -18,16 +18,7 @@ lastUpdated: 2026-08-20
 
 ## Is Mortal Shell 2 crashing after launch?
 
-**Some PC players are still reporting crashes during the launch window**, even after **Hotfix 2.0** (released **August 19, 2026**).
-
-**Quick answers:**
-
-- **Is Hotfix 2.0 live?** Yes — it was pushed to Steam on **August 19, 2026**. Update the game, restart Steam, and retest your crash.
-- **What does Hotfix 2.0 fix?** Official release notes list **misc crash fixes, stability and performance improvements**, a fix for the **Slayer Seal beacon-menu UI lock**, and a fix for **players "stealing" enemy weapons during ripostes**.
-- **Are all crashes fixed?** No — Cold Symmetry has **not** claimed Hotfix 2.0 fixes every crash. Players still report issues on loading screens and elsewhere after the patch.
-- **Still crashing after Hotfix 2.0?** Update first, then retest the exact scenario. For loading / respawn crashes, the community-reported **Frame Generation off** test still applies. Then file a [bug report](https://steamcommunity.com/app/2584270/discussions/3/) on Steam.
-
-Cold Symmetry told press before launch that more crash work shipped for release, but crashes were not promised to be fully solved. If the game closes, freezes, or locks up, start with the Hotfix steps below. If it crashes specifically when you open **Keyboard Bindings**, use the developer workaround in that section.
+**Some PC players are still reporting crashes during the launch window**, even after **Hotfix 2.0** (released **August 19, 2026**). Cold Symmetry told press before launch that more crash work shipped for release, but crashes were not promised to be fully solved. If the game closes, freezes, or locks up, start with the Hotfix steps below. If it crashes specifically when you open **Keyboard Bindings**, use the developer workaround in that section.
 
 See [PC system requirements](/mortal-shell-ii/system-requirements/) for hardware context and [release date / Advanced Access status](/mortal-shell-ii/release-date/) for the current launch build.
 

@@ -11,7 +11,23 @@ const heroImage = resolveGameAsset(game.heroImage);
 const heroPosition = game.heroPosition ?? 'center';
 const categories = [...game.categories].sort((a, b) => a.order - b.order);
 
-const featured = guides.filter((entry) => entry.data.featured).sort(sortGuides).slice(0, 4);
+const featuredOrder = game.portal?.featuredOrder ?? [];
+const maxFeatured = game.portal?.maxFeatured ?? 4;
+
+function featuredRank(entry: GuideEntry) {
+	const index = featuredOrder.indexOf(entry.id);
+	return index === -1 ? Number.POSITIVE_INFINITY : index;
+}
+
+const featured = guides
+	.filter((entry) => entry.data.featured)
+	.sort((a, b) => {
+		const rankA = featuredRank(a);
+		const rankB = featuredRank(b);
+		if (rankA !== rankB) return rankA - rankB;
+		return sortGuides(a, b);
+	})
+	.slice(0, maxFeatured);
 
 const sections = categories
 	.map((category) => ({

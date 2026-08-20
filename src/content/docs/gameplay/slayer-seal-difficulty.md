@@ -61,6 +61,8 @@ Short route, consistent across GamesRadar, GameRant, and Fextralife:
 
 Picking it up only puts it in your inventory. Launch guides agree the restriction, if any, is tied to **equipping** it from the Seals tab, not to collecting it.
 
+If the game UI locks or crashes while equipping the Slayer Seal from a **beacon menu**, update to **Hotfix 2.0** first — the August 19, 2026 patch fixes that specific UI lock. See [Mortal Shell 2 crashing on PC](/mortal-shell-ii/crashing-pc/) for the Hotfix 2.0 notes.
+
 ## What does the Slayer Seal change?
 
 Confirmed from the in-game Seal description plus launch-guide writeups of the equipped abilities:

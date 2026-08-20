@@ -193,3 +193,71 @@ Conflicts recorded, not fused:
 Competition: GameRant, GosuNoob, GameTyrant, Nerdschalk, and Fextralife shrine/key pages already cover parts of the cluster. Opportunity is one launch-accurate URL that also warns about the stale Gate Beacon location.
 
 Intentional omissions: no All Weapons page, no standalone Chapel Key / Shrine of Trials / puzzle-hub URLs, no Axe & Dagger build, no weapon tier list, no Gorf quest page. Other launch hotspots seen while researching (Forgotten Crossbow, Axatana, Great Martyr’s Blade) were recorded only, not built.
+
+## 2026-08-20 content batch (Launch-day window, pre-Standard-unlock): Hotfix 2.0, homepage launch hub, skip-prologue protection, Gloombound Flame distribution
+
+Research date: 2026-08-20 08:50 CST (before Standard Edition unlock at 21:00 Asia/Shanghai). Release-gated homepage edits were **not** applied this round; homepage was updated to launch-day status (Advanced Access live, Standard unlocks today) instead.
+
+### P0-1: Hotfix 2.0 on `/crashing-pc/`
+
+GSC hotspot (launch window):
+
+- `mortal shell 2 crashing`
+- `mortal shell 2 hotfix`
+- `mortal shell 2 crash`
+- `mortal shell 2 crashes`
+- `mortal shell 2 keeps crashing`
+- `mortal shell 2 bug report`
+
+Decision: **UPDATE** `/mortal-shell-ii/crashing-pc/` from Hotfix 1.0 to **Hotfix 2.0** on the same URL. No new hotfix / patch-notes page.
+
+Official evidence (checked 2026-08-20):
+
+- **Hotfix 2.0 — Release Notes** (Steam Community, posted by XBIGY, **2026-08-19**), official wording:
+  - "Misc. Crash Fixes, Stability, and Performance Improvements."
+  - "Equipping **Slayer Seal** from the beacon menu no longer causes UI to lock up."
+  - "Fix for player 'stealing' **enemy weapons** during ripostes."
+- Hotfix 2.0 does **not** name the Keyboard Bindings settings-menu crash. The existing developer settings-file workaround remains the current official guidance.
+- Confirmed separately: Slayer Seal is an optional Marrow Keep pickup (Magnificent Seat / stone throne); equip (not collect) is the step with the restriction.
+
+Page changes: SEO title → "Mortal Shell 2 Crashing on PC? Hotfix 2.0, Crash Fixes & Known Issues"; quick answer covers Hotfix 2.0 live status, fixes, Slayer Seal beacon-menu lock fix, riposte weapon-steal fix, still-crashing steps, and bug-report path. Official fixes and community workarounds (Frame Generation off) are kept in separate sections. Hotfix 1.0 retained as earlier-patch context.
+
+### P0-2: Homepage launch-day hub
+
+Decision: **UPDATE** homepage (`src/config/game.ts` + `src/content/docs/index.mdx` + `GamePortal.astro`), no visual redesign. Pre-unlock status keeps "out now" out of the copy.
+
+Changes:
+
+- Tagline → "Advanced Access is live now. Standard Edition unlocks August 20 at 1:00 PM UTC. Practical, source-checked launch guides."
+- Index adds a "Launch status" section: Devout Advanced Access live; Standard unlocks 2026-08-20 1:00 PM UTC (9:00 PM Asia/Shanghai); Open Beta content retained only for beta rewards / carry-over / Prologue-skip questions.
+- Featured order now configurable via `game.portal.featuredOrder` + `maxFeatured` (was hard-coded slice of 4). New featured priority:
+  1. Crashing / Hotfix 2.0
+  2. Skip Prologue
+  3. Gloombound Flame
+  4. Great Martyr's Blade
+  5. Axatana
+  6. Axe & Dagger
+- Popular Questions reordered so crashing / skip-prologue / gloombound-flame / great-martyrs-blade / axatana / axe-dagger lead the first screen; beta entries moved down but kept.
+
+### P0-3: Skip Prologue protection
+
+Decision: **UPDATE only.** URL and core title untouched; no duplicate pages.
+
+- Homepage entry priority raised (featured #2, Popular Questions #3).
+- Internal links already strong: `beta-progress-carry-over` links to `/skip-prologue/` 5×; `open-beta` now links to it in "How the Beta relates to the full game".
+- Coverage audit: page already answers how to skip, should I skip, what do I miss, missing skip option, progress / rewards / achievements. No gaps found; nothing duplicated.
+
+### P1: Gloombound Flame distribution
+
+Decision: **UPDATE only.** URL preserved; no Night Mode / Call Forth the Night split.
+
+- Homepage entry priority raised (featured #3, Popular Questions #4).
+- Title / H1 / quick answer already cover "Mortal Shell 2 Gloombound Flame Location".
+- `slayer-seal-difficulty` gains a semantic cross-link to `/crashing-pc/` for the Hotfix 2.0 Slayer Seal beacon-menu UI lock fix.
+- Night Mode / Call Forth the Night remain merged on the same page.
+
+### Release-time gate
+
+As of 2026-08-20 08:50 CST, the **2026-08-20 21:00 Asia/Shanghai** Standard Edition unlock has **not** passed. The release-date / open-beta / homepage "released" switches were **not** applied. This section becomes applicable after the gate time.
+
+Intentional omissions this round: no new hotfix page, no Night Mode split, no beta-save-transfer reversal claims, no claim that Hotfix 2.0 fixes all crashes.

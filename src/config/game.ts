@@ -16,6 +16,8 @@ export interface GamePortalConfig {
 	showRecentlyUpdated?: boolean;
 	maxRecent?: number;
 	showAbout?: boolean;
+	featuredOrder?: readonly string[];
+	maxFeatured?: number;
 }
 
 export interface GameConfig {
@@ -43,8 +45,9 @@ export const game: GameConfig = {
 	name: 'Mortal Shell II',
 	shortName: 'Mortal Shell II',
 	description:
-		'A source-led guide to Mortal Shell II covering its confirmed release, Open Beta, platforms, gameplay, and PC requirements.',
-	tagline: 'Confirmed release information and practical player guides for the standalone action-RPG sequel.',
+		'A source-led guide to Mortal Shell II covering its confirmed release, gameplay, weapons, exploration, and PC requirements, with Open Beta rewards and carry-over context preserved for players who need it.',
+	tagline:
+		'Advanced Access is live now. Standard Edition unlocks August 20 at 1:00 PM UTC. Practical, source-checked launch guides.',
 	siteUrl: 'https://mortal-shell-ii.vercel.app/',
 	hubPath: '/mortal-shell-ii/',
 	hubTitle: 'Mortal Shell II Guide & Wiki',
@@ -58,19 +61,31 @@ export const game: GameConfig = {
 	heroPosition: 'center',
 	portal: {
 		popularQuestions: [
+			{ label: 'Mortal Shell 2 crashing? Hotfix 2.0 fixes', href: '/mortal-shell-ii/crashing-pc/' },
 			{ label: 'When does Mortal Shell II release?', href: '/mortal-shell-ii/release-date/' },
 			{ label: 'How do I skip the prologue?', href: '/mortal-shell-ii/skip-prologue/' },
+			{ label: 'Where is the Gloombound Flame?', href: '/mortal-shell-ii/gloombound-flame/' },
+			{ label: 'How do I get the Great Martyr’s Blade?', href: '/mortal-shell-ii/great-martyrs-blade/' },
+			{ label: 'How do I get the Axatana early?', href: '/mortal-shell-ii/axatana/' },
+			{ label: 'Where do I get the Axe & Dagger?', href: '/mortal-shell-ii/axe-dagger/' },
 			{ label: 'How do I farm Gloom fast?', href: '/mortal-shell-ii/gloom-farm/' },
 			{ label: 'Where are all the Map Fragments?', href: '/mortal-shell-ii/map-fragments/' },
-			{ label: 'Where do I get the Axe & Dagger?', href: '/mortal-shell-ii/axe-dagger/' },
 			{ label: 'How do I change difficulty?', href: '/mortal-shell-ii/slayer-seal-difficulty/' },
-			{ label: 'How do I play the Open Beta?', href: '/mortal-shell-ii/open-beta/' },
-			{ label: 'Does beta progress carry over?', href: '/mortal-shell-ii/beta-progress-carry-over/' },
 			{ label: 'What are the PC requirements?', href: '/mortal-shell-ii/system-requirements/' },
-			{ label: 'Why does Mortal Shell 2 keep crashing?', href: '/mortal-shell-ii/crashing-pc/' },
+			{ label: 'Does beta progress carry over?', href: '/mortal-shell-ii/beta-progress-carry-over/' },
+			{ label: 'How do I play the Open Beta?', href: '/mortal-shell-ii/open-beta/' },
 		],
 		showRecentlyUpdated: true,
-		maxRecent: 3,
+		maxRecent: 4,
+		featuredOrder: [
+			'mortal-shell-ii/crashing-pc',
+			'mortal-shell-ii/skip-prologue',
+			'mortal-shell-ii/gloombound-flame',
+			'mortal-shell-ii/great-martyrs-blade',
+			'mortal-shell-ii/axatana',
+			'mortal-shell-ii/axe-dagger',
+		],
+		maxFeatured: 6,
 	},
 	categories: [
 		{

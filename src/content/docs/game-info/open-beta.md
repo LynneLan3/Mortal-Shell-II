@@ -68,7 +68,7 @@ For combat context around the named encounter, see the current [Magdalena Open B
 - The Open Beta is a limited preview of the opening hours, not an Early Access version of the complete campaign.
 - Official listings say **select progress** carries forward. They also say beta save progress will **not** carry over in full.
 
-Details about rewards, what resets, and skipping the Prologue belong on the dedicated [beta progress carry over](/mortal-shell-ii/beta-progress-carry-over/) page.
+Details about rewards, what resets, and skipping the Prologue belong on the dedicated [beta progress carry over](/mortal-shell-ii/beta-progress-carry-over/) page. Players who progressed **beyond Marrow Keep** during the beta can also use the optional [Prologue skip in the full game](/mortal-shell-ii/skip-prologue/) — see that guide for who qualifies, what the skip changes, and whether to skip.
 
 ## FAQ
 

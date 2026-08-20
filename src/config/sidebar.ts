@@ -11,9 +11,9 @@ function categoryHasGuides(categoryId: string) {
 export function sidebarFromCategories() {
 	return [...game.categories]
 		.sort((a, b) => a.order - b.order)
-		.filter((category) => categoryHasGuides(category.id))
+		.filter((category) => categoryHasGuides(category.contentDir ?? category.id))
 		.map((category) => ({
 			label: category.label,
-			items: [{ autogenerate: { directory: category.id } }],
+			items: [{ autogenerate: { directory: category.contentDir ?? category.id } }],
 		}));
 }

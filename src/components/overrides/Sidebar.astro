@@ -1,0 +1,32 @@
+---
+import MobileMenuFooter from 'virtual:starlight/components/MobileMenuFooter';
+import SidebarPersister from '@astrojs/starlight/components/SidebarPersister.astro';
+import SidebarSublist from '@astrojs/starlight/components/SidebarSublist.astro';
+import { categoryIdFromPath } from '../../lib/category-url';
+import { game } from '../../config/game';
+
+const { sidebar } = Astro.locals.starlightRoute;
+
+// Determine current category id
+const entryCategory = Astro.locals.starlightRoute.entry?.data?.category;
+const pathCategory = categoryIdFromPath(Astro.url.pathname);
+const currentCategoryId = entryCategory ?? pathCategory;
+
+// Filter sidebar to only the current category group
+const filteredSidebar = currentCategoryId
+	? sidebar.filter((entry) => {
+			if (entry.type === 'link') return false;
+			// Match group label to category label
+			const category = game.categories.find((c) => c.id === currentCategoryId);
+			return category ? entry.label === category.label : false;
+		})
+	: sidebar;
+---
+
+<SidebarPersister>
+	<SidebarSublist sublist={filteredSidebar} />
+</SidebarPersister>
+
+<div class="md:sl-hidden">
+	<MobileMenuFooter />
+</div>

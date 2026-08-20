@@ -39,6 +39,7 @@ export default defineConfig({
 				Footer: './src/components/overrides/Footer.astro',
 				SiteTitle: './src/components/overrides/SiteTitle.astro',
 				Header: './src/components/overrides/Header.astro',
+				Sidebar: './src/components/overrides/Sidebar.astro',
 			},
 		}),
 	sitemap({

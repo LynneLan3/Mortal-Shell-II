@@ -261,3 +261,87 @@ Decision: **UPDATE only.** URL preserved; no Night Mode / Call Forth the Night s
 As of 2026-08-20 08:50 CST, the **2026-08-20 21:00 Asia/Shanghai** Standard Edition unlock has **not** passed. The release-date / open-beta / homepage "released" switches were **not** applied. This section becomes applicable after the gate time.
 
 Intentional omissions this round: no new hotfix page, no Night Mode split, no beta-save-transfer reversal claims, no claim that Hotfix 2.0 fixes all crashes.
+
+## 2026-08-20 pre-launch full audit — official snapshot & system requirements check (09:23 CST / 01:23 UTC)
+
+Observed 2026-08-20 01:23 UTC. Gate still **pre-unlock** (Standard Edition unlocks 2026-08-20 13:00 UTC / 21:00 Asia/Shanghai).
+
+### Steam Store English live page (`https://store.steampowered.com/app/2584270/Mortal_Shell_II/`)
+
+| Fact | Observed value |
+| --- | --- |
+| Store state | **Pre-Purchase** / "Coming Aug 20, 2026 — This game plans to unlock in approximately 11 hours" |
+| Standard Edition | $49.99, not yet unlocked |
+| Advanced Access | "Advance Access On Now!" — Devout Edition $59.99 playable now |
+| Open Beta download | Still present ("Download Mortal Shell II - Open Beta") |
+| Release date | Aug 20, 2026 |
+| Reviews | Very Positive (1,465) — 86% |
+| New announcements | None beyond existing; no launch-day new build text observed |
+
+### Steam Community pinned topics (`https://steamcommunity.com/app/2584270/discussions/0/564785190210245507/`)
+
+- **PINNED: Hotfix 2.0 - Release Notes** (XBIGY) — still the newest hotfix; **no Hotfix 2.1 / 3.0 / Launch Patch / Known Issues pinned**
+- PINNED: Release Times!, The NEW Megathread for Hypebingers, How to Report a Bug!, [READ ME]
+- Active topic count grew 357 → 717 (between 08:50 and 09:23 CST)
+
+### System requirements — official vs site (CHANGE MADE)
+
+Steam English listing now publishes full Minimum CPU/GPU (observed 01:23 UTC):
+
+- OS: Windows 10 / 11
+- Processor: **Intel Core i7-10700K @ 3.8 GHz or better, or AMD Ryzen 5 3600 @ 3.6 GHz or better**
+- Memory: 16 GB RAM
+- Graphics: **NVIDIA GeForce RTX 2060 SUPER 8 GB, or AMD Radeon RX 6600 8 GB**
+- DirectX: Version 12
+- Storage: 70 GB available space
+- Additional Notes: **SSD required**
+
+Site page (`/mortal-shell-ii/system-requirements/`) previously listed only OS / RAM / DirectX / storage / SSD. **Updated 2026-08-20** to add official CPU and GPU rows, refresh `lastUpdated`, and point the crashing link at Hotfix 2.0. No Recommended table is published on Steam, so no Recommended values were invented (unchanged policy).
+
+Release-time cross-check: Gamepur / Gamerant / The Click all state 1:00 PM UTC worldwide (PDT 6:00 AM, EDT 9:00 AM, BST 2:00 PM, CEST 3:00 PM), matching the site's existing `release-date` guide. No conflicting locale spec found in the sources checked; no OFFICIAL SOURCE CONFLICT to resolve.
+
+### Section-3 copy consistency scan
+
+No conflicting release-status wording found across homepage / release-date / open-beta / beta-progress-carry-over / skip-prologue / crashing-pc / config / popular questions. Homepage stays pre-gate: "Advanced Access is live now. Standard Edition unlocks August 20 at 1:00 PM UTC."
+
+### §6 Steam community signals observed 2026-08-20 01:23 UTC
+
+From Steam Community General Discussions front page (717 active topics):
+
+| Signal | Classification |
+| --- | --- |
+| "When dev gonna address crashes that brick windows?" | A — existing `/crashing-pc/` covers launch crash reporting; extreme "brick windows" claim is one player report, WATCH (C) |
+| "Is there an expected path for progression?" | C — WATCH after Standard unlock |
+| "Сохранение игры исчезло..." (save game disappeared) | C — WATCH; save/load is a common launch-window concern |
+| "Whats the poitn of heavy weapons?" (balance) | C — WATCH |
+| "TF IS THIS FINAL BOSS" / "The Nameless Captive" | C — WATCH; boss content may become a candidate after unlock |
+| "Weird attack hitboxes/animation locks?" | C — WATCH |
+
+No signal met the new-page bar (multiple independent repeats + GSC/query evidence or a clear official mechanic demand). No new Guide created.
+
+### §25/§28 Post-unlock Release Switch checklist + Watchlist (prepared, NOT executed)
+
+These are prepared for the confirmed Steam Standard-Edition unlock (13:00 UTC), to be executed only after live Steam verification (Coming badge gone, pre-purchase → normal buy, store confirms playable).
+
+- `src/config/game.ts`: `tagline` + `description` from "Standard Edition unlocks August 20 at 1:00 PM UTC" → confirmed released state; re-rank `popularQuestions` if launch-troubleshooting queries strengthen.
+- `src/content/docs/index.mdx`: "Launch status" section from future tense → released tense.
+- `src/content/docs/game-info/release-date.md`: header/FAQ future-tense wording → "out now" / "released"; keep historical unlock-time rows.
+- `src/content/docs/game-info/open-beta.md`: re-check Steam Open Beta download entry; keep "still available" only if live, otherwise update Beta status.
+- `src/content/docs/game-info/beta-progress-carry-over.md` + `skip-prologue.md`: sweep "when the full game launches" wording after unlock.
+- Homepage recently-updated logic: auto-generated, leave untouched.
+
+Launch-day watchlist (observe 2–6h after unlock before deciding): save/load reports ("save game disappeared"), progression-path confusion, heavy-weapon balance discussions, final-boss / Nameless Captive demand, hitbox/animation-lock reports, stutter/performance. None met the new-page bar today.
+
+### §24 GSC data
+
+No fresh GSC snapshot exists in this repo. GSC EXTERNAL CHECK REQUIRED for crashing / hotfix / skip-prologue / gloombound / release / system-requirements queries after the user opens Search Console.
+
+### §29 QA records (2026-08-20 09:27 CST)
+
+- Build: 21 pages, Pagefind index built, sitemap-index.xml created; 0 errors.
+- Internal links: 0 broken, 0 placeholders, 0 `/undefined/`.
+- External official links: all 200 (Steam store/discussions, official site, Playstack, Open Beta store pages).
+- Desktop 1440×900: home / crashing / release / sysreq / skip / gloombound / beta / openbeta — 0 horizontal overflow, 0 broken images, 0 JS errors.
+- Mobile 390×844: same set — 0 overflow, 0 broken images, 0 JS errors; 4 zero-size links per page are collapsed mobile nav items (standard Starlight hamburger), not a defect.
+- Console: home / crashing / release / system-requirements — 0 uncaught errors, 0 asset 404.
+

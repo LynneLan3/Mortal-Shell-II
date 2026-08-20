@@ -21,6 +21,15 @@ export interface GamePortalConfig {
 	maxFeatured?: number;
 }
 
+export type AnalyticsProvider = 'ga4';
+
+export interface GameAnalyticsConfig {
+	enabled: true;
+	provider: AnalyticsProvider;
+	measurementId: string;
+	trackOutbound: boolean;
+}
+
 export interface GameConfig {
 	name: string;
 	shortName: string;
@@ -40,6 +49,7 @@ export interface GameConfig {
 	logoImage?: string;
 	categories: readonly GameCategory[];
 	portal?: GamePortalConfig;
+	analytics?: GameAnalyticsConfig;
 }
 
 export const game: GameConfig = {
@@ -87,6 +97,12 @@ export const game: GameConfig = {
 			'mortal-shell-ii/axe-dagger',
 		],
 		maxFeatured: 6,
+	},
+	analytics: {
+		enabled: true,
+		provider: 'ga4',
+		measurementId: 'G-1D66T98097',
+		trackOutbound: true,
 	},
 	categories: [
 		{

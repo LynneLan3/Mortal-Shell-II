@@ -23,13 +23,13 @@ const t = ui();
 		<div style="margin-top: 1.5rem;">
 			<div class="exp-fast-answers">
 				{answers.map((fa) => (
-					<div class="exp-fast-answer">
+					<a class="exp-fast-answer" href={fa.href}>
 						<span class="exp-fast-answer__q">{fa.question}</span>
-						<a class="exp-fast-answer__link exp-cta-link" href={fa.href}>
+						<span class="exp-fast-answer__link exp-cta-link">
 							{t.read} →
-						</a>
+						</span>
 						<span class="exp-fast-answer__a">{fa.answer}</span>
-					</div>
+					</a>
 				))}
 			</div>
 		</div>

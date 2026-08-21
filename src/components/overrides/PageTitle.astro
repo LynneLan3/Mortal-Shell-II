@@ -3,14 +3,19 @@ import Default from '@astrojs/starlight/components/PageTitle.astro';
 import GuideBreadcrumb from '../GuideBreadcrumb.astro';
 import GuideStatus from '../GuideStatus.astro';
 import QuickAnswer from '../QuickAnswer.astro';
+import ExperienceGuideHeader from '../experience/ExperienceGuideHeader.astro';
 import { isCategoryLandingPath } from '../../lib/guides';
+import { isExperienceGuide } from '../../lib/experience-guide';
 
 const { entry } = Astro.locals.starlightRoute;
 const isSplash = entry.data.template === 'splash';
 const isCategoryLanding = isCategoryLandingPath(Astro.url.pathname);
-const isArticle = !isSplash && !isCategoryLanding;
+const isExperience = isExperienceGuide(entry, Astro.url.pathname);
+const isArticle = !isSplash && !isCategoryLanding && !isExperience;
 const lastUpdated = entry.data.lastUpdated instanceof Date ? entry.data.lastUpdated : undefined;
 ---
+
+{isExperience && <ExperienceGuideHeader />}
 
 {
 	isArticle && (
@@ -28,7 +33,7 @@ const lastUpdated = entry.data.lastUpdated instanceof Date ? entry.data.lastUpda
 	)
 }
 
-{!isSplash && (
+{!isSplash && !isExperience && (
 	<Default>
 		<slot />
 	</Default>

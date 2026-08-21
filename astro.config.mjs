@@ -32,7 +32,11 @@ export default defineConfig({
 			...(game.logoImage
 				? { logo: { src: `./src/assets/${game.logoImage}`, alt: game.name } }
 				: {}),
-			customCss: ['./src/styles/custom.css'],
+			customCss: [
+				'./src/styles/custom.css',
+				'./src/styles/experience.css',
+				'./src/styles/experience-guide.css',
+			],
 			head: [
 				{
 					tag: 'style',
@@ -47,6 +51,10 @@ export default defineConfig({
 				Header: './src/components/overrides/Header.astro',
 				Head: './src/components/overrides/Head.astro',
 				Sidebar: './src/components/overrides/Sidebar.astro',
+				PageFrame: './src/components/overrides/PageFrame.astro',
+				PageSidebar: './src/components/overrides/PageSidebar.astro',
+				MarkdownContent: './src/components/overrides/MarkdownContent.astro',
+				TwoColumnContent: './src/components/overrides/TwoColumnContent.astro',
 			},
 		}),
 		sitemap({

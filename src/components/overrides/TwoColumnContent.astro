@@ -1,0 +1,21 @@
+---
+import Default from '@astrojs/starlight/components/TwoColumnContent.astro';
+import { isExperienceGuide } from '../../lib/experience-guide';
+
+const isExperience = isExperienceGuide(
+	Astro.locals.starlightRoute.entry,
+	Astro.url.pathname,
+);
+---
+
+{
+	isExperience ? (
+		<div class="main-pane">
+			<slot />
+		</div>
+	) : (
+		<Default>
+			<slot />
+		</Default>
+	)
+}

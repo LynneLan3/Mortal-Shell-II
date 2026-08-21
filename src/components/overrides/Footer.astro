@@ -1,12 +1,27 @@
 ---
 import Default from '@astrojs/starlight/components/Footer.astro';
 import RelatedGuides from '../RelatedGuides.astro';
+import GameShellFooter from '../experience/GameShellFooter.astro';
+import { game } from '../../config/game';
+import { isExperienceGuide } from '../../lib/experience-guide';
+import { experienceNav } from '../../lib/experience-nav';
 
 const isSplash = Astro.locals.starlightRoute.entry.data.template === 'splash';
+const isExperience = isExperienceGuide(
+	Astro.locals.starlightRoute.entry,
+	Astro.url.pathname,
+);
+const { footerLinks } = experienceNav();
 ---
 
 {!isSplash && <RelatedGuides />}
 
-<Default>
-	<slot />
-</Default>
+{
+	isExperience ? (
+		<GameShellFooter footerLinks={footerLinks} siteTitle={game.shortName} />
+	) : (
+		<Default>
+			<slot />
+		</Default>
+	)
+}

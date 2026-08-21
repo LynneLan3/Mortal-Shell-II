@@ -9,8 +9,9 @@
  */
 import RouteFastAnswers from './RouteFastAnswers.astro';
 import RouteTimeline from './RouteTimeline.astro';
-import { assetUrl } from './asset-url';
+import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
+import { resolveGameAsset } from '../../../lib/assets';
 import type { GameRoute } from '../../../config/game';
 
 interface Props {
@@ -23,15 +24,25 @@ const t = ui();
 const routeIndex = routes.findIndex((r) => r.id === route.id);
 const number = String(routeIndex >= 0 ? routeIndex + 1 : routes.length + 1).padStart(2, '0');
 const otherRoutes = routes.filter((r) => r.id !== route.id);
-const visualUrl = assetUrl(route.visual);
+const visualAsset = resolveGameAsset(route.visual, 'route.visual');
 ---
 
 <section
 	class:list={['exp-route-hero', !route.visual && 'exp-route-hero--content-only']}
 >
-	{route.visual && visualUrl && (
+	{visualAsset && (
 		<div class="exp-route-hero__visual">
-			<img src={visualUrl} alt={`${route.title} route visual`} />
+			<Image
+				src={visualAsset}
+				alt={`${route.title} route visual`}
+				width={1920}
+				height={1080}
+				widths={[640, 960, 1280, 1920]}
+				sizes="100vw"
+				loading="eager"
+				fetchpriority="high"
+				decoding="async"
+			/>
 		</div>
 	)}
 	<div class="exp-route-hero__inner">

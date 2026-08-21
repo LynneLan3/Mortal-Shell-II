@@ -6,8 +6,9 @@
  * sorting). Each step shows number, optional eyebrow, title, description,
  * optional image (only when the data provides one), and href.
  */
-import { assetUrl } from './asset-url';
+import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
+import { resolveGameAsset } from '../../../lib/assets';
 import type { GameRoutePage } from '../../../config/game';
 
 interface Props {
@@ -20,7 +21,7 @@ const t = ui();
 
 <div class="exp-route-guide-grid">
 	{pages.map((page, index) => {
-		const imageUrl = assetUrl(page.image);
+		const image = resolveGameAsset(page.image, 'route.page.image');
 		return (
 			<a class="exp-route-step" href={page.href}>
 				<span class="exp-number exp-number--md exp-route-step__number">
@@ -32,9 +33,18 @@ const t = ui();
 					<span class="exp-route-step__desc">{page.description}</span>
 					<span class="exp-cta-link exp-route-step__cta">{t.readGuide}</span>
 				</div>
-				{page.image && imageUrl && (
+				{image && (
 					<div class="exp-route-step__visual">
-						<img src={imageUrl} alt={`${page.title} preview`} />
+						<Image
+							src={image}
+							alt={`${page.title} preview`}
+							width={640}
+							height={400}
+							widths={[480, 640, 960]}
+							sizes="(min-width: 58rem) 22rem, 100vw"
+							loading="lazy"
+							decoding="async"
+						/>
 					</div>
 				)}
 			</a>

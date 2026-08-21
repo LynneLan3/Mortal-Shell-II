@@ -5,8 +5,9 @@
  * Route is a player path, not a Category. This card summarizes the Route and
  * previews its ordered guide membership without expanding into a taxonomy tree.
  */
-import { assetUrl } from './asset-url';
+import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
+import { resolveGameAsset } from '../../../lib/assets';
 import type { GameRoute } from '../../../config/game';
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 
 const { route, number, variant = 'topic' } = Astro.props;
 const t = ui();
-const visualUrl = assetUrl(route.visual);
+const visualAsset = resolveGameAsset(route.visual, 'route.visual');
 const previewPages = route.pages.slice(0, 3);
 ---
 
@@ -25,13 +26,22 @@ const previewPages = route.pages.slice(0, 3);
 	class:list={[
 		'exp-route-topic-card',
 		`exp-route-topic-card--${variant}`,
-		!visualUrl && 'exp-route-topic-card--text',
+		!visualAsset && 'exp-route-topic-card--text',
 	]}
 	href={route.href}
 >
-	{visualUrl && (
+	{visualAsset && (
 		<div class="exp-route-topic-card__visual">
-			<img src={visualUrl} alt={`${route.title} route visual`} />
+			<Image
+				src={visualAsset}
+				alt={`${route.title} route visual`}
+				width={960}
+				height={540}
+				widths={[480, 800, 1200, 1600]}
+				sizes="(min-width: 50rem) 50vw, 100vw"
+				loading="lazy"
+				decoding="async"
+			/>
 		</div>
 	)}
 	<div class="exp-route-topic-card__body">

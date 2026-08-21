@@ -1,0 +1,24 @@
+---
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import { isExperienceGuide } from '../../lib/experience-guide';
+
+const isExperience = isExperienceGuide(
+	Astro.locals.starlightRoute.entry,
+	Astro.url.pathname,
+);
+---
+
+{
+	isExperience ? (
+		<>
+			<slot name="header" />
+			<div class="exp-guide-frame">
+				<slot />
+			</div>
+		</>
+	) : (
+		<Default>
+			<slot />
+		</Default>
+	)
+}

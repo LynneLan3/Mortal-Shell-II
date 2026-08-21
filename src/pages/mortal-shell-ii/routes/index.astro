@@ -1,0 +1,29 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import RouteTaskMap from '../../../components/experience/routes/RouteTaskMap.astro';
+import { game } from '../../../config/game';
+import { ui } from '../../../lib/ui';
+import { experienceNav } from '../../../lib/experience-nav';
+import '../../../styles/routes.css';
+
+const t = ui();
+const { nav, footerLinks, homeHref, routesHref } = experienceNav();
+const routes = game.routes ?? [];
+---
+
+<GameShell
+	title={`${t.routesNav} | ${game.shortName}`}
+	description={t.chooseWhatYoureTryingLede}
+	canonical={new URL(routesHref, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={routesHref}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<meta slot="head" name="robots" content="noindex,follow" />
+	<RouteTaskMap routes={routes} />
+</GameShell>

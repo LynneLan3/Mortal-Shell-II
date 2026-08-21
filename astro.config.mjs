@@ -14,6 +14,12 @@ function isCategoryLandingUrl(page) {
 	});
 }
 
+function isNoindexUtilityUrl(page) {
+	const path = new URL(page).pathname.replace(/\/+$/, '') || '/';
+	const hub = game.hubPath.replace(/\/+$/, '') || '/';
+	return path === `${hub}/guides` || path === `${hub}/routes` || path.startsWith(`${hub}/routes/`);
+}
+
 // https://astro.build/config
 export default defineConfig({
 	site: game.siteUrl,
@@ -43,8 +49,11 @@ export default defineConfig({
 				Sidebar: './src/components/overrides/Sidebar.astro',
 			},
 		}),
-	sitemap({
-			filter: (page) => !isCategoryLandingUrl(page) && (new URL(page).pathname.replace(/\/+$/, '') || '/') !== '/',
+		sitemap({
+			filter: (page) =>
+				!isCategoryLandingUrl(page) &&
+				!isNoindexUtilityUrl(page) &&
+				(new URL(page).pathname.replace(/\/+$/, '') || '/') !== '/',
 		}),
 	],
 });

@@ -1,0 +1,25 @@
+---
+import GameShell from '../../components/experience/GameShell.astro';
+import ExperienceHomepage from '../../components/experience/ExperienceHomepage.astro';
+import { game } from '../../config/game';
+import { experienceNav } from '../../lib/experience-nav';
+import '../../styles/experience-homepage.css';
+
+const { nav, footerLinks, homeHref } = experienceNav();
+---
+
+<GameShell
+	title={`${game.hubTitle ?? game.title} | ${game.shortName}`}
+	description={game.description}
+	canonical={new URL(game.hubPath, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={game.hubPath}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<ExperienceHomepage />
+</GameShell>

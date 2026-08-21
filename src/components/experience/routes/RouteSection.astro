@@ -1,0 +1,52 @@
+---
+/**
+ * One route section inside the Guides Index.
+ *
+ * `visual` is optional. When absent, a content-only variant renders with no
+ * image slot, no placeholder, and no broken-image state. The guide list keeps
+ * the route's configured page order.
+ */
+import { assetUrl } from './asset-url';
+import { ui } from '../../../lib/ui';
+import type { GameRoute } from '../../../config/game';
+
+interface Props {
+	route: GameRoute;
+	number: string;
+}
+
+const { route, number } = Astro.props;
+const t = ui();
+const visualUrl = assetUrl(route.visual);
+---
+
+<div
+	class:list={['exp-route-section', !visualUrl && 'exp-route-section--content-only']}
+>
+	<div class="exp-route-section__inner">
+		{visualUrl && (
+			<div class="exp-route-section__visual">
+				<img src={visualUrl} alt={`${route.title} route visual`} />
+				<span class="exp-number exp-number--watermark">{number}</span>
+			</div>
+		)}
+		<div class="exp-route-section__content">
+			<div class="exp-route-section__head">
+				<span class="exp-number exp-number--md">{number}</span>
+				<span class="exp-route-section__label">{route.title}</span>
+			</div>
+			<p class="exp-route-section__desc">{route.description}</p>
+			<div class="exp-route-section__guides">
+				{route.pages.map((page) => (
+					<a class="exp-route-section__guide-link" href={page.href}>
+						{page.title}
+						<span class="exp-route-section__guide-arrow" aria-hidden="true">→</span>
+					</a>
+				))}
+			</div>
+			<a class="exp-cta-link" href={route.href}>
+				{t.openRoute(route.title)}
+			</a>
+		</div>
+	</div>
+</div>

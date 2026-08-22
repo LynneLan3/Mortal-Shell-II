@@ -13,7 +13,7 @@ sidebar:
   label: PC Crashes & Hotfix 2.0
   order: 2
   badge: Launch
-lastUpdated: 2026-08-20
+lastUpdated: 2026-08-22
 ---
 
 ## Is Mortal Shell 2 crashing after launch?
@@ -21,6 +21,17 @@ lastUpdated: 2026-08-20
 **Some PC players are still reporting crashes during the launch window**, even after **Hotfix 2.0** (released **August 19, 2026**). Cold Symmetry told press before launch that more crash work shipped for release, but crashes were not promised to be fully solved. If the game closes, freezes, or locks up, start with the Hotfix steps below. If it crashes specifically when you open **Keyboard Bindings**, use the developer workaround in that section.
 
 See [PC system requirements](/mortal-shell-ii/system-requirements/) for hardware context and [release date / Advanced Access status](/mortal-shell-ii/release-date/) for the current launch build.
+
+## What to do first when Mortal Shell 2 crashes on PC
+
+Use this short route before trying broad or risky system changes:
+
+1. **Update the game, restart Steam, and relaunch.** Confirm Steam has no pending Mortal Shell II download, then retest the exact action that caused the crash.
+2. **Match the symptom to the fix below.** Use the Keyboard Bindings workaround only for that settings-menu crash. For loading, death, respawn, fast-travel, or beacon-loading crashes, test Frame Generation off.
+3. **If the crash is random or happens in a menu, dialogue, tarstone screen, or cutscene,** record the trigger and your GPU/driver details before reporting it. These reports do not establish a root cause by themselves.
+4. **If the problem continues,** verify Steam files, check the graphics driver, and file a report with the exact scenario and whether Frame Generation was enabled.
+
+The fixes below are separated by evidence level: Hotfix 2.0 items are official patch notes, the Keyboard Bindings file reset is an official temporary workaround, and Frame Generation off is a community-reported test rather than a confirmed fix.
 
 ## What does Hotfix 2.0 fix?
 
@@ -57,16 +68,16 @@ On **August 17, 2026 at 4:35 PM PDT**, developer **XBIGY** posted [**Hotfix 1.0 
 
 Steam does not expose a simple public build number in the Hotfix posts, so the practical check is: **no pending update + a clean relaunch**.
 
-## Current crash reports at a glance
+## Crash scenarios and the next fix
 
 | Issue | Current status | What to try |
 | --- | --- | --- |
-| General launch crashes | Hotfix 2.0 released on Steam (Aug 19); Hotfix 1.0 earlier | Update game first, then restart Steam |
+| General launch crashes | Hotfix 2.0 released on Steam (Aug 19); Hotfix 1.0 earlier | Update game, restart Steam, then retest |
 | Slayer Seal beacon-menu UI lock | **Fixed in Hotfix 2.0** (official) | Update to Hotfix 2.0 and retest equipping the seal |
 | Riposte enemy-weapon steal | **Fixed in Hotfix 2.0** (official) | Update to Hotfix 2.0 and retest riposte |
 | Keyboard Bindings menu crash | Developer acknowledged; not named in Hotfix 2.0 | Official temporary settings-file workaround |
-| Loading / fast travel / beacon loading crash | Still player-reported after Hotfix 2.0 | Update, then test with Frame Generation off |
-| Random gameplay or menu crash | Still player-reported after Hotfix 2.0 | Update, note when it happens, file a bug report |
+| Loading, death, respawn, fast travel, or beacon-loading crash | Still player-reported after Hotfix 2.0 | Update, then test with Frame Generation off |
+| Random gameplay, dialogue, menu, tarstone, or cutscene crash | Still player-reported after Hotfix 2.0 | Capture the trigger and file a bug report |
 | Lost Gloom after a crash | Limited player reports; no official recovery | Spend Gloom before risky fights; report if reproducible |
 
 This table reflects **launch-window player reports and official developer posts**. Only the Slayer Seal beacon-menu fix, the riposte fix, and the Keyboard Bindings row are named Cold Symmetry issues; the other rows are not a full known-issues list.
@@ -107,7 +118,7 @@ These are the two files specifically named by the developer workaround. Cold Sym
 
 Cold Symmetry is working on a proper fix, so this section should be revisited when the next hotfix lands.
 
-## Mortal Shell 2 crashing after death or respawn
+## Why does Mortal Shell 2 crash on loading, after death, or during fast travel?
 
 **Confirmed observation:** multiple Advanced Access players report crashes on **loading screens** — after death, during map changes, fast travel, and beacon loading.
 
@@ -122,9 +133,13 @@ Cold Symmetry has **not** named a dedicated respawn bug. Treat death-to-beacon c
 Launch-window Hotfix replies tie crashes to **DLSS Frame Generation** (“Seems to be when DLSS Frame gen is turned on”; “with frame gen the game crash again”). Others suggested testing without DLSS after post-hotfix crashes. Worth a **low-risk test**, not a guarantee.
 Launch-window PC coverage confirms **Frame Generation** is its own graphics option, separate from **Resolution Upscaler** (FSR) ([Destructoid](https://www.destructoid.com/best-mortal-shell-2-graphics-settings-for-no-lag-and-max-fps/), August 17). In PC **graphics settings**, set **Frame Generation → Off**. Leave upscaler settings alone unless you are testing them separately.
 
-## Mortal Shell 2 random crashes
+Retest the same transition after changing the setting: launch, death-to-respawn, map change, fast travel, or beacon loading. If the crash still occurs with Frame Generation off, record the exact transition rather than treating the test as proof of a different cause.
+
+## Why does Mortal Shell 2 crash randomly in gameplay or menus?
 
 Players still report crashes during dialogue, menus or tarstone screens (some with full PC lockups), after many stable hours, and during cutscenes. These are **symptoms**, not confirmed root causes — do not assume VRAM, DX12, drivers, or memory leaks without evidence for your PC.
+
+For this pattern, first confirm the current Steam build and reproduce once with the same sequence. Note whether it happens in gameplay, dialogue, a menu, a tarstone screen, or a cutscene; whether the whole PC locks up; and whether Frame Generation was enabled. Use those details in the bug report instead of applying unsupported registry edits, DLL downloads, or cache deletion.
 
 ## Can a crash make you lose Gloom?
 
@@ -134,14 +149,11 @@ Players still report crashes during dialogue, menus or tarstone screens (some wi
 
 ## Mortal Shell 2 crash troubleshooting checklist
 
-1. **Update Mortal Shell II** — Hotfix 2.0 / latest Steam build.
-2. **Restart Steam and the game.**
-3. **Re-test the exact crash scenario.**
-   If the game crashes specifically when opening Keyboard Bindings: use the developer's Keyboard Bindings workaround above.
-4. **If loading crashes continue, try Frame Generation off** — community workaround only.
-5. **Verify Steam game files** — standard troubleshooting, not proven for a specific Mortal Shell II crash.
-6. **Update your graphics driver** — Cold Symmetry’s pre-launch Q&A asked players to check drivers and settings.
-7. **Report the crash** — [Bug Reports subforum](https://steamcommunity.com/app/2584270/discussions/3/) per the pinned [How to Report a Bug!](https://steamcommunity.com/app/2584270/discussions/0/418424310691110842/) post. Note when it happens, your GPU/driver, and whether Frame Generation was on. Reply on the [Hotfix 2.0 / Hotfix 1.0 thread](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/) if still broken.
+1. **Patch gate:** install Hotfix 2.0 / the latest Steam build, restart Steam, and relaunch.
+2. **Scenario gate:** reproduce the exact crash once. For Keyboard Bindings, use the developer workaround above; for loading, death, respawn, fast travel, or beacon loading, test Frame Generation off.
+3. **Standard checks:** verify Steam game files and update the graphics driver. These are general troubleshooting steps, not proven fixes for a specific Mortal Shell II crash.
+4. **Evidence gate:** record the trigger, location or menu, whether the PC fully locked up, your GPU and driver, and whether Frame Generation was enabled.
+5. **Report:** use the [Bug Reports subforum](https://steamcommunity.com/app/2584270/discussions/3/) and follow the pinned [How to Report a Bug!](https://steamcommunity.com/app/2584270/discussions/0/418424310691110842/) post. If a Hotfix 2.0 issue remains broken, also reply on the [Hotfix 2.0 / Hotfix 1.0 thread](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/).
 
 This page **does not** recommend Open Beta workarounds such as `-dx11`, registry edits, DLL downloads, DDU, disabling security software, or deleting AppData/shader caches unless Cold Symmetry documents them for the **current launch build**.
 

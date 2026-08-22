@@ -1,0 +1,34 @@
+intervention_id: "2026-08-22-mortal-shell-ii-update-crashing-pc-002"
+decision_id: "2026-08-22|Mortal Shell II|CONTENT_OPTIMIZE|gsc-decision-v1.0"
+site_id: "mortal-shell-ii"
+lifecycle: GROWTH
+action: UPDATE_PAGE
+url: "/mortal-shell-ii/crashing-pc/"
+
+change_summary:
+  modified_files:
+    - "src/content/docs/pc-requirements/crashing-pc.md"
+  added:
+    - "Front-loaded a first-response troubleshooting route for update, scenario matching, evidence capture, and reporting."
+    - "Expanded existing loading, death, respawn, fast-travel, beacon-loading, and random-crash query wording."
+    - "Clarified official fixes, the official Keyboard Bindings workaround, and the community-only Frame Generation test."
+  removed:
+    - "Replaced the former generic crash-report table labels with scenario-specific labels."
+    - "Replaced the former seven-step flat checklist with five evidence-gated steps."
+  structure:
+    - "Renamed the loading/respawn and random-crash sections with query-shaped headings and added scenario-specific retest instructions."
+    - "Reorganized the checklist into patch, scenario, standard-check, evidence, and report gates."
+    - "Kept the existing page slug, page positioning, related links, and source boundaries."
+
+reason: >
+  Improve crashing-related query coverage and user usefulness on the existing
+  intent-owning page without fragmenting the cluster or changing site
+  architecture.
+
+implementation_reference:
+  repository: "LynneLan3/Mortal-Shell-II"
+  branch: "main"
+  commit_message: "feat: update mortal shell ii crashing guide intervention"
+  page_file: "src/content/docs/pc-requirements/crashing-pc.md"
+
+# Outcome intentionally omitted. It will be created only after the D7/D14/D30 observation window.

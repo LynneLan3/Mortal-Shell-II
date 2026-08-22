@@ -101,6 +101,8 @@ The known Proxima route also shows why Shell locations should be tracked separat
 
 For the wider travel system, see the [Beacon locations and fast travel guide](/mortal-shell-ii/beacons-fast-travel/). For weapon routes that pass through the same broad region, see the [Great Martyr's Blade](/mortal-shell-ii/great-martyrs-blade/) and [Axatana](/mortal-shell-ii/axatana/) guides.
 
+For specific Shell unlock routes, see [Sester Genessa](/mortal-shell-ii/sester-genessa/) and [Eredrim](/mortal-shell-ii/eredrim/). These pages keep character-specific location intent separate from this page's incomplete roster boundary.
+
 ## What this page does not claim
 
 The following items remain outside the current verified scope:

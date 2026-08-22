@@ -9,8 +9,8 @@
  * absent.
  *
  * Section order:
- *   Hero → Status Strip → Choose Your Route → Start Here →
- *   Popular Questions → Featured → Field Notes → Recently Updated →
+ *   Hero → Status Strip → Hot Launch Guides → Choose Your Route →
+ *   Start Here → Popular Questions → Field Notes → Recently Updated →
  *   Evidence → About (id="about")
  */
 import { Image } from 'astro:assets';
@@ -20,7 +20,6 @@ import { getGuides, guideHref, categoryOf } from '../../lib/guides';
 import {
 	deriveRecentViews,
 	fieldNotesFrom,
-	findFeaturedGuide,
 	hasGuideCover,
 } from '../../lib/experience-homepage';
 import { experienceNav } from '../../lib/experience-nav';
@@ -60,12 +59,24 @@ const startHere: StartHereView[] = configuredStartHere?.length
 			label: item.label,
 			badge: item.badge,
 		}))
+		: [];
+
+/* ── Hot Launch Guides ── */
+const configuredHotGuides = game.portal?.hotGuides;
+const hotGuides: StartHereView[] = configuredHotGuides?.length
+	? configuredHotGuides.slice(0, 6).map((item) => ({
+			title: item.title,
+			description: item.description,
+			href: item.href,
+			label: item.label,
+			badge: item.badge,
+		}))
 	: [];
 
 /* ── Hero CTAs ── */
 const configuredPrimary = game.portal?.primaryCta;
 const primaryCta =
-	configuredPrimary && !configuredPrimary.href.startsWith('#')
+	configuredPrimary
 		? { label: configuredPrimary.label, href: configuredPrimary.href }
 		: startHere[0]
 			? { label: configuredPrimary?.label ?? t.startHere, href: startHere[0].href }
@@ -120,28 +131,21 @@ const singleRouteStartGuides = singleRoute?.pages ?? [];
 /* ── Popular Questions ── */
 const popularQuestions = game.portal?.popularQuestions ?? [];
 
-/* ── Featured ── */
-const featured = findFeaturedGuide(guides);
-const featuredHref = featured ? guideHref(featured) : undefined;
-const configuredFeaturedVisual = game.portal?.featuredVisual;
-const configuredFeaturedImage = configuredFeaturedVisual
-	? resolveGameAsset(configuredFeaturedVisual.image, 'game.portal.featuredVisual.image')
-	: undefined;
-const featuredImage = featured?.data.cover ?? configuredFeaturedImage;
-const featuredImageAlt = featured?.data.cover
-	? featured.data.title
-	: (configuredFeaturedVisual?.alt ?? featured?.data.title);
-const featuredHasCover = Boolean(featuredImage);
-const featuredEyebrow =
-	featured?.data.eyebrow ?? (featured ? categoryOf(featured)?.label : undefined) ?? t.featuredEyebrow;
-
 /* ── Field Notes ── */
 const startHereHrefs = new Set(startHere.map((item) => item.href));
-const fieldNotes = fieldNotesFrom(guides, {
-	excludeHrefs: startHereHrefs,
-	excludeFeaturedHref: featuredHref,
-	limit: 3,
-});
+const hotGuideHrefs = new Set(hotGuides.map((item) => item.href));
+const fieldNoteOrder = game.portal?.fieldNoteOrder ?? [];
+const curatedFieldNotes = fieldNoteOrder
+	.map((href) => guides.find((entry) => guideHref(entry) === href))
+	.filter((entry): entry is (typeof guides)[number] => Boolean(entry))
+	.filter((entry) => !hotGuideHrefs.has(guideHref(entry)))
+	.slice(0, 3);
+const fieldNotes = curatedFieldNotes.length > 0
+	? curatedFieldNotes
+	: fieldNotesFrom(guides, {
+			excludeHrefs: new Set([...startHereHrefs, ...hotGuideHrefs]),
+			limit: 3,
+		});
 const firstNoteWithCover = fieldNotes.find(hasGuideCover);
 
 /* ── Evidence ── */
@@ -235,7 +239,33 @@ const factIcon = (label: string): IconName => {
 )}
 
 <div class="exp-home-flow">
-	<!-- 03 ROUTES / PRIMARY PATH -->
+	<!-- 03 HOT LAUNCH GUIDES -->
+	{hotGuides.length > 0 && (
+		<section class="exp-section exp-home-hot" id="hot-guides" aria-labelledby="exp-home-hot-heading">
+			<div class="exp-content">
+				<p class="exp-eyebrow">Live coverage</p>
+				<h2 class="exp-h2" id="exp-home-hot-heading">Hot Launch Guides</h2>
+				<p class="exp-lede">
+					Start with the current progression blockers, unlock routes, and endgame questions players are most likely to hit after launch.
+				</p>
+				<div class="exp-hot-grid">
+					{hotGuides.map((item, index) => (
+						<a class="exp-hot-card" href={item.href}>
+							<div class="exp-hot-card__meta">
+								<span class="exp-hot-card__number">{String(index + 1).padStart(2, '0')}</span>
+								<span class="exp-hot-card__badge">{item.badge ?? 'Guide'}</span>
+							</div>
+							<span class="exp-hot-card__title">{item.title}</span>
+							<span class="exp-hot-card__desc">{item.description}</span>
+							<span class="exp-hot-card__cta">Read guide <span aria-hidden="true">→</span></span>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	)}
+
+	<!-- 04 ROUTES / PRIMARY PATH -->
 	{routes.length > 1 && <ExperienceRouteShowcase routes={routes} />}
 
 	{singleRoute && (
@@ -263,7 +293,7 @@ const factIcon = (label: string): IconName => {
 		</section>
 	)}
 
-	<!-- 04 START HERE -->
+	<!-- 05 START HERE -->
 	{!singleRoute && startHere.length > 0 && (
 		<>
 			<section class="exp-section exp-home-start" aria-labelledby="exp-home-start-heading">
@@ -290,7 +320,7 @@ const factIcon = (label: string): IconName => {
 		</>
 	)}
 
-	<!-- 05 POPULAR QUESTIONS -->
+	<!-- 06 POPULAR QUESTIONS -->
 	{popularQuestions.length > 0 && (
 		<section class="exp-section exp-section--tinted exp-home-questions" aria-labelledby="exp-home-questions-heading">
 			<div class="exp-content">
@@ -310,36 +340,6 @@ const factIcon = (label: string): IconName => {
 							<span class="exp-question__cta">{t.readGuide}</span>
 						</a>
 					))}
-				</div>
-			</div>
-		</section>
-	)}
-
-	<!-- 06 FEATURED -->
-	{featured && featuredHref && (
-		<section class="exp-section exp-home-featured" aria-labelledby="exp-home-featured-heading">
-			<div class="exp-wide">
-				<div class:list={['exp-featured', !featuredHasCover && 'exp-featured--content-only']}>
-					{featuredImage && (
-						<a class="exp-featured__image" href={featuredHref}>
-							<Image
-								src={featuredImage}
-								alt={featuredImageAlt ?? featured.data.title}
-								width={1920}
-								height={620}
-								sizes="(min-width: 50rem) 55vw, 100vw"
-								loading="lazy"
-							/>
-						</a>
-					)}
-					<div class="exp-featured__copy">
-						<span class="exp-eyebrow">{featuredEyebrow}</span>
-						<h2 class="exp-h2" id="exp-home-featured-heading">{featured.data.title}</h2>
-						<p class="exp-lede">{featured.data.description}</p>
-						<a class="exp-cta-link" href={featuredHref}>
-							{t.readGuide}
-						</a>
-					</div>
 				</div>
 			</div>
 		</section>

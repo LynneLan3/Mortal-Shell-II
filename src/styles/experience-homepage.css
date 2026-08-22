@@ -218,6 +218,128 @@
 }
 
 /* ═══════════════════════════════════════════════════
+   HOT LAUNCH GUIDES (curated post-release priorities)
+   ═══════════════════════════════════════════════════ */
+
+.exp-home-hot {
+	padding-block: 3.75rem 4.25rem;
+	background:
+		radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--xp-accent) 11%, transparent), transparent 34rem),
+		color-mix(in srgb, var(--xp-surface-dark) 28%, transparent);
+}
+
+@media (max-width: 49.99rem) {
+	.exp-home-hot { padding-block: 2.75rem 3rem; }
+}
+
+.exp-hot-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.85rem;
+	margin-top: 2rem;
+}
+
+@media (min-width: 38rem) {
+	.exp-hot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 70rem) {
+	.exp-hot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.exp-hot-card {
+	position: relative;
+	display: grid;
+	gap: 0.7rem;
+	min-height: 12.5rem;
+	padding: 1.25rem 1.35rem 1.15rem;
+	border: 1px solid var(--xp-border);
+	background:
+		linear-gradient(145deg, color-mix(in srgb, var(--xp-surface) 62%, transparent), transparent 75%),
+		color-mix(in srgb, var(--xp-bg) 62%, transparent);
+	text-decoration: none;
+	color: inherit;
+	transition: border-color 150ms, background 150ms, transform 150ms, box-shadow 150ms;
+}
+
+.exp-hot-card::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 2.5rem;
+	height: 2px;
+	background: var(--xp-accent);
+	opacity: 0.7;
+	transition: width 150ms;
+}
+
+.exp-hot-card:hover,
+.exp-hot-card:focus-visible {
+	border-color: color-mix(in srgb, var(--xp-accent) 64%, var(--xp-border));
+	background:
+		linear-gradient(145deg, color-mix(in srgb, var(--xp-accent) 15%, var(--xp-surface)), transparent 80%),
+		color-mix(in srgb, var(--xp-bg) 48%, transparent);
+	box-shadow: 0 0.8rem 2rem color-mix(in srgb, #000 24%, transparent);
+	transform: translateY(-2px);
+	outline: none;
+}
+
+.exp-hot-card:hover::after,
+.exp-hot-card:focus-visible::after { width: 5rem; }
+
+.exp-hot-card:focus-visible {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-accent) 22%, transparent), 0 0.8rem 2rem color-mix(in srgb, #000 24%, transparent);
+}
+
+.exp-hot-card__meta {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.exp-hot-card__number {
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.16em;
+	color: var(--xp-accent-text);
+}
+
+.exp-hot-card__badge {
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--xp-text-dim);
+}
+
+.exp-hot-card__title {
+	font-size: clamp(1.12rem, 2vw, 1.32rem);
+	font-weight: 760;
+	letter-spacing: -0.02em;
+	color: var(--xp-text-bright);
+	transition: color 150ms;
+}
+
+.exp-hot-card:hover .exp-hot-card__title,
+.exp-hot-card:focus-visible .exp-hot-card__title { color: var(--xp-accent-text); }
+
+.exp-hot-card__desc {
+	font-size: var(--xp-text-sm);
+	line-height: 1.5;
+	color: var(--xp-text-muted);
+}
+
+.exp-hot-card__cta {
+	align-self: end;
+	margin-top: 0.2rem;
+	font-size: var(--xp-text-sm);
+	font-weight: 700;
+	color: var(--xp-accent-text);
+}
+
+/* ═══════════════════════════════════════════════════
    CHOOSE YOUR ROUTE (interleaved editorial)
    ═══════════════════════════════════════════════════ */
 

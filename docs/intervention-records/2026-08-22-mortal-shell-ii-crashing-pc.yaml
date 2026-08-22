@@ -31,4 +31,20 @@ implementation_reference:
   commit_message: "feat: update mortal shell ii crashing guide intervention"
   page_file: "src/content/docs/pc-requirements/crashing-pc.md"
 
+deployed_at: "2026-08-22T10:44:45Z"
+
+outcome_baseline:
+  established_at: "2026-08-22T10:44:45Z"
+  observation_horizons:
+    - D7
+    - D14
+    - D30
+  primary_metrics:
+    - clicks
+    - impressions
+    - CTR
+    - average position
+  secondary_metrics:
+    - crashing-related queries
+
 # Outcome intentionally omitted. It will be created only after the D7/D14/D30 observation window.

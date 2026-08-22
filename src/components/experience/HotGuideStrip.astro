@@ -1,0 +1,125 @@
+---
+import type { GameHubStartHereItem } from '../../config/game';
+
+interface Props {
+	items: readonly GameHubStartHereItem[];
+	heading?: string;
+	lede?: string;
+	eyebrow?: string;
+}
+
+const {
+	items,
+	heading = 'Hot Launch Guides',
+	lede = 'The fastest way into the current launch coverage.',
+	eyebrow = 'Hot window',
+} = Astro.props;
+---
+
+{items.length > 0 && (
+	<section class="exp-hot-strip" id="hot-guides" aria-labelledby="exp-hot-strip-heading">
+		<div class="exp-content">
+			<p class="exp-eyebrow">{eyebrow}</p>
+			<h2 class="exp-h2" id="exp-hot-strip-heading">{heading}</h2>
+			<p class="exp-lede">{lede}</p>
+			<div class="exp-hot-strip__grid">
+				{items.map((item, index) => (
+					<a class="exp-hot-strip__card" href={item.href}>
+						<div class="exp-hot-strip__meta">
+							<span>{String(index + 1).padStart(2, '0')}</span>
+							<span>{item.badge ?? 'Guide'}</span>
+						</div>
+						<span class="exp-hot-strip__title">{item.title}</span>
+						<span class="exp-hot-strip__desc">{item.description}</span>
+						<span class="exp-hot-strip__cta">Read guide <span aria-hidden="true">→</span></span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+)}
+
+<style>
+	.exp-hot-strip {
+		padding-block: 2.75rem 3.5rem;
+		border-bottom: 1px solid color-mix(in srgb, var(--game-accent, #7c3aed) 22%, var(--sl-color-hairline, #27303a));
+		background:
+			radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--game-accent, #7c3aed) 12%, transparent), transparent 32rem),
+			color-mix(in srgb, var(--sl-color-bg, #0f1219) 88%, #000);
+	}
+
+	.exp-hot-strip__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+		margin-top: 1.75rem;
+	}
+
+	@media (min-width: 38rem) {
+		.exp-hot-strip__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+
+	@media (min-width: 70rem) {
+		.exp-hot-strip__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+
+	.exp-hot-strip__card {
+		display: grid;
+		gap: 0.55rem;
+		min-height: 9.5rem;
+		padding: 1rem 1.1rem;
+		border: 1px solid color-mix(in srgb, var(--sl-color-hairline, #27303a) 88%, transparent);
+		background: color-mix(in srgb, var(--sl-color-gray-6, #1a1f28) 66%, transparent);
+		text-decoration: none;
+		transition: border-color 150ms, background 150ms, transform 150ms;
+	}
+
+	.exp-hot-strip__card:hover,
+	.exp-hot-strip__card:focus-visible {
+		border-color: color-mix(in srgb, var(--game-accent, #7c3aed) 64%, var(--sl-color-hairline, #27303a));
+		background: color-mix(in srgb, var(--game-accent, #7c3aed) 11%, var(--sl-color-gray-6, #1a1f28));
+		transform: translateY(-2px);
+		outline: none;
+	}
+
+	.exp-hot-strip__card:focus-visible {
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--game-accent, #7c3aed) 24%, transparent);
+	}
+
+	.exp-hot-strip__meta {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		font-size: 0.62rem;
+		font-weight: 800;
+		letter-spacing: 0.13em;
+		text-transform: uppercase;
+		color: color-mix(in srgb, var(--game-accent, #7c3aed) 72%, white);
+	}
+
+	.exp-hot-strip__title {
+		font-size: 1.05rem;
+		font-weight: 750;
+		color: var(--sl-color-white, #f0f3f5);
+		transition: color 150ms;
+	}
+
+	.exp-hot-strip__card:hover .exp-hot-strip__title,
+	.exp-hot-strip__card:focus-visible .exp-hot-strip__title {
+		color: color-mix(in srgb, var(--game-accent, #7c3aed) 72%, white);
+	}
+
+	.exp-hot-strip__desc {
+		font-size: var(--sl-text-sm, 0.875rem);
+		line-height: 1.45;
+		color: var(--sl-color-gray-2, #9aa5b4);
+	}
+
+	.exp-hot-strip__cta {
+		align-self: end;
+		margin-top: 0.2rem;
+		font-size: var(--sl-text-sm, 0.875rem);
+		font-weight: 700;
+		color: color-mix(in srgb, var(--game-accent, #7c3aed) 72%, white);
+	}
+</style>

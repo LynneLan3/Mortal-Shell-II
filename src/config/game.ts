@@ -84,6 +84,21 @@ export interface GameHubRecentUpdate {
 	tag?: string;
 }
 
+export interface GameGuideTopicGroup {
+	id: string;
+	title: string;
+	description: string;
+	guideOrder: readonly string[];
+}
+
+export type GameGuideVisualIcon = 'book' | 'calendar' | 'gem' | 'map' | 'monitor' | 'refresh' | 'shield' | 'shell' | 'sword' | 'trophy';
+
+export interface GameGuideVisual {
+	image?: string;
+	alt?: string;
+	icon?: GameGuideVisualIcon;
+}
+
 export interface GamePortalConfig {
 	popularQuestions?: readonly GamePortalQuestion[];
 	showRecentlyUpdated?: boolean;
@@ -94,6 +109,9 @@ export interface GamePortalConfig {
 	statusItems?: readonly GameHubStatusItem[];
 	startHere?: readonly GameHubStartHereItem[];
 	hotGuides?: readonly GameHubStartHereItem[];
+	guideTopicGroups?: readonly GameGuideTopicGroup[];
+	guideVisuals?: Readonly<Record<string, GameGuideVisual>>;
+	categoryHotOrder?: Readonly<Record<string, readonly string[]>>;
 	fieldNoteOrder?: readonly string[];
 	evidence?: GameHubEvidence;
 	recentUpdates?: readonly GameHubRecentUpdate[];
@@ -203,7 +221,7 @@ export const game: GameConfig = {
 				image: 'experience/route-world-progression.jpg',
 			},
 		],
-		hotGuides: [
+			hotGuides: [
 			{
 				title: 'Weapons Guide',
 				description: 'Known weapons, launch-build locations, upgrade evidence, and the safest early routes.',
@@ -247,6 +265,138 @@ export const game: GameConfig = {
 				badge: 'Endgame',
 			},
 		],
+		guideTopicGroups: [
+			{
+				id: 'weapons-resources',
+				title: 'Weapons & Resources',
+				description: 'Find weapons, improve your damage, and manage the resources that shape an early run.',
+				guideOrder: [
+					'/mortal-shell-ii/weapons/',
+					'/mortal-shell-ii/great-martyrs-blade/',
+					'/mortal-shell-ii/axatana/',
+					'/mortal-shell-ii/axe-dagger/',
+					'/mortal-shell-ii/tarstones/',
+					'/mortal-shell-ii/gloom-farm/',
+					'/mortal-shell-ii/gloombound-flame/',
+				],
+			},
+			{
+				id: 'world-exploration',
+				title: 'World & Exploration',
+				description: 'Open routes, find Shells and key locations, and understand the world progression gates.',
+				guideOrder: [
+					'/mortal-shell-ii/beacons-fast-travel/',
+					'/mortal-shell-ii/shells/',
+					'/mortal-shell-ii/sester-genessa/',
+					'/mortal-shell-ii/eredrim/',
+					'/mortal-shell-ii/ova/',
+					'/mortal-shell-ii/map-fragments/',
+					'/mortal-shell-ii/blackmarrow-keys/',
+					'/mortal-shell-ii/proxima/',
+				],
+			},
+			{
+				id: 'completion-endgame',
+				title: 'Completion & Endgame',
+				description: 'Plan endings, NG+, difficult encounters, and the missable completion goals.',
+				guideOrder: [
+					'/mortal-shell-ii/endings/',
+					'/mortal-shell-ii/new-game-plus/',
+					'/mortal-shell-ii/slayer-seal-difficulty/',
+					'/mortal-shell-ii/peters-perfect-parry/',
+					'/mortal-shell-ii/glimpses/',
+				],
+			},
+			{
+				id: 'start-general',
+				title: 'Start Here & General',
+				description: 'Understand the basics, first-run choices, and retained launch or beta context.',
+				guideOrder: [
+					'/mortal-shell-ii/gameplay/',
+					'/mortal-shell-ii/skip-prologue/',
+					'/mortal-shell-ii/release-date/',
+					'/mortal-shell-ii/beta-progress-carry-over/',
+					'/mortal-shell-ii/open-beta/',
+					'/mortal-shell-ii/magdalena/',
+				],
+			},
+			{
+				id: 'pc-fixes',
+				title: 'PC Requirements & Fixes',
+				description: 'Check the PC baseline and troubleshoot launch-window crashes and stability problems.',
+				guideOrder: [
+					'/mortal-shell-ii/system-requirements/',
+					'/mortal-shell-ii/crashing-pc/',
+				],
+			},
+		],
+		guideVisuals: {
+			'/mortal-shell-ii/weapons/': { icon: 'sword' },
+			'/mortal-shell-ii/great-martyrs-blade/': {
+				image: '/images/great-martyrs-blade/great-martyrs-blade-acquired.png',
+				alt: "Great Martyr's Blade acquired in Mortal Shell 2.",
+			},
+			'/mortal-shell-ii/axatana/': {
+				image: '/images/axatana/axatana-new-weapon-acquired.webp',
+				alt: 'Axatana acquired in Mortal Shell 2.',
+			},
+			'/mortal-shell-ii/axe-dagger/': { icon: 'sword' },
+			'/mortal-shell-ii/tarstones/': { icon: 'gem' },
+			'/mortal-shell-ii/gloom-farm/': { icon: 'gem' },
+			'/mortal-shell-ii/gloombound-flame/': {
+				image: '/images/gloombound-flame/gloombound-flame-location.webp',
+				alt: 'Gloombound Flame pickup location in Mortal Shell 2.',
+			},
+			'/mortal-shell-ii/beacons-fast-travel/': { icon: 'map' },
+			'/mortal-shell-ii/shells/': { icon: 'shell' },
+			'/mortal-shell-ii/sester-genessa/': { icon: 'shell' },
+			'/mortal-shell-ii/eredrim/': { icon: 'shell' },
+			'/mortal-shell-ii/ova/': { icon: 'gem' },
+			'/mortal-shell-ii/map-fragments/': { icon: 'map' },
+			'/mortal-shell-ii/blackmarrow-keys/': { icon: 'map' },
+			'/mortal-shell-ii/proxima/': { icon: 'shell' },
+			'/mortal-shell-ii/endings/': { icon: 'trophy' },
+			'/mortal-shell-ii/new-game-plus/': { icon: 'refresh' },
+			'/mortal-shell-ii/slayer-seal-difficulty/': { icon: 'shield' },
+			'/mortal-shell-ii/peters-perfect-parry/': { icon: 'trophy' },
+			'/mortal-shell-ii/glimpses/': { icon: 'gem' },
+			'/mortal-shell-ii/gameplay/': { icon: 'book' },
+			'/mortal-shell-ii/skip-prologue/': { icon: 'book' },
+			'/mortal-shell-ii/release-date/': { icon: 'calendar' },
+			'/mortal-shell-ii/beta-progress-carry-over/': { icon: 'calendar' },
+			'/mortal-shell-ii/open-beta/': { icon: 'book' },
+			'/mortal-shell-ii/magdalena/': { icon: 'sword' },
+			'/mortal-shell-ii/system-requirements/': { icon: 'monitor' },
+			'/mortal-shell-ii/crashing-pc/': { icon: 'monitor' },
+		},
+		categoryHotOrder: {
+			'combat-exploration': [
+				'/mortal-shell-ii/weapons/',
+				'/mortal-shell-ii/tarstones/',
+				'/mortal-shell-ii/ova/',
+				'/mortal-shell-ii/beacons-fast-travel/',
+				'/mortal-shell-ii/shells/',
+				'/mortal-shell-ii/new-game-plus/',
+				'/mortal-shell-ii/endings/',
+				'/mortal-shell-ii/map-fragments/',
+				'/mortal-shell-ii/slayer-seal-difficulty/',
+				'/mortal-shell-ii/gloombound-flame/',
+				'/mortal-shell-ii/sester-genessa/',
+				'/mortal-shell-ii/eredrim/',
+				'/mortal-shell-ii/blackmarrow-keys/',
+				'/mortal-shell-ii/peters-perfect-parry/',
+			],
+			'pc-requirements': [
+				'/mortal-shell-ii/crashing-pc/',
+				'/mortal-shell-ii/system-requirements/',
+			],
+			'game-info': [
+				'/mortal-shell-ii/skip-prologue/',
+				'/mortal-shell-ii/release-date/',
+				'/mortal-shell-ii/beta-progress-carry-over/',
+				'/mortal-shell-ii/open-beta/',
+			],
+		},
 		evidence: {
 			title: 'See the Game in Action',
 			description: 'Official screenshots showing combat, Shells, weapons, and exploration.',
@@ -336,9 +486,9 @@ export const game: GameConfig = {
 		{
 			id: 'start-launch',
 			eyebrow: 'Route 01',
-			title: 'Start & Progression',
+			title: 'Start Your Run',
 			description:
-				'Make first-run choices, understand the current progression gates, and plan the road to endgame.',
+				'Understand the basics, make first-run choices, and get oriented before committing to a longer route.',
 			href: '/mortal-shell-ii/routes/start-launch/',
 			visual: 'experience/route-start-launch.jpg',
 			pages: [
@@ -357,18 +507,11 @@ export const game: GameConfig = {
 					eyebrow: 'Start',
 				},
 				{
-					pageId: 'new-game-plus',
-					href: '/mortal-shell-ii/new-game-plus/',
-					title: 'New Game Plus',
-					description: 'What carries over, what resets, and what to finish before another cycle.',
-					eyebrow: 'Endgame',
-				},
-				{
-					pageId: 'endings',
-					href: '/mortal-shell-ii/endings/',
-					title: 'Endings',
-					description: 'Main ending and Baghead secret-ending context with spoiler boundaries.',
-					eyebrow: 'Completion',
+					pageId: 'magdalena',
+					href: '/mortal-shell-ii/magdalena/',
+					title: 'Magdalena',
+					description: 'Preserved Open Beta encounter context with an explicit evidence boundary.',
+					eyebrow: 'Reference',
 				},
 				{
 					pageId: 'release-date',
@@ -410,7 +553,7 @@ export const game: GameConfig = {
 		{
 			id: 'pc-stability',
 			eyebrow: 'Route 02',
-			title: 'PC & Stability',
+			title: 'Fix PC Problems',
 			description:
 				'Check the listed PC requirements, then work through the current Hotfix 2.0 crash and stability guidance.',
 			href: '/mortal-shell-ii/routes/pc-stability/',
@@ -449,7 +592,7 @@ export const game: GameConfig = {
 		{
 			id: 'weapons-resources',
 			eyebrow: 'Route 03',
-			title: 'Weapons & Resources',
+			title: 'Get Stronger',
 			description:
 				'Find early weapons, upgrade Tarstones, activate Night Mode, and farm Gloom with realistic expectations.',
 			href: '/mortal-shell-ii/routes/weapons-resources/',
@@ -517,9 +660,9 @@ export const game: GameConfig = {
 		{
 			id: 'world-progression',
 			eyebrow: 'Route 04',
-			title: 'World & Progression',
+			title: 'Explore & Unlock',
 			description:
-				'Open fast travel, find Shells and Ova, and choose the right path for secrets, endings, and NG+.',
+				'Open fast travel, find Shells and key locations, and understand the world progression gates.',
 			href: '/mortal-shell-ii/routes/world-progression/',
 			visual: 'experience/route-world-progression.jpg',
 			pages: [
@@ -559,13 +702,6 @@ export const game: GameConfig = {
 					eyebrow: 'Shell Unlock',
 				},
 				{
-					pageId: 'glimpses',
-					href: '/mortal-shell-ii/glimpses/',
-					title: 'Glimpses',
-					description: 'Choose between Shell Bond upgrades and location information.',
-					eyebrow: 'Resource',
-				},
-				{
 					pageId: 'map-fragments',
 					href: '/mortal-shell-ii/map-fragments/',
 					title: 'Map Fragments',
@@ -586,13 +722,24 @@ export const game: GameConfig = {
 					description: "Route from Marrow Keep through Widow's Overlook and Blackridge Pass.",
 					eyebrow: 'Shell',
 				},
+			],
+			fastAnswers: [
 				{
-					pageId: 'slayer-seal-difficulty',
-					href: '/mortal-shell-ii/slayer-seal-difficulty/',
-					title: 'Slayer Seal Difficulty',
-					description: 'Choose the easier Slayer Seal path or harder Night Mode path with current caveats.',
-					eyebrow: 'Difficulty',
+					question: 'Is Route the same as Category?',
+					answer: 'No. This path groups guides by player goal; the existing Gameplay, Game Info, and PC categories stay unchanged.',
+					pageId: 'beacons-fast-travel',
+					href: '/mortal-shell-ii/beacons-fast-travel/',
 				},
+			],
+		},
+		{
+			id: 'finish-complete',
+			eyebrow: 'Route 05',
+			title: 'Finish & Complete',
+			description:
+				'Handle endings, NG+, difficult optional goals, and the completion questions that matter late in a run.',
+			href: '/mortal-shell-ii/routes/finish-complete/',
+			pages: [
 				{
 					pageId: 'endings',
 					href: '/mortal-shell-ii/endings/',
@@ -608,19 +755,33 @@ export const game: GameConfig = {
 					eyebrow: 'Endgame',
 				},
 				{
-					pageId: 'magdalena',
-					href: '/mortal-shell-ii/magdalena/',
-					title: 'Magdalena',
-					description: 'Preserved Open Beta encounter context with an explicit evidence boundary.',
-					eyebrow: 'Encounter',
+					pageId: 'slayer-seal-difficulty',
+					href: '/mortal-shell-ii/slayer-seal-difficulty/',
+					title: 'Slayer Seal Difficulty',
+					description: 'Choose the easier Slayer Seal path or harder Night Mode path with current caveats.',
+					eyebrow: 'Difficulty',
+				},
+				{
+					pageId: 'peters-perfect-parry',
+					href: '/mortal-shell-ii/peters-perfect-parry/',
+					title: "Peter's Perfect Parry",
+					description: 'Attempt the missable Nameless Captive trophy with the current combo and retry guidance.',
+					eyebrow: 'Achievement',
+				},
+				{
+					pageId: 'glimpses',
+					href: '/mortal-shell-ii/glimpses/',
+					title: 'Glimpses',
+					description: 'Choose between Shell Bond upgrades and location information.',
+					eyebrow: 'Resource',
 				},
 			],
 			fastAnswers: [
 				{
-					question: 'Is Route the same as Category?',
-					answer: 'No. This path groups guides by player goal; the existing Gameplay, Game Info, and PC categories stay unchanged.',
-					pageId: 'beacons-fast-travel',
-					href: '/mortal-shell-ii/beacons-fast-travel/',
+					question: 'What should I finish before NG+?',
+					answer: 'Check the endings, completion, and carry-over guides before committing to another cycle.',
+					pageId: 'new-game-plus',
+					href: '/mortal-shell-ii/new-game-plus/',
 				},
 			],
 		},

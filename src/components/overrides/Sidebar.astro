@@ -18,7 +18,7 @@ const filteredSidebar = currentCategoryId
 			if (entry.type === 'link') return false;
 			// Match group label to category label
 			const category = game.categories.find((c) => c.id === currentCategoryId);
-			return category ? entry.label === category.label : false;
+			return category ? entry.label === category.label || entry.label === 'Hot Guides' : false;
 		})
 	: sidebar;
 ---

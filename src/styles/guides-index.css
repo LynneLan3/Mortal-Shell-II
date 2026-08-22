@@ -1,0 +1,154 @@
+/* Topic-based Guides Index. Objective routes use routes.css instead. */
+
+.exp-guide-topic-index__hero {
+	padding: 4rem 0 2.5rem;
+	border-bottom: 1px solid var(--xp-border);
+}
+
+.exp-guide-topic-index__groups {
+	display: grid;
+	gap: 3.5rem;
+	padding-block: 2.5rem 4rem;
+}
+
+.exp-guide-topic-group {
+	display: grid;
+	gap: 1.25rem;
+	padding-bottom: 3rem;
+	border-bottom: 1px solid var(--xp-border);
+}
+
+.exp-guide-topic-group:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.exp-guide-topic-group__head {
+	display: grid;
+	gap: 0.55rem;
+	max-width: 52rem;
+}
+
+.exp-guide-topic-group__head .exp-lede {
+	margin: 0;
+}
+
+.exp-guide-topic-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+}
+
+.exp-guide-topic-card {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	gap: 0;
+	min-height: 16rem;
+	overflow: hidden;
+	border: 1px solid var(--xp-border);
+	background: var(--xp-surface);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color 160ms, background-color 160ms, transform 160ms;
+}
+
+.exp-guide-topic-card:hover,
+.exp-guide-topic-card:focus-visible {
+	border-color: color-mix(in srgb, var(--xp-accent) 58%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 9%, var(--xp-surface));
+	transform: translateY(-1px);
+	outline: none;
+}
+
+.exp-guide-topic-card__visual {
+	display: grid;
+	place-items: center;
+	height: 5.5rem;
+	background:
+		radial-gradient(circle at 50% 15%, color-mix(in srgb, var(--xp-accent) 24%, transparent), transparent 62%),
+		color-mix(in srgb, var(--xp-bg) 58%, var(--xp-surface));
+	color: var(--xp-accent-text);
+}
+
+.exp-guide-topic-card__visual svg {
+	width: 2.25rem;
+	height: 2.25rem;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.35;
+}
+
+.exp-guide-topic-card--image .exp-guide-topic-card__visual {
+	height: auto;
+	aspect-ratio: 16 / 9;
+	place-items: stretch;
+	background: var(--xp-bg);
+}
+
+.exp-guide-topic-card__visual img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.88;
+	transition: opacity 160ms, transform 180ms;
+}
+
+.exp-guide-topic-card:hover .exp-guide-topic-card__visual img,
+.exp-guide-topic-card:focus-visible .exp-guide-topic-card__visual img {
+	opacity: 1;
+	transform: scale(1.025);
+}
+
+.exp-guide-topic-card__body {
+	display: grid;
+	grid-template-rows: auto auto 1fr auto;
+	gap: 0.45rem;
+	min-height: 9rem;
+	padding: 1rem;
+}
+
+.exp-guide-topic-card:focus-visible {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-accent) 22%, transparent);
+}
+
+.exp-guide-topic-card__meta {
+	font-size: var(--xp-text-xs);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--xp-accent-text);
+}
+
+.exp-guide-topic-card__title {
+	font-size: 1.1rem;
+	font-weight: 800;
+	line-height: 1.2;
+	color: var(--xp-text-bright);
+}
+
+.exp-guide-topic-card__desc {
+	font-size: var(--xp-text-sm);
+	line-height: 1.55;
+	color: var(--xp-text-muted);
+}
+
+.exp-guide-topic-card__cta {
+	align-self: end;
+	margin-top: 0.35rem;
+	font-size: var(--xp-text-xs);
+	font-weight: 800;
+	color: var(--xp-accent-text);
+}
+
+@media (min-width: 50rem) {
+	.exp-guide-topic-index__hero {
+		padding-block: 5rem 3rem;
+	}
+
+	.exp-guide-topic-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}

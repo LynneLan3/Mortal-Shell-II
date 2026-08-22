@@ -1,14 +1,13 @@
 ---
 import GameShell from '../../../components/experience/GameShell.astro';
-import RouteIndex from '../../../components/experience/routes/RouteIndex.astro';
+import GuideTopicIndex from '../../../components/experience/GuideTopicIndex.astro';
 import { game } from '../../../config/game';
 import { ui } from '../../../lib/ui';
 import { experienceNav } from '../../../lib/experience-nav';
-import '../../../styles/routes.css';
+import '../../../styles/guides-index.css';
 
 const t = ui();
 const { nav, footerLinks, homeHref, guidesHref } = experienceNav();
-const routes = game.routes ?? [];
 ---
 
 <GameShell
@@ -25,5 +24,5 @@ const routes = game.routes ?? [];
 	footerText={game.title}
 >
 	<meta slot="head" name="robots" content="noindex,follow" />
-	<RouteIndex routes={routes} />
+	<GuideTopicIndex />
 </GameShell>

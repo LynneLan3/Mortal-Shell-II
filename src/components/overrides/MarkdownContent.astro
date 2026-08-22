@@ -2,6 +2,7 @@
 import Default from '@astrojs/starlight/components/MarkdownContent.astro';
 import { isExperienceGuide } from '../../lib/experience-guide';
 import { loadGuideContent } from '../../lib/guide-content';
+import ExperienceGuideNextQuestions from '../experience/ExperienceGuideNextQuestions.astro';
 
 const entry = Astro.locals.starlightRoute.entry;
 const isExperience = isExperienceGuide(entry, Astro.url.pathname);
@@ -56,9 +57,10 @@ const totalHeadings = headings.length;
 							<a class="exp-guide-toc__top" href="#top">↑ Top</a>
 						</nav>
 					</aside>
-				)}
-			</div>
-			{totalHeadings > 1 && (
+						)}
+					</div>
+					<ExperienceGuideNextQuestions />
+					{totalHeadings > 1 && (
 				<script is:inline>
 					(function () {
 						var root = document.querySelector('[data-exp-guide-nav]');

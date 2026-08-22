@@ -3,7 +3,8 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { game } from '../../config/game';
 import type { GameCategory } from '../../config/game';
 import GuideGrid from '../../components/GuideGrid.astro';
-import { categoryHref, categoryIdOf, getGuides, sortGuides } from '../../lib/guides';
+import HotGuideStrip from '../../components/experience/HotGuideStrip.astro';
+import { categoryHref, categoryIdOf, getGuides, guideHref, sortGuides } from '../../lib/guides';
 
 export function getStaticPaths() {
 	return game.categories.map((category) => {
@@ -26,6 +27,16 @@ const { category } = Astro.props;
 const guides = (await getGuides())
 	.filter((entry) => categoryIdOf(entry) === category.id)
 	.sort(sortGuides);
+const hotOrder = game.portal?.categoryHotOrder?.[category.id] ?? [];
+const hotEntries = hotOrder
+	.map((href) => guides.find((entry) => guideHref(entry) === href))
+	.filter((entry): entry is (typeof guides)[number] => Boolean(entry));
+const hotItems = hotEntries.map((entry) => ({
+	title: entry.data.title,
+	description: entry.data.description,
+	href: guideHref(entry),
+	badge: category.label,
+}));
 ---
 
 <StarlightPage
@@ -47,6 +58,11 @@ const guides = (await getGuides())
 	}}
 >
 	<p>{category.description}</p>
+	<HotGuideStrip
+		items={hotItems}
+		heading={`Hot ${category.label} Guides`}
+		lede="Curated for the current launch window. The full category list remains below."
+	/>
 	{
 		guides.length > 0 && (
 			<section class="gw-section">

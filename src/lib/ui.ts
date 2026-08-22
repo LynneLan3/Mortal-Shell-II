@@ -15,6 +15,7 @@ type UiDictionary = {
 	readGuide: string;
 	playerPath: string;
 	homeNav: string;
+	hotGuidesNav: string;
 	aboutNav: string;
 	playerRoutes: string;
 	chooseWhatYoureTryingLede: string;
@@ -104,10 +105,11 @@ const en: UiDictionary = {
 	readGuide: 'Read guide →',
 	playerPath: 'Player path',
 	homeNav: 'Home',
+	hotGuidesNav: 'Hot Guides',
 	aboutNav: 'About',
 	playerRoutes: 'Player Routes',
 	chooseWhatYoureTryingLede: "Choose what you're trying to do.",
-	routesNav: 'Routes',
+	routesNav: 'By Goal',
 	allGuides: 'All Guides',
 	fieldGuide: 'Field Guide',
 	chooseRouteLede: 'Choose a route instead of browsing at random.',
@@ -214,10 +216,11 @@ const zhCN: UiDictionary = {
 	readGuide: '阅读攻略 →',
 	playerPath: '玩家路径',
 	homeNav: '首页',
+	hotGuidesNav: '热点攻略',
 	aboutNav: '关于',
 	playerRoutes: '玩家路径',
 	chooseWhatYoureTryingLede: '选择你现在想做的事。',
-	routesNav: '路径',
+	routesNav: '按目标',
 	allGuides: '全部攻略',
 	fieldGuide: '实地指南',
 	chooseRouteLede: '与其随机翻找，不如选择一条路径。',

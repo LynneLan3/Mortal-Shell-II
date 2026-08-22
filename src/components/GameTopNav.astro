@@ -1,11 +1,17 @@
 ---
 import { game } from '../config/game';
 import { categoryHref, categoryIdFromPath } from '../lib/guides';
+import { ui } from '../lib/ui';
 
 const categories = [...game.categories].sort((a, b) => a.order - b.order);
+const t = ui();
 const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const hubPath = game.hubPath.replace(/\/+$/, '') || '/';
 const isHub = pathname === hubPath;
+const routesPath = `${game.hubPath}routes`.replace(/\/+$/, '');
+const guidesPath = `${game.hubPath}guides`.replace(/\/+$/, '');
+const isRoutes = pathname === routesPath || pathname.startsWith(`${routesPath}/`);
+const isGuides = pathname === guidesPath || pathname.startsWith(`${guidesPath}/`);
 const entryCategory =
 	typeof Astro.locals.starlightRoute.entry.data.category === 'string'
 		? Astro.locals.starlightRoute.entry.data.category
@@ -19,7 +25,24 @@ const currentCategory = categoryIdFromPath(Astro.url.pathname) ?? entryCategory;
 			<a
 				class:list={['gw-topnav__link', isHub && 'is-active']}
 				href={game.hubPath}
-				aria-current={isHub ? 'page' : undefined}>Guides</a
+				aria-current={isHub ? 'page' : undefined}>{t.homeNav}</a
+			>
+		</li>
+		<li>
+			<a class="gw-topnav__link" href={`${game.hubPath}#hot-guides`}>{t.hotGuidesNav}</a>
+		</li>
+		<li>
+			<a
+				class:list={['gw-topnav__link', isRoutes && 'is-active']}
+				href={`${game.hubPath}routes/`}
+				aria-current={isRoutes ? 'page' : undefined}>{t.routesNav}</a
+			>
+		</li>
+		<li>
+			<a
+				class:list={['gw-topnav__link', isGuides && 'is-active']}
+				href={`${game.hubPath}guides/`}
+				aria-current={isGuides ? 'page' : undefined}>{t.guidesNav}</a
 			>
 		</li>
 		{

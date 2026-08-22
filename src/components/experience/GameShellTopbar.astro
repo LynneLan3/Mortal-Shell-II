@@ -6,6 +6,7 @@
  * either in `GameShell` or inside the Starlight shell on Experience Guide pages.
  */
 import type { NavItem } from './GameShell.astro';
+import { getGuides, guideHref } from '../../lib/guides';
 
 interface Props {
 	siteTitle: string;
@@ -15,6 +16,19 @@ interface Props {
 }
 
 const { siteTitle, homeHref, nav, activePath = '' } = Astro.props;
+
+const localSearchData = (await getGuides()).map((entry) => ({
+	title: entry.data.title,
+	description: entry.data.description ?? '',
+	href: guideHref(entry),
+	text: [entry.data.title, entry.data.description, entry.data.quickAnswer, entry.body]
+		.filter(Boolean)
+		.join(' ')
+		.replace(/\s+/g, ' ')
+		.slice(0, 5000),
+}));
+const localSearchJson = JSON.stringify(localSearchData).replace(/</g, '\\u003c');
+const isDev = import.meta.env.DEV;
 
 function isActive(item: NavItem): boolean {
 	if (!activePath) return false;
@@ -37,6 +51,10 @@ function isActive(item: NavItem): boolean {
 				<a
 					class:list={['exp-topbar__link', isActive(item) && 'is-active']}
 					href={item.href}
+					data-exp-nav-link
+					data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
+					data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
+					data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
 					aria-current={isActive(item) ? 'page' : undefined}
 				>
 					{item.label}
@@ -67,6 +85,10 @@ function isActive(item: NavItem): boolean {
 		<a
 			class:list={['exp-topbar__link', isActive(item) && 'is-active']}
 			href={item.href}
+			data-exp-nav-link
+			data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
+			data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
+			data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
 			aria-current={isActive(item) ? 'page' : undefined}
 		>
 			{item.label}
@@ -83,14 +105,42 @@ function isActive(item: NavItem): boolean {
 </nav>
 
 {/* Search overlay (Pagefind) */}
-<div class="exp-search-overlay" data-exp-search-overlay>
+<div class="exp-search-overlay" data-exp-search-overlay data-exp-search-dev={isDev ? 'true' : 'false'}>
 	<div class="exp-search-dialog" data-exp-search-dialog>
 		<div id="exp-pagefind-container"></div>
 	</div>
 </div>
+<script type="application/json" data-exp-search-data set:html={localSearchJson}></script>
 
 <script is:inline>
 	(function () {
+		function syncHashNav() {
+			var homeLink = document.querySelector('[data-exp-nav-home]');
+			var hotLinks = document.querySelectorAll('[data-exp-nav-hot]');
+			var homeLinks = document.querySelectorAll('[data-exp-nav-home]');
+			if (!homeLink || !hotLinks.length) return;
+
+			var currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
+			var homePath = new URL(homeLink.href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
+			var hotActive = currentPath === homePath && window.location.hash === '#hot-guides';
+
+			hotLinks.forEach(function (link) {
+				link.classList.toggle('is-active', hotActive);
+				if (hotActive) link.setAttribute('aria-current', 'page');
+				else link.removeAttribute('aria-current');
+			});
+			homeLinks.forEach(function (link) {
+				var serverActive = link.getAttribute('data-exp-nav-server-active') === 'true';
+				var active = serverActive && !hotActive;
+				link.classList.toggle('is-active', active);
+				if (active) link.setAttribute('aria-current', 'page');
+				else link.removeAttribute('aria-current');
+			});
+		}
+
+		syncHashNav();
+		window.addEventListener('hashchange', syncHashNav);
+
 		var toggle = document.querySelector('[data-exp-mobile-toggle]');
 		var mobileNav = document.querySelector('[data-exp-mobile-nav]');
 		if (toggle && mobileNav) {
@@ -104,12 +154,96 @@ function isActive(item: NavItem): boolean {
 		var overlay = document.querySelector('[data-exp-search-overlay]');
 		var triggers = document.querySelectorAll('[data-exp-search-open]');
 		var pfInit = false;
+		var localSearchData = [];
+		var localSearchDataNode = document.querySelector('[data-exp-search-data]');
+		if (localSearchDataNode) {
+			try {
+				localSearchData = JSON.parse(localSearchDataNode.textContent || '[]');
+			} catch (error) {
+				localSearchData = [];
+			}
+		}
+
+		function showLocalSearch() {
+			var container = document.querySelector('#exp-pagefind-container');
+			if (!container) return;
+			container.innerHTML = '';
+
+			var label = document.createElement('label');
+			label.className = 'exp-local-search__label';
+			label.textContent = 'Search the Mortal Shell II guides';
+			var input = document.createElement('input');
+			input.className = 'exp-local-search__input';
+			input.type = 'search';
+			input.placeholder = 'Search weapons, Shells, Ova, NG+...';
+			input.setAttribute('aria-label', 'Search the Mortal Shell II guides');
+			label.appendChild(input);
+			var message = document.createElement('p');
+			message.className = 'exp-local-search__message';
+			var results = document.createElement('div');
+			results.className = 'exp-local-search__results';
+			container.appendChild(label);
+			container.appendChild(message);
+			container.appendChild(results);
+
+			function renderResults() {
+				var query = input.value.trim().toLowerCase();
+				results.innerHTML = '';
+				if (!query) {
+					message.textContent = 'Type a topic or question to search the guide library.';
+					return;
+				}
+
+				var terms = query.split(/\s+/).filter(Boolean);
+				var matches = localSearchData
+					.filter(function (entry) {
+						var haystack = (entry.text || '').toLowerCase();
+						return terms.every(function (term) { return haystack.includes(term); });
+					})
+					.map(function (entry) {
+						var title = (entry.title || '').toLowerCase();
+						var description = (entry.description || '').toLowerCase();
+						var score = terms.reduce(function (total, term) {
+							return total + (title.includes(term) ? 10 : 0) + (description.includes(term) ? 3 : 0);
+						}, 0);
+						return { entry: entry, score: score };
+					})
+					.sort(function (a, b) { return b.score - a.score; })
+					.slice(0, 8)
+					.map(function (item) { return item.entry; });
+
+				message.textContent = matches.length
+					? matches.length + (matches.length === 1 ? ' result' : ' results')
+					: 'No matching guides yet.';
+				matches.forEach(function (entry) {
+					var article = document.createElement('article');
+					article.className = 'exp-local-search__result';
+					var link = document.createElement('a');
+					link.href = entry.href;
+					link.className = 'exp-local-search__title';
+					link.textContent = entry.title;
+					var description = document.createElement('p');
+					description.textContent = entry.description || '';
+					article.appendChild(link);
+					article.appendChild(description);
+					results.appendChild(article);
+				});
+			}
+
+			input.addEventListener('input', renderResults);
+			input.focus();
+			renderResults();
+		}
 
 		function openSearch() {
 			if (!overlay) return;
 			overlay.setAttribute('data-open', 'true');
 			if (!pfInit) {
 				pfInit = true;
+				if (overlay.getAttribute('data-exp-search-dev') === 'true') {
+					showLocalSearch();
+					return;
+				}
 				var script = document.createElement('script');
 				script.src = '/pagefind/pagefind-ui.js';
 				script.onload = function () {
@@ -119,10 +253,13 @@ function isActive(item: NavItem): boolean {
 							showSubResults: true,
 							showImages: false,
 						});
+					} else {
+						showLocalSearch();
 					}
 					var input = document.querySelector('#exp-pagefind-container input');
 					if (input) input.focus();
 				};
+				script.onerror = showLocalSearch;
 				document.head.appendChild(script);
 			} else {
 				var input = document.querySelector('#exp-pagefind-container input');

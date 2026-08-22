@@ -9,11 +9,21 @@ function categoryHasGuides(categoryId: string) {
 }
 
 export function sidebarFromCategories() {
-	return [...game.categories]
+	const hotGuides = game.portal?.hotGuides ?? [];
+	const hotGroup = hotGuides.length > 0
+		? [{
+				label: 'Hot Guides',
+				items: hotGuides.map((guide) => ({ label: guide.title, link: guide.href })),
+			}]
+		: [];
+
+	const categoryGroups = [...game.categories]
 		.sort((a, b) => a.order - b.order)
 		.filter((category) => categoryHasGuides(category.contentDir ?? category.id))
 		.map((category) => ({
 			label: category.label,
 			items: [{ autogenerate: { directory: category.contentDir ?? category.id } }],
 		}));
+
+	return [...hotGroup, ...categoryGroups];
 }

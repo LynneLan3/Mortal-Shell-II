@@ -1,6 +1,6 @@
 ---
 title: "Mortal Shell 2 Gloombound Flame Location & Night Mode Guide"
-description: "Find the Mortal Shell 2 Gloombound Flame near the Great Arbiter of Flesh, return to Marrow Keep, summon Thestus, and activate Night Mode."
+description: "Find the Mortal Shell 2 Gloombound Flame, light the Light Extinguished Lantern at Marrow Keep, speak with Thestus, and enter Night Mode."
 category: combat-exploration
 slug: mortal-shell-ii/gloombound-flame
 status: confirmed
@@ -15,7 +15,7 @@ sidebar:
   label: Gloombound Flame
   order: 4
   badge: Launch
-lastUpdated: 2026-08-19
+lastUpdated: 2026-08-22
 ---
 
 ## Where is the Gloombound Flame in Mortal Shell 2?
@@ -69,7 +69,7 @@ It is separate from the **Slayer Seal**. The Slayer Seal is the easier combat op
 
 For general combat, Shells, weapons, and exploration context, see the [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/).
 
-## How to activate Night Mode
+## Light Extinguished Lantern: How to Light It
 
 After you pick up the Gloombound Flame, the supported activation chain is:
 
@@ -134,6 +134,10 @@ Current launch gameplay video evidence says no. The pickup is shown while Great 
 ### How do I activate Night Mode?
 
 Take the Gloombound Flame back to the top of Marrow Keep, interact with `LIGHT EXTINGUISHED LANTERN`, summon Thestus, then choose `CALL FORTH THE NIGHT`.
+
+### What does Light Extinguished Lantern mean in Mortal Shell 2?
+
+It means the lantern at the top of Marrow Keep has not been lit yet, so you need the **Gloombound Flame** to interact with it. After lighting it and speaking with Thestus, choose `CALL FORTH THE NIGHT` to enter **Night Mode**.
 
 ### Where is Thestus?
 

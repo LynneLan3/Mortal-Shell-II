@@ -14,7 +14,7 @@ sidebar:
   label: Skip the Prologue
   order: 4
   badge: Confirmed
-lastUpdated: 2026-08-19
+lastUpdated: 2026-08-22
 ---
 
 ## Can you skip the Prologue in Mortal Shell 2?
@@ -78,7 +78,7 @@ Players on Steam and Reddit are reporting that the full-release Prologue may inc
 
 Treat those as **community reports**, not confirmed skip penalties. The current evidence is strong enough for caution, but not strong enough to say every skipped player permanently loses a specific item or achievement.
 
-## Why is the Skip Prologue option missing?
+## Skip Prologue Option Missing on Steam?
 
 This is a **launch issue / community report**, not an officially documented fix. Players are reporting cases where they played or finished the beta, started a full-game save, and did not see a skip option.
 
@@ -90,7 +90,7 @@ Safe checks before you change anything:
 4. Do not delete your full-release save just to test the skip unless an official fix or reliable platform-specific guide tells you to.
 5. If the option is still missing, wait for Cold Symmetry, Playstack, or the platform store to clarify the launch behavior.
 
-GamesRadar reports a Steam-library workaround for beta rewards, and Reddit users are also trading reinstall / library-visibility ideas. Those are **secondary or community troubleshooting reports**, not official fixes.
+For Steam players who still cannot see the Skip Prologue option or beta reward, the reported workaround is to add **Mortal Shell 2 Beta** to your Steam Library again, restart the full game, and check the new-game flow. GamesRadar reports that the Beta did not need to be installed again for this library workaround, but this remains a **player-reported / secondary-source workaround**, not an official fix. Reddit users are also trading reinstall / library-visibility ideas, which are community troubleshooting reports.
 
 ## Does skipping affect achievements or trophies?
 

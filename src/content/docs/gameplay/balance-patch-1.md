@@ -12,6 +12,7 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/crashing-pc
+  - mortal-shell-ii/sidearms
 sidebar:
   label: Balance Patch 1
   order: 9
@@ -99,13 +100,13 @@ Several weapons and sidearms were changed in Balance Patch 1.
 
 - **Great Martyr's Blade:** attack damage increased by **20%**
 - **Troubadour's Lute:** attack damage increased by **100%**
-- **Caged Hystrix:** minimum Resolve requirement to fire removed
+- [**Caged Hystrix**](/mortal-shell-ii/caged-hystrix/): minimum Resolve requirement to fire removed
 - **Triarch Repeater:** minimum Resolve requirement to fire removed
 - **Axatana:** light-attack tracking improved
 - [**Black Needle**](/mortal-shell-ii/black-needle/): light-attack tracking improved
-- **Clockwork Scythe:** light-attack tracking improved
+- [**Clockwork Scythe**](/mortal-shell-ii/clockwork-scythe/): light-attack tracking improved
 
-Use the [Weapons guide](/mortal-shell-ii/weapons/) for the current weapon index. The [Great Martyr's Blade guide](/mortal-shell-ii/great-martyrs-blade/) and [Axatana guide](/mortal-shell-ii/axatana/) cover their individual acquisition routes.
+Use the [Weapons guide](/mortal-shell-ii/weapons/) for the current weapon index and the [Sidearms guide](/mortal-shell-ii/sidearms/) for the Sidearm roster. The [Great Martyr's Blade guide](/mortal-shell-ii/great-martyrs-blade/) and [Axatana guide](/mortal-shell-ii/axatana/) cover their individual acquisition routes.
 
 ## Tarstone and Guard changes
 

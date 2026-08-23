@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Weapons Guide: All Known Weapons, Locations & Upgrades"
-description: "A Mortal Shell 2 weapons guide covering eight identified launch-build primary weapons, their documented route pages, pending route coverage, and the Tarforge upgrade handoff."
+description: "A Mortal Shell 2 weapons guide covering eight identified launch-build primary weapons, seven detailed route pages, the remaining pending route, and the Tarforge upgrade handoff."
 category: combat-exploration
 slug: mortal-shell-ii/weapons
 status: needs-verification
 featured: false
-quickAnswer: "The launch build has eight identified primary weapons: The Iconoclast, Axe & Dagger, Veteran's Battle Axe, Great Martyr's Blade, Obsidian Hammer, Black Needle, Axatana, and Clockwork Scythe. This Hub links the six route pages currently available on the site and marks the other two routes as pending."
+quickAnswer: "The launch build has eight identified primary weapons. Seven now have detailed route pages, including Clockwork Scythe; only The Iconoclast remains pending on this site."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/great-martyrs-blade
@@ -14,6 +14,7 @@ related:
   - mortal-shell-ii/veterans-battle-axe
   - mortal-shell-ii/obsidian-hammer
   - mortal-shell-ii/black-needle
+  - mortal-shell-ii/clockwork-scythe
   - mortal-shell-ii/gloom-farm
 sidebar:
   label: Weapons Guide
@@ -41,7 +42,7 @@ For the broader confirmed scope of combat, Shells, weapon upgrades, and explorat
 | **Obsidian Hammer** | Obsidianite Mines in Mammon. | [Obsidian Hammer location guide](/mortal-shell-ii/obsidian-hammer/) |
 | **Black Needle** | Sester's Bastion in Mammon. | [Black Needle location guide](/mortal-shell-ii/black-needle/) |
 | **Axatana** | Forgotten Tower through the Outskirts of Mammon. | [Axatana location guide](/mortal-shell-ii/axatana/) |
-| **Clockwork Scythe** | Detailed route pending on this site. | Pending |
+| **Clockwork Scythe** | Chamber of Becoming / Sariel from Silent Steps. | [Clockwork Scythe location guide](/mortal-shell-ii/clockwork-scythe/) |
 
 ## Great Martyr's Blade location
 
@@ -112,7 +113,7 @@ If a route is underleveled, use the [Gloom farming guide](/mortal-shell-ii/gloom
 
 ### Does Mortal Shell 2 have an all-weapons list?
 
-This page is an overview of the eight identified launch-build primary weapons. Six have detailed route pages on this site; The Iconoclast and Clockwork Scythe remain pending here.
+This page is an overview of the eight identified launch-build primary weapons. Seven have detailed route pages on this site; only The Iconoclast remains pending here.
 
 ### What is the best early weapon?
 

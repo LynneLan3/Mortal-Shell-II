@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Shells Guide: Locations, Unlocks & Provisional Ranking"
-description: "A Mortal Shell 2 Shells guide covering the individual Proxima, Tiel, Eredrim, and Sester Genessa routes, unlock context, and provisional use cases without an objective combat tier list."
+description: "A Mortal Shell 2 Shells guide covering seven detailed Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu and Sariel routes, plus the identified launch roster without an objective combat tier list."
 category: combat-exploration
 slug: mortal-shell-ii/shells
 status: needs-verification
 featured: false
-quickAnswer: "This site currently has individual Shell route coverage for Proxima, Tiel, Eredrim, and Sester Genessa. Use the individual pages for their location or unlock routes; the Hub does not claim an objective combat tier list."
+quickAnswer: "This site currently has seven detailed Shell route pages: Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu and Sariel. The identified launch roster also includes Lazlo, whose detailed route is pending; the Hub does not claim an objective combat tier list."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/proxima
@@ -14,6 +14,9 @@ related:
   - mortal-shell-ii/balance-patch-1
   - mortal-shell-ii/eredrim
   - mortal-shell-ii/sester-genessa
+  - mortal-shell-ii/smert
+  - mortal-shell-ii/gragu
+  - mortal-shell-ii/sariel
   - mortal-shell-ii/weapons
   - mortal-shell-ii/slayer-seal-difficulty
 sidebar:
@@ -25,9 +28,9 @@ lastUpdated: 2026-08-23
 
 ## Evidence boundary
 
-This is a **Shells Exploration Hub** for launch-window searches. It introduces the Shell system, surfaces the individual routes currently covered on this site, and gives provisional use cases without inventing a combat tier list.
+This is a **Shells Exploration Hub** for launch-window searches. It introduces the Shell system, surfaces the seven detailed routes currently covered on this site, and gives provisional use cases without inventing a combat tier list.
 
-It does **not** publish an invented full Shell roster. It also does **not** present a fake combat tier list. A Shell is ranked here only when the ranking describes a verifiable route or player use case, such as early access or exploration value. Combat strength, damage, survivability, and build rankings remain unranked unless the evidence supports them.
+The identified launch roster is presented as eight Shells, while Lazlo remains detailed-route-pending on this site. This page does **not** present a fake combat tier list. A Shell is ranked here only when the ranking describes a verifiable route or player use case, such as early access or exploration value. Combat strength, damage, survivability, and build rankings remain unranked unless the evidence supports them.
 
 For the official high-level description of Shells and the broader gameplay boundary, see the [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/).
 
@@ -40,7 +43,7 @@ The current coverage supports individual discovery routes, but it does not claim
 Think of this page as a practical index:
 
 - use it to understand what a Shell discovery looks like,
-- follow the known routes to Proxima, Tiel, Eredrim, or Sester Genessa,
+- follow the known routes to Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu, or Sariel,
 - use the provisional section to choose what to investigate first,
 - return when more launch-build Shell locations have been independently checked.
 
@@ -53,6 +56,24 @@ Think of this page as a practical index:
 Start from Widow's Overlook and look for a **large tree** and **wooden enclosure**. Two torches mark the entrance to Tiel's shallow grave. Interact with Tiel, then complete the **Rash Memory** by entering the nearby building through its **side window** and collecting the **flask** from the desk.
 
 Follow the full [Tiel location guide](/mortal-shell-ii/tiel/) for the route and unlock steps.
+
+### Smert
+
+**Smert** starts at **Prophet's Rest** near **Outskirts of Nochte**. Activate the **three blood pools**, interact with the Unknown Shell to start **The Convert**, and defeat the Hierarch to unlock Smert.
+
+Follow the [Smert location guide](/mortal-shell-ii/smert/) for the ritual and Memory route.
+
+### Gragu
+
+**Gragu** starts inside the **One-Legged Wolf Tavern**. Take the **Heart of Vatra** from the Temple of Vatra, return it to Gragu, and inhabit the resulting Shell.
+
+Follow the [Gragu location guide](/mortal-shell-ii/gragu/) for the tavern-to-temple route.
+
+### Sariel
+
+**Sariel** is reached from **Silent Steps** through the **Chamber of Becoming**. Destroy all **four revival markers**, defeat Sariel permanently, then complete the nearby Unknown Shell Memory.
+
+Follow the [Sariel location guide](/mortal-shell-ii/sariel/) for the Chamber route and unlock sequence.
 
 ### Proxima
 
@@ -146,7 +167,7 @@ Those sections can be expanded later when each claim has launch-build evidence. 
 
 ### How many Shells are covered here?
 
-This Hub currently has individual route coverage for Proxima, Tiel, Eredrim, and Sester Genessa. It does not claim that those four pages are a complete launch roster.
+This Hub has seven detailed route pages: Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu, and Sariel. The identified launch roster also includes Smert, Eredrim, Proxima, Tiel, Gragu, Sester Genessa / Genessa, Lazlo, and Sariel; Lazlo's detailed route is pending on this site.
 
 ### Where do you find Proxima?
 
@@ -158,7 +179,7 @@ Yes. The checked route supports unlocking Proxima shortly after completing the P
 
 ### Is Proxima the best Shell?
 
-Not confirmed. The site has route coverage for four Shells, but there is no reliable evidence here for an objective combat-power ranking.
+Not confirmed. The site has route coverage for seven Shells, but there is no reliable evidence here for an objective combat-power ranking.
 
 ### Is there a Shell tier list?
 

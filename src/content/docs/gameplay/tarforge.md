@@ -10,6 +10,7 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/sidearms
 sidebar:
   label: Tarforge Guide
   order: 12
@@ -59,7 +60,7 @@ If you are deciding which melee weapon to invest in, use the [Weapons guide](/mo
 
 The **Obsidian Lathe** is in **Martyr's Tomb**, in Fainweald southeast of **Widow's Overlook**.
 
-Bring the Obsidian Lathe back to Franz to unlock **sidearm enhancement**.
+Bring the Obsidian Lathe back to Franz to unlock **sidearm enhancement**. Use the [Sidearms guide](/mortal-shell-ii/sidearms/) for the launch roster and compact location checklist.
 
 This is a useful component to pair with exploration of the wider Martyr's Tomb area and the [Tiel route](/mortal-shell-ii/tiel/), but the Tarforge objective remains simple: find the Lathe, return it to Franz, and the sidearm enhancement function becomes available.
 

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_ROOT = path.join(PROJECT_ROOT, 'content-jobs');
 const PROMPT_FILE = path.join(PROJECT_ROOT, 'scripts', 'prompts', 'game-guide-writer.md');
+const DEFAULT_APIMART_BASE_URL = 'https://api.apimart.ai/v1';
 const DEFAULT_TIMEOUT_MS = 60_000;
 const MAX_TOKENS = 6_000;
 
@@ -49,18 +50,12 @@ function parseTimeout(value) {
 	return timeout;
 }
 
-function isApimartUrl(value) {
-	try {
-		const url = new URL(value);
-		return /(^|\.)apimart\.ai$/i.test(url.hostname);
-	} catch {
-		return false;
-	}
-}
-
 function resolveConfig({ requireComplete }) {
 	const apiKey = firstEnv(['APIMART_API_KEY', 'ANTHROPIC_AUTH_TOKEN', 'ANTHROPIC_API_KEY']);
-	const baseUrl = firstEnv(['APIMART_BASE_URL', 'ANTHROPIC_BASE_URL']);
+	const baseUrl = firstEnv(['APIMART_BASE_URL']) || {
+		name: 'APIMART_BASE_URL (default)',
+		value: DEFAULT_APIMART_BASE_URL,
+	};
 	const model = firstEnv(['APIMART_MODEL', 'ANTHROPIC_MODEL', 'ANTHROPIC_DEFAULT_SONNET_MODEL']);
 	const timeoutMs = parseTimeout(process.env.APIMART_TIMEOUT_MS);
 
@@ -77,13 +72,9 @@ function resolveConfig({ requireComplete }) {
 
 	const missing = [];
 	if (!apiKey) missing.push('APIMART_API_KEY (or ANTHROPIC_AUTH_TOKEN / ANTHROPIC_API_KEY)');
-	if (!baseUrl) missing.push('APIMART_BASE_URL (or APIMART-configured ANTHROPIC_BASE_URL)');
 	if (!model) missing.push('APIMART_MODEL (or ANTHROPIC_MODEL / ANTHROPIC_DEFAULT_SONNET_MODEL)');
 	if (missing.length > 0) {
 		fail(`Missing APIMart configuration: ${missing.join(', ')}.`);
-	}
-	if (!isApimartUrl(baseUrl.value)) {
-		fail(`${baseUrl.name} does not point to an APIMart host. Refusing to send this job to another provider.`);
 	}
 
 	return { apiKey, baseUrl, model, timeoutMs };

@@ -7,7 +7,6 @@ status: needs-verification
 featured: false
 quickAnswer: "Reach Ashen Sanctum through Faded Citadel, activate Citadel Atrium Beacon and the optional 1-Glimpse Lazlo summon, then let Isaac finish each string before taking a short punish. At roughly half health, avoid the Riposte if you want to test the source-reported Phase 2 skip; defeating him spawns Scholar-Prince's Chamber Beacon with Ova and rewards Scholar's Wormstone for Clockwork Scythe."
 related:
-  - mortal-shell-ii/bosses
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/tiel
   - mortal-shell-ii/shells

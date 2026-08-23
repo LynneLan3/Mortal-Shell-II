@@ -1,6 +1,18 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": true,
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "mortal-shell-ii.vercel.app"
+        }
+      ],
+      "destination": "https://mortalshell2guide.com/$1",
+      "permanent": true
+    },
     {
       "source": "/",
       "destination": "/mortal-shell-ii/",

@@ -176,7 +176,7 @@ export const game: GameConfig = {
 		'A source-led Mortal Shell II launch guide covering hot progression routes, weapons, Shell unlocks, endgame decisions, and current PC fixes.',
 	tagline:
 		'Mortal Shell II is out now. Find the launch guides players need for weapons, Tarstones, Shells, progression blockers, endings, and PC fixes.',
-	siteUrl: 'https://mortal-shell-ii.vercel.app/',
+	siteUrl: 'https://mortalshell2guide.com/',
 	hubPath: '/mortal-shell-ii/',
 	hubTitle: 'Mortal Shell II Guide & Wiki',
 	locale: 'en',

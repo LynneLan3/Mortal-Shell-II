@@ -24,7 +24,7 @@ sitemap.xml
 vercel.json                              强制 URL 带斜杠(保证 canonical 一致)
 ```
 
-正式站点：`https://mortal-shell-ii.vercel.app/`
+正式站点：`https://mortalshell2guide.com/`
 
 （已从旧域名 `hot-words-mortal-shell-ii.vercel.app` 更名为游戏本体域名。）
 
@@ -69,7 +69,7 @@ vercel --prod           # 正式发布到生产环境
 
 ## 3. 部署后：正式 URL 在哪里替换
 
-> **状态：已完成。** 正式域名是：`https://mortal-shell-ii.vercel.app`
+> **状态：已完成。** 正式域名是：`https://mortalshell2guide.com`
 
 旧域名 `hot-words-mortal-shell-ii.vercel.app` 已停用。若 Google Search Console 仍绑旧域名，请用新网址前缀重新添加并验证，再重新提交 `sitemap.xml`。
 

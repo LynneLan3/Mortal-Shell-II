@@ -13,7 +13,7 @@ related:
 sidebar:
   order: 3
   badge: Confirmed
-lastUpdated: 2026-08-18
+lastUpdated: 2026-08-23
 ---
 
 ## Does Mortal Shell 2 beta progress carry over?
@@ -62,17 +62,53 @@ GamesRadar’s reporting of the same rules adds a practical note: items picked u
 
 ## Mortal Shell 2 beta rewards: The Flayed Harbinger
 
-Playing the Open Beta unlocks **The Flayed Harbinger**, an exclusive cosmetic for the full game.
+Playing the Mortal Shell II Open Beta qualifies you for **The Flayed Harbinger** cosmetic in the full game. A developer-marked Steam answer adds a more specific condition: **more than 30 minutes** of Open Beta play automatically unlocks it.
 
-What the official Steam listing confirms:
+Players who progressed **beyond Marrow Keep** during the Beta also qualify for the optional **Prologue skip** in the full release.
 
-- It is earned by playing the Open Beta.
-- It is available to **claim in the full game at launch**.
-- It is described as a cosmetic reward, not a combat upgrade.
+These are launch benefits, not restored Beta progression. Your full Beta save, currency, weapons, Shells, collectibles, and other discovered items do not transfer into the launch save.
 
-The Open Beta store listing does not print a playtime number. A **developer-marked Steam discussion answer** (Aug 13, 2026) adds that playing the Open Beta for **more than 30 minutes** automatically unlocks The Flayed Harbinger, and that save data still does not transfer.
+If you met the Beta condition but the Flayed Harbinger or Prologue skip is not appearing on Steam, use the troubleshooting steps below before assuming the unlock was lost.
 
-Play the Open Beta on the account you will use at launch, then claim the cosmetic when Mortal Shell II releases on August 20, 2026.
+## Flayed Harbinger or Prologue skip not showing on Steam?
+
+Some qualified Steam players have reported that the reward or skip did not initially appear after the Open Beta had been removed from their library.
+
+For affected Steam players, try this order:
+
+1. **Confirm the eligibility condition.**
+   - Flayed Harbinger: the developer-marked Steam answer says more than 30 minutes of Open Beta play.
+   - Prologue skip: progress beyond Marrow Keep during the Open Beta.
+
+2. **Add Mortal Shell II Open Beta back to your Steam Library.**
+
+3. **Restart the full game and check again.**
+   Some launch-week players reported that adding the Beta back to the Library and restarting Mortal Shell II was enough to trigger the reward popup.
+
+4. **If the unlock is still missing, try the partial-download workaround.**
+   A developer-marked Steam reply says many affected players have had success by starting the Open Beta download and pausing it at roughly **7%**, then checking the full game again.
+
+You do **not** need to treat a complete Beta redownload as the first troubleshooting step. The developer-marked guidance specifically points to adding the Beta back and, if necessary, starting only a partial download.
+
+This workaround is **Steam-specific**. Do not assume the same Library / partial-download procedure applies to PlayStation or Xbox.
+
+If the unlock is still missing after these steps, record your platform, game build, account context, and Beta eligibility details and use the official support / bug-reporting channel.
+
+### Why is my Flayed Harbinger not showing on Steam?
+
+If you qualified but the reward is missing, first add the Mortal Shell II Open Beta back to your Steam Library and restart the full game. If that does not work, developer-marked Steam guidance says starting the Beta download and pausing at roughly 7% has worked for many affected players.
+
+### Do I need the Mortal Shell 2 Beta installed to claim the reward?
+
+A complete Beta installation is not part of the troubleshooting guidance. Some affected Steam players have resolved the issue simply by adding the Beta back to their Library; others needed to start a partial download.
+
+### Do I need to redownload the whole Beta?
+
+Not as the first workaround. The developer-marked Steam guidance says starting the Beta download and pausing at roughly **7%** has worked for many affected players.
+
+### Does the Steam workaround apply to PS5 or Xbox?
+
+Do not assume so. Re-adding the Beta to the Steam Library and using a partial Steam download are Steam-specific troubleshooting steps.
 
 ## How the Marrow Keep Prologue skip works
 

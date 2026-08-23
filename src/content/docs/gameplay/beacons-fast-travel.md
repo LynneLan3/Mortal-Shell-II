@@ -11,11 +11,15 @@ related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/gameplay
+  - mortal-shell-ii/hall-of-illusions
+  - mortal-shell-ii/forgotten-crossbow
+  - mortal-shell-ii/lucian-thirsting-knight
+  - mortal-shell-ii/cursed-child
 sidebar:
   label: Beacons & Fast Travel
   order: 10
   badge: Launch
-lastUpdated: 2026-08-20
+lastUpdated: 2026-08-23
 ---
 
 ## How do you unlock fast travel in Mortal Shell 2?
@@ -96,14 +100,14 @@ The table below is intentionally conservative. It includes launch-build Beacons 
     <tr>
       <td>Blackridge Pass</td>
       <td>Fainweald, north route from Widow's Overlook</td>
-      <td>Northern progression, Proxima route context, map fragment routing</td>
+      <td>Northern progression, Flooded Village / Forgotten Crossbow route anchor, and map fragment routing. See the <a href="/mortal-shell-ii/forgotten-crossbow/">Forgotten Crossbow guide</a>.</td>
       <td>Not yet verified</td>
       <td>Launch list + local guides</td>
     </tr>
     <tr>
       <td>Mushroom Village Gate</td>
       <td>Fainweald, Mushroom Village approach</td>
-      <td>Chapel Key / Axe &amp; Dagger route context and early Beacon chain</td>
+      <td>Hall of Illusions Beacon dungeon and the route toward Glutted Mire. See the <a href="/mortal-shell-ii/hall-of-illusions/">Hall of Illusions guide</a>.</td>
       <td>Not yet verified</td>
       <td>Launch list + local guides</td>
     </tr>
@@ -113,6 +117,20 @@ The table below is intentionally conservative. It includes launch-build Beacons 
       <td>Early route anchor and nearby progression cleanup</td>
       <td>Not yet verified</td>
       <td>Launch list</td>
+    </tr>
+    <tr>
+      <td>Stonebled Gate</td>
+      <td>Hidden Keep route</td>
+      <td>Hidden Keep cleanse route and Lucian the Thirsting Knight. See the <a href="/mortal-shell-ii/lucian-thirsting-knight/">Lucian guide</a>.</td>
+      <td>Not yet verified</td>
+      <td>Local route guide</td>
+    </tr>
+    <tr>
+      <td>Sester's Gate</td>
+      <td>Sester's Abbey / Mammon route</td>
+      <td>Sester's Bastion / Black Needle and Revered Beacon / Cursed Child. See the <a href="/mortal-shell-ii/black-needle/">Black Needle guide</a> and <a href="/mortal-shell-ii/cursed-child/">Cursed Child guide</a>.</td>
+      <td>Not yet verified</td>
+      <td>Local route guides</td>
     </tr>
     <tr>
       <td>Gloomshade Grove</td>

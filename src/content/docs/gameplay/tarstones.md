@@ -10,11 +10,12 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/shells
   - mortal-shell-ii/gloom-farm
+  - mortal-shell-ii/hall-of-illusions
 sidebar:
   label: Tarstones Guide
   order: 13
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
 ## Evidence boundary
@@ -24,6 +25,8 @@ This is a launch-window **Exploration Page** for the Tarstones progression clust
 The current evidence supports the broad Tarstone types, Tarforge progression, Etching Needles, XP from use, and the relationship between Tarcore, Tempering, and higher upgrades. It does not yet support a complete list of every Tarstone, exact percentage values for every effect, or a universal best-Tarstone ranking.
 
 For the related leveling loop, see the [Gloom farming guide](/mortal-shell-ii/gloom-farm/). For weapon and Shell context, use the [Weapons Guide](/mortal-shell-ii/weapons/) and [Shells Guide](/mortal-shell-ii/shells/).
+
+**Volatile Fragment** is a named Tarstone reward from defeating Vrannic in the [Hall of Illusions](/mortal-shell-ii/hall-of-illusions/).
 
 ## What are Tarstones in Mortal Shell 2?
 

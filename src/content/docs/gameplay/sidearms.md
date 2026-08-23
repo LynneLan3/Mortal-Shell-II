@@ -5,13 +5,15 @@ category: combat-exploration
 slug: mortal-shell-ii/sidearms
 status: needs-verification
 featured: false
-quickAnswer: "Mortal Shell 2 has eight launch Sidearms: Naylshotte, Forgotten Crossbow, Salvaged Trebuchaxe, Troubadour's Lute, Triarch Repeater, Ballistazooka, Cursed Child and Caged Hystrix. Use the checklist for compact route pointers and the Caged Hystrix page for the detailed Chamber exit pickup."
+quickAnswer: "Mortal Shell 2 has eight launch Sidearms: Naylshotte, Forgotten Crossbow, Salvaged Trebuchaxe, Troubadour's Lute, Triarch Repeater, Ballistazooka, Cursed Child and Caged Hystrix. Detailed route pages are now available for Forgotten Crossbow, Cursed Child and Caged Hystrix, with the checklist covering the remaining compact pointers."
 related:
   - mortal-shell-ii/shells
   - mortal-shell-ii/gragu
   - mortal-shell-ii/sariel
   - mortal-shell-ii/clockwork-scythe
   - mortal-shell-ii/caged-hystrix
+  - mortal-shell-ii/forgotten-crossbow
+  - mortal-shell-ii/cursed-child
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/balance-patch-1
   - mortal-shell-ii/weapons
@@ -44,12 +46,12 @@ This Hub owns the roster and compact location checklist. Detailed dungeon walkth
 | Sidearm | Region / Area | How to get it | Detailed guide |
 | --- | --- | --- | --- |
 | **Naylshotte** | Prologue | Starter acquisition during the Prologue | Hub summary |
-| **Forgotten Crossbow** | Flooded Village | Use the Damp Key for the locked pickup room; Blackridge Pass is a practical route anchor | Hub summary |
+| **Forgotten Crossbow** | Flooded Village | Use the Damp Key for the locked pickup room; Blackridge Pass is a practical route anchor | [Forgotten Crossbow guide](/mortal-shell-ii/forgotten-crossbow/) |
 | **Salvaged Trebuchaxe** | Ravaged Hideout | South / southeast of Gloomshade Grove, on the Bloodcursed Lithopod access route | Hub summary |
 | **Troubadour's Lute** | One-Legged Wolf Tavern | Pickup inside the tavern around the stage area | Hub summary |
 | **Triarch Repeater** | Blackwell Cavern, Mammon | Use Castigator's Keep as the route anchor | Hub summary |
 | **Ballistazooka** | Sentry's Grave | Near Gate of Mammon; reward tied to Subjugated Guardian | Hub summary |
-| **Cursed Child** | Revered Beacon route | Near the Sester's Gate / Abbey area | Hub summary |
+| **Cursed Child** | Revered Beacon route | Near the Sester's Gate / Abbey area | [Cursed Child guide](/mortal-shell-ii/cursed-child/) |
 | **Caged Hystrix** | Chamber of Becoming | Separate pickup near the exit after the Sariel route | [Caged Hystrix guide](/mortal-shell-ii/caged-hystrix/) |
 
 ## Naylshotte
@@ -64,7 +66,7 @@ The **Forgotten Crossbow** is in the **Flooded Village**.
 
 Use the **Damp Key** for the locked pickup room. **Blackridge Pass** is a practical route anchor for this objective.
 
-This Hub keeps the route compact until a dedicated Forgotten Crossbow page is published.
+Use the detailed [Forgotten Crossbow guide](/mortal-shell-ii/forgotten-crossbow/) for the Flooded Village route, Damp Key landmark, and return path to the locked room.
 
 ## Salvaged Trebuchaxe
 
@@ -97,6 +99,8 @@ Its reward is associated with the **Subjugated Guardian** encounter.
 The **Cursed Child** is on the **Revered Beacon** route near the **Sester's Gate / Abbey** area.
 
 This Hub keeps that location at the route-summary level rather than inventing a longer dungeon path.
+
+Use the detailed [Cursed Child guide](/mortal-shell-ii/cursed-child/) for the Revered Beacon golden-light route and upper light-source puzzle.
 
 ## Caged Hystrix
 

@@ -1,0 +1,25 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import BossHub from '../../../components/experience/BossHub.astro';
+import { game } from '../../../config/game';
+import { experienceNav } from '../../../lib/experience-nav';
+import '../../../styles/bosses.css';
+
+const { nav, footerLinks, homeHref, bossesHref } = experienceNav();
+---
+
+<GameShell
+	title="Mortal Shell 2 Bosses — Boss Order, Locations & Guides"
+	description="Find existing Mortal Shell II boss guides by encounter, region, route, and related Shell unlock objectives."
+	canonical={new URL(bossesHref, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={bossesHref}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<BossHub />
+</GameShell>

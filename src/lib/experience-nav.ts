@@ -22,6 +22,7 @@ export interface ExperienceNav {
 	hotGuidesHref: string;
 	routesHref: string;
 	guidesHref: string;
+	bossesHref: string;
 	aboutHref: string;
 }
 
@@ -32,6 +33,7 @@ export function experienceNav(): ExperienceNav {
 	const hotGuidesHref = `${homeHref}#hot-guides`;
 	const routesHref = pageHref(hub, 'routes');
 	const guidesHref = pageHref(hub, 'guides');
+	const bossesHref = pageHref(hub, 'bosses');
 	const aboutHref = `${homeHref}#about`;
 
 	const nav: NavItem[] = [
@@ -39,6 +41,7 @@ export function experienceNav(): ExperienceNav {
 		{ label: t.hotGuidesNav, href: hotGuidesHref },
 		{ label: t.routesNav, href: routesHref, activeMatch: [routesHref] },
 		{ label: t.guidesNav, href: guidesHref },
+		{ label: 'Bosses', href: bossesHref, activeMatch: [bossesHref] },
 	];
 	const footerLinks = [...nav, { label: t.aboutNav, href: aboutHref }];
 
@@ -49,6 +52,7 @@ export function experienceNav(): ExperienceNav {
 		hotGuidesHref,
 		routesHref,
 		guidesHref,
+		bossesHref,
 		aboutHref,
 	};
 }

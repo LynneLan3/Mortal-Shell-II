@@ -71,9 +71,9 @@
   },
   "items": [
     {"id":"01","priority":"P0","title":"Interactive Map","slug":"mortal-shell-ii/map","type":"map","action":"expand","status":"blocked","blockedReason":"No reliable, calibratable world-map asset and coordinate evidence is available for the repository map UI.","hub":"mortal-shell-ii/map"},
-    {"id":"02","priority":"P0","title":"Full Walkthrough / Progression Route","slug":"mortal-shell-ii/routes/world-progression","type":"guide","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},
-    {"id":"03","priority":"P0","title":"All Trophies & Achievements + Platinum Roadmap","slug":"mortal-shell-ii/trophies","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/finish-complete"},
-    {"id":"04","priority":"P0","title":"All Bosses + Boss Order + Locations","slug":"mortal-shell-ii/bosses","type":"hub","action":"complete","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
+    {"id":"02","priority":"P0","title":"Full Walkthrough / Progression Route","slug":"mortal-shell-ii/routes/world-progression","type":"guide","action":"expand","status":"done","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},
+    {"id":"03","priority":"P0","title":"All Trophies & Achievements + Platinum Roadmap","slug":"mortal-shell-ii/trophies","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/routes/finish-complete"},
+    {"id":"04","priority":"P0","title":"All Bosses + Boss Order + Locations","slug":"mortal-shell-ii/bosses","type":"hub","action":"complete","status":"done","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
     {"id":"05","priority":"P0","title":"All Beacons + Fast Travel","slug":"mortal-shell-ii/beacons-fast-travel","type":"guide","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},
     {"id":"06","priority":"P0","title":"Ova / Mether's Breath / How to Clear Corruption","slug":"mortal-shell-ii/ova","type":"guide","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},
     {"id":"07","priority":"P0","title":"Gloombound Flame → Night Mode full task chain","slug":"mortal-shell-ii/gloombound-flame","type":"guide","action":"complete","status":"done","blockedReason":null,"hub":"mortal-shell-ii/routes/weapons-resources"},

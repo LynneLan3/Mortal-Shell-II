@@ -1,11 +1,11 @@
 ---
-title: "Mortal Shell 2 Shells Guide: Locations, Unlocks & Provisional Ranking"
-description: "A Mortal Shell 2 Shells guide covering seven detailed Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu and Sariel routes, plus the identified launch roster without an objective combat tier list."
+title: "Mortal Shell 2 Shells Guide: All Locations, Unlocks & Best Uses"
+description: "Find all nine Mortal Shell 2 Shells: the eight permanent Shells, Harros's prologue-only role, unlock conditions, bonding, progression timing, and evidence-bounded build advice."
 category: combat-exploration
 slug: mortal-shell-ii/shells
 status: needs-verification
 featured: false
-quickAnswer: "This site currently has seven detailed Shell route pages: Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu and Sariel. The identified launch roster also includes Lazlo, whose detailed route is pending; the Hub does not claim an objective combat tier list."
+quickAnswer: "Mortal Shell 2 has nine Shells in total: Harros is a prologue-only Shell, while Tiel, Proxima, Gragu, Eredrim, Smert, Lazlo, Sariel and Genessa are the eight permanent Shells. Find each body, complete its first Memory, then spend Glimpses on Bonding; the best Shell depends on the build and stage of progression, not a universal tier list."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/proxima
@@ -23,180 +23,195 @@ sidebar:
   label: Shells Guide
   order: 12
   badge: Exploration
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
-## Evidence boundary
+## Quick answer: how many Shells are there?
 
-This is a **Shells Exploration Hub** for launch-window searches. It introduces the Shell system, surfaces the seven detailed routes currently covered on this site, and gives provisional use cases without inventing a combat tier list.
+There are **nine Shells in Mortal Shell II** if you count the prologue Shell: **Harros, Tiel, Proxima, Gragu, Eredrim, Smert, Lazlo, Sariel, and Genessa**. **Harros** is available during the prologue but is taken away when that opening section ends. The other **eight Shells are permanent unlocks**.
 
-The identified launch roster is presented as eight Shells, while Lazlo remains detailed-route-pending on this site. This page does **not** present a fake combat tier list. A Shell is ranked here only when the ranking describes a verifiable route or player use case, such as early access or exploration value. Combat strength, damage, survivability, and build rankings remain unranked unless the evidence supports them.
+For every permanent Shell, the practical loop is:
 
-For the official high-level description of Shells and the broader gameplay boundary, see the [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/).
+1. Reach the Shell's body or encounter.
+2. Interact with it and complete the first Shell Memory or unlock sequence.
+3. Return to the Shellkeeper at Marrow Keep when you want to raise that Shell's Bond.
+4. Spend **Glimpses** on Bonding to open higher perk tiers. Shell-map reveals are a separate **Gloom** expense after [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
 
-## What are Shells in Mortal Shell 2?
+This page is a route and decision guide, not an objective S/A/B combat tier list. Current sources support a few playstyle and timing recommendations, but not a complete, tested stat comparison for every Shell.
 
-Shells are a core part of Mortal Shell II's identity. Official descriptions present the sequel as a single-player action RPG with possessable warrior Shells, high-stakes combat, deeper weapon upgrades, an interconnected world, and dungeons.
+## All Shell locations and unlock conditions
 
-The current coverage supports individual discovery routes, but it does not claim a complete launch database containing every Shell name, location, stat line, skill list, upgrade path, or best build.
+Use the region and landmark columns as route anchors. They are intentionally more reliable than invented map coordinates or a single guide's compass wording.
 
-Think of this page as a practical index:
+| Shell | Region / route anchor | What unlocks it | Best-supported timing or use case |
+| --- | --- | --- | --- |
+| **Harros the Vassal** | Prologue | Given automatically; lost when the prologue ends | Tutorial and opening progression only; permanently unavailable after the prologue |
+| **Tiel the Acolyte** | Fainweald, near **Widow's Overlook** | Find the torch-marked grave, interact with Tiel, then complete the **Rash Memory** | One of the earliest permanent Shells; the available build coverage supports a mobile, evasive playstyle |
+| **Proxima the Broodseeker** | Fainweald, **Shattered Beacon** near **Blackridge Pass** | Enter the Shattered Beacon, interact with the Unknown Shell, and complete the short Memory sequence | Early open-world route shortly after the prologue; the local evidence supports a lightning-lance utility use case |
+| **Gragu the Insatiable** | Fainweald, **One-Legged Wolf Tavern** | Bring the **Heart of Vatra** from the Temple of Vatra back to Gragu | Requires a deeper eastern Fainweald route; keep the temple escape route in mind |
+| **Eredrim the Venerable** | Fainweald, **Citadel of Penance** | Reach and defeat **The Warden**, then interact with Eredrim | A mid-to-late Fainweald target in current guide coverage; no universal damage or survivability ranking is claimed here |
+| **Smert the Apostate** | Fainweald, **Prophet's Rest** near **Outskirts of Nochte** | Activate all three blood pools, start **The Convert**, and defeat the **Hierarch** | A higher-risk, Miracle/time-control-oriented use case in the local route evidence |
+| **Lazlo the Justiciar** | Mammon, **High Lord's Courtyard** and the crypt beyond its boss route | Defeat **Vellen, Lord of Mammon**, then reach Lazlo's remains | Later Mammon progression; follow the boss-gated route rather than treating Lazlo as an early detour |
+| **Sariel the Endless** | Mammon, **Silent Steps** → **Chamber of Becoming** | Destroy all four revival markers, defeat Sariel permanently, then complete the nearby Shell Memory | Later Mammon route with a multi-step boss encounter; collect the associated dungeon rewards before leaving |
+| **Genessa the Wayward** | Marrow Keep, then the Mammon route to **Sester Secundus** | Defeat Sester Secundus, return the required item to Genessa, and complete her Memory | The most indirect unlock; do not assume the Censer/Chalice naming discrepancy is a different item |
 
-- use it to understand what a Shell discovery looks like,
-- follow the known routes to Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu, or Sariel,
-- use the provisional section to choose what to investigate first,
-- return when more launch-build Shell locations have been independently checked.
+## Fainweald Shell routes
 
-## Known Shell locations
+### Tiel: Widow's Overlook and the Rash Memory
 
-### Tiel
+Start from **Widow's Overlook Beacon** and follow the local landmarks toward the wooden enclosure and large tree. The shallow grave is marked by **two torches**. Interact with Tiel, then enter the nearby building through its side window and take the flask from the desk to complete the **Rash Memory**.
 
-**Tiel** is found southeast of **Widow's Overlook Beacon**, toward the wider **Martyr's Tomb / Ritual Grounds** area.
+The exact compass description varies between current guides, so use the beacon, enclosure, tree, torches, and grave as the route checks. The local [Tiel location guide](/mortal-shell-ii/tiel/) does not establish defeating the nearby Great Arbiter as a requirement.
 
-Start from Widow's Overlook and look for a **large tree** and **wooden enclosure**. Two torches mark the entrance to Tiel's shallow grave. Interact with Tiel, then complete the **Rash Memory** by entering the nearby building through its **side window** and collecting the **flask** from the desk.
+Tiel is the clearest early **mobility/evasion** recommendation in the current evidence: the local guide describes a mobile, Shadow-focused identity, and an independent launch guide places Tiel among the earliest Shells and recommends him for early-to-mid game. That is a use-case recommendation, not proof that Tiel wins every build matchup.
 
-Follow the full [Tiel location guide](/mortal-shell-ii/tiel/) for the route and unlock steps.
+### Proxima: Shattered Beacon
 
-### Smert
+After the prologue, travel from **Marrow Keep** through the northern transporter to **Widow's Overlook**, continue to **Blackridge Pass**, and look for the elevated **Shattered Beacon** route. Enter the dungeon and interact with the Unknown Shell.
 
-**Smert** starts at **Prophet's Rest** near **Outskirts of Nochte**. Activate the **three blood pools**, interact with the Unknown Shell to start **The Convert**, and defeat the Hierarch to unlock Smert.
+The locally checked Memory sequence is:
 
-Follow the [Smert location guide](/mortal-shell-ii/smert/) for the ritual and Memory route.
+- **Take the Offering**
+- **Use Biosampler on stranger**
+- **Answer the Stranger**
+- **Inform Merrick**
 
-### Gragu
+The game then displays **NEW SHELL DISCOVERED — PROXIMA** and allows an immediate switch. The local [Proxima guide](/mortal-shell-ii/proxima/) supports the route as an early post-prologue option and does not show a specific weapon, boss, key, Ova, Mether's Breath, or Shell requirement. It also records Proxima's lightning-lance pull utility and a transcript-stated damage-mitigation value; those details come from one walkthrough and should not be treated as a complete balance-tested build.
 
-**Gragu** starts inside the **One-Legged Wolf Tavern**. Take the **Heart of Vatra** from the Temple of Vatra, return it to Gragu, and inhabit the resulting Shell.
+### Gragu: Heart of Vatra
 
-Follow the [Gragu location guide](/mortal-shell-ii/gragu/) for the tavern-to-temple route.
+Find **Gragu inside the One-Legged Wolf Tavern** and exhaust his dialogue until he asks for the **Heart of Vatra**. Travel east to the **Temple of Vatra**, take the Heart from the corrupted statue at the top, use the alternate exit when the route becomes hostile, and return to the tavern.
 
-### Sariel
+Giving Gragu the Heart triggers the unlock event and leaves his body available to inhabit. The [Gragu guide](/mortal-shell-ii/gragu/) separates the optional Berserker's Stone from the Shell objective: it is not required for Gragu.
 
-**Sariel** is reached from **Silent Steps** through the **Chamber of Becoming**. Destroy all **four revival markers**, defeat Sariel permanently, then complete the nearby Unknown Shell Memory.
+The route may be inaccessible until wider Fainweald corruption and travel progression has opened. Current local evidence intentionally does **not** assert a fixed Ova count, so do not treat a reported number as a universal requirement.
 
-Follow the [Sariel location guide](/mortal-shell-ii/sariel/) for the Chamber route and unlock sequence.
+### Eredrim: Citadel of Penance
 
-### Proxima
+Follow the **Citadel of Penance** route until **The Warden** encounter. Defeat The Warden, finish the encounter state, and interact with Eredrim to choose the inhabit option. The [Eredrim guide](/mortal-shell-ii/eredrim/) supports this direct route without requiring a paid Shell-location hint.
 
-**Proxima** has an individual early Shell route on this site.
+Independent coverage describes Eredrim as a mid-to-late game choice, but the current evidence does not justify filling in a full stat table or calling him objectively strongest. Use Eredrim when the route, timing, and your tested Bond upgrades fit your run; keep the broader build claim provisional.
 
-| Field | Current evidence |
-| --- | --- |
-| Area | Shattered Beacon |
-| Route | Marrow Keep → Widow's Overlook → Blackridge Pass → Shattered Beacon |
-| Timing | Shortly after completing the Prologue |
-| Requirement shown | No specific weapon, Shell, boss, key, Ova, or Mether's Breath requirement is shown in the checked evidence |
-| Unlock action | Enter the Shattered Beacon, interact with the Unknown Shell, complete the short memory sequence, and receive the new-Shell notification |
-| Evidence status | Transcript-supported route with gameplay UI captures on the local guide |
+### Smert: Prophet's Rest
 
-The full route is documented on the [Proxima location guide](/mortal-shell-ii/proxima/). The route begins from Marrow Keep, uses the northern transporter to Widow's Overlook, continues north to Blackridge Pass, and then branches toward the elevated Shattered Beacon.
+Use **Outskirts of Nochte Beacon** as the route anchor for **Prophet's Rest**. Activate all **three blood pools** around the ritual area, then interact with the Unknown Shell to start **The Convert**. Complete the Memory route and defeat the **Hierarch** to unlock Smert.
 
-Inside the Shattered Beacon, interact with the Unknown Shell. The checked sequence includes the memory interactions **Take the Offering**, **Use Biosampler on stranger**, **Answer the Stranger**, and **Inform Merrick**. After the memory sequence, the game displays **NEW SHELL DISCOVERED — PROXIMA**.
+The local [Smert guide](/mortal-shell-ii/smert/) records two supported ways to activate a pool: kill an enemy inside it or make a Blood Offering. A Blood Offering can eject you from your Shell, so recover it before attempting another sacrifice. Check the pools on arrival rather than assuming all three start empty.
 
-The current page treats Proxima's route and discovery notification as supported. It does not infer a universal combat ranking from the unlock route.
+Smert is the clearest current **Miracle/time-control** use case, but the site does not claim a complete Miracle table or a universal high-risk/high-reward tier position.
 
-### Eredrim
+## Mammon Shell routes
 
-Use the [Eredrim location guide](/mortal-shell-ii/eredrim/) for its Citadel of Penance route and Shell unlock handoff.
+### Lazlo: Vellen and the High Lord's Courtyard crypt
 
-### Sester Genessa
+In Mammon, use **High Lord's Courtyard** as the route anchor. Reach the keep and defeat **Vellen, Lord of Mammon**; Lazlo's remains are in the crypt or final chamber beyond that encounter. Interact with the remains and finish Lazlo's first Memory before treating the Shell as permanently unlocked.
 
-Use the [Sester Genessa location guide](/mortal-shell-ii/sester-genessa/) for the Marrow Keep route and its task-item handoff.
+No standalone Lazlo route page is present in this site checkout yet, so this hub keeps the claim at region, landmark, boss, and crypt level. It does not invent a room coordinate, an exact compass path, or Lazlo's stats/build.
 
-## Provisional ranking by use case
+### Sariel: Chamber of Becoming
 
-This is a route-access ranking, not a combat tier list.
+Start at **Silent Steps Beacon** and follow the outer Sariel route into the **Chamber of Becoming**. In the final arena, destroy all **four revival tablets/markers** before expecting a permanent defeat. After the fight, interact with the nearby Unknown Shell and complete Sariel's Memory; defeating the boss alone is not the complete Shell unlock.
 
-### Proxima — documented early Shell route
+The route also contains the **Clockwork Scythe** and **Caged Hystrix**, which are separate rewards. Use the [Sariel guide](/mortal-shell-ii/sariel/), [Clockwork Scythe guide](/mortal-shell-ii/clockwork-scythe/), and [Caged Hystrix guide](/mortal-shell-ii/caged-hystrix/) when you want all three objectives.
 
-Proxima is a useful early target for **documentation and access** because the route is specific, starts shortly after the Prologue, and has a location page with transcript and UI evidence.
+### Genessa: Sester Secundus and the return handoff
 
-That does not mean Proxima is officially the strongest Shell. The current evidence set does not establish a reliable damage, defense, skill, or endgame ranking.
+Genessa starts as an NPC in **Marrow Keep**. Follow the unlock route to the Mammon-side encounter with **Sester Secundus**, defeat that boss, and return the required item to Genessa in Marrow Keep. Complete Genessa's Memory and then use the Shell prompt in the training grounds.
 
-### Combat power remains unranked
+Current sources disagree on the returned item's name: some call it **Sester's Censer**, while others call it **Sester's Chalice**. The local [Sester Genessa guide](/mortal-shell-ii/sester-genessa/) preserves that conflict. Follow the in-game prompt in the build you are playing rather than assuming the two labels describe separate prerequisites.
 
-Do not convert a creator's “best Shell” wording, an old beta guide, or a single combat impression into a site-wide tier list.
+Genessa is also the clearest example of a route whose Bonding interaction differs in current coverage: independent launch guides say to raise her Bond by talking to Genessa rather than using the ordinary Shellkeeper flow. Treat that as a supported route-specific instruction, and verify the prompt after the handoff.
 
-For now, the useful distinction is:
+## Shell Memories, Bonding, and resources
 
-- **Route use case:** Proxima and Tiel have individual location pages; Eredrim and Sester Genessa have individual unlock pages.
-- **Combat-power use case:** not ranked.
-- **Build compatibility:** not ranked.
-- **Completionist route:** incomplete until the launch roster is verified.
+Finding the body is not always the same as unlocking the Shell. Current launch guides agree on the following progression model:
 
-## How to choose a Shell while coverage is incomplete
+- Interact with the remains or post-encounter Shell prompt.
+- Complete the first Shell Memory or route-specific Memory sequence.
+- The permanent Shell becomes available after that completion, not merely after reaching the landmark.
+- Use **Glimpses** to raise the Shell's **Bond** and open higher perk tiers.
+- Shell-specific abilities/weapons are not the same as shared equipment. Current coverage says Seals, Tarstones, and other shared items can be evaluated across Shells, but local pages do not validate a full cross-Shell build matrix.
 
-Use the evidence level first, then your playstyle:
+The standard Bonding interaction is associated with the Shellkeeper at **Marrow Keep**. Current coverage treats **Genessa** as the exception to check in person: her Bonding is described through dialogue with Genessa. See the [Glimpses guide](/mortal-shell-ii/glimpses/) for the resource boundary and do not spend Glimpses as if they were ordinary Gloom.
 
-1. **Choose a documented route.** Proxima and Tiel have specific location and unlock sequences, while Eredrim and Sester Genessa have individual unlock pages.
-2. **Do not chase an unverified tier list.** “Best” claims are often creator opinions and may depend on weapons, difficulty choices, or a particular run.
-3. **Separate Shell choice from weapon choice.** The [Weapons Guide](/mortal-shell-ii/weapons/) tracks known weapon routes; it does not establish which Shell is objectively best with each weapon.
-4. **Use difficulty tools separately.** The [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) explains an optional combat modifier, but it is not evidence for a Shell ranking.
+## Best Shells and practical build choices
 
-## Shell locations and Beacons
+There is no evidence-backed universal tier list in this checkout. The safest useful ranking is by **when the route opens and what the available evidence actually supports**:
 
-The documented Shell routes also show why Shell locations should be tracked separately from ordinary Beacon travel.
+| Use case | Shells to investigate first | Why this is supportable |
+| --- | --- | --- |
+| Earliest permanent options | **Tiel**, **Proxima** | Both are in early Fainweald routes after the prologue; their local location pages are the most developed in this checkout |
+| Mobile/evasive play | **Tiel** | Local guide describes a mobile, Shadow-focused identity; an independent launch guide also recommends Tiel for early-to-mid game |
+| Lightning pull utility | **Proxima** | Local transcript/UI evidence supports the lightning-lance interaction; it does not establish a complete damage ranking |
+| Miracle/time-control direction | **Smert** | Local route evidence describes this identity without claiming a full skill or stat table |
+| Mid-to-late route target | **Eredrim** | Independent launch coverage places Eredrim later than Tiel; the exact combat ranking remains unverified |
+| Completionist collection | All eight permanent Shells | The first Memory is part of the permanent-unlock loop, and Harros remains prologue-only |
 
-- **Widow's Overlook** and **Blackridge Pass** are route anchors.
-- **Shattered Beacon** is the actual Shell discovery area.
-- Cleansing or resting at a Beacon is not the same as discovering a Shell.
-- The Shell page should not turn every Beacon name into an assumed Shell location.
+For a practical first run, choose one early Shell whose movement and ability pattern you can test, then invest Bonding resources after you know you will keep using it. Do not copy a pre-patch or beta “best Shell” list without checking whether it includes the current map-cost and balance changes. The [Weapons guide](/mortal-shell-ii/weapons/) and [Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/) cover adjacent build variables without pretending that weapon or difficulty choice proves a Shell ranking.
 
-For the wider travel system, see the [Beacon locations and fast travel guide](/mortal-shell-ii/beacons-fast-travel/). For weapon routes that pass through the same broad region, see the [Great Martyr's Blade](/mortal-shell-ii/great-martyrs-blade/) and [Axatana](/mortal-shell-ii/axatana/) guides.
+## Missables and conflict notes
 
-For specific Shell unlock routes, see [Tiel](/mortal-shell-ii/tiel/), [Sester Genessa](/mortal-shell-ii/sester-genessa/), [Eredrim](/mortal-shell-ii/eredrim/), and [Proxima](/mortal-shell-ii/proxima/). These pages keep character-specific location intent separate from this Hub's roster boundary.
+### Harros is the real permanent missable
 
-## Balance Patch 1 Shell-map note
+Harros is a prologue Shell, not one of the eight permanent collection Shells. Current launch guides describe losing him when the prologue ends as irreversible. If you are seeking an all-permanent collection, do not count Harros as a permanent unlock.
 
-Shell-map reveals now cost **Gloom instead of Glimpses**. See the [Glimpses guide](/mortal-shell-ii/glimpses/) for the refund and current resource role, and [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) for the wider patch changes.
+For the other eight, current evidence supports persistent collection after the first Memory, but this hub does not claim that every optional dialogue choice, Bond prompt, or alternate ending interaction has identical outcomes. Finish the Memory and confirm the Shell menu before leaving a route.
 
-## What this page does not claim
+### Do not confuse a route gate with a fixed number
 
-The following items remain outside the current verified scope:
+Gragu's eastern Fainweald route may depend on corruption-clearing and broader travel progression. Current local evidence avoids a fixed Ova threshold. Similarly, a paid location reveal and the physical Shell route are different things.
 
-- a complete launch Shell roster,
-- every Shell location,
-- a definitive Shell tier list,
-- universal best-Shell recommendations,
-- complete Shell stats or skill tables,
-- confirmed missable or permanent Shell decisions,
-- a complete Shell upgrade or build system.
+### Compass wording is not a coordinate
 
-Those sections can be expanded later when each claim has launch-build evidence. Until then, an explicit gap is more useful than a polished but unreliable database.
+Tiel and Proxima descriptions differ slightly between sources on whether the first turn is described as north, southeast, or a turn from the Beacon. Use the named Beacon, dungeon, enclosure, grave, and boss landmarks. This page does not invent map coordinates.
+
+### Genessa's item name is unsettled in current coverage
+
+Keep **Sester's Censer / Sester's Chalice** as a deliberate uncertainty until the in-game prompt or a stronger primary source resolves the naming. The unlock dependency—Sester Secundus, return to Genessa, Memory—is the stable part.
+
+## Balance Patch 1 and Shell planning
+
+Balance Patch 1 moved **Shell-map reveals from Glimpses to Gloom** and refunds Glimpses previously spent on those reveals at the Shell Keeper's alcove in Blackmarrow. That matters when planning a collection: map discovery no longer competes with Bonding for the same Glimpse budget.
+
+The patch also changed enemy, weapon, Tarstone, and economy balance. Therefore, old beta or pre-patch “best Shell” claims should be treated as dated opinions unless their test conditions are clear. See [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) and [Glimpses](/mortal-shell-ii/glimpses/) for the site's current resource notes.
 
 ## FAQ
 
-### How many Shells are covered here?
+### How many Shells are in Mortal Shell 2?
 
-This Hub has seven detailed route pages: Proxima, Tiel, Eredrim, Sester Genessa, Smert, Gragu, and Sariel. The identified launch roster also includes Smert, Eredrim, Proxima, Tiel, Gragu, Sester Genessa / Genessa, Lazlo, and Sariel; Lazlo's detailed route is pending on this site.
+There are **nine total Shells**: Harros is the prologue-only Shell, and Tiel, Proxima, Gragu, Eredrim, Smert, Lazlo, Sariel, and Genessa are the eight permanent Shells.
 
-### Where do you find Proxima?
+### Which Shell should you get first?
 
-Find Proxima inside the Shattered Beacon, reached from Marrow Keep through Widow's Overlook and Blackridge Pass after the Prologue.
+Start with **Tiel or Proxima** after the prologue because both have early Fainweald routes. Tiel has the clearest supported mobile/evasive use case; Proxima has the clearest locally documented lightning utility. Neither is confirmed as universally strongest.
 
-### Can you unlock Proxima early?
+### Is Harros permanently missable?
 
-Yes. The checked route supports unlocking Proxima shortly after completing the Prologue. It does not show a specific weapon, boss, key, or Mether's Breath requirement.
+Harros is available in the prologue and is lost when the prologue ends. Current launch coverage treats that loss as irreversible. He is not part of the eight permanent Shell collection.
 
-### Is Proxima the best Shell?
+### Do I have to complete a Shell Memory?
 
-Not confirmed. The site has route coverage for seven Shells, but there is no reliable evidence here for an objective combat-power ranking.
+Yes, for the permanent Shell loop. Finding or reaching a body is not the whole unlock: interact with the Shell and complete its first Memory or route-specific unlock sequence, then confirm the Shell becomes available.
 
-### Is there a Shell tier list?
+### How does Shell Bonding work?
 
-Not a verified one. This page uses provisional route and use-case labels and intentionally avoids a fake S/A/B combat tier list.
+Spend **Glimpses** to raise a Shell's Bond and unlock higher perk tiers. The standard interaction is at the Shellkeeper in Marrow Keep; current coverage describes Genessa as a dialogue-based exception to check with Genessa herself.
 
-### Are Shell locations connected to weapon locations?
+### Is there a verified Shell tier list?
 
-They can share route landmarks, but they are separate intents. Use the [Weapons Guide](/mortal-shell-ii/weapons/) for known weapon locations and this page for Shell discovery coverage.
+No. This page gives evidence-bounded use cases and progression timing rather than an S/A/B combat ranking. Stats, builds, and performance can change with Bonding, weapons, Seals, Tarstones, and patches.
+
+### Do Shell-map reveals still cost Glimpses?
+
+No. After Balance Patch 1, Shell-map reveals cost **Gloom** instead, and eligible Glimpses spent on those reveals are refunded in Blackmarrow.
 
 ## Sources
 
-- [Mortal Shell II on Steam](https://store.steampowered.com/app/2584270/Mortal_Shell_II/) — official Shell and gameplay positioning.
-- [Official Mortal Shell II website](https://mortalshell2.com/) — official game context.
-- [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/) — local evidence boundary for the Shell system.
-- [Proxima location guide](/mortal-shell-ii/proxima/) — local route, UI captures, and source attribution.
-- [Tiel location guide](/mortal-shell-ii/tiel/) — local location and Rash Memory unlock route.
-- [Eredrim location guide](/mortal-shell-ii/eredrim/) — local Shell unlock route.
-- [Sester Genessa location guide](/mortal-shell-ii/sester-genessa/) — local Shell unlock route.
-- [Proxima unlock walkthrough — YouTube](https://www.youtube.com/watch?v=MOwhTNc4am8) — transcript-supported route and discovery sequence, accessed 2026-08-19.
-- Local transcript: `research/youtube/proxima/proxima-unlock.en.srt`.
+- [Mortal Shell 2 on Steam](https://store.steampowered.com/app/2584270/Mortal_Shell_II/) — official game positioning and Shell premise.
+- [Official Mortal Shell website](https://mortalshell.com/) — official game context; the former Mortal Shell II URL currently redirects here.
+- [All Shell Locations In Mortal Shell 2 — GameSpot](https://www.gamespot.com/articles/mortal-shell-2-all-shell-locations/) — launch roster, region routes, unlock conditions, Harros's prologue boundary, and Bonding overview.
+- [Mortal Shell 2: Every Shell Location and How to Unlock Each Character — AllThings.How](https://allthings.how/mortal-shell-2-every-shell-location-and-how-to-unlock-each-character/) — independent cross-check of the nine-Shell count, first-Memory loop, Bonding, and route table.
+- [The best Mortal Shell 2 Shells and how to get them all — GamesRadar+](https://www.gamesradar.com/games/rpg/mortal-shell-2-shells/) — independent use-case opinions, eight permanent Shell names, location-reveal resource behavior, and shared equipment context.
+- [All shells in Mortal Shell 2 and how to get them — Destructoid](https://www.destructoid.com/all-shells-in-mortal-shell-2-and-how-to-get-them/) — independent route cross-check; its Sariel section is explicitly incomplete, so it is not used as sole evidence for Sariel.
+- [First Mortal Shell 2 balance patch — GamesRadar+](https://www.gamesradar.com/games/action-rpg/first-mortal-shell-2-balance-patch-stacks-the-deck-for-players-refunds-for-anyone-who-wasted-glimpses-bosses-nerfed-and-gold-drops-buffed-massively/) — patch timing and Shell-map Glimpse refund/resource change.
+- Local [Proxima guide](/mortal-shell-ii/proxima/), [Tiel guide](/mortal-shell-ii/tiel/), [Eredrim guide](/mortal-shell-ii/eredrim/), [Smert guide](/mortal-shell-ii/smert/), [Gragu guide](/mortal-shell-ii/gragu/), [Sariel guide](/mortal-shell-ii/sariel/), and [Sester Genessa guide](/mortal-shell-ii/sester-genessa/) — route-specific evidence and deliberate uncertainty boundaries.

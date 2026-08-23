@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "article": "node ./scripts/generate-article.mjs",
     "indexnow": "tsx ./scripts/indexnow-submit.ts",
     "test:indexnow": "tsx --test tests/indexnow/submit.test.ts"
   },

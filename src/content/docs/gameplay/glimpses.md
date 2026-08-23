@@ -1,41 +1,37 @@
 ---
 title: "Mortal Shell 2 Glimpse Guide: How to Get Glimpses, Farming & Best Uses"
-description: "How Mortal Shell 2 Glimpses work, where progression sources come from, why they are limited, and how to choose between Shell Bond upgrades and Shell location information."
+description: "How Mortal Shell 2 Glimpses work, where progression sources come from, why they are limited, how Shell Bond spending works, and where to collect the Balance Patch 1 map-reveal refund."
 category: combat-exploration
 slug: mortal-shell-ii/glimpses
 status: needs-verification
 featured: false
-quickAnswer: "Glimpses are a limited Shell-progression resource rather than an ordinary Gloom farming currency. Use launch progression and exploration sources to build your supply, then choose between Shell Bond upgrades and purchasing Shell location information. NG+ can reopen world-based opportunities, but this page does not claim an infinite farm, fixed total, or complete location database."
+quickAnswer: "Glimpses are a limited Shell-progression resource rather than ordinary Gloom. After Balance Patch 1, Shell-map reveals cost Gloom instead of Glimpses, and Glimpses previously spent on those map reveals are refunded at the Shell Keeper's alcove in Blackmarrow. Keep Glimpses focused on Shell progression rather than paying for map reveals."
 related:
   - mortal-shell-ii/shells
   - mortal-shell-ii/proxima
   - mortal-shell-ii/new-game-plus
   - mortal-shell-ii/gloom-farm
+  - mortal-shell-ii/balance-patch-1
 sidebar:
   label: Glimpses Guide
   order: 17
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
 ## Evidence boundary
 
 This is a launch-window **Exploration Page** for the Glimpses progression cluster. It answers how to get and spend Glimpses without inventing a fixed total or pretending that every source has been mapped.
 
-The current research supports Glimpses as a limited progression resource connected to Shell Bond upgrades and Shell location information. It does not support a complete Glimpse location database, a universal total, or a simple repeatable route equivalent to ordinary Gloom farming.
+The current research supports Glimpses as a limited progression resource connected to Shell Bond upgrades. It does not support a complete Glimpse location database, a universal total, or a simple repeatable route equivalent to ordinary Gloom farming.
 
 For ordinary leveling currency, use the [Gloom farming guide](/mortal-shell-ii/gloom-farm/). Glimpses should be treated as a separate Shell-progression decision.
 
 ## What are Glimpses?
 
-Glimpses are a Shell-focused resource used to make choices about Shell progression and discovery. They are not interchangeable with Gloom, coins, Tarstones, or weapon upgrade materials.
+Glimpses are a Shell-focused resource used for Shell progression. They are not interchangeable with Gloom, coins, Tarstones, or weapon upgrade materials.
 
-The key early decision is whether to spend Glimpses on:
-
-- **Shell Bond upgrades**, which improve the progression relationship with a Shell,
-- **Shell location information**, which helps reveal where to find Shells.
-
-That choice creates a real opportunity cost. Spending on information can accelerate discovery; spending on Shell Bond can improve the value of a Shell you already use.
+The clearest supported use is **Shell Bond upgrades**, which deepen the progression relationship with a Shell you already use. Keep the resource separate from ordinary leveling and map discovery systems.
 
 The [Shells Guide](/mortal-shell-ii/shells/) tracks the currently known Shell boundary, while the [Proxima guide](/mortal-shell-ii/proxima/) covers one documented early Shell route.
 
@@ -66,35 +62,13 @@ If you are searching for a “best Glimpse farm,” first separate three possibi
 
 Current research supports the first two categories more strongly than a universal infinite farm. Do not spend an entire run repeating a Gloom route expecting the same Glimpse result unless the current game UI confirms it.
 
-## Shell Bond versus Shell location information
+## What changed for Glimpses in Balance Patch 1?
 
-The most important Glimpse decision is not “where do I farm?” but “what do I want to buy first?”
+Balance Patch 1 moved **Shell-map reveals from Glimpses to Gloom**.
 
-### Spend on Shell Bond
+If you spent Glimpses on Shell-map reveals before the patch, those map-reveal Glimpses are refunded at the **Shell Keeper's alcove in Blackmarrow**.
 
-Choose Shell Bond when:
-
-- you already have a Shell you plan to use,
-- you want to deepen that Shell's progression,
-- you are comfortable exploring for other Shell locations later,
-- your current build is being shaped around that Shell's playstyle.
-
-This is the better use case for a player who has already found a preferred Shell and wants to invest in it.
-
-### Spend on Shell location information
-
-Choose location information when:
-
-- you are missing a Shell and want route guidance,
-- you value discovery speed over immediate Bond progression,
-- you are building a collection rather than committing to one Shell,
-- you want to reduce blind exploration in a large area.
-
-The location-information purchase is not a complete Shell database. It is a way to turn limited Glimpses into directional help.
-
-### Which choice is best?
-
-There is no universal best choice. If Proxima is your current target, use the [Proxima location guide](/mortal-shell-ii/proxima/) before spending on information that may duplicate a route you already know. If you have a Shell you enjoy and do not need another location clue, Shell Bond may be the more direct investment.
+The practical change is that Shell-map discovery no longer competes with Glimpse spending for Shell progression. For the rest of the update, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
 
 ## How NG+ affects Glimpses
 
@@ -114,26 +88,25 @@ Use the [New Game Plus guide](/mortal-shell-ii/new-game-plus/) for the broader c
 For a low-risk first run:
 
 1. Keep a reserve instead of spending every Glimpse immediately.
-2. Identify whether your next menu choice is Shell Bond or location information.
-3. Use known Shell routes such as Proxima before paying for duplicate information.
-4. Spend on Shell Bond when you have a clear Shell playstyle commitment.
-5. Revisit the decision after a major progression milestone or before NG+.
+2. Spend on Shell Bond when you have a clear Shell playstyle commitment.
+3. Use the [Shells Guide](/mortal-shell-ii/shells/) and documented routes such as [Proxima](/mortal-shell-ii/proxima/) for discovery rather than treating Glimpses as ordinary map currency.
+4. Recheck the relevant Shell progression menu after a major milestone or before NG+.
 
-This approach protects you from a common mistake: treating a limited Shell resource like Gloom and then discovering that a location clue or Bond upgrade was the more valuable early choice.
+This approach protects you from a common mistake: treating a limited Shell resource like Gloom and spending it without a clear progression goal.
 
 ## FAQ
 
 ### What are Glimpses used for?
 
-Glimpses are used for Shell progression decisions, especially Shell Bond upgrades and purchasing Shell location information.
+Glimpses are used for Shell progression, especially Shell Bond upgrades. They are separate from Gloom and from ordinary map discovery after Balance Patch 1.
 
 ### Can you farm Glimpses like Gloom?
 
 Not according to the current launch research. Glimpses are limited progression resources, not a standard enemy-loop currency with a confirmed infinite farm.
 
-### Should I buy Shell Bond or Shell location information first?
+### Do Shell-map reveals still cost Glimpses?
 
-Choose Shell Bond if you already have a Shell you want to invest in. Choose location information if finding more Shells is your immediate goal. There is no universal best order.
+No. After Balance Patch 1, Shell-map reveals cost Gloom instead. Glimpses previously spent on map reveals are refunded at the Shell Keeper's alcove in Blackmarrow.
 
 ### Does NG+ give more Glimpses?
 
@@ -149,7 +122,7 @@ No. Gloom supports ordinary leveling loops, while Glimpses are tied to Shell pro
 
 ## Sources
 
-- Launch Glimpse research reviewed for this page — limited resource behavior, Shell Bond, Shell location information, farming boundary, and NG+ impact.
+- Launch Glimpse research reviewed for this page — limited resource behavior, Shell Bond, farming boundary, and NG+ impact.
 - [Shells Guide](/mortal-shell-ii/shells/) — current Shell roster boundary and provisional use cases.
 - [Proxima location guide](/mortal-shell-ii/proxima/) — documented Shell route for avoiding duplicate location purchases.
 - [New Game Plus guide](/mortal-shell-ii/new-game-plus/) — character carry-over and world reset context.

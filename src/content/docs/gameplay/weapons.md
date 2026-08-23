@@ -90,6 +90,8 @@ The current location evidence supports narrower claims:
 
 Until more launch-build evidence is checked, use the individual weapon pages for observed upgrade states and do not treat creator footage as a universal drop rule.
 
+The [Tarforge guide](/mortal-shell-ii/tarforge/) covers the station's upgrade parts; **Muradean Actuator unlocks primary weapon enhancement**.
+
 ## Early weapon recommendations
 
 Choose by route and risk rather than by an unverified tier list:

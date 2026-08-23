@@ -221,34 +221,34 @@ export const game: GameConfig = {
 				image: 'experience/route-world-progression.jpg',
 			},
 		],
-			hotGuides: [
+		hotGuides: [
+			{
+				title: 'Balance Patch 1',
+				description: 'Patch 1 changes Glimpse refunds, Tarforge costs, enemy balance, weapon behavior, and launch stability.',
+				href: '/mortal-shell-ii/balance-patch-1/',
+				label: 'Priority 01',
+				badge: 'Patch Notes',
+			},
+			{
+				title: 'Tarforge Guide',
+				description: 'Find all five upgrade parts and unlock primary weapons, sidearms, Tarstones, smelting, and the Endless Core.',
+				href: '/mortal-shell-ii/tarforge/',
+				label: 'Priority 02',
+				badge: 'Upgrades',
+			},
 			{
 				title: 'Weapons Guide',
 				description: 'Known weapons, launch-build locations, upgrade evidence, and the safest early routes.',
 				href: '/mortal-shell-ii/weapons/',
-				label: 'Priority 01',
+				label: 'Priority 03',
 				badge: 'Weapons',
 			},
 			{
 				title: 'Tarstones Guide',
 				description: 'How Tarforge upgrades, Tarcores, XP, and early Tarstone choices fit together.',
 				href: '/mortal-shell-ii/tarstones/',
-				label: 'Priority 02',
-				badge: 'Progression',
-			},
-			{
-				title: 'Ova Guide',
-				description: 'Ova sources, the 168 requirement, Corrupted Gates, and the Send Ova point of no return.',
-				href: '/mortal-shell-ii/ova/',
-				label: 'Priority 03',
-				badge: 'Progression',
-			},
-			{
-				title: 'Beacons & Fast Travel',
-				description: "Unlock Mether's Breath, track known Beacons, and avoid treating conflicting thresholds as fixed rules.",
-				href: '/mortal-shell-ii/beacons-fast-travel/',
 				label: 'Priority 04',
-				badge: 'Exploration',
+				badge: 'Progression',
 			},
 			{
 				title: 'Shells Guide',
@@ -258,10 +258,24 @@ export const game: GameConfig = {
 				badge: 'Shells',
 			},
 			{
+				title: 'Beacons & Fast Travel',
+				description: "Unlock Mether's Breath, track known Beacons, and avoid treating conflicting thresholds as fixed rules.",
+				href: '/mortal-shell-ii/beacons-fast-travel/',
+				label: 'Priority 06',
+				badge: 'Exploration',
+			},
+			{
+				title: 'Ova Guide',
+				description: 'Ova sources, the 168 requirement, Corrupted Gates, and the Send Ova point of no return.',
+				href: '/mortal-shell-ii/ova/',
+				label: 'Priority 07',
+				badge: 'Progression',
+			},
+			{
 				title: 'New Game Plus',
 				description: 'What carries over, what resets, and what to finish before starting another cycle.',
 				href: '/mortal-shell-ii/new-game-plus/',
-				label: 'Priority 06',
+				label: 'Priority 08',
 				badge: 'Endgame',
 			},
 		],
@@ -271,10 +285,12 @@ export const game: GameConfig = {
 				title: 'Weapons & Resources',
 				description: 'Find weapons, improve your damage, and manage the resources that shape an early run.',
 				guideOrder: [
+					'/mortal-shell-ii/balance-patch-1/',
 					'/mortal-shell-ii/weapons/',
 					'/mortal-shell-ii/great-martyrs-blade/',
 					'/mortal-shell-ii/axatana/',
 					'/mortal-shell-ii/axe-dagger/',
+					'/mortal-shell-ii/tarforge/',
 					'/mortal-shell-ii/tarstones/',
 					'/mortal-shell-ii/gloom-farm/',
 					'/mortal-shell-ii/gloombound-flame/',
@@ -331,6 +347,7 @@ export const game: GameConfig = {
 			},
 		],
 		guideVisuals: {
+			'/mortal-shell-ii/balance-patch-1/': { icon: 'refresh' },
 			'/mortal-shell-ii/weapons/': { icon: 'sword' },
 			'/mortal-shell-ii/great-martyrs-blade/': {
 				image: '/images/great-martyrs-blade/great-martyrs-blade-acquired.png',
@@ -341,6 +358,7 @@ export const game: GameConfig = {
 				alt: 'Axatana acquired in Mortal Shell 2.',
 			},
 			'/mortal-shell-ii/axe-dagger/': { icon: 'sword' },
+			'/mortal-shell-ii/tarforge/': { icon: 'sword' },
 			'/mortal-shell-ii/tarstones/': { icon: 'gem' },
 			'/mortal-shell-ii/gloom-farm/': { icon: 'gem' },
 			'/mortal-shell-ii/gloombound-flame/': {
@@ -371,6 +389,8 @@ export const game: GameConfig = {
 		},
 		categoryHotOrder: {
 			'combat-exploration': [
+				'/mortal-shell-ii/balance-patch-1/',
+				'/mortal-shell-ii/tarforge/',
 				'/mortal-shell-ii/weapons/',
 				'/mortal-shell-ii/tarstones/',
 				'/mortal-shell-ii/ova/',
@@ -435,6 +455,20 @@ export const game: GameConfig = {
 		maxRecent: 4,
 		recentUpdates: [
 			{
+				title: 'Balance Patch 1',
+				href: '/mortal-shell-ii/balance-patch-1/',
+				date: '2026-08-23',
+				changeSummary: 'Glimpse refunds, Gloom costs, balance changes, and launch fixes.',
+				tag: 'Patch Notes',
+			},
+			{
+				title: 'Tarforge Guide',
+				href: '/mortal-shell-ii/tarforge/',
+				date: '2026-08-23',
+				changeSummary: 'All five upgrade parts and the functions they unlock.',
+				tag: 'Upgrades',
+			},
+			{
 				title: 'Tarstones Guide',
 				href: '/mortal-shell-ii/tarstones/',
 				date: '2026-08-22',
@@ -469,6 +503,7 @@ export const game: GameConfig = {
 			'/mortal-shell-ii/blackmarrow-keys/',
 		],
 		featuredOrder: [
+			'mortal-shell-ii/balance-patch-1',
 			'mortal-shell-ii/crashing-pc',
 			'mortal-shell-ii/skip-prologue',
 			'mortal-shell-ii/gloombound-flame',

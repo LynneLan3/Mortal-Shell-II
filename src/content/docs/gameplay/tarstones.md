@@ -106,6 +106,8 @@ Coins are part of the later Tarstone upgrade economy in the current research bou
 
 Use the in-game upgrade prompt as the immediate authority for the current item and coin requirement. Treat third-party cost tables as provisional until they agree with the launch build.
 
+For the five components that unlock and extend the station, see the [Tarforge guide](/mortal-shell-ii/tarforge/).
+
 ## Best early Tarstone picks
 
 There is no verified universal best Tarstone. Choose by the activity you are about to repeat.

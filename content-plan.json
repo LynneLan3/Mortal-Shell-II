@@ -9,6 +9,13 @@
     "maxItemRetries": 1,
     "stopOnGlobalBlocker": true
   },
+  "providerHealthPolicy": {
+    "treatArticleInvalidApiKeyAsGlobalBlockerImmediately": false,
+    "writerConcurrency": 1,
+    "healthCheckRequiredBeforeCredentialGlobalBlocker": true,
+    "healthCheckEndpoint": "https://api.apimart.ai/v1/user/balance",
+    "credentialGlobalBlockerRequiresHealthCheck401": true
+  },
   "globalBlockerDefinition": [
     "API credentials invalid or unavailable for all content generation",
     "Git repository or working tree is unsafe to continue",
@@ -21,6 +28,7 @@
   },
   "concurrencyPolicy": {
     "maxContentWorkers": 3,
+    "maxWriterConcurrency": 1,
     "integrationMode": "single-integrator",
     "publishBatchSize": 3,
     "workersMayContinueWhenAnotherItemIsBlocked": true,

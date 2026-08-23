@@ -1,0 +1,27 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import InteractiveMap from '../../../components/experience/InteractiveMap.astro';
+import { game } from '../../../config/game';
+import { mapMarkers } from '../../../data/map-markers';
+import { experienceNav } from '../../../lib/experience-nav';
+import '../../../styles/map.css';
+
+const mapPath = `${game.hubPath}map/`;
+const { nav, footerLinks, homeHref } = experienceNav();
+---
+
+<GameShell
+	title="Mortal Shell 2 Interactive Map — Weapons, Shells, Bosses & Key Locations"
+	description="Filter the Mortal Shell 2 interactive map for verified weapons, Shells, bosses, keys, Beacons, dungeons, and other key locations."
+	canonical={new URL(mapPath, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={mapPath}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<InteractiveMap markers={mapMarkers} />
+</GameShell>

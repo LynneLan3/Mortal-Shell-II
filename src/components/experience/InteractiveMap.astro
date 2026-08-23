@@ -1,0 +1,203 @@
+---
+import {
+	MAP_MARKER_CATEGORIES,
+	type MapMarker,
+} from '../../data/map-markers';
+
+interface Props {
+	markers: readonly MapMarker[];
+}
+
+const { markers } = Astro.props;
+const markerCountLabel = `${markers.length} verified marker${markers.length === 1 ? '' : 's'}`;
+---
+
+<section class="map-page" data-map-app>
+	<header class="map-page__hero">
+		<p class="exp-eyebrow">Interactive Map V1</p>
+		<h1 class="exp-h1">Mortal Shell 2 Interactive Map</h1>
+		<p class="map-page__lede">
+			Filter verified weapons, Shells, bosses, keys, Beacons, and more as the map grows.
+		</p>
+	</header>
+
+	<section class="map-toolbar" aria-label="Map filters">
+		<div class="map-toolbar__search">
+			<label for="map-search">Search locations</label>
+			<input
+				id="map-search"
+				class="map-control"
+				type="search"
+				placeholder="Search by name or region"
+				autocomplete="off"
+				data-map-search
+			/>
+		</div>
+		<div class="map-toolbar__category">
+			<label for="map-category">Category</label>
+			<select id="map-category" class="map-control" data-map-category>
+				<option value="all">All categories</option>
+				{MAP_MARKER_CATEGORIES.map((category) => <option value={category}>{category}</option>)}
+			</select>
+		</div>
+		<button class="map-reset" type="button" data-map-reset>Reset</button>
+		<p class="map-toolbar__count" data-map-count>{markerCountLabel}</p>
+	</section>
+
+	<div class="map-category-list" aria-label="Filter by category">
+		<button class="map-category-chip is-active" type="button" data-map-chip="all">All</button>
+		{MAP_MARKER_CATEGORIES.map((category) => (
+			<button class="map-category-chip" type="button" data-map-chip={category}>{category}</button>
+		))}
+	</div>
+
+	<div class="map-layout">
+		<section class="map-panel" aria-label="Interactive world map">
+			<div class="map-panel__header">
+				<div>
+					<p class="map-panel__eyebrow">Map surface</p>
+					<h2>World map container</h2>
+				</div>
+				<span class="map-status">Awaiting verified base map</span>
+			</div>
+
+			<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport>
+				<div class="map-surface" data-map-surface>
+					<div class="map-placeholder" aria-label="World map background placeholder">
+						<div class="map-placeholder__grid" aria-hidden="true"></div>
+						<div class="map-placeholder__copy">
+							<span class="map-placeholder__kicker">Background placeholder</span>
+							<strong>No reliable world map asset is in the repository yet.</strong>
+							<span>Verified locations will appear here after a real, calibratable map image is added.</span>
+						</div>
+					</div>
+					{markers.map((marker) => (
+						<button
+							class="map-marker"
+							type="button"
+							style={`left: ${marker.x}%; top: ${marker.y}%;`}
+							data-map-marker-button={marker.id}
+							data-map-marker-category={marker.category}
+							data-map-marker-region={marker.region}
+							aria-label={`Open details for ${marker.name}`}
+						>
+							<span class="map-marker__dot" aria-hidden="true"></span>
+							<span class="map-marker__label">{marker.name}</span>
+						</button>
+					))}
+				</div>
+			</div>
+
+			<div class="map-controls" aria-label="Map zoom controls">
+				<button type="button" data-map-zoom-out aria-label="Zoom out">−</button>
+				<span data-map-zoom-label>100%</span>
+				<button type="button" data-map-zoom-in aria-label="Zoom in">+</button>
+			</div>
+		</section>
+
+		<aside class="map-details" aria-live="polite" data-map-details>
+			<div class="map-details__empty" data-map-empty>
+				<p class="map-panel__eyebrow">Marker details</p>
+				<h2>No marker selected</h2>
+				<p>
+					{markers.length > 0
+						? 'Select a marker to see its region, description, and guide link.'
+						: 'No locations are plotted yet because the current repository evidence does not prove precise map coordinates.'}
+				</p>
+			</div>
+			{markers.map((marker) => (
+				<article class="map-detail" data-map-detail={marker.id} hidden>
+					<p class="map-panel__eyebrow">{marker.category}</p>
+					<h2>{marker.name}</h2>
+					<dl>
+						<div><dt>Category</dt><dd>{marker.category}</dd></div>
+						<div><dt>Region</dt><dd>{marker.region}</dd></div>
+					</dl>
+					<p>{marker.description}</p>
+					{marker.guideUrl && <a class="map-detail__link" href={marker.guideUrl}>View Guide <span aria-hidden="true">→</span></a>}
+				</article>
+			))}
+		</aside>
+	</div>
+
+	<p class="map-note">
+		V1 plots only locations with repository-backed coordinates. Region-only references remain unplotted until a reliable map source is available.
+	</p>
+</section>
+
+<script>
+	const app = document.querySelector('[data-map-app]');
+
+	if (app) {
+		const search = app.querySelector('[data-map-search]');
+		const category = app.querySelector('[data-map-category]');
+		const count = app.querySelector('[data-map-count]');
+		const reset = app.querySelector('[data-map-reset]');
+		const chips = Array.from(app.querySelectorAll('[data-map-chip]'));
+		const markerButtons = Array.from(app.querySelectorAll('[data-map-marker-button]'));
+		const details = Array.from(app.querySelectorAll('[data-map-detail]'));
+		const empty = app.querySelector('[data-map-empty]');
+		const surface = app.querySelector('[data-map-surface]');
+		const zoomLabel = app.querySelector('[data-map-zoom-label]');
+		const zoomIn = app.querySelector('[data-map-zoom-in]');
+		const zoomOut = app.querySelector('[data-map-zoom-out]');
+		let activeCategory = 'all';
+		let zoom = 1;
+
+		function setCategory(value) {
+			activeCategory = value;
+			if (category) category.value = value;
+			chips.forEach((chip) => chip.classList.toggle('is-active', chip.getAttribute('data-map-chip') === value));
+			applyFilters();
+		}
+
+		function applyFilters() {
+			const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+			let visible = 0;
+			markerButtons.forEach((marker) => {
+				const name = marker.textContent?.toLowerCase() ?? '';
+				const region = marker.getAttribute('data-map-marker-region')?.toLowerCase() ?? '';
+				const markerCategory = marker.getAttribute('data-map-marker-category') ?? '';
+				const matches = (activeCategory === 'all' || markerCategory === activeCategory) && (name.includes(query) || region.includes(query));
+				marker.toggleAttribute('hidden', !matches);
+				if (matches) visible += 1;
+			});
+			if (count) count.textContent = `${visible} verified marker${visible === 1 ? '' : 's'}`;
+		}
+
+		function showDetail(id) {
+			details.forEach((detail) => { detail.hidden = detail.getAttribute('data-map-detail') !== id; });
+			if (empty) empty.hidden = true;
+			markerButtons.forEach((marker) => marker.classList.toggle('is-selected', marker.getAttribute('data-map-marker-button') === id));
+			if (window.matchMedia('(max-width: 55rem)').matches) {
+				app.querySelector('[data-map-details]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+			}
+		}
+
+		function clearSelection() {
+			details.forEach((detail) => { detail.hidden = true; });
+			if (empty) empty.hidden = false;
+			markerButtons.forEach((marker) => marker.classList.remove('is-selected'));
+		}
+
+		function setZoom(nextZoom) {
+			zoom = Math.min(2.2, Math.max(1, nextZoom));
+			if (surface instanceof HTMLElement) surface.style.setProperty('--map-scale', zoom.toFixed(1));
+			if (zoomLabel) zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+		}
+
+		search?.addEventListener('input', applyFilters);
+		category?.addEventListener('change', (event) => setCategory(event.target.value));
+		chips.forEach((chip) => chip.addEventListener('click', () => setCategory(chip.getAttribute('data-map-chip') ?? 'all')));
+		markerButtons.forEach((marker) => marker.addEventListener('click', () => showDetail(marker.getAttribute('data-map-marker-button') ?? '')));
+		zoomIn?.addEventListener('click', () => setZoom(zoom + 0.1));
+		zoomOut?.addEventListener('click', () => setZoom(zoom - 0.1));
+		reset?.addEventListener('click', () => {
+			if (search instanceof HTMLInputElement) search.value = '';
+			setCategory('all');
+			setZoom(1);
+			clearSelection();
+		});
+		applyFilters();
+	}
+</script>

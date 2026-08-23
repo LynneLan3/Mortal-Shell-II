@@ -10,8 +10,10 @@ const hubPath = game.hubPath.replace(/\/+$/, '') || '/';
 const isHub = pathname === hubPath;
 const routesPath = `${game.hubPath}routes`.replace(/\/+$/, '');
 const guidesPath = `${game.hubPath}guides`.replace(/\/+$/, '');
+const mapPath = `${game.hubPath}map`.replace(/\/+$/, '');
 const isRoutes = pathname === routesPath || pathname.startsWith(`${routesPath}/`);
 const isGuides = pathname === guidesPath || pathname.startsWith(`${guidesPath}/`);
+const isMap = pathname === mapPath || pathname.startsWith(`${mapPath}/`);
 const entryCategory =
 	typeof Astro.locals.starlightRoute.entry.data.category === 'string'
 		? Astro.locals.starlightRoute.entry.data.category
@@ -43,6 +45,13 @@ const currentCategory = categoryIdFromPath(Astro.url.pathname) ?? entryCategory;
 				class:list={['gw-topnav__link', isGuides && 'is-active']}
 				href={`${game.hubPath}guides/`}
 				aria-current={isGuides ? 'page' : undefined}>{t.guidesNav}</a
+			>
+		</li>
+		<li>
+			<a
+				class:list={['gw-topnav__link', isMap && 'is-active']}
+				href={`${game.hubPath}map/`}
+				aria-current={isMap ? 'page' : undefined}>Map</a
 			>
 		</li>
 		{

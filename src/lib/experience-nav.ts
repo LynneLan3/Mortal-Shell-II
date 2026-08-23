@@ -23,6 +23,7 @@ export interface ExperienceNav {
 	routesHref: string;
 	guidesHref: string;
 	bossesHref: string;
+	mapHref: string;
 	aboutHref: string;
 }
 
@@ -34,6 +35,7 @@ export function experienceNav(): ExperienceNav {
 	const routesHref = pageHref(hub, 'routes');
 	const guidesHref = pageHref(hub, 'guides');
 	const bossesHref = pageHref(hub, 'bosses');
+	const mapHref = pageHref(hub, 'map');
 	const aboutHref = `${homeHref}#about`;
 
 	const nav: NavItem[] = [
@@ -42,6 +44,7 @@ export function experienceNav(): ExperienceNav {
 		{ label: t.routesNav, href: routesHref, activeMatch: [routesHref] },
 		{ label: t.guidesNav, href: guidesHref },
 		{ label: 'Bosses', href: bossesHref, activeMatch: [bossesHref] },
+		{ label: 'Map', href: mapHref, activeMatch: [mapHref] },
 	];
 	const footerLinks = [...nav, { label: t.aboutNav, href: aboutHref }];
 
@@ -53,6 +56,7 @@ export function experienceNav(): ExperienceNav {
 		routesHref,
 		guidesHref,
 		bossesHref,
+		mapHref,
 		aboutHref,
 	};
 }

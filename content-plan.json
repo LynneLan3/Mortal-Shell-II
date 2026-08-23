@@ -45,7 +45,7 @@
     {"id":"23","priority":"P1","title":"All Blackmarrow Keys + Shade Chests","slug":"mortal-shell-ii/blackmarrow-keys","type":"guide","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},
     {"id":"24","priority":"P1","title":"All Sidearms Hub","slug":"mortal-shell-ii/sidearms","type":"hub","action":"complete","status":"done","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
     {"id":"25","priority":"P1","title":"The Nameless Captive","slug":"mortal-shell-ii/nameless-captive","type":"guide","action":"complete","status":"done","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
-    {"id":"26","priority":"P1","title":"Droeg the Conqueror","slug":"mortal-shell-ii/droeg-the-conqueror","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
+    {"id":"26","priority":"P1","title":"Droeg the Conqueror","slug":"mortal-shell-ii/droeg-the-conqueror","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
     {"id":"27","priority":"P1","title":"Hexapod","slug":"mortal-shell-ii/hexapod","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
     {"id":"28","priority":"P1","title":"Isaac, the Scholar Prince","slug":"mortal-shell-ii/isaac-the-scholar-prince","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/bosses"},
     {"id":"29","priority":"P1","title":"Orrem, Discarded Golem / Reclaimed","slug":"mortal-shell-ii/orrem-discarded-golem","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/bosses"},

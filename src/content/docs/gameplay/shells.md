@@ -1,26 +1,31 @@
 ---
 title: "Mortal Shell 2 Shells Guide: Locations, Unlocks & Provisional Ranking"
-description: "An evidence-led Mortal Shell 2 Shells guide covering the Shell system, the currently known Proxima location, unlock steps, and provisional use cases without inventing a complete roster or tier list."
+description: "A Mortal Shell 2 Shells guide covering the individual Proxima, Tiel, Eredrim, and Sester Genessa routes, unlock context, and provisional use cases without an objective combat tier list."
 category: combat-exploration
 slug: mortal-shell-ii/shells
 status: needs-verification
 featured: false
-quickAnswer: "Mortal Shell II uses possessable warrior Shells, but this exploration page does not claim a complete roster. The currently documented location is Proxima, found at the Shattered Beacon after the Prologue. The provisional ranking here is based on route access and use cases, not unverified combat power."
+quickAnswer: "This site currently has individual Shell route coverage for Proxima, Tiel, Eredrim, and Sester Genessa. Use the individual pages for their location or unlock routes; the Hub does not claim an objective combat tier list."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/proxima
+  - mortal-shell-ii/tiel
+  - mortal-shell-ii/glimpses
+  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/eredrim
+  - mortal-shell-ii/sester-genessa
   - mortal-shell-ii/weapons
   - mortal-shell-ii/slayer-seal-difficulty
 sidebar:
   label: Shells Guide
   order: 12
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
 ## Evidence boundary
 
-This is a **Shells Exploration Page** for launch-window searches. It introduces the Shell system, records currently supported Shell locations, and gives provisional use cases while the launch roster is still being verified.
+This is a **Shells Exploration Hub** for launch-window searches. It introduces the Shell system, surfaces the individual routes currently covered on this site, and gives provisional use cases without inventing a combat tier list.
 
 It does **not** publish an invented full Shell roster. It also does **not** present a fake combat tier list. A Shell is ranked here only when the ranking describes a verifiable route or player use case, such as early access or exploration value. Combat strength, damage, survivability, and build rankings remain unranked unless the evidence supports them.
 
@@ -30,20 +35,28 @@ For the official high-level description of Shells and the broader gameplay bound
 
 Shells are a core part of Mortal Shell II's identity. Official descriptions present the sequel as a single-player action RPG with possessable warrior Shells, high-stakes combat, deeper weapon upgrades, an interconnected world, and dungeons.
 
-The current evidence supports the Shell concept and individual discovery routes, but it does not yet support a complete launch database containing every Shell name, location, stat line, skill list, upgrade path, or best build.
+The current coverage supports individual discovery routes, but it does not claim a complete launch database containing every Shell name, location, stat line, skill list, upgrade path, or best build.
 
 Think of this page as a practical index:
 
 - use it to understand what a Shell discovery looks like,
-- follow the known route to Proxima,
+- follow the known routes to Proxima, Tiel, Eredrim, or Sester Genessa,
 - use the provisional section to choose what to investigate first,
 - return when more launch-build Shell locations have been independently checked.
 
 ## Known Shell locations
 
+### Tiel
+
+**Tiel** is found southeast of **Widow's Overlook Beacon**, toward the wider **Martyr's Tomb / Ritual Grounds** area.
+
+Start from Widow's Overlook and look for a **large tree** and **wooden enclosure**. Two torches mark the entrance to Tiel's shallow grave. Interact with Tiel, then complete the **Rash Memory** by entering the nearby building through its **side window** and collecting the **flask** from the desk.
+
+Follow the full [Tiel location guide](/mortal-shell-ii/tiel/) for the route and unlock steps.
+
 ### Proxima
 
-**Proxima** is the currently documented early Shell location in this evidence set.
+**Proxima** has an individual early Shell route on this site.
 
 | Field | Current evidence |
 | --- | --- |
@@ -60,23 +73,31 @@ Inside the Shattered Beacon, interact with the Unknown Shell. The checked sequen
 
 The current page treats Proxima's route and discovery notification as supported. It does not infer a universal combat ranking from the unlock route.
 
+### Eredrim
+
+Use the [Eredrim location guide](/mortal-shell-ii/eredrim/) for its Citadel of Penance route and Shell unlock handoff.
+
+### Sester Genessa
+
+Use the [Sester Genessa location guide](/mortal-shell-ii/sester-genessa/) for the Marrow Keep route and its task-item handoff.
+
 ## Provisional ranking by use case
 
 This is a route-access ranking, not a combat tier list.
 
-### 1. Proxima — best-documented early Shell route
+### Proxima — documented early Shell route
 
-Proxima currently ranks first for **documentation and early-access value** because the route is specific, starts shortly after the Prologue, and has a location page with transcript and UI evidence.
+Proxima is a useful early target for **documentation and access** because the route is specific, starts shortly after the Prologue, and has a location page with transcript and UI evidence.
 
 That does not mean Proxima is officially the strongest Shell. The current evidence set does not establish a reliable damage, defense, skill, or endgame ranking.
 
-### Unranked — other Shells
+### Combat power remains unranked
 
-Other Shells remain unranked until their launch-build locations, unlock conditions, and relevant gameplay behavior are checked. Do not convert a creator's “best Shell” wording, an old beta guide, or a single combat impression into a site-wide tier list.
+Do not convert a creator's “best Shell” wording, an old beta guide, or a single combat impression into a site-wide tier list.
 
 For now, the useful distinction is:
 
-- **Early-route use case:** Proxima is the only Shell with a fully documented early location on this page.
+- **Route use case:** Proxima and Tiel have individual location pages; Eredrim and Sester Genessa have individual unlock pages.
 - **Combat-power use case:** not ranked.
 - **Build compatibility:** not ranked.
 - **Completionist route:** incomplete until the launch roster is verified.
@@ -85,14 +106,14 @@ For now, the useful distinction is:
 
 Use the evidence level first, then your playstyle:
 
-1. **Choose a documented route.** Proxima has a specific location and unlock sequence, so it is the safest starting point for players who want to find a Shell early.
+1. **Choose a documented route.** Proxima and Tiel have specific location and unlock sequences, while Eredrim and Sester Genessa have individual unlock pages.
 2. **Do not chase an unverified tier list.** “Best” claims are often creator opinions and may depend on weapons, difficulty choices, or a particular run.
 3. **Separate Shell choice from weapon choice.** The [Weapons Guide](/mortal-shell-ii/weapons/) tracks known weapon routes; it does not establish which Shell is objectively best with each weapon.
 4. **Use difficulty tools separately.** The [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) explains an optional combat modifier, but it is not evidence for a Shell ranking.
 
 ## Shell locations and Beacons
 
-The known Proxima route also shows why Shell locations should be tracked separately from ordinary Beacon travel.
+The documented Shell routes also show why Shell locations should be tracked separately from ordinary Beacon travel.
 
 - **Widow's Overlook** and **Blackridge Pass** are route anchors.
 - **Shattered Beacon** is the actual Shell discovery area.
@@ -101,7 +122,11 @@ The known Proxima route also shows why Shell locations should be tracked separat
 
 For the wider travel system, see the [Beacon locations and fast travel guide](/mortal-shell-ii/beacons-fast-travel/). For weapon routes that pass through the same broad region, see the [Great Martyr's Blade](/mortal-shell-ii/great-martyrs-blade/) and [Axatana](/mortal-shell-ii/axatana/) guides.
 
-For specific Shell unlock routes, see [Sester Genessa](/mortal-shell-ii/sester-genessa/) and [Eredrim](/mortal-shell-ii/eredrim/). These pages keep character-specific location intent separate from this page's incomplete roster boundary.
+For specific Shell unlock routes, see [Tiel](/mortal-shell-ii/tiel/), [Sester Genessa](/mortal-shell-ii/sester-genessa/), [Eredrim](/mortal-shell-ii/eredrim/), and [Proxima](/mortal-shell-ii/proxima/). These pages keep character-specific location intent separate from this Hub's roster boundary.
+
+## Balance Patch 1 Shell-map note
+
+Shell-map reveals now cost **Gloom instead of Glimpses**. See the [Glimpses guide](/mortal-shell-ii/glimpses/) for the refund and current resource role, and [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) for the wider patch changes.
 
 ## What this page does not claim
 
@@ -119,9 +144,9 @@ Those sections can be expanded later when each claim has launch-build evidence. 
 
 ## FAQ
 
-### How many Shells are in Mortal Shell 2?
+### How many Shells are covered here?
 
-This page does not claim a final number. The current local evidence set supports the Shell system and the Proxima discovery route, but not a complete launch roster.
+This Hub currently has individual route coverage for Proxima, Tiel, Eredrim, and Sester Genessa. It does not claim that those four pages are a complete launch roster.
 
 ### Where do you find Proxima?
 
@@ -133,7 +158,7 @@ Yes. The checked route supports unlocking Proxima shortly after completing the P
 
 ### Is Proxima the best Shell?
 
-Not confirmed. Proxima is currently the best-documented early Shell route on this site, but there is no reliable evidence here for an objective combat-power ranking.
+Not confirmed. The site has route coverage for four Shells, but there is no reliable evidence here for an objective combat-power ranking.
 
 ### Is there a Shell tier list?
 
@@ -149,5 +174,8 @@ They can share route landmarks, but they are separate intents. Use the [Weapons 
 - [Official Mortal Shell II website](https://mortalshell2.com/) — official game context.
 - [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/) — local evidence boundary for the Shell system.
 - [Proxima location guide](/mortal-shell-ii/proxima/) — local route, UI captures, and source attribution.
+- [Tiel location guide](/mortal-shell-ii/tiel/) — local location and Rash Memory unlock route.
+- [Eredrim location guide](/mortal-shell-ii/eredrim/) — local Shell unlock route.
+- [Sester Genessa location guide](/mortal-shell-ii/sester-genessa/) — local Shell unlock route.
 - [Proxima unlock walkthrough — YouTube](https://www.youtube.com/watch?v=MOwhTNc4am8) — transcript-supported route and discovery sequence, accessed 2026-08-19.
 - Local transcript: `research/youtube/proxima/proxima-unlock.en.srt`.

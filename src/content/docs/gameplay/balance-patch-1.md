@@ -102,7 +102,7 @@ Several weapons and sidearms were changed in Balance Patch 1.
 - **Caged Hystrix:** minimum Resolve requirement to fire removed
 - **Triarch Repeater:** minimum Resolve requirement to fire removed
 - **Axatana:** light-attack tracking improved
-- **Black Needle:** light-attack tracking improved
+- [**Black Needle**](/mortal-shell-ii/black-needle/): light-attack tracking improved
 - **Clockwork Scythe:** light-attack tracking improved
 
 Use the [Weapons guide](/mortal-shell-ii/weapons/) for the current weapon index. The [Great Martyr's Blade guide](/mortal-shell-ii/great-martyrs-blade/) and [Axatana guide](/mortal-shell-ii/axatana/) cover their individual acquisition routes.

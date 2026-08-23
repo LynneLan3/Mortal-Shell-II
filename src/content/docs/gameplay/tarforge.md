@@ -4,8 +4,8 @@ description: "Find all five Mortal Shell 2 Tarforge parts: Muradean Actuator, Ob
 category: combat-exploration
 slug: mortal-shell-ii/tarforge
 status: needs-verification
-featured: false
-quickAnswer: "The Tarforge is in Marrow Keep and uses five parts to unlock primary weapon enhancement, sidearm enhancement, Tarstone upgrading, Smelt Equipment, and further weapon and sidearm upgrading. Return the first four parts to Franz; install the Endless Core through the Tarforge menu."
+featured: true
+quickAnswer: "The Tarforge is in Marrow Keep and is managed by Franz. Its main upgrade functions are opened by five components: Muradean Actuator (weapon enhancement), Obsidian Lathe (sidearm enhancement), Etching Needles (Tarstone upgrading), Foundry Stone (Smelt Equipment), and Endless Core (removes upgrade cap)."
 related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/tarstones
@@ -61,7 +61,7 @@ The **Obsidian Lathe** is in **Martyr's Tomb**, in Fainweald southeast of **Wido
 
 Bring the Obsidian Lathe back to Franz to unlock **sidearm enhancement**.
 
-This is a useful component to pair with exploration of the wider Martyr's Tomb area, but the Tarforge objective remains simple: find the Lathe, return it to Franz, and the sidearm enhancement function becomes available.
+This is a useful component to pair with exploration of the wider Martyr's Tomb area and the [Tiel route](/mortal-shell-ii/tiel/), but the Tarforge objective remains simple: find the Lathe, return it to Franz, and the sidearm enhancement function becomes available.
 
 ## Etching Needles location — unlock Tarstone upgrades
 

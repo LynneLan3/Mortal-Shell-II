@@ -1,103 +1,164 @@
 ---
 title: "Mortal Shell 2 Blackmarrow Keys: Locations, Shade Chests & How to Use Them"
-description: "Track known Mortal Shell 2 Blackmarrow Key routes, open Shell Shade chests in Marrow Keep, and handle conflicting first-run key counts without assuming a complete list."
+description: "Track eight Mortal Shell 2 Blackmarrow Keys, eight matching Shade chests in Marrow Keep, and five routed locations without guessing the remaining three."
 category: combat-exploration
 slug: mortal-shell-ii/blackmarrow-keys
-status: needs-verification
+status: confirmed
 featured: false
-quickAnswer: "Blackmarrow Keys are used to open Shell Shade chests in Marrow Keep. Current launch sources support known routes connected to areas such as Desolate Keep and Night Mode, but they conflict on whether a first run contains eight or nine keys. This page therefore lists verified route leads without claiming a complete total or database."
+quickAnswer: "There are eight Blackmarrow Keys and eight matching Shade chests in Marrow Keep. Five key locations are routed directly here; the remaining three stay unconfirmed rather than being guessed."
 related:
-  - mortal-shell-ii/shells
-  - mortal-shell-ii/slayer-seal-difficulty
+  - mortal-shell-ii/shrine-of-sorrows
+  - mortal-shell-ii/lost-child
   - mortal-shell-ii/gloombound-flame
-  - mortal-shell-ii/proxima
+  - mortal-shell-ii/slayer-seal-difficulty
+  - mortal-shell-ii/shells
+  - mortal-shell-ii/beacons-fast-travel
 sidebar:
   label: Blackmarrow Keys
   order: 21
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
-## Evidence boundary
+There are **eight Blackmarrow Keys** and **eight matching Shade chests** around the Marrow Keep elevator room. One key opens one Shade chest and is consumed. This guide currently routes **five key locations** directly; the remaining three stay unconfirmed rather than being guessed.
 
-This is a known-collectibles and problem-solving Exploration Page. It records the currently supported uses and route connections for Blackmarrow Keys without pretending to be a complete all-locations database.
+## What do Blackmarrow Keys open?
 
-Current launch sources directly conflict on the first-run total: some report **eight** keys and others report **nine**. That disagreement matters, so this page does not write a final number into the route or imply that every location has been verified.
+Blackmarrow Keys open **Shade chests** around the elevator room in **Marrow Keep**.
 
-## What are Blackmarrow Keys?
+There are eight Shade chests, corresponding to the game's eight permanent Shells.
 
-Blackmarrow Keys are used for **Shell Shade chests** in **Marrow Keep**. These chests are part of the Shell discovery and collectible loop, so a key is useful even when you are not trying to optimize a combat build.
+Opening a chest:
 
-For the current Shell roster boundary and known discovery routes, see the [Shells Guide](/mortal-shell-ii/shells/).
+- consumes one Blackmarrow Key
+- unlocks a cosmetic Shade for that Shell
 
-## How to use Blackmarrow Keys
+The reward is cosmetic rather than a stat or ability upgrade.
 
-Use the keys as a chest-opening resource:
+A Shade chest cannot be opened until you have unlocked its matching Shell. Once the Shade is unlocked, use **Change Shades** at a Beacon to select it.
 
-1. Collect a Blackmarrow Key from a verified route lead.
-2. Return to or continue through **Marrow Keep**.
-3. Look for a Shell Shade chest connected to the key system.
-4. Interact with the chest and use the key when the prompt appears.
-
-Do not assume that every locked chest is a Shell Shade chest or that one key opens every chest in the area. The current evidence supports the Marrow Keep Shell Shade connection, not a universal lock taxonomy.
-
-## Known route connections
-
-The current research supports route leads associated with:
-
-- **Desolate Keep** — a known area connection for Blackmarrow Key coverage.
-- **Night Mode** — a world-state connection that can expose additional content and route opportunities.
-
-These are reliable search and exploration anchors, not a claim that every key in the game comes from one of these two paths. The current page intentionally uses **known** and **verified** route language rather than publishing invented coordinates or a complete list.
-
-For the Night Mode activation and Slayer Seal context, see the [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) and [Gloombound Flame guide](/mortal-shell-ii/gloombound-flame/). For a documented hidden-dungeon route, see the [Proxima location guide](/mortal-shell-ii/proxima/).
+For Shell unlock routes, use the [Shells guide](/mortal-shell-ii/shells/).
 
 ## How many Blackmarrow Keys are there?
 
-The current launch sources disagree: one set of guides describes **eight** first-run keys, while another describes **nine**.
+There are **eight Blackmarrow Keys** in a playthrough.
 
-Until that conflict is resolved against a stable launch-build checklist, the practical answer is to record each key as you collect it and inspect the remaining Shade chests in your own run. This page does not claim that eight or nine is the definitive total, and it does not convert an unresolved count into an “all locations” list.
+Because each key is consumed by one Shade chest, you need all eight keys to open all eight chests.
 
-## Are Blackmarrow Keys tied to Night Mode?
+Blackmarrow Keys are a separate system from other named keys such as the Chapel Key, Crypt Key, Damp Key, Light Keys, and dungeon-specific keys.
 
-Night Mode is one of the current route associations in Blackmarrow Key coverage, but this page does not claim that Night Mode is required for every key. Treat the world-state relationship as a route lead and check the in-game availability of a chest or pickup in your current cycle.
+## Five confirmed Blackmarrow Key locations
 
-The [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) explains the difference between the easier Slayer Seal option and the harder, reversible Night Mode state. This page only uses that context to clarify why Night Mode appears in the key search intent.
+| Location | Requirement | How to get it | Detailed guide |
+| --- | --- | --- | --- |
+| **Abandoned Outpost / The Collector** | Night Mode + 1,500 Gold | Buy the key from The Collector south of Abandoned Outpost Beacon | [Night Mode guide](/mortal-shell-ii/gloombound-flame/) |
+| **Shrine of Sorrows** | Night Mode | Complete the Shrine dungeon route | [Shrine of Sorrows guide](/mortal-shell-ii/shrine-of-sorrows/) |
+| **Desolate Keep** | Slayer Seal in inventory | Enter the secret Desolate Keep route under / at Marrow Keep | [Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/) |
+| **Abbey Entrance** | Reach the tower-scaffolding area | Open the chest beneath / around the tower scaffolding | Hub summary |
+| **Child's Feeding Ground** | Complete The Lost Child route and Beacon progression | Return to the innermost chamber / former Ova area after the cleanse progression | [Lost Child guide](/mortal-shell-ii/lost-child/) |
 
-## Blackmarrow Keys and Shell discovery
+## Abandoned Outpost Night Merchant
 
-Keys belong to a collectible route, while Shells are the broader character-discovery system. Keep the intents connected but separate:
+Enable **Night Mode**, then use **Abandoned Outpost Beacon** as the route anchor.
 
-- Use this page for key routes, Shade chests, and the unresolved count.
-- Use the [Shells Guide](/mortal-shell-ii/shells/) for Shell locations and provisional use cases.
-- Use the [Proxima guide](/mortal-shell-ii/proxima/) for a documented Shell route and hidden-dungeon context.
+**The Collector** appears south of the Beacon and sells a Blackmarrow Key for **1,500 Gold**.
 
-## FAQ
+This guide does not assume that the key restocks.
 
-### What do Blackmarrow Keys open?
+Use the [Gloombound Flame and Night Mode guide](/mortal-shell-ii/gloombound-flame/) if you still need to activate Night Mode.
 
-They open Shell Shade chests in Marrow Keep according to the current launch evidence.
+## Shrine of Sorrows
 
-### How many Blackmarrow Keys are in a first run?
+The **Shrine of Sorrows** is a Night Mode-only dungeon near Mushroom Village.
 
-The current sources conflict between eight and nine. This page does not declare either count final.
+Complete its three-Sonata, frozen-world, mushroom, and basement progression to receive a **Blackmarrow Key**.
 
-### Are all Blackmarrow Key locations known?
+Use the [Shrine of Sorrows guide](/mortal-shell-ii/shrine-of-sorrows/) for the full puzzle route.
 
-No. The page lists known or verified route connections only and does not claim a complete location database.
+## Desolate Keep
 
-### Do Blackmarrow Keys come from Night Mode?
+A Blackmarrow Key is tied to the secret **Desolate Keep** route under / at Marrow Keep.
 
-Night Mode is a supported route association in current coverage, but it is not established here as a requirement for every key.
+The supported access condition for this route is having the **Slayer Seal in your inventory**.
 
-### Are Blackmarrow Keys the same as Shell locations?
+You do **not** need to equip the Slayer Seal merely to satisfy that inventory condition.
 
-No. Keys are a collectible used for Shade chests; Shell locations are the broader unlock routes. The two systems are related but should not be merged into one list.
+That distinction matters because switching to the Slayer Seal has a separate achievement consequence. See the [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) before equipping it.
 
-## Sources
+## Abbey Entrance
 
-- Launch Blackmarrow Key research reviewed for this page — Shell Shade chests, Marrow Keep, Desolate Keep, Night Mode, and the eight-versus-nine count conflict.
-- [Shells Guide](/mortal-shell-ii/shells/) — Shell discovery scope and provisional use cases.
-- [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) — Night Mode and Gloombound Flame context.
-- [Gloombound Flame guide](/mortal-shell-ii/gloombound-flame/) — Night Mode activation route.
-- [Proxima location guide](/mortal-shell-ii/proxima/) — related hidden-dungeon and Shell-route context.
+Another Blackmarrow Key is in a chest in the **Abbey Entrance** area.
+
+Search beneath / around the **tower scaffolding** for the chest.
+
+This page keeps the route at that landmark level rather than inventing more precise turns that are not yet needed.
+
+## Child's Feeding Ground
+
+This key is tied to **The Lost Child** and the Child's Feeding Ground progression.
+
+After completing The Lost Child route, continue through the Beacon / Ova progression there.
+
+Then return to the dungeon and head back to the **innermost chamber / former Ova location**. The key becomes available in the newly accessible secret area behind that point.
+
+Use the [Lost Child boss guide](/mortal-shell-ii/lost-child/) for the boss route.
+
+## How to spend a Blackmarrow Key on a Shade chest
+
+Return to **Marrow Keep** and go to the elevator-room area.
+
+Choose a Shade chest for a Shell you have already unlocked.
+
+Use one Blackmarrow Key to open it. The key is consumed and the corresponding cosmetic Shade is unlocked.
+
+Afterward, use **Change Shades** at a Beacon to select the cosmetic.
+
+## Which three key locations are still unconfirmed?
+
+This site currently routes **five of the eight** Blackmarrow Keys with enough confidence to give direct instructions.
+
+The other three exact locations are intentionally left unconfirmed for now.
+
+That does not change the total: there are eight keys and eight Shade chests. It only means this guide will not fill the remaining three rows with speculative routes.
+
+If you are tracking completion, record:
+
+- which of the five confirmed keys you collected
+- how many Blackmarrow Keys you have spent
+- which Shade chests in Marrow Keep are already open
+
+That makes it easier to identify what is still missing without mixing Blackmarrow Keys with the game's other key systems.
+
+## Blackmarrow Key FAQ
+
+### How many Blackmarrow Keys are there?
+
+Eight.
+
+### How many Shade chests are in Marrow Keep?
+
+Eight, around the Marrow Keep elevator room.
+
+### Does one key open every chest?
+
+No. One Blackmarrow Key opens one Shade chest and is consumed.
+
+### Why won't a Shade chest open?
+
+Its matching Shell must be unlocked before that Shade chest can be opened.
+
+### Which Blackmarrow Keys require Night Mode?
+
+Among the five routes documented here, the **Abandoned Outpost / The Collector** key and **Shrine of Sorrows** key require Night Mode.
+
+### Do I need to equip Slayer Seal for Desolate Keep?
+
+No. The supported route condition is having the Slayer Seal **in your inventory**, not equipping it.
+
+### Where is the key after The Lost Child?
+
+After the Child's Feeding Ground Beacon / Ova progression, return to the dungeon's innermost chamber and the area behind the former Ova location.
+
+### Are all eight exact key locations known on this site?
+
+No. Five are routed directly here; three exact locations remain unconfirmed.

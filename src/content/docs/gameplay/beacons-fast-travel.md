@@ -15,6 +15,8 @@ related:
   - mortal-shell-ii/forgotten-crossbow
   - mortal-shell-ii/lucian-thirsting-knight
   - mortal-shell-ii/cursed-child
+  - mortal-shell-ii/shrine-of-sorrows
+  - mortal-shell-ii/lost-child
 sidebar:
   label: Beacons & Fast Travel
   order: 10
@@ -114,9 +116,16 @@ The table below is intentionally conservative. It includes launch-build Beacons 
     <tr>
       <td>Mushroom Village</td>
       <td>Fainweald village branch</td>
-      <td>Early route anchor and nearby progression cleanup</td>
+      <td>Night Mode route anchor for the <a href="/mortal-shell-ii/shrine-of-sorrows/">Shrine of Sorrows</a></td>
       <td>Not yet verified</td>
-      <td>Launch list</td>
+      <td>Local route guide</td>
+    </tr>
+    <tr>
+      <td>Sanguine Shoreline</td>
+      <td>Fainweald / Sanguine Caverns route</td>
+      <td>Route anchor for <a href="/mortal-shell-ii/lost-child/">The Lost Child</a></td>
+      <td>Not yet verified</td>
+      <td>Local route guide</td>
     </tr>
     <tr>
       <td>Stonebled Gate</td>

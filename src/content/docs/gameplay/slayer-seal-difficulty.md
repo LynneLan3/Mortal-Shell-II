@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Difficulty Guide: Slayer Seal, Easy Mode & Night Mode"
-description: "Mortal Shell 2 has no Easy/Normal/Hard menu. The Slayer Seal is the item players use to make combat easier. Night Mode is the harder, reversible option. Achievement impact is not fully confirmed."
+description: "Mortal Shell 2 has no Easy/Normal/Hard menu. The Slayer Seal is the easier combat modifier, but switching to it locks achievements on that save. Night Mode is the harder, reversible option."
 category: combat-exploration
 slug: mortal-shell-ii/slayer-seal-difficulty
 status: confirmed
 featured: true
-quickAnswer: "Mortal Shell II has no traditional Easy / Normal / Hard menu. To make combat easier, equip the optional Slayer Seal in Marrow Keep. To make it harder, turn on Night Mode with the Gloombound Flame. Whether the Slayer Seal disables achievements or trophies is not officially documented; launch reports conflict, so read the in-game warning before you equip it."
+quickAnswer: "Mortal Shell II has no traditional Easy / Normal / Hard menu. The Slayer Seal is the easier combat modifier, but switching / equipping it locks all achievements on that save, so achievement hunters should use a separate save. Night Mode remains the harder reversible world state."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/gloombound-flame
@@ -15,7 +15,7 @@ sidebar:
   label: Slayer Seal & Difficulty
   order: 3
   badge: Confirmed
-lastUpdated: 2026-08-18
+lastUpdated: 2026-08-23
 ---
 
 ## Does Mortal Shell 2 have difficulty settings?
@@ -61,6 +61,8 @@ Short route, consistent across GamesRadar, GameRant, and Fextralife:
 
 Picking it up only puts it in your inventory. Launch guides agree the restriction, if any, is tied to **equipping** it from the Seals tab, not to collecting it.
 
+> **Achievement warning:** Picking up the Slayer Seal is not the same as switching to it. The achievement consequence begins when you switch to / equip the Seal. If achievements matter, keep your main save on the normal Seal path and use a separate save before starting a Slayer playthrough.
+
 If the game UI locks or crashes while equipping the Slayer Seal from a **beacon menu**, update to **Hotfix 2.0** first — the August 19, 2026 patch fixes that specific UI lock. See [Mortal Shell 2 crashing on PC](/mortal-shell-ii/crashing-pc/) for the Hotfix 2.0 notes.
 
 ## What does the Slayer Seal change?
@@ -93,25 +95,21 @@ Use it if baseline combat is stopping you. Skip it if you want the default Seal 
 
 ## Does the Slayer Seal disable achievements or trophies?
 
-**Not officially confirmed in a developer FAQ.** Treat the in-game prompt as the rule that matters, and do not rely on a yes/no from this page.
+**Yes. Switching to the Slayer Seal locks all achievements on that save file.**
 
-What is currently reported:
+Cold Symmetry clarified this in its August 14, 2026 AMA: the release behavior changed from the demo, and players who want achievements should either complete them before switching to the Slayer Seal or use a separate save for a Slayer playthrough.
 
-- **GamesRadar** (August 17, 2026) published an in-game warning screenshot and wrote that equipping the Seal **disables achievements**, that you get **two warnings**, and that you can **unequip** later but the achievement lock **stays on that save**.
-- **AltChar** reports the same: the game warns that equipping it **permanently disables trophy and achievement unlocks on that save**.
-- **Rock Paper Shotgun**, covering Cold Symmetry’s difficulty video, wrote that using the Seal means **you can’t gain achievements**.
-- **GameRant** disagrees in part: it says the Seal prevents **certain** achievements and that **other achievements are tied to the Slayer Seal playstyle**.
-- **PowerPyx**’s trophy roadmap (August 17, 2026) says difficulty does **not** affect trophies, describes Night Mode as optional extra challenge, and **does not list a Slayer Seal trophy lock**.
+The important trigger is **switching to / equipping the Slayer Seal**, not simply picking it up.
 
-Official Steam News and store pages reviewed for this Guide do not publish a trophy-policy FAQ. Current reports are mixed. If trophies matter on this save, read the warning in-game and do not equip until you accept what it says.
+If achievements or trophies matter on your current save, do not switch to the Slayer Seal on that save.
 
 ## Can you remove the Slayer Seal?
 
-**You can unequip it.** It is a Seal. GamesRadar says you can switch back to other Seals after using it.
+You can switch away from the Slayer Seal for combat, but that does **not** mean the achievement restriction is reversed.
 
-That is different from reversing a trophy lock. GamesRadar and AltChar say the achievement restriction, if it applies, **does not undo** when you unequip. That permanence is **not** in an official FAQ.
+Treat the achievement lock as a **save-level consequence** once the Slayer Seal has been switched on. Cold Symmetry's own recommendation is to use a separate save if you want a Slayer playthrough while preserving achievement progress elsewhere.
 
-Pickup is optional and reversible as inventory. Equip is the step with the warning.
+Do not rely on unequipping the Seal as a way to restore achievements.
 
 ## What is Night Mode?
 
@@ -144,7 +142,7 @@ GameRant’s percentages are estimates from one playthrough. This page does not 
 | Mode / Modifier | Difficulty effect | How to activate | Reversible? | Achievement impact |
 | --- | --- | --- | --- | --- |
 | Default play | Baseline combat | Start the game; no extra item | n/a | No difficulty-menu penalty |
-| Slayer Seal | Easier combat via Break / Riposte tools | Throne at Marrow Keep, then equip | Combat buffs: yes, unequip | **Not officially confirmed.** Launch reports conflict. Read the in-game warning. |
+| Slayer Seal | Easier combat via Break / Riposte tools | Pick up at Marrow Keep, then switch / equip it | Combat loadout can be changed; achievement lock remains on that save | **Locks all achievements on that save once switched / equipped. Use a separate save if achievements matter.** |
 | Night Mode | Harder enemies; extra rewards and some night-only content | Gloombound Flame → lantern atop Marrow Keep → Thestus | Yes; talk to Thestus again | PowerPyx: Night is not a required “beat the game on Hard” trophy setting. Night-only content still exists. |
 
 ## Which difficulty should you choose?
@@ -167,11 +165,11 @@ On the stone throne in the clifftop area to the right of Merrick in Marrow Keep.
 
 ### Does Slayer Seal affect trophies?
 
-Official documentation does not clearly confirm the exact achievement restrictions. GamesRadar and AltChar report a save-wide disable after you equip it. GameRant and PowerPyx do not match that fully. Read the in-game warning.
+Yes. Cold Symmetry's August 14 AMA says switching to the Slayer Seal locks all achievements on that save file. If achievement or trophy completion matters, finish those goals first or use a separate save for the Slayer playthrough.
 
 ### Can you turn Slayer Seal off?
 
-Yes. Unequip it and use another Seal. Whether any trophy lock remains is not officially confirmed.
+You can switch away from the Slayer Seal for combat, but do not expect that to restore achievements on the same save. Treat the achievement lock as remaining on that save after the Seal has been activated.
 
 ### What is Night Mode?
 

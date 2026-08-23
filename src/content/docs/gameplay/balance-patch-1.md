@@ -13,14 +13,13 @@ related:
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/crashing-pc
   - mortal-shell-ii/sidearms
+  - mortal-shell-ii/lost-child
 sidebar:
   label: Balance Patch 1
   order: 9
   badge: Launch
 lastUpdated: 2026-08-23
 ---
-
-# Mortal Shell 2 Balance Patch 1 — What Changed and What to Do Now
 
 Balance Patch 1 moves Shell-map reveals from Glimpses to Gloom, refunds Glimpses previously spent on those map reveals in Blackmarrow, cuts Tarforge Smelt Equipment Gloom cost by 75%, nerfs several enemies and bosses, and buffs multiple weapons and Tarstones.
 
@@ -72,7 +71,7 @@ If you need a separate route for ordinary Gloom income, use the [Gloom farming g
 
 Two named bosses received direct damage or health reductions.
 
-### The Lost Child
+### [The Lost Child](/mortal-shell-ii/lost-child/)
 
 - Base Damage reduced by **10%**
 - Maximum Health reduced by **15%**

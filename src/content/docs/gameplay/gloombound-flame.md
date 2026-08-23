@@ -8,6 +8,7 @@ featured: true
 quickAnswer: The Gloombound Flame is near Widow's Overlook in the Great Arbiter of Flesh arena, beside a ritual stone / stone marker. Launch gameplay video evidence shows you can grab it while Great Arbiter is still alive. Return to the top of Marrow Keep, interact with `LIGHT EXTINGUISHED LANTERN`, summon Thestus, then choose `CALL FORTH THE NIGHT` to activate Night Mode.
 related:
   - mortal-shell-ii/slayer-seal-difficulty
+  - mortal-shell-ii/shrine-of-sorrows
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/map-fragments
@@ -15,7 +16,7 @@ sidebar:
   label: Gloombound Flame
   order: 4
   badge: Launch
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
 ## Where is the Gloombound Flame in Mortal Shell 2?
@@ -112,6 +113,8 @@ The current evidence supports these Night Mode changes:
 - **Extra hazards:** Gamer Guides describes additional hazards, including examples that are not present during the day.
 - **Additional encounters:** Gamer Guides describes more minibosses and night-only enemy encounters.
 - **Night-related content:** Gamer Guides reports at least one night-only merchant, quest content, and dungeon-style content.
+
+The [Shrine of Sorrows](/mortal-shell-ii/shrine-of-sorrows/) is a Night Mode-only dungeon near Mushroom Village.
 
 This page intentionally does **not** publish exact stat multipliers or exact Gloom percentages. The available number examples are creator-reported / player-tested estimates, not official values.
 

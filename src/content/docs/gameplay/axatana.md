@@ -11,11 +11,12 @@ related:
   - mortal-shell-ii/axe-dagger
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/map-fragments
+  - mortal-shell-ii/seedbearers-scripture
 sidebar:
   label: Axatana Location
   order: 7
   badge: Launch
-lastUpdated: 2026-08-19
+lastUpdated: 2026-08-23
 ---
 
 ## Where is the Axatana in Mortal Shell 2?
@@ -86,6 +87,8 @@ This section is enemy-heavy. The checked transcripts recommend sprinting through
 ## How to reach the Forgotten Tower
 
 After the Outskirts of Mammon stretch, the route continues through gate sections, ramps, bridges, and more teleport jumps. The showcased gameplay also passes **Castigator's Keep** before the final tower approach.
+
+The Forgotten Tower also has a separate Night Mode objective: after collecting Depleted, Thawed, and Faded Gland, you can offer all three at the top of the tower for [Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/). This is separate from the Axatana pickup.
 
 <figure>
   <img src="/images/axatana/axatana-castigators-keep.webp" alt="Castigator's Keep landmark on the early route to the Axatana in Mortal Shell 2." width="1280" height="800" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />

@@ -9,6 +9,7 @@ quickAnswer: The Gloombound Flame is near Widow's Overlook in the Great Arbiter 
 related:
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/shrine-of-sorrows
+  - mortal-shell-ii/seedbearers-scripture
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/map-fragments
@@ -115,6 +116,8 @@ The current evidence supports these Night Mode changes:
 - **Night-related content:** Gamer Guides reports at least one night-only merchant, quest content, and dungeon-style content.
 
 The [Shrine of Sorrows](/mortal-shell-ii/shrine-of-sorrows/) is a Night Mode-only dungeon near Mushroom Village.
+
+[Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/) is another Night Mode-only objective: collect the Depleted, Thawed, and Faded Glands, then offer them at the top of the Forgotten Tower.
 
 This page intentionally does **not** publish exact stat multipliers or exact Gloom percentages. The available number examples are creator-reported / player-tested estimates, not official values.
 

@@ -1,20 +1,21 @@
 ---
 title: "Mortal Shell 2 Skip Prologue: Should You Skip & What Do You Miss?"
-description: "How the Mortal Shell 2 skip prologue option works, who can skip, whether you should skip, what you may miss, and how it connects to Marrow Keep."
+description: "How the Mortal Shell 2 skip prologue option works, who can skip, and why the skip bypasses the confirmed Mid Summer? and No, You Still Can't Win Prologue trophy opportunities."
 category: game-info
 slug: mortal-shell-ii/skip-prologue
 status: confirmed
 featured: true
-quickAnswer: Yes — Mortal Shell II has an optional Prologue skip for players who progressed beyond Marrow Keep during the Open Beta. Beta veterans who only want to reach the launch content faster can use it, but if you care about new opening dialogue, collectibles, trophies, or achievements, the safer launch recommendation is to replay the Prologue until the skipped content is fully verified.
+quickAnswer: "Eligible beta players can skip the Prologue, but the skip bypasses two confirmed Prologue trophy opportunities: Mid Summer? and No, You Still Can't Win. New Game Plus does not replay those opening triggers, so achievement hunters should play the Prologue normally or use a fresh separate save."
 related:
   - mortal-shell-ii/beta-progress-carry-over
   - mortal-shell-ii/open-beta
   - mortal-shell-ii/release-date
+  - mortal-shell-ii/tar-golem
 sidebar:
   label: Skip the Prologue
   order: 4
   badge: Confirmed
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-23
 ---
 
 ## Can you skip the Prologue in Mortal Shell 2?
@@ -32,7 +33,7 @@ The skip is best treated as a launch option for eligible beta players, not as be
 | Choice | Best for | Why |
 | --- | --- | --- |
 | Skip the Prologue | You fully played the beta and only want to reach Marrow Keep / later launch content faster. | Official sources confirm eligible beta players can skip, and a developer-marked Steam answer says the skip gives roughly the currency / Gloom you would have earned by playing it. |
-| Do not skip the Prologue | First-time players, story watchers, collectible hunters, and trophy / achievement hunters. | Launch player reports say some opening dialogue differs from beta and that Prologue-related collectibles or achievements may be easy to miss if you skip. This is still being verified. |
+| Do not skip the Prologue | First-time players, story watchers, collectible hunters, and trophy / achievement hunters. | The skip bypasses two confirmed Prologue trophy opportunities: **Mid Summer?** and **No, You Still Can't Win**. |
 
 Use the skip if you already know the opening and do not mind missing launch-specific changes. Do **not** use it if you want the safest first run for dialogue, collectibles, trophies, achievements, or unknown Prologue-only items.
 
@@ -58,25 +59,42 @@ Current reports place the skip around the transition toward Marrow Keep; exact s
 
 ## What do you miss if you skip the Prologue?
 
-There is no complete official item-by-item list yet. Separate the confirmed facts from launch reports.
+The Prologue skip bypasses **two confirmed trophy / achievement opportunities** in the opening sequence.
 
-### Confirmed
+| Trophy | Prologue trigger | If missed |
+| --- | --- | --- |
+| **Mid Summer?** | Accept the flower crown interaction and enter the Festival on the opening village path | Fresh save / replay the Prologue |
+| **No, You Still Can't Win** | Take the Tar Golem to minimum health in Disciple's Grotto | Fresh save / replay the Prologue |
 
-- The Prologue skip is an optional launch unlock for eligible beta players.
-- The Open Beta save itself does not carry over in full.
-- Beta currency, weapons, Shells, collectibles, and other discovered items reset at launch.
-- Official store copy does not list every skipped item, line of dialogue, trophy, or achievement.
+New Game Plus begins at **Marrow Keep**, after these Prologue events, so NG+ does not replay either opening trigger.
 
-### Launch community reports
+Other launch-specific dialogue, items, or opening interactions may also differ from the beta, but this page does not treat every Prologue collectible as permanently missable without stronger confirmation.
 
-Players on Steam and Reddit are reporting that the full-release Prologue may include content worth replaying, including:
+## Which trophies can you miss by skipping the Prologue?
 
-- Starter-village dialogue that differs from the beta
-- Trollweed or similar early items near the very beginning
-- Flower Crown / Floral Wreath reports connected to the opening
-- Possible Prologue-related achievements, trophies, or collectibles
+### Mid Summer?
 
-Treat those as **community reports**, not confirmed skip penalties. The current evidence is strong enough for caution, but not strong enough to say every skipped player permanently loses a specific item or achievement.
+**Mid Summer?** requires you to **Enter the Festival**.
+
+On the opening village path, before the first Shell, you encounter the **flower crown interaction**. Accept the offered crown and enter the Festival to complete the trophy / achievement trigger.
+
+Because this is a one-time Prologue interaction, using the skip bypasses the opportunity on that save.
+
+If you already missed it, the clean recovery route is a **fresh separate save / character** and a short Prologue replay.
+
+### No, You Still Can't Win
+
+**No, You Still Can't Win** is tied to the Tar Golem at the end of the Disciple's Grotto Prologue route.
+
+The requirement is to:
+
+> **Take the Tar Golem to his Minimum Health**
+
+The skip bypasses that encounter, and New Game Plus does not replay the Prologue Tar Golem fight.
+
+Use the [Tar Golem guide](/mortal-shell-ii/tar-golem/) for the route, safe fight guidance, and retry boundary.
+
+If you miss either of these two trophies, you do not need to abandon your main campaign. You can use a fresh separate save to replay the short opening and secure the missed Prologue trigger.
 
 ## Skip Prologue Option Missing on Steam?
 
@@ -94,11 +112,18 @@ For Steam players who still cannot see the Skip Prologue option or beta reward, 
 
 ## Does skipping affect achievements or trophies?
 
-Official store copy does not explain achievement or trophy behavior for the Prologue skip.
+**Yes, in the sense that the skip bypasses two confirmed Prologue trophy opportunities: Mid Summer? and No, You Still Can't Win.**
 
-Launch community reports suggest some Prologue-specific achievements, trophies, or collectibles may involve replaying the Prologue or using another save. Reported examples include the Tar Golem / boss sequence and Flower Crown / Floral Wreath-related unlocks, but these are not yet confirmed by official patch notes or store copy.
+The skip itself does **not** mean the rest of the game's achievements are disabled.
 
-There is not enough evidence to say skipping permanently locks every achievement or trophy. Still, if you care about 100% completion, the safest launch advice is: **do not skip the Prologue on your first full-release playthrough** until the achievement behavior is verified.
+If achievement completion matters to you:
+
+- do not use the Prologue skip on the only save you plan to use for opening trophy completion
+- secure **Mid Summer?** and **No, You Still Can't Win** during a normal Prologue run
+- if you already skipped them, replay the Prologue on a fresh separate save
+- do not rely on New Game Plus for these two opening encounters
+
+This is separate from beta inventory carry-over. For the reset and reward rules, see the [beta progress carry-over guide](/mortal-shell-ii/beta-progress-carry-over/).
 
 ## Do you lose Gloom or currency by skipping?
 
@@ -146,7 +171,15 @@ Official listings do not say the beta must remain installed. GamesRadar reports 
 
 ### What do I miss if I skip?
 
-Confirmed: beta inventory does not carry over, and the skip is optional. Community reports mention different opening dialogue, Trollweed, Flower Crown / Floral Wreath, and possible Prologue achievements or trophies, but the complete skipped-content list is not officially confirmed.
+The two confirmed trophy opportunities are **Mid Summer?** from the opening flower-crown / Festival interaction and **No, You Still Can't Win** from taking the Tar Golem to minimum health. Other opening dialogue or items may also be bypassed, but this guide does not label every Prologue collectible permanently missable.
+
+### Where do I get the Flower Crown?
+
+During the opening village path before the first Shell. Accept the **flower crown interaction** and enter the Festival to satisfy the **Mid Summer?** trigger.
+
+### Can I retry the Tar Golem in New Game Plus?
+
+No. New Game Plus begins at Marrow Keep and does not replay the Prologue Tar Golem encounter. Use a fresh separate save if you need another attempt.
 
 ### Can I unlock the Prologue skip after the beta?
 

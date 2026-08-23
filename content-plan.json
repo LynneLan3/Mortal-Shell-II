@@ -19,6 +19,48 @@
     "goalCompleteWhen": "all items are done or blocked",
     "blockedItemsDoNotStopExecution": true
   },
+  "concurrencyPolicy": {
+    "maxContentWorkers": 3,
+    "integrationMode": "single-integrator",
+    "publishBatchSize": 3,
+    "workersMayContinueWhenAnotherItemIsBlocked": true,
+    "sharedFilesEditedByIntegratorOnly": true
+  },
+  "workerResponsibilities": [
+    "research",
+    "generate article with configured writer CLI",
+    "prepare guide page",
+    "collect and integrate item-specific images",
+    "prepare item-specific internal links"
+  ],
+  "integratorResponsibilities": [
+    "review completed worker output for integration conflicts",
+    "edit shared site files",
+    "merge completed items",
+    "run tests and production build",
+    "deploy production",
+    "submit completed URLs to IndexNow",
+    "mark items done or blocked in content-plan.json"
+  ],
+  "sharedFiles": [
+    "content-plan.json",
+    "src/config/game.ts",
+    "src/components/experience/BossHub.astro",
+    "src/data/map-markers.ts"
+  ],
+  "workerIsolation": {
+    "useSeparateGitWorktree": true,
+    "oneItemPerWorkerAtATime": true,
+    "workersDoNotPushMain": true,
+    "workersDoNotDeployProduction": true
+  },
+  "publishPolicy": {
+    "mode": "small-batch",
+    "maxItemsPerBatch": 3,
+    "buildOncePerBatch": true,
+    "deployOncePerBatch": true,
+    "submitAllBatchUrlsToIndexNow": true
+  },
   "items": [
     {"id":"01","priority":"P0","title":"Interactive Map","slug":"mortal-shell-ii/map","type":"map","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/map"},
     {"id":"02","priority":"P0","title":"Full Walkthrough / Progression Route","slug":"mortal-shell-ii/routes/world-progression","type":"guide","action":"expand","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/world-progression"},

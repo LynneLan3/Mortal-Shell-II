@@ -1,6 +1,9 @@
 ---
 import CardThumbnail from '../CardThumbnail.astro';
 import { resolveCardImage, sortCardsByImage } from '../../lib/assets';
+import { game } from '../../config/game';
+import HubSubnav from './HubSubnav.astro';
+import { getPortalProminence } from '../../lib/hub-prominence';
 
 const bosses = [
 	{
@@ -149,10 +152,12 @@ const relatedRoutes = [
 ];
 
 const orderedBosses = sortCardsByImage(bosses, (boss) => resolveCardImage({ href: boss.href, title: boss.name }));
+const hotSignals = getPortalProminence(game.portal);
+const bossSpotlight = bosses.filter((boss) => hotSignals.hot.has(boss.href)).slice(0, 4);
 ---
 
 <section class="exp-boss-hub">
-	<header class="exp-boss-hub__hero">
+	<header class="exp-boss-hub__hero hub-scroll-target" id="overview">
 		<div class="exp-content">
 			<p class="exp-eyebrow">Combat / Encounter Index</p>
 			<h1 class="exp-h1">Mortal Shell 2 Bosses — Boss Order, Locations &amp; Guides</h1>
@@ -164,8 +169,40 @@ const orderedBosses = sortCardsByImage(bosses, (boss) => resolveCardImage({ href
 		</div>
 	</header>
 
+	<HubSubnav
+		items={[
+			{ id: 'overview', label: 'Overview' },
+			{ id: 'boss-guides', label: 'Boss Guides' },
+			{ id: 'related-routes', label: 'Related Routes' },
+		]}
+		ariaLabel="Boss sections"
+	/>
+
 	<div class="exp-content exp-boss-hub__body">
-		<section id="boss-guides" aria-labelledby="boss-guides-heading">
+		{bossSpotlight.length > 0 && <section class="exp-boss-spotlight" aria-labelledby="exp-boss-spotlight-heading">
+			<header class="exp-boss-hub__section-head">
+				<p class="exp-eyebrow">Current signal</p>
+				<h2 class="exp-h2" id="exp-boss-spotlight-heading">Hot boss guides</h2>
+				<p class="exp-lede">These entries are the boss guides already present in the portal’s priority guide signal.</p>
+			</header>
+			<div class="exp-boss-spotlight__grid">
+				{bossSpotlight.map((boss) => {
+					const image = resolveCardImage({ href: boss.href, title: boss.name });
+					return (
+						<a class="exp-boss-spotlight__card" href={boss.href}>
+							{image && <CardThumbnail className="exp-boss-spotlight__media" image={image.src} alt={image.alt} />}
+							<span class="exp-boss-spotlight__body">
+								<span class="hub-prominence hub-prominence--hot">HOT</span>
+								<strong>{boss.name}</strong>
+								<span>{boss.area}</span>
+							</span>
+						</a>
+					);
+				})}
+			</div>
+		</section>}
+
+		<section id="boss-guides" class="hub-scroll-target" aria-labelledby="boss-guides-heading">
 			<header class="exp-boss-hub__section-head">
 				<p class="exp-eyebrow">Existing coverage</p>
 				<h2 class="exp-h2" id="boss-guides-heading">Bosses with a guide</h2>
@@ -195,7 +232,7 @@ const orderedBosses = sortCardsByImage(bosses, (boss) => resolveCardImage({ href
 			</div>
 		</section>
 
-		<section class="exp-boss-hub__related" aria-labelledby="related-routes-heading">
+		<section id="related-routes" class="exp-boss-hub__related hub-scroll-target" aria-labelledby="related-routes-heading">
 			<header class="exp-boss-hub__section-head">
 				<p class="exp-eyebrow">Related routes</p>
 				<h2 class="exp-h2" id="related-routes-heading">Shell quests connected to encounters</h2>

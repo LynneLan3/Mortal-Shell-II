@@ -14,6 +14,8 @@ import { ui } from '../../lib/ui';
 import { resolveEntryCardImage, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
 import AuthorityHubGrid from './AuthorityHubGrid.astro';
+import HubSubnav from './HubSubnav.astro';
+import { getPortalProminence, prominenceForHref } from '../../lib/hub-prominence';
 
 const t = ui();
 const guides = (await getGuides()).filter((entry) => Boolean(categoryOf(entry)));
@@ -78,16 +80,65 @@ if (unassigned.length > 0) {
 
 const topicOrder = ['start-general', 'world-exploration', 'weapons-resources', 'completion-endgame', 'pc-fixes'];
 groups.sort((a, b) => (topicOrder.indexOf(a.id) < 0 ? topicOrder.length : topicOrder.indexOf(a.id)) - (topicOrder.indexOf(b.id) < 0 ? topicOrder.length : topicOrder.indexOf(b.id)));
+
+const portalSignals = getPortalProminence(game.portal);
+const guideByHref = new Map(guides.map((entry) => [guideHref(entry), entry]));
+const hotSpotlight = (game.portal?.hotGuides ?? [])
+	.slice(0, 4)
+	.map((item) => ({ ...item, entry: guideByHref.get(item.href), prominence: 'hot' as const }))
+	.filter((item): item is typeof item & { entry: GuideEntry } => Boolean(item.entry));
+const popularSpotlight = (game.portal?.featuredOrder ?? [])
+	.map((value) => `/${value.replace(/^\/+|\/+$/g, '')}/`)
+	.map((href) => ({ href, entry: guideByHref.get(href), prominence: prominenceForHref(href, portalSignals) }))
+	.filter((item): item is typeof item & { entry: GuideEntry; prominence: 'popular' } => Boolean(item.entry) && item.prominence === 'popular')
+	.slice(0, 2)
+	.map((item) => ({ ...item, title: item.entry.data.title, description: item.entry.data.description }));
+const spotlight = [
+	...hotSpotlight,
+	...popularSpotlight,
+].slice(0, 6);
+const subnavItems = [
+	{ id: 'overview', label: 'Overview' },
+	...groups.map((group) => ({ id: group.id, label: group.title })),
+];
 ---
 
 <section class="exp-guide-topic-index">
-	<header class="exp-guide-topic-index__hero">
+	<header class="exp-guide-topic-index__hero hub-scroll-target" id="overview">
 		<div class="exp-content">
 			<p class="exp-eyebrow">{t.fieldGuide}</p>
 			<h1 class="exp-h1">{t.allGuides}</h1>
 			<p class="exp-lede">Browse the guide library by topic. Use By Goal when you want a recommended player route instead.</p>
 		</div>
 	</header>
+
+	<HubSubnav items={subnavItems} ariaLabel="Guide sections" />
+
+	{spotlight.length > 0 && <section class="exp-content exp-guide-spotlight" aria-labelledby="exp-guide-spotlight-heading">
+		<header class="exp-guide-spotlight__head">
+			<div>
+				<p class="exp-eyebrow">Current signal</p>
+				<h2 class="exp-h2" id="exp-guide-spotlight-heading">Hot &amp; popular guides</h2>
+			</div>
+			<p class="exp-lede">HOT follows the existing priority guide list; POPULAR follows the existing featured order.</p>
+		</header>
+		<div class="exp-guide-spotlight__grid">
+			{spotlight.map((item) => {
+				const entry = item.entry;
+				const visual = visualForEntry(entry);
+				return (
+					<a class="exp-guide-spotlight__card" href={guideHref(entry)}>
+						{visual.image && <CardThumbnail className="exp-guide-spotlight__visual" image={visual.image} alt={visual.alt ?? ''} />}
+						<span class="exp-guide-spotlight__body">
+							<span class:list={['hub-prominence', `hub-prominence--${item.prominence}`]}>{item.prominence === 'hot' ? 'HOT' : 'POPULAR'}</span>
+							<strong>{entry.data.title}</strong>
+							<span>{entry.data.description}</span>
+						</span>
+					</a>
+				);
+			})}
+		</div>
+	</section>}
 
 	{game.portal?.authorityHubs && game.portal.authorityHubs.length > 0 && (
 		<section class="exp-content exp-guide-authority" aria-labelledby="exp-guide-authority-heading">
@@ -100,7 +151,7 @@ groups.sort((a, b) => (topicOrder.indexOf(a.id) < 0 ? topicOrder.length : topicO
 
 	<div class="exp-content exp-guide-topic-index__groups">
 		{groups.map((group, index) => (
-			<section class="exp-guide-topic-group" id={group.id} aria-labelledby={`${group.id}-heading`}>
+			<section class="exp-guide-topic-group hub-scroll-target" id={group.id} aria-labelledby={`${group.id}-heading`}>
 				<header class="exp-guide-topic-group__head">
 					<p class="exp-eyebrow">Topic {String(index + 1).padStart(2, '0')}</p>
 					<h2 class="exp-h2" id={`${group.id}-heading`}>{group.title}</h2>

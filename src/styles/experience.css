@@ -27,6 +27,8 @@
 	--xp-accent-fg: var(--game-accent-foreground, #041012);
 	--xp-accent-text: color-mix(in srgb, var(--xp-accent) 72%, white);
 	--xp-accent-dim: color-mix(in srgb, var(--xp-accent) 25%, transparent);
+	--xp-progress: var(--game-progress, #f2b36b);
+	--xp-progress-bright: color-mix(in srgb, var(--xp-progress) 78%, white);
 
 	--xp-bg: var(--sl-color-bg, #0f1219);
 	--xp-surface: var(--sl-color-gray-6, #1a1f28);
@@ -127,6 +129,81 @@
 	background: color-mix(in srgb, var(--xp-bg) 92%, transparent);
 	backdrop-filter: blur(12px);
 	border-bottom: 1px solid var(--xp-border);
+}
+
+/* Shared secondary navigation for content hubs and client-side filters. */
+.hub-subnav {
+	position: sticky;
+	top: 3.75rem;
+	z-index: 80;
+	border-block: 1px solid var(--xp-border);
+	background: color-mix(in srgb, var(--xp-bg) 94%, transparent);
+	backdrop-filter: blur(12px);
+}
+
+.hub-subnav__scroller {
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	max-width: var(--xp-content);
+	margin: 0 auto;
+	overflow-x: auto;
+	padding: 0.45rem 1.5rem;
+	scrollbar-width: thin;
+}
+
+.hub-subnav__item {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	min-height: 2rem;
+	padding: 0.4rem 0.7rem;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	color: var(--xp-text-muted);
+	font-size: var(--xp-text-xs);
+	font-weight: 800;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: color 140ms, border-color 140ms, background 140ms;
+}
+
+.hub-subnav__item:hover,
+.hub-subnav__item:focus-visible,
+.hub-subnav__item.is-active {
+	border-color: color-mix(in srgb, var(--xp-accent) 58%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 15%, var(--xp-surface));
+	color: var(--xp-accent-text);
+	outline: none;
+}
+
+.hub-scroll-target {
+	scroll-margin-top: 7rem;
+}
+
+.hub-prominence {
+	display: inline-flex;
+	width: fit-content;
+	align-items: center;
+	padding: 0.2rem 0.4rem;
+	border: 1px solid transparent;
+	font-size: 0.62rem;
+	font-weight: 900;
+	letter-spacing: 0.1em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.hub-prominence--hot {
+	border-color: color-mix(in srgb, var(--xp-progress) 68%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-progress) 16%, var(--xp-surface));
+	color: var(--xp-progress-bright);
+}
+
+.hub-prominence--popular {
+	border-color: color-mix(in srgb, var(--xp-accent) 58%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 14%, var(--xp-surface));
+	color: var(--xp-accent-text);
 }
 
 .exp-topbar__inner {

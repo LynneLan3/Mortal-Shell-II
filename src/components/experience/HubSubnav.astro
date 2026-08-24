@@ -1,0 +1,70 @@
+---
+interface HubSubnavItem {
+	id: string;
+	label: string;
+}
+
+interface Props {
+	items: readonly HubSubnavItem[];
+	mode?: 'anchors' | 'filters';
+	ariaLabel?: string;
+	className?: string;
+}
+
+const {
+	items,
+	mode = 'anchors',
+	ariaLabel = mode === 'filters' ? 'Filter routes' : 'Page sections',
+	className,
+} = Astro.props;
+---
+
+<nav
+	class:list={['hub-subnav', className]}
+	aria-label={ariaLabel}
+	data-hub-subnav
+	data-hub-subnav-mode={mode}
+>
+	<div class="hub-subnav__scroller">
+		{items.map((item, index) => mode === 'filters' ? (
+			<button
+				class:list={['hub-subnav__item', 'route-filter', index === 0 && 'is-active']}
+				type="button"
+				data-route-filter-button={item.id}
+				aria-pressed={index === 0 ? 'true' : 'false'}
+			>
+				{item.label}
+			</button>
+		) : (
+			<a class:list={['hub-subnav__item', index === 0 && 'is-active']} href={`#${item.id}`} data-hub-subnav-link={item.id}>
+				{item.label}
+			</a>
+		))}
+	</div>
+</nav>
+
+{mode === 'anchors' && <script>
+	const subnavs = Array.from(document.querySelectorAll('[data-hub-subnav-mode="anchors"]'));
+	subnavs.forEach((subnav) => {
+		if (subnav.hasAttribute('data-hub-subnav-bound')) return;
+		subnav.setAttribute('data-hub-subnav-bound', 'true');
+		const links = Array.from(subnav.querySelectorAll('[data-hub-subnav-link]'));
+		const targets = links
+			.map((link) => document.getElementById(link.getAttribute('data-hub-subnav-link') || ''))
+			.filter((target) => target instanceof HTMLElement);
+		const setActive = (id) => links.forEach((link) => {
+			const active = link.getAttribute('data-hub-subnav-link') === id;
+			link.classList.toggle('is-active', active);
+			if (active) link.setAttribute('aria-current', 'location');
+			else link.removeAttribute('aria-current');
+		});
+		if (targets.length === 0) return;
+		const observer = new IntersectionObserver((entries) => {
+			const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+			if (visible[0]?.target instanceof HTMLElement) setActive(visible[0].target.id);
+		}, { rootMargin: '-6rem 0px -55% 0px', threshold: [0, 0.2, 0.6] });
+		targets.forEach((target) => observer.observe(target));
+		const initial = window.location.hash.slice(1);
+		setActive(targets.some((target) => target.id === initial) ? initial : targets[0].id);
+	});
+</script>}

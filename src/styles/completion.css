@@ -6,7 +6,7 @@
 	--completion-line: rgba(224, 184, 104, 0.2);
 	--completion-muted: #8e9aa5;
 	--completion-text: #edf0ed;
-	--completion-amber: #e2b86d;
+	--completion-amber: var(--xp-progress, #e2b86d);
 	--completion-green: #80c99b;
 	--completion-red: #e58c70;
 	--completion-blue: #8bb8db;

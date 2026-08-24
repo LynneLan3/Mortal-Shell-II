@@ -2,6 +2,7 @@
 import { mapRoutes, mapRouteHref } from '../../../data/map-routes';
 import { toolkitItemByMapMarkerId } from '../../../data/toolkit-items';
 import MapRoutePreview from './MapRoutePreview.astro';
+import HubSubnav from '../HubSubnav.astro';
 
 const groups = [
 	{ id: 'recommended', label: 'Recommended', routeIds: ['fainweald-shells'] },
@@ -28,11 +29,12 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 		<a class="route-discovery__map-link" href="/mortal-shell-ii/map/">Free exploration map <span aria-hidden="true">↗</span></a>
 	</header>
 
-	<nav class="route-discovery__filters" aria-label="Filter routes" data-route-filters>
-		<span class="route-discovery__filter-label">Route library</span>
-		<button class="route-filter is-active" type="button" data-route-filter-button="all" aria-pressed="true">All</button>
-		{groups.map((group) => <button class="route-filter" type="button" data-route-filter-button={group.id} aria-pressed="false">{group.label}</button>)}
-	</nav>
+	<HubSubnav
+		items={[{ id: 'all', label: 'All' }, ...groups.map((group) => ({ id: group.id, label: group.label }))]}
+		mode="filters"
+		className="route-discovery__filters"
+		ariaLabel="Filter routes"
+	/>
 
 	<div class="route-card-grid" data-route-grid>
 		{routeCards.map(({ route, category }) => {

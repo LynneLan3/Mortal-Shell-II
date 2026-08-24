@@ -1,126 +1,151 @@
 ---
-title: "Mortal Shell II Magdalena Boss Guide (Open Beta)"
-description: Open Beta guide to Magdalena, the Lady of the Woods in Mortal Shell II — where the encounter is, what current player reports say about the fight, and what remains unconfirmed.
+title: "Mortal Shell 2 Magdalena / Lady of the Woods Boss Guide"
+description: "How to reach and beat Magdalena (Lady of the Woods) in the Glutted Mire. Route, mechanics, hazards, rewards, and common mistakes."
 category: combat-exploration
 slug: mortal-shell-ii/magdalena
-status: needs-verification
+status: confirmed
 featured: true
-quickAnswer: In the current Open Beta, Magdalena, the Lady of the Woods, is the named encounter at the end of the preview route. Official listings point players toward her after the opening region; player reports place the fight in the Sunken Village after the Wandering Shepherd.
+quickAnswer: "Magdalena sits at the end of the Glutted Mire route. Reach her from Mushroom Village Gate after clearing the Hall of Illusions and opening the Corrupted Gate, follow the Seeping/Sleeping Mire → Sunken Village → shepherd encounter → board/bridge route, then drop from the ledge into the flooded arena. Hold mid range, dodge the charge and spinning fire attack, build Break safely, use Riposte during the opening, move when summons spawn, and avoid fly cloud or burning-ground hazards. After winning, cleanse Magdalena's Glade Beacon, collect the Ova the game provides, and note the reported Magdalena's Memento Tarstone reward."
+faq:
+  - question: "Where is Magdalena located?"
+    answer: "Magdalena (Lady of the Woods) is at the end of the Glutted Mire route, reached from Mushroom Village Gate after clearing the Hall of Illusions and opening the Corrupted Gate."
+  - question: "How do I reach her from the Hall of Illusions?"
+    answer: "From the Hall of Illusions open the Corrupted Gate, follow the Seeping (source-reported Sleeping) Mire and Sunken Village, clear the shepherd encounter, use the post-shepherd board/bridge route, then drop from the ledge into the flooded arena."
+  - question: "What are Magdalena’s dangerous attacks?"
+    answer: "Key threats include a charge/vehicle sequence, a follow-up spinning fire attack, ongoing fire pressure and burning-ground hazards, summoned small enemies, and a fly cloud that creates hazardous zones."
+  - question: "When can I Break or Riposte Magdalena?"
+    answer: "Magdalena has Break/stagger openings you create by building Break meter with safe melee or ranged hits; use Riposte when the opening appears after the charge/spin sequence."
+  - question: "What do I get after defeating her?"
+    answer: "After the fight you can activate and cleanse Magdalena's Glade Beacon, collect the Ova the game provides, and source reports list Magdalena's Memento as Tarstone evidence."
+  - question: "Are there achievement ties?"
+    answer: "Sources map Magdalena to platform achievement variants such as Ultimate Karen and Wheelie Good Time; these remain platform-specific variants in reports."
 related:
-  - mortal-shell-ii/gameplay
-  - mortal-shell-ii/open-beta
   - mortal-shell-ii/glutted-mire
+  - mortal-shell-ii/hall-of-illusions
+  - mortal-shell-ii/beacons-fast-travel
+  - mortal-shell-ii/ova
+  - mortal-shell-ii/tarforge
+  - mortal-shell-ii/tarstones
+  - mortal-shell-ii/shells
+  - mortal-shell-ii/weapons
+  - mortal-shell-ii/trophies
 sidebar:
   order: 2
-  badge: Open Beta
-lastUpdated: 2026-08-11
+  badge: Boss
+lastUpdated: 2026-08-24
 ---
 
-## Who is Magdalena?
+## Quick reference
 
-**Magdalena, the Lady of the Woods**, is the named boss the official Open Beta listings use as the preview’s onward goal. Steam and Xbox both tell players they can cleanse beacons, explore optional dungeons, take on hidden mini-bosses, then “press onward toward Magdalena, the Lady of the Woods.”
+- Boss: **Magdalena (Lady of the Woods)**
+- Location: End of the [Glutted Mire](/mortal-shell-ii/glutted-mire/) route
+- Key threats: charge/vehicle sequence, spinning fire attack, fire pressure, fly cloud / burning-ground hazards, summoned small enemies
+- After: cleanse Magdalena's Glade Beacon and collect the Ova
 
-This Guide covers the **current Open Beta / current beta build**. It is not a full-game boss guide and does not claim Magdalena is the final boss of the finished campaign.
+[IMAGE: Magdalena flooded arena overview]
 
-Xbox store copy sometimes spells the name “Magdelena.” Official Steam copy uses **Magdalena**. This page follows the Steam spelling.
+## Boss identity
 
-## Where players encounter Magdalena
+Magdalena is presented as the Lady of the Woods encounter at the end of the Glutted Mire route. This guide covers where to find her, the route evidence available at launch, what the fight does mechanically, conservative tactics, and the post-fight actions and reported reward context.
 
-Official listings do not give a map pin. They place her at the far end of the Open Beta route, after the Prologue and the first explorable region.
+## Retail location and how to reach Magdalena
 
-Current Open Beta player documentation, including the Fextralife location notes, is more specific:
+Follow this route from the Hall of Illusions to Magdalena:
 
-- The fight is associated with the **Sunken Village**.
-- Players first deal with **the Wandering Shepherd** in that area.
-- Entering a **tunnel** after that stretch starts the Magdalena encounter.
-- Player notes say defeating her creates a **Magdalena’s Glade** beacon.
+1. Clear the [Hall of Illusions](/mortal-shell-ii/hall-of-illusions/) and open the Corrupted Gate.
+2. From Mushroom Village Gate proceed into the Seeping Mire (source-reported Sleeping Mire) and through the Sunken Village area.
+3. Clear the shepherd encounter. After the shepherd, use the post-shepherd board gap / bridge route described by sources to continue toward Magdalena.
+4. Note: the Etching Needles chest is reported after the shepherd and before Magdalena, somewhere near Ruk — sources disagree whether it sits at the bridge end or below/near the obvious route. Watch the obvious landmark rather than relying on precise coordinates.
+5. The final approach drops from a ledge into Magdalena’s flooded arena.
 
-Treat the Sunken Village / tunnel path as current-beta player reporting, not an official map. Routes can change before [full release](/mortal-shell-ii/release-date/).
+See the [Glutted Mire route](/mortal-shell-ii/glutted-mire/) and the [world progression route](/mortal-shell-ii/routes/world-progression/) for broader region context.
 
-If you are still downloading the preview, start with [how to play the Open Beta](/mortal-shell-ii/open-beta/).
+[IMAGE: path from Mushroom Village Gate toward the bridge and ledge]
 
-## Fight context in the Open Beta
+## Fight mechanics — overview
 
-From official store copy:
+- Magdalena uses a multi-part offensive pattern built around a charge/vehicle sequence followed by a spinning fire attack and continued fire pressure.
+- She summons small enemies that force you to reposition and avoid getting boxed in.
+- The arena is flooded and includes fly cloud effects and burning-ground hazards — these create damaging zones you should pull her away from and avoid standing in.
+- The fight has a buildable Break meter and clear Riposte openings after stagger. Create Break safely and use Riposte during the opening.
 
-- Magdalena is a major named encounter inside a **limited opening-hours preview**.
-- The surrounding slice includes beacons, optional dungeons, and hidden mini-bosses.
-- The build is still in development, so timing, density, and fairness can still change.
+## Attacks (what to watch for)
 
-From current player sources (Fextralife boss notes, Sportskeeda’s Open Beta walkthrough, and recorded beta gameplay):
+- Charge / vehicle sequence: a high-commitment rush toward you. Handle it with controlled spacing — let it come and dodge the final impact.
+- Spinning fire attack: it can follow or layer over the charge and produces fire pressure near Magdalena.
+- Fire pressure / burning-ground hazards: dangerous ground that punishes staying put.
+- Fly cloud: an airborne hazard that creates dangerous zones if allowed to linger.
+- Summoned small enemies: they distract or flank you if unattended.
 
-- Magdalena is described as a boss on a **fiery wheelchair / chariot**.
-- Reported tools include **high-speed charges** and **wide flame attacks**.
-- The arena is associated with a **swamp / woods** edge where bees can punish players who hug the boundary.
+## Break / stagger opportunities and Riposte
 
-Those details are consistent enough across player sources to use as fight context. They are still **Open Beta observations**, not developer patch notes.
+- Build Break meter with safe melee or ranged hits between Magdalena’s major attack sequences. Short, measured hits are preferred so you can back out before her counterattack.
+- Riposte openings appear when Magdalena is staggered after sufficient Break damage; the opening follows clear tells, often after the charge and spinning fire sequence leaves her momentarily vulnerable.
+- Do not force repeated full combos if a single Riposte window is available — use it and reset to mid-range.
 
-## Practical strategy from current Beta reports
+## Arena hazards to manage
 
-The following advice is compiled from Open Beta player guides and footage. It is not an official Cold Symmetry strategy, and it does not use invented damage numbers.
+- Flooded arena: keep your spacing controlled around the entry drop and hazards.
+- Burning-ground hazards and fire pressure: avoid standing in these zones and pull Magdalena away from them when she moves into them.
+- Fly cloud: a mobile hazard that creates dangerous area effects — reposition if the cloud approaches.
+- Ledge drop: note that the arena entry is a drop from a ledge; plan your first approach accordingly.
 
-**Do not sprint in immediately.** Player reports say Magdalena wants to close the gap. Let the first approach come to you.
+## Summons
 
-**Use Harden or a timed dodge on the opening hit.** Sportskeeda’s Open Beta walkthrough recommends Harden to absorb the first contact, or a dodge that creates an opening. Harden is part of the series’ confirmed combat language; exact i-frame behavior can vary by Shell.
+Magdalena summons small enemies; they are not the primary threat but can overwhelm you if you try to ignore their pressure while trading with the boss. When summons appear, keep moving, clear or kite them quickly, and avoid getting trapped between them and Magdalena.
 
-**Look for the follow-up charge.** After that first exchange, player reports describe a retreat into a spinning / 360-degree flame charge. That is the window several guides use for a ranged poke or a short melee punish.
+## Recommended conservative approach (step-by-step)
 
-**Play for stagger, then a critical.** Official Mortal Shell II combat copy emphasizes breaking posture and striking critically. Player guides apply that here: attacking the **chariot / wheelchair** or using ranged hits to fill the stagger gauge, then taking the critical opening.
+1. Loadout: pick a familiar weapon (or a weapon with manageable recovery) and any Shell you already understand. Do not treat any specific Shell as mandatory.
+2. Start at mid range; do not rush in. Let the charge/vehicle sequence come to you so you can time the dodge.
+3. Dodge the charge and the subsequent spinning fire attack, then take one or two quick recovery hits if safe.
+4. Build Break with short, safe melee swings or ranged shots between Magdalena’s attacks. Avoid long recovery combos that leave you exposed.
+5. Use Riposte when the Break opening appears — the opening is usually the best window for heavy damage.
+6. When summons spawn, keep moving: either clear them quickly or kite them away from Magdalena so they do not trap you.
+7. Pull Magdalena away from fly cloud or burning-ground hazards when possible to reduce sustained damage.
+8. Repeat these paced cycles until victory.
 
-**Stay at mid range when adds appear.** After a successful critical, player reports say Magdalena becomes less aggressive in melee but summons exploding minions. Standing on top of her is the common failure; mid range lets you keep hitting the chariot while sidestepping the adds.
+## Related practical notes
 
-**Respect the bees.** Guides warn that the swamp edge can stagger you with bees. Later in the fight, player reports say the bees stop staying passive and swarm if you linger next to Magdalena.
+This fight rewards patience and measured damage rather than an aggro rush. If you need fast travel or to cleanse the area after the fight, use the [Beacons & Fast Travel guide](/mortal-shell-ii/beacons-fast-travel/).
 
-This site does **not** split the fight into official Phase 1 / Phase 2 / Phase 3. Player writeups describe those behavior changes after critical hits, but the beta listings do not publish named phases.
+## Rewards and post-fight actions
 
-For the broader combat framing, see [Mortal Shell II gameplay](/mortal-shell-ii/gameplay/).
+- After the fight, activate and cleanse Magdalena's Glade Beacon and collect the Ova the game provides. See the [Ova guide](/mortal-shell-ii/ova/).
+- Source reports list Magdalena's Memento as Tarstone evidence; see [Tarstones](/mortal-shell-ii/tarstones/) and [Tarforge](/mortal-shell-ii/tarforge/) for Tarstone and Tarforge context. Do not treat this as a full loot table — it is reported context.
+- Achievement ties have been mapped by platform sources to variants such as Ultimate Karen and Wheelie Good Time; treat these as platform-specific variants.
 
-## Common mistakes in the current Beta
+## Related routes, Shells, and Weapons
 
-These are the failure patterns that show up repeatedly in current Open Beta writeups:
+- Related route pages: [Glutted Mire](/mortal-shell-ii/glutted-mire/) and [overall progression](/mortal-shell-ii/routes/world-progression/).
+- Related Shells: review Shell options at [Shells](/mortal-shell-ii/shells/) and pick one you know.
+- Related Weapons: the fight favors weapons you can recover from quickly; see [Weapons](/mortal-shell-ii/weapons/).
 
-- Rushing Magdalena at the start instead of baiting the first attack
-- Fighting on the swamp edge and getting interrupted by bees
-- Ignoring stagger / critical openings and trying to melee through every charge
-- Standing in exploding minions after the first critical
-- Treating this preview fight as a finished, patched full-game encounter
+## Common mistakes
 
-## What this Open Beta guide does not confirm
+- Charging in aggressively: Magdalena’s charge/vehicle sequence and spinning fire attack punish overcommitment.
+- Trying to combo through the spinning fire attack: long recovery combos leave you open to her follow-ups and fire pressure.
+- Ignoring summons: small enemies flank and interrupt your spacing if left unchecked.
+- Fighting in hazardous zones: standing in fly cloud or burning-ground hazards multiplies incoming pressure and leads to forced mistakes.
+- Relying on an unfamiliar Shell or an unpracticed weapon: use what you know for predictable recovery and timing.
 
-The following are **omitted** because they are not reliably confirmed:
+[IMAGE: Magdalena charge tell animation]
 
-- Hit points, damage values, or resistance tables
-- Official attack names
-- Named, developer-defined phases
-- A guaranteed drop table beyond player reports of **Magdalena’s Memento**
-- Whether Magdalena remains in this form, location, or role in the full game
-- A “best” Shell, weapon, or upgrade path for the fight
+## Further reading and related pages
 
-Tiel, the Acolyte, is the Shell officially named in the Open Beta listing, and some player guides assume that Shell for the encounter. That is not the same as an official Magdalena loadout.
+- [Boss index](/mortal-shell-ii/bosses/)
+- [Glutted Mire region](/mortal-shell-ii/glutted-mire/)
+- [Hall of Illusions route](/mortal-shell-ii/hall-of-illusions/)
+- [Fast travel and Beacons](/mortal-shell-ii/beacons-fast-travel/)
+- [Ova reference](/mortal-shell-ii/ova/)
+- [Tarstones](/mortal-shell-ii/tarstones/) and [Tarforge](/mortal-shell-ii/tarforge/)
+- [Shell list](/mortal-shell-ii/shells/)
+- [Weapons](/mortal-shell-ii/weapons/)
+- [Trophies and achievements](/mortal-shell-ii/trophies/)
 
-## FAQ
+If you need a quick checklist before the fight:
 
-### Is Magdalena in the Mortal Shell II Open Beta?
-
-Yes. Official Steam and Xbox copy uses her as the named encounter you press toward in the preview.
-
-### Is this the final boss of Mortal Shell II?
-
-Not confirmed. In the current Open Beta she is the named end-of-preview encounter. The full game has not been treated as fully unlocked on this site.
-
-### Do I need to beat Magdalena for beta rewards?
-
-Official carry-over text names playing the beta and progressing beyond the **Marrow Keep**. It does not name Magdalena as the reward condition. See [beta progress carry over](/mortal-shell-ii/beta-progress-carry-over/).
-
-### Will this page be replaced after launch?
-
-No. The same URL should be updated when the full game is out. Do not look for a second Magdalena Guide.
-
-## Sources
-
-- [Mortal Shell II - Open Beta on Steam](https://store.steampowered.com/app/4711740/Mortal_Shell_II__Open_Beta/) — official name and preview role; checked 2026-08-11
-- [Mortal Shell II Open Beta on Xbox](https://www.xbox.com/en-us/games/store/mortal-shell-ii-open-beta/9N1NPQRFBGTX) — matching official description; checked 2026-08-11
-- [Fextralife: Sunken Village](https://mortalshell2.wiki.fextralife.com/Sunken_Village) — current-beta location notes, Wandering Shepherd, tunnel, Magdalena’s Glade
-- [Fextralife: Bosses](https://mortalshell2.wiki.fextralife.com/Bosses) — current-beta description of the wheelchair, charges, and flame attacks
-- [Sportskeeda Open Beta walkthrough](https://www.sportskeeda.com/esports/mortal-shell-2-walkthrough-how-complete-open-beta) — player-facing Harden / stagger / bee / minion advice
-- Official Mortal Shell II combat positioning: [gameplay Guide](/mortal-shell-ii/gameplay/) and [mortalshell2.com](https://mortalshell2.com/)
+- Clear Hall of Illusions and open Corrupted Gate.
+- Follow Seeping/Sleeping Mire → Sunken Village → shepherd → bridge route.
+- Watch for the Etching Needles chest landmark near Ruk (location varies in reports).
+- Drop carefully into the flooded arena and adopt the conservative mid-range approach above.

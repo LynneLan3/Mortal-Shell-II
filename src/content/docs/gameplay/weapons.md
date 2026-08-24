@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Weapons Guide: All Known Weapons, Locations & Upgrades"
-description: "A Mortal Shell 2 weapons guide covering eight identified launch-build primary weapons, seven detailed route pages, the remaining pending route, and the Tarforge upgrade handoff."
+description: "A Mortal Shell 2 weapons guide covering all eight identified primary weapons, launch-build locations, practical use cases, Balance Patch 1 changes, and Tarforge upgrades."
 category: combat-exploration
 slug: mortal-shell-ii/weapons
 status: needs-verification
 featured: false
-quickAnswer: "The launch build has eight identified primary weapons. Seven now have detailed route pages, including Clockwork Scythe; only The Iconoclast remains pending on this site."
+quickAnswer: "Mortal Shell II has eight identified primary weapons. The Iconoclast is Prologue starting gear; the other seven are found across Fainweald and Mammon. Choose by route, weapon identity, and patch-aware use case rather than an unsupported universal tier list."
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/great-martyrs-blade
@@ -20,14 +20,14 @@ sidebar:
   label: Weapons Guide
   order: 11
   badge: Exploration
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
 ## Evidence boundary
 
 This is an **Exploration Hub** for launch-window weapon searches. It keeps route coverage concise and hands detailed acquisition steps to the linked location pages.
 
-The launch roster below contains eight identified primary weapons. A pending route means this site has not created a detailed location page for that weapon in this batch; it does not provide an invented location.
+The launch roster below contains eight identified primary weapons. The Iconoclast is confirmed as Prologue starting gear, but this site has not created a standalone location page for it. That page gap does not justify inventing a longer route.
 
 For the broader confirmed scope of combat, Shells, weapon upgrades, and exploration, start with the [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/).
 
@@ -35,7 +35,7 @@ For the broader confirmed scope of combat, Shells, weapon upgrades, and explorat
 
 | Weapon | Route coverage | Best starting point |
 | --- | --- | --- |
-| **The Iconoclast** | Detailed route pending on this site. | Pending |
+| **The Iconoclast** | Prologue starting gear when Harros is unlocked. | [Prologue / gameplay guide](/mortal-shell-ii/gameplay/) |
 | **Axe & Dagger** | Chapel Key and Shrine of Trials route near Mushroom Village. | [Axe & Dagger location guide](/mortal-shell-ii/axe-dagger/) |
 | **Veteran's Battle Axe** | King's Crypt near Blackridge Pass. | [Veteran's Battle Axe location guide](/mortal-shell-ii/veterans-battle-axe/) |
 | **Great Martyr's Blade** | Martyr's Prison through Widow's Overlook and Holding Cells. | [Great Martyr's Blade location guide](/mortal-shell-ii/great-martyrs-blade/) |
@@ -43,6 +43,29 @@ For the broader confirmed scope of combat, Shells, weapon upgrades, and explorat
 | **Black Needle** | Sester's Bastion in Mammon. | [Black Needle location guide](/mortal-shell-ii/black-needle/) |
 | **Axatana** | Forgotten Tower through the Outskirts of Mammon. | [Axatana location guide](/mortal-shell-ii/axatana/) |
 | **Clockwork Scythe** | Chamber of Becoming / Sariel from Silent Steps. | [Clockwork Scythe location guide](/mortal-shell-ii/clockwork-scythe/) |
+
+## Practical weapon tier list: choose by use case
+
+There is no official or controlled-test S/A/B damage ranking in the current evidence. The useful comparison is route fit and supported weapon identity:
+
+| Use case | Best-supported pick | Why it fits |
+| --- | --- | --- |
+| **Starting weapon** | **The Iconoclast** | It is available during the Prologue with Harros, so it is the guaranteed first primary weapon. No current evidence here proves it is numerically best against the later roster. |
+| **Early dual-wield route** | **Axe & Dagger** | The Chapel Key → Shrine of Trials route is an early Fainweald detour. The local route page describes its faster dual-wield identity and notes Tiel as a practical pairing to test. |
+| **Early heavy option** | **Great Martyr's Blade** | It is an optional post-Prologue route through Holding Cells and Martyr's Prison. Balance Patch 1 increased its attack damage by 20%. |
+| **Weapon-mode experimentation** | **Axatana** | The early Mammon route reaches the Forgotten Tower and provides a weapon whose modes are useful to test. “Best weapon” remains creator opinion, not an official rank. |
+| **Reach** | **Black Needle** | The local guide identifies it as a long-reaching spear with Needle Storm; Patch 1 improved light-attack tracking. |
+| **Impact / stagger** | **Obsidian Hammer** | The local guide describes a slow, heavy blunt weapon with impact/stagger-oriented attacks and Heavy Stomps. |
+| **Route-adjacent pickup** | **Veteran's Battle Axe** | King's Crypt is on the broader Blackridge Pass / Proxima exploration route, so it is efficient when already traveling there. That is route advice, not a damage tier. |
+| **Late-route reward** | **Clockwork Scythe** | It is tied to the multi-stage Chamber of Becoming / Sariel route. Pick it up when pursuing that route; do not treat it as universally strongest. |
+
+Treat these as practical categories, not a promise that one weapon wins every Shell, boss, or patch matchup.
+
+## The Iconoclast: Prologue starting weapon
+
+The **Iconoclast** is obtained during the Prologue when the game unlocks the **Harros** Shell. It is therefore not a missing endgame route or a weapon that requires a late dungeon. Current cross-checks describe it as a light, one-handed sword and starting primary weapon.
+
+This hub does not create a separate Iconoclast route page because the supported fact is short: unlock Harros in the Prologue and receive the weapon. Use the [gameplay guide](/mortal-shell-ii/gameplay/) for the broader Prologue boundary.
 
 ## Great Martyr's Blade location
 
@@ -97,15 +120,36 @@ The current location evidence supports narrower claims:
 
 Until more launch-build evidence is checked, use the individual weapon pages for observed upgrade states and do not treat creator footage as a universal drop rule.
 
-The [Tarforge guide](/mortal-shell-ii/tarforge/) covers the station's upgrade parts; **Muradean Actuator unlocks primary weapon enhancement**.
+The [Tarforge guide](/mortal-shell-ii/tarforge/) covers the station's upgrade parts. **Muradean Actuator unlocks primary weapon enhancement**, **Foundry Stone unlocks Smelt Equipment**, and **Endless Core removes the normal upgrade cap**. Balance Patch 1 reduced the Gloom cost of Smelt Equipment by **75%**, which makes recovering materials from an abandoned weapon more practical.
+
+The page does not publish a universal material-cost or maximum-level table because the current evidence does not confirm one for all eight weapons. Great Martyr's Blade **+4** and Axatana **+5** remain observed states from individual runs, not guaranteed pickup levels.
+
+## Balance Patch 1: what changed for weapons?
+
+The current local patch record supports these direct primary-weapon changes:
+
+- **Great Martyr's Blade:** attack damage increased by **20%**.
+- **Axatana:** light-attack tracking improved.
+- **Black Needle:** light-attack tracking improved.
+- **Clockwork Scythe:** light-attack tracking improved.
+
+The patch summary does not provide exact tracking or damage values for the latter three, so do not infer a full tier shift. Old Open Beta or pre-patch rankings should be treated as dated opinions. See the [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for economy, enemy, Tarstone, sidearm, and platform-rollout caveats.
+
+## Shell synergy: what is actually supported?
+
+The only weapon/Shell pairing this hub recommends directly is **Axe & Dagger with Tiel as a practical early pairing to test**, because the local Axe & Dagger route page documents that use case. It is not an exclusive or mathematically best pairing.
+
+Do not infer a complete Shell-to-weapon table from lore, loading screens, or a creator's single build. Bonding, Seals, Tarstones, weapon upgrades, and patch state all affect the result; current evidence does not support a universal cross-Shell weapon matrix.
 
 ## Early weapon recommendations
 
-Choose by route and risk rather than by an unverified tier list:
+Choose by route and risk rather than by an unverified damage tier list:
 
-1. **Axe & Dagger for an earlier Fainweald option.** Start here if you want a relatively contained Shrine of Trials route and a dual-wield weapon path.
-2. **Great Martyr's Blade for a heavy-weapon route.** Choose this when you are ready for Holding Cells and Martyr's Prison and want a heavier early option.
-3. **Axatana for an aggressive Mammon detour.** Choose this when you can handle the Outskirts of Mammon and Forgotten Tower route without treating the weapon as a guaranteed first-minute pickup.
+1. **The Iconoclast for immediate Prologue access.** It is the guaranteed starting primary weapon, not a late route.
+2. **Axe & Dagger for an earlier Fainweald option.** Start here if you want a relatively contained Shrine of Trials route and a dual-wield weapon path.
+3. **Great Martyr's Blade for an early heavy route.** Choose this when you are ready for Holding Cells and Martyr's Prison and want a heavier option; Patch 1's damage buff is part of the current context.
+4. **Axatana for an aggressive Mammon detour.** Choose this when you can handle the Outskirts of Mammon and Forgotten Tower route without treating the weapon as a guaranteed first-minute pickup.
+5. **Black Needle, Obsidian Hammer, Veteran's Battle Axe, or Clockwork Scythe by route identity.** Use the comparison table above and follow the linked route pages; current evidence does not justify forcing these into one universal order.
 
 If a route is underleveled, use the [Gloom farming guide](/mortal-shell-ii/gloom-farm/) for safer early loops. The [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) also explains an optional combat modifier, but neither page establishes a weapon tier list.
 
@@ -113,15 +157,15 @@ If a route is underleveled, use the [Gloom farming guide](/mortal-shell-ii/gloom
 
 ### Does Mortal Shell 2 have an all-weapons list?
 
-This page is an overview of the eight identified launch-build primary weapons. Seven have detailed route pages on this site; only The Iconoclast remains pending here.
+This page is an overview of the eight identified launch-build primary weapons. Seven have detailed location pages on this site; The Iconoclast is covered as Prologue starting gear rather than a separate route.
 
 ### What is the best early weapon?
 
-There is no official best-weapon ranking in the current evidence. For a practical choice, use Axe & Dagger for the earlier Fainweald route, Great Martyr's Blade for a heavy-weapon path, or Axatana for the Mammon detour.
+There is no official or controlled-test best-weapon ranking in the current evidence. For a practical choice, use The Iconoclast immediately, Axe & Dagger for the earlier Fainweald dual-wield route, Great Martyr's Blade for an early heavy path, Axatana for weapon-mode experimentation, or the other four weapons by the use-case table and route you are already pursuing.
 
 ### Can you upgrade weapons?
 
-Yes. Official descriptions support deeper weapon upgrades, and gameplay footage shows upgraded weapon states. A complete material, cost, and level table is not confirmed here.
+Yes. The Muradean Actuator unlocks primary weapon enhancement at the Tarforge, and gameplay footage shows upgraded weapon states. A complete material, cost, and level table is not confirmed here. Foundry Stone enables material recovery through Smelt Equipment, and Balance Patch 1 reduced that Gloom cost by 75%.
 
 ### Is Axatana available at the start of the game?
 
@@ -138,8 +182,15 @@ Not necessarily. Older Open Beta material places it at a different location. Use
 ## Sources
 
 - [Mortal Shell II on Steam](https://store.steampowered.com/app/2584270/Mortal_Shell_II/) — official high-level gameplay and weapon-upgrade positioning.
+- [All Weapon And Sidearm Locations In Mortal Shell 2 — GameSpot](https://www.gamespot.com/articles/mortal-shell-2-all-weapon-sidearm-locations/) — independent roster, Prologue starting gear, location checklist, and Tarforge upgrade cross-check.
+- [All 8 Weapons Locations — Gamer Guides](https://www.gamerguides.com/mortal-shell-ii/checklists/weapons-locations) — independent cross-check for the eight primary weapons and their route anchors.
+- [Mortal Shell 2: All 16 Weapon and Sidearm Locations — AllThings.How](https://allthings.how/mortal-shell-2-all-16-weapon-and-sidearm-locations/) — eight-weapons/eight-sidearms split, route table, and Tarforge context.
+- [Mortal Shell 2 Balance Patch 1 — GamesRadar+](https://www.gamesradar.com/games/action-rpg/first-mortal-shell-2-balance-patch-stacks-the-deck-for-players-refunds-for-anyone-who-wasted-glimpses-bosses-nerfed-and-gold-drops-buffed-massively/) — independent patch-scope cross-check.
 - [Great Martyr's Blade location guide](/mortal-shell-ii/great-martyrs-blade/) — local launch route and transcript evidence.
 - [Axatana location guide](/mortal-shell-ii/axatana/) — local launch route, UI confirmation, and observed inventory state.
 - [Axe & Dagger location guide](/mortal-shell-ii/axe-dagger/) — local launch route and Open Beta location warning.
 - [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/) — official gameplay boundary and upgrade context.
+- [Tarforge guide](/mortal-shell-ii/tarforge/) — local upgrade-part and material-recovery contract.
+- [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) — local current weapon and economy changes.
+- [Shells guide](/mortal-shell-ii/shells/) — Shell progression and the evidence boundary against unsupported weapon pairings.
 - Local transcripts and evidence captures under `research/youtube/axatana/` and `research/youtube/great-martyrs-blade/`.

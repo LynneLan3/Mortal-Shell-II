@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Caged Hystrix Location: Chamber of Becoming Exit"
-description: "Find the Caged Hystrix Sidearm near the Chamber of Becoming exit after Sariel, and avoid leaving the dungeon before collecting the pickup."
+description: "Find the Caged Hystrix Sidearm near the Chamber of Becoming exit after Sariel, and learn why Balance Patch 1 removed its minimum Resolve requirement."
 category: combat-exploration
 slug: mortal-shell-ii/caged-hystrix
 status: needs-verification
 featured: false
-quickAnswer: "After completing the Sariel route in the Chamber of Becoming, continue up the rear exit stairs and collect Caged Hystrix near the final exit area before leaving the dungeon."
+quickAnswer: "After completing the Sariel route in the Chamber of Becoming, continue up the rear exit stairs and collect Caged Hystrix near the final exit area before leaving. Balance Patch 1 removed the minimum Resolve requirement to fire it."
 related:
   - mortal-shell-ii/sariel
   - mortal-shell-ii/clockwork-scythe
@@ -16,7 +16,7 @@ sidebar:
   label: Caged Hystrix
   order: 26
   badge: Weapon
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
 **Caged Hystrix** is a Sidearm found near the **Chamber of Becoming exit** after completing the Sariel route from **Silent Steps**. It is a separate manual pickup: after the Sariel reward / Memory sequence, head up the rear / exit stairs and check the final exit area before leaving the dungeon.

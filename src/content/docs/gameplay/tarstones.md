@@ -11,6 +11,8 @@ related:
   - mortal-shell-ii/shells
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/hall-of-illusions
+  - mortal-shell-ii/tarforge
+  - mortal-shell-ii/balance-patch-1
 sidebar:
   label: Tarstones Guide
   order: 13
@@ -18,9 +20,9 @@ sidebar:
 lastUpdated: 2026-08-24
 ---
 
-## Evidence boundary
+## Current scope
 
-This is the launch-window **Tarstones database and build guide** for Item 16. It expands the existing page with reported locations, the Tarforge progression loop, and conditional best picks while keeping uncertainty visible.
+This is a launch-window **Tarstones database and build guide**. It lists reported locations, explains the Tarforge progression loop, and gives conditional early picks while keeping conflicting collection records visible.
 
 The collection total is currently disputed: [GamesRadar+ reports 75 Tarstones](https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/), while [AllThings.How reports 73 Tarstones, fragments, and mementos](https://allthings.how/mortal-shell-2-every-tarstone-location-for-the-stoned-trophy/) and says the menu has two empty slots. Their detailed records also differ in names and locations. The tables below are therefore a **source-reported database**, not proof of a final 73- or 75-entry in-game total.
 
@@ -66,6 +68,20 @@ Current launch guides agree on the important part of the loop:
 An inventory Tarstone does not earn XP merely because you own it. If you are testing a new stone, equip it before the route or fight that should level it. Because Tarcores are limited, a practical strategy is to raise several low-investment stones to the first threshold, then spend six Tarcores on the stones that actually fit your build.
 
 These are launch-window reported values, not a promise that every future patch will preserve the same thresholds or costs.
+
+## Balance Patch 1: which Tarstones changed?
+
+The official Balance Patch 1 notes name five current Tarstone changes:
+
+| Tarstone | Official current change | Practical build meaning |
+| --- | --- | --- |
+| **Parasitic Stone** | Buffed | Re-test it in builds that already use its sustain / damage loop; the official note does not publish a numeric value. |
+| **Grudge Stone** | Buffed | Its existing guaranteed-crit interval makes it worth re-evaluating for repeated melee attacks, but no official post-patch interval is published here. |
+| **Bulwark Stone** | Damage Reduction increased significantly | A stronger candidate for defensive clears; do not invent a percentage. |
+| **Clerik's Stone** | Buffed | Re-check it when its current effect fits your Shell or weapon; the official note gives no numeric detail. |
+| **Squall Stone** | Buffed | Re-test it against the encounter or weapon it already supports; do not treat the buff as a universal ranking. |
+
+Balance Patch 1 does not provide exact numeric values for these Tarstone changes. The safe update is therefore to mark these five stones as patch-sensitive and revisit old recommendations, not to manufacture old-versus-new percentages. See the [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for the complete patch context and [Tarforge](/mortal-shell-ii/tarforge/) for the upgrade station route.
 
 ## Best Tarstones by goal
 
@@ -238,3 +254,4 @@ No. It is a launch-window, source-reconciled database of reported names and acqu
 - [Gloombound Stone location — AllThings.How](https://allthings.how/gloombound-stone-tarstone-location-in-mortal-shell-2-farm-more-gloom/) — Gloom farming effect cross-check.
 - [Tarforge guide](/mortal-shell-ii/tarforge/) — local five-part Tarforge context.
 - [Gloom farming guide](/mortal-shell-ii/gloom-farm/) — local Gloombound Stone and farming boundary.
+- [Balance Patch 1 — official Mortal Shell II patch notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — Parasitic, Grudge, Bulwark, Clerik's, and Squall changes, posted 2026-08-20.

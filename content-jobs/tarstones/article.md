@@ -1,163 +1,164 @@
 Quick answer
-- There is no confirmed single total: source reports conflict (GamesRadar says 75; AllThings.How says 73 and two empty inventory slots). Treat the lists below as a launch-window, source‑reported database. Verify your in‑game Tarstone inventory rather than assuming a final count.
-- System essentials you need to know now: Tarstones are grouped into four system categories (Support, Combat, Infusion, Ability); you can equip up to 10 at once (reportedly 4 Support + 2 each of Combat/Infusion/Ability); some Combat/Infusion/Ability stones are restricted to specific weapons or sidearms; Tempering (upgrading) is unlocked by returning Etching Needles to Franz at the Tarforge; stones gain XP only while slotted in an equipped compatible weapon/sidearm and are upgraded at Tarforge using XP, coins, and Tarcores.
+- There is no single confirmed Tarstone total: launch sources conflict (GamesRadar reports 75; AllThings.How reports 73 and two empty inventory slots). Treat the supplied lists as source-reported databases, not a canonical final count — check your in-game Tarstone inventory before calling a collection “complete.” (GamesRadar: https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/; AllThings.How: https://allthings.how/mortal-shell-2-every-tarstone-location-for-the-stoned-trophy/)
+- Practical immediate priorities: unlock Temper Tarstones at the Tarforge, slot compatible stones in your equipped weapon/sidearm to earn XP from kills, use the Tarforge XP/Tarcore loop to push stones to the useful early breakpoint (10,000 XP → one Tarcore), then decide which favorites to push further (the next step uses 20,000 XP + six Tarcores). (GameSpot: https://www.gamespot.com/articles/mortal-shell-2-tarforge-weapons-tarstones-upgrades/)
 
-Important mechanics (concise)
-- Categories and equip slots: System-level grouping is reliable: Support, Combat, Infusion, Ability. GamesRadar reports a total of 10 equipped stones at once: 4 Support and 2 each of Combat, Infusion, and Ability. GameSpot confirms weapon/sidearm restrictions on many Combat/Infusion/Ability stones. Always check compatibility on the stone UI before you build around it.
-- Unlock Temper Tarstones: Etching Needles (found in the Glutted Mire) must be returned to Franz at the Tarforge in Marrow Keep to enable the Temper Tarstones function.
-- XP / Tarcore upgrade loop (launch-build values reported by GameSpot and AllThings.How):
-  1. Slot a Tarstone in an equipped compatible weapon or sidearm.
-  2. Kill enemies while it is slotted so it gains XP.
-  3. At 10,000 XP, use the Tarforge and pay 100 coins to reach the next level and receive 1 Tarcore.
-  4. At the following (reported) 20,000 XP threshold, spend 6 Tarcores to reach the higher/max step.
-- Do not assume passive XP gain for stones stored in inventory; the sources report XP accrual only while slotted and equipped.
+System overview — what Tarstones do and how many you can equip
+- Categories (system-level): Support, Combat, Infusion, Ability. These category labels are supported by launch guides but complete per-stone category assignments are not fully cross-checked between sources; do not infer a stone’s category from its name alone. (GamesRadar)
+- Equip limits (source-reported): four Support slots, and two each of Combat, Infusion, and Ability — for a reported total of ten equipped Tarstones at once. GameSpot and GamesRadar both report that Combat/Infusion/Ability stones can be weapon- or sidearm-restricted; always check compatibility before planning a build. (GamesRadar, GameSpot)
 
-How to unlock Tempering and start upgrading (follow in-game steps)
-1. Reach the Glutted Mire and progress past the Tarblighted Shepherd encounter.
-2. Find the chest near Ruk in the Glutted Mire and loot Etching Needles (source-reported).
-3. Travel to Marrow Keep and find Franz at the Tarforge.
-4. Give Franz the Etching Needles to enable the Temper Tarstones function on the Tarforge.
-5. Slot stones into compatible equipped weapons/sidearms and grind kills to build XP, then follow the XP/Tarcore step costs above at the Tarforge to upgrade.
+Temper/Tarforge unlock — route to enable stone upgrades
+1. Go to the Glutted Mire and progress past the Tarblighted Shepherd encounter but before Magdalena.
+2. Open the chest near Ruk in that stretch to obtain the Etching Needles. (AllThings.How; GameSpot)
+3. Bring the Etching Needles to Franz at the Tarforge in Marrow Keep. Returning the Needles unlocks the Temper Tarstones function at Franz’s Tarforge. (AllThings.How; GameSpot)
+- For the full Tarforge checklist and broader station details, see the Tarforge page: /mortal-shell-ii/tarforge/
 
-Source‑reported “best picks” (goal-based recommendations — evidence-bounded)
-- More Gloom while farming: Gloombound Stone — reported to increase Gloom from kills and useful for Gloom farming (source: AllThings.How).
-- Early sustain: Unwieldy Stone — reported as a Merrick purchase in Marrow Keep for ~2,000 coins; gives a Resolve‑powered charged heavy attack and healing-on-kill when upgraded (source: AllThings.How).
-- General melee crits: Auspicious Stone — reported universal melee Critical Chance bonus; early pickup in Mushroom Village offering chest (source: AllThings.How).
-- Frequent guaranteed crit: Grudge Stone — reported fixed guaranteed‑crit interval improving with upgrades (and listed as buffed in the official Patch 1 notes).
-- Axe & dagger light-combo users: Duality Stone — reported to give standing light-combo double hits for Axatana / Axe & Dagger weapons (source: AllThings.How).
-- Sidearm Fragile setups: Enfeebling Stone — reported to grant Fragile stacks from sidearm projectiles; trial reward east of Outskirts of Mammon (source: AllThings.How).
-- Defensive picks to watch (patch-sensitive): Bulwark Stone — Balance Patch 1 reports a significant damage-reduction buff; keep it on your defensive shortlist but verify numbers in‑game/after patches.
-- Sidearm burn infusion: Emberseed Stone — useful for compatible sidearms only; GameSpot notes restrictions.
+XP, coins and Tarcores — the practical upgrade loop
+Follow this procedure to level individual Tarstones (source-reported mechanics):
+1. Slot a Tarstone into an equipped compatible weapon or sidearm. Stones only gain XP while slotted in an equipped, compatible weapon/sidearm (do not rely on inventory passives). (GameSpot)
+2. Kill enemies while the stone is slotted to accrue XP for that Tarstone.
+3. At 10,000 XP: use the Tarforge and spend 100 coins to advance the stone one step and receive one Tarcore.
+4. At the next reported threshold (20,000 XP): use the Tarforge and spend six Tarcores to push the stone to the higher/max step. (GameSpot; AllThings.How)
+- Practical rule many players follow (source-backed recommendation): level many stones to the first 10,000-XP breakpoint (one Tarcore each), then concentrate Tarcores on a few favorites. This is a strategic recommendation based on the Tarcore economy, not a mandatory rule.
 
-Source‑reported database (organized by acquisition route)
-- Note: these records are collated from launch guides (AllThings.How, GamesRadar, GameSpot). Names and locations vary between sources; do not treat this as a canonical, complete list. Verify in‑game.
+Patch-sensitive stones (test, don’t assume numbers)
+- The official Balance Patch 1 notes list five Tarstones as changed/buffed: Parasitic Stone, Grudge Stone, Bulwark Stone, Clerik’s/Clerk’s Stone (name varies between sources), and Squall Stone. Bulwark’s damage reduction is called out as “significantly increased.” Patch notes do not provide stable numeric values — treat these stones as candidates to re-test for your build rather than assuming exact new effect values. (Steam Balance Patch 1 notes: https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/)
+
+Goal-based “best” picks (conditional, source-bounded)
+- More Gloom while farming: Gloombound Stone is the source-reported pick for Gloom farming loops. Equip it before your farm run. (AllThings.How)
+- Early sustain: Unwieldy Stone — reported vendor buy from Merrick in Marrow Keep (2,000 coins reported) and provides a Resolve-powered charged heavy attack with healing-on-kill benefits at upgraded levels. Good early utility choice per AllThings.How.
+- General melee crits: Auspicious Stone — reported to give a melee Critical Chance bonus and obtainable from a Mushroom Village offering chest. (AllThings.How)
+- Frequent guaranteed crit: Grudge Stone — reported to give periodic guaranteed critical hits that improve across levels (e.g., from every tenth to every fifth attack in source reporting); also listed in the official patch note as buffed. (AllThings.How; Steam Patch 1)
+- Axe & Dagger / Axatana light-combo support: Duality Stone — reported to grant standing light-combo double hits for these weapons with broader combo coverage at higher levels. (AllThings.How)
+- Sidearm Fragile stacking: Enfeebling Stone — reported to apply Fragile stacks from sidearm projectiles; trial reward east of Outskirts of Mammon. Check compatibility with your chosen sidearm before committing. (AllThings.How)
+- Defensive: Bulwark Stone — listed in Patch 1 as having significantly increased damage reduction; test in your build. (Steam Patch 1)
+- Sidearm burn infusion: Emberseed Stone — source reports it is sidearm-restricted; obtain from Passenger’s Shrine chest in Mushroom Village. (GameSpot; AllThings.How)
+
+Source-reported database (launch-window lists — organized by acquisition route)
+- Important boundary: the lists below are drawn from launch editorial checklists and are source-reported rows, not an authoritative final in-game index. Names and locations vary between sources; verify in-game.
 
 Merchant records (source-reported)
-- Weeping Stone — The Collector (Night cycle), Abandoned Outpost
-- Infused Stone — The Collector (Night cycle), Abandoned Outpost
-- Fulminant Stone — The Collector (Night cycle), Abandoned Outpost
-- Infested Stone — The Collector (Night cycle), Abandoned Outpost
-- Acolyte's Stone — Merrick, Marrow Keep
-- Unwieldy Stone — Merrick, Marrow Keep (AllThings.How reports ~2,000 coins)
-- Hand of Rock — Barkeep at the tavern near One Legged Wolf
+- Weeping Stone — The Collector (Night cycle), Abandoned Outpost (AllThings.How)
+- Infused Stone — The Collector (Night), Abandoned Outpost (AllThings.How)
+- Fulminant Stone — The Collector (Night), Abandoned Outpost (AllThings.How)
+- Infested Stone — The Collector (Night), Abandoned Outpost (AllThings.How)
+- Acolyte's Stone — Merrick, Marrow Keep (AllThings.How)
+- Unwieldy Stone — Merrick, Marrow Keep (AllThings.How; reported 2,000 coins)
+- Hand of Rock — Barkeep at the tavern near One Legged Wolf (AllThings.How)
 
-Chest / trial / dungeon / puzzle records (source-reported, listed as reported locations)
-- Auspicious Stone — Mushroom Village offering chest (light three candles)
-- Headsman's Stone — Outskirts of Mammon, sarcophagus under stone arch
-- Devout Stone — Abbey Entrance, pull wall switch by ranged enemies
-- Shattering Stone — Collapsed Mine, left dead-end chest
-- Marksman's Stone — Mushroom Village, upper northeast path chest
-- Deadeye Stone — Sanguine Caverns, first camp after Cleansed Gate drop
-- Siegebreaker's Stone — Glutted Mire Gate, candle offering chest
-- Bulwark Stone — Citadel of Penance, lever and broken-bridge chest
-- Retribution Stone — Widow's Overlook obelisk trial
-- Gloombound Stone — Stones of Remembrance / Shattered Beacon area, central ruins chest
-- Justiciar's Stone — Outskirts of Nochte, cave behind Broodshell Swarm
-- Wounding Stone — Mushroom Village, near first house by Tiel
-- Grudge Stone — Citadel of Penance, chest near the Beacon
-- Duality Stone — Ravaged Tomb near Nochtean Gate, chest beneath hanging body
-- Unyielding Stone — Shattered Beacon, obelisk trial in stone circle
-- Parasitic Stone — Martyr's Tomb, back-room chest
-- Thief's Stone — Gate of Infinity, obelisk trial on circular platform
-- Clerk's Stone — Outskirts of Nochte, high-ledge sarcophagus
-- Tyrant's Stone — Abbey Entrance, alcove behind barricade
-- Enfeebling Stone — Outskirts of Mammon, obelisk trial
-- Shuddering Stone — Illusionist's Cache in Desolate Peak, shoot hidden target
-- Pulse Stone — Mornefrost Grave at Conquered Temple Gate, sarcophagus near Winterglass Lake
-- Ironpiercer's Stone — Ravaged Tomb / Central Sewers, chest behind gate after ladders
-- Myriad Stone — Feeding Grounds near Shattered Beacon, cave chest
-- Splitting Stone — Gate of Mammon, chest overlooking valley
-- Rupturing Stone — Cleansed Gate, high ledge across gap
-- Black Blood Stone — Mawbreak Cavern in Sanguine Caverns, Pulsing Caves sarcophagus
-- Corroded Stone — Sunken Village / Glutted Mire Gate, drop from Wortbriar Encampment
-- Charged Stone — Odious Crevice at Withered Shoals Gate, hole at Nameless Pass
-- Unstable Stone — Shattered Beacon, wooden-platform chest
-- Nightgrasp Stone — Abbey Entrance, stone tower chest
-- Torpor Stone — Withered Shoals, chest near Ossinite Falls
-- Hag Stone — Infested Den at Outskirts of Nochte, below wooden platforms
-- Emberseed Stone — Passenger's Shrine at Mushroom Village, trapdoor chest
-- Frostshard Stone — Conqueror's Hoard, freeze the water at the statue and cross
-- Accursed Stone — Big Ol' Hole at Abandoned Outpost, chest at the bottom
-- Shrike Stone — Sunken Village / Glutted Mire Gate, village chest
-- Colossus Stone — Shattered Beacon, chest at the giant stone statue
-- Barrage Stone — Shattered Beacon, obelisk trial
-- Summoning Stone — Ashen Sanctum at Gate of Infinity, sarcophagus
-- Clockwork Shardstone — Outskirts of Mammon trebuchet puzzle → Alchemist's Workshop
+Chest, trial, dungeon and puzzle records (source-reported)
+- Auspicious Stone — Mushroom Village offering chest (light three candles) (AllThings.How)
+- Headsman’s/Headman’s Stone — Outskirts of Mammon, sarcophagus under stone arch (naming varies) (AllThings.How)
+- Devout Stone — Abbey Entrance, pull wall switch by ranged enemies (AllThings.How)
+- Shattering Stone — Collapsed Mine, left dead-end chest (AllThings.How)
+- Marksman's Stone — Mushroom Village, upper northeast path chest (AllThings.How)
+- Deadeye Stone — Sanguine Caverns, first camp after Cleansed Gate drop (AllThings.How)
+- Siegebreaker's Stone — Glutted Mire Gate, candle offering chest (AllThings.How)
+- Bulwark Stone — Citadel of Penance, lever/broken-bridge chest (AllThings.How)
+- Retribution Stone — Widow’s Overlook obelisk trial (AllThings.How)
+- Gloombound Stone — Stones of Remembrance / Shattered Beacon area, central ruins chest (AllThings.How) — note: source location wording varies; keep local Gloom-farm routes as primary.
+- Justiciar's Stone — Outskirts of Nochte, cave behind the Broodshell Swarm (AllThings.How)
+- Wounding Stone — Mushroom Village, around first house near Tiel’s area (AllThings.How)
+- Grudge Stone — Citadel of Penance, chest near the Beacon (AllThings.How)
+- Duality Stone — Ravaged Tomb near Nochtean Gate, chest beneath hanging body (AllThings.How)
+- Unyielding Stone — Shattered Beacon obelisk trial (AllThings.How)
+- Parasitic Stone — Martyr's Tomb, back-room chest (AllThings.How)
+- Thief's Stone — Gate of Infinity obelisk trial on circular platform (AllThings.How)
+- Clerk's/Clerik's Stone — Outskirts of Nochte, high-ledge sarcophagus (naming varies) (AllThings.How)
+- Tyrant's Stone — Abbey Entrance, alcove behind barricade (AllThings.How)
+- Enfeebling Stone — Outskirts of Mammon, obelisk trial (AllThings.How)
+- Shuddering Stone — Illusionist’s Cache in Desolate Peak, shoot hidden target (AllThings.How)
+- Pulse Stone — Mornefrost Grave at Conquered Temple Gate, sarcophagus near Winterglass Lake (AllThings.How)
+- Ironpiercer's Stone — Ravaged Tomb/Central Sewers, chest behind gate after ladders (AllThings.How)
+- Myriad Stone — Feeding Grounds near Shattered Beacon, cave chest (AllThings.How)
+- Splitting Stone — Gate of Mammon, chest overlooking valley (AllThings.How)
+- Rupturing Stone — Cleansed Gate, high ledge across gap (AllThings.How)
+- Black Blood/Blackblood Stone — Mawbreak Cavern in Sanguine Caverns, Pulsing Caves sarcophagus (naming varies) (AllThings.How)
+- Corroded Stone — Sunken Village/Glutted Mire Gate, drop from Wortbriar Encampment (AllThings.How)
+- Charged Stone — Odious Crevice at Withered Shoals Gate, hole at Nameless Pass (AllThings.How)
+- Unstable Stone — Shattered Beacon, wooden-platform chest (AllThings.How)
+- Nightgrasp Stone — Abbey Entrance, stone tower chest (AllThings.How)
+- Torpor Stone — Withered Shoals, chest near Ossinite Falls (AllThings.How)
+- Hag Stone — Infested Den at Outskirts of Nochte, below wooden platforms (AllThings.How)
+- Emberseed Stone — Passenger’s Shrine trapdoor chest, Mushroom Village (AllThings.How; GameSpot notes sidearm restriction)
+- Frostshard Stone — Conqueror’s Hoard, freeze the water at the statue and cross (AllThings.How)
+- Accursed Stone — Big Ol’ Hole at Abandoned Outpost, chest at bottom (AllThings.How)
+- Shrike Stone — Sunken Village/Glutted Mire Gate, village chest (AllThings.How)
+- Colossus Stone — Shattered Beacon, chest at the giant stone statue (AllThings.How)
+- Barrage Stone — Shattered Beacon obelisk trial (AllThings.How)
+- Summoning Stone — Ashen Sanctum at Gate of Infinity, sarcophagus (AllThings.How)
+- Clockwork Shardstone — Outskirts of Mammon trebuchet puzzle → Alchemist’s Workshop reward (AllThings.How)
 
-Boss / encounter reward records (source-reported; many are fragments/mementos)
-- Spite Stone — Giant knight at Bellkeeper's Corner (shoot the bell first)
-- Stillblade's Stone — Hushed Sanctum boss at Cleansed Gate
-- Zealot's Stone — Giant knight at Besieged Ruins, High Lord's Courtyard
-- Squall Stone — Giant knight at Executioner's Pulpit (pull the lever first)
-- Volatile Fragment — Vrannic, the Grand Illusionist, Hall of Illusions / Mushroom Village Gate
-- Arbiter's Prize — Great Arbiter of Flesh near Widow's Overlook
-- Serpent Stone — Lucian, the Thirsting Knight, Hidden Keep / Stonebled Gate
-- Voltaic Crown — Vrago, Solikar Champion, Abandoned Shrine / Nochtean Gate
-- Warden's Stone — Caged Grisha at Winterglass Lake / Conquered Temple Gate
-- Fusillade Stone — Caged Grisha at Winterglass Lake / Conquered Temple Gate
-- Curseblood Stone — Gloombound Wraith in Forbidden Archives / Gate of Infinity
-- Wretchcaller's Stone — Infested Miner in Burrowkin Dwelling / Gate of Mammon
-- Inflamed Clawstone — Rabid Grisha Pack in Gloomshade Grove
-- Viletongue Hedron — Viletongue Batushka in Viletongue's Domain / Castigator's Keep
-- Voltaic Amber — Vestige of Infinity boss in Castigator's Keep
-- Monarch's Vestige — Bor, the Deluded Monarch, Kingdom of Fools / Abbey Entrance
-- Tarred Fragment — Tarblighted Stoner at Sanguine Shoreline / Sanguine Caverns Gate
-- Strange Remnant — Strange Grisha at Withered Shoals / Cleansed Gate
-- Magdalena's Memento — Glutted Mire Gate boss
-- Captive's Scabstone — Prisoner’s Domain Gate boss
-- Confessor's Keepsake — Prisoner’s Domain Gate boss
-- Conqueror's Reward — Conquered Temple Gate boss
-- Lost Clotstone — The Lost Child at Sanguine Caverns Gate
-- Scholar's Wormstone — Sir Isaac, the Scholar-Prince, Faded Citadel Gate
-- Solnir Shard — Solnir, the Gloom Seeker, Faded Citadel Gate
-- Hexapod Core — Withered Shoals Gate boss
+Boss and encounter rewards (source-reported)
+- Spite Stone — giant knight at Bellkeeper’s Corner (shoot the bell first) (AllThings.How)
+- Stillblade's Stone — Hushed Sanctum boss at Cleansed Gate (AllThings.How)
+- Zealot's Stone — giant knight at Besieged Ruins / High Lord’s Courtyard (AllThings.How)
+- Squall Stone — giant knight at Executioner's Pulpit (pull lever first) (AllThings.How)
+- Volatile Fragment — Vrannic, the Grand Illusionist, Hall of Illusions / Mushroom Village Gate (AllThings.How)
+- Arbiter's Prize — Great Arbiter of Flesh near Widow’s Overlook (AllThings.How)
+- Serpent Stone — Lucian, the Thirsting Knight, Hidden Keep / Stonebled Gate (AllThings.How)
+- Voltaic Crown — Vrago, Solikar Champion, Abandoned Shrine / Nochtean Gate (AllThings.How)
+- Warden's Stone / Fusillade Stone — Caged Grisha at Winterglass Lake / Conquered Temple Gate (AllThings.How)
+- Curseblood Stone — Gloombound Wraith in Forbidden Archives / Gate of Infinity (AllThings.How)
+- Wretchcaller's Stone — Infested Miner in Burrowkin Dwelling / Gate of Mammon (AllThings.How)
+- Inflamed Clawstone — Rabid Grisha Pack in Gloomshade Grove (AllThings.How)
+- Viletongue Hedron — Viletongue Batushka in Viletongue’s Domain / Castigator’s Keep (AllThings.How)
+- Voltaic Amber — Vestige of Infinity boss in Castigator’s Keep (AllThings.How)
+- Monarch's Vestige — Bor, the Deluded Monarch, Kingdom of Fools / Abbey Entrance (AllThings.How)
+- Tarred Fragment — Tarblighted Stoner at Sanguine Shoreline / Sanguine Caverns Gate (AllThings.How)
+- Strange Remnant — Strange Grisha at Withered Shoals / Cleansed Gate (AllThings.How)
+- Magdalena's Memento — Glutted Mire Gate boss (AllThings.How)
+- Captive's Scabstone / Confessor's Keepsake / Conqueror's Reward / Lost Clotstone / Scholar's Wormstone / Solnir Shard / Hexapod Core — various boss/encounter rewards listed by AllThings.How; see source for specific boss entries (AllThings.How)
 
-Missable and special‑mode warnings (preserve source labels)
-- Berserker's Stone: AllThings.How reports a Temple of Vatra offering chest becomes permanently inaccessible after taking the Heart of Vatra and leaving. This is a third‑party report and should be treated as a possible missable — verify in‑game.
-- Night‑only merchant items: Weeping, Infused, Fulminant, and Infested Stones are reported at The Collector in Abandoned Outpost during the Night cycle (AllThings.How).
-- Puzzle/sequence prerequisites: several stones require specific puzzle setups (Clockwork Shardstone — trebuchet; Curseblood Stone — Grimorium Obscurum; Frostshard Stone — freeze water; Inflamed Clawstone — Feeding Room Key). Candle offerings unlock some chest rewards (Auspicious, Siegebreaker, Berserker).
+Missable and special-mode warnings (source-reported; verify in-game)
+- Berserker’s Stone: AllThings.How reports that a Temple of Vatra offering chest containing Berserker’s Stone becomes permanently inaccessible after taking the Heart of Vatra and leaving. This is a third-party report and should be rechecked in your game before assuming the chest is missable for everyone. (AllThings.How)
+- Night-only merchant items: Weeping, Infused, Fulminant, and Infested Stones are reported as available from The Collector during the Night cycle in Abandoned Outpost. (AllThings.How)
+- Puzzle prerequisites: some stones require specific puzzle setups (examples reported: Clockwork Shardstone requires trebuchet setup; Curseblood Stone requires Grimorium Obscurum setup; Frostshard requires freezing water; Inflamed Clawstone requires Feeding Room Key).
 
-Patch‑sensitive items (do not assume numbers)
-- Balance Patch 1 (official Steam notes) buffs or changes several stones: Parasitic, Grudge, Bulwark, Clerik's Stone, Squall Stone are named in the patch notes. The patch gives no stable numeric values in the sourced notes — list them as “patch‑sensitive” and verify their effects in‑game.
-
-Conflicts, naming, and verification reminders
-- Total count conflict: GamesRadar reports 75; AllThings.How reports 73 (and two empty slots). We will not claim a confirmed final total — check your in‑game inventory and the Tarforge UI.
-- Name variants exist between guides (Headsman's / Headman's, Black Blood / Blackblood, Magdalena's Memento / Momento, etc.). The above list uses the most legible local spellings but expect variants in other guides.
-- Location variants: some sources disagree about locations for specific stones (e.g., Gloombound, Parasitic). The Gloom-farm and Tarforge pages hold the conservative route ownership; treat this list as a launch-window, source-collated reference.
-- Category assignment: categories are reliable at the system level, but not every listed stone above has been independently category‑checked across sources. Do not infer category from a name.
+Conflicts and uncertainties to preserve (do not resolve silently)
+1. Total count: launch sources conflict — GamesRadar reports 75; AllThings.How reports 73 plus two empty inventory slots. Verify in-game. (GamesRadar; AllThings.How)
+2. Category vs acquisition: categories are reliable at the system level, but a stone’s precise category assignment is not fully cross-checked across sources. Don’t assume category by name.
+3. Name variants: sources use different spellings (e.g., Headsman’s/Headman’s, Black Blood/Blackblood, Magdalena’s Memento/Momento, Clerk’s/Clerik’s). The guide preserves the most legible local spelling but expect variants in other lists.
+4. Location variants: some stones (e.g., Gloombound, Parasitic) have differing locations across sources; rely on local route pages for those routes.
+5. Patch drift: Balance Patch 1 changed several stones but provided no stable numeric values. Listed patch changes should be treated as “patch-sensitive” and re-tested in-game.
+6. “Best” claims: there is no universal best stone — recommendations here are goal-based and source-bounded, not a global tier list.
 
 Common mistakes
-1. Assuming a single authoritative total (73 or 75) — sources disagree. Verify in‑game.
-2. Expecting stones to gain XP while unequipped or in inventory — sources report XP only while slotted in an equipped compatible weapon/sidearm.
-3. Building around an Infusion/Combat/Ability stone without checking weapon/sidearm compatibility — many are restricted; check the stone UI.
-4. Treating patch notes as stable numeric values — Balance Patch 1 lists named buffs but no guaranteed numbers in the cited notes.
-5. Taking the Heart of Vatra without checking the Temple of Vatra offering chest — AllThings.How reports a possible permanent miss for Berserker's Stone (verify in-game).
-6. Killing Franz or otherwise disrupting the Tarforge chain — follow the Etching Needles → Franz handoff; do not substitute or assume alternate NPC outcomes (the existing Tarforge guide keeps the normal component route).
+- Assuming the in-guide list is the final canonical total. (Sources conflict 73 vs 75; check your in-game inventory.)
+- Leaving stones in your inventory and expecting them to gain XP. Stones only gain XP while slotted in an equipped compatible weapon/sidearm. (GameSpot)
+- Ignoring weapon/sidearm compatibility. Many Combat/Infusion/Ability stones are restricted to specific weapons or sidearms — inspect compatibility before building around a stone. (GamesRadar; GameSpot)
+- Overlooking patch buffs. Patch 1 explicitly listed several changed stones; don’t assume old values still apply. (Steam Patch 1 notes)
+- Missing the Temple of Vatra offering warning for Berserker’s Stone — recheck AllThings.How’s reported missable condition before leaving that area. (AllThings.How)
 
-What to do next (practical progression advice)
-1. Verify your in‑game Tarstone inventory and note empty slots reported by AllThings.How if present.
-2. Prioritize qualifiable early picks based on your goal (see “best picks” above); example: equip Gloombound for Gloom farming, Unwieldy for early sustain, Auspicious for melee crits.
-3. Unlock Temper Tarstones (Etching Needles → Franz at Tarforge) and level stones to 2 first using the 10,000 XP + 100 coins → 1 Tarcore loop, then decide which stones deserve 6‑Tarcore max upgrades.
-4. Keep an eye on patched stones (Bulwark, Grudge, Parasitic, Clerik's, Squall) after Balance Patch 1 and re‑verify effectiveness in your build.
-5. If you care about completion, follow AllThings.How’s and GamesRadar’s lists but treat them as source‑reported checklists and mark your in‑game verification as the final arbiter.
+What happens next — short checklist to act on now
+1. If you want Temper/Tarforge: run Glutted Mire → open Etching Needles chest near Ruk (after Tarblighted Shepherd / before Magdalena) → bring Etching Needles to Franz at Marrow Keep to unlock Temper Tarstones. (AllThings.How; GameSpot)
+2. Slot stones you want to level in compatible equipped weapons/sidearms and farm kills to reach 10,000 XP per stone.
+3. At 10,000 XP, spend 100 coins at the Tarforge to receive one Tarcore and advance the stone; decide which stones to push further using the six-Tarcore + 20,000-XP step.
+4. Re-test the five patch-sensitive stones (Parasitic, Grudge, Bulwark, Clerik’s/Clerk’s, Squall) in your builds — patch notes cite changes but no stable numeric values. (Steam Patch 1)
+5. Verify night-cycle merchant availability if you’re chasing Weeping/Infused/Fulminant/Infested Stones at The Collector. (AllThings.How)
 
-What Happens Next
-- After you slot stones and level several to level 2 (using the 10,000 XP step), you will earn Tarcores and can decide which stones to fully upgrade using six Tarcores at the higher threshold. This Tarcore economy underpins the common recommendation to level many stones to the mid step first, then expend Tarcores selectively on favorites.
-- Expect numbers, locations, and category assignments to drift with further patches and post‑launch updates; retain a “needs‑verification” mindset and verify changes through the Tarforge UI and in‑game stone descriptions.
+Quick FAQ
+- Q: How many Tarstones can I equip at once?
+  A: Source-reported equip limits are four Support and two each of Combat, Infusion, and Ability — for a reported total of ten equipped stones. Always check your in-game slots and compatibility. (GamesRadar; GameSpot)
+- Q: Do stones level while in my inventory?
+  A: No — stones gain XP only when slotted in an equipped compatible weapon or sidearm. (GameSpot)
+- Q: What are the Tarforge upgrade costs?
+  A: Reported thresholds: 10,000 XP + 100 coins → one Tarcore (first step); next reported step: 20,000 XP + six Tarcores for the higher/max step. (GameSpot; AllThings.How)
+- Q: Is there a definitive complete Tarstone list?
+  A: Not yet — launch sources disagree (73 vs 75). Use the source-reported lists below and verify in-game. (GamesRadar; AllThings.How)
 
-Useful image suggestions
-- [IMAGE: Tarforge in Marrow Keep, with Franz at the workbench]
-- [IMAGE: Glutted Mire chest near Ruk where Etching Needles are reported to appear]
+Status and sources
+- Status: needs-verification (this page reflects launch-window, source-reported lists and Patch 1 notes).
+- Primary sources referenced:
+  - Steam Balance Patch 1 notes (official): https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/
+  - GamesRadar Tarstones guide (source-reported 75, category framing): https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/
+  - GameSpot Tarforge and upgrade mechanics: https://www.gamespot.com/articles/mortal-shell-2-tarforge-weapons-tarstones-upgrades/
+  - AllThings.How Tarstone checklist and early-best article (detailed locations, variants, and warnings): https://allthings.how/mortal-shell-2-every-tarstone-location-for-the-stoned-trophy/ and https://allthings.how/best-early-tarstones-to-prioritize-in-mortal-shell-2/
 
-Short FAQ
-Q: Is there a single definitive “best” Tarstone?
-A: No. There is no source‑grounded universal best. Use goal-based picks (Gloombound for Gloom, Unwieldy for sustain, Auspicious for crits, etc.) and verify compatibility and patch effects in‑game.
-Q: How many stones can I equip at once?
-A: Source reports indicate 10 equipped stones total (4 Support + 2 each of Combat/Infusion/Ability). Confirm in your in‑game equip UI.
-Q: Where do I get Tempering?
-A: Etching Needles in Glutted Mire (chest near Ruk after Tarblighted Shepherd); return to Franz at the Tarforge in Marrow Keep to unlock Temper Tarstones.
-Q: Are the 73 and 75 totals accurate?
-A: Both are source-reported launch counts (AllThings.How = 73; GamesRadar = 75). The exact collection total is not stable enough to confirm here — check your in‑game inventory.
+Internal links to follow up
+- Tarforge: /mortal-shell-ii/tarforge/
+- Balance Patch 1 notes: /mortal-shell-ii/balance-patch-1/
+- Weapons: /mortal-shell-ii/weapons/
+- Shells: /mortal-shell-ii/shells/
+- Gloom farm: /mortal-shell-ii/gloom-farm/
 
-Status
-- This is a launch-window, source‑reported expansion and should remain labeled needs‑verification. Verify stones, counts, and patched effects in your live game.
+[IMAGE: Tarforge tempering location map suggestion — capture Etching Needles route in Glutted Mire and Franz at Marrow Keep]

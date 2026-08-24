@@ -1,6 +1,6 @@
 ---
-title: "Mortal Shell 2 Great Martyr's Blade Location: How to Get It Early"
-description: Find the Great Martyr's Blade early in Mortal Shell 2 with the route through Widow's Overlook, the Holding Cells and Martyr's Prison.
+title: "Mortal Shell 2 Great Martyr's Blade: Location and Patch 1 Damage"
+description: Find the Great Martyr's Blade through Widow's Overlook, Holding Cells, and Martyr's Prison, then see how Balance Patch 1 changed its damage.
 category: combat-exploration
 slug: mortal-shell-ii/great-martyrs-blade
 status: confirmed
@@ -8,16 +8,18 @@ featured: true
 quickAnswer: The Great Martyr's Blade is at the end of the Martyr's Prison route. You can obtain it relatively early after the Prologue, but not during the Prologue or at literal game start. The supported path starts from Widow's Overlook, passes through the Holding Cells via an upper-level shortcut, and continues into Martyr's Prison. Clear the final chamber and pick up the Great Martyr's Blade on-site.
 related:
   - mortal-shell-ii/gameplay
+  - mortal-shell-ii/weapons
   - mortal-shell-ii/axe-dagger
   - mortal-shell-ii/axatana
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/magdalena
+  - mortal-shell-ii/balance-patch-1
 sidebar:
   label: Great Martyr's Blade
   order: 8
   badge: Launch
-lastUpdated: 2026-08-19
+lastUpdated: 2026-08-24
 ---
 
 ## Quick Answer
@@ -139,6 +141,14 @@ This is a **direct weapon pickup**, not an NPC reward or boss drop in the checke
 
 One creator run in the checked Its Shatter footage picked up the weapon already showing a **+4** upgrade level. That is **observed in that footage only**. This page does **not** state that every player always receives the Great Martyr's Blade at +4.
 
+## Great Martyr's Blade after Balance Patch 1
+
+Balance Patch 1 increased the Great Martyr's Blade's **attack damage by 20%**. The official notes do not publish a new damage table or change its route, so the acquisition steps above remain current.
+
+The practical change is that the blade's slower, higher-commitment swings now have a stronger payoff when you can create a safe opening. Old launch wording that calls it simply “weak” is outdated; the +20% buff improves its value, but does not prove it is the best weapon for every Shell, build, or player.
+
+For the full current-patch list, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/). For the wider roster, use the [Weapons guide](/mortal-shell-ii/weapons/).
+
 ## Optional tip for the large rolling enemy
 
 DPJ's gameplay footage shows an **optional** way to handle the large rolling enemy without a full room fight:
@@ -204,3 +214,4 @@ Yes, **relatively early** after the Prologue once the open-world route and dunge
 - [Mortal Shell II Gameplay: Combat, Shells, Weapons, and Exploration](/mortal-shell-ii/gameplay/) — local hub context
 - [Mortal Shell 2 Axatana Location: How to Get It Early](/mortal-shell-ii/axatana/) — local early-weapon comparison
 - [Mortal Shell 2 Gloombound Flame Location: How to Unlock Night Mode](/mortal-shell-ii/gloombound-flame/) — local Widow's Overlook–area context
+- [Balance Patch 1 — official Mortal Shell II patch notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — Great Martyr's Blade attack damage +20%, posted 2026-08-20

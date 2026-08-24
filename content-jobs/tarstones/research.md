@@ -191,3 +191,35 @@ No image is genuinely required for this expansion. The useful deliverable is a s
 - Replace the broad category-only draft with: system mechanics, upgrade path, conditional best picks, a source-reported database grouped by acquisition, missable/special-mode warnings, and a concise FAQ.
 - Keep existing internal links to Tarforge, Gloom farming, Weapons, Shells, and gameplay; do not modify those pages or any shared hub.
 - Keep `status: needs-verification`; this is launch-window research, not proof of complete in-game collection coverage.
+
+# Target intent
+
+Refresh the existing Tarstones guide for Balance Patch 1: identify the five named changed stones, explain the practical build impact without inventing numbers, and retain the useful source-reported database and Tarforge route.
+
+# Confirmed facts
+
+The official patch names Parasitic Stone, Grudge Stone, Bulwark Stone, Clerik's Stone, and Squall Stone as buffed or improved; Bulwark's damage reduction is described as significantly increased. No exact numeric effect values are published in the official note. The database, category, tempering, and XP facts are detailed above.
+
+# Route / procedure
+
+Glutted Mire → Etching Needles chest after Tarblighted Shepherd / before Magdalena → Franz at Marrow Keep Tarforge → Temper Tarstones → slot compatible stones and earn XP from kills → spend coins and Tarcores at the reported thresholds.
+
+# Practical player insights
+
+Treat the five patch-sensitive stones as candidates to re-test rather than automatically rewriting every build ranking. Keep conditional picks, compatibility warnings, Tarforge linking, and the source-reported 73/75 collection boundary.
+
+# Conflicting or uncertain facts
+
+Preserve the 73 vs 75 total conflict, name/location variants, source-reported database boundary, and lack of official numeric buff values. Future Tarstone work is planned but exact mechanics and timing are not announced.
+
+# Internal-link opportunities
+
+`/mortal-shell-ii/tarforge/`, `/mortal-shell-ii/balance-patch-1/`, `/mortal-shell-ii/weapons/`, `/mortal-shell-ii/shells/`, and `/mortal-shell-ii/gloom-farm/`.
+
+# Image opportunities
+
+No new image is required. A concise current-patch table is more useful than a decorative stone graphic or copied source map.
+
+# Sources
+
+Use the official Steam Balance Patch 1 note plus the GamesRadar, GameSpot, and AllThingsHow URLs in the source matrix above. Preserve real source URLs and do not infer missing patch values.

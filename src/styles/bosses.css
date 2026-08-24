@@ -74,6 +74,8 @@
 .exp-boss-card {
 	display: grid;
 	grid-template-rows: auto 1fr;
+	min-width: 0;
+	overflow: hidden;
 	border: 1px solid var(--xp-border);
 	background: var(--xp-surface);
 	color: inherit;
@@ -98,6 +100,9 @@
 }
 
 .exp-boss-card__media {
+	width: 100%;
+	min-width: 0;
+	overflow: hidden;
 	border-bottom: 1px solid var(--xp-border);
 	background: var(--xp-surface-dark);
 }

@@ -1,163 +1,95 @@
 ---
-title: "Mortal Shell 2 New Game Plus: What Carries Over & What Resets"
-description: "Mortal Shell 2 New Game Plus guide covering how to start, what Shells and weapons carry over, which world progress resets, and what to finish first."
+title: "Mortal Shell 2 New Game Plus: What Carries Over and What Resets"
+description: "How to start New Game Plus in Mortal Shell 2, what carries over, what resets, which upgrades respawn, and what to finish before selecting Send Ova."
 category: combat-exploration
 slug: mortal-shell-ii/new-game-plus
 status: needs-verification
 featured: false
-quickAnswer: "Mortal Shell 2 New Game Plus keeps important character-bound progress such as Shells, weapons, and their upgrade progress, while world state resets around Beacons, dungeons, quests, and Ova progression. Finish optional pickups, upgrades, routes, and unfinished quests before starting NG+ because the new run rebuilds the world."
+quickAnswer: "Finish the final-boss route, return to the Gloom Siphon in Marrow Keep, and select Send Ova. Character progress, gear, currencies, upgrades, and revealed map areas are reported to carry over, while Beacons, dungeons, enemies, quests, and Ovum reset. Send Ova is the irreversible point of no return, so finish missable cleanup first."
 related:
-  - mortal-shell-ii/slayer-seal-difficulty
-  - mortal-shell-ii/skip-prologue
-  - mortal-shell-ii/weapons
+  - mortal-shell-ii/ova
+  - mortal-shell-ii/peters-perfect-parry
   - mortal-shell-ii/shells
+  - mortal-shell-ii/weapons
+  - mortal-shell-ii/beacons-fast-travel
 sidebar:
   label: New Game Plus
-  order: 14
+  order: 17
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-24
 ---
 
-## Evidence boundary
+## Quick answer: how to start New Game Plus
 
-This is a launch-window **Exploration Page** for New Game Plus questions. It focuses on the practical split between character-bound progress that carries over and world state that resets.
+1. Finish the final route and defeat the final boss sequence.
+2. Return to the **Gloom Siphon** in **Marrow Keep**.
+3. Select **Send Ova**.
 
-The current research supports the carry-over and reset categories below. It does not rely on a specific final-boss name, because launch sources use inconsistent wording for that encounter. This page therefore explains how to reach and prepare for NG+ without adding an unverified boss label.
+Defeating the final boss is not the same as starting New Game Plus. Current launch-build coverage says you can continue cleaning up the current save until you select **Send Ova**, but the choice is irreversible and does not show a confirmation prompt.
 
-## What is New Game Plus?
+![The Send Ova choice at the Gloom Siphon in Marrow Keep](/images/ova/send-ova-siphon.webp)
 
-New Game Plus lets you begin another campaign with selected progress from the completed run. The important distinction is between things attached to your character and things attached to the world.
+<!-- Image source: AllThingsHow, “Mortal Shell 2 Point of No Return Guide (Send Ova).” Direct image: https://static.allthings.how/wp-content/uploads/2026/08/mortal-shell-2-point-of-no-return-guide-681411954-2.webp. Third-party gameplay screenshot; source URL retained and the file is not presented as an original capture. -->
 
-In practical terms:
+## What carries over
 
-- your character-facing collection and upgrade progress can remain available,
-- the world route is rebuilt so you can progress through Beacons, dungeons, quests, and Ova-related objectives again,
-- unfinished optional content should be treated as unfinished before you enter the new cycle.
+The current launch reports describe New Game Plus as generous with character-side progress. These are the reported carry-over categories:
 
-NG+ is therefore not just a difficulty toggle. It is a new progression pass using a retained character foundation.
+| Progress | Reported behavior |
+| --- | --- |
+| Character | Level and Shell Points carry over. |
+| Shells | Unlocked Shells and their memories carry over. |
+| Gear | Weapons, sidearms, Seals, materials, keys, permanent pickups, and applied upgrades carry over. |
+| Tarstones | Collected Tarstones and invested Tarstone upgrades carry over. |
+| Currencies | Glimpse, Gloom, and gold carry over. |
+| Upgrades | Mether's Pulse and Tarforge progress carry over. |
+| Map | Revealed areas remain revealed. Custom map markers are reported to be cleared. |
 
-## How to start New Game Plus
+## What resets
 
-Start NG+ from the completed save or post-campaign flow shown by the current game build.
+New Game Plus rebuilds the world around the progress you kept:
 
-Before confirming the new cycle:
+- Most Beacons need cleansing again, apart from the two Beacons that start unlocked.
+- Cleared dungeons and Corrupted Gates repopulate.
+- Enemies and bosses return.
+- Quests restart and NPCs who died in the first run return.
+- Ovum returns to zero.
 
-1. Finish the current campaign state and return to the save or title flow where New Game Plus is offered.
-2. Confirm that you are selecting the completed character save, not creating an unrelated fresh game.
-3. Review your Shells, weapons, upgrade progress, currency spending, and unfinished optional routes.
-4. Make a separate decision about any ending or secret-ending route you still want to complete.
-5. Confirm the NG+ prompt only after you are satisfied with the current world's optional content.
+This is why the transition is best treated as a new world with an established character, not as a simple difficulty toggle.
 
-If the option does not appear, do not assume the save is broken. Check that the current campaign has reached its completion state and that the completed save has been loaded through the intended post-game path.
+## Which healing upgrades respawn?
 
-## What carries over?
+Current launch reporting says **Revered Glands** and **Synaptic Vessels** return to their original locations in New Game Plus. They can be collected again for additional Mether's Pulse progress.
 
-Current launch research identifies the following as character-bound progress that carries into NG+.
+Weapons, sidearms, and Tarstones do not respawn as duplicate gear. Their old pickup locations are reported to hold upgrade materials instead, since the original items already carry over.
 
-### Shells
+## What to finish before selecting Send Ova
 
-Your collected Shells remain part of the character's available collection. This means you do not need to rediscover every known Shell simply to use the same character options in the new cycle.
+Use this checklist before committing the current world:
 
-The [Shells Guide](/mortal-shell-ii/shells/) tracks the currently documented Proxima route and keeps the roster boundary explicit.
+1. Finish NPC quests and optional bosses you do not want to repeat.
+2. Collect weapons, sidearms, Shells, and Tarstones you want in the first run.
+3. Spend or collect any upgrades you need before the world resets.
+4. Activate and cleanse useful Beacons while they are already available.
+5. Complete missable trophy attempts. In particular, attempt [Peter's Perfect Parry](/mortal-shell-ii/peters-perfect-parry/) before killing the Nameless Captive if it is still outstanding.
+6. Complete any exploration or route cleanup you do not want to repeat.
 
-### Weapons
+For the late-game route, the current guide set reports a 168 Ovum milestone, four underground bosses ending with Zmey, and a return to the Siphon before **Send Ova** becomes the transition choice. Use the [Ova guide](/mortal-shell-ii/ova/) for that route rather than duplicating it here.
 
-Known weapons remain available to the character. That includes weapons collected through the current routes, such as Great Martyr's Blade, Axatana, and Axe & Dagger.
+## Common mistakes
 
-Use the [Weapons Guide](/mortal-shell-ii/weapons/) for the current known weapon set. NG+ carry-over does not turn that page into a complete weapon database.
+- Selecting **Send Ova** immediately after the final boss without realizing there is no confirmation prompt.
+- Assuming the final boss itself starts New Game Plus.
+- Expecting weapons, sidearms, or Tarstones to appear again as duplicate pickups.
+- Forgetting that most Beacons, dungeons, quests, enemies, and bosses belong to the reset side.
+- Treating custom map markers as permanent; current reports say they are cleared even though revealed map areas remain.
 
-### Upgrade progress
+## What happens next
 
-The researched carry-over boundary includes upgrade progress attached to your character's Shells and weapons. This is the main reason to finish valuable upgrade work before starting a new cycle: you can take the stronger foundation into a rebuilt world.
-
-Do not assume that every world unlock, quest state, or vendor state is part of this same category. Character upgrades and world progression are separate checks.
-
-## What resets?
-
-The new cycle rebuilds world-bound progress. Current research identifies these reset areas.
-
-### Beacons and world routes
-
-Beacon discovery and activation are world-state progress. Expect to rebuild the route network rather than treating every previous Beacon as permanently open in the new cycle.
-
-For the travel system and Beacon logic, see the [Beacon locations and fast travel guide](/mortal-shell-ii/beacons-fast-travel/).
-
-### Dungeons
-
-Dungeons are part of the rebuilt world path. Even if your character retains weapons and Shells, the route through a dungeon should be treated as a new-cycle progression objective.
-
-### Quests
-
-Quest and objective state resets with the world. Finish any optional quest decisions, rewards, or route-specific tasks that you do not want to repeat before starting NG+.
-
-### Ova and related world progression
-
-Ova-related world progression is part of the reset boundary in the current research. Do not assume that a previously cleared Beacon or completed cleanse route remains completed after the cycle changes.
-
-This is distinct from carrying a character's weapons or Shell upgrades. Keep world-state preparation and character-state preparation as separate checklists.
-
-## What should you finish before NG+?
-
-Use this practical pre-NG+ checklist:
-
-- collect any known weapon you want to carry into the next run,
-- unlock and test any Shell you want available immediately,
-- spend or apply upgrade resources that are currently useful,
-- finish optional Beacon, dungeon, and quest objectives you do not want to repeat,
-- complete route-specific exploration and collectible work that depends on the current world,
-- decide whether you still want to complete a main or secret ending before resetting the world,
-- keep a screenshot or written note of any world route you want to reproduce quickly.
-
-If your goal is simply a stronger second run, prioritize character-bound weapons, Shells, and upgrade progress. If your goal is completion, finish the world checklist first.
-
-## Difficulty and NG+
-
-NG+ should not be confused with the game's optional difficulty systems. The [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) explains the easier combat option and Night Mode separately.
-
-Choose your combat modifier based on the new run you are about to play. The existence of a retained weapon or Shell does not prove that every difficulty or trophy interaction carries over unchanged.
-
-## FAQ
-
-### How do you start Mortal Shell 2 New Game Plus?
-
-Complete the current campaign and choose the New Game Plus option from the completed save or post-campaign flow shown by your build. Confirm the character save and review optional content before accepting.
-
-### Do Shells carry over into NG+?
-
-Current research supports collected Shells carrying over as character-bound progress.
-
-### Do weapons carry over into NG+?
-
-Current research supports collected weapons carrying over. Use the [Weapons Guide](/mortal-shell-ii/weapons/) for the current known weapon routes.
-
-### Do weapon and Shell upgrades carry over?
-
-Current research supports character-bound upgrade progress carrying over. World-state progress should be checked separately.
-
-### Do Beacons reset in New Game Plus?
-
-Yes, Beacon and related world-route progress belong to the reset side of the current research boundary.
-
-### Do dungeons and quests reset?
-
-Treat dungeons and quests as world-state content that resets in NG+.
-
-### Does Ova carry over?
-
-The current launch research places Ova-related world progression on the reset side. Do not assume prior cleanse or Beacon progress remains complete.
-
-### Should I finish optional content before NG+?
-
-Yes. Finish optional routes, weapons, Shell unlocks, upgrades, Beacons, dungeons, and quests that you do not want to repeat.
-
-### Is NG+ the same as Night Mode?
-
-No. NG+ rebuilds the campaign world around retained character progress. Night Mode is an optional difficulty/world-state modifier described in the [Slayer Seal guide](/mortal-shell-ii/slayer-seal-difficulty/).
+After selecting **Send Ova**, the current run transitions into New Game Plus under the carry-over and reset rules above. Keep the [Beacons and fast travel guide](/mortal-shell-ii/beacons-fast-travel/) open for the rebuilt route, and use the [Shells guide](/mortal-shell-ii/shells/) and [Weapons guide](/mortal-shell-ii/weapons/) to plan around the gear that already transferred.
 
 ## Sources
 
-- [Weapons Guide](/mortal-shell-ii/weapons/) — current known weapon routes and evidence boundary.
-- [Shells Guide](/mortal-shell-ii/shells/) — current known Shell route and roster boundary.
-- [Slayer Seal and difficulty guide](/mortal-shell-ii/slayer-seal-difficulty/) — separate difficulty-system context.
-- [Skip Prologue guide](/mortal-shell-ii/skip-prologue/) — launch progression and fresh-start decision context.
-- Launch New Game Plus research reviewed for this page — character-bound carry-over, world-state reset, and pre-NG+ preparation; final-boss naming intentionally omitted because sources differ.
+- [AllThingsHow — New Game Plus: What Carries Over and What Resets](https://allthings.how/mortal-shell-2-new-game-plus-what-carries-over-and-what-resets/) — launch-build carry-over, reset, respawn, and Send Ova behavior, updated 2026-08-18.
+- [Ova guide](/mortal-shell-ii/ova/) — local late-route and Send Ova context.
+- [Peter's Perfect Parry guide](/mortal-shell-ii/peters-perfect-parry/) — local missable trophy boundary.

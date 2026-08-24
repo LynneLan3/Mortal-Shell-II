@@ -175,7 +175,11 @@ const guideHref = (guideUrl: string) => guideUrl;
 		function readToolkitState() {
 			try {
 				const raw = window.localStorage.getItem(toolkitStorageKey);
-				if (!raw) return;
+				if (!raw) {
+					toolkitState = {};
+					completedIds = new Set();
+					return;
+				}
 				const parsed = JSON.parse(raw);
 				toolkitState = Array.isArray(parsed) ? { version: 3, completedIds: parsed } : (parsed && typeof parsed === 'object' ? parsed : {});
 				const ids = Array.isArray(toolkitState.completedIds) ? toolkitState.completedIds : [];

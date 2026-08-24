@@ -43,7 +43,6 @@ Start at **Nameless Pass Beacon** and follow these steps:
 3. Turn back toward the torch at the end of this lower route.
 4. Look for a **bone arm near the torch** and collect the Depleted Gland from it.
 
-[IMAGE: Depleted Gland — bone arm near torch in Withered Shoals]
 
 This pickup does not require a mandatory boss kill along the described route.
 
@@ -57,7 +56,6 @@ Follow the Corrupt Gate route near the Abbey / Valley of the Revered until you f
 
 The **Thawed Gland** sits on that pedestal.
 
-[IMAGE: Thawed Gland — statue chamber with pedestal and Martyr's Ash]
 
 ## Faded Gland — Faded Capital
 
@@ -67,7 +65,6 @@ From **Citadel Annex Beacon**:
 2. Reach the central space and look for a **well-like stone structure ringed with candles**.
 3. Collect the **Faded Gland** from inside that candle-ringed structure.
 
-[IMAGE: Faded Gland — candle-ringed well-like structure in Faded Capital]
 
 No specific enemy clear is required by these route descriptions; follow the landmarks above to find each Gland.
 

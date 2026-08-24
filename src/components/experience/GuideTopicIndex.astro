@@ -15,6 +15,7 @@ import { resolveEntryCardImage, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
 import AuthorityHubGrid from './AuthorityHubGrid.astro';
 import HubSubnav from './HubSubnav.astro';
+import HubProminenceBadge from './HubProminenceBadge.astro';
 import { getPortalProminence, prominenceForHref } from '../../lib/hub-prominence';
 
 const t = ui();
@@ -130,7 +131,7 @@ const subnavItems = [
 					<a class="exp-guide-spotlight__card" href={guideHref(entry)}>
 						{visual.image && <CardThumbnail className="exp-guide-spotlight__visual" image={visual.image} alt={visual.alt ?? ''} />}
 						<span class="exp-guide-spotlight__body">
-							<span class:list={['hub-prominence', `hub-prominence--${item.prominence}`]}>{item.prominence === 'hot' ? 'HOT' : 'POPULAR'}</span>
+							<HubProminenceBadge prominence={item.prominence} />
 							<strong>{entry.data.title}</strong>
 							<span>{entry.data.description}</span>
 						</span>

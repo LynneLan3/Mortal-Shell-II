@@ -44,14 +44,17 @@ const {
 </nav>
 
 {mode === 'anchors' && <script>
-	const subnavs = Array.from(document.querySelectorAll('[data-hub-subnav-mode="anchors"]'));
-	subnavs.forEach((subnav) => {
+	const bindHubSubnavs = () => {
+		const subnavs = Array.from(document.querySelectorAll('[data-hub-subnav-mode="anchors"]'));
+		subnavs.forEach((subnav) => {
 		if (subnav.hasAttribute('data-hub-subnav-bound')) return;
 		subnav.setAttribute('data-hub-subnav-bound', 'true');
 		const links = Array.from(subnav.querySelectorAll('[data-hub-subnav-link]'));
 		const targets = links
 			.map((link) => document.getElementById(link.getAttribute('data-hub-subnav-link') || ''))
 			.filter((target) => target instanceof HTMLElement);
+		let clickLockId = null;
+		let releaseTimer;
 		const setActive = (id) => links.forEach((link) => {
 			const active = link.getAttribute('data-hub-subnav-link') === id;
 			link.classList.toggle('is-active', active);
@@ -59,12 +62,59 @@ const {
 			else link.removeAttribute('aria-current');
 		});
 		if (targets.length === 0) return;
+		const releaseClickLock = () => {
+			if (!clickLockId) return;
+			setActive(clickLockId);
+			clickLockId = null;
+		};
+		const armClickLock = (id) => {
+			clickLockId = id;
+			window.clearTimeout(releaseTimer);
+			releaseTimer = window.setTimeout(releaseClickLock, 1200);
+		};
+		links.forEach((link) => link.addEventListener('click', (event) => {
+			const id = link.getAttribute('data-hub-subnav-link');
+			const target = id ? document.getElementById(id) : null;
+			if (!id || !(target instanceof HTMLElement)) return;
+			event.preventDefault();
+			armClickLock(id);
+			setActive(id);
+			history.replaceState(null, '', `#${id}`);
+			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}));
 		const observer = new IntersectionObserver((entries) => {
+			if (clickLockId) return;
 			const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
 			if (visible[0]?.target instanceof HTMLElement) setActive(visible[0].target.id);
-		}, { rootMargin: '-6rem 0px -55% 0px', threshold: [0, 0.2, 0.6] });
+		}, { rootMargin: '-96px 0px -55% 0px', threshold: [0, 0.2, 0.6] });
 		targets.forEach((target) => observer.observe(target));
-		const initial = window.location.hash.slice(1);
-		setActive(targets.some((target) => target.id === initial) ? initial : targets[0].id);
-	});
+		const syncHash = () => {
+			const id = window.location.hash.slice(1);
+			if (targets.some((target) => target.id === id)) {
+				armClickLock(id);
+				setActive(id);
+			} else {
+				setActive(targets[0].id);
+			}
+		};
+		syncHash();
+		window.requestAnimationFrame(() => window.requestAnimationFrame(syncHash));
+		window.setTimeout(syncHash, 0);
+		window.setTimeout(syncHash, 100);
+		window.addEventListener('load', syncHash, { once: true });
+		window.addEventListener('hashchange', syncHash);
+		});
+	};
+	const bindWhenTargetsExist = () => {
+		const subnavs = Array.from(document.querySelectorAll('[data-hub-subnav-mode="anchors"]'));
+		const pending = subnavs.filter((subnav) => !subnav.hasAttribute('data-hub-subnav-bound'));
+		const ready = pending.every((subnav) => Array.from(subnav.querySelectorAll('[data-hub-subnav-link]'))
+			.every((link) => document.getElementById(link.getAttribute('data-hub-subnav-link') || '')));
+		if (!ready) {
+			window.setTimeout(bindWhenTargetsExist, 0);
+			return;
+		}
+		bindHubSubnavs();
+	};
+	bindWhenTargetsExist();
 </script>}

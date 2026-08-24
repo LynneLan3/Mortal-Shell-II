@@ -1,5 +1,13 @@
 /* Topic-based Guides Index. Objective routes use routes.css instead. */
 
+.exp-guide-topic-index {
+	font-family: var(--xp-font);
+}
+
+.exp-guide-topic-index :where(h1, h2, h3, p, a, span, strong, dt, dd) {
+	font-family: var(--xp-font);
+}
+
 .exp-guide-topic-index__hero {
 	padding: 3.25rem 0 1.75rem;
 }
@@ -30,6 +38,7 @@
 }
 
 .exp-guide-spotlight__card {
+	position: relative;
 	display: grid;
 	grid-template-columns: 5.5rem minmax(0, 1fr);
 	min-width: 0;
@@ -60,15 +69,23 @@
 	align-content: center;
 	gap: 0.35rem;
 	min-width: 0;
-	padding: 0.7rem 0.8rem;
+	padding: 1.8rem 0.8rem 0.7rem;
+}
+
+.exp-guide-spotlight__body > .hub-prominence {
+	position: absolute;
+	top: 0.7rem;
+	right: 0.75rem;
 }
 
 .exp-guide-spotlight__body strong {
+	display: -webkit-box;
 	overflow: hidden;
 	color: var(--xp-text-bright);
 	font-size: var(--xp-text-sm);
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	line-height: 1.25;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
 }
 
 .exp-guide-spotlight__body > span:last-child {

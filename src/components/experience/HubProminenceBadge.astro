@@ -1,0 +1,12 @@
+---
+import type { HubProminence } from '../../lib/hub-prominence';
+
+interface Props {
+	prominence: HubProminence;
+}
+
+const { prominence } = Astro.props;
+const label = prominence === 'hot' ? 'HOT' : 'POPULAR';
+---
+
+<span class:list={['hub-prominence', `hub-prominence--${prominence}`]}>{label}</span>

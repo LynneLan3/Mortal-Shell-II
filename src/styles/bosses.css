@@ -1,109 +1,23 @@
+.exp-boss-hub {
+	font-family: var(--xp-font);
+}
+
+.exp-boss-hub :where(h1, h2, h3, p, a, span, strong, dt, dd) {
+	font-family: var(--xp-font);
+}
+
 .exp-boss-hub__hero {
-	padding: 3.25rem 0 2rem;
+	padding: 3.25rem 0 1.5rem;
 }
 
 .exp-boss-hub__hero .exp-lede {
 	max-width: 48rem;
 }
 
-.exp-boss-hub__actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.65rem;
-	margin-top: 1.5rem;
-}
-
-.exp-boss-hub__primary,
-.exp-boss-hub__secondary {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.65rem 0.9rem;
-	border: 1px solid var(--xp-border);
-	font-size: var(--xp-text-sm);
-	font-weight: 750;
-	text-decoration: none;
-}
-
-.exp-boss-hub__primary {
-	border-color: var(--xp-accent);
-	background: var(--xp-accent);
-	color: var(--xp-accent-fg);
-}
-
-.exp-boss-hub__secondary {
-	color: var(--xp-text-bright);
-}
-
-.exp-boss-hub__primary:hover,
-.exp-boss-hub__primary:focus-visible,
-.exp-boss-hub__secondary:hover,
-.exp-boss-hub__secondary:focus-visible {
-	border-color: var(--xp-accent-text);
-	outline: none;
-}
-
-.exp-boss-hub__secondary:hover,
-.exp-boss-hub__secondary:focus-visible {
-	background: color-mix(in srgb, var(--xp-accent) 10%, var(--xp-surface));
-}
-
 .exp-boss-hub__body {
 	display: grid;
 	gap: 2.75rem;
 	padding-block: 2rem 3rem;
-}
-
-.exp-boss-spotlight {
-	padding-bottom: 0.25rem;
-}
-
-.exp-boss-spotlight__grid {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 0.7rem;
-}
-
-.exp-boss-spotlight__card {
-	display: grid;
-	grid-template-rows: auto 1fr;
-	min-width: 0;
-	overflow: hidden;
-	border: 1px solid var(--xp-border);
-	background: color-mix(in srgb, var(--xp-surface) 68%, transparent);
-	color: inherit;
-	text-decoration: none;
-	transition: border-color 150ms, background 150ms, transform 150ms;
-}
-
-.exp-boss-spotlight__card:hover,
-.exp-boss-spotlight__card:focus-visible {
-	border-color: color-mix(in srgb, var(--xp-progress) 66%, var(--xp-border));
-	background: color-mix(in srgb, var(--xp-progress) 8%, var(--xp-surface));
-	transform: translateY(-1px);
-	outline: none;
-}
-
-.exp-boss-spotlight__media {
-	border-bottom: 1px solid var(--xp-border);
-}
-
-.exp-boss-spotlight__body {
-	display: grid;
-	align-content: start;
-	gap: 0.35rem;
-	padding: 0.7rem 0.8rem;
-}
-
-.exp-boss-spotlight__body strong {
-	color: var(--xp-text-bright);
-	font-size: var(--xp-text-sm);
-	line-height: 1.25;
-}
-
-.exp-boss-spotlight__body > span:last-child {
-	color: var(--xp-text-muted);
-	font-size: var(--xp-text-xs);
-	line-height: 1.35;
 }
 
 .exp-boss-hub__section-head {
@@ -165,6 +79,14 @@
 	gap: 0.55rem;
 	min-height: 100%;
 	padding: 1.15rem;
+}
+
+.exp-boss-card__topline {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 0.75rem;
+	min-height: 1rem;
 }
 
 .exp-boss-card__kind {
@@ -276,7 +198,7 @@
 
 @media (min-width: 50rem) {
 	.exp-boss-hub__hero {
-		padding-block: 4rem 2.25rem;
+		padding-block: 4rem 1.75rem;
 	}
 
 	.exp-boss-grid {
@@ -285,17 +207,5 @@
 
 	.exp-related-route-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-}
-
-@media (max-width: 60rem) {
-	.exp-boss-spotlight__grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-	}
-}
-
-@media (max-width: 42rem) {
-	.exp-boss-spotlight__grid {
-		grid-template-columns: 1fr;
 	}
 }

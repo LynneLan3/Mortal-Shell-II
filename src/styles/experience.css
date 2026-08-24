@@ -139,6 +139,7 @@
 	border-block: 1px solid var(--xp-border);
 	background: color-mix(in srgb, var(--xp-bg) 94%, transparent);
 	backdrop-filter: blur(12px);
+	font-family: var(--xp-font);
 }
 
 .hub-subnav__scroller {
@@ -163,6 +164,7 @@
 	color: var(--xp-text-muted);
 	font-size: var(--xp-text-xs);
 	font-weight: 800;
+	font-family: inherit;
 	text-decoration: none;
 	white-space: nowrap;
 	transition: color 140ms, border-color 140ms, background 140ms;
@@ -189,6 +191,7 @@
 	border: 1px solid transparent;
 	font-size: 0.62rem;
 	font-weight: 900;
+	font-family: var(--xp-font);
 	letter-spacing: 0.1em;
 	line-height: 1;
 	text-transform: uppercase;

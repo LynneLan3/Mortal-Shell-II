@@ -9,11 +9,13 @@
  * absent.
  *
  * Section order:
- *   Hero → Status Strip → By Goal → Beginner Guide → Hot Launch Guides →
- *   Popular Questions → Recently Updated → supporting sections → About.
+ *   Hero → Live Update / Don't Miss → Status Strip → By Goal → Beginner
+ *   Guide → Hot Launch Guides → Popular Questions → Recently Updated →
+ *   supporting sections → About.
  */
 import { Image } from 'astro:assets';
 import { game } from '../../config/game';
+import { getDontMissAlerts, getLiveUpdateAlert } from '../../config/alerts';
 import { resolveCardImage, resolveEntryCardImage, resolveGameAsset, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
 import { getGuides, guideHref, categoryOf } from '../../lib/guides';
@@ -34,6 +36,8 @@ import {
 import ExperienceRouteShowcase from './ExperienceRouteShowcase.astro';
 import RouteTopicCard from './routes/RouteTopicCard.astro';
 import AuthorityHubGrid from './AuthorityHubGrid.astro';
+import ExperienceAlertStrip from './ExperienceAlertStrip.astro';
+import ExperienceDontMiss from './ExperienceDontMiss.astro';
 
 const t = ui();
 const guides = await getGuides();
@@ -83,6 +87,8 @@ const hotGuides: StartHereView[] = configuredHotGuides?.length
 const authorityHubs = game.portal?.authorityHubs ?? [];
 const beginnerGuide = guides.find((entry) => guideHref(entry) === '/mortal-shell-ii/beginner-guide/');
 const beginnerHub = authorityHubs.find((hub) => hub.href === '/mortal-shell-ii/beginner-guide/');
+const liveUpdateAlert = getLiveUpdateAlert();
+const dontMissAlerts = getDontMissAlerts();
 const orderedHotGuides = sortCardsByImage(hotGuides, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
 
 /* ── Hero CTAs ── */
@@ -239,6 +245,9 @@ const factIcon = (label: string): IconName => {
 		</div>
 	</div>
 </section>
+
+{liveUpdateAlert && <ExperienceAlertStrip alert={liveUpdateAlert} />}
+{dontMissAlerts.length > 0 && <ExperienceDontMiss alerts={dontMissAlerts} />}
 
 <!-- 02 STATUS STRIP -->
 {statusItems.length > 0 && (

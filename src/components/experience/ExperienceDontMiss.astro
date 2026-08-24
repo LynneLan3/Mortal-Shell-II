@@ -1,0 +1,36 @@
+---
+import type { GameAlert } from '../../config/alerts';
+
+interface Props {
+	alerts: readonly GameAlert[];
+}
+
+const { alerts } = Astro.props;
+---
+
+{alerts.length > 0 && (
+	<section class="exp-section exp-home-dont-miss" aria-labelledby="exp-dont-miss-heading">
+		<div class="exp-content">
+			<header class="exp-home-dont-miss__header">
+				<div>
+					<p class="exp-eyebrow">Player alerts</p>
+					<h2 class="exp-h2" id="exp-dont-miss-heading">Don't Miss</h2>
+				</div>
+				<span class="exp-home-dont-miss__count">{alerts.length} current checks</span>
+			</header>
+			<div class="exp-alert-grid">
+				{alerts.map((alert) => (
+					<article class="exp-alert-card" data-alert-type={alert.type}>
+						<div class="exp-alert-card__meta">
+							<span>{alert.type.replaceAll('_', ' ')}</span>
+							{alert.date && <time datetime={alert.date}>{alert.date}</time>}
+						</div>
+						<h3><a href={alert.href}>{alert.title}</a></h3>
+						<p>{alert.consequence}</p>
+						<a class="exp-alert-card__cta" href={alert.href}>Open guide <span aria-hidden="true">→</span></a>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+)}

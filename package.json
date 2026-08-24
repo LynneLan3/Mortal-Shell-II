@@ -9,6 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "article": "node ./scripts/generate-article.mjs",
+    "flywheel": "tsx ./scripts/opportunity-flywheel.ts",
+    "test:flywheel": "tsx --test tests/opportunity-flywheel.test.ts",
     "indexnow": "tsx ./scripts/indexnow-submit.ts",
     "test:indexnow": "tsx --test tests/indexnow/submit.test.ts"
   },

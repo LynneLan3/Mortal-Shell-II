@@ -56,12 +56,12 @@ function parseTimeout(value) {
 }
 
 function resolveConfig({ requireComplete }) {
-	const apiKey = firstEnv(['APIMART_API_KEY', 'ANTHROPIC_AUTH_TOKEN', 'ANTHROPIC_API_KEY']);
+	const apiKey = firstEnv(['APIMART_API_KEY']);
 	const baseUrl = firstEnv(['APIMART_BASE_URL']) || {
 		name: 'APIMART_BASE_URL (default)',
 		value: DEFAULT_APIMART_BASE_URL,
 	};
-	const model = firstEnv(['APIMART_MODEL', 'ANTHROPIC_MODEL', 'ANTHROPIC_DEFAULT_SONNET_MODEL']);
+	const model = firstEnv(['APIMART_MODEL']);
 	const timeoutMs = parseTimeout(process.env.APIMART_TIMEOUT_MS);
 
 	if (!requireComplete) {
@@ -76,8 +76,8 @@ function resolveConfig({ requireComplete }) {
 	}
 
 	const missing = [];
-	if (!apiKey) missing.push('APIMART_API_KEY (or ANTHROPIC_AUTH_TOKEN / ANTHROPIC_API_KEY)');
-	if (!model) missing.push('APIMART_MODEL (or ANTHROPIC_MODEL / ANTHROPIC_DEFAULT_SONNET_MODEL)');
+	if (!apiKey) missing.push('APIMART_API_KEY');
+	if (!model) missing.push('APIMART_MODEL');
 	if (missing.length > 0) {
 		fail(`Missing APIMart configuration: ${missing.join(', ')}.`);
 	}

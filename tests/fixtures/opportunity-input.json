@@ -1,0 +1,26 @@
+{
+  "opportunities": [
+    {
+      "id": "skip-prologue-ctr",
+      "query": "mortal shell 2 skip prologue",
+      "intent": "ctr",
+      "signals": [{"source": "gsc", "metric": "low-ctr"}],
+      "evidence": [{"label": "GSC query/page performance"}]
+    },
+    {
+      "id": "balance-patch-update",
+      "query": "mortal shell 2 balance patch",
+      "intent": "update",
+      "signals": [{"source": "release-update", "metric": "update"}],
+      "evidence": [{"label": "verified release/update evidence"}]
+    },
+    {
+      "id": "fainweald-west-cluster",
+      "query": "Fainweald west objectives",
+      "intent": "route",
+      "routeId": "fainweald-shells",
+      "signals": [{"source": "route-map-coverage", "label": "clustered verified objectives"}],
+      "evidence": [{"label": "known route/map coverage"}]
+    }
+  ]
+}

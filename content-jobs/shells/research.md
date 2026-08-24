@@ -150,3 +150,77 @@ If new assets are added later, restrict them to `public/images/shells/`, retain 
 - https://www.youtube.com/watch?v=MOwhTNc4am8 (existing local Proxima transcript/evidence source)
 
 **Access note:** Web sources were checked on 2026-08-24. The official `mortalshell2.com` URL redirected to `mortalshell.com` during this pass. Current launch articles are secondary sources and were cross-checked; local route pages remain the owner for their narrowly supported route details.
+
+---
+
+# Item 19 research addendum: All NPC Questlines
+
+**Scope:** Item 19 only — `mortal-shell-ii/shells`, action `expand`.
+
+**Research date:** 2026-08-24 (Asia/Shanghai).
+
+**Protected scope:** Do not edit `content-plan.json`, `src/config/game.ts`, `src/components/experience/BossHub.astro`, or `src/data/map-markers.ts`. Do not create new NPC routes, discover unrelated topics, call GPT/APIMart, run a writer CLI, push, deploy, or force images. The deliverable is the existing `src/content/docs/gameplay/shells.md` plus this item-specific research record.
+
+## Editorial answer
+
+Mortal Shell II's NPC content is a mixture of stateful dialogue chains, Shell-unlock handoffs, resource exchanges, and system NPCs. The page should lead with the reset rule — exhaust dialogue, rest once at a Beacon, return, and verify the new state — then cover the following bounded set:
+
+1. **Gorf, Hilga, and Grom:** the linked Fainweald chain that moves from Weltcaps/Moonshine to the Poisoned Dagger, Hilga's handoff, Gorf's cure, and the final young-toad scene.
+2. **The Grisha Pup and Hunter trader:** an order-sensitive Mushroom Village interaction. Buy the Grisha Remnant and other desired stock before opening the cage; the Pup then gives the Sheephead Totem and a later follow-up gives two Glimpses in current launch coverage.
+3. **Gragu:** a Shell-linked delivery quest. Take the Heart of Vatra from the Temple of Vatra back to the One-Legged Wolf Tavern; the Heart, not the optional temple loot, is the Shell objective.
+4. **Baghead:** a Desolate Peak secret-ending chain. The final answer is “nothing”: return the Special Moonshine, then return empty-handed and confirm the choice. Treat it as an ending trigger and recommend a checkpoint first.
+5. **Egon:** repeated Gloom donations in Castigator's Keep. Current sources conflict between a 10,000 and 20,000 threshold; the page should label the conflict and use 20,000 / 40,000 as the conservative reported planning figures, not as an official patch-note fact.
+6. **Sester Genessa:** the Sester Secundus → item return → Memory chain. Preserve the Censer/Chalice naming conflict and the separate Bonding interaction.
+7. **Vlas:** only the injured broken-cart / missing-cat opening is consistently bounded here. Do not publish a complete cat route, key step, reward, or missable cutoff because current sources conflict.
+8. **Zhirelle and Thestus:** system-state NPCs with quest consequences, not conventional item quests. Zhirelle owns Shell location reveals/Bonding; Thestus owns the Gloombound Flame → lantern → Night Mode toggle documented by the existing local page.
+
+The original Item 11 Shell coverage remains authoritative for the nine-total/eight-permanent roster, location anchors, first-Memory unlock model, Bonding, build-evidence boundary, Harros missability, Genessa item-name conflict, and Balance Patch 1 resource change. Item 19 adds the NPC route layer without deleting or contradicting those sections.
+
+## Claim-to-source ledger
+
+| Claim family | Evidence used | Confidence / limitation |
+| --- | --- | --- |
+| Stateful reset rule and Gorf/Hilga chain | [AllThings.How — Hilga and Grom Questline](https://allthings.how/hilga-and-grom-questline-walkthrough-in-mortal-shell-2/); [GamesRadar+ — Gorf questline](https://www.gamesradar.com/games/rpg/mortal-shell-2-gorf/); local route boundaries in `src/content/docs/gameplay/gragu.md` and existing research | High for “rest, return, handoff, cure” shape. Exact early item-count descriptions differ, so the page should follow the in-game prompt rather than publish one rigid count. |
+| Grisha Pup ordering and rewards | [AllThings.How — Free the Grisha Pup](https://allthings.how/mortal-shell-2-how-to-free-the-grisha-pup-and-get-the-sheephead-totem/); [AllThings.How — Sheephead Totem](https://allthings.how/mortal-shell-2-how-to-get-and-use-the-sheephead-totem/) | High for “shop before cage,” Sheephead Totem, later two-Glimpse visit. Trader final-state wording differs across sources; publish the safe purchase rule only. |
+| Gragu Heart of Vatra handoff | [AllThings.How — Heart of Vatra for Gragu](https://allthings.how/mortal-shell-2-walkthrough-for-the-heart-of-vatra-for-gragu/); local `src/content/docs/gameplay/gragu.md` | High for tavern → Temple → Heart → return. Optional temple loot is separate; do not turn the route into an unrelated item checklist. |
+| Baghead secret ending | [NerdsChalk — Baghead Quest Guide](https://nerdschalk.com/mortal-shell-2-baghead-quest-guide-and-secret-ending-steps/); [AllThings.How — Main and Secret Baghead Endings](https://allthings.how/mortal-shell-2-how-to-get-the-main-and-secret-baghead-endings/); local `src/content/docs/gameplay/endings.md` | High for the empty-handed answer and credits/ending behavior. Keep checkpoint advice because the user asked for questline safety, not a claim that all post-ending state is identical on every platform. |
+| Egon threshold and payout | [AllThings.How — Egon's Gloom total](https://allthings.how/mortal-shell-2-how-much-gloom-do-you-need-to-give-egon/); [NerdsChalk — Egon Guide](https://nerdschalk.com/mortal-shell-2-egon-location-gloom-requirement-and-feed-me-trophy/); [TheGameSlayer — Egon Guide](https://thegameslayer.com/guides/mortal-shell-2-egon-guide/) | Medium. Two current sources report 20,000 total / 40,000 return; one reports 10,000. Preserve the contradiction and rely on the in-game completion prompt. |
+| Vlas opening and incomplete later route | [Mortal Shell II Database — A Sweet Boy](https://mortalshelldb.com/quests/vlas-quest); [NerdsChalk — NPC roster](https://nerdschalk.com/all-mortal-shell-2-npcs-and-quest-characters/); [Prodigy Gamers — NPC Quest Guide](https://prodigygamers.com/2026/08/20/mortal-shell-2-npc-quest-guide-walkthroughs-rewards-vendor-walkthrough/) | Low-to-medium. The broken-cart/missing-cat opening is repeated, but the later cage/key/letter route is not corroborated by the bounded sources. Stop at the opening and label the gap. |
+| Zhirelle Shellkeeper and Bonding | [AllThings.How — Increase Shell Level](https://allthings.how/mortal-shell-2-how-to-increase-shell-level-and-unlock-shell-abilities/); [AltChar — Upgrade Shells](https://www.altchar.com/guides/mortal-shell-2-how-to-upgrade-shells-a1rIW7S8eaMf); local `src/content/docs/gameplay/shells.md` Item 11 material | High for Zhirelle as Shellkeeper and Genessa exception. Exact resource timing remains patch-sensitive and is already bounded in the retained Item 11 section. |
+| Thestus Night Mode system | local `src/content/docs/gameplay/gloombound-flame.md` and `src/content/docs/gameplay/slayer-seal-difficulty.md` | High for this checkout's existing route. Item 19 links the existing owner instead of duplicating or expanding unrelated Night Mode content. |
+
+## Detailed evidence notes
+
+### Gorf / Hilga / Grom
+
+AllThings.How gives the clearest state machine: Gorf is north of Widow's Overlook; Hilga and Grom are in the fenced Mushroom Village camp; Beacon rests advance the chain; the Poisoned Dagger goes from Gorf to Hilga; Hilga leaves a note; Gorf receives Common Moonshine; the final states show Hilga transformed beside Gorf and four young toads. GamesRadar+ independently corroborates the main handoff and warns that route access near Hilga may be tied to wider Ova/Mether's Breath progress.
+
+The exact early request count is not stable across current coverage. One table describes two Weltcap visits followed by two Common Moonshine visits; another walkthrough compresses the early sequence differently. Publish the item classes and reset rule, not a universal visit count. The five-Marsh-Pearl total is repeated in current reporting but should remain a source-reported reward rather than a first-party database fact.
+
+### Grisha Pup
+
+AllThings.How reports that the Hunter camp's Grisha Remnant is the important pre-choice purchase, that breaking the padlock is a free cage-opening option, that opening the cage changes the camp's disposition, that the Pup gives a Sheephead Totem, and that a later rest/revisit gives two Glimpses. Other coverage describes the trader as permanently removed or dead after the event. The stable player-facing warning is to buy desired stock first and not rely on the shop afterward.
+
+### Baghead
+
+NerdsChalk provides the explicit sequence: stone throne at Desolate Peak by Illusionist's Cache, sit with followers, find the Special Moonshine, read the note, return the item, then return empty-handed and confirm the “nothing” choice. AllThings.How separately confirms the interaction is a secret ending. The page should not import the original game's Baghead food/moonshine behavior.
+
+### Egon
+
+AllThings.How records 1,000-Gloom increments, saved progress between visits, a 20,000 total, and a 40,000 return. NerdsChalk independently records the 20,000 / 40,000 model. TheGameSlayer reports a 10,000 cap, so the article must not present the numeric threshold as settled official data. The safe guide behavior is to donate incrementally and wait for the in-game completion scene; users should not assume the threshold is infinite or repeatable.
+
+### Vlas
+
+The fan database gives the quest title “A Sweet Boy” and a first chapter about recovering Vlas's wares. NerdsChalk's roster describes the injured broken-cart encounter and missing-cat request. Prodigy Gamers gives a longer cage/key/letter route, but the bounded source set does not independently reproduce it. Item 19 should explicitly say “opening verified; later route unresolved” and should not invent a final reward or missable state.
+
+### Zhirelle / Thestus
+
+Zhirelle is included because Shell reveal/Bonding is an NPC-mediated state that affects the Shell and questline page, but she is not a side quest with a final reward. Thestus is included only as a boundary: the existing local Gloombound Flame and Slayer Seal pages already own the Flame → lantern → Night Mode sequence. Do not duplicate the full Night Mode guide in this Item 19 update.
+
+## Image decision
+
+No new image is needed. The NPC chains are best served by route anchors, order warnings, and uncertainty labels; adding a screenshot would not materially clarify the locked scope. Existing local image assets and page links remain untouched.
+
+## Stopping decision
+
+Stop research here. The full/reproducible chains have converging secondary evidence, and the remaining gaps are explicitly preserved rather than filled by weaker or conflicting pages. No provider or writer call was used.

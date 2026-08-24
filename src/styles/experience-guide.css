@@ -207,6 +207,32 @@ body:has(.exp-guide-frame) .exp-topbar {
 	color: var(--xp-accent-text);
 }
 
+.guide-map-action__route-context {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.35rem 0.7rem;
+	margin: 0;
+	padding-inline-start: 0.15rem;
+	color: var(--xp-text-muted);
+	font-size: var(--xp-text-xs);
+}
+
+.guide-map-action__route-context > span {
+	color: var(--xp-text-dim);
+}
+
+.guide-map-action__route-context a {
+	color: var(--xp-accent-text);
+	font-weight: 750;
+	text-decoration: none;
+}
+
+.guide-map-action__route-context a:hover,
+.guide-map-action__route-context a:focus-visible {
+	text-decoration: underline;
+}
+
 .exp-next-step {
 	max-width: var(--xp-guide-wide);
 	margin: 0 auto;

@@ -1,6 +1,7 @@
 ---
 import { game } from '../../config/game';
-import { getGuideMapKey, getMapTargetsForGuideUrl } from '../../lib/toolkit-map';
+import { mapRouteById } from '../../data/map-routes';
+import { getCanonicalGuideUrlForMapMarker, getGuideMapKey, getMapTargetsForGuideUrl, normalizeGuideUrl } from '../../lib/toolkit-map';
 
 const targets = getMapTargetsForGuideUrl(Astro.url.pathname);
 const mapPath = `${game.hubPath}map/`;
@@ -12,6 +13,11 @@ const title = targets.length === 1
 	? 'View on Map'
 	: `View ${targets.length} locations on Map`;
 const detail = targets.length === 1 ? targets[0].name : `${guideKey.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Guide`;
+const currentGuideUrl = normalizeGuideUrl(Astro.url.pathname);
+const relatedRoutes = [...mapRouteById.values()].filter((route) => (
+	(route.guide && normalizeGuideUrl(route.guide) === currentGuideUrl)
+	|| route.waypoints.some((waypoint) => normalizeGuideUrl(getCanonicalGuideUrlForMapMarker(waypoint.markerId) ?? '') === currentGuideUrl)
+));
 ---
 
 {targets.length > 0 && (
@@ -25,5 +31,11 @@ const detail = targets.length === 1 ? targets[0].name : `${guideKey.split('-').m
 			</span>
 			<span class="guide-map-action__arrow" aria-hidden="true">→</span>
 		</a>
+		{relatedRoutes.length > 0 && (
+			<p class="guide-map-action__route-context">
+				<span>Part of this route</span>
+				{relatedRoutes.map((route) => <a href={`${mapPath}?route=${route.id}`}>{route.name} <span aria-hidden="true">→</span></a>)}
+			</p>
+		)}
 	</div>
 )}

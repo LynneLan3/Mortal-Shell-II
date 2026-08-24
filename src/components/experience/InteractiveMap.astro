@@ -29,6 +29,12 @@ const workspaceCategories = [
 	{ id: 'Other', label: 'Other', icon: markerIcons.Other },
 ].map((category) => ({ ...category, total: Math.max(toolkitItems.filter((item) => item.category === category.id).length, markers.filter((marker) => marker.category === category.id).length) }));
 const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons.Other;
+const routeStepStatusLabels = {
+	optional: 'Optional',
+	missable: 'Missable',
+	'do-before-x': 'Do Before X',
+	'version-changed': 'Version Changed',
+} as const;
 ---
 
 <section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
@@ -61,7 +67,80 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 
 			<section class="map-control-section" aria-labelledby="map-filter-heading"><div class="map-control-section__title-row"><h3 id="map-filter-heading">Filters</h3><button class="map-clear-button" type="button" data-toolkit-reset>Clear</button></div><div class="map-category-controls"><button class="map-category-control is-active" type="button" data-map-category="all"><span class="map-category-control__icon" aria-hidden="true">✦</span><span class="map-category-control__copy"><strong>All targets</strong><small>{toolkitItems.length} tracked</small></span><span class="map-category-control__count" data-category-count="all">0 / {toolkitItems.length}</span></button>{workspaceCategories.map((category) => <button class="map-category-control" type="button" data-map-category={category.id}><span class="map-category-control__icon" aria-hidden="true">{category.icon}</span><span class="map-category-control__copy"><strong>{category.label}</strong><small>{category.total ? `${category.total} tracked` : 'No tracked items yet'}</small></span><span class="map-category-control__count" data-category-count={category.id}>0 / {category.total}</span></button>)}</div><label class="map-hide-completed"><input type="checkbox" data-hide-completed /><span>Hide completed</span></label></section>
 
-			<section class="map-control-section map-control-section--routes" aria-labelledby="routes-heading"><div class="map-control-section__title-row"><div><p class="map-panel__eyebrow">Curated sequences</p><h3 id="routes-heading">Recommended Routes</h3></div><button class="map-clear-button" type="button" data-exit-route hidden>Exit route</button></div><p class="map-section-note">Choose a goal, then complete the numbered markers in order. These are editorial sequences, not fastest-path claims.</p><div class="map-route-list">{mapRoutes.map((route) => <article class="map-route-card" data-map-route-card={route.id} data-route-name={route.name} data-route-waypoints={route.waypoints.map((waypoint) => waypoint.markerId).join(',')}><div class="map-route-card__topline"><div><span class="map-route-card__type">{route.type} · {route.region}</span><h4>{route.name}</h4></div><button class="map-route-card__action" type="button" data-map-start-route={route.id}>Start route</button></div><p>{route.description}</p><p class="map-route-card__goal"><strong>Goal:</strong> {route.goal}</p>{route.requirements && <p class="map-route-card__requirements"><strong>Use when:</strong> {route.requirements}</p>}<div class="map-route-card__links">{route.guide && <a href={route.guide}>Route guide <span aria-hidden="true">→</span></a>}</div><div class="map-route-card__progress"><span><b data-route-completed>0</b> / {route.waypoints.length}</span><span data-route-percent>0%</span></div><div class="map-route-card__bar"><span data-route-bar></span></div><ol class="map-route-waypoints">{route.waypoints.map((waypoint, index) => { const marker = mapMarkerById.get(waypoint.markerId); const item = marker ? toolkitItemByMapMarkerId.get(marker.id) : undefined; if (!marker) return null; return <li data-route-waypoint={marker.id} data-route-item-id={item?.id ?? ''}><button type="button" data-map-route-waypoint={marker.id} data-route-id={route.id}><span class="map-route-waypoint__number">{index + 1}</span><span class="map-route-waypoint__copy"><strong>{marker.name}</strong><small>{marker.region}</small></span><span class="map-route-waypoint__state" data-route-waypoint-state>To do</span></button></li>; })}</ol></article>)}</div><div class="map-route-completion-feedback" data-route-completion-feedback hidden><p class="map-panel__eyebrow">Route Complete</p><h4 data-route-feedback-route>Route Complete</h4><p data-route-feedback-achievement>All mapped waypoints are complete.</p><a href="/mortal-shell-ii/trophies/">View Completion Dashboard <span aria-hidden="true">→</span></a></div></section>
+			<section class="map-control-section map-control-section--routes" aria-labelledby="routes-heading">
+				<div class="map-control-section__title-row">
+					<div><p class="map-panel__eyebrow">Curated sequences</p><h3 id="routes-heading">Recommended Routes</h3></div>
+					<button class="map-clear-button" type="button" data-exit-route hidden>Exit route</button>
+				</div>
+				<p class="map-section-note">Choose a goal, then follow the connected steps. Optional branches and route warnings stay attached to the step instead of turning the planner into a checklist.</p>
+				<div class="map-route-state-legend" aria-label="Route step states">
+					<span class="map-route-state-legend__label">States</span>
+					<span class="map-route-state map-route-state--current">Current</span>
+					<span class="map-route-state map-route-state--next">Next</span>
+					<span class="map-route-state map-route-state--complete">Complete</span>
+					<span class="map-route-state map-route-state--optional">Optional</span>
+					<span class="map-route-state map-route-state--warning">Missable</span>
+					<span class="map-route-state map-route-state--warning">Do Before X</span>
+					<span class="map-route-state map-route-state--changed">Version Changed</span>
+				</div>
+				<div class="map-active-journey" data-active-journey hidden>
+					<div class="map-active-journey__heading"><p class="map-panel__eyebrow">Active Journey</p><strong data-active-journey-name>Route</strong><span data-active-journey-progress>0 / 0 complete</span></div>
+					<div class="map-active-journey__steps">
+						<div><span>Current step</span><strong data-active-journey-current>Choose a route</strong></div>
+						<div><span>Next step</span><strong data-active-journey-next>Start a route to begin</strong></div>
+					</div>
+					<div class="map-active-journey__actions"><button class="map-route-card__action" type="button" data-resume-active-route>Resume route <span aria-hidden="true">→</span></button><button class="map-clear-button" type="button" data-reset-active-route>Reset route</button><button class="map-clear-button" type="button" data-exit-active-route>Exit route</button></div>
+				</div>
+				<div class="map-route-list">
+					{mapRoutes.map((route) => {
+						const routeIsOptional = route.optional === true;
+						return (
+							<article class="map-route-card" data-map-route-card={route.id} data-route-name={route.name} data-route-waypoints={route.waypoints.map((waypoint) => waypoint.markerId).join(',')} data-route-optional={routeIsOptional ? 'true' : undefined}>
+								<div class="map-route-card__topline">
+									<div><span class="map-route-card__type">{route.type}{routeIsOptional ? ' · Optional branch' : ` · ${route.region}`}</span><h4>{route.name}</h4></div>
+									<button class="map-route-card__action" type="button" data-map-start-route={route.id}>Start route</button>
+								</div>
+								<p>{route.description}</p>
+								<p class="map-route-card__goal"><strong>Goal:</strong> {route.goal}</p>
+								{route.requirements && <p class="map-route-card__requirements"><strong>Use when:</strong> {route.requirements}</p>}
+								<div class="map-route-card__links">{route.guide && <a href={route.guide}>Route guide <span aria-hidden="true">→</span></a>}</div>
+								<div class="map-route-card__progress"><span><b data-route-completed>0</b> / {route.waypoints.length}</span><span data-route-percent>0%</span></div>
+								<div class="map-route-card__bar"><span data-route-bar></span></div>
+								<div class="map-route-graph" aria-label={`${route.name} route graph`}>
+									<div class="map-route-terminus map-route-terminus--start"><span class="map-route-terminus__node">START</span><span>{routeIsOptional ? 'Optional branch' : 'Begin route'}</span></div>
+									<ol class="map-route-waypoints">
+										{route.waypoints.map((waypoint, index) => {
+											const marker = mapMarkerById.get(waypoint.markerId);
+											const item = marker ? toolkitItemByMapMarkerId.get(marker.id) : undefined;
+											const guideUrl = marker?.guideUrl ?? item?.guideUrl ?? getCanonicalGuideUrlForMapMarker(waypoint.markerId);
+											const staticStatus = waypoint.status ?? (routeIsOptional ? 'optional' : undefined);
+											const isBranch = waypoint.branch ?? (routeIsOptional && index === 0);
+											if (!marker) return null;
+											return (
+												<li class:list={[isBranch && 'is-branch']} data-route-waypoint={marker.id} data-route-item-id={item?.id ?? ''} data-route-static-state={staticStatus}>
+													<div class="map-route-waypoint">
+														<button class="map-route-waypoint__main" type="button" data-map-route-waypoint={marker.id} data-route-id={route.id}>
+															<span class="map-route-waypoint__number">{index + 1}</span>
+															<span class="map-route-waypoint__copy"><strong>{marker.name}</strong><small>{marker.region}</small>{waypoint.note && <small class="map-route-waypoint__note">{waypoint.note}</small>}</span>
+															<span class="map-route-waypoint__state-wrap"><span class="map-route-waypoint__state" data-route-waypoint-state>Next</span>{staticStatus && <span class="map-route-waypoint__tag" data-route-waypoint-tag>{routeStepStatusLabels[staticStatus]}</span>}</span>
+														</button>
+														<div class="map-route-waypoint__actions">
+															{guideUrl && <a href={guideUrl}>Open Guide <span aria-hidden="true">↗</span></a>}
+															<button type="button" data-map-route-waypoint={marker.id} data-route-id={route.id}>Show on Map <span aria-hidden="true">⌖</span></button>
+														</div>
+													</div>
+												</li>
+											);
+										})}
+									</ol>
+									<div class="map-route-terminus map-route-terminus--finish" data-route-finish><span class="map-route-terminus__node" data-route-finish-label>NEXT</span><span data-route-finish-description>Continue to the next objective</span></div>
+								</div>
+							</article>
+						);
+					})}
+				</div>
+				<div class="map-route-completion-feedback" data-route-completion-feedback hidden><p class="map-panel__eyebrow">Route Complete</p><h4 data-route-feedback-route>Route Complete</h4><p data-route-feedback-achievement>All mapped waypoints are complete.</p><a href="/mortal-shell-ii/trophies/">View Completion Dashboard <span aria-hidden="true">→</span></a></div>
+			</section>
 
 			<section class="map-control-section map-control-section--detail" aria-live="polite" data-map-details aria-labelledby="marker-detail-heading"><div class="map-details__empty" data-map-empty><p class="map-panel__eyebrow">Marker Detail</p><h3 id="marker-detail-heading">Select a target</h3><p>Click a map point or route waypoint to see what it is, why it matters, and which guide should come next.</p></div>{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); const guideUrl = getCanonicalGuideUrlForMapMarker(marker.id); const relatedRoutes = (routeIdsByMarkerId.get(marker.id) ?? []).map((routeId) => mapRoutes.find((route) => route.id === routeId)).filter(Boolean); const nearbyMarkers = (marker.nearby ?? []).map((markerId) => mapMarkerById.get(markerId)).filter(Boolean); const relatedAchievements = item ? (relatedAchievementsByObjectiveId.get(item.id) ?? []) : []; return <article class="map-detail" data-map-detail={marker.id} hidden><div class="map-detail__heading"><span class="map-detail__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><div><p class="map-panel__eyebrow">{marker.category}</p><h3>{marker.name}</h3><p class="map-detail__region">{marker.region}</p></div></div><div class="map-detail__facts"><div><span>Requirements</span><p>{marker.requirements ?? 'Open the linked guide for the exact encounter or pickup requirements.'}</p></div><div><span>Why it matters</span><p>{marker.usefulNote ?? `This ${marker.category.toLowerCase()} is part of the verified map coverage and local tracker.`}</p></div></div><p class="map-detail__description">{marker.description}</p>{marker.sameArea && <p class="map-detail__note"><strong>Area:</strong> {marker.sameArea}</p>}{marker.sameStoryline && <p class="map-detail__note"><strong>Storyline:</strong> {marker.sameStoryline}</p>}{marker.missableWarning && <p class="map-detail__warning"><strong>Missable warning:</strong> {marker.missableWarning}</p>}{marker.relatedAchievement && <p class="map-detail__note"><strong>Achievement context:</strong> {marker.relatedAchievement}</p>}{item && <label class="toolkit-complete-control"><input type="checkbox" data-toolkit-checkbox={item.id} /><span data-toolkit-checkbox-label>Mark completed</span></label>}<button class="map-next-action" type="button" data-detail-complete-next hidden>Complete &amp; Next <span aria-hidden="true">→</span></button>{relatedAchievements.length > 0 && <div class="map-detail__related map-detail__related--achievements"><p class="map-panel__eyebrow">Related Achievements</p>{relatedAchievements.map((achievement) => <a href={`/mortal-shell-ii/trophies/#${achievement.id}`} data-related-achievement-id={achievement.id}><span>{achievement.name}</span><small data-related-achievement-progress={achievement.id}>0 / {achievementObjectiveCount(achievement)}</small></a>)}</div>}{nearbyMarkers.length > 0 && <div class="map-detail__related"><p class="map-panel__eyebrow">Do while you're here</p>{nearbyMarkers.map((nearby) => nearby && <button type="button" data-map-related-marker={nearby.id}><span>{getMarkerIcon(nearby.category)}</span>{nearby.name}<small>{nearby.region}</small></button>)}</div>}{relatedRoutes.length > 0 && <div class="map-detail__related"><p class="map-panel__eyebrow">Related routes</p>{relatedRoutes.map((route) => route && <button type="button" data-map-start-route={route.id}><span>{route.type}</span>{route.name}<small data-related-route-progress={route.id}>0 / {route.waypoints.length}</small></button>)}</div>}<div class="map-detail__actions">{guideUrl && <a class="map-detail__link" href={guideUrl}>Open Full Guide <span aria-hidden="true">→</span></a>}<a class="map-detail__source" href={marker.source} target="_blank" rel="noreferrer">Research source <span aria-hidden="true">↗</span></a></div></article>; })}</section>
 
@@ -101,6 +180,9 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 		const guideContext = app.querySelector('[data-map-guide-context]');
 		const modeStatus = app.querySelector('[data-map-mode-status]');
 		const exitRoute = app.querySelector('[data-exit-route]');
+		const exitActiveRouteButton = app.querySelector('[data-exit-active-route]');
+		const resetActiveRouteButton = app.querySelector('[data-reset-active-route]');
+		const resumeActiveRouteButton = app.querySelector('[data-resume-active-route]');
 		const achievementContext = app.querySelector('[data-map-achievement-context]');
 		const routeCompletionFeedback = app.querySelector('[data-route-completion-feedback]');
 		let completedIds = new Set();
@@ -147,7 +229,9 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 		function routeCard(routeId) { return routeCards.find((card) => card.getAttribute('data-map-route-card') === routeId); }
 		function routeMarkerIds(routeId) { return routeCard(routeId)?.getAttribute('data-route-waypoints')?.split(',').filter(Boolean) ?? []; }
 		function routeItemIds(routeId) { const card = routeCard(routeId); return card ? Array.from(card.querySelectorAll('[data-route-item-id]')).map((item) => item.getAttribute('data-route-item-id')).filter(Boolean) : []; }
-		function routeCurrentMarkerId(routeId) { const card = routeCard(routeId); const waypoint = card && Array.from(card.querySelectorAll('[data-route-waypoint]')).find((item) => { const itemId = item.getAttribute('data-route-item-id'); return itemId && !completedIds.has(itemId); }); return waypoint?.getAttribute('data-route-waypoint') || ''; }
+		function routeStepNodes(routeId) { return routeCard(routeId) ? Array.from(routeCard(routeId).querySelectorAll('[data-route-waypoint]')) : []; }
+		function routeProgress(routeId) { const steps = routeStepNodes(routeId); const currentIndex = steps.findIndex((step) => { const itemId = step.getAttribute('data-route-item-id'); return itemId && !completedIds.has(itemId); }); return { steps, currentIndex, current: currentIndex >= 0 ? steps[currentIndex] : undefined, next: currentIndex >= 0 ? steps[currentIndex + 1] : undefined, complete: currentIndex < 0 }; }
+		function routeCurrentMarkerId(routeId) { return routeProgress(routeId).current?.getAttribute('data-route-waypoint') || ''; }
 		function setUrl(params) { const url = new URL(window.location.href); Object.entries(params).forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key)); window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`); }
 		function setGuideContext(key) { activeGuideKey = key; if (!(guideContext instanceof HTMLElement)) return; if (!key) { guideContext.hidden = true; guideContext.textContent = ''; return; } const targetCount = markerButtons.filter((marker) => marker.getAttribute('data-map-guide-key') === key).length; const label = key.split('-').filter(Boolean).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '); guideContext.textContent = `${targetCount} location${targetCount === 1 ? '' : 's'} from ${label} Guide`; guideContext.hidden = false; }
 		function achievementProgress(achievement) { const ids = achievement?.objectiveIds || []; const total = Number(achievement?.total || (ids.length || 1)); const done = ids.length ? ids.filter((id) => completedIds.has(id)).length : Math.max(0, Math.min(total, Number(manualAchievementProgress[achievement.id] || 0))); return { done, total, remaining: Math.max(0, total - done), complete: done >= total }; }
@@ -205,20 +289,53 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 			if (modeStatus) modeStatus.textContent = activeRouteId ? `${routeCard(activeRouteId)?.getAttribute('data-route-name') || 'Route'} · Route Mode` : activeAchievementId ? `${activeAchievement?.name || 'Achievement'} · ${visibleMarkers} remaining targets` : `${visibleMarkers} mapped targets`;
 		}
 
+		function updateActiveJourney() {
+			const journey = app.querySelector('[data-active-journey]');
+			if (!(journey instanceof HTMLElement)) return;
+			const card = routeCard(activeRouteId);
+			journey.hidden = !card;
+			if (!card) return;
+			const progress = routeProgress(activeRouteId);
+			const setText = (selector, value) => { const node = journey.querySelector(selector); if (node) node.textContent = value; };
+			setText('[data-active-journey-name]', card.getAttribute('data-route-name') || 'Active route');
+			setText('[data-active-journey-progress]', `${routeItemIds(activeRouteId).filter((id) => completedIds.has(id)).length} / ${progress.steps.length} complete`);
+			setText('[data-active-journey-current]', progress.current?.querySelector('strong')?.textContent || (progress.complete ? 'Route complete' : 'Choose a current step'));
+			setText('[data-active-journey-next]', progress.next?.querySelector('strong')?.textContent || (progress.complete ? 'Finish state reached' : 'No next step yet'));
+		}
+
 		function updateRouteUI() {
-				routeCards.forEach((card) => {
+			routeCards.forEach((card) => {
 				const routeId = card.getAttribute('data-map-route-card') || '';
 				const itemIds = routeItemIds(routeId);
 				const completed = itemIds.filter((id) => completedIds.has(id)).length;
 				const percent = itemIds.length ? Math.round((completed / itemIds.length) * 100) : 0;
-				const currentMarker = routeCurrentMarkerId(routeId);
+				const progress = routeProgress(routeId);
+				const currentMarker = progress.current?.getAttribute('data-route-waypoint') || '';
 				const action = card.querySelector('[data-map-start-route]');
 				if (card.querySelector('[data-route-completed]')) card.querySelector('[data-route-completed]').textContent = String(completed);
 				if (card.querySelector('[data-route-percent]')) card.querySelector('[data-route-percent]').textContent = `${percent}%`;
 				if (card.querySelector('[data-route-bar]')) card.querySelector('[data-route-bar]').style.width = `${percent}%`;
 				if (action) action.textContent = percent === 100 ? 'Completed' : routeId === activeRouteId ? 'Resume route' : completed > 0 ? 'Resume route' : 'Start route';
 				card.classList.toggle('is-active', routeId === activeRouteId);
-					card.querySelectorAll('[data-route-waypoint]').forEach((waypoint) => { const itemId = waypoint.getAttribute('data-route-item-id'); const complete = Boolean(itemId && completedIds.has(itemId)); const current = waypoint.getAttribute('data-route-waypoint') === currentMarker && routeId === activeRouteId; waypoint.classList.toggle('is-completed', complete); waypoint.classList.toggle('is-current', current); const state = waypoint.querySelector('[data-route-waypoint-state]'); if (state) state.textContent = complete ? 'Done' : current ? 'Current' : 'Next'; });
+				card.querySelectorAll('[data-route-waypoint]').forEach((waypoint) => {
+					const itemId = waypoint.getAttribute('data-route-item-id');
+					const complete = Boolean(itemId && completedIds.has(itemId));
+					const current = waypoint.getAttribute('data-route-waypoint') === currentMarker && routeId === activeRouteId;
+					waypoint.classList.toggle('is-completed', complete);
+					waypoint.classList.toggle('is-current', current);
+					waypoint.classList.toggle('is-next', !complete && !current);
+					waypoint.classList.toggle('is-optional', waypoint.getAttribute('data-route-static-state') === 'optional');
+					waypoint.classList.toggle('is-warning', ['missable', 'do-before-x'].includes(waypoint.getAttribute('data-route-static-state') || ''));
+					waypoint.classList.toggle('is-version-changed', waypoint.getAttribute('data-route-static-state') === 'version-changed');
+					const state = waypoint.querySelector('[data-route-waypoint-state]');
+					if (state) state.textContent = complete ? 'Complete' : current ? 'Current' : 'Next';
+				});
+				const finish = card.querySelector('[data-route-finish]');
+				if (finish) finish.classList.toggle('is-complete', progress.complete);
+				const finishLabel = card.querySelector('[data-route-finish-label]');
+				if (finishLabel) finishLabel.textContent = progress.complete ? 'FINISH' : 'NEXT';
+				const finishDescription = card.querySelector('[data-route-finish-description]');
+				if (finishDescription) finishDescription.textContent = progress.complete ? 'Route complete' : 'Continue to the next objective';
 			});
 			if (activeRouteId) { const activeIds = routeItemIds(activeRouteId); updateRouteCompletionFeedback(activeRouteId, activeIds.filter((id) => completedIds.has(id)).length, activeIds.length); } else if (routeCompletionFeedback instanceof HTMLElement) routeCompletionFeedback.hidden = true;
 			app.querySelectorAll('[data-related-route-progress]').forEach((node) => { const routeId = node.getAttribute('data-related-route-progress') || ''; const ids = routeItemIds(routeId); node.textContent = `${ids.filter((id) => completedIds.has(id)).length} / ${ids.length}`; });
@@ -230,11 +347,12 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 			const complete = ids.filter((id) => completedIds.has(id)).length;
 			const currentMarker = routeCurrentMarkerId(routeId);
 			const currentWaypoint = recommended.querySelector(`[data-route-waypoint="${currentMarker}"]`);
-			const kicker = app.querySelector('[data-route-summary-kicker]'); const name = app.querySelector('[data-route-summary-name]'); const progress = app.querySelector('[data-route-summary-progress]'); const next = app.querySelector('[data-route-summary-next]');
+			const kicker = app.querySelector('[data-route-summary-kicker]'); const name = app.querySelector('[data-route-summary-name]'); const progressNode = app.querySelector('[data-route-summary-progress]'); const next = app.querySelector('[data-route-summary-next]');
 			if (kicker) kicker.textContent = activeRouteId ? 'Current route' : 'Next recommended';
 			if (name) name.textContent = recommended.getAttribute('data-route-name') || 'Recommended route';
-			if (progress) progress.textContent = `${complete} / ${ids.length}`;
+			if (progressNode) progressNode.textContent = `${complete} / ${ids.length}`;
 			if (next) next.textContent = currentWaypoint ? `Next · ${currentWaypoint.querySelector('strong')?.textContent || 'Waypoint'}` : 'All waypoints complete';
+			updateActiveJourney();
 		}
 
 		function updateProgressUI() {
@@ -251,6 +369,8 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 
 		function setCategory(value) { activeCategory = value; saveState(); applyFilters(); updateProgressUI(); }
 		function startRoute(routeId, focusCurrent = true) { if (!validRouteIds.has(routeId)) return; activeRouteId = routeId; setGuideContext(''); setCategory('all'); setUrl({ route: routeId, guide: '', achievement: activeAchievementId }); saveState(); updateProgressUI(); const markerId = routeCurrentMarkerId(routeId); if (markerId && focusCurrent) showMarker(markerId, true); trackEvent('map_route_start', { route_id: routeId }); }
+		function resumeActiveRoute() { if (activeRouteId) startRoute(activeRouteId, true); }
+		function resetActiveRoute() { if (!activeRouteId || !window.confirm('Reset this route\'s local progress? Other routes and objectives will stay unchanged.')) return; routeItemIds(activeRouteId).forEach((id) => completedIds.delete(id)); saveState(); updateProgressUI(); const markerId = routeCurrentMarkerId(activeRouteId); if (markerId) showMarker(markerId, true); trackEvent('map_route_reset', { route_id: activeRouteId }); }
 		function exitActiveRoute() { activeRouteId = ''; saveState(); setUrl({ route: '', achievement: activeAchievementId }); updateProgressUI(); }
 		function toggleCompletion(id, advance = true) { if (!id || !validIds.has(id)) return; const wasDone = completedIds.has(id); if (wasDone) completedIds.delete(id); else completedIds.add(id); saveState(); updateProgressUI(); trackEvent(wasDone ? 'toolkit_item_uncomplete' : 'toolkit_item_complete', { item_id: id }); if (!wasDone && advance && activeRouteId) { const markerId = routeCurrentMarkerId(activeRouteId); if (markerId) showMarker(markerId, true); } }
 		function completeAndNext() { const marker = markerButtons.find((button) => button.getAttribute('data-map-marker-button') === activeMarkerId); const id = marker?.getAttribute('data-toolkit-id'); if (!id || !activeRouteId) return; completedIds.add(id); saveState(); updateProgressUI(); const next = routeCurrentMarkerId(activeRouteId); if (next) showMarker(next, true); }
@@ -265,6 +385,9 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 		app.querySelector('[data-reset-progress]')?.addEventListener('click', () => { if (!window.confirm('Reset all Player Toolkit completion progress on this device?')) return; completedIds = new Set(); manualAchievementProgress = {}; try { window.localStorage.removeItem(storageKey); } catch (error) { /* keep UI usable */ } saveState(); updateProgressUI(); });
 		app.querySelector('[data-toolkit-reset]')?.addEventListener('click', () => { if (search instanceof HTMLInputElement) search.value = ''; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false; activeGuideKey = ''; setGuideContext(''); setCategory('all'); setZoom(1); saveState(); applyFilters(); });
 		exitRoute?.addEventListener('click', exitActiveRoute);
+		exitActiveRouteButton?.addEventListener('click', exitActiveRoute);
+		resetActiveRouteButton?.addEventListener('click', resetActiveRoute);
+		resumeActiveRouteButton?.addEventListener('click', resumeActiveRoute);
 		markerButtons.forEach((marker) => marker.addEventListener('click', () => showMarker(marker.getAttribute('data-map-marker-button') || '', true)));
 		routeCards.forEach((card) => { card.querySelectorAll('[data-map-route-waypoint]').forEach((button) => button.addEventListener('click', () => { startRoute(button.getAttribute('data-route-id') || '', false); showMarker(button.getAttribute('data-map-route-waypoint') || '', true); })); });
 		app.querySelectorAll('[data-map-start-route]').forEach((button) => button.addEventListener('click', () => startRoute(button.getAttribute('data-map-start-route') || '')));

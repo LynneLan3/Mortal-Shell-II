@@ -6,9 +6,13 @@
  */
 export type MapRouteType = 'Nearby Cleanup' | 'Goal Route' | 'Story / Quest Route';
 
+export type MapRouteStepStatus = 'optional' | 'missable' | 'do-before-x' | 'version-changed';
+
 export interface MapRouteWaypoint {
 	markerId: string;
 	note?: string;
+	status?: MapRouteStepStatus;
+	branch?: boolean;
 }
 
 export interface MapRoute {
@@ -21,6 +25,7 @@ export interface MapRoute {
 	waypoints: readonly MapRouteWaypoint[];
 	guide?: string;
 	requirements?: string;
+	optional?: boolean;
 }
 
 /**
@@ -36,6 +41,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		type: 'Nearby Cleanup',
 		region: 'Ruins of Mammon',
 		goal: 'Finish the currently mapped Mammon objectives as one curated area sweep.',
+		optional: true,
 		guide: '/mortal-shell-ii/map-fragments/',
 		requirements: 'Use the route as a region checklist; it is not a fastest-path claim.',
 		waypoints: [
@@ -83,6 +89,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		type: 'Goal Route',
 		region: 'Fainweald',
 		goal: 'Complete the five mapped Fainweald Map Fragment objectives.',
+		optional: true,
 		guide: '/mortal-shell-ii/map-fragments/',
 		requirements: 'The route covers mapped stations only; unlocated checklist fragments remain outside Route Mode.',
 		waypoints: [

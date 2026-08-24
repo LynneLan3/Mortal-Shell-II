@@ -198,6 +198,57 @@
 .map-route-waypoints li.is-completed .map-route-waypoint__number { border-color: var(--map-done); color: var(--map-done); }
 .map-route-waypoints li.is-completed .map-route-waypoint__copy strong { color: var(--map-done); text-decoration: line-through; text-decoration-color: rgb(105 224 188 / 0.45); }
 
+.map-route-state-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; margin-top: 0.75rem; }
+.map-route-state-legend__label { margin-right: 0.15rem; color: var(--map-dim); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.map-route-state { padding: 0.18rem 0.35rem; border: 1px solid var(--map-line); color: var(--map-dim); font-size: 0.58rem; font-weight: 800; white-space: nowrap; }
+.map-route-state--current { border-color: var(--map-route); color: var(--map-route); }
+.map-route-state--next { color: var(--map-muted); }
+.map-route-state--complete { border-color: rgb(105 224 188 / 0.42); color: var(--map-done); }
+.map-route-state--optional { border-color: rgb(190 211 218 / 0.24); color: var(--map-muted); }
+.map-route-state--warning { border-color: rgb(255 149 136 / 0.45); color: var(--map-danger); }
+.map-route-state--changed { border-color: rgb(183 161 255 / 0.42); color: #b7a1ff; }
+
+.map-active-journey { display: grid; grid-template-columns: minmax(9rem, 0.8fr) minmax(0, 1.4fr) auto; align-items: center; gap: 1rem; width: 100%; min-width: 0; margin-top: 0.8rem; padding: 0.8rem; border: 1px solid rgb(242 179 107 / 0.55); border-left: 3px solid var(--map-route); background: var(--map-route-soft); }
+.map-active-journey__heading { display: grid; gap: 0.18rem; min-width: 0; }
+.map-active-journey__heading strong { overflow: hidden; color: var(--map-text); font-size: 0.88rem; text-overflow: ellipsis; white-space: nowrap; }
+.map-active-journey__heading > span { color: var(--map-route); font-size: 0.64rem; font-weight: 800; }
+.map-active-journey__steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+.map-active-journey__steps div { display: grid; gap: 0.15rem; min-width: 0; }
+.map-active-journey__steps span { color: var(--map-dim); font-size: 0.58rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.map-active-journey__steps strong { overflow: hidden; color: var(--map-text); font-size: 0.7rem; text-overflow: ellipsis; white-space: nowrap; }
+.map-active-journey__steps div:first-child strong { color: var(--map-route); }
+.map-active-journey__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; min-width: 0; max-width: 100%; justify-content: flex-start; }
+.map-active-journey__actions .map-route-card__action { white-space: nowrap; }
+
+.map-route-graph { position: relative; margin-top: 0.65rem; padding: 0.35rem 0; }
+.map-route-graph::before { content: ''; position: absolute; left: 1.08rem; top: 1.35rem; bottom: 1.35rem; width: 1px; background: color-mix(in srgb, var(--map-route) 42%, var(--map-line)); }
+.map-route-terminus { position: relative; z-index: 1; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); align-items: center; gap: 0.55rem; min-height: 2.2rem; color: var(--map-dim); font-size: 0.6rem; font-weight: 800; text-transform: uppercase; }
+.map-route-terminus__node { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid var(--map-route); border-radius: 50%; background: var(--map-ink-soft); color: var(--map-route); font-size: 0.48rem; font-weight: 900; letter-spacing: 0.05em; }
+.map-route-terminus--finish { margin-top: 0.2rem; }
+.map-route-terminus--finish.is-complete .map-route-terminus__node { border-color: var(--map-done); color: var(--map-done); }
+.map-route-terminus--finish.is-complete { color: var(--map-done); }
+.map-route-waypoints { position: relative; z-index: 1; margin: 0.25rem 0; }
+.map-route-waypoints li { position: relative; padding: 0.28rem 0; border-top: 0; }
+.map-route-waypoints li.is-branch { margin-left: 0.9rem; }
+.map-route-waypoints li.is-branch::before { content: ''; position: absolute; top: 1.25rem; left: -0.9rem; width: 0.9rem; border-top: 1px solid color-mix(in srgb, var(--map-route) 42%, var(--map-line)); }
+.map-route-waypoint { min-width: 0; }
+.map-route-waypoint__main { display: grid; grid-template-columns: 1.55rem minmax(0, 1fr) auto; align-items: center; gap: 0.5rem; width: 100%; padding: 0.48rem 0.7rem; border: 1px solid transparent; background: transparent; color: var(--map-muted); text-align: left; cursor: pointer; }
+.map-route-waypoint__main:hover, .map-route-waypoint__main:focus-visible { border-color: var(--map-line); background: rgb(255 255 255 / 0.04); color: var(--map-text); outline: none; }
+.map-route-waypoint__copy { gap: 0.12rem; }
+.map-route-waypoint__note { overflow: hidden; color: var(--map-dim); font-size: 0.58rem; text-overflow: ellipsis; white-space: nowrap; }
+.map-route-waypoint__state-wrap { display: grid; justify-items: end; gap: 0.16rem; }
+.map-route-waypoint__tag { padding: 0.12rem 0.25rem; border: 1px solid var(--map-line); color: var(--map-dim); font-size: 0.5rem; font-weight: 900; letter-spacing: 0.04em; white-space: nowrap; }
+.map-route-waypoint.is-current .map-route-waypoint__main { border-color: rgb(242 179 107 / 0.35); background: var(--map-route-soft); }
+.map-route-waypoint.is-current .map-route-waypoint__number { border-color: var(--map-route); background: var(--map-route); color: var(--map-ink); }
+.map-route-waypoint.is-current .map-route-waypoint__copy strong, .map-route-waypoint.is-current .map-route-waypoint__state { color: var(--map-route); }
+.map-route-waypoint.is-completed .map-route-waypoint__number { border-color: var(--map-done); background: transparent; color: var(--map-done); }
+.map-route-waypoint.is-completed .map-route-waypoint__copy strong { color: var(--map-done); text-decoration: line-through; text-decoration-color: rgb(105 224 188 / 0.45); }
+.map-route-waypoint.is-warning .map-route-waypoint__tag { border-color: rgb(255 149 136 / 0.45); color: var(--map-danger); }
+.map-route-waypoint.is-version-changed .map-route-waypoint__tag { border-color: rgb(183 161 255 / 0.42); color: #b7a1ff; }
+.map-route-waypoint__actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin: 0 0 0.25rem 2.25rem; padding-left: 0.7rem; }
+.map-route-waypoint__actions a, .map-route-waypoint__actions button { display: inline-flex; width: auto; padding: 0; border: 0; background: transparent; color: var(--map-route); font: inherit; font-size: 0.6rem; font-weight: 900; text-decoration: none; cursor: pointer; }
+.map-route-waypoint__actions a:hover, .map-route-waypoint__actions button:hover { text-decoration: underline; }
+
 .map-control-section--detail { min-height: 12rem; }
 .map-details__empty h3, .map-detail h3 { margin: 0.35rem 0 0; color: var(--map-text); font-size: 1.05rem; }
 .map-details__empty > p:last-child { margin: 0.7rem 0 0; color: var(--map-muted); font-size: 0.8rem; line-height: 1.55; }
@@ -277,6 +328,8 @@
 	.map-control-center { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
 	.map-control-section--search, .map-control-section--routes, .map-control-section--detail, .map-tracker { grid-column: 1 / -1; }
 	.map-viewport { min-height: 40rem; }
+	.map-active-journey { grid-template-columns: minmax(9rem, 0.8fr) minmax(0, 1.4fr); }
+	.map-active-journey__actions { grid-column: 1 / -1; justify-content: flex-start; }
 }
 
 @media (max-width: 48rem) {
@@ -289,6 +342,9 @@
 	.map-panel__header { align-items: start; flex-direction: column; }
 	.map-panel__status-group { justify-content: start; }
 	.map-controls__hint { display: none; }
+	.map-active-journey { grid-template-columns: 1fr; }
+	.map-active-journey__steps { grid-template-columns: 1fr 1fr; }
+	.map-active-journey__actions { grid-column: auto; }
 }
 
 @media (max-width: 34rem) {

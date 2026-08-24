@@ -54,6 +54,7 @@ export interface GameHubStartHereItem {
 	description: string;
 	href: string;
 	image?: string;
+	imageAlt?: string;
 	label?: string;
 	badge?: string;
 }

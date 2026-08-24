@@ -1,6 +1,8 @@
 ---
 import { ui } from '../../lib/ui';
 import { getGuides, guideHref, resolveRelated } from '../../lib/guides';
+import CardThumbnail from '../CardThumbnail.astro';
+import { resolveCardImage } from '../../lib/assets';
 
 const { entry } = Astro.locals.starlightRoute;
 const t = ui();
@@ -19,6 +21,10 @@ const nextGuides = relatedSlugs.length > 0
 			<div class="exp-next-step__grid">
 				{nextGuides.map((guide) => (
 					<a class="exp-next-step__card" href={guideHref(guide)}>
+						{(() => {
+							const image = resolveCardImage({ href: guideHref(guide), title: guide.data.title, cover: guide.data.cover });
+							return image && <CardThumbnail className="exp-next-step__media" image={image.src} alt={image.alt} />;
+						})()}
 						<span class="exp-next-step__card-title">{guide.data.title}</span>
 						{guide.data.description && <span class="exp-next-step__card-desc">{guide.data.description}</span>}
 						<span class="exp-cta-link">{t.readGuide}</span>

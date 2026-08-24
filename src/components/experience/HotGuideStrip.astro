@@ -1,5 +1,7 @@
 ---
 import type { GameHubStartHereItem } from '../../config/game';
+import CardThumbnail from '../CardThumbnail.astro';
+import { resolveCardImage } from '../../lib/assets';
 
 interface Props {
 	items: readonly GameHubStartHereItem[];
@@ -23,17 +25,21 @@ const {
 			<h2 class="exp-h2" id="exp-hot-strip-heading">{heading}</h2>
 			<p class="exp-lede">{lede}</p>
 			<div class="exp-hot-strip__grid">
-				{items.map((item, index) => (
-					<a class="exp-hot-strip__card" href={item.href}>
-						<div class="exp-hot-strip__meta">
-							<span>{String(index + 1).padStart(2, '0')}</span>
-							<span>{item.badge ?? 'Guide'}</span>
-						</div>
-						<span class="exp-hot-strip__title">{item.title}</span>
-						<span class="exp-hot-strip__desc">{item.description}</span>
-						<span class="exp-hot-strip__cta">Read guide <span aria-hidden="true">→</span></span>
-					</a>
-				))}
+				{items.map((item, index) => {
+					const image = resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt });
+					return (
+						<a class="exp-hot-strip__card" href={item.href}>
+							{image && <CardThumbnail className="exp-hot-strip__thumbnail" image={image.src} alt={image.alt} />}
+							<div class="exp-hot-strip__meta">
+								<span>{String(index + 1).padStart(2, '0')}</span>
+								<span>{item.badge ?? 'Guide'}</span>
+							</div>
+							<span class="exp-hot-strip__title">{item.title}</span>
+							<span class="exp-hot-strip__desc">{item.description}</span>
+							<span class="exp-hot-strip__cta">Read guide <span aria-hidden="true">→</span></span>
+						</a>
+					);
+				})}
 			</div>
 		</div>
 	</section>
@@ -74,6 +80,12 @@ const {
 		transition: border-color 150ms, background 150ms, transform 150ms;
 	}
 
+	.exp-hot-strip__thumbnail {
+		width: calc(100% + 2.2rem);
+		margin: -1rem -1.1rem 0;
+		border-bottom: 1px solid color-mix(in srgb, var(--sl-color-hairline, #27303a) 88%, transparent);
+	}
+
 	.exp-hot-strip__card:hover,
 	.exp-hot-strip__card:focus-visible {
 		border-color: color-mix(in srgb, var(--game-accent, #7c3aed) 64%, var(--sl-color-hairline, #27303a));
@@ -85,6 +97,8 @@ const {
 	.exp-hot-strip__card:focus-visible {
 		box-shadow: 0 0 0 3px color-mix(in srgb, var(--game-accent, #7c3aed) 24%, transparent);
 	}
+
+	.exp-hot-strip__card:active { transform: translateY(0); }
 
 	.exp-hot-strip__meta {
 		display: flex;

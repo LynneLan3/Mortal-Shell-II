@@ -72,8 +72,34 @@
 }
 
 .exp-boss-card {
+	display: grid;
+	grid-template-rows: auto 1fr;
 	border: 1px solid var(--xp-border);
 	background: var(--xp-surface);
+	color: inherit;
+	text-decoration: none;
+	transition: border-color 150ms, background 150ms, transform 150ms, box-shadow 150ms;
+}
+
+.exp-boss-card:hover,
+.exp-boss-card:focus-visible {
+	border-color: color-mix(in srgb, var(--xp-accent) 64%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 8%, var(--xp-surface));
+	transform: translateY(-2px);
+	outline: none;
+}
+
+.exp-boss-card:focus-visible {
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-accent) 24%, transparent), 0 0.7rem 1.5rem rgb(0 0 0 / 0.18);
+}
+
+.exp-boss-card:active {
+	transform: translateY(0);
+}
+
+.exp-boss-card__media {
+	border-bottom: 1px solid var(--xp-border);
+	background: var(--xp-surface-dark);
 }
 
 .exp-boss-card__body {
@@ -136,6 +162,11 @@
 
 .exp-boss-card__link:hover,
 .exp-boss-card__link:focus-visible {
+	text-decoration: underline;
+}
+
+.exp-boss-card:hover .exp-boss-card__link,
+.exp-boss-card:focus-visible .exp-boss-card__link {
 	text-decoration: underline;
 }
 

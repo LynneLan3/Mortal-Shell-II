@@ -11,6 +11,8 @@ import { categoryOf, getGuides, guideHref, sortGuides } from '../../lib/guides';
 import type { GameGuideVisual, GameGuideVisualIcon } from '../../config/game';
 import type { GuideEntry } from '../../lib/guides';
 import { ui } from '../../lib/ui';
+import { resolveCardImage } from '../../lib/assets';
+import CardThumbnail from '../CardThumbnail.astro';
 
 const t = ui();
 const guides = (await getGuides()).filter((entry) => Boolean(categoryOf(entry)));
@@ -39,7 +41,17 @@ const iconPaths: Record<GameGuideVisualIcon, string> = {
 };
 
 function visualForEntry(entry: GuideEntry, groupId: string): GameGuideVisual {
-	return game.portal?.guideVisuals?.[guideHref(entry)] ?? { icon: fallbackIcons[groupId] ?? 'book' };
+	const href = guideHref(entry);
+	const configured = game.portal?.guideVisuals?.[href];
+	const image = resolveCardImage({ href, title: entry.data.title, image: configured?.image, imageAlt: configured?.alt, cover: entry.data.cover });
+	if (image) {
+		return {
+			...configured,
+			image: typeof image.src === 'string' ? image.src : image.src.src,
+			alt: image.alt,
+		};
+	}
+	return configured ?? { icon: fallbackIcons[groupId] ?? 'book' };
 }
 
 const groups = configuredGroups
@@ -86,15 +98,15 @@ if (unassigned.length > 0) {
 						const visual = visualForEntry(entry, group.id);
 						return (
 							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image']} href={guideHref(entry)}>
-								<span class="exp-guide-topic-card__visual">
-									{visual.image ? (
-										<img src={visual.image} alt={visual.alt ?? entry.data.title} loading="lazy" decoding="async" />
-									) : (
+								{visual.image ? (
+									<CardThumbnail className="exp-guide-topic-card__visual" image={visual.image} alt={visual.alt ?? ''} />
+								) : (
+									<span class="exp-guide-topic-card__visual">
 										<svg aria-hidden="true" viewBox="0 0 24 24">
 											<Fragment set:html={iconPaths[visual.icon ?? fallbackIcons[group.id] ?? 'book']} />
 										</svg>
-									)}
-								</span>
+									</span>
+								)}
 								<span class="exp-guide-topic-card__body">
 									<span class="exp-guide-topic-card__meta">{categoryOf(entry)?.label ?? t.guidesNav}</span>
 									<span class="exp-guide-topic-card__title">{entry.data.title}</span>

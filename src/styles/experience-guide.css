@@ -173,6 +173,12 @@ body:has(.exp-guide-frame) .exp-topbar {
 	transition: border-color 140ms, background 140ms, transform 140ms;
 }
 
+.exp-next-step__media {
+	width: calc(100% + 1.8rem);
+	margin: -0.9rem -0.9rem 0;
+	border-bottom: 1px solid var(--xp-border-subtle);
+}
+
 .exp-next-step__card:hover,
 .exp-next-step__card:focus-visible {
 	border-color: color-mix(in srgb, var(--xp-accent) 58%, var(--xp-border));
@@ -184,6 +190,8 @@ body:has(.exp-guide-frame) .exp-topbar {
 .exp-next-step__card:focus-visible {
 	box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-accent) 22%, transparent);
 }
+
+.exp-next-step__card:active { transform: translateY(0); }
 
 .exp-next-step__card-title {
 	font-weight: 700;

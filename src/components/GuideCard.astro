@@ -1,8 +1,9 @@
 ---
 import type { ComponentProps } from 'astro/types';
-import { Image } from 'astro:assets';
 import { Icon } from '@astrojs/starlight/components';
 import GuideStatus from './GuideStatus.astro';
+import CardThumbnail from './CardThumbnail.astro';
+import { resolveCardImage } from '../lib/assets';
 import { categoryOf, guideHref, type GuideEntry } from '../lib/guides';
 
 interface Props {
@@ -15,23 +16,19 @@ const { entry, featured = false, variant } = Astro.props;
 const density = variant ?? (featured ? 'featured' : 'compact');
 const href = guideHref(entry);
 const category = categoryOf(entry);
-const cover = entry.data.cover;
+const cardImage = resolveCardImage({ href, title: entry.data.title, cover: entry.data.cover });
 
 type StarlightIconName = ComponentProps<typeof Icon>['name'];
 ---
 
 <a class:list={['gw-card', density === 'featured' && 'gw-card--featured']} href={href}>
 	{
-		cover && (
-			<span class="gw-card__media">
-				<Image src={cover} alt="" width={640} height={360} />
-			</span>
-		)
+		cardImage && <CardThumbnail className="gw-card__media" image={cardImage.src} alt={cardImage.alt} />
 	}
 	<span class="gw-card__body">
 		<span class="gw-card__meta">
 			{
-				!cover && category && density === 'featured' && (
+				!cardImage && category && density === 'featured' && (
 					<span class="gw-card__icon" aria-hidden="true">
 						<Icon name={category.icon as StarlightIconName} size="1rem" />
 					</span>

@@ -5,9 +5,9 @@
  * Route is a player path, not a Category. This card summarizes the Route and
  * previews its ordered guide membership without expanding into a taxonomy tree.
  */
-import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
 import { resolveGameAsset } from '../../../lib/assets';
+import CardThumbnail from '../../CardThumbnail.astro';
 import type { GameRoute } from '../../../config/game';
 
 interface Props {
@@ -31,18 +31,12 @@ const previewPages = route.pages.slice(0, 3);
 	href={route.href}
 >
 	{visualAsset && (
-		<div class="exp-route-topic-card__visual">
-			<Image
-				src={visualAsset}
-				alt={`${route.title} route visual`}
-				width={960}
-				height={540}
-				widths={[480, 800, 1200, 1600]}
-				sizes="(min-width: 50rem) 50vw, 100vw"
-				loading="lazy"
-				decoding="async"
-			/>
-		</div>
+		<CardThumbnail
+			className="exp-route-topic-card__visual"
+			image={visualAsset}
+			alt={`${route.title} route visual`}
+			sizes="(min-width: 50rem) 50vw, 100vw"
+		/>
 	)}
 	<div class="exp-route-topic-card__body">
 		<div class="exp-route-topic-card__meta">

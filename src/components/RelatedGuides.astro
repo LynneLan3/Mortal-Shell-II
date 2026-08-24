@@ -1,5 +1,7 @@
 ---
 import { getGuides, guideHref, resolveRelated } from '../lib/guides';
+import CardThumbnail from './CardThumbnail.astro';
+import { resolveCardImage } from '../lib/assets';
 
 const entry = Astro.locals.starlightRoute.entry;
 const slugs = entry.data.related ?? [];
@@ -15,6 +17,10 @@ const related =
 				{related.map((guide) => (
 					<li>
 						<a href={guideHref(guide)}>
+							{(() => {
+								const image = resolveCardImage({ href: guideHref(guide), title: guide.data.title, cover: guide.data.cover });
+								return image && <CardThumbnail className="gw-related__media" image={image.src} alt={image.alt} />;
+							})()}
 							<span class="gw-related__title">{guide.data.title}</span>
 							{guide.data.description && (
 								<span class="gw-related__desc">{guide.data.description}</span>

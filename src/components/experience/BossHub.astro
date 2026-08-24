@@ -1,4 +1,7 @@
 ---
+import CardThumbnail from '../CardThumbnail.astro';
+import { resolveCardImage } from '../../lib/assets';
+
 const bosses = [
 	{
 		name: 'Tar Golem',
@@ -167,22 +170,26 @@ const relatedRoutes = [
 				<p class="exp-lede">Every card below links to an existing guide. Region, area, and optional status appear only where the current guide supports them.</p>
 			</header>
 			<div class="exp-boss-grid">
-				{bosses.map((boss) => (
-					<article class="exp-boss-card">
-						<div class="exp-boss-card__body">
-							<p class="exp-boss-card__kind">{boss.kind}</p>
-							<h3 class="exp-boss-card__title">{boss.name}</h3>
-							<p class="exp-boss-card__description">{boss.description}</p>
-							{(boss.area || boss.optional) && (
-								<dl class="exp-boss-card__facts">
-									{boss.area && <><dt>Region / area</dt><dd>{boss.area}</dd></>}
-									{boss.optional && <><dt>Required / optional</dt><dd>{boss.optional}</dd></>}
-								</dl>
-							)}
-							<a class="exp-boss-card__link" href={boss.href}>View Guide <span aria-hidden="true">→</span></a>
-						</div>
-					</article>
-				))}
+				{bosses.map((boss) => {
+					const image = resolveCardImage({ href: boss.href, title: boss.name });
+					return (
+						<a class="exp-boss-card" href={boss.href}>
+							{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} />}
+							<div class="exp-boss-card__body">
+								<p class="exp-boss-card__kind">{boss.kind}</p>
+								<h3 class="exp-boss-card__title">{boss.name}</h3>
+								<p class="exp-boss-card__description">{boss.description}</p>
+								{(boss.area || boss.optional) && (
+									<dl class="exp-boss-card__facts">
+										{boss.area && <><dt>Region / area</dt><dd>{boss.area}</dd></>}
+										{boss.optional && <><dt>Required / optional</dt><dd>{boss.optional}</dd></>}
+									</dl>
+								)}
+								<span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</section>
 

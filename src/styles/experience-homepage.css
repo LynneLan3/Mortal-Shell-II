@@ -262,6 +262,12 @@
 	transition: border-color 150ms, background 150ms, transform 150ms, box-shadow 150ms;
 }
 
+.exp-hot-card__thumbnail {
+	width: calc(100% + 2.6rem);
+	margin: -1.25rem -1.35rem 0;
+	border-bottom: 1px solid var(--xp-border);
+}
+
 .exp-hot-card::after {
 	content: '';
 	position: absolute;
@@ -291,6 +297,8 @@
 .exp-hot-card:focus-visible {
 	box-shadow: 0 0 0 3px color-mix(in srgb, var(--xp-accent) 22%, transparent), 0 0.8rem 2rem color-mix(in srgb, #000 24%, transparent);
 }
+
+.exp-hot-card:active { transform: translateY(0); }
 
 .exp-hot-card__meta {
 	display: flex;
@@ -602,6 +610,13 @@
 	transition: border-color 140ms, background 140ms, transform 140ms;
 }
 
+.exp-question__thumbnail {
+	grid-column: 1 / -1;
+	width: calc(100% + 2rem);
+	margin: -1.15rem -1rem 0;
+	border-bottom: 1px solid var(--xp-border);
+}
+
 .exp-question:last-child { border-bottom: none; }
 
 .exp-question:hover,
@@ -654,6 +669,8 @@
 .exp-question:focus-visible .exp-question__cta {
 	transform: translateX(2px);
 }
+
+.exp-question:active { transform: translateY(0); }
 
 /* ═══════════════════════════════════════════════════
    FEATURED SPREAD
@@ -765,6 +782,7 @@
 .exp-field-card__visual {
 	overflow: hidden;
 	margin: -1.25rem -1.35rem 0;
+	width: calc(100% + 2.7rem);
 }
 
 .exp-field-card__visual img {
@@ -777,6 +795,8 @@
 }
 
 .exp-field-card--primary .exp-field-card__visual img { aspect-ratio: 4 / 3; }
+
+.exp-field-card--primary .exp-field-card__visual { aspect-ratio: 4 / 3; }
 
 .exp-field-card__eyebrow {
 	display: inline-flex;

@@ -6,9 +6,9 @@
  * sorting). Each step shows number, optional eyebrow, title, description,
  * optional image (only when the data provides one), and href.
  */
-import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
 import { resolveGameAsset } from '../../../lib/assets';
+import CardThumbnail from '../../CardThumbnail.astro';
 import type { GameRoutePage } from '../../../config/game';
 
 interface Props {
@@ -34,18 +34,12 @@ const t = ui();
 					<span class="exp-cta-link exp-route-step__cta">{t.readGuide}</span>
 				</div>
 				{image && (
-					<div class="exp-route-step__visual">
-						<Image
-							src={image}
-							alt={`${page.title} preview`}
-							width={640}
-							height={400}
-							widths={[480, 640, 960]}
-							sizes="(min-width: 58rem) 22rem, 100vw"
-							loading="lazy"
-							decoding="async"
-						/>
-					</div>
+					<CardThumbnail
+						className="exp-route-step__visual"
+						image={image}
+						alt={`${page.title} preview`}
+						sizes="(min-width: 58rem) 22rem, 100vw"
+					/>
 				)}
 			</a>
 		);

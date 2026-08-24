@@ -92,14 +92,16 @@
 .ngplus-toolkit-group__heading h5 { margin: 0.2rem 0 0; font-size: 0.8rem; }
 .ngplus-toolkit-group__heading strong { color: var(--ngplus-muted); font-size: 0.68rem; }
 .ngplus-toolkit-group__items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
-.ngplus-toolkit-item { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.55rem; padding: 0.65rem; border: 1px solid rgb(255 255 255 / 0.08); background: rgb(255 255 255 / 0.025); }
+.ngplus-toolkit-item { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.55rem; padding: 0.65rem; border: 1px solid rgb(255 255 255 / 0.08); background: rgb(255 255 255 / 0.025); }
 .ngplus-toolkit-item[hidden] { display: none; }
 .ngplus-toolkit-item__check { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; color: var(--ngplus-accent); font-size: 0.67rem; font-weight: 900; cursor: pointer; }
 .ngplus-toolkit-item__check input { width: 1.05rem; height: 1.05rem; accent-color: var(--ngplus-accent); }
-.ngplus-toolkit-item h6 { margin: 0; color: var(--ngplus-text); font-size: 0.75rem; }
-.ngplus-toolkit-item p { margin: 0.2rem 0 0; color: var(--ngplus-muted); font-size: 0.62rem; }
-.ngplus-toolkit-item small { display: block; margin-top: 0.35rem; color: #8593a0; font-size: 0.62rem; line-height: 1.4; }
-.ngplus-toolkit-item__actions { grid-column: 2; display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.ngplus-toolkit-item > div { min-width: 0; }
+.ngplus-toolkit-item h6 { margin: 0; color: var(--ngplus-text); font-size: 0.75rem; overflow-wrap: anywhere; }
+.ngplus-toolkit-item p { margin: 0.2rem 0 0; color: var(--ngplus-muted); font-size: 0.62rem; overflow-wrap: anywhere; }
+.ngplus-toolkit-item small { display: block; margin-top: 0.35rem; color: #8593a0; font-size: 0.62rem; line-height: 1.4; overflow-wrap: anywhere; }
+.ngplus-toolkit-item__actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0.65rem; min-width: 0; }
+.ngplus-toolkit-item__actions a { white-space: nowrap; }
 .ngplus-toolkit-group__empty { margin: 0; padding: 0.7rem; border: 1px solid rgb(105 224 188 / 0.22); color: var(--ngplus-safe); font-size: 0.7rem; }
 
 .ngplus-readiness__section--safe { padding-top: 0.2rem; }

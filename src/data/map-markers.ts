@@ -62,7 +62,7 @@ export const mapMarkers: readonly MapMarker[] = [
 		x: 35.69, y: 42.77, description: 'Shell pickup at Prophet’s Rest; use the existing Smert route to complete the blood-pool and Memory sequence.',
 		requirements: 'Activate the three blood pools, start The Convert, and defeat the Hierarch.',
 		usefulNote: 'This marker combines a Shell pickup with the linked Memory sequence, so it is a strong first stop for the Fainweald Shell route.',
-		nearby: ['map-station-fainweald-lower-west'], sameArea: 'Fainweald',
+		nearby: ['map-station-fainweald-lower-west'], sameArea: 'Fainweald', sameStoryline: 'Smert Memory',
 		guideUrl: '/mortal-shell-ii/smert/', image: '/images/ova/methers-breath-tutorial.webp',
 		source: 'https://lootmap.gg/mortal-shell-ii/world/?cat=shells%2Cshell-interactions&sel=shells-70cc2730&x=2924&y=3504&z=5',
 	},

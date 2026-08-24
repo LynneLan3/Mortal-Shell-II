@@ -165,6 +165,8 @@
 .map-route-card > p { margin: 0.5rem 0.7rem; color: var(--map-muted); font-size: 0.72rem; line-height: 1.45; }
 .map-route-card__requirements { color: var(--map-dim) !important; font-size: 0.65rem !important; }
 .map-route-card__requirements strong { color: var(--map-route); }
+.map-route-card__goal { color: var(--map-text) !important; font-size: 0.68rem !important; }
+.map-route-card__goal strong { color: var(--map-route); }
 .map-route-card__links { padding: 0 0.7rem; }
 .map-route-card__links a { color: var(--map-route); font-size: 0.65rem; font-weight: 900; text-decoration: none; }
 .map-route-card__links a:hover { text-decoration: underline; }

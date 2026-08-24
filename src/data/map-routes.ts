@@ -66,6 +66,17 @@ export const mapRoutes: readonly MapRoute[] = [
 		],
 	},
 	{
+		id: 'smert-memory',
+		name: 'Smert Memory',
+		description: 'Follow the existing Smert guide as a focused story checkpoint at Prophet’s Rest.',
+		type: 'Story / Quest Route',
+		region: 'Fainweald · Prophet’s Rest',
+		goal: 'Complete the mapped Smert Shell and Memory sequence.',
+		guide: '/mortal-shell-ii/smert/',
+		requirements: 'Use the guide for the three blood pools, The Convert, and the Hierarch encounter.',
+		waypoints: [{ markerId: 'shell-smert', note: 'Complete the Shell pickup and linked Memory sequence.' }],
+	},
+	{
 		id: 'fainweald-map-fragments',
 		name: 'Fainweald Map Fragments',
 		description: 'Use the verified Ruk map-station markers to complete the current Fainweald fragment coverage.',

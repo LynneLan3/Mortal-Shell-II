@@ -1,6 +1,6 @@
 ---
 import CardThumbnail from '../CardThumbnail.astro';
-import { resolveCardImage } from '../../lib/assets';
+import { resolveCardImage, sortCardsByImage } from '../../lib/assets';
 
 const bosses = [
 	{
@@ -147,6 +147,8 @@ const relatedRoutes = [
 		description: 'Optional Shell quest route through the One-Legged Wolf Tavern and Temple of Vatra.',
 	},
 ];
+
+const orderedBosses = sortCardsByImage(bosses, (boss) => resolveCardImage({ href: boss.href, title: boss.name }));
 ---
 
 <section class="exp-boss-hub">
@@ -170,7 +172,7 @@ const relatedRoutes = [
 				<p class="exp-lede">Every card below links to an existing guide. Region, area, and optional status appear only where the current guide supports them.</p>
 			</header>
 			<div class="exp-boss-grid">
-				{bosses.map((boss) => {
+				{orderedBosses.map((boss) => {
 					const image = resolveCardImage({ href: boss.href, title: boss.name });
 					return (
 						<a class="exp-boss-card" href={boss.href}>

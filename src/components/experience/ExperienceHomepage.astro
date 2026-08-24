@@ -15,7 +15,7 @@
  */
 import { Image } from 'astro:assets';
 import { game } from '../../config/game';
-import { resolveCardImage, resolveGameAsset } from '../../lib/assets';
+import { resolveCardImage, resolveEntryCardImage, resolveGameAsset, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
 import { getGuides, guideHref, categoryOf } from '../../lib/guides';
 import {
@@ -79,6 +79,7 @@ const hotGuides: StartHereView[] = configuredHotGuides?.length
 			badge: item.badge,
 		}))
 	: [];
+const orderedHotGuides = sortCardsByImage(hotGuides, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
 
 /* ── Hero CTAs ── */
 const configuredPrimary = game.portal?.primaryCta;
@@ -137,6 +138,7 @@ const singleRouteStartGuides = singleRoute?.pages ?? [];
 
 /* ── Popular Questions ── */
 const popularQuestions = game.portal?.popularQuestions ?? [];
+const orderedPopularQuestions = sortCardsByImage(popularQuestions, (question) => resolveCardImage({ href: question.href, title: question.label }));
 
 /* ── Field Notes ── */
 const startHereHrefs = new Set(startHere.map((item) => item.href));
@@ -153,7 +155,8 @@ const fieldNotes = curatedFieldNotes.length > 0
 			excludeHrefs: new Set([...startHereHrefs, ...hotGuideHrefs]),
 			limit: 3,
 		});
-const firstNoteWithCover = fieldNotes.find(hasGuideCover);
+const orderedFieldNotes = sortCardsByImage(fieldNotes, (entry) => resolveEntryCardImage(entry, guideHref(entry)));
+const firstNoteWithCover = orderedFieldNotes.find((entry) => Boolean(resolveEntryCardImage(entry, guideHref(entry))) || hasGuideCover(entry));
 
 /* ── Evidence ── */
 const evidenceConfig = game.portal?.evidence;
@@ -247,7 +250,7 @@ const factIcon = (label: string): IconName => {
 
 <div class="exp-home-flow">
 	<!-- 03 HOT LAUNCH GUIDES -->
-	{hotGuides.length > 0 && (
+	{orderedHotGuides.length > 0 && (
 		<section class="exp-section exp-home-hot" id="hot-guides" aria-labelledby="exp-home-hot-heading">
 			<div class="exp-content">
 				<p class="exp-eyebrow">Live coverage</p>
@@ -256,7 +259,7 @@ const factIcon = (label: string): IconName => {
 					Start with the current progression blockers, unlock routes, and endgame questions players are most likely to hit after launch.
 				</p>
 				<div class="exp-hot-grid">
-					{hotGuides.map((item, index) => (
+					{orderedHotGuides.map((item, index) => (
 						<a class="exp-hot-card" href={item.href}>
 							{(() => {
 								const image = resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt });
@@ -339,7 +342,7 @@ const factIcon = (label: string): IconName => {
 				<h2 class="exp-h2" id="exp-home-questions-heading">{t.popularQuestions}</h2>
 				<p class="exp-lede">{t.popularQuestionsLede}</p>
 				<div class="exp-questions">
-					{popularQuestions.map((question) => (
+				{orderedPopularQuestions.map((question) => (
 						<a class="exp-question" href={question.href}>
 							{(() => {
 								const image = resolveCardImage({ href: question.href, title: question.label });
@@ -361,14 +364,14 @@ const factIcon = (label: string): IconName => {
 	)}
 
 	<!-- 07 FIELD NOTES -->
-	{fieldNotes.length > 0 && (
+	{orderedFieldNotes.length > 0 && (
 	<section class="exp-section exp-section--tinted exp-home-notes" aria-labelledby="exp-home-notes-heading">
 		<div class="exp-content">
 			<p class="exp-eyebrow">{t.fieldNotes}</p>
 			<h2 class="exp-h2" id="exp-home-notes-heading">{t.moreToExplore}</h2>
 			<p class="exp-lede">{t.fieldNotesLede}</p>
 			<div class:list={['exp-field-notes', !firstNoteWithCover && 'exp-field-notes--text']}>
-				{fieldNotes.map((note) => {
+				{orderedFieldNotes.map((note) => {
 					const href = guideHref(note);
 					return (
 						<a
@@ -379,7 +382,7 @@ const factIcon = (label: string): IconName => {
 							href={href}
 						>
 							{(() => {
-								const image = resolveCardImage({ href, title: note.data.title, cover: note.data.cover });
+								const image = resolveEntryCardImage(note, href);
 								return image && (
 									<CardThumbnail className="exp-field-card__visual" image={image.src} alt={image.alt} sizes="(min-width: 50rem) 40vw, 100vw" />
 								);

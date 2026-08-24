@@ -3,7 +3,7 @@ import type { ComponentProps } from 'astro/types';
 import { Icon } from '@astrojs/starlight/components';
 import GuideStatus from './GuideStatus.astro';
 import CardThumbnail from './CardThumbnail.astro';
-import { resolveCardImage } from '../lib/assets';
+import { resolveEntryCardImage } from '../lib/assets';
 import { categoryOf, guideHref, type GuideEntry } from '../lib/guides';
 
 interface Props {
@@ -16,7 +16,7 @@ const { entry, featured = false, variant } = Astro.props;
 const density = variant ?? (featured ? 'featured' : 'compact');
 const href = guideHref(entry);
 const category = categoryOf(entry);
-const cardImage = resolveCardImage({ href, title: entry.data.title, cover: entry.data.cover });
+const cardImage = resolveEntryCardImage(entry, href);
 
 type StarlightIconName = ComponentProps<typeof Icon>['name'];
 ---

@@ -2,7 +2,7 @@
 import { ui } from '../../lib/ui';
 import { getGuides, guideHref, resolveRelated } from '../../lib/guides';
 import CardThumbnail from '../CardThumbnail.astro';
-import { resolveCardImage } from '../../lib/assets';
+import { resolveEntryCardImage, sortCardsByImage } from '../../lib/assets';
 
 const { entry } = Astro.locals.starlightRoute;
 const t = ui();
@@ -10,6 +10,7 @@ const relatedSlugs = entry.data.related ?? [];
 const nextGuides = relatedSlugs.length > 0
 	? resolveRelated(await getGuides(), relatedSlugs, entry.id).slice(0, 2)
 	: [];
+const orderedNextGuides = sortCardsByImage(nextGuides, (guide) => resolveEntryCardImage(guide, guideHref(guide)));
 ---
 
 {nextGuides.length > 0 && (
@@ -19,10 +20,10 @@ const nextGuides = relatedSlugs.length > 0
 			<h2 class="exp-next-step__title" id="exp-next-step-heading">{t.nextQuestions}</h2>
 			<p class="exp-next-step__lede">{t.nextQuestionsLede}</p>
 			<div class="exp-next-step__grid">
-				{nextGuides.map((guide) => (
+				{orderedNextGuides.map((guide) => (
 					<a class="exp-next-step__card" href={guideHref(guide)}>
 						{(() => {
-							const image = resolveCardImage({ href: guideHref(guide), title: guide.data.title, cover: guide.data.cover });
+							const image = resolveEntryCardImage(guide, guideHref(guide));
 							return image && <CardThumbnail className="exp-next-step__media" image={image.src} alt={image.alt} />;
 						})()}
 						<span class="exp-next-step__card-title">{guide.data.title}</span>

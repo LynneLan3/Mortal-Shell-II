@@ -20,8 +20,8 @@ const {
 const isPublicImage = typeof image === 'string';
 ---
 
-<div class:list={['card-thumbnail', className, !image && 'card-thumbnail--empty']}>
-	{image ? (
+{image && <div class:list={['card-thumbnail', className]}>
+	{
 		isPublicImage ? (
 			<img src={image as string} alt={alt} loading={loading} decoding="async" width="640" height="360" />
 		) : (
@@ -36,7 +36,5 @@ const isPublicImage = typeof image === 'string';
 				decoding="async"
 			/>
 		)
-	) : (
-		<span class="card-thumbnail__fallback" aria-hidden="true"></span>
-	)}
-</div>
+	}
+</div>}

@@ -11,7 +11,7 @@ import { categoryOf, getGuides, guideHref, sortGuides } from '../../lib/guides';
 import type { GameGuideVisual, GameGuideVisualIcon } from '../../config/game';
 import type { GuideEntry } from '../../lib/guides';
 import { ui } from '../../lib/ui';
-import { resolveCardImage } from '../../lib/assets';
+import { resolveEntryCardImage, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
 
 const t = ui();
@@ -40,10 +40,10 @@ const iconPaths: Record<GameGuideVisualIcon, string> = {
 	trophy: '<path d="M7 4h10v5c0 3-2 5-5 6-3-1-5-3-5-6z"/><path d="M7 6H4v2c0 2 1.5 3.5 4 3.5M17 6h3v2c0 2-1.5 3.5-4 3.5M12 15v4M8 21h8"/>',
 };
 
-function visualForEntry(entry: GuideEntry, groupId: string): GameGuideVisual {
+function visualForEntry(entry: GuideEntry): GameGuideVisual {
 	const href = guideHref(entry);
 	const configured = game.portal?.guideVisuals?.[href];
-	const image = resolveCardImage({ href, title: entry.data.title, image: configured?.image, imageAlt: configured?.alt, cover: entry.data.cover });
+	const image = resolveEntryCardImage(entry, href);
 	if (image) {
 		return {
 			...configured,
@@ -51,20 +51,20 @@ function visualForEntry(entry: GuideEntry, groupId: string): GameGuideVisual {
 			alt: image.alt,
 		};
 	}
-	return configured ?? { icon: fallbackIcons[groupId] ?? 'book' };
+	return configured ?? {};
 }
 
 const groups = configuredGroups
 	.map((group) => {
-		const entries = group.guideOrder
+		const entries = sortCardsByImage(group.guideOrder
 			.map((href) => guides.find((entry) => guideHref(entry) === href))
-			.filter((entry): entry is GuideEntry => Boolean(entry));
+			.filter((entry): entry is GuideEntry => Boolean(entry)), (entry) => resolveEntryCardImage(entry, guideHref(entry)));
 		entries.forEach((entry) => used.add(entry.id));
 		return { ...group, entries };
 	})
 	.filter((group) => group.entries.length > 0);
 
-const unassigned = guides.filter((entry) => !used.has(entry.id)).sort(sortGuides);
+const unassigned = sortCardsByImage(guides.filter((entry) => !used.has(entry.id)).sort(sortGuides), (entry) => resolveEntryCardImage(entry, guideHref(entry)));
 if (unassigned.length > 0) {
 	groups.push({
 		id: 'more-guides',
@@ -95,18 +95,10 @@ if (unassigned.length > 0) {
 				</header>
 				<div class="exp-guide-topic-grid">
 					{group.entries.map((entry) => {
-						const visual = visualForEntry(entry, group.id);
+						const visual = visualForEntry(entry);
 						return (
 							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image']} href={guideHref(entry)}>
-								{visual.image ? (
-									<CardThumbnail className="exp-guide-topic-card__visual" image={visual.image} alt={visual.alt ?? ''} />
-								) : (
-									<span class="exp-guide-topic-card__visual">
-										<svg aria-hidden="true" viewBox="0 0 24 24">
-											<Fragment set:html={iconPaths[visual.icon ?? fallbackIcons[group.id] ?? 'book']} />
-										</svg>
-									</span>
-								)}
+								{visual.image && <CardThumbnail className="exp-guide-topic-card__visual" image={visual.image} alt={visual.alt ?? ''} />}
 								<span class="exp-guide-topic-card__body">
 									<span class="exp-guide-topic-card__meta">{categoryOf(entry)?.label ?? t.guidesNav}</span>
 									<span class="exp-guide-topic-card__title">{entry.data.title}</span>

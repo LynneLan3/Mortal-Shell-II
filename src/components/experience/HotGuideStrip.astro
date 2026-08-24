@@ -1,7 +1,7 @@
 ---
 import type { GameHubStartHereItem } from '../../config/game';
 import CardThumbnail from '../CardThumbnail.astro';
-import { resolveCardImage } from '../../lib/assets';
+import { resolveCardImage, sortCardsByImage } from '../../lib/assets';
 
 interface Props {
 	items: readonly GameHubStartHereItem[];
@@ -16,6 +16,7 @@ const {
 	lede = 'The fastest way into the current launch coverage.',
 	eyebrow = 'Hot window',
 } = Astro.props;
+const orderedItems = sortCardsByImage(items, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
 ---
 
 {items.length > 0 && (
@@ -25,7 +26,7 @@ const {
 			<h2 class="exp-h2" id="exp-hot-strip-heading">{heading}</h2>
 			<p class="exp-lede">{lede}</p>
 			<div class="exp-hot-strip__grid">
-				{items.map((item, index) => {
+				{orderedItems.map((item, index) => {
 					const image = resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt });
 					return (
 						<a class="exp-hot-strip__card" href={item.href}>

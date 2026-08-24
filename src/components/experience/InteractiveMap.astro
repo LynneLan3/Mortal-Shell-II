@@ -1,6 +1,7 @@
 ---
 import {
 	MAP_MARKER_CATEGORIES,
+	mapBasemap,
 	type MapMarker,
 } from '../../data/map-markers';
 
@@ -17,7 +18,7 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 		<p class="exp-eyebrow">Interactive Map V1</p>
 		<h1 class="exp-h1">Mortal Shell 2 Interactive Map</h1>
 		<p class="map-page__lede">
-			Filter verified weapons, Shells, bosses, keys, Beacons, and more as the map grows.
+			Use a real world-map surface to find the curated Shell and Map Fragment locations already covered by our guides. Search, filter, zoom, and open the route you need.
 		</p>
 	</header>
 
@@ -58,18 +59,15 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 					<p class="map-panel__eyebrow">Map surface</p>
 					<h2>World map container</h2>
 				</div>
-				<span class="map-status">Awaiting verified base map</span>
+				<span class="map-status">{markers.length} curated markers</span>
 			</div>
 
 			<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport>
 				<div class="map-surface" data-map-surface>
-					<div class="map-placeholder" aria-label="World map background placeholder">
-						<div class="map-placeholder__grid" aria-hidden="true"></div>
-						<div class="map-placeholder__copy">
-							<span class="map-placeholder__kicker">Background placeholder</span>
-							<strong>No reliable world map asset is in the repository yet.</strong>
-							<span>Verified locations will appear here after a real, calibratable map image is added.</span>
-						</div>
+					<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
+					<div class="map-attribution">
+						<span>Basemap: {mapBasemap.sourceName}</span>
+						{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}
 					</div>
 					{markers.map((marker) => (
 						<button
@@ -100,9 +98,9 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 				<p class="map-panel__eyebrow">Marker details</p>
 				<h2>No marker selected</h2>
 				<p>
-					{markers.length > 0
-						? 'Select a marker to see its region, description, and guide link.'
-						: 'No locations are plotted yet because the current repository evidence does not prove precise map coordinates.'}
+						{markers.length > 0
+							? 'Select a marker to see its region, description, guide link, and research source.'
+							: 'No verified markers are loaded.'}
 				</p>
 			</div>
 			{markers.map((marker) => (
@@ -114,14 +112,16 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 						<div><dt>Region</dt><dd>{marker.region}</dd></div>
 					</dl>
 					<p>{marker.description}</p>
+					{marker.image && <img class="map-detail__image" src={marker.image} alt="" loading="lazy" decoding="async" />}
 					{marker.guideUrl && <a class="map-detail__link" href={marker.guideUrl}>View Guide <span aria-hidden="true">→</span></a>}
+					<a class="map-detail__source" href={marker.source} target="_blank" rel="noreferrer">Research source <span aria-hidden="true">↗</span></a>
 				</article>
 			))}
 		</aside>
 	</div>
 
 	<p class="map-note">
-		V1 plots only locations with repository-backed coordinates. Region-only references remain unplotted until a reliable map source is available.
+		Coordinates are normalized from the public marker links recorded in the map research note. This page carries a curated subset, not a copied competitor dataset. The basemap is attributed to <a href={mapBasemap.sourceUrl} target="_blank" rel="noreferrer">{mapBasemap.sourceName}</a> and is marked for later replacement.
 	</p>
 </section>
 
@@ -137,12 +137,18 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 		const markerButtons = Array.from(app.querySelectorAll('[data-map-marker-button]'));
 		const details = Array.from(app.querySelectorAll('[data-map-detail]'));
 		const empty = app.querySelector('[data-map-empty]');
+		const viewport = app.querySelector('[data-map-viewport]');
 		const surface = app.querySelector('[data-map-surface]');
 		const zoomLabel = app.querySelector('[data-map-zoom-label]');
 		const zoomIn = app.querySelector('[data-map-zoom-in]');
 		const zoomOut = app.querySelector('[data-map-zoom-out]');
 		let activeCategory = 'all';
 		let zoom = 1;
+		let dragging = false;
+		let dragStartX = 0;
+		let dragStartY = 0;
+		let scrollStartX = 0;
+		let scrollStartY = 0;
 
 		function setCategory(value) {
 			activeCategory = value;
@@ -198,6 +204,25 @@ const markerCountLabel = `${markers.length} verified marker${markers.length === 
 			setZoom(1);
 			clearSelection();
 		});
+		if (viewport instanceof HTMLElement) {
+			viewport.addEventListener('pointerdown', (event) => {
+				if (event.pointerType !== 'mouse' || event.button !== 0) return;
+				dragging = true;
+				dragStartX = event.clientX;
+				dragStartY = event.clientY;
+				scrollStartX = viewport.scrollLeft;
+				scrollStartY = viewport.scrollTop;
+				viewport.setPointerCapture(event.pointerId);
+			});
+			viewport.addEventListener('pointermove', (event) => {
+				if (!dragging) return;
+				viewport.scrollLeft = scrollStartX - (event.clientX - dragStartX);
+				viewport.scrollTop = scrollStartY - (event.clientY - dragStartY);
+			});
+			const stopDragging = () => { dragging = false; };
+			viewport.addEventListener('pointerup', stopDragging);
+			viewport.addEventListener('pointercancel', stopDragging);
+		}
 		applyFilters();
 	}
 </script>

@@ -25,6 +25,16 @@ interface CardImageInput {
 	cover?: ImageMetadata;
 }
 
+interface CardEntryLike {
+	data: {
+		title: string;
+		cover?: ImageMetadata;
+		cardImage?: string;
+		thumbnail?: string;
+		imageAlt?: string;
+	};
+}
+
 const publicImagesRoot = join(process.cwd(), 'public/images');
 const publicImageCache = new Map<string, string | undefined>();
 const imageExtensions = new Set(['.avif', '.jpeg', '.jpg', '.png', '.webp']);
@@ -69,4 +79,20 @@ export function resolveCardImage({ href, title, image, imageAlt, cover }: CardIm
 	const source = resolveImageSource(image) ?? cover ?? resolveImageSource(configuredImage) ?? autoPublicImage(href);
 	if (!source) return undefined;
 	return { src: source, alt: imageAlt ?? (href ? game.portal?.guideVisuals?.[href]?.alt : undefined) ?? '' };
+}
+
+/** Resolve the same card image contract for any docs entry. */
+export function resolveEntryCardImage(entry: CardEntryLike, href: string) {
+	return resolveCardImage({
+		href,
+		title: entry.data.title,
+		image: entry.data.cardImage ?? entry.data.thumbnail,
+		imageAlt: entry.data.imageAlt,
+		cover: entry.data.cover,
+	});
+}
+
+/** Stable partition: real-image cards first, editorial order preserved in each group. */
+export function sortCardsByImage<T>(items: readonly T[], resolve: (item: T) => CardImage | undefined): T[] {
+	return [...items].sort((a, b) => Number(!resolve(a)) - Number(!resolve(b)));
 }

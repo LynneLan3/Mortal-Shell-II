@@ -641,12 +641,6 @@
 	border-color: color-mix(in srgb, var(--game-accent, #0f9b8e) 50%, var(--gw-border));
 }
 
-.gw-related__media {
-	width: calc(100% + 1.6rem);
-	margin: -0.7rem -0.8rem 0;
-	border-bottom: 1px solid var(--gw-border);
-}
-
 .gw-related__title {
 	color: var(--sl-color-white);
 	font-weight: 600;

@@ -1,27 +1,21 @@
 ---
 import { getGuides, guideHref, resolveRelated } from '../lib/guides';
-import CardThumbnail from './CardThumbnail.astro';
-import { resolveEntryCardImage, sortCardsByImage } from '../lib/assets';
 
 const entry = Astro.locals.starlightRoute.entry;
 const slugs = entry.data.related ?? [];
 const related =
 	slugs.length > 0 ? resolveRelated(await getGuides(), slugs, entry.id) : [];
-const orderedRelated = sortCardsByImage(related, (guide) => resolveEntryCardImage(guide, guideHref(guide)));
+const relatedGuides = related.slice(2);
 ---
 
 {
-	related.length > 0 && (
+	relatedGuides.length > 0 && (
 		<section class="gw-related" aria-labelledby="gw-related-heading">
 			<h2 id="gw-related-heading">Related Guides</h2>
 			<ul>
-				{orderedRelated.map((guide) => (
+				{relatedGuides.map((guide) => (
 					<li>
 						<a href={guideHref(guide)}>
-							{(() => {
-								const image = resolveEntryCardImage(guide, guideHref(guide));
-								return image && <CardThumbnail className="gw-related__media" image={image.src} alt={image.alt} />;
-							})()}
 							<span class="gw-related__title">{guide.data.title}</span>
 							{guide.data.description && (
 								<span class="gw-related__desc">{guide.data.description}</span>

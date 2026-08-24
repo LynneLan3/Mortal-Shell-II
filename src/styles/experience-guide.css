@@ -280,12 +280,6 @@ body:has(.exp-guide-frame) .exp-topbar {
 	transition: border-color 140ms, background 140ms, transform 140ms;
 }
 
-.exp-next-step__media {
-	width: calc(100% + 1.8rem);
-	margin: -0.9rem -0.9rem 0;
-	border-bottom: 1px solid var(--xp-border-subtle);
-}
-
 .exp-next-step__card:hover,
 .exp-next-step__card:focus-visible {
 	border-color: color-mix(in srgb, var(--xp-accent) 58%, var(--xp-border));
@@ -311,6 +305,10 @@ body:has(.exp-guide-frame) .exp-topbar {
 }
 
 .exp-next-step__card-desc {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
 	font-size: var(--xp-text-sm);
 	line-height: 1.45;
 	color: var(--xp-text-muted);
@@ -579,7 +577,7 @@ body:has(.exp-guide-frame) .exp-topbar {
 .exp-guide-frame .gw-related {
 	max-width: var(--xp-guide-wide);
 	margin: 1rem auto 0;
-	padding: 2.5rem 1.5rem;
+	padding: 1.5rem 1.5rem 2rem;
 	border-top: 1px solid var(--xp-border);
 }
 
@@ -595,6 +593,10 @@ body:has(.exp-guide-frame) .exp-topbar {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+@media (min-width: 50rem) {
+	.exp-guide-frame .gw-related ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .exp-guide-frame .gw-related a {
@@ -633,6 +635,10 @@ body:has(.exp-guide-frame) .exp-topbar {
 }
 
 .exp-guide-frame .gw-related__desc {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 	color: var(--xp-text-muted);
 	font-size: var(--xp-text-sm);
 }

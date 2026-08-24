@@ -1,513 +1,250 @@
 ---
-import { mapBasemap, type MapMarker } from '../../data/map-markers';
-import {
-	TOOLKIT_CATEGORIES,
-	TOOLKIT_STORAGE_KEY,
-	toolkitItems,
-	toolkitItemByMapMarkerId,
-} from '../../data/toolkit-items';
-import {
-	getCanonicalGuideUrlForMapMarker,
-	getMapGuideGroups,
-} from '../../lib/toolkit-map';
+import { mapBasemap, mapMarkerById, type MapMarker } from '../../data/map-markers';
+import { TOOLKIT_CATEGORIES, TOOLKIT_STORAGE_KEY, toolkitItems, toolkitItemByMapMarkerId } from '../../data/toolkit-items';
+import { mapRoutes } from '../../data/map-routes';
+import { getCanonicalGuideUrlForMapMarker, getMapGuideGroups } from '../../lib/toolkit-map';
 
-interface Props {
-	markers: readonly MapMarker[];
-}
+interface Props { markers: readonly MapMarker[]; }
 
 const { markers } = Astro.props;
-const mappedItemCount = markers.filter((marker) => toolkitItemByMapMarkerId.has(marker.id)).length;
-const trackerCountLabel = `${toolkitItems.length} tracked items`;
 const mapGuideGroups = getMapGuideGroups();
-const mapGuideGroupByMarkerId = new Map(
-	mapGuideGroups.flatMap((group) => group.targets.map((target) => [target.mapMarkerId, group.key] as const)),
-);
+const mapGuideGroupByMarkerId = new Map(mapGuideGroups.flatMap((group) => group.targets.map((target) => [target.mapMarkerId, group.key] as const)));
+const routeIdsByMarkerId = new Map<string, string[]>();
+mapRoutes.forEach((route) => route.waypoints.forEach((waypoint) => routeIdsByMarkerId.set(waypoint.markerId, [...(routeIdsByMarkerId.get(waypoint.markerId) ?? []), route.id])));
+const markerIcons: Record<string, string> = {
+	Shells: '◇', Weapons: '⚔', Sidearms: '➹', Bosses: '☠', 'Map Fragments': '▧', NPCs: '♙', Dungeons: '⌂',
+	Beacons: '✦', Keys: '⌑', Tarforge: '♢', 'Night Mode': '☾', 'Corrupted Gates': '⌁', Other: '•',
+};
+const workspaceCategories = [
+	{ id: 'Shells', label: 'Shells', icon: markerIcons.Shells },
+	{ id: 'Weapons', label: 'Weapons', icon: markerIcons.Weapons },
+	{ id: 'Sidearms', label: 'Sidearms', icon: markerIcons.Sidearms },
+	{ id: 'Map Fragments', label: 'Map Fragments', icon: markerIcons['Map Fragments'] },
+	{ id: 'Bosses', label: 'Bosses', icon: markerIcons.Bosses },
+	{ id: 'NPCs', label: 'NPCs', icon: markerIcons.NPCs },
+	{ id: 'Dungeons', label: 'Dungeons', icon: markerIcons.Dungeons },
+	{ id: 'Other', label: 'Other', icon: markerIcons.Other },
+].map((category) => ({ ...category, total: Math.max(toolkitItems.filter((item) => item.category === category.id).length, markers.filter((marker) => marker.category === category.id).length) }));
+const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons.Other;
 ---
 
 <section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
 	<header class="map-page__hero">
-		<p class="exp-eyebrow">Mortal Shell II Player Toolkit</p>
-		<h1 class="exp-h1">Mortal Shell 2 Map &amp; Progress Tracker</h1>
-		<p class="map-page__lede">
-			Use the map to find verified locations, or switch to Checklist to keep a personal record of the Shells, Map Fragments, bosses, and Sidearms you have finished. Your progress stays on this browser.
-		</p>
+		<div><p class="exp-eyebrow">Mortal Shell II Player Toolkit</p><h1 class="exp-h1">Mortal Shell 2 Map Workspace</h1><p class="map-page__lede">Choose a target, filter the world map, and turn a verified marker into your next action. Progress and your active route stay saved on this browser.</p></div>
+		<a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Browse all guides <span aria-hidden="true">→</span></a>
 	</header>
 
-	<section class="toolkit-progress" aria-labelledby="toolkit-progress-heading">
-		<div class="toolkit-progress__header">
-			<div>
-				<p class="map-panel__eyebrow">Player progress</p>
-				<h2 id="toolkit-progress-heading"><span data-progress-total>0</span> / {toolkitItems.length} tracked</h2>
-			</div>
-			<div class="toolkit-progress__actions">
-				<span class="toolkit-progress__device-note">Saved locally on this device</span>
-				<button class="toolkit-secondary-action" type="button" data-reset-progress>Reset progress</button>
-			</div>
-		</div>
-		<div class="toolkit-progress__overall" aria-label="Overall player progress">
-			<div class="toolkit-progress__bar"><span data-progress-overall-bar></span></div>
-			<span data-progress-overall-percent>0%</span>
-		</div>
-		<div class="toolkit-progress__categories">
-			{TOOLKIT_CATEGORIES.map((category) => {
-				const total = toolkitItems.filter((item) => item.category === category).length;
-				return (
-					<div class="toolkit-progress__category" data-progress-category={category}>
-						<div class="toolkit-progress__category-line">
-							<span>{category}</span>
-							<strong><span data-progress-category-completed>0</span> / {total}</strong>
-						</div>
-						<div class="toolkit-progress__bar toolkit-progress__bar--small"><span data-progress-category-bar></span></div>
-					</div>
-				);
-			})}
-		</div>
+	<section class="completion-hud" aria-labelledby="completion-hud-heading">
+		<div class="completion-hud__main"><div class="completion-hud__identity"><p class="map-panel__eyebrow">Completion HUD</p><div class="completion-hud__score"><strong data-progress-overall-percent>0%</strong><div><h2 id="completion-hud-heading"><span data-progress-total>0</span> / {toolkitItems.length} tracked objectives</h2><p>Browser-local progress · no account required</p></div></div></div><div class="completion-hud__actions"><span class="completion-hud__device-note">Saved locally on this device</span><button class="toolkit-secondary-action" type="button" data-reset-progress>Reset progress</button></div></div>
+		<div class="completion-hud__bar" aria-label="Overall completion progress"><span data-progress-overall-bar></span></div>
+		<div class="completion-hud__route" data-route-summary><div><p data-route-summary-kicker>Next recommended</p><strong data-route-summary-name>Fainweald Shells</strong></div><div class="completion-hud__route-state"><span data-route-summary-progress>0 / 5</span><span data-route-summary-next>Choose a route to start</span></div></div>
+		<div class="completion-hud__categories">{TOOLKIT_CATEGORIES.map((category) => { const total = toolkitItems.filter((item) => item.category === category).length; return <div class="completion-hud__category" data-progress-category={category}><div><span>{category}</span><strong><span data-progress-category-completed>0</span> / {total}</strong></div><div class="completion-hud__category-bar"><span data-progress-category-bar></span></div></div>; })}</div>
 	</section>
 
-	<div class="toolkit-view-tabs" role="tablist" aria-label="Player Toolkit views">
-		<button class="toolkit-view-tab is-active" type="button" role="tab" id="toolkit-tab-map" aria-selected="true" aria-controls="toolkit-map-view" data-toolkit-mode="map">Map</button>
-		<button class="toolkit-view-tab" type="button" role="tab" id="toolkit-tab-checklist" aria-selected="false" aria-controls="toolkit-checklist-view" data-toolkit-mode="checklist">Checklist</button>
+	<div class="map-workspace">
+		<section class="map-panel map-panel--canvas" aria-label="Interactive world map">
+			<div class="map-panel__header"><div><p class="map-panel__eyebrow">Map surface</p><h2>Verified locations</h2></div><div class="map-panel__status-group"><span class="map-status" data-map-mode-status>All mapped targets</span><span class="map-status map-status--quiet">{markers.length} curated markers</span></div></div>
+			<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport><div class="map-surface" data-map-surface>
+				<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
+				<div class="map-attribution"><span>Basemap: {mapBasemap.sourceName}</span>{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}</div>
+				{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); return <button class="map-marker" type="button" style={`left: ${marker.x}%; top: ${marker.y}%;`} data-map-marker-button={marker.id} data-map-marker-category={marker.category} data-map-marker-region={marker.region} data-map-marker-name={marker.name} data-toolkit-id={item?.id} data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)} aria-label={`Open ${marker.category} details for ${marker.name}`}><span class="map-marker__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><span class="map-marker__route-number" aria-hidden="true" hidden></span><span class="map-marker__status" aria-hidden="true">✓</span><span class="map-marker__label">{marker.name}</span></button>; })}
+			</div></div>
+			<div class="map-controls" aria-label="Map zoom controls"><button type="button" data-map-zoom-out aria-label="Zoom out">−</button><span data-map-zoom-label>100%</span><button type="button" data-map-zoom-in aria-label="Zoom in">+</button><span class="map-controls__hint">Drag to inspect the map · numbered points appear in Route Mode</span></div>
+		</section>
+
+		<aside class="map-control-center" aria-label="Map Control Center">
+			<section class="map-control-section map-control-section--search"><div class="map-control-section__heading"><div><p class="map-panel__eyebrow">Control Center</p><h2>Find your next objective</h2></div><span class="map-toolbar__count" data-toolkit-count>{toolkitItems.length} tracked</span></div><label class="map-search" for="toolkit-search"><span class="map-search__icon" aria-hidden="true">⌕</span><input id="toolkit-search" type="search" placeholder="Search locations, bosses, shells..." autocomplete="off" data-toolkit-search /></label><p class="map-guide-context" data-map-guide-context hidden></p></section>
+
+			<section class="map-control-section" aria-labelledby="map-filter-heading"><div class="map-control-section__title-row"><h3 id="map-filter-heading">Filters</h3><button class="map-clear-button" type="button" data-toolkit-reset>Clear</button></div><div class="map-category-controls"><button class="map-category-control is-active" type="button" data-map-category="all"><span class="map-category-control__icon" aria-hidden="true">✦</span><span class="map-category-control__copy"><strong>All targets</strong><small>{toolkitItems.length} tracked</small></span><span class="map-category-control__count" data-category-count="all">0 / {toolkitItems.length}</span></button>{workspaceCategories.map((category) => <button class="map-category-control" type="button" data-map-category={category.id}><span class="map-category-control__icon" aria-hidden="true">{category.icon}</span><span class="map-category-control__copy"><strong>{category.label}</strong><small>{category.total ? `${category.total} tracked` : 'No tracked items yet'}</small></span><span class="map-category-control__count" data-category-count={category.id}>0 / {category.total}</span></button>)}</div><label class="map-hide-completed"><input type="checkbox" data-hide-completed /><span>Hide completed</span></label></section>
+
+			<section class="map-control-section map-control-section--routes" aria-labelledby="routes-heading"><div class="map-control-section__title-row"><div><p class="map-panel__eyebrow">Curated sequences</p><h3 id="routes-heading">Recommended Routes</h3></div><button class="map-clear-button" type="button" data-exit-route hidden>Exit route</button></div><p class="map-section-note">Choose a goal, then complete the numbered markers in order. These are editorial sequences, not fastest-path claims.</p><div class="map-route-list">{mapRoutes.map((route) => <article class="map-route-card" data-map-route-card={route.id} data-route-name={route.name} data-route-waypoints={route.waypoints.map((waypoint) => waypoint.markerId).join(',')}><div class="map-route-card__topline"><div><span class="map-route-card__type">{route.type}</span><h4>{route.name}</h4></div><button class="map-route-card__action" type="button" data-map-start-route={route.id}>Start route</button></div><p>{route.description}</p>{route.requirements && <p class="map-route-card__requirements"><strong>Use when:</strong> {route.requirements}</p>}<div class="map-route-card__links">{route.guide && <a href={route.guide}>Route guide <span aria-hidden="true">→</span></a>}</div><div class="map-route-card__progress"><span><b data-route-completed>0</b> / {route.waypoints.length}</span><span data-route-percent>0%</span></div><div class="map-route-card__bar"><span data-route-bar></span></div><ol class="map-route-waypoints">{route.waypoints.map((waypoint, index) => { const marker = mapMarkerById.get(waypoint.markerId); const item = marker ? toolkitItemByMapMarkerId.get(marker.id) : undefined; if (!marker) return null; return <li data-route-waypoint={marker.id} data-route-item-id={item?.id ?? ''}><button type="button" data-map-route-waypoint={marker.id} data-route-id={route.id}><span class="map-route-waypoint__number">{index + 1}</span><span class="map-route-waypoint__copy"><strong>{marker.name}</strong><small>{marker.region}</small></span><span class="map-route-waypoint__state" data-route-waypoint-state>To do</span></button></li>; })}</ol></article>)}</div></section>
+
+			<section class="map-control-section map-control-section--detail" aria-live="polite" data-map-details aria-labelledby="marker-detail-heading"><div class="map-details__empty" data-map-empty><p class="map-panel__eyebrow">Marker Detail</p><h3 id="marker-detail-heading">Select a target</h3><p>Click a map point or route waypoint to see what it is, why it matters, and which guide should come next.</p></div>{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); const guideUrl = getCanonicalGuideUrlForMapMarker(marker.id); const relatedRoutes = (routeIdsByMarkerId.get(marker.id) ?? []).map((routeId) => mapRoutes.find((route) => route.id === routeId)).filter(Boolean); const nearbyMarkers = (marker.nearby ?? []).map((markerId) => mapMarkerById.get(markerId)).filter(Boolean); return <article class="map-detail" data-map-detail={marker.id} hidden><div class="map-detail__heading"><span class="map-detail__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><div><p class="map-panel__eyebrow">{marker.category}</p><h3>{marker.name}</h3><p class="map-detail__region">{marker.region}</p></div></div><div class="map-detail__facts"><div><span>Requirements</span><p>{marker.requirements ?? 'Open the linked guide for the exact encounter or pickup requirements.'}</p></div><div><span>Why it matters</span><p>{marker.usefulNote ?? `This ${marker.category.toLowerCase()} is part of the verified map coverage and local tracker.`}</p></div></div><p class="map-detail__description">{marker.description}</p>{marker.missableWarning && <p class="map-detail__warning"><strong>Missable warning:</strong> {marker.missableWarning}</p>}{marker.relatedAchievement && <p class="map-detail__note"><strong>Achievement context:</strong> {marker.relatedAchievement}</p>}{item && <label class="toolkit-complete-control"><input type="checkbox" data-toolkit-checkbox={item.id} /><span data-toolkit-checkbox-label>Mark completed</span></label>}<button class="map-next-action" type="button" data-detail-complete-next hidden>Complete &amp; Next <span aria-hidden="true">→</span></button>{nearbyMarkers.length > 0 && <div class="map-detail__related"><p class="map-panel__eyebrow">Do while you're here</p>{nearbyMarkers.map((nearby) => nearby && <button type="button" data-map-related-marker={nearby.id}><span>{getMarkerIcon(nearby.category)}</span>{nearby.name}<small>{nearby.region}</small></button>)}</div>}{relatedRoutes.length > 0 && <div class="map-detail__related"><p class="map-panel__eyebrow">Related routes</p>{relatedRoutes.map((route) => route && <button type="button" data-map-start-route={route.id}><span>{route.type}</span>{route.name}<small data-related-route-progress={route.id}>0 / {route.waypoints.length}</small></button>)}</div>}<div class="map-detail__actions">{guideUrl && <a class="map-detail__link" href={guideUrl}>Open Full Guide <span aria-hidden="true">→</span></a>}<a class="map-detail__source" href={marker.source} target="_blank" rel="noreferrer">Research source <span aria-hidden="true">↗</span></a></div></article>; })}</section>
+
+			<details class="map-control-section map-tracker"><summary><span><span class="map-panel__eyebrow">Full tracker</span><strong>Unmapped and tracked objectives</strong></span><span data-tracker-summary>{toolkitItems.length} objectives</span></summary><div class="map-tracker__list">{toolkitItems.map((item) => <article class="toolkit-item" data-toolkit-item={item.id} data-toolkit-category={item.category} data-toolkit-region={item.region ?? ''}><div class="toolkit-item__topline"><label class="toolkit-complete-control toolkit-complete-control--card"><input type="checkbox" data-toolkit-checkbox={item.id} /><span data-toolkit-checkbox-label>Mark completed</span></label><span class="toolkit-item__category">{item.category}</span></div><h4>{item.name}</h4>{item.region && <p class="toolkit-item__region">{item.region}</p>}{item.description && <p class="toolkit-item__description">{item.description}</p>}<div class="toolkit-item__actions">{item.guideUrl && <a class="map-detail__link" href={item.guideUrl}>Open guide <span aria-hidden="true">→</span></a>}{item.mapMarkerId && <button class="toolkit-map-link" type="button" data-show-on-map={item.mapMarkerId}>Show on map</button>}</div></article>)}</div><p class="toolkit-empty" data-toolkit-empty hidden>No tracked objectives match the current filters.</p></details>
+		</aside>
 	</div>
 
-	<section class="toolkit-filters" aria-label="Toolkit filters">
-		<div class="toolkit-filter toolkit-filter--search">
-			<label for="toolkit-search">Search toolkit</label>
-			<input id="toolkit-search" class="map-control" type="search" placeholder="Search by name or region" autocomplete="off" data-toolkit-search />
-		</div>
-		<div class="toolkit-filter">
-			<label for="toolkit-category">Category</label>
-			<select id="toolkit-category" class="map-control" data-toolkit-category>
-				<option value="all">All tracked categories</option>
-				{TOOLKIT_CATEGORIES.map((category) => <option value={category}>{category}</option>)}
-			</select>
-		</div>
-		<label class="toolkit-filter__checkbox">
-			<input type="checkbox" data-hide-completed />
-			<span>Hide completed</span>
-		</label>
-		<button class="map-reset" type="button" data-toolkit-reset>Reset filters</button>
-		<p class="map-toolbar__count" data-toolkit-count>{trackerCountLabel}</p>
-	</section>
-
-	<div class="map-category-list" aria-label="Filter tracked categories">
-		<button class="map-category-chip is-active" type="button" data-toolkit-chip="all">All</button>
-		{TOOLKIT_CATEGORIES.map((category) => <button class="map-category-chip" type="button" data-toolkit-chip={category}>{category}</button>)}
-	</div>
-
-	<section id="toolkit-map-view" class="toolkit-view" role="tabpanel" aria-labelledby="toolkit-tab-map" data-toolkit-panel="map">
-		<p class="map-guide-context" data-map-guide-context hidden></p>
-		<div class="map-layout">
-			<section class="map-panel" aria-label="Interactive world map">
-				<div class="map-panel__header">
-					<div>
-						<p class="map-panel__eyebrow">Map surface</p>
-						<h2>Verified locations</h2>
-					</div>
-					<span class="map-status">{markers.length} curated markers · {mappedItemCount} tracked</span>
-				</div>
-
-				<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport>
-					<div class="map-surface" data-map-surface>
-						<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
-						<div class="map-attribution">
-							<span>Basemap: {mapBasemap.sourceName}</span>
-							{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}
-						</div>
-						{markers.map((marker) => {
-							const item = toolkitItemByMapMarkerId.get(marker.id);
-							return (
-								<button
-									class="map-marker"
-									type="button"
-									style={`left: ${marker.x}%; top: ${marker.y}%;`}
-									data-map-marker-button={marker.id}
-									data-map-marker-category={marker.category}
-									data-map-marker-region={marker.region}
-									data-toolkit-id={item?.id}
-									data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)}
-									aria-label={`Open details for ${marker.name}`}
-								>
-									<span class="map-marker__dot" aria-hidden="true"></span>
-									<span class="map-marker__status" aria-hidden="true">✓</span>
-									<span class="map-marker__label">{marker.name}</span>
-								</button>
-							);
-						})}
-					</div>
-				</div>
-
-				<div class="map-controls" aria-label="Map zoom controls">
-					<button type="button" data-map-zoom-out aria-label="Zoom out">−</button>
-					<span data-map-zoom-label>100%</span>
-					<button type="button" data-map-zoom-in aria-label="Zoom in">+</button>
-				</div>
-			</section>
-
-			<aside class="map-details" aria-live="polite" data-map-details>
-				<div class="map-details__empty" data-map-empty>
-					<p class="map-panel__eyebrow">Marker details</p>
-					<h2>No marker selected</h2>
-					<p>Select a marker to see its region, progress control, guide link, and research source.</p>
-				</div>
-				{markers.map((marker) => {
-					const item = toolkitItemByMapMarkerId.get(marker.id);
-					const guideUrl = getCanonicalGuideUrlForMapMarker(marker.id);
-					return (
-						<article class="map-detail" data-map-detail={marker.id} hidden>
-							<p class="map-panel__eyebrow">{marker.category}</p>
-							<h2>{marker.name}</h2>
-							<dl>
-								<div><dt>Category</dt><dd>{marker.category}</dd></div>
-								<div><dt>Region</dt><dd>{marker.region}</dd></div>
-							</dl>
-							<p>{marker.description}</p>
-							{item && <label class="toolkit-complete-control"><input type="checkbox" data-toolkit-checkbox={item.id} /><span data-toolkit-checkbox-label>Mark complete</span></label>}
-							{marker.image && <img class="map-detail__image" src={marker.image} alt="" loading="lazy" decoding="async" />}
-						{guideUrl && <a class="map-detail__link" href={guideUrl}>Read Guide <span aria-hidden="true">→</span></a>}
-							<a class="map-detail__source" href={marker.source} target="_blank" rel="noreferrer">Research source <span aria-hidden="true">↗</span></a>
-						</article>
-					);
-				})}
-			</aside>
-		</div>
-	</section>
-
-	<section id="toolkit-checklist-view" class="toolkit-view" role="tabpanel" aria-labelledby="toolkit-tab-checklist" data-toolkit-panel="checklist" hidden>
-		<div class="checklist-header">
-			<div>
-				<p class="map-panel__eyebrow">Checklist</p>
-				<h2>Keep your next route in view</h2>
-			</div>
-			<p class="checklist-header__note">Current coverage is finite and guide-backed. Items without coordinates stay here until a map position is verified.</p>
-		</div>
-		<div class="toolkit-checklist" data-toolkit-checklist>
-			{toolkitItems.map((item) => (
-				<article class="toolkit-item" data-toolkit-item={item.id} data-toolkit-category={item.category} data-toolkit-region={item.region ?? ''}>
-					<div class="toolkit-item__topline">
-						<label class="toolkit-complete-control toolkit-complete-control--card">
-							<input type="checkbox" data-toolkit-checkbox={item.id} />
-							<span class="toolkit-item__check-label" data-toolkit-checkbox-label>Mark complete</span>
-						</label>
-						<span class="toolkit-item__category">{item.category}</span>
-					</div>
-					<h3>{item.name}</h3>
-					{item.region && <p class="toolkit-item__region">{item.region}</p>}
-					{item.description && <p class="toolkit-item__description">{item.description}</p>}
-					<div class="toolkit-item__actions">
-						{item.guideUrl && <a class="map-detail__link" href={item.guideUrl}>Read Guide <span aria-hidden="true">→</span></a>}
-						{item.mapMarkerId && <button class="toolkit-map-link" type="button" data-show-on-map={item.mapMarkerId}>Show on Map</button>}
-					</div>
-				</article>
-			))}
-		</div>
-		<p class="toolkit-empty" data-toolkit-empty hidden>No tracked items match these filters.</p>
-	</section>
-
-	<p class="map-note">
-		Coordinates are normalized from the public marker links recorded in the map research note. The map remains a curated subset, not a copied competitor dataset. The basemap is attributed to <a href={mapBasemap.sourceUrl} target="_blank" rel="noreferrer">{mapBasemap.sourceName}</a> and is marked for later replacement.
-	</p>
+	<p class="map-note">Coordinates are normalized from the public marker links recorded in the map research note. The map remains a curated subset, not a copied competitor dataset. The basemap is attributed to <a href={mapBasemap.sourceUrl} target="_blank" rel="noreferrer">{mapBasemap.sourceName}</a> and is marked for later replacement.</p>
 </section>
 
 <script>
 	const app = document.querySelector('[data-map-app]');
-
 	if (app) {
 		const storageKey = app.getAttribute('data-storage-key') || 'ms2-toolkit-progress-v1';
 		const search = app.querySelector('[data-toolkit-search]');
-		const category = app.querySelector('[data-toolkit-category]');
-		const count = app.querySelector('[data-toolkit-count]');
 		const hideCompleted = app.querySelector('[data-hide-completed]');
-		const resetFilters = app.querySelector('[data-toolkit-reset]');
-		const chips = Array.from(app.querySelectorAll('[data-toolkit-chip]'));
-		const modeTabs = Array.from(app.querySelectorAll('[data-toolkit-mode]'));
-		const panels = Array.from(app.querySelectorAll('[data-toolkit-panel]'));
+		const count = app.querySelector('[data-toolkit-count]');
+		const categoryButtons = Array.from(app.querySelectorAll('[data-map-category]'));
 		const markerButtons = Array.from(app.querySelectorAll('[data-map-marker-button]'));
 		const details = Array.from(app.querySelectorAll('[data-map-detail]'));
-		const empty = app.querySelector('[data-map-empty]');
+		const routeCards = Array.from(app.querySelectorAll('[data-map-route-card]'));
+		const checklistItems = Array.from(app.querySelectorAll('[data-toolkit-item]'));
+		const checkboxes = Array.from(app.querySelectorAll('[data-toolkit-checkbox]'));
+		const validIds = new Set(checklistItems.map((item) => item.getAttribute('data-toolkit-item')).filter(Boolean));
+		const validMarkerIds = new Set(markerButtons.map((marker) => marker.getAttribute('data-map-marker-button')).filter(Boolean));
+		const validRouteIds = new Set(routeCards.map((route) => route.getAttribute('data-map-route-card')).filter(Boolean));
+		const validGuideKeys = new Set(markerButtons.map((marker) => marker.getAttribute('data-map-guide-key')).filter(Boolean));
 		const viewport = app.querySelector('[data-map-viewport]');
 		const surface = app.querySelector('[data-map-surface]');
 		const zoomLabel = app.querySelector('[data-map-zoom-label]');
 		const zoomIn = app.querySelector('[data-map-zoom-in]');
 		const zoomOut = app.querySelector('[data-map-zoom-out]');
+		const empty = app.querySelector('[data-map-empty]');
 		const guideContext = app.querySelector('[data-map-guide-context]');
-		const checklistItems = Array.from(app.querySelectorAll('[data-toolkit-item]'));
-		const checkboxes = Array.from(app.querySelectorAll('[data-toolkit-checkbox]'));
-		const validGuideKeys = new Set(markerButtons.map((marker) => marker.getAttribute('data-map-guide-key')).filter(Boolean));
-		const validIds = new Set(checklistItems.map((item) => item.getAttribute('data-toolkit-item')).filter(Boolean));
+		const modeStatus = app.querySelector('[data-map-mode-status]');
+		const exitRoute = app.querySelector('[data-exit-route]');
+		let completedIds = new Set();
+		let activeCategory = 'all';
+		let activeRouteId = '';
+		let activeGuideKey = '';
+		let activeMarkerId = '';
 		let zoom = 1;
 		let dragging = false;
 		let dragStartX = 0;
 		let dragStartY = 0;
 		let scrollStartX = 0;
 		let scrollStartY = 0;
-		let activeCategory = 'all';
-		let activeGuideKey = '';
-		let completedIds = new Set();
 
-		function readProgress() {
+		function readState() {
 			try {
 				const raw = window.localStorage.getItem(storageKey);
-				if (!raw) return new Set();
+				if (!raw) return;
 				const parsed = JSON.parse(raw);
-				if (parsed?.version !== 1 || !Array.isArray(parsed.completedIds)) return new Set();
-				return new Set(parsed.completedIds.filter((id) => validIds.has(id)));
-			} catch (error) {
-				return new Set();
-			}
+				if (Array.isArray(parsed?.completedIds)) completedIds = new Set(parsed.completedIds.filter((id) => validIds.has(id)));
+				if (validRouteIds.has(parsed?.activeRouteId)) activeRouteId = parsed.activeRouteId;
+				if (typeof parsed?.activeCategory === 'string' && categoryButtons.some((button) => button.getAttribute('data-map-category') === parsed.activeCategory)) activeCategory = parsed.activeCategory;
+				if (typeof parsed?.activeGuideKey === 'string' && validGuideKeys.has(parsed.activeGuideKey)) activeGuideKey = parsed.activeGuideKey;
+				if (parsed?.hideCompleted === true && hideCompleted instanceof HTMLInputElement) hideCompleted.checked = true;
+				if (typeof parsed?.search === 'string' && search instanceof HTMLInputElement) search.value = parsed.search;
+			} catch (error) { completedIds = new Set(); }
 		}
 
-		function saveProgress() {
-			try {
-				window.localStorage.setItem(storageKey, JSON.stringify({ version: 1, completedIds: Array.from(completedIds) }));
-			} catch (error) {
-				// Private browsing or blocked storage should not stop the map from working.
-			}
+		function saveState() {
+			try { window.localStorage.setItem(storageKey, JSON.stringify({ version: 2, completedIds: Array.from(completedIds), activeRouteId, activeCategory, activeGuideKey, hideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked, search: search instanceof HTMLInputElement ? search.value : '' })); } catch (error) { /* keep workspace usable */ }
 		}
+		function trackEvent(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params); }
+		function routeCard(routeId) { return routeCards.find((card) => card.getAttribute('data-map-route-card') === routeId); }
+		function routeMarkerIds(routeId) { return routeCard(routeId)?.getAttribute('data-route-waypoints')?.split(',').filter(Boolean) ?? []; }
+		function routeItemIds(routeId) { const card = routeCard(routeId); return card ? Array.from(card.querySelectorAll('[data-route-item-id]')).map((item) => item.getAttribute('data-route-item-id')).filter(Boolean) : []; }
+		function routeCurrentMarkerId(routeId) { const card = routeCard(routeId); const waypoint = card && Array.from(card.querySelectorAll('[data-route-waypoint]')).find((item) => { const itemId = item.getAttribute('data-route-item-id'); return itemId && !completedIds.has(itemId); }); return waypoint?.getAttribute('data-route-waypoint') || ''; }
+		function setUrl(params) { const url = new URL(window.location.href); Object.entries(params).forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key)); window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`); }
+		function setGuideContext(key) { activeGuideKey = key; if (!(guideContext instanceof HTMLElement)) return; if (!key) { guideContext.hidden = true; guideContext.textContent = ''; return; } const targetCount = markerButtons.filter((marker) => marker.getAttribute('data-map-guide-key') === key).length; const label = key.split('-').filter(Boolean).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '); guideContext.textContent = `${targetCount} location${targetCount === 1 ? '' : 's'} from ${label} Guide`; guideContext.hidden = false; }
 
-		function trackEvent(name, params) {
-			if (typeof window.gtag === 'function') window.gtag('event', name, params);
+		function updateDetailActions() {
+			const marker = markerButtons.find((item) => item.getAttribute('data-map-marker-button') === activeMarkerId);
+			const itemId = marker?.getAttribute('data-toolkit-id');
+			const isCurrentTarget = Boolean(activeRouteId && activeMarkerId && routeMarkerIds(activeRouteId).includes(activeMarkerId) && itemId);
+			details.forEach((detail) => {
+				const button = detail.querySelector('[data-detail-complete-next]');
+				if (button instanceof HTMLButtonElement) button.hidden = detail.getAttribute('data-map-detail') !== activeMarkerId || !isCurrentTarget;
+			});
 		}
-
-		function toolkitItemsCount(query, shouldHideCompleted) {
-			return checklistItems.filter((item) => {
-				const id = item.getAttribute('data-toolkit-item');
-				const itemName = item.textContent?.toLowerCase() ?? '';
-				const region = item.getAttribute('data-toolkit-region')?.toLowerCase() ?? '';
-				const itemCategory = item.getAttribute('data-toolkit-category') ?? '';
-				return (activeCategory === 'all' || itemCategory === activeCategory) && (itemName.includes(query) || region.includes(query)) && !(shouldHideCompleted && id && completedIds.has(id));
-			}).length;
+		function showMarker(markerId, reveal = true) {
+			if (!validMarkerIds.has(markerId)) return;
+			activeMarkerId = markerId;
+			markerButtons.forEach((marker) => marker.classList.toggle('is-selected', marker.getAttribute('data-map-marker-button') === markerId));
+			details.forEach((detail) => { detail.hidden = detail.getAttribute('data-map-detail') !== markerId; });
+			if (empty) empty.hidden = true;
+			const marker = markerButtons.find((button) => button.getAttribute('data-map-marker-button') === markerId);
+			if (marker && reveal && viewport instanceof HTMLElement) { marker.removeAttribute('hidden'); viewport.scrollTo({ left: Math.max(0, marker.offsetLeft - viewport.clientWidth / 2), top: Math.max(0, marker.offsetTop - viewport.clientHeight / 2), behavior: 'smooth' }); }
+			if (window.matchMedia('(max-width: 62rem)').matches) app.querySelector('[data-map-details]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+			setUrl({ marker: markerId });
+			updateDetailActions();
 		}
 
 		function applyFilters() {
 			const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
 			const shouldHideCompleted = hideCompleted instanceof HTMLInputElement && hideCompleted.checked;
+			const activeRouteMarkers = new Set(routeMarkerIds(activeRouteId));
 			let visibleMarkers = 0;
 			markerButtons.forEach((marker) => {
-				const id = marker.getAttribute('data-toolkit-id');
-				const name = marker.textContent?.toLowerCase() ?? '';
-				const region = marker.getAttribute('data-map-marker-region')?.toLowerCase() ?? '';
-				const markerCategory = marker.getAttribute('data-map-marker-category') ?? '';
-				const markerGuideKey = marker.getAttribute('data-map-guide-key') ?? '';
-				const matchesGuide = !activeGuideKey || markerGuideKey === activeGuideKey;
-				const matches = matchesGuide && (activeCategory === 'all' || markerCategory === activeCategory) && (name.includes(query) || region.includes(query)) && !(shouldHideCompleted && id && completedIds.has(id));
+				const markerId = marker.getAttribute('data-map-marker-button') || '';
+				const itemId = marker.getAttribute('data-toolkit-id');
+				const haystack = `${marker.getAttribute('data-map-marker-name') || ''} ${marker.getAttribute('data-map-marker-region') || ''} ${marker.getAttribute('data-map-marker-category') || ''}`.toLowerCase();
+				const matches = (!activeRouteId || activeRouteMarkers.has(markerId)) && (!activeGuideKey || marker.getAttribute('data-map-guide-key') === activeGuideKey) && (activeCategory === 'all' || marker.getAttribute('data-map-marker-category') === activeCategory) && haystack.includes(query) && !(shouldHideCompleted && itemId && completedIds.has(itemId));
 				marker.toggleAttribute('hidden', !matches);
+				marker.classList.toggle('is-outside-route', Boolean(activeRouteId && !activeRouteMarkers.has(markerId)));
 				if (matches) visibleMarkers += 1;
 			});
-			checklistItems.forEach((item) => {
-				const id = item.getAttribute('data-toolkit-item');
-				const itemName = item.textContent?.toLowerCase() ?? '';
-				const region = item.getAttribute('data-toolkit-region')?.toLowerCase() ?? '';
-				const itemCategory = item.getAttribute('data-toolkit-category') ?? '';
-				const matches = (activeCategory === 'all' || itemCategory === activeCategory) && (itemName.includes(query) || region.includes(query)) && !(shouldHideCompleted && id && completedIds.has(id));
-				item.toggleAttribute('hidden', !matches);
-			});
+			checklistItems.forEach((item) => { const itemId = item.getAttribute('data-toolkit-item'); const haystack = `${item.textContent || ''} ${item.getAttribute('data-toolkit-region') || ''} ${item.getAttribute('data-toolkit-category') || ''}`.toLowerCase(); const matches = (activeCategory === 'all' || item.getAttribute('data-toolkit-category') === activeCategory) && haystack.includes(query) && !(shouldHideCompleted && itemId && completedIds.has(itemId)); item.toggleAttribute('hidden', !matches); });
 			const checklistEmpty = app.querySelector('[data-toolkit-empty]');
-			const hasVisibleChecklist = checklistItems.some((item) => !item.hasAttribute('hidden'));
-			if (checklistEmpty) checklistEmpty.toggleAttribute('hidden', hasVisibleChecklist);
-			const visibleItems = toolkitItemsCount(query, shouldHideCompleted);
-			if (count) count.textContent = `${visibleMarkers} mapped marker${visibleMarkers === 1 ? '' : 's'} · ${visibleItems} tracked item${visibleItems === 1 ? '' : 's'}`;
+			if (checklistEmpty) checklistEmpty.toggleAttribute('hidden', checklistItems.some((item) => !item.hasAttribute('hidden')));
+			const visibleItems = checklistItems.filter((item) => !item.hasAttribute('hidden')).length;
+			if (count) count.textContent = `${visibleMarkers} mapped · ${visibleItems} tracked`;
+			if (modeStatus) modeStatus.textContent = activeRouteId ? `${routeCard(activeRouteId)?.getAttribute('data-route-name') || 'Route'} · Route Mode` : `${visibleMarkers} mapped targets`;
+		}
+
+		function updateRouteUI() {
+			routeCards.forEach((card) => {
+				const routeId = card.getAttribute('data-map-route-card') || '';
+				const itemIds = routeItemIds(routeId);
+				const completed = itemIds.filter((id) => completedIds.has(id)).length;
+				const percent = itemIds.length ? Math.round((completed / itemIds.length) * 100) : 0;
+				const currentMarker = routeCurrentMarkerId(routeId);
+				const action = card.querySelector('[data-map-start-route]');
+				if (card.querySelector('[data-route-completed]')) card.querySelector('[data-route-completed]').textContent = String(completed);
+				if (card.querySelector('[data-route-percent]')) card.querySelector('[data-route-percent]').textContent = `${percent}%`;
+				if (card.querySelector('[data-route-bar]')) card.querySelector('[data-route-bar]').style.width = `${percent}%`;
+				if (action) action.textContent = percent === 100 ? 'Completed' : routeId === activeRouteId ? 'Resume route' : completed > 0 ? 'Resume route' : 'Start route';
+				card.classList.toggle('is-active', routeId === activeRouteId);
+				card.querySelectorAll('[data-route-waypoint]').forEach((waypoint) => { const itemId = waypoint.getAttribute('data-route-item-id'); const complete = Boolean(itemId && completedIds.has(itemId)); const current = waypoint.getAttribute('data-route-waypoint') === currentMarker && routeId === activeRouteId; waypoint.classList.toggle('is-completed', complete); waypoint.classList.toggle('is-current', current); const state = waypoint.querySelector('[data-route-waypoint-state]'); if (state) state.textContent = complete ? 'Done' : current ? 'Current' : 'Next'; });
+			});
+			app.querySelectorAll('[data-related-route-progress]').forEach((node) => { const routeId = node.getAttribute('data-related-route-progress') || ''; const ids = routeItemIds(routeId); node.textContent = `${ids.filter((id) => completedIds.has(id)).length} / ${ids.length}`; });
+			if (exitRoute instanceof HTMLButtonElement) exitRoute.hidden = !activeRouteId;
+			const recommended = routeCard(activeRouteId) || routeCards.find((card) => routeCurrentMarkerId(card.getAttribute('data-map-route-card') || '')) || routeCards[0];
+			if (!recommended) return;
+			const routeId = recommended.getAttribute('data-map-route-card') || '';
+			const ids = routeItemIds(routeId);
+			const complete = ids.filter((id) => completedIds.has(id)).length;
+			const currentMarker = routeCurrentMarkerId(routeId);
+			const currentWaypoint = recommended.querySelector(`[data-route-waypoint="${currentMarker}"]`);
+			const kicker = app.querySelector('[data-route-summary-kicker]'); const name = app.querySelector('[data-route-summary-name]'); const progress = app.querySelector('[data-route-summary-progress]'); const next = app.querySelector('[data-route-summary-next]');
+			if (kicker) kicker.textContent = activeRouteId ? 'Current route' : 'Next recommended';
+			if (name) name.textContent = recommended.getAttribute('data-route-name') || 'Recommended route';
+			if (progress) progress.textContent = `${complete} / ${ids.length}`;
+			if (next) next.textContent = currentWaypoint ? `Next · ${currentWaypoint.querySelector('strong')?.textContent || 'Waypoint'}` : 'All waypoints complete';
 		}
 
 		function updateProgressUI() {
-			const totalCompleted = completedIds.size;
-			const total = validIds.size;
-			const totalNode = app.querySelector('[data-progress-total]');
-			const overallBar = app.querySelector('[data-progress-overall-bar]');
-			const overallPercent = app.querySelector('[data-progress-overall-percent]');
-			const overallValue = total ? Math.round((totalCompleted / total) * 100) : 0;
-			if (totalNode) totalNode.textContent = String(totalCompleted);
-			if (overallBar) overallBar.style.width = `${overallValue}%`;
-			if (overallPercent) overallPercent.textContent = `${overallValue}%`;
-			app.querySelectorAll('[data-progress-category]').forEach((categoryNode) => {
-				const categoryName = categoryNode.getAttribute('data-progress-category');
-				const categoryItems = checklistItems.filter((item) => item.getAttribute('data-toolkit-category') === categoryName);
-				const completed = categoryItems.filter((item) => completedIds.has(item.getAttribute('data-toolkit-item'))).length;
-				const percent = categoryItems.length ? Math.round((completed / categoryItems.length) * 100) : 0;
-				const completedNode = categoryNode.querySelector('[data-progress-category-completed]');
-				const bar = categoryNode.querySelector('[data-progress-category-bar]');
-				if (completedNode) completedNode.textContent = String(completed);
-				if (bar) bar.style.width = `${percent}%`;
-			});
-			checkboxes.forEach((checkbox) => {
-				const id = checkbox.getAttribute('data-toolkit-checkbox');
-				const isComplete = Boolean(id && completedIds.has(id));
-				if (checkbox instanceof HTMLInputElement) checkbox.checked = isComplete;
-				const label = checkbox.parentElement?.querySelector('[data-toolkit-checkbox-label]');
-				if (label) label.textContent = isComplete ? 'Completed' : 'Mark complete';
-			});
-			markerButtons.forEach((marker) => {
-				const id = marker.getAttribute('data-toolkit-id');
-				const isComplete = Boolean(id && completedIds.has(id));
-				marker.classList.toggle('is-completed', isComplete);
-				const markerName = marker.querySelector('.map-marker__label')?.textContent?.trim() || 'marker';
-				marker.setAttribute('aria-label', `${isComplete ? 'Completed: ' : ''}Open details for ${markerName}`);
-			});
+			const total = validIds.size; const value = total ? Math.round((completedIds.size / total) * 100) : 0;
+			const totalNode = app.querySelector('[data-progress-total]'); const bar = app.querySelector('[data-progress-overall-bar]'); const percent = app.querySelector('[data-progress-overall-percent]');
+			if (totalNode) totalNode.textContent = String(completedIds.size); if (bar) bar.style.width = `${value}%`; if (percent) percent.textContent = `${value}%`;
+			app.querySelectorAll('[data-progress-category]').forEach((node) => { const category = node.getAttribute('data-progress-category'); const items = checklistItems.filter((item) => item.getAttribute('data-toolkit-category') === category); const done = items.filter((item) => completedIds.has(item.getAttribute('data-toolkit-item'))).length; const categoryBar = node.querySelector('[data-progress-category-bar]'); const completedNode = node.querySelector('[data-progress-category-completed]'); if (completedNode) completedNode.textContent = String(done); if (categoryBar) categoryBar.style.width = `${items.length ? Math.round(done / items.length * 100) : 0}%`; });
+			categoryButtons.forEach((button) => { const category = button.getAttribute('data-map-category') || 'all'; const items = category === 'all' ? checklistItems : checklistItems.filter((item) => item.getAttribute('data-toolkit-category') === category); const done = items.filter((item) => completedIds.has(item.getAttribute('data-toolkit-item'))).length; const node = button.querySelector('[data-category-count]'); if (node) node.textContent = `${done} / ${items.length || 0}`; button.classList.toggle('is-active', category === activeCategory); });
+			checkboxes.forEach((checkbox) => { const id = checkbox.getAttribute('data-toolkit-checkbox'); const done = Boolean(id && completedIds.has(id)); if (checkbox instanceof HTMLInputElement) checkbox.checked = done; const label = checkbox.parentElement?.querySelector('[data-toolkit-checkbox-label]'); if (label) label.textContent = done ? 'Completed' : 'Mark completed'; });
+			markerButtons.forEach((marker) => { const id = marker.getAttribute('data-toolkit-id'); const done = Boolean(id && completedIds.has(id)); const markerId = marker.getAttribute('data-map-marker-button') || ''; const routeMarkers = routeMarkerIds(activeRouteId); const current = routeCurrentMarkerId(activeRouteId); const routeIndex = routeMarkers.indexOf(markerId); const numberNode = marker.querySelector('.map-marker__route-number'); if (numberNode) { numberNode.textContent = routeIndex >= 0 ? String(routeIndex + 1) : ''; numberNode.toggleAttribute('hidden', routeIndex < 0); } marker.classList.toggle('is-completed', done); marker.classList.toggle('is-route-current', markerId === current); marker.classList.toggle('is-route-upcoming', Boolean(activeRouteId && routeMarkers.includes(markerId) && markerId !== current && !done)); marker.setAttribute('aria-label', `${done ? 'Completed: ' : ''}Open details for ${marker.getAttribute('data-map-marker-name') || 'marker'}`); });
 			checklistItems.forEach((item) => item.classList.toggle('is-completed', completedIds.has(item.getAttribute('data-toolkit-item'))));
-			applyFilters();
+			updateRouteUI(); applyFilters(); updateDetailActions();
 		}
 
-		function setCategory(value) {
-			activeCategory = value;
-			if (category instanceof HTMLSelectElement) category.value = value;
-			chips.forEach((chip) => chip.classList.toggle('is-active', chip.getAttribute('data-toolkit-chip') === value));
-			applyFilters();
-		}
+		function setCategory(value) { activeCategory = value; saveState(); applyFilters(); updateProgressUI(); }
+		function startRoute(routeId, focusCurrent = true) { if (!validRouteIds.has(routeId)) return; activeRouteId = routeId; setGuideContext(''); setCategory('all'); setUrl({ route: routeId, guide: '' }); saveState(); updateProgressUI(); const markerId = routeCurrentMarkerId(routeId); if (markerId && focusCurrent) showMarker(markerId, true); trackEvent('map_route_start', { route_id: routeId }); }
+		function exitActiveRoute() { activeRouteId = ''; saveState(); setUrl({ route: '' }); updateProgressUI(); }
+		function toggleCompletion(id, advance = true) { if (!id || !validIds.has(id)) return; const wasDone = completedIds.has(id); if (wasDone) completedIds.delete(id); else completedIds.add(id); saveState(); updateProgressUI(); trackEvent(wasDone ? 'toolkit_item_uncomplete' : 'toolkit_item_complete', { item_id: id }); if (!wasDone && advance && activeRouteId) { const markerId = routeCurrentMarkerId(activeRouteId); if (markerId) showMarker(markerId, true); } }
+		function completeAndNext() { const marker = markerButtons.find((button) => button.getAttribute('data-map-marker-button') === activeMarkerId); const id = marker?.getAttribute('data-toolkit-id'); if (!id || !activeRouteId) return; completedIds.add(id); saveState(); updateProgressUI(); const next = routeCurrentMarkerId(activeRouteId); if (next) showMarker(next, true); }
+		function revealAndShowMarker(markerId) { if (!validMarkerIds.has(markerId)) return; if (search instanceof HTMLInputElement) search.value = ''; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false; activeRouteId = ''; setGuideContext(''); setCategory('all'); setUrl({ marker: markerId, route: '', guide: '' }); saveState(); updateProgressUI(); showMarker(markerId, true); }
+		function revealGuideTargets(key) { if (!key || !validGuideKeys.has(key)) return; activeRouteId = ''; if (search instanceof HTMLInputElement) search.value = ''; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false; setCategory('all'); setGuideContext(key); setUrl({ guide: key, route: '', marker: '' }); saveState(); applyFilters(); }
+		function setZoom(nextZoom) { zoom = Math.min(2.2, Math.max(1, nextZoom)); if (surface instanceof HTMLElement) surface.style.setProperty('--map-scale', zoom.toFixed(1)); if (zoomLabel) zoomLabel.textContent = `${Math.round(zoom * 100)}%`; }
 
-		function setMode(mode) {
-			modeTabs.forEach((tab) => {
-				const selected = tab.getAttribute('data-toolkit-mode') === mode;
-				tab.classList.toggle('is-active', selected);
-				tab.setAttribute('aria-selected', String(selected));
-			});
-			panels.forEach((panel) => panel.toggleAttribute('hidden', panel.getAttribute('data-toolkit-panel') !== mode));
-		}
-
-		function setMarkerUrl(id) {
-			const url = new URL(window.location.href);
-			if (id) url.searchParams.set('marker', id);
-			else url.searchParams.delete('marker');
-			url.searchParams.delete('guide');
-			window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
-		}
-
-		function setGuideUrl(key) {
-			const url = new URL(window.location.href);
-			if (key) url.searchParams.set('guide', key);
-			else url.searchParams.delete('guide');
-			url.searchParams.delete('marker');
-			window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
-		}
-
-		function setGuideContext(key) {
-			activeGuideKey = key;
-			if (!(guideContext instanceof HTMLElement)) return;
-			if (!key) {
-				guideContext.hidden = true;
-				guideContext.textContent = '';
-				return;
-			}
-			const count = markerButtons.filter((marker) => marker.getAttribute('data-map-guide-key') === key).length;
-			const label = key.split('-').filter(Boolean).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-			guideContext.textContent = `${count} location${count === 1 ? '' : 's'} from ${label} Guide`;
-			guideContext.hidden = false;
-		}
-
-		function showDetail(id, reveal = false) {
-			details.forEach((detail) => { detail.hidden = detail.getAttribute('data-map-detail') !== id; });
-			if (empty) empty.hidden = true;
-			markerButtons.forEach((marker) => marker.classList.toggle('is-selected', marker.getAttribute('data-map-marker-button') === id));
-			const marker = markerButtons.find((button) => button.getAttribute('data-map-marker-button') === id);
-			if (marker && reveal && viewport instanceof HTMLElement) {
-				marker.removeAttribute('hidden');
-				viewport.scrollTo({ left: Math.max(0, marker.offsetLeft - viewport.clientWidth / 2), top: Math.max(0, marker.offsetTop - viewport.clientHeight / 2), behavior: 'smooth' });
-			}
-			if (window.matchMedia('(max-width: 55rem)').matches) app.querySelector('[data-map-details]')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-		}
-
-		function revealAndShowMarker(markerId) {
-			if (!markerId || !markerButtons.some((marker) => marker.getAttribute('data-map-marker-button') === markerId)) return;
-			if (search instanceof HTMLInputElement) search.value = '';
-			if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false;
-			setGuideContext('');
-			setCategory('all');
-			setMode('map');
-			applyFilters();
-			setMarkerUrl(markerId);
-			showDetail(markerId, true);
-		}
-
-		function revealGuideTargets(guideKey) {
-			if (!guideKey || !validGuideKeys.has(guideKey)) return false;
-			if (search instanceof HTMLInputElement) search.value = '';
-			if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false;
-			setCategory('all');
-			setMode('map');
-			setGuideContext(guideKey);
-			setGuideUrl(guideKey);
-			details.forEach((detail) => { detail.hidden = true; });
-			if (empty) empty.hidden = false;
-			markerButtons.forEach((marker) => marker.classList.remove('is-selected'));
-			applyFilters();
-			return true;
-		}
-
-		function setZoom(nextZoom) {
-			zoom = Math.min(2.2, Math.max(1, nextZoom));
-			if (surface instanceof HTMLElement) surface.style.setProperty('--map-scale', zoom.toFixed(1));
-			if (zoomLabel) zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
-		}
-
-		function toggleCompletion(id) {
-			if (!id || !validIds.has(id)) return;
-			const wasComplete = completedIds.has(id);
-			if (wasComplete) completedIds.delete(id);
-			else completedIds.add(id);
-			saveProgress();
-			updateProgressUI();
-			trackEvent(wasComplete ? 'toolkit_item_uncomplete' : 'toolkit_item_complete', { item_id: id });
-		}
-
-		completedIds = readProgress();
+		readState();
 		checkboxes.forEach((checkbox) => checkbox.addEventListener('change', () => toggleCompletion(checkbox.getAttribute('data-toolkit-checkbox'))));
-		modeTabs.forEach((tab) => tab.addEventListener('click', () => setMode(tab.getAttribute('data-toolkit-mode') || 'map')));
-		search?.addEventListener('input', applyFilters);
-		category?.addEventListener('change', (event) => setCategory(event.target.value));
-		chips.forEach((chip) => chip.addEventListener('click', () => setCategory(chip.getAttribute('data-toolkit-chip') || 'all')));
-		hideCompleted?.addEventListener('change', () => {
-			if (hideCompleted.checked) trackEvent('toolkit_hide_completed', {});
-			applyFilters();
-		});
-		app.querySelector('[data-reset-progress]')?.addEventListener('click', () => {
-			if (!window.confirm('Reset all Player Toolkit completion progress on this device?')) return;
-			completedIds = new Set();
-			try {
-				window.localStorage.removeItem(storageKey);
-			} catch (error) {
-				// Private browsing or blocked storage should not stop the reset UI from updating.
-			}
-			updateProgressUI();
-		});
-		resetFilters?.addEventListener('click', () => {
-			if (search instanceof HTMLInputElement) search.value = '';
-			if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false;
-			setCategory('all');
-			setZoom(1);
-		});
-		markerButtons.forEach((marker) => marker.addEventListener('click', () => {
-			const markerId = marker.getAttribute('data-map-marker-button') || '';
-			setGuideContext('');
-			setMarkerUrl(markerId);
-			showDetail(markerId);
-		}));
-		app.querySelectorAll('[data-show-on-map]').forEach((button) => button.addEventListener('click', () => {
-			trackEvent('toolkit_show_on_map', { marker_id: button.getAttribute('data-show-on-map') });
-			revealAndShowMarker(button.getAttribute('data-show-on-map'));
-		}));
-		zoomIn?.addEventListener('click', () => setZoom(zoom + 0.1));
-		zoomOut?.addEventListener('click', () => setZoom(zoom - 0.1));
-		if (viewport instanceof HTMLElement) {
-			viewport.addEventListener('pointerdown', (event) => {
-				if (event.pointerType !== 'mouse' || event.button !== 0) return;
-				dragging = true;
-				dragStartX = event.clientX;
-				dragStartY = event.clientY;
-				scrollStartX = viewport.scrollLeft;
-				scrollStartY = viewport.scrollTop;
-				viewport.setPointerCapture(event.pointerId);
-			});
-			viewport.addEventListener('pointermove', (event) => {
-				if (!dragging) return;
-				viewport.scrollLeft = scrollStartX - (event.clientX - dragStartX);
-				viewport.scrollTop = scrollStartY - (event.clientY - dragStartY);
-			});
-			const stopDragging = () => { dragging = false; };
-			viewport.addEventListener('pointerup', stopDragging);
-			viewport.addEventListener('pointercancel', stopDragging);
-		}
-		const initialMarker = new URL(window.location.href).searchParams.get('marker');
-		const initialGuide = new URL(window.location.href).searchParams.get('guide');
+		categoryButtons.forEach((button) => button.addEventListener('click', () => setCategory(button.getAttribute('data-map-category') || 'all')));
+		search?.addEventListener('input', () => { saveState(); applyFilters(); }); hideCompleted?.addEventListener('change', () => { saveState(); applyFilters(); });
+		app.querySelector('[data-reset-progress]')?.addEventListener('click', () => { if (!window.confirm('Reset all Player Toolkit completion progress on this device?')) return; completedIds = new Set(); try { window.localStorage.removeItem(storageKey); } catch (error) { /* keep UI usable */ } saveState(); updateProgressUI(); });
+		app.querySelector('[data-toolkit-reset]')?.addEventListener('click', () => { if (search instanceof HTMLInputElement) search.value = ''; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false; activeGuideKey = ''; setGuideContext(''); setCategory('all'); setZoom(1); saveState(); applyFilters(); });
+		exitRoute?.addEventListener('click', exitActiveRoute);
+		markerButtons.forEach((marker) => marker.addEventListener('click', () => showMarker(marker.getAttribute('data-map-marker-button') || '', true)));
+		routeCards.forEach((card) => { card.querySelectorAll('[data-map-route-waypoint]').forEach((button) => button.addEventListener('click', () => { startRoute(button.getAttribute('data-route-id') || '', false); showMarker(button.getAttribute('data-map-route-waypoint') || '', true); })); });
+		app.querySelectorAll('[data-map-start-route]').forEach((button) => button.addEventListener('click', () => startRoute(button.getAttribute('data-map-start-route') || '')));
+		app.querySelectorAll('[data-map-related-marker]').forEach((button) => button.addEventListener('click', () => showMarker(button.getAttribute('data-map-related-marker') || '', true)));
+		details.forEach((detail) => detail.querySelector('[data-detail-complete-next]')?.addEventListener('click', completeAndNext));
+		app.querySelectorAll('[data-show-on-map]').forEach((button) => button.addEventListener('click', () => revealAndShowMarker(button.getAttribute('data-show-on-map') || '')));
+		zoomIn?.addEventListener('click', () => setZoom(zoom + 0.1)); zoomOut?.addEventListener('click', () => setZoom(zoom - 0.1));
+		if (viewport instanceof HTMLElement) { viewport.addEventListener('pointerdown', (event) => { if (event.pointerType !== 'mouse' || event.button !== 0) return; dragging = true; dragStartX = event.clientX; dragStartY = event.clientY; scrollStartX = viewport.scrollLeft; scrollStartY = viewport.scrollTop; viewport.setPointerCapture(event.pointerId); }); viewport.addEventListener('pointermove', (event) => { if (!dragging) return; viewport.scrollLeft = scrollStartX - (event.clientX - dragStartX); viewport.scrollTop = scrollStartY - (event.clientY - dragStartY); }); const stopDragging = () => { dragging = false; }; viewport.addEventListener('pointerup', stopDragging); viewport.addEventListener('pointercancel', stopDragging); }
+
 		updateProgressUI();
-		if (initialMarker && markerButtons.some((marker) => marker.getAttribute('data-map-marker-button') === initialMarker)) revealAndShowMarker(initialMarker);
-		else if (initialGuide) revealGuideTargets(initialGuide);
+		const initialUrl = new URL(window.location.href); const initialMarker = initialUrl.searchParams.get('marker'); const initialGuide = initialUrl.searchParams.get('guide'); const initialRoute = initialUrl.searchParams.get('route');
+		if (initialMarker && validMarkerIds.has(initialMarker)) showMarker(initialMarker, true); else if (initialGuide) revealGuideTargets(initialGuide); else if (initialRoute && validRouteIds.has(initialRoute)) startRoute(initialRoute, true); else if (activeRouteId) startRoute(activeRouteId, false);
 	}
 </script>

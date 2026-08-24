@@ -1,4 +1,4 @@
-.map-page { padding-top: 1rem; }
+.map-page { padding-top: 1.25rem; }
 .map-page__toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.2rem; margin-bottom: 0.75rem; }
 .map-page__toolbar-context, .map-page__toolbar-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.65rem; }
 .map-page__toolbar-title { color: var(--map-text); font-size: 1rem; font-weight: 800; }
@@ -23,6 +23,62 @@
 .map-progress-modal .completion-workspace__hero { margin-top: 0; }
 .map-progress-modal .completion-workspace__footer { margin-bottom: 0; }
 
+/* Desktop map workspace: keep the canvas dominant and make controls a stable
+   reading column instead of a floating drawer. */
+@media (min-width: 62.01rem) {
+	.map-workspace {
+		display: grid;
+		grid-template-columns: minmax(0, 3fr) minmax(18rem, 1fr);
+		gap: 1rem;
+		align-items: start;
+	}
+
+	.map-panel--canvas {
+		position: sticky;
+		top: 1rem;
+	}
+
+	.map-control-center[data-map-tools-panel] {
+		position: sticky;
+		top: 1rem;
+		right: auto;
+		display: grid;
+		width: auto;
+		max-height: calc(100vh - 2rem);
+		overflow: auto;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background: transparent;
+		box-shadow: none;
+		backdrop-filter: none;
+	}
+
+	.map-page .map-toolbar-button[data-map-tools-toggle] {
+		display: none;
+	}
+}
+
+.map-panel,
+.map-viewport,
+.map-leaflet,
+.map-leaflet .leaflet-container {
+	background-color: var(--map-ink);
+}
+
+.map-control-center[data-map-tools-panel] .map-control-section--detail {
+	order: 3;
+	min-height: 12rem;
+}
+
+.map-control-center[data-map-tools-panel] .map-control-section--search {
+	order: 1;
+}
+
+.map-control-center[data-map-tools-panel] > .map-control-section:not(.map-control-section--search):not(.map-control-section--detail) {
+	order: 2;
+}
+
 @media (max-width: 62rem) {
 	.map-panel--canvas, .map-control-center { position: static; }
 }
@@ -33,6 +89,17 @@
 	.map-page__toolbar-actions .map-toolbar-button { flex: 1 1 auto; }
 	.map-control-section--detail { order: 3; }
 	.map-control-center { display: grid; }
+	.map-control-center[data-map-tools-panel] {
+		position: static;
+		width: 100%;
+		max-height: none;
+		overflow: visible;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		box-shadow: none;
+	}
+	.map-page .map-toolbar-button[data-map-tools-toggle] { display: none; }
 	.map-progress-modal { width: calc(100% - 1rem); max-height: calc(100vh - 1rem); }
 	.map-progress-modal__inner { max-height: calc(100vh - 1rem); }
 	.map-progress-modal .completion-workspace { padding: 0.75rem; }

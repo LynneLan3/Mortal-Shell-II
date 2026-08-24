@@ -19,7 +19,7 @@
 :root {
 	/* Width system */
 	--xp-wide: 84rem;
-	--xp-content: 68rem;
+	--xp-content: 78rem;
 	--xp-reading: 46rem;
 
 	/* Colors — mapped from game config / Starlight variables */
@@ -655,7 +655,7 @@
 }
 
 .exp-section + .exp-section {
-	border-top: 1px solid var(--xp-border);
+	border-top: none;
 }
 
 .exp-section--dark {
@@ -665,8 +665,8 @@
 			transparent 50%),
 		var(--xp-surface-dark);
 	color: #f4f7f8;
-	border-top: 1px solid var(--xp-border-subtle);
-	border-bottom: 1px solid var(--xp-border-subtle);
+	border-top: none;
+	border-bottom: none;
 }
 
 .exp-section--tinted {
@@ -684,6 +684,9 @@
 .exp-route-topic-card {
 	display: grid;
 	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr;
+	min-width: 0;
+	height: 100%;
 	overflow: hidden;
 	border: 1px solid var(--xp-border);
 	background: color-mix(in srgb, var(--xp-surface) 36%, transparent);
@@ -702,6 +705,7 @@
 .exp-route-topic-card__visual {
 	position: relative;
 	overflow: hidden;
+	aspect-ratio: 16 / 9;
 	border-bottom: 1px solid var(--xp-border-subtle);
 	background: var(--xp-surface-dark);
 }
@@ -709,7 +713,7 @@
 .exp-route-topic-card__visual img {
 	display: block;
 	width: 100%;
-	aspect-ratio: 16 / 9;
+	height: 100%;
 	object-fit: cover;
 	opacity: 0.84;
 	transition: opacity 140ms, transform 200ms;
@@ -723,14 +727,15 @@
 
 .exp-route-topic-card__body {
 	display: grid;
+	grid-template-rows: auto auto auto 1fr auto;
 	gap: 0.75rem;
 	align-content: start;
-	padding: 1.35rem;
+	padding: 1.1rem 1.2rem 1.15rem;
 	min-height: 100%;
 }
 
 @media (min-width: 50rem) {
-	.exp-route-topic-card__body { padding: 1.55rem; }
+	.exp-route-topic-card__body { padding: 1.15rem 1.3rem 1.25rem; }
 }
 
 .exp-route-topic-card__meta {
@@ -740,9 +745,12 @@
 }
 
 .exp-route-topic-card__number {
+	display: inline-flex;
+	align-items: end;
+	min-height: 3.25rem;
 	font-size: clamp(2.8rem, 8vw, 4.5rem);
 	font-weight: 900;
-	line-height: 0.8;
+	line-height: 0.84;
 	color: color-mix(in srgb, var(--xp-accent) 34%, transparent);
 }
 

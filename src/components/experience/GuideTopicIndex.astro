@@ -75,6 +75,9 @@ if (unassigned.length > 0) {
 		entries: unassigned,
 	});
 }
+
+const topicOrder = ['start-general', 'world-exploration', 'weapons-resources', 'completion-endgame', 'pc-fixes'];
+groups.sort((a, b) => (topicOrder.indexOf(a.id) < 0 ? topicOrder.length : topicOrder.indexOf(a.id)) - (topicOrder.indexOf(b.id) < 0 ? topicOrder.length : topicOrder.indexOf(b.id)));
 ---
 
 <section class="exp-guide-topic-index">
@@ -103,7 +106,7 @@ if (unassigned.length > 0) {
 					<h2 class="exp-h2" id={`${group.id}-heading`}>{group.title}</h2>
 					<p class="exp-lede">{group.description}</p>
 				</header>
-				<div class="exp-guide-topic-grid">
+				<div class:list={['exp-guide-topic-grid', group.entries.some((entry) => Boolean(visualForEntry(entry).image)) && 'exp-guide-topic-grid--visual']}>
 					{group.entries.map((entry) => {
 						const visual = visualForEntry(entry);
 						return (

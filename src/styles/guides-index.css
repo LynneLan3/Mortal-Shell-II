@@ -1,21 +1,19 @@
 /* Topic-based Guides Index. Objective routes use routes.css instead. */
 
 .exp-guide-topic-index__hero {
-	padding: 4rem 0 2.5rem;
-	border-bottom: 1px solid var(--xp-border);
+	padding: 3.25rem 0 1.75rem;
 }
 
 .exp-guide-topic-index__groups {
 	display: grid;
-	gap: 3.5rem;
-	padding-block: 2.5rem 4rem;
+	gap: 2.25rem;
+	padding-block: 1.75rem 2.75rem;
 }
 
 .exp-guide-topic-group {
 	display: grid;
-	gap: 1.25rem;
-	padding-bottom: 3rem;
-	border-bottom: 1px solid var(--xp-border);
+	gap: 0.9rem;
+	padding-bottom: 1.75rem;
 }
 
 .exp-guide-topic-group:last-child {
@@ -44,7 +42,7 @@
 	grid-template-rows: auto 1fr;
 	gap: 0;
 	min-width: 0;
-	min-height: 16rem;
+	min-height: 0;
 	overflow: hidden;
 	border: 1px solid var(--xp-border);
 	background: var(--xp-surface);
@@ -106,9 +104,9 @@
 .exp-guide-topic-card__body {
 	display: grid;
 	grid-template-rows: auto auto 1fr auto;
-	gap: 0.45rem;
-	min-height: 9rem;
-	padding: 1rem;
+	gap: 0.35rem;
+	min-height: 8rem;
+	padding: 0.8rem 0.9rem 0.85rem;
 }
 
 .exp-guide-topic-card:focus-visible {
@@ -132,13 +130,13 @@
 
 .exp-guide-topic-card__desc {
 	font-size: var(--xp-text-sm);
-	line-height: 1.55;
+	line-height: 1.45;
 	color: var(--xp-text-muted);
 }
 
 .exp-guide-topic-card__cta {
 	align-self: end;
-	margin-top: 0.35rem;
+	margin-top: 0.2rem;
 	font-size: var(--xp-text-xs);
 	font-weight: 800;
 	color: var(--xp-accent-text);
@@ -146,10 +144,15 @@
 
 @media (min-width: 50rem) {
 	.exp-guide-topic-index__hero {
-		padding-block: 5rem 3rem;
+		padding-block: 4rem 2rem;
 	}
 
 	.exp-guide-topic-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0.7rem;
+	}
+
+	.exp-guide-topic-grid--visual {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }

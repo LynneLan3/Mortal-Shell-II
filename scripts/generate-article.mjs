@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JOBS_ROOT = path.join(PROJECT_ROOT, 'content-jobs');
 const PROMPT_FILE = path.join(PROJECT_ROOT, 'scripts', 'prompts', 'game-guide-writer.md');
+const HOMEPAGE_PROMPT_FILE = path.join(PROJECT_ROOT, 'scripts', 'prompts', 'homepage-copy.md');
 const DEFAULT_APIMART_BASE_URL = 'https://api.apimart.ai/v1';
 const DEFAULT_TIMEOUT_MS = 60_000;
 const MAX_TOKENS = 8_000;
@@ -24,10 +25,10 @@ function parseArgs(argv) {
 	const positional = argv.filter((arg) => !arg.startsWith('--'));
 
 	if (positional.length !== 1) {
-		fail('Usage: npm run article -- <slug> [--dry-run] [--format=page-package]');
+		fail('Usage: npm run article -- <slug> [--dry-run] [--format=page-package|homepage-copy]');
 	}
-	if (!['article', 'page-package'].includes(format)) {
-		fail(`Invalid format "${format}". Use article or page-package.`);
+	if (!['article', 'page-package', 'homepage-copy'].includes(format)) {
+		fail(`Invalid format "${format}". Use article, page-package, or homepage-copy.`);
 	}
 
 	const [slug] = positional;
@@ -150,6 +151,114 @@ function parsePagePackage(text) {
 	return value;
 }
 
+function parseHomepageCopy(text) {
+	const normalized = text
+		.trim()
+		.replace(/^```(?:json)?\s*/i, '')
+		.replace(/\s*```$/i, '')
+		.trim();
+	let value;
+	try {
+		value = JSON.parse(normalized);
+	} catch {
+		fail('APIMart homepage copy was not valid JSON.');
+	}
+	if (!value || typeof value !== 'object' || Array.isArray(value)) {
+		fail('APIMart homepage copy must be a JSON object.');
+	}
+
+	const requiredStrings = ['seoTitle', 'metaDescription'];
+	for (const field of requiredStrings) {
+		if (typeof value[field] !== 'string' || !value[field].trim()) {
+			fail(`APIMart homepage copy is missing a non-empty ${field}.`);
+		}
+	}
+
+	const rejectRoutingFields = (candidate, location = 'root') => {
+		if (!candidate || typeof candidate !== 'object') return;
+		for (const [key, child] of Object.entries(candidate)) {
+			if (['href', 'slug', 'route', 'routeId', 'pageId', 'componentName', 'internalIdentifier'].includes(key)) {
+				fail(`APIMart homepage copy returned routing field ${location}.${key}.`);
+			}
+			rejectRoutingFields(child, `${location}.${key}`);
+		}
+	};
+	rejectRoutingFields(value);
+
+	const brandMentions = (value.seoTitle.match(/mortal shell ii/gi) ?? []).length;
+	if (brandMentions > 1) fail('APIMart homepage SEO title repeats Mortal Shell II.');
+	if (value.seoTitle.length > 70) fail('APIMart homepage SEO title exceeds 70 characters.');
+	if (value.metaDescription.length > 160) fail('APIMart homepage meta description exceeds 160 characters.');
+
+	const forbiddenTerms = [
+		'source-led',
+		'content coverage',
+		'hot progression routes',
+		'content portal',
+		'authority hub',
+		'research-driven',
+		'internal goal',
+		'keyword stuffing',
+	];
+	const copyText = JSON.stringify(value).toLowerCase();
+	for (const term of forbiddenTerms) {
+		if (copyText.includes(term)) fail(`APIMart homepage copy contains forbidden term: ${term}.`);
+	}
+
+	const hubIds = [
+		'beginner-guide',
+		'interactive-map',
+		'shells',
+		'weapons',
+		'bosses',
+		'walkthrough',
+		'achievements',
+		'new-game-plus',
+		'tarforge',
+	];
+	if (!value.hubs || typeof value.hubs !== 'object' || Array.isArray(value.hubs)) {
+		fail('APIMart homepage copy is missing the stable-id hubs object.');
+	}
+	const hubs = {};
+	for (const id of hubIds) {
+		const hub = value.hubs[id];
+		if (!hub || typeof hub !== 'object' || Array.isArray(hub)) {
+			fail(`APIMart homepage copy is missing required hub id: ${id}.`);
+		}
+		const copy = {};
+		for (const field of ['label', 'description']) {
+			if (typeof hub[field] === 'string' && hub[field].trim()) copy[field] = hub[field].trim();
+		}
+		hubs[id] = copy;
+	}
+
+	const hero = {};
+	if (value.hero && typeof value.hero === 'object' && !Array.isArray(value.hero)) {
+		for (const field of ['tagline', 'primaryCtaLabel', 'secondaryCtaLabel']) {
+			if (typeof value.hero[field] === 'string' && value.hero[field].trim()) hero[field] = value.hero[field].trim();
+		}
+	}
+
+	const sections = {};
+	for (const id of ['core-hubs', 'beginner-start', 'hot-guides', 'recommended-routes']) {
+		const section = value.sections?.[id];
+		if (!section || typeof section !== 'object' || Array.isArray(section)) continue;
+		const copy = {};
+		for (const field of ['title', 'description', 'navLabel']) {
+			if (typeof section[field] === 'string' && section[field].trim()) copy[field] = section[field].trim();
+		}
+		if (Object.keys(copy).length > 0) sections[id] = copy;
+	}
+
+	return {
+		seoTitle: value.seoTitle.trim(),
+		metaDescription: value.metaDescription.trim(),
+		hero,
+		sections,
+		hubs,
+	};
+}
+
 async function fetchWithTimeout(url, options, timeoutMs) {
 	const controller = new AbortController();
 	const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -240,11 +349,14 @@ async function main() {
 	const researchFile = path.join(jobDir, 'research.md');
 	const articleFile = path.join(jobDir, 'article.md');
 	const packageFile = path.join(jobDir, 'page.json');
+	const homepageCopyFile = path.join(jobDir, 'homepage-copy.json');
 
 	const research = await readRequired(researchFile, 'Research file');
 	const promptFile = format === 'page-package'
 		? path.join(PROJECT_ROOT, 'scripts', 'prompts', 'game-guide-page-package.md')
-		: PROMPT_FILE;
+		: format === 'homepage-copy'
+			? HOMEPAGE_PROMPT_FILE
+			: PROMPT_FILE;
 	const prompt = await readRequired(promptFile, 'Writer prompt');
 	const config = resolveConfig({ requireComplete: !dryRun });
 
@@ -259,8 +371,17 @@ async function main() {
 
 	const responseText = await requestArticle(config, prompt, research);
 	const pagePackage = format === 'page-package' ? parsePagePackage(responseText) : null;
+	const homepageCopy = format === 'homepage-copy' ? parseHomepageCopy(responseText) : null;
 	const article = pagePackage?.articleMarkdown ?? responseText;
 	await mkdir(jobDir, { recursive: true });
+	if (homepageCopy) {
+		await writeFile(homepageCopyFile, `${JSON.stringify(homepageCopy, null, 2)}\n`, 'utf8');
+		console.log(`model: ${config.model.value}`);
+		console.log(`input file: ${relativePath(researchFile)}`);
+		console.log(`output file: ${relativePath(homepageCopyFile)}`);
+		console.log(`output copy character count: ${JSON.stringify(homepageCopy).length}`);
+		return;
+	}
 	const temporaryFile = `${articleFile}.tmp-${process.pid}`;
 	try {
 		await writeFile(temporaryFile, `${article}\n`, 'utf8');

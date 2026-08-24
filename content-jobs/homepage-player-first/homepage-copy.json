@@ -1,0 +1,66 @@
+{
+  "seoTitle": "Mortal Shell 2 Guide & Wiki — Walkthrough, Map, Bosses",
+  "metaDescription": "Mortal Shell 2 walkthrough and progression help, boss strategies, Shell locations, weapons, interactive map, achievements/upgrades, and PC fixes.",
+  "hero": {
+    "tagline": "Find walkthrough and progression help, boss strategies, Shell locations, weapons, an interactive map, and answers for upgrades and PC fixes.",
+    "primaryCtaLabel": "Beginner Guide",
+    "secondaryCtaLabel": "Interactive Map"
+  },
+  "sections": {
+    "core-hubs": {
+      "title": "Core Guide Hubs",
+      "description": "Fast access to the guide sections players use most: walkthroughs, map, Shells, weapons, bosses, and upgrades."
+    },
+    "beginner-start": {
+      "title": "Start Your First Run",
+      "description": "A compact first-run checklist with essential survival tips, early priorities, and what to grab first."
+    },
+    "hot-guides": {
+      "title": "Popular Guides",
+      "description": "Quick links to boss strategies, Shell builds, weapon guides, PC fixes, and the most-used walkthroughs."
+    },
+    "recommended-routes": {
+      "title": "Recommended Routes",
+      "description": "Suggested orders of play and route tips for different goals—speed, completion, or safer progression.",
+      "navLabel": "Routes"
+    }
+  },
+  "hubs": {
+    "beginner-guide": {
+      "label": "Beginner Guide",
+      "description": "Step-by-step first-run orientation: what to do, what to avoid, and early survival priorities."
+    },
+    "interactive-map": {
+      "label": "Map",
+      "description": "Interactive map of locations, Shells, bosses, and key points of interest to plan your route."
+    },
+    "shells": {
+      "label": "Shells",
+      "description": "Where to find each Shell, how they alter playstyle, and when to switch."
+    },
+    "weapons": {
+      "label": "Weapons",
+      "description": "Weapon locations, how they change combat, and upgrade priorities to suit your build."
+    },
+    "bosses": {
+      "label": "Bosses",
+      "description": "Encounter breakdowns, core mechanics, and practical tactics to defeat each boss."
+    },
+    "walkthrough": {
+      "label": "Walkthrough",
+      "description": "Stage-by-stage progression and suggested area order to keep your run efficient."
+    },
+    "achievements": {
+      "label": "Achievements",
+      "description": "Checklist and tips to unlock trophies and complete achievement requirements."
+    },
+    "new-game-plus": {
+      "label": "New Game+",
+      "description": "NG+ considerations, what to expect on replay, and tips for onward progression."
+    },
+    "tarforge": {
+      "label": "Upgrades",
+      "description": "Tarforge upgrade guide: upgrade choices, material priorities, and recommended order."
+    }
+  }
+}

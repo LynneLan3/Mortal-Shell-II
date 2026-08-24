@@ -33,13 +33,15 @@ export function experienceNav(): ExperienceNav {
 	const hub = game.hubPath;
 	const homeHref = hubHref(hub);
 	const hotGuidesHref = `${homeHref}#hot-guides`;
-	const byGoalHref = `${homeHref}#by-goal`;
+	const recommendedRoutes = game.portal?.homepageSections?.['recommended-routes'];
+	const recommendedRoutesHref = `${homeHref}#recommended-routes`;
+	const recommendedRoutesLabel = recommendedRoutes?.navLabel ?? recommendedRoutes?.title ?? t.routesNav;
 	const routesHref = pageHref(hub, 'routes');
 	const guidesHref = pageHref(hub, 'guides');
 	const bossesHref = pageHref(hub, 'bosses');
 	const mapHref = pageHref(hub, 'map');
 	const aboutHref = `${homeHref}#about`;
-	const byGoalSubpageMatches = [
+	const routeSubpageMatches = [
 		...(game.routes ?? []).map((route) => pageHref(hub, `routes/${route.id}`)),
 		...mapRoutes.map((route) => pageHref(hub, `routes/${route.id}`)),
 	];
@@ -47,7 +49,7 @@ export function experienceNav(): ExperienceNav {
 	const nav: NavItem[] = [
 		{ label: t.homeNav, href: homeHref },
 		{ label: t.hotGuidesNav, href: hotGuidesHref },
-		{ label: t.routesNav, href: byGoalHref, activeMatch: byGoalSubpageMatches },
+		{ label: recommendedRoutesLabel, href: recommendedRoutesHref, activeMatch: routeSubpageMatches },
 		{ label: t.guidesNav, href: guidesHref },
 		{ label: 'Bosses', href: bossesHref, activeMatch: [bossesHref] },
 		{ label: 'Routes', href: routesHref, activeMatch: [] },

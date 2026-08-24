@@ -54,7 +54,7 @@ function isActive(item: NavItem): boolean {
 					data-exp-nav-link
 					data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
 					data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
-					data-exp-nav-by-goal={item.href.endsWith('#by-goal') ? 'true' : undefined}
+					data-exp-nav-recommended-routes={item.href.endsWith('#recommended-routes') ? 'true' : undefined}
 					data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
 					aria-current={isActive(item) ? 'page' : undefined}
 				>
@@ -89,7 +89,7 @@ function isActive(item: NavItem): boolean {
 			data-exp-nav-link
 			data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
 			data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
-			data-exp-nav-by-goal={item.href.endsWith('#by-goal') ? 'true' : undefined}
+			data-exp-nav-recommended-routes={item.href.endsWith('#recommended-routes') ? 'true' : undefined}
 			data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
 			aria-current={isActive(item) ? 'page' : undefined}
 		>
@@ -119,30 +119,30 @@ function isActive(item: NavItem): boolean {
 		function syncHashNav() {
 			var homeLink = document.querySelector('[data-exp-nav-home]');
 			var hotLinks = document.querySelectorAll('[data-exp-nav-hot]');
-			var byGoalLinks = document.querySelectorAll('[data-exp-nav-by-goal]');
+			var recommendedRoutesLinks = document.querySelectorAll('[data-exp-nav-recommended-routes]');
 			var homeLinks = document.querySelectorAll('[data-exp-nav-home]');
 			if (!homeLink) return;
 
 			var currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
 			var homePath = new URL(homeLink.href, window.location.origin).pathname.replace(/\/+$/, '') || '/';
 			var hotActive = currentPath === homePath && window.location.hash === '#hot-guides';
-			var byGoalActive = currentPath === homePath && window.location.hash === '#by-goal';
+			var recommendedRoutesActive = currentPath === homePath && window.location.hash === '#recommended-routes';
 
 			hotLinks.forEach(function (link) {
 				link.classList.toggle('is-active', hotActive);
 				if (hotActive) link.setAttribute('aria-current', 'page');
 				else link.removeAttribute('aria-current');
 			});
-			byGoalLinks.forEach(function (link) {
+			recommendedRoutesLinks.forEach(function (link) {
 				var serverActive = link.getAttribute('data-exp-nav-server-active') === 'true';
-				var active = byGoalActive || (serverActive && !hotActive);
+				var active = recommendedRoutesActive || (serverActive && !hotActive);
 				link.classList.toggle('is-active', active);
 				if (active) link.setAttribute('aria-current', 'page');
 				else link.removeAttribute('aria-current');
 			});
 			homeLinks.forEach(function (link) {
 				var serverActive = link.getAttribute('data-exp-nav-server-active') === 'true';
-				var active = serverActive && !hotActive && !byGoalActive;
+				var active = serverActive && !hotActive && !recommendedRoutesActive;
 				link.classList.toggle('is-active', active);
 				if (active) link.setAttribute('aria-current', 'page');
 				else link.removeAttribute('aria-current');

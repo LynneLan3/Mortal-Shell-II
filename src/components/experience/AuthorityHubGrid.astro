@@ -12,7 +12,6 @@ const { hubs } = Astro.props;
 	<div class="exp-authority-grid">
 		{hubs.map((hub) => (
 			<a class="exp-authority-card" href={hub.href}>
-				<span class="exp-authority-card__badge">{hub.badge}</span>
 				<span class="exp-authority-card__label">{hub.label}</span>
 				<span class="exp-authority-card__description">{hub.description}</span>
 				<span class="exp-authority-card__arrow" aria-hidden="true">→</span>

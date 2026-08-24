@@ -1,6 +1,6 @@
 ---
 /**
- * ExperienceRouteShowcase — homepage "By Goal" section (V2.2-E1).
+ * ExperienceRouteShowcase — homepage "Recommended Routes" section (V2.2-E1).
  *
  * Consumes `game.routes` only. Route numbers are derived from array index
  * (`01`, `02`, …). `route.visual` is optional: when absent a content-only
@@ -10,6 +10,7 @@
  * choice to make.
  */
 import type { GameRoute } from '../../config/game';
+import { game } from '../../config/game';
 import { routeNumber } from '../../lib/experience-homepage';
 import { ui } from '../../lib/ui';
 import RouteTopicCard from './routes/RouteTopicCard.astro';
@@ -21,13 +22,18 @@ interface Props {
 const { routes } = Astro.props;
 const t = ui();
 const shownRoutes = routes;
+const sectionCopy = game.portal?.homepageSections?.['recommended-routes'];
+const sectionTitle = sectionCopy?.title ?? t.routesNav;
+const sectionNavLabel = sectionCopy?.navLabel ?? sectionTitle;
 ---
 
-<section class="exp-section exp-home-routes" id="by-goal" aria-labelledby="exp-home-routes-heading">
+<section class="exp-section exp-home-routes" id="recommended-routes" aria-labelledby="exp-home-routes-heading">
 	<div class="exp-content">
-		<p class="exp-eyebrow">{t.routesNav}</p>
-		<h2 class="exp-h2" id="exp-home-routes-heading">{t.routesNav}</h2>
-		<p class="exp-lede">{t.routeGroupsLede}</p>
+		<p class="exp-eyebrow">{sectionNavLabel}</p>
+		<h2 class="exp-h2" id="exp-home-routes-heading">{sectionTitle}</h2>
+		{sectionCopy?.description
+			? <p class="exp-lede">{sectionCopy.description}</p>
+			: <p class="exp-lede">{t.routeGroupsLede}</p>}
 	</div>
 		<div class="exp-content">
 			<div class="exp-routes">

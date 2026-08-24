@@ -84,6 +84,14 @@ export interface GameHubEvidence {
 	items: readonly GameHubEvidenceItem[];
 }
 
+export type GameHomepageSectionId = 'beginner-start' | 'hot-guides' | 'recommended-routes';
+
+export interface GameHomepageSectionCopy {
+	title?: string;
+	description?: string;
+	navLabel?: string;
+}
+
 export interface GameHubRecentUpdate {
 	title: string;
 	href: string;
@@ -122,6 +130,7 @@ export interface GamePortalConfig {
 	authorityPageDescription?: string;
 	authoritySectionTitle?: string;
 	authoritySectionDescription?: string;
+	homepageSections?: Readonly<Partial<Record<GameHomepageSectionId, GameHomepageSectionCopy>>>;
 	guideTopicGroups?: readonly GameGuideTopicGroup[];
 	guideVisuals?: Readonly<Record<string, GameGuideVisual>>;
 	categoryHotOrder?: Readonly<Record<string, readonly string[]>>;
@@ -148,6 +157,7 @@ export interface GameConfig {
 	title?: string;
 	description: string;
 	tagline: string;
+	homepageSeoTitle?: string;
 	siteUrl: string;
 	hubPath: string;
 	hubTitle?: string;
@@ -186,9 +196,10 @@ export const game: GameConfig = {
 	shortName: 'Mortal Shell II',
 	title: 'Mortal Shell II',
 	description:
-		'A source-led Mortal Shell II launch guide covering hot progression routes, weapons, Shell unlocks, endgame decisions, and current PC fixes.',
+		'Mortal Shell 2 walkthrough and progression help, boss strategies, Shell locations, weapons, interactive map, achievements/upgrades, and PC fixes.',
 	tagline:
-		'Mortal Shell II is out now. Find the launch guides players need for weapons, Tarstones, Shells, progression blockers, endings, and PC fixes.',
+		'Find walkthrough and progression help, boss strategies, Shell locations, weapons, an interactive map, and answers for upgrades and PC fixes.',
+	homepageSeoTitle: 'Mortal Shell 2 Guide & Wiki — Walkthrough, Map, Bosses',
 	siteUrl: 'https://mortalshell2guide.com/',
 	hubPath: '/mortal-shell-ii/',
 	hubTitle: 'Mortal Shell II Guide & Wiki',
@@ -204,8 +215,8 @@ export const game: GameConfig = {
 	heroAlt: 'Official Steam artwork for Mortal Shell II',
 	heroPosition: 'center',
 	portal: {
-		primaryCta: { label: 'Browse hot guides', href: '#hot-guides' },
-		secondaryCta: { label: 'Browse guides', href: '/mortal-shell-ii/guides/' },
+		primaryCta: { label: 'Beginner Guide', href: '/mortal-shell-ii/beginner-guide/' },
+		secondaryCta: { label: 'Interactive Map', href: '/mortal-shell-ii/map/' },
 		startHere: [
 			{
 				title: 'Start & Progression',
@@ -419,20 +430,35 @@ export const game: GameConfig = {
 			},
 		],
 		authorityHubs: [
-			{ label: 'Beginner Guide', href: '/mortal-shell-ii/beginner-guide/', description: 'Start here for early-game orientation and recommended first steps.', badge: 'Guide' },
-			{ label: 'Interactive Map', href: '/mortal-shell-ii/map/', description: 'Clickable world map for locations, Shells, bosses, and points of interest.', badge: 'Map' },
-			{ label: 'Shells', href: '/mortal-shell-ii/shells/', description: 'Shell reference pages and location pointers.', badge: 'Database' },
-			{ label: 'Weapons', href: '/mortal-shell-ii/weapons/', description: 'Weapon listings, stats, and where to find them.', badge: 'Database' },
-			{ label: 'Bosses', href: '/mortal-shell-ii/bosses/', description: 'Boss pages and fight overviews.', badge: 'Wiki' },
-			{ label: 'Walkthrough / Routes', href: '/mortal-shell-ii/routes/world-progression/', description: 'World-progression routes and suggested order of play.', badge: 'Guide' },
-			{ label: 'Achievements', href: '/mortal-shell-ii/trophies/', description: 'Trophy and achievement checklist and tracking.', badge: 'Wiki' },
-			{ label: 'NG+', href: '/mortal-shell-ii/new-game-plus/', description: 'New Game+ notes and considerations for replays.', badge: 'Guide' },
-			{ label: 'Upgrades (Tarforge)', href: '/mortal-shell-ii/tarforge/', description: 'Tarforge upgrade pages and upgrade paths.', badge: 'Database' },
+			{ label: 'Beginner Guide', href: '/mortal-shell-ii/beginner-guide/', description: 'Step-by-step first-run orientation: what to do, what to avoid, and early survival priorities.', badge: 'Guide' },
+			{ label: 'Map', href: '/mortal-shell-ii/map/', description: 'Interactive map of locations, Shells, bosses, and key points of interest to plan your route.', badge: 'Map' },
+			{ label: 'Shells', href: '/mortal-shell-ii/shells/', description: 'Where to find each Shell, how they alter playstyle, and when to switch.', badge: 'Database' },
+			{ label: 'Weapons', href: '/mortal-shell-ii/weapons/', description: 'Weapon locations, how they change combat, and upgrade priorities to suit your build.', badge: 'Database' },
+			{ label: 'Bosses', href: '/mortal-shell-ii/bosses/', description: 'Encounter breakdowns, core mechanics, and practical tactics to defeat each boss.', badge: 'Wiki' },
+			{ label: 'Walkthrough', href: '/mortal-shell-ii/routes/world-progression/', description: 'Stage-by-stage progression and suggested area order to keep your run efficient.', badge: 'Guide' },
+			{ label: 'Achievements', href: '/mortal-shell-ii/trophies/', description: 'Checklist and tips to unlock trophies and complete achievement requirements.', badge: 'Wiki' },
+			{ label: 'New Game+', href: '/mortal-shell-ii/new-game-plus/', description: 'NG+ considerations, what to expect on replay, and tips for onward progression.', badge: 'Guide' },
+			{ label: 'Upgrades', href: '/mortal-shell-ii/tarforge/', description: 'Tarforge upgrade guide: upgrade choices, material priorities, and recommended order.', badge: 'Database' },
 		],
 		authorityPageTitle: 'Mortal Shell II Guide & Wiki',
 		authorityPageDescription: 'Central hub for Mortal Shell II guides, interactive map, Shells, weapons, bosses, routes, and database pages.',
-		authoritySectionTitle: 'Mortal Shell II Guide + Wiki + Map + Database',
-		authoritySectionDescription: 'Concise hub module linking guides, the interactive map, Shell and weapon databases, bosses, routes, NG+, trophies, and Tarforge upgrades.',
+		authoritySectionTitle: 'Core Guide Hubs',
+		authoritySectionDescription: 'Fast access to the guide sections players use most: walkthroughs, map, Shells, weapons, bosses, and upgrades.',
+		homepageSections: {
+			'beginner-start': {
+				title: 'Start Your First Run',
+				description: 'A compact first-run checklist with essential survival tips, early priorities, and what to grab first.',
+			},
+			'hot-guides': {
+				title: 'Popular Guides',
+				description: 'Quick links to boss strategies, Shell builds, weapon guides, PC fixes, and the most-used walkthroughs.',
+			},
+			'recommended-routes': {
+				title: 'Recommended Routes',
+				description: 'Suggested orders of play and route tips for different goals—speed, completion, or safer progression.',
+				navLabel: 'Routes',
+			},
+		},
 		guideTopicGroups: [
 			{
 				id: 'weapons-resources',

@@ -109,7 +109,7 @@ const en: UiDictionary = {
 	aboutNav: 'About',
 	playerRoutes: 'Player Routes',
 	chooseWhatYoureTryingLede: "Choose what you're trying to do.",
-	routesNav: 'By Goal',
+	routesNav: 'Routes',
 	allGuides: 'All Guides',
 	fieldGuide: 'Field Guide',
 	chooseRouteLede: 'Choose a route instead of browsing at random.',

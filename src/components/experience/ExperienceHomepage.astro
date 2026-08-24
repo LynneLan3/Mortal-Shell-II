@@ -9,9 +9,9 @@
  * absent.
  *
  * Section order:
- *   Hero → Live Update → Status Strip → Don't Miss → By Goal → Beginner
- *   Guide → Hot Launch Guides → Popular Questions → Recently Updated →
- *   supporting sections → About.
+ *   Hero → Core Guide Hubs → Live Update / Don't Miss → Beginner →
+ *   Popular Guides → Recommended Routes → Popular Questions → Recently
+ *   Updated → Field Notes → Evidence → About.
  */
 import { Image } from 'astro:assets';
 import { game } from '../../config/game';
@@ -87,6 +87,8 @@ const hotGuides: StartHereView[] = configuredHotGuides?.length
 const authorityHubs = game.portal?.authorityHubs ?? [];
 const beginnerGuide = guides.find((entry) => guideHref(entry) === '/mortal-shell-ii/beginner-guide/');
 const beginnerHub = authorityHubs.find((hub) => hub.href === '/mortal-shell-ii/beginner-guide/');
+const beginnerSection = game.portal?.homepageSections?.['beginner-start'];
+const hotGuidesSection = game.portal?.homepageSections?.['hot-guides'];
 const liveUpdateAlert = getLiveUpdateAlert();
 const dontMissAlerts = getDontMissAlerts();
 const orderedHotGuides = sortCardsByImage(hotGuides, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
@@ -228,9 +230,8 @@ const factIcon = (label: string): IconName => {
 		</div>
 	)}
 	<div class="exp-home-hero__content">
-	<div class="exp-home-hero__copy">
-		<p class="exp-eyebrow exp-home-hero__kicker">{t.gameWikiEyebrow}</p>
-		<h1 class="exp-display exp-home-hero__title">{game.hubTitle ?? `${game.name} Guide & Wiki`}</h1>
+		<div class="exp-home-hero__copy">
+			<h1 class="exp-display exp-home-hero__title">{game.hubTitle ?? `${game.name} Guide & Wiki`}</h1>
 		<p class="exp-lede exp-home-hero__tagline">{game.tagline}</p>
 		<div class="exp-home-hero__actions">
 			{primaryCta && (
@@ -245,12 +246,23 @@ const factIcon = (label: string): IconName => {
 			)}
 		</div>
 	</div>
-	{liveUpdateAlert && <ExperienceAlertStrip alert={liveUpdateAlert} />}
-	</div>
-</section>
+		</div>
+	</section>
 
-<!-- 02 STATUS STRIP -->
-{statusItems.length > 0 && (
+	<!-- 02 CORE GUIDE HUBS -->
+	{authorityHubs.length > 0 && (
+		<section class="exp-section exp-home-authority" id="core-guide-hubs" aria-labelledby="exp-home-authority-heading">
+			<div class="exp-content">
+				<h2 class="exp-h2" id="exp-home-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Guide Hubs'}</h2>
+				{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
+				<AuthorityHubGrid hubs={authorityHubs} />
+			</div>
+		</section>
+	)}
+
+	<!-- 03 DON'T MISS / LIVE UPDATE -->
+	{liveUpdateAlert && <ExperienceAlertStrip alert={liveUpdateAlert} />}
+	{statusItems.length > 0 && (
 	<dl class="exp-home-status" aria-label={t.gameFacts}>
 		{statusItems.map((item) => (
 			<div class="exp-home-status__item">
@@ -261,33 +273,26 @@ const factIcon = (label: string): IconName => {
 	</dl>
 )}
 
-{dontMissAlerts.length > 0 && <ExperienceDontMiss alerts={dontMissAlerts} />}
+	{dontMissAlerts.length > 0 && <ExperienceDontMiss alerts={dontMissAlerts} />}
 
-<div class="exp-home-flow">
-	<!-- 03 BY GOAL -->
-	{routes.length > 1 && <ExperienceRouteShowcase routes={routes} />}
+	<div class="exp-home-flow">
+		<!-- 04 BEGINNER / START YOUR RUN -->
+		{beginnerGuide && beginnerHub && (
+			<section class="exp-section exp-home-beginner" id="beginner-guide" aria-labelledby="exp-home-beginner-heading">
+				<div class="exp-content">
+					<h2 class="exp-h2" id="exp-home-beginner-heading">{beginnerSection?.title ?? beginnerGuide.data.title}</h2>
+					<p class="exp-lede">{beginnerSection?.description ?? beginnerGuide.data.description}</p>
+					<AuthorityHubGrid hubs={[beginnerHub]} />
+				</div>
+			</section>
+		)}
 
-	<!-- 04 CORE GUIDE ENTRY -->
-	{beginnerGuide && beginnerHub && (
-		<section class="exp-section exp-home-beginner" id="beginner-guide" aria-labelledby="exp-home-beginner-heading">
-			<div class="exp-content">
-				<p class="exp-eyebrow">{beginnerHub.badge}</p>
-				<h2 class="exp-h2" id="exp-home-beginner-heading">{beginnerGuide.data.title}</h2>
-				{beginnerGuide.data.description && <p class="exp-lede">{beginnerGuide.data.description}</p>}
-				<AuthorityHubGrid hubs={[beginnerHub]} />
-			</div>
-		</section>
-	)}
-
-	<!-- 05 HOT LAUNCH GUIDES -->
-	{orderedHotGuides.length > 0 && (
-		<section class="exp-section exp-home-hot" id="hot-guides" aria-labelledby="exp-home-hot-heading">
-			<div class="exp-content">
-				<p class="exp-eyebrow">Live coverage</p>
-				<h2 class="exp-h2" id="exp-home-hot-heading">Hot Launch Guides</h2>
-				<p class="exp-lede">
-					Start with the current progression blockers, unlock routes, and endgame questions players are most likely to hit after launch.
-				</p>
+		<!-- 05 HOT / POPULAR GUIDES -->
+		{orderedHotGuides.length > 0 && (
+			<section class="exp-section exp-home-hot" id="hot-guides" aria-labelledby="exp-home-hot-heading">
+				<div class="exp-content">
+					<h2 class="exp-h2" id="exp-home-hot-heading">{hotGuidesSection?.title ?? 'Hot Launch Guides'}</h2>
+					<p class="exp-lede">{hotGuidesSection?.description ?? 'Start with the current progression blockers, unlock routes, and endgame questions players are most likely to hit after launch.'}</p>
 				<div class="exp-hot-grid">
 					{orderedHotGuides.map((item, index) => (
 						<a class="exp-hot-card" href={item.href}>
@@ -307,7 +312,10 @@ const factIcon = (label: string): IconName => {
 				</div>
 			</div>
 		</section>
-	)}
+		)}
+
+		<!-- 06 RECOMMENDED ROUTES -->
+		{routes.length > 1 && <ExperienceRouteShowcase routes={routes} />}
 
 	{singleRoute && (
 		<section class="exp-section exp-home-primary-path" aria-labelledby="exp-home-primary-path-heading">
@@ -392,18 +400,6 @@ const factIcon = (label: string): IconName => {
 			</ul>
 		</div>
 	</section>
-	)}
-
-	<!-- 08 SUPPORTING GUIDE + WIKI HUBS -->
-	{authorityHubs.length > 0 && (
-		<section class="exp-section exp-home-authority" aria-labelledby="exp-home-authority-heading">
-			<div class="exp-content">
-				<p class="exp-eyebrow">Guide + Wiki</p>
-				<h2 class="exp-h2" id="exp-home-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Hubs'}</h2>
-				{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
-				<AuthorityHubGrid hubs={authorityHubs} />
-			</div>
-		</section>
 	)}
 
 	<!-- 09 FIELD NOTES -->

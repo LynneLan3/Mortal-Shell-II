@@ -10,7 +10,7 @@ const { nav, footerLinks, homeHref } = experienceNav();
 ---
 
 <GameShell
-	title={`${game.hubTitle ?? game.title} | ${game.shortName}`}
+	title={game.homepageSeoTitle ?? game.hubTitle ?? game.title ?? game.shortName}
 	description={game.description}
 	canonical={new URL(game.hubPath, game.siteUrl).href}
 	siteTitle={game.shortName}
@@ -24,7 +24,7 @@ const { nav, footerLinks, homeHref } = experienceNav();
 >
 	<ExperienceStructuredData
 		slot="head"
-		title={game.hubTitle ?? `${game.name} Guide & Wiki`}
+		title={game.homepageSeoTitle ?? game.hubTitle ?? `${game.name} Guide & Wiki`}
 		description={game.description}
 		canonical={new URL(game.hubPath, game.siteUrl).href}
 		breadcrumbs={[{ name: game.name, href: new URL(game.hubPath, game.siteUrl).href }]}

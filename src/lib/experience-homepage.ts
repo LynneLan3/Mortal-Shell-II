@@ -101,7 +101,7 @@ export function routeNumber(index: number): string {
 
 const goalRouteOrder = ['weapons-resources', 'world-progression', 'start-launch', 'pc-stability', 'finish-complete'];
 
-/** Stable player-intent order shared by the Homepage and By Goal index. */
+/** Stable player-intent order shared by the Homepage and Routes index. */
 export function orderGoalRoutes(routes: readonly GameRoute[]): GameRoute[] {
 	const rank = new Map(goalRouteOrder.map((id, index) => [id, index]));
 	return [...routes].sort((a, b) => (rank.get(a.id) ?? goalRouteOrder.length) - (rank.get(b.id) ?? goalRouteOrder.length));

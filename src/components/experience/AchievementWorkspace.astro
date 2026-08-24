@@ -59,29 +59,6 @@ const clientData = {
 		</div>
 	</header>
 
-	<div class="completion-workspace__summary-grid">
-		<section class="completion-workspace__next" aria-labelledby="completion-next-title">
-			<div class="completion-workspace__next-copy">
-				<p class="completion-workspace__eyebrow">Next Best</p>
-				<h3 id="completion-next-title" data-completion-next-name>Find your next unfinished objective</h3>
-				<p data-completion-next-description>Start with an in-progress collection or the current waypoint on your active route.</p>
-			</div>
-			<a class="completion-workspace__next-action" data-completion-next-action href="#completion-achievements">View remaining goals <span aria-hidden="true">→</span></a>
-		</section>
-
-		<section class="completion-workspace__route" data-completion-active-route aria-labelledby="completion-active-route-title">
-			<div>
-				<p class="completion-workspace__eyebrow">Current Route</p>
-				<h3 id="completion-active-route-title" data-completion-route-name>No active route</h3>
-				<p data-completion-route-progress>Browse routes to set a route.</p>
-			</div>
-			<div>
-				<strong data-completion-route-next>Browse route library</strong>
-				<a data-completion-route-action href="/mortal-shell-ii/routes/">Browse routes <span aria-hidden="true">↗</span></a>
-			</div>
-		</section>
-	</div>
-
 	<section class="completion-workspace__categories" aria-label="Achievement category progress">
 		{achievementCategories.map((category) => (
 			<div class="completion-workspace__category" data-completion-category={category}>
@@ -215,7 +192,9 @@ const clientData = {
 			} catch (error) { completedIds = new Set(); manualProgress = {}; }
 		}
 		function saveState() {
-			try { window.localStorage.setItem(storageKey, JSON.stringify({ version: 3, completedIds: Array.from(completedIds), achievementProgress: manualProgress, activeRouteId: readRouteId(), completionFilter: activeFilter, completionCategory: activeCategory, completionHideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked })); } catch (error) { /* local storage is optional */ }
+			const state = { version: 3, completedIds: Array.from(completedIds), achievementProgress: manualProgress, activeRouteId: readRouteId(), completionFilter: activeFilter, completionCategory: activeCategory, completionHideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked };
+			try { window.localStorage.setItem(storageKey, JSON.stringify(state)); } catch (error) { /* local storage is optional */ }
+			window.dispatchEvent(new CustomEvent('ms2-completion-state-changed', { detail: { completedIds: state.completedIds } }));
 		}
 		function readRouteId() { try { const raw = window.localStorage.getItem(storageKey); const parsed = raw ? JSON.parse(raw) : {}; return parsed?.activeRouteId || ''; } catch (error) { return ''; } }
 		function progressFor(achievement) {
@@ -265,20 +244,6 @@ const clientData = {
 			const hidden = Array.from(achievements.values()).filter((achievement) => achievement.hidden && !progressFor(achievement).complete).length;
 			put('[data-completion-missable]', `${missable} remaining`); put('[data-completion-hidden]', `${hidden} remaining`);
 			app.querySelectorAll('[data-completion-category]').forEach((node) => { const category = node.getAttribute('data-completion-category'); const list = Array.from(achievements.values()).filter((achievement) => achievement.category === category); const done = list.filter((achievement) => progressFor(achievement).complete).length; const doneNode = node.querySelector('[data-completion-category-done]'); const categoryBar = node.querySelector('[data-completion-category-bar]'); if (doneNode) doneNode.textContent = String(done); if (categoryBar instanceof HTMLElement) categoryBar.style.width = `${list.length ? Math.round(done / list.length * 100) : 0}%`; });
-			updateNextBest(); updateActiveRoute();
-		}
-		function updateNextBest() {
-			const activeRouteId = readRouteId(); const route = routes.get(activeRouteId); let next;
-			if (route) { next = route.waypoints.map((id) => objectives.get(id)).find((item) => item && !completedIds.has(item.id)); }
-			if (!next) { next = Array.from(achievements.values()).map((achievement) => ({ achievement, progress: progressFor(achievement) })).filter((item) => !item.progress.complete && item.progress.done > 0).sort((a, b) => (b.progress.done / b.progress.total) - (a.progress.done / a.progress.total))[0]?.achievement; }
-			const name = app.querySelector('[data-completion-next-name]'); const description = app.querySelector('[data-completion-next-description]'); const action = app.querySelector('[data-completion-next-action]');
-			if (next && 'id' in next && objectives.has(next.id)) { if (name) name.textContent = next.name; if (description) description.textContent = `${next.region || 'Current region'} · finish this target to advance the active route.`; if (action) action.setAttribute('href', next.mapMarkerId ? `/mortal-shell-ii/map/?marker=${next.mapMarkerId}` : `#${next.id}`); }
-			else if (next && 'id' in next) { const progress = progressFor(next); if (name) name.textContent = `Finish ${next.name}`; if (description) description.textContent = `${progress.remaining} remaining · continue from the achievement card below.`; if (action) action.setAttribute('href', `#${next.id}`); }
-		}
-		function updateActiveRoute() {
-			const panel = app.querySelector('[data-completion-active-route]'); const route = routes.get(readRouteId()); if (!(panel instanceof HTMLElement)) return; if (!route) { panel.hidden = false; const put = (selector, value) => { const node = panel.querySelector(selector); if (node) node.textContent = String(value); }; put('[data-completion-route-name]', 'No active route'); put('[data-completion-route-progress]', 'Browse routes to set a route.'); put('[data-completion-route-next]', 'Browse route library'); const action = panel.querySelector('[data-completion-route-action]'); if (action) { action.setAttribute('href', '/mortal-shell-ii/routes/'); action.innerHTML = 'Browse routes <span aria-hidden="true">↗</span>'; } return; }
-			panel.hidden = false; const completed = route.waypoints.filter((id) => completedIds.has(id)).length; const current = route.waypoints.map((id) => objectives.get(id)).find((item) => item && !completedIds.has(item.id));
-			const put = (selector, value) => { const node = panel.querySelector(selector); if (node) node.textContent = String(value); }; put('[data-completion-route-name]', route.name); put('[data-completion-route-progress]', `${completed} / ${route.waypoints.length} complete`); put('[data-completion-route-next]', current ? `NEXT · ${current.name}` : 'ROUTE COMPLETE'); const action = panel.querySelector('[data-completion-route-action]'); const routeAchievement = Array.from(achievements.values()).find((achievement) => achievement.routeId === route.id); if (action) action.setAttribute('href', `/mortal-shell-ii/map/?route=${route.id}${routeAchievement ? `&achievement=${routeAchievement.id}` : ''}`);
 		}
 		function cardProgress(card) {
 			if (card.getAttribute('data-completion-kind') === 'objective') {

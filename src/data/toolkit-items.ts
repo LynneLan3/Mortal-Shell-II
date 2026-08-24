@@ -1,6 +1,6 @@
 export const TOOLKIT_STORAGE_KEY = 'ms2-toolkit-progress-v1';
 
-export const TOOLKIT_CATEGORIES = ['Shells', 'Map Fragments', 'Bosses', 'Sidearms'] as const;
+export const TOOLKIT_CATEGORIES = ['Shells', 'Map Fragments', 'Bosses', 'Weapons', 'Sidearms'] as const;
 
 export type ToolkitCategory = (typeof TOOLKIT_CATEGORIES)[number];
 
@@ -154,6 +154,31 @@ export const toolkitItems: readonly ToolkitItem[] = [
 	},
 	{
 		id: 'boss-hierarch', name: 'The Hierarch', category: 'Bosses', region: "Prophet's Rest · Fainweald", guideUrl: '/mortal-shell-ii/smert/'
+	},
+
+	{
+		id: 'weapon-axe', name: 'Axe', category: 'Weapons', region: 'Prologue', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-dagger', name: 'Dagger', category: 'Weapons', region: 'Prologue', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-great-martyrs-blade', name: "Great Martyr's Blade", category: 'Weapons', region: 'Current weapons route', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-black-needle', name: 'Black Needle', category: 'Weapons', region: 'Current weapons route', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-clockwork-scythe', name: 'Clockwork Scythe', category: 'Weapons', region: 'Current weapons route', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-obsidian-hammer', name: 'Obsidian Hammer', category: 'Weapons', region: 'Obsidianite Mines · Mammon', guideUrl: '/mortal-shell-ii/obsidian-hammer/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-axatana', name: 'Axatana', category: 'Weapons', region: 'Current weapons route', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
+	},
+	{
+		id: 'weapon-veterans-battle-axe', name: "Veteran's Battle Axe", category: 'Weapons', region: 'Fainweald · northern route', guideUrl: '/mortal-shell-ii/weapons/', description: 'Weapon objective covered by the current weapons guide; no verified map marker is attached.'
 	},
 
 	{

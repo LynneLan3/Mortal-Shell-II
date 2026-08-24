@@ -6,6 +6,7 @@ import { experienceNav } from '../../lib/experience-nav';
 import { routeHref } from '../../lib/routes';
 import { loadGuideContent } from '../../lib/guide-content';
 import GuideMapAction from './GuideMapAction.astro';
+import AchievementWorkspace from './AchievementWorkspace.astro';
 
 const { entry } = Astro.locals.starlightRoute;
 const t = ui();
@@ -14,6 +15,7 @@ const content = await loadGuideContent(entry);
 const data = entry.data;
 const route = content.primaryRoute;
 const routeLink = route ? routeHref(game.hubPath, route.id) : undefined;
+const isCompletionPage = Astro.url.pathname.replace(/\/+$/, '') === '/mortal-shell-ii/trophies';
 ---
 
 <div class="exp-guide-crumb-wrap">
@@ -47,6 +49,8 @@ const routeLink = route ? routeHref(game.hubPath, route.id) : undefined;
 		<GuideMapAction />
 	</header>
 </div>
+
+{isCompletionPage && <AchievementWorkspace />}
 
 {content.quickAnswer && (
 	<div class="exp-guide-facts-wrap">

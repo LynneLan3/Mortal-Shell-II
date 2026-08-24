@@ -39,6 +39,7 @@ export default defineConfig({
 				'./src/styles/custom.css',
 				'./src/styles/experience.css',
 				'./src/styles/experience-guide.css',
+				'./src/styles/completion.css',
 			],
 			head: [
 				{

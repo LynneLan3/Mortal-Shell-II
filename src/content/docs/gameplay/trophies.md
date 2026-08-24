@@ -1,11 +1,11 @@
 ---
-title: "Mortal Shell 2 Trophies & Achievements Guide: Platinum Roadmap"
-description: "Mortal Shell 2 trophy and achievement checklist covering the three current missables, platform naming differences, Shell Memories, collectibles, and a practical NG+ completion route."
+title: "Mortal Shell 2 100% Completion Workspace: Trophies & Achievements"
+description: "Use the Mortal Shell 2 100% Completion Workspace to track achievements, remaining objectives, missables, map targets, recommended routes, and local progress."
 category: combat-exploration
 slug: mortal-shell-ii/trophies
 status: needs-verification
 featured: false
-quickAnswer: "For the current launch-window lists, protect Mid Summer?, No, You Still Can't Win, and Peter's Perfect Parry; do not equip the Slayer Seal on your achievement save; collect equipment, Ova, Tarstones, Map Fragments, Beacons, and Lute Tracks during the first run; then reserve NG+ cleanup for the 40 Shell Memories and any missed challenge."
+quickAnswer: "The Completion Workspace derives achievement progress from one browser-local objective state: filter unfinished achievements, inspect remaining targets, use Show on Map or a curated route, and keep missable opening goals and Peter's Perfect Parry on an achievement-enabled save."
 related:
   - mortal-shell-ii/peters-perfect-parry
   - mortal-shell-ii/slayer-seal-difficulty

@@ -121,6 +121,8 @@
 .map-marker.is-completed .map-marker__status { display: grid; }
 .map-marker.is-completed .map-marker__route-number { right: 0.7rem; }
 .map-marker__label { position: absolute; top: calc(100% + 0.22rem); left: 50%; display: none; padding: 0.25rem 0.45rem; border: 1px solid var(--map-line); background: rgb(8 12 17 / 0.92); color: var(--map-text); font-size: 0.65rem; white-space: nowrap; transform: translateX(-50%); }
+.map-marker.is-achievement-target .map-marker__icon { border-color: #ffcf73; box-shadow: 0 0 0 0.45rem rgb(255 207 115 / 0.22), 0 0 1.5rem rgb(255 207 115 / 0.85); animation: map-current-pulse 1.8s ease-in-out infinite; }
+.map-marker.is-achievement-completed-target { opacity: 0.45; }
 .map-marker:hover .map-marker__label, .map-marker.is-selected .map-marker__label, .map-marker.is-route-current .map-marker__label { display: block; }
 .map-controls { display: flex; align-items: center; gap: 0.65rem; padding: 0.65rem 0.8rem; border-top: 1px solid var(--map-line-soft); color: var(--map-dim); font-size: var(--xp-text-xs); }
 .map-controls button { width: 2rem; height: 2rem; border: 1px solid var(--map-line); border-radius: 0.3rem; background: var(--map-ink-soft); color: var(--map-text); font-size: 1.15rem; cursor: pointer; }
@@ -211,11 +213,27 @@
 .map-detail__related button:hover { border-color: var(--map-route); background: var(--map-route-soft); }
 .map-detail__related button > span { color: var(--map-route); font-size: 0.8rem; }
 .map-detail__related button small { color: var(--map-dim); font-size: 0.6rem; }
+.map-detail__related--achievements a { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.45rem 0.5rem; border: 1px solid var(--map-line-soft); color: var(--map-text); font-size: 0.7rem; text-decoration: none; }
+.map-detail__related--achievements a:hover { border-color: var(--map-route); background: var(--map-route-soft); }
+.map-detail__related--achievements a small { color: var(--map-route); font-size: 0.65rem; font-weight: 800; }
 .map-detail__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin-top: 0.85rem; }
 .map-detail__link { color: var(--map-route); font-size: var(--xp-text-xs); font-weight: 900; text-decoration: none; }
 .map-detail__link:hover { text-decoration: underline; }
 .map-detail__source { color: var(--map-dim); font-size: 0.65rem; text-decoration: none; }
 .map-detail__source:hover { color: var(--map-text); text-decoration: underline; }
+.map-achievement-context { margin-top: 0.75rem; padding: 0.8rem; border: 1px solid rgb(242 179 107 / 0.55); border-left: 3px solid var(--map-route); background: rgb(242 179 107 / 0.08); }
+.map-achievement-context h3 { margin: 0.2rem 0 0.5rem; color: var(--map-text); font-size: 1rem; }
+.map-achievement-context__progress { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+.map-achievement-context__progress strong { color: var(--map-route); font-size: 1.15rem; }
+.map-achievement-context__progress span { color: var(--map-muted); font-size: 0.7rem; }
+.map-achievement-context p:not(.map-panel__eyebrow) { margin: 0.45rem 0 0; color: var(--map-muted); font-size: 0.7rem; line-height: 1.4; }
+.map-achievement-context a { display: inline-block; margin-top: 0.65rem; color: var(--map-route); font-size: 0.7rem; font-weight: 900; text-decoration: none; }
+.map-achievement-context a:hover { text-decoration: underline; }
+.map-route-completion-feedback { margin-top: 0.8rem; padding: 0.85rem; border: 1px solid rgb(105 224 188 / 0.48); border-left: 3px solid var(--map-done); background: rgb(105 224 188 / 0.08); }
+.map-route-completion-feedback h4 { margin: 0.2rem 0 0.35rem; color: var(--map-text); font-size: 1rem; }
+.map-route-completion-feedback p:not(.map-panel__eyebrow) { margin: 0; color: var(--map-muted); font-size: 0.72rem; line-height: 1.45; }
+.map-route-completion-feedback a { display: inline-block; margin-top: 0.65rem; color: var(--map-route); font-size: 0.7rem; font-weight: 900; text-decoration: none; }
+.map-route-completion-feedback a:hover { text-decoration: underline; }
 
 .map-tracker { padding: 0; overflow: hidden; }
 .map-tracker summary { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; padding: 0.85rem 1rem; color: var(--map-dim); cursor: pointer; list-style: none; }

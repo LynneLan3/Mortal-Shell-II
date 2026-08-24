@@ -1,0 +1,247 @@
+---
+import {
+	achievementCategories,
+	achievementDefinitions,
+	achievementObjectiveCount,
+} from '../../data/achievement-definitions';
+import { mapMarkerById } from '../../data/map-markers';
+import { mapRoutes } from '../../data/map-routes';
+import { toolkitItemById, toolkitItems } from '../../data/toolkit-items';
+
+const storageKey = 'ms2-toolkit-progress-v1';
+const mappedObjectiveIds = new Set(toolkitItems.filter((item) => item.mapMarkerId).map((item) => item.id));
+const clientData = {
+	achievements: achievementDefinitions.map((achievement) => ({
+		...achievement,
+		total: achievementObjectiveCount(achievement),
+	})),
+	objectives: toolkitItems.map((item) => ({
+		id: item.id,
+		name: item.name,
+		category: item.category,
+		region: item.region ?? '',
+		mapMarkerId: item.mapMarkerId ?? '',
+	})),
+	routes: mapRoutes.map((route) => ({
+		id: route.id,
+		name: route.name,
+		waypoints: route.waypoints.map((waypoint) => toolkitItems.find((item) => item.mapMarkerId === waypoint.markerId)?.id ?? waypoint.markerId),
+	})),
+};
+---
+
+<section class="completion-workspace" data-achievement-workspace data-storage-key={storageKey} aria-labelledby="completion-workspace-title">
+	<script type="application/json" data-achievement-json set:html={JSON.stringify(clientData)}></script>
+	<header class="completion-workspace__hero">
+		<div class="completion-workspace__hero-main">
+			<p class="completion-workspace__eyebrow">Completion Dashboard</p>
+			<h2 id="completion-workspace-title">100% COMPLETION</h2>
+			<div class="completion-workspace__score-row">
+				<strong data-completion-overall-percent>0%</strong>
+				<div>
+					<p><span data-completion-achievements-done>0</span> / {achievementDefinitions.length} achievements</p>
+					<span class="completion-workspace__muted">One local objective state powers cards, map markers, and routes.</span>
+				</div>
+			</div>
+			<div class="completion-workspace__overall-bar" aria-label="Overall achievement completion"><span data-completion-overall-bar></span></div>
+		</div>
+		<div class="completion-workspace__hero-side">
+			<div class="completion-workspace__world-stat">
+			<span>World Objectives</span>
+			<strong><span data-completion-objectives-done>0</span> / {toolkitItems.length}</strong>
+			<small>mapped and guide-backed targets</small>
+			</div>
+			<div class="completion-workspace__attention">
+				<div><span>MISSABLE</span><strong data-completion-missable>0 remaining</strong></div>
+				<div><span>HIDDEN</span><strong data-completion-hidden>0 remaining</strong></div>
+			</div>
+		</div>
+	</header>
+
+	<section class="completion-workspace__next" aria-labelledby="completion-next-title">
+		<div class="completion-workspace__next-copy">
+			<p class="completion-workspace__eyebrow">Next Best</p>
+			<h3 id="completion-next-title" data-completion-next-name>Find your next unfinished objective</h3>
+			<p data-completion-next-description>Start with an in-progress collection or the current waypoint on your active route.</p>
+		</div>
+		<a class="completion-workspace__next-action" data-completion-next-action href="#completion-achievements">View remaining goals <span aria-hidden="true">→</span></a>
+	</section>
+
+	<section class="completion-workspace__route" data-completion-active-route hidden aria-labelledby="completion-active-route-title">
+		<div>
+			<p class="completion-workspace__eyebrow">Current Route</p>
+			<h3 id="completion-active-route-title" data-completion-route-name>Route</h3>
+			<p data-completion-route-progress>0 / 0 complete</p>
+		</div>
+		<div>
+			<strong data-completion-route-next>Next waypoint</strong>
+			<a data-completion-route-action href="/mortal-shell-ii/map/">Continue Route <span aria-hidden="true">→</span></a>
+		</div>
+	</section>
+
+	<section class="completion-workspace__categories" aria-label="Achievement category progress">
+		{achievementCategories.map((category) => (
+			<div class="completion-workspace__category" data-completion-category={category}>
+				<div><span>{category}</span><strong><span data-completion-category-done>0</span> / <span data-completion-category-total>{achievementDefinitions.filter((achievement) => achievement.category === category).length}</span></strong></div>
+				<div class="completion-workspace__category-bar"><span data-completion-category-bar></span></div>
+			</div>
+		))}
+	</section>
+
+	<section class="completion-workspace__controls" aria-label="Completion filters">
+		<div class="completion-workspace__control-row">
+			<label class="completion-workspace__search"><span class="sr-only">Search achievements</span><input type="search" placeholder="Search achievements, objectives..." data-completion-search /></label>
+			<label class="completion-workspace__hide"><input type="checkbox" data-completion-hide-completed /> Hide Completed</label>
+		</div>
+		<div class="completion-workspace__filter-group" aria-label="Completion status">
+			<span class="completion-workspace__filter-label">Status</span>
+			{['all', 'in-progress', 'not-started', 'completed', 'missable', 'hidden'].map((filter) => <button type="button" class:list={['completion-filter-button', filter === 'all' && 'is-active']} data-completion-filter={filter}>{filter.replace('-', ' ')}</button>)}
+		</div>
+		<div class="completion-workspace__filter-group" aria-label="Achievement category">
+			<span class="completion-workspace__filter-label">Category</span>
+			<button type="button" class="completion-filter-button is-active" data-completion-category-filter="all">All</button>
+			{achievementCategories.map((category) => <button type="button" class="completion-filter-button" data-completion-category-filter={category}>{category}</button>)}
+		</div>
+	</section>
+
+	<section class="completion-workspace__list" id="completion-achievements" aria-labelledby="completion-achievements-title">
+		<div class="completion-workspace__list-head"><div><p class="completion-workspace__eyebrow">Achievement Ledger</p><h3 id="completion-achievements-title">Find what remains</h3></div><span data-completion-visible-count>{achievementDefinitions.length} achievements</span></div>
+		<div class="achievement-card-grid">
+			{achievementDefinitions.map((achievement) => {
+				const objectiveIds = achievement.objectiveIds ?? [];
+				const objectives = objectiveIds.map((id) => toolkitItemById.get(id)).filter(Boolean);
+				const mapTargets = objectives.filter((item) => item?.mapMarkerId && mappedObjectiveIds.has(item.id));
+				const route = achievement.routeId ? mapRoutes.find((candidate) => candidate.id === achievement.routeId) : undefined;
+				const sameRegion = mapTargets.length > 1 && new Set(mapTargets.map((item) => mapMarkerById.get(item?.mapMarkerId ?? '')?.sameArea ?? mapMarkerById.get(item?.mapMarkerId ?? '')?.region)).size === 1;
+				return (
+					<article id={achievement.id} class:list={['achievement-card', achievement.missable && 'is-missable', achievement.hidden && 'is-hidden-achievement']} data-achievement-card={achievement.id} data-achievement-category={achievement.category} data-achievement-type={achievement.type} data-achievement-objectives={objectiveIds.join(',')} data-achievement-total={achievementObjectiveCount(achievement)} data-achievement-manual={!objectiveIds.length} data-achievement-missable={achievement.missable ? 'true' : 'false'} data-achievement-hidden={achievement.hidden ? 'true' : 'false'}>
+						<div class="achievement-card__topline"><span class="achievement-card__icon" aria-hidden="true">♜</span><div class="achievement-card__identity"><span class="achievement-card__category">{achievement.category} · {achievement.type}</span><h4 data-achievement-title>{achievement.hidden ? 'Hidden Achievement' : achievement.name}</h4>{achievement.platformAlias && <small class="achievement-card__alias">Platform label: {achievement.platformAlias}</small>}</div><span class="achievement-card__status" data-achievement-status>Not Started</span></div>
+						<p class="achievement-card__description" data-achievement-description>{achievement.hidden ? 'Reveal this entry when you are ready to manage its completion state.' : achievement.description}</p>
+						{achievement.missable && <p class="achievement-card__warning">⚠ MISSABLE <span>Protect this before its reported lockout point.</span></p>}
+						<div class="achievement-card__progress-row"><strong><span data-achievement-done>0</span> / <span data-achievement-total-label>{achievementObjectiveCount(achievement)}</span></strong><span data-achievement-remaining>0 remaining</span></div>
+						<div class="achievement-card__bar"><span data-achievement-bar></span></div>
+						{achievement.hidden && <button class="achievement-card__reveal" type="button" data-achievement-reveal>Reveal details</button>}
+						<div class="achievement-card__breakdown" data-achievement-breakdown>
+							{objectives.length > 0 && <><span class="achievement-card__section-label">Objectives</span><ul>{objectives.map((item) => item && <li data-achievement-objective={item.id}><span class="achievement-card__objective-state">○</span><span><strong>{item.name}</strong><small>{item.region}</small></span>{item.mapMarkerId ? <a class="achievement-card__map-link" href={`/mortal-shell-ii/map/?achievement=${achievement.id}&marker=${item.mapMarkerId}`} data-show-on-map={item.mapMarkerId} data-achievement-id={achievement.id}>Show on Map</a> : <span class="achievement-card__unmapped">Guide only</span>}</li>)}</ul></>}
+							{!objectives.length && <div class="achievement-card__manual"><span class="achievement-card__section-label">Manual progress</span>{achievement.type === 'counter' ? <label><span>Current count</span><input type="number" min="0" max={achievementObjectiveCount(achievement)} value="0" data-achievement-manual-input /></label> : <label><input type="checkbox" data-achievement-manual-checkbox /> Mark completed on this device</label>}</div>}
+						</div>
+						<div class="achievement-card__actions">
+							{mapTargets.length > 0 && <a href={`/mortal-shell-ii/map/?achievement=${achievement.id}`} class="achievement-card__action achievement-card__action--map">Show remaining on Map <span aria-hidden="true">→</span></a>}
+							{route && <a href={`/mortal-shell-ii/map/?achievement=${achievement.id}&route=${route.id}`} class="achievement-card__action">{objectiveIds.length ? 'Start / Continue Route' : 'Continue Route'} <span aria-hidden="true">→</span></a>}
+							{!route && sameRegion && <a href={`/mortal-shell-ii/map/?achievement=${achievement.id}`} class="achievement-card__action">Complete This Area <span aria-hidden="true">→</span></a>}
+							{achievement.guideUrl && <a href={achievement.guideUrl} class="achievement-card__guide">Open Full Achievement Guide <span aria-hidden="true">↗</span></a>}
+						</div>
+					</article>
+				);
+			})}
+		</div>
+		<p class="completion-workspace__empty" data-completion-empty hidden>No achievements match this filter.</p>
+	</section>
+
+	<footer class="completion-workspace__footer"><span>Browser-local completion state · compatible with the Player Toolkit map.</span><button type="button" data-completion-reset>Reset completion state</button></footer>
+</section>
+
+<script is:inline>
+	(() => {
+		const app = document.querySelector('[data-achievement-workspace]');
+		if (!(app instanceof HTMLElement)) return;
+		const json = app.querySelector('[data-achievement-json]');
+		if (!(json instanceof HTMLScriptElement)) return;
+		const data = JSON.parse(json.textContent || '{}');
+		const storageKey = app.getAttribute('data-storage-key') || 'ms2-toolkit-progress-v1';
+		const cards = Array.from(app.querySelectorAll('[data-achievement-card]'));
+		const objectives = new Map((data.objectives || []).map((item) => [item.id, item]));
+		const achievements = new Map((data.achievements || []).map((item) => [item.id, item]));
+		const routes = new Map((data.routes || []).map((item) => [item.id, item]));
+		let completedIds = new Set();
+		let manualProgress = {};
+		let activeFilter = 'all';
+		let activeCategory = 'all';
+		const search = app.querySelector('[data-completion-search]');
+		const hideCompleted = app.querySelector('[data-completion-hide-completed]');
+
+		function readState() {
+			try {
+				const raw = window.localStorage.getItem(storageKey);
+				if (!raw) return;
+				const parsed = JSON.parse(raw);
+				if (Array.isArray(parsed)) completedIds = new Set(parsed);
+				else {
+					if (Array.isArray(parsed?.completedIds)) completedIds = new Set(parsed.completedIds);
+					if (parsed?.achievementProgress && typeof parsed.achievementProgress === 'object') manualProgress = { ...parsed.achievementProgress };
+					if (parsed?.completionFilter) activeFilter = parsed.completionFilter;
+					if (parsed?.completionCategory) activeCategory = parsed.completionCategory;
+					if (parsed?.completionHideCompleted === true && hideCompleted instanceof HTMLInputElement) hideCompleted.checked = true;
+				}
+			} catch (error) { completedIds = new Set(); manualProgress = {}; }
+		}
+		function saveState() {
+			try { window.localStorage.setItem(storageKey, JSON.stringify({ version: 3, completedIds: Array.from(completedIds), achievementProgress: manualProgress, activeRouteId: readRouteId(), completionFilter: activeFilter, completionCategory: activeCategory, completionHideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked })); } catch (error) { /* local storage is optional */ }
+		}
+		function readRouteId() { try { const raw = window.localStorage.getItem(storageKey); const parsed = raw ? JSON.parse(raw) : {}; return parsed?.activeRouteId || ''; } catch (error) { return ''; } }
+		function progressFor(achievement) {
+			const ids = achievement.objectiveIds || [];
+			const total = Number(achievement.total || (ids.length || 1));
+			const done = ids.length ? ids.filter((id) => completedIds.has(id)).length : Math.max(0, Math.min(total, Number(manualProgress[achievement.id] || 0)));
+			return { done, total, complete: done >= total, remaining: Math.max(0, total - done) };
+		}
+		function statusFor(achievement, progress) {
+			if (progress.complete) return 'Completed';
+			if (achievement.missable) return progress.done > 0 ? 'Missable · In Progress' : 'Missable';
+			if (achievement.hidden) return 'Hidden';
+			return progress.done > 0 ? 'In Progress' : 'Not Started';
+		}
+		function allProgress() { const list = Array.from(achievements.values()).map((achievement) => progressFor(achievement)); return { done: list.filter((item) => item.complete).length, total: list.length }; }
+		function updateCard(card, achievement) {
+			const progress = progressFor(achievement); const status = statusFor(achievement, progress);
+			const put = (selector, value) => { const node = card.querySelector(selector); if (node) node.textContent = String(value); };
+			put('[data-achievement-done]', progress.done); put('[data-achievement-total-label]', progress.total); put('[data-achievement-remaining]', `${progress.remaining} remaining`); put('[data-achievement-status]', status);
+			const bar = card.querySelector('[data-achievement-bar]'); if (bar instanceof HTMLElement) bar.style.width = `${progress.total ? Math.round(progress.done / progress.total * 100) : 0}%`;
+			card.classList.toggle('is-completed', progress.complete); card.classList.toggle('is-in-progress', !progress.complete && progress.done > 0); card.classList.toggle('is-not-started', !progress.complete && progress.done === 0);
+			card.querySelectorAll('[data-achievement-objective]').forEach((node) => { const id = node.getAttribute('data-achievement-objective') || ''; const done = completedIds.has(id); node.classList.toggle('is-completed', done); const state = node.querySelector('.achievement-card__objective-state'); if (state) state.textContent = done ? '✓' : '○'; });
+			const manualCheckbox = card.querySelector('[data-achievement-manual-checkbox]'); if (manualCheckbox instanceof HTMLInputElement) manualCheckbox.checked = progress.complete;
+			const manualInput = card.querySelector('[data-achievement-manual-input]'); if (manualInput instanceof HTMLInputElement && document.activeElement !== manualInput) manualInput.value = String(progress.done);
+		}
+		function updateHero() {
+			const overall = allProgress(); const percent = overall.total ? Math.round(overall.done / overall.total * 100) : 0;
+			const put = (selector, value) => { const node = app.querySelector(selector); if (node) node.textContent = String(value); };
+			put('[data-completion-overall-percent]', `${percent}%`); put('[data-completion-achievements-done]', overall.done); put('[data-completion-objectives-done]', completedIds.size);
+			const bar = app.querySelector('[data-completion-overall-bar]'); if (bar instanceof HTMLElement) bar.style.width = `${percent}%`;
+			const missable = Array.from(achievements.values()).filter((achievement) => achievement.missable && !progressFor(achievement).complete).length;
+			const hidden = Array.from(achievements.values()).filter((achievement) => achievement.hidden && !progressFor(achievement).complete).length;
+			put('[data-completion-missable]', `${missable} remaining`); put('[data-completion-hidden]', `${hidden} remaining`);
+			app.querySelectorAll('[data-completion-category]').forEach((node) => { const category = node.getAttribute('data-completion-category'); const list = Array.from(achievements.values()).filter((achievement) => achievement.category === category); const done = list.filter((achievement) => progressFor(achievement).complete).length; const doneNode = node.querySelector('[data-completion-category-done]'); const categoryBar = node.querySelector('[data-completion-category-bar]'); if (doneNode) doneNode.textContent = String(done); if (categoryBar instanceof HTMLElement) categoryBar.style.width = `${list.length ? Math.round(done / list.length * 100) : 0}%`; });
+			updateNextBest(); updateActiveRoute();
+		}
+		function updateNextBest() {
+			const activeRouteId = readRouteId(); const route = routes.get(activeRouteId); let next;
+			if (route) { next = route.waypoints.map((id) => objectives.get(id)).find((item) => item && !completedIds.has(item.id)); }
+			if (!next) { next = Array.from(achievements.values()).map((achievement) => ({ achievement, progress: progressFor(achievement) })).filter((item) => !item.progress.complete && item.progress.done > 0).sort((a, b) => (b.progress.done / b.progress.total) - (a.progress.done / a.progress.total))[0]?.achievement; }
+			const name = app.querySelector('[data-completion-next-name]'); const description = app.querySelector('[data-completion-next-description]'); const action = app.querySelector('[data-completion-next-action]');
+			if (next && 'id' in next && objectives.has(next.id)) { if (name) name.textContent = next.name; if (description) description.textContent = `${next.region || 'Current region'} · finish this target to advance the active route.`; if (action) action.setAttribute('href', next.mapMarkerId ? `/mortal-shell-ii/map/?marker=${next.mapMarkerId}` : `#${next.id}`); }
+			else if (next && 'id' in next) { const progress = progressFor(next); if (name) name.textContent = `Finish ${next.name}`; if (description) description.textContent = `${progress.remaining} remaining · continue from the achievement card below.`; if (action) action.setAttribute('href', `#${next.id}`); }
+		}
+		function updateActiveRoute() {
+			const panel = app.querySelector('[data-completion-active-route]'); const route = routes.get(readRouteId()); if (!(panel instanceof HTMLElement)) return; if (!route) { panel.hidden = true; return; }
+			panel.hidden = false; const completed = route.waypoints.filter((id) => completedIds.has(id)).length; const current = route.waypoints.map((id) => objectives.get(id)).find((item) => item && !completedIds.has(item.id));
+			const put = (selector, value) => { const node = panel.querySelector(selector); if (node) node.textContent = String(value); }; put('[data-completion-route-name]', route.name); put('[data-completion-route-progress]', `${completed} / ${route.waypoints.length} complete`); put('[data-completion-route-next]', current ? `NEXT · ${current.name}` : 'ROUTE COMPLETE'); const action = panel.querySelector('[data-completion-route-action]'); const routeAchievement = Array.from(achievements.values()).find((achievement) => achievement.routeId === route.id); if (action) action.setAttribute('href', `/mortal-shell-ii/map/?route=${route.id}${routeAchievement ? `&achievement=${routeAchievement.id}` : ''}`);
+		}
+		function applyFilters() {
+			const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : ''; const hide = hideCompleted instanceof HTMLInputElement && hideCompleted.checked; let visible = 0;
+			cards.forEach((card) => { const achievement = achievements.get(card.getAttribute('data-achievement-card') || ''); if (!achievement) return; const progress = progressFor(achievement); const status = statusFor(achievement, progress); const haystack = `${achievement.name} ${achievement.description} ${achievement.category}`.toLowerCase(); const statusMatch = activeFilter === 'all' || (activeFilter === 'completed' && progress.complete) || (activeFilter === 'in-progress' && !progress.complete && progress.done > 0) || (activeFilter === 'not-started' && !progress.complete && progress.done === 0) || (activeFilter === 'missable' && achievement.missable) || (activeFilter === 'hidden' && achievement.hidden); const categoryMatch = activeCategory === 'all' || achievement.category === activeCategory; const matches = statusMatch && categoryMatch && haystack.includes(query) && !(hide && progress.complete); card.hidden = !matches; if (matches) visible += 1; card.querySelector('[data-achievement-status]')?.setAttribute('data-status', status.toLowerCase().replaceAll(' ', '-')); });
+			const count = app.querySelector('[data-completion-visible-count]'); if (count) count.textContent = `${visible} achievement${visible === 1 ? '' : 's'}`; const empty = app.querySelector('[data-completion-empty]'); if (empty) empty.hidden = visible !== 0;
+		}
+		function render() { cards.forEach((card) => { const achievement = achievements.get(card.getAttribute('data-achievement-card') || ''); if (achievement) updateCard(card, achievement); }); updateHero(); applyFilters(); }
+		app.querySelectorAll('[data-completion-filter]').forEach((button) => button.addEventListener('click', () => { activeFilter = button.getAttribute('data-completion-filter') || 'all'; app.querySelectorAll('[data-completion-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); saveState(); applyFilters(); }));
+		app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.addEventListener('click', () => { activeCategory = button.getAttribute('data-completion-category-filter') || 'all'; app.querySelectorAll('[data-completion-category-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); saveState(); applyFilters(); }));
+		search?.addEventListener('input', () => { saveState(); applyFilters(); }); hideCompleted?.addEventListener('change', () => { saveState(); applyFilters(); });
+		app.querySelectorAll('[data-achievement-reveal]').forEach((button) => button.addEventListener('click', () => { const card = button.closest('[data-achievement-card]'); if (!(card instanceof HTMLElement)) return; card.classList.add('is-revealed'); const achievement = achievements.get(card.getAttribute('data-achievement-card') || ''); if (achievement) { const title = card.querySelector('[data-achievement-title]'); const description = card.querySelector('[data-achievement-description]'); if (title) title.textContent = achievement.name; if (description) description.textContent = achievement.description; } button.remove(); }));
+		app.querySelectorAll('[data-achievement-manual-checkbox]').forEach((input) => input.addEventListener('change', () => { const card = input.closest('[data-achievement-card]'); const id = card?.getAttribute('data-achievement-card'); if (!id) return; manualProgress[id] = input.checked ? 1 : 0; saveState(); render(); }));
+		app.querySelectorAll('[data-achievement-manual-input]').forEach((input) => input.addEventListener('input', () => { const card = input.closest('[data-achievement-card]'); const id = card?.getAttribute('data-achievement-card'); const achievement = id ? achievements.get(id) : undefined; if (!id || !achievement) return; manualProgress[id] = Math.max(0, Math.min(Number(achievement.total || 0), Number(input.value || 0))); saveState(); render(); }));
+		app.querySelector('[data-completion-reset]')?.addEventListener('click', () => { if (!window.confirm('Reset all completion progress on this device?')) return; completedIds = new Set(); manualProgress = {}; saveState(); render(); });
+		readState();
+		app.querySelectorAll('[data-completion-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-filter') === activeFilter));
+		app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-category-filter') === activeCategory));
+		render();
+	})();
+</script>

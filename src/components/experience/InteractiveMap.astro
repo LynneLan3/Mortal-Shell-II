@@ -134,7 +134,7 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 		function updateDetailActions() {
 			const marker = markerButtons.find((item) => item.getAttribute('data-map-marker-button') === activeMarkerId);
 			const itemId = marker?.getAttribute('data-toolkit-id');
-			const isCurrentTarget = Boolean(activeRouteId && activeMarkerId && routeMarkerIds(activeRouteId).includes(activeMarkerId) && itemId);
+			const isCurrentTarget = Boolean(activeRouteId && activeMarkerId && routeMarkerIds(activeRouteId).includes(activeMarkerId) && itemId && !completedIds.has(itemId));
 			details.forEach((detail) => {
 				const button = detail.querySelector('[data-detail-complete-next]');
 				if (button instanceof HTMLButtonElement) button.hidden = detail.getAttribute('data-map-detail') !== activeMarkerId || !isCurrentTarget;

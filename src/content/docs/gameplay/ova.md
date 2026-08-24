@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Ova Guide: How to Get Ova, 168 Requirement & Send Ova"
-description: "Mortal Shell 2 Ova guide covering the early Mether's Breath unlock, corruption-clearing route, Beacon Ova rewards, the 168 Ovum requirement, and the Send Ova to New Game Plus boundary."
+description: "Mortal Shell 2 Ova guide covering all six Corrupted Gates, a practical clear order, the early Mether's Breath unlock, Beacon Ova rewards, the 168 Ovum requirement, and the Send Ova to New Game Plus boundary."
 category: combat-exploration
 slug: mortal-shell-ii/ova
 status: needs-verification
 featured: false
-quickAnswer: "After the prologue, reach Marrow Keep and Fainweald, cleanse eligible Beacons, then return to the Ova Nursery's Gloom Siphon. Launch guides disagree on the early Mether's Breath threshold, so use the in-game unlock prompt as authority; the ability clears corruption and adds direct Beacon travel. Later, 168 Ovum and the final-boss route unlock Send Ova, which is the irreversible step into New Game Plus."
+quickAnswer: "There are six major Corrupted Gates: Glutted Mire, Sanguine Caverns, Prisoners' Domain, Conquered Temple, Withered Shoals, and Faded Citadel. A practical low-backtracking order is Glutted Mire → Sanguine Caverns → Prisoners' Domain, then Withered Shoals → Conquered Temple → Faded Citadel; this is a recommendation, not a forced boss order. After the prologue, use the Ova Nursery's Gloom Siphon to unlock Mether's Breath, and follow the in-game prompt because launch guides disagree on the early threshold."
 related:
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/new-game-plus
@@ -114,6 +114,28 @@ The practical loop is:
 
 For a late-boss example, see the [Zmey guide](/mortal-shell-ii/zmey/). For the version-sensitive list of changes, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
 
+## All Corrupted Gates and recommended order
+
+There are **six major Corrupted Gate dungeons** in the current launch-build guide reporting: three in Fainweald and three in Mammon. [GameSpot's boss list](https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/) and [AllThingsHow's boss-location table](https://allthings.how/mortal-shell-2-boss-locations-every-boss-and-where-to-find-it/) agree on the six-gate inventory. The table below follows [Gamer Guides' practical route](https://www.gamerguides.com/mortal-shell-ii/routes/ideal-game-progress-route) while keeping the regional difficulty curve in mind. The game allows flexibility, so treat the order as a recommendation rather than a mandatory sequence.
+
+| Order | Corrupted Gate | Region and boss | Approach Beacon | Why this order works |
+| ---: | --- | --- | --- | --- |
+| 1 | **Glutted Mire** | Fainweald — [Magdalena, Lady of the Woods](/mortal-shell-ii/magdalena/) | **Mushroom Village Gate** | The first major gate recommended by launch route guides; cleanse the Gate Beacon to open the dungeon. |
+| 2 | **Sanguine Caverns** | Fainweald — [The Lost Child](/mortal-shell-ii/lost-child/) | **Stonebled Gate** | The Stonebled Gate Beacon is the named access point; clear it after establishing the southern Fainweald route. |
+| 3 | **Prisoners' Domain** | Fainweald — [The Nameless Captive](/mortal-shell-ii/nameless-captive/) | **Nochtean Gate** | The Nochtean Gate sits before this dungeon. If you want Peter's Perfect Parry, attempt it before killing the boss. |
+| 4 | **Withered Shoals** | Mammon — [Hexapod](/mortal-shell-ii/hexapod/) | **Gate of Mammon** | A practical first Mammon gate: route guides place it close to the Mammon Beacon, and Hexapod is commonly described as one of the more manageable major fights. |
+| 5 | **Conquered Temple** | Mammon — [Droeg the Conqueror](/mortal-shell-ii/droeg-the-conqueror/) | **Sester's Gate** | This keeps the practical Mammon loop moving east after Withered Shoals; the gate is opened by cleansing Sester's Gate. |
+| 6 | **Faded Citadel** | Mammon — [Isaac, the Scholar Prince](/mortal-shell-ii/isaac-the-scholar-prince/) | **Gate of Infinity** | Finish the southern Mammon branch after cleansing Gate of Infinity, which launch guides identify as the access requirement. |
+
+### How to use the gate route
+
+1. Activate the approach Beacon, then cleanse it when the menu offers the cleanse route. Discovering or resting at a Beacon alone does not clear the Corrupted Gate.
+2. Enter the named Gate and clear its dungeon. If a boss is currently a poor match for your Shell or weapon, leave, upgrade elsewhere, and return; the six-gate route is not a single forced corridor.
+3. After each major boss, sweep the new post-boss Beacon before leaving. Current launch guides repeatedly report **26 Ova** at that Beacon, but this is route-planning evidence rather than a promise that every partial Beacon cleanse pays 26.
+4. Return to the Gloom Siphon when useful and deposit the Ova. Do not confuse the six-gate completion route with the separate early Mether's Breath threshold or the later 168 Ovum milestone.
+
+The six-gate model is supported by GameSpot and AllThingsHow's explicit lists of three Fainweald and three Mammon dungeons. One progression article says Mammon has only two gates; that conflicts with those lists and with the named Conquered Temple, Withered Shoals, and Faded Citadel routes. Keep all six in a completion checklist, while labeling the exact minimum number needed for a particular Siphon prompt as unresolved. Use named Beacons and the [Beacon locations guide](/mortal-shell-ii/beacons-fast-travel/) for orientation; this page does not invent map coordinates.
+
 ## The 168 Ovum endgame requirement
 
 Do not confuse the early Mether's Breath threshold with the separate late-game **168 Ovum** milestone.
@@ -193,6 +215,9 @@ Yes, they are a major Ova source. Individual payouts vary by route and source; c
 - [GameSpot: Ruk's Maps and Fast Travel Beacons](https://www.gamespot.com/articles/mortal-shell-2-ruks-maps-fast-travel-beacons/) — discovered Beacons, five-additional-Ova route context, and post-boss 26-Ova Beacon reporting.
 - [AllThingsHow: Point of No Return / Send Ova](https://allthings.how/mortal-shell-2-point-of-no-return-guide-send-ova/) — 168 Ovum, four-boss route, Zmey, and Send Ova sequence.
 - [GameSpot: All Bosses](https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/) — post-final-boss continuation and Send Ova to New Game Plus context.
+- [AllThingsHow: Boss Locations](https://allthings.how/mortal-shell-2-boss-locations-every-boss-and-where-to-find-it/) — six Corrupted Gate dungeons, boss mapping, and Gate reward context.
+- [AllThingsHow: Unfound Path](https://allthings.how/mortal-shell-2-how-to-complete-the-unfound-path-final-dungeon/) — six-gate regional inventory and flexible exploration timing.
+- [Gamer Guides: Ideal Game Progress Route](https://www.gamerguides.com/mortal-shell-ii/routes/ideal-game-progress-route) — recommended Fainweald order and practical Mammon loop.
 - [NerdsChalk: Mether's Breath](https://nerdschalk.com/mortal-shell-2-methers-breath-guide-requirements-unlock-steps-and-uses/) — 8-Ova report and Beacon travel steps.
 - [NerdsChalk: New Game Plus and Ovum](https://nerdschalk.com/mortal-shell-2-new-game-plus-and-ovum-survival-explained/) — Send Ova starts NG+ and carry-over/reset boundary.
 - [AltChar: How to Clear Corruption](https://www.altchar.com/guides/mortal-shell-2-how-to-clear-corruption-a19my5z1iVAh) — corruption behavior, 10-Ova firsthand report, and hold-to-interact behavior.

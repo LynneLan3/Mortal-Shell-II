@@ -161,3 +161,82 @@ Image URLs used:
 - Reddit repost of developer “Balance Patch 1” notes: https://www.reddit.com/r/MortalShell/comments/1vttz2d/balance_patch_1/ (listed launch changes; no Ova/Mether's Breath threshold change listed; checked 2026-08-24)
 - Steam Community — “Hotfix 2.0 - Release Notes”: https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/ (stability/UI/riposte fixes; no Ova-system change listed; checked 2026-08-24)
 - Image source page: AllThingsHow corruption guide, image URLs retained in page comments; third-party screenshots credited by the source to Cold Symmetry/Playstack where shown.
+
+---
+
+# Item 21 Research Addendum — All Corrupted Gates + Recommended Order
+
+Research date: 2026-08-24
+Repository item: 21 — `mortal-shell-ii/ova` (`expand`)
+Scope: Add the complete named Corrupted Gate inventory and an evidence-bounded recommended clear order to the existing Ova page. Preserve the Item 06 early Ova / Mether's Breath / Send Ova coverage above. No map coordinates, shared-file edits, writer calls, or new images are required.
+
+## Direct answer
+
+The current cross-checked launch model has **six major Corrupted Gate dungeons**: three in Fainweald and three in Mammon.
+
+1. **Glutted Mire** — Fainweald — Magdalena, Lady of the Woods.
+2. **Sanguine Caverns** — Fainweald — The Lost Child.
+3. **Prisoners' Domain** — Fainweald — The Nameless Captive.
+4. **Withered Shoals** — Mammon — Hexapod.
+5. **Conquered Temple** — Mammon — Droeg the Conqueror.
+6. **Faded Citadel** — Mammon — Isaac, the Scholar Prince.
+
+Recommended player order: clear the three Fainweald gates in the order above, then use **Withered Shoals → Conquered Temple → Faded Citadel** as a practical Mammon loop. This is a low-backtracking / difficulty-aware recommendation, not a universal mandatory boss order. Gamer Guides explicitly presents Glutted Mire, Sanguine Caverns, and Prisoners' Domain in that sequence, then says the Mammon gates can be taken in any order and uses Withered Shoals, Conquered Temple, and Faded Citadel as its route. GameSpot and AllThingsHow separately support the six-gate inventory and the named approach Beacons.
+
+## Gate inventory and entry evidence
+
+| Recommended slot | Gate and region | Boss | Named approach Beacon / access evidence | Confidence |
+| ---: | --- | --- | --- | --- |
+| 1 | Glutted Mire — Fainweald | Magdalena, Lady of the Woods | Mushroom Village Gate; GameSpot identifies this as the first major dungeon candidate. | High |
+| 2 | Sanguine Caverns — Fainweald | The Lost Child | Stonebled Gate; GameSpot says cleansing this Beacon grants entry. | High |
+| 3 | Prisoners' Domain — Fainweald | The Nameless Captive | Nochtean Gate; GameSpot places the Beacon directly before the Gate, and Into Indie Games describes cleansing the path before entry. | High |
+| 4 | Withered Shoals — Mammon | Hexapod | Gate of Mammon; GameSpot identifies the cleansed Beacon as the access point. | High |
+| 5 | Conquered Temple — Mammon | Droeg the Conqueror | Sester's Gate; GameSpot says cleansing it unlocks the Gate. | High |
+| 6 | Faded Citadel — Mammon | Isaac, the Scholar Prince | Gate of Infinity; GameSpot says this Beacon must be cleansed for access. | High |
+
+AllThingsHow's boss-location table independently maps the same six dungeons to the same bosses and identifies three Gates per region. The repository's existing route research and boss-specific pages use the same six-gate model.
+
+## Order reasoning and player-facing boundaries
+
+### Fainweald: southern loop, then north and west
+
+- **Glutted Mire first:** GameSpot calls the Glutted Mire Gate the first major dungeon to tackle after the Mushroom Village Gate; Gamer Guides uses it as its first gate.
+- **Sanguine Caverns second:** Stonebled Gate is the named access Beacon. Gamer Guides calls the Sanguine Caverns Gate the easiest second-gate choice after Mether's Breath is available.
+- **Prisoners' Domain third:** Nochtean Gate is the named approach. Place the Peter's Perfect Parry warning before the Nameless Captive kill, not after it.
+
+This order follows route access and practical early progression. It is not a hard boss lock; sources say most of Fainweald can be explored for gear before committing to the Gate dungeons.
+
+### Mammon: practical loop, flexible order
+
+- **Withered Shoals first:** Gamer Guides starts with this gate because it is closest to the Ruins of Mammon Beacon; AllThingsHow describes Hexapod as one of the easier major encounters. This is a practical recommendation, not a formal requirement.
+- **Conquered Temple second:** The eastward continuation after Withered Shoals in Gamer Guides' route. The post-Ova hallway has a cold-damage exploration reward, but that detail belongs to the Droeg page and is not required for Gate progression.
+- **Faded Citadel third:** The southern Mammon branch after Gate of Infinity. The Gate Beacon access is independently documented by GameSpot.
+
+Sources disagree on whether Mammon has two or three Gates: AltChar's progression article says there are only two, while GameSpot, AllThingsHow, Gamer Guides, the local Beacon inventory, and the existing Droeg / Hexapod / Isaac page set support three. Keep the three-gate model in the article, preserve the discrepancy here, and do not claim a universal mandatory minimum when the evidence only supports a full-completion route.
+
+## Ova and cleanup evidence
+
+- AllThingsHow reports that each of the six major Gate dungeons creates a final Beacon after the boss and that each such post-boss Beacon contains 26 Ova.
+- GameSpot independently reports 26 Ova in the post-boss Beacon and says the major Gate dungeons can be delayed while the player explores for gear.
+- This supports a practical checklist instruction: defeat the boss, sweep the post-boss Beacon, claim the Ova, and return to the Gloom Siphon when useful.
+- The 26-Ova figure is launch-guide reporting for the post-boss Beacon, not a complete reward table for every internal Beacon or partial cleanse.
+- All six Gates are the conservative completion route. Do not turn that into a claim that all six are always required for the player's exact Siphon threshold; the existing Item 06 research already labels the separate 168 milestone and early threshold uncertainty.
+
+## Conflicts and exclusions
+
+1. **Mammon count:** one AltChar sentence says two Gates; stronger multi-source cross-checks support three. Article wording should say six in total and label the two-gate report as a source conflict in research, not silently combine incompatible lists.
+2. **Order:** no source establishes one mandatory order across all six bosses. The article must label the proposed order as recommended / practical and tell players to leave and upgrade if a fight is a poor build match.
+3. **Thresholds:** this addendum does not change the Item 06 early Mether's Breath or late 168 Ovum wording. Those are separate progression questions.
+4. **Coordinates:** none are needed. Use named Beacons, Gate names, and internal links to the existing Beacon and boss pages.
+5. **Images:** no new image is genuinely useful for this expansion. The existing Ova screenshots already illustrate the Siphon and corruption mechanic; a six-row named table is clearer than an unverified map screenshot.
+
+## Source ledger
+
+- GameSpot, “All Bosses In Mortal Shell 2 And How To Beat Them,” Jason Rodriguez, published 2026-08-17 — explicitly lists six Corrupted Gate dungeons, maps all six regions to bosses, and reports the 26-Ova post-boss Beacon: https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/
+- AllThingsHow, “Mortal Shell 2: Boss Locations: Every Boss and Where to Find It,” Sehaj Padda, updated 2026-08-18 — independently lists three Gates per region, maps each Gate to its boss, and reports weapon ability stones plus the post-boss Ova Beacon: https://allthings.how/mortal-shell-2-boss-locations-every-boss-and-where-to-find-it/
+- AllThingsHow, “Mortal Shell 2: How to Complete The Unfound Path Final Dungeon,” Pallav Pathak, updated 2026-08-20 — restates the six-Gate regional inventory and explains that the Gates can be explored before the final Ova transition: https://allthings.how/mortal-shell-2-how-to-complete-the-unfound-path-final-dungeon/
+- AllThingsHow, “Mortal Shell 2: All 49 Beacon Locations and How to Cleanse Them,” updated 2026-08-18 — lists post-boss Beacon behavior, 26-Ova reports, and internal Beacon names by Gate region: https://allthings.how/mortal-shell-2-all-49-beacon-locations-and-how-to-cleanse-them/
+- GameSpot, “All Ruk’s Maps And Fast Travel Beacons In Mortal Shell 2,” Jason Rodriguez, published 2026-08-17 — identifies named Gate access Beacons: Mushroom Village Gate, Stonebled Gate, Nochtean Gate, Gate of Mammon, Gate of Infinity, and Sester’s Gate: https://www.gamespot.com/articles/mortal-shell-2-ruks-maps-fast-travel-beacons/
+- Gamer Guides, “Ideal Game Progress Route,” checked 2026-08-24 — gives the recommended Fainweald order, calls Sanguine Caverns an easy second gate, and uses Withered Shoals → Conquered Temple → Faded Citadel for its Mammon route while noting Mammon's gates are flexible: https://www.gamerguides.com/mortal-shell-ii/routes/ideal-game-progress-route
+- AltChar, “Mortal Shell 2: The Complete Progression Guide,” Asmir Kovacevic, published 2026-08-17 — supports a southern-first Fainweald route but says Mammon has only two Gates; retained as the explicit conflict rather than accepted over the three-gate cross-check: https://www.altchar.com/guides/mortal-shell-2-the-complete-progression-guide-aDaUv0P7BNa7
+- Into Indie Games, “Mortal Shell 2 – Walkthrough Part 4: Prisoner's Domain,” Fahad Suleman, checked 2026-08-24 — corroborates Nochtean Gate access and the cleanse-before-entry route: https://intoindiegames.com/walkthroughs/mortal-shell-2-walkthrough-part-4-prisoners-domain/

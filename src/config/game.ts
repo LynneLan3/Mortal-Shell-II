@@ -881,6 +881,20 @@ export const game: GameConfig = {
 					description: "Defeat the Subjugated Guardian at Sentry's Grave to unlock this sidearm.",
 					eyebrow: 'Sidearm',
 				},
+				{
+					pageId: 'triarch-repeater',
+					href: '/mortal-shell-ii/triarch-repeater/',
+					title: 'Triarch Repeater',
+					description: 'Reach Blackwell Cavern in Mammon and unlock the Triarch Repeater sidearm.',
+					eyebrow: 'Sidearm',
+				},
+				{
+					pageId: 'salvaged-trebuchaxe',
+					href: '/mortal-shell-ii/salvaged-trebuchaxe/',
+					title: 'Salvaged Trebuchaxe',
+					description: 'Follow the Ravaged Hideout route to the Salvaged Trebuchaxe pickup.',
+					eyebrow: 'Sidearm',
+				},
 			],
 			fastAnswers: [
 				{
@@ -1155,6 +1169,13 @@ export const game: GameConfig = {
 					title: 'Shell Memories',
 					description: 'Track the 40 Shell Memories, Glimpse spending, Genessa’s exception, and NG+ planning.',
 					eyebrow: 'Completion',
+				},
+				{
+					pageId: 'ascension',
+					href: '/mortal-shell-ii/ascension/',
+					title: 'Ascension',
+					description: "Complete the Mether's Flesh and Giant Fish route for the secret Ascension trophy.",
+					eyebrow: 'Achievement',
 				},
 			],
 			fastAnswers: [

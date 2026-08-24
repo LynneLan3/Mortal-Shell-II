@@ -19,6 +19,8 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/troubadours-lute
   - mortal-shell-ii/ballistazooka
+  - mortal-shell-ii/triarch-repeater
+  - mortal-shell-ii/salvaged-trebuchaxe
 sidebar:
   label: Sidearms Guide
   order: 27
@@ -49,9 +51,9 @@ This Hub owns the roster and compact location checklist. Detailed dungeon walkth
 | --- | --- | --- | --- |
 | **Naylshotte** | Prologue | Starter acquisition during the Prologue | Hub summary |
 | **Forgotten Crossbow** | Flooded Village | Use the Damp Key for the locked pickup room; Blackridge Pass is a practical route anchor | [Forgotten Crossbow guide](/mortal-shell-ii/forgotten-crossbow/) |
-| **Salvaged Trebuchaxe** | Ravaged Hideout | South / southeast of Gloomshade Grove, on the Bloodcursed Lithopod access route | Hub summary |
+| **Salvaged Trebuchaxe** | Ravaged Hideout | South / southeast of Gloomshade Grove, on the Bloodcursed Lithopod access route | [Salvaged Trebuchaxe guide](/mortal-shell-ii/salvaged-trebuchaxe/) |
 | **Troubadour's Lute** | One-Legged Wolf Tavern | Pickup inside the tavern around the stage area | [Troubadour's Lute guide](/mortal-shell-ii/troubadours-lute/) |
-| **Triarch Repeater** | Blackwell Cavern, Mammon | Use Castigator's Keep as the route anchor | Hub summary |
+| **Triarch Repeater** | Blackwell Cavern, Mammon | Use Castigator's Keep as the route anchor | [Triarch Repeater guide](/mortal-shell-ii/triarch-repeater/) |
 | **Ballistazooka** | Sentry's Grave | Near Gate of Mammon; reward tied to Subjugated Guardian | [Ballistazooka guide](/mortal-shell-ii/ballistazooka/) |
 | **Cursed Child** | Revered Beacon route | Near the Sester's Gate / Abbey area | [Cursed Child guide](/mortal-shell-ii/cursed-child/) |
 | **Caged Hystrix** | Chamber of Becoming | Separate pickup near the exit after the Sariel route | [Caged Hystrix guide](/mortal-shell-ii/caged-hystrix/) |
@@ -72,7 +74,7 @@ Use the detailed [Forgotten Crossbow guide](/mortal-shell-ii/forgotten-crossbow/
 
 ## Salvaged Trebuchaxe
 
-The **Salvaged Trebuchaxe** is in **Ravaged Hideout**, south / southeast of **Gloomshade Grove**.
+The **Salvaged Trebuchaxe** is in **Ravaged Hideout**, south / southeast of **Gloomshade Grove**. Use the [Salvaged Trebuchaxe guide](/mortal-shell-ii/salvaged-trebuchaxe/) for the route and pickup details.
 
 Access is tied to the wider **Bloodcursed Lithopod** route.
 
@@ -84,7 +86,7 @@ The tavern is also where the [Gragu guide](/mortal-shell-ii/gragu/) begins, so t
 
 ## Triarch Repeater
 
-The **Triarch Repeater** is in **Blackwell Cavern** in Mammon.
+The **Triarch Repeater** is in **Blackwell Cavern** in Mammon. Use the [Triarch Repeater guide](/mortal-shell-ii/triarch-repeater/) for the route and patch-qualified Resolve notes.
 
 Use **Castigator's Keep** as a practical route anchor.
 

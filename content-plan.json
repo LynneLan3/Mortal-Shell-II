@@ -117,8 +117,8 @@
     {"id":"45","priority":"P1","title":"Seeking the Past / All Shell Memories / NG+ issue","slug":"mortal-shell-ii/shell-memories","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/routes/finish-complete"},
     {"id":"46","priority":"P1","title":"Troubadour's Lute + Heavy Metal Trophy","slug":"mortal-shell-ii/troubadours-lute","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
     {"id":"47","priority":"P1","title":"Ballistazooka Location","slug":"mortal-shell-ii/ballistazooka","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
-    {"id":"48","priority":"P1","title":"Triarch Repeater Location","slug":"mortal-shell-ii/triarch-repeater","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
-    {"id":"49","priority":"P1","title":"Salvaged Trebuchaxe Location","slug":"mortal-shell-ii/salvaged-trebuchaxe","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
-    {"id":"50","priority":"P1","title":"Ascension Trophy / Mether's Flesh / Giant Fish","slug":"mortal-shell-ii/ascension","type":"guide","action":"create","status":"todo","blockedReason":null,"hub":"mortal-shell-ii/routes/finish-complete"}
+    {"id":"48","priority":"P1","title":"Triarch Repeater Location","slug":"mortal-shell-ii/triarch-repeater","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
+    {"id":"49","priority":"P1","title":"Salvaged Trebuchaxe Location","slug":"mortal-shell-ii/salvaged-trebuchaxe","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/sidearms"},
+    {"id":"50","priority":"P1","title":"Ascension Trophy / Mether's Flesh / Giant Fish","slug":"mortal-shell-ii/ascension","type":"guide","action":"create","status":"done","blockedReason":null,"hub":"mortal-shell-ii/routes/finish-complete"}
   ]
 }

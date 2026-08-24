@@ -1,25 +1,32 @@
 ---
-title: "Mortal Shell 2 Seedbearer's Scripture: All 3 Gland Locations"
+title: "Mortal Shell 2 Seedbearer's Scripture — How to Get It & All Gland Locations"
 slug: mortal-shell-ii/seedbearers-scripture
 category: combat-exploration
-description: "Find the Depleted, Thawed and Faded Glands, enable Night Mode and offer all three at the Forgotten Tower to get Seedbearer's Scripture."
+description: "Get Seedbearer's Scripture by offering Depleted, Thawed & Faded Glands during Night Mode at the Forgotten Tower — useful vs Zmey's Cosmic Disease."
 status: confirmed
 featured: true
-quickAnswer: "Collect Depleted, Thawed, and Faded Gland, enable Night Mode, then offer all three at the top of the Forgotten Tower to receive Seedbearer's Scripture."
+quickAnswer: "Collect the Depleted, Thawed, and Faded Glands, enable Night Mode, then offer all three at the top of the Forgotten Tower to receive Seedbearer's Scripture (active cure + 50% Cosmic Disease mitigation for 30s; passive 15%)."
 related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/axatana
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/tarstones
+  - mortal-shell-ii/zmey
 sidebar:
   label: Seedbearer's Scripture
   badge: Night Mode
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-25
 ---
 
-## Where to Find All 3 Glands and Get Seedbearer's Scripture
+## Quick unlock answer
 
-**Seedbearer's Scripture** is obtained by collecting three quest Glands — **Depleted Gland, Thawed Gland, and Faded Gland** — then offering all three at the **Forgotten Tower during Night Mode**. The Scripture provides both active and passive **Cosmic Disease mitigation**.
+Collect the three quest Glands — Depleted Gland, Thawed Gland, and Faded Gland — enable Night Mode, then offer all three at the top of the Forgotten Tower to receive Seedbearer's Scripture.
+
+## Why this matters before Zmey
+
+Seedbearer's Scripture reduces Cosmic Disease pressure: its active use cures Cosmic Disease and grants 50% mitigation for 30 seconds, plus a passive 15% mitigation. That makes it useful heading into later encounters that apply Cosmic Disease, including Zmey — see the [Zmey guide](/mortal-shell-ii/zmey/) for boss specifics.
+
+## All 3 Glands (at-a-glance)
 
 | Gland | Area | Route anchor | Key landmark |
 | --- | --- | --- | --- |
@@ -27,136 +34,77 @@ lastUpdated: 2026-08-23
 | **Thawed Gland** | Corrupt Gate route near Abbey / Valley of the Revered | Abbey-side Corrupt Gate route | Statue chamber with Martyr's Ash |
 | **Faded Gland** | Faded Capital | Citadel Annex Beacon | Candle-ringed well-like structure |
 
-## What are the three Glands for?
+## Depleted Gland — Withered Shoals
 
-The three Glands used for this secret are:
+Start at **Nameless Pass Beacon** and follow these steps:
 
-- Depleted Gland
-- Thawed Gland
-- Faded Gland
+1. Continue toward the rock where **Ruk** sits.
+2. Drop to the lower rock surface (do not proceed upward).
+3. Turn back toward the torch at the end of this lower route.
+4. Look for a **bone arm near the torch** and collect the Depleted Gland from it.
 
-They are **separate from Revered Glands**.
+[IMAGE: Depleted Gland — bone arm near torch in Withered Shoals]
 
-Collect all three, enable Night Mode, then travel to the Forgotten Tower and use the offering interaction on the upper floor to receive Seedbearer's Scripture.
+This pickup does not require a mandatory boss kill along the described route.
 
-## Depleted Gland location
+## Thawed Gland — Corrupt Gate / Abbey area
 
-The **Depleted Gland** is in **Withered Shoals**.
+Follow the Corrupt Gate route near the Abbey / Valley of the Revered until you find a narrow side opening leading into a chamber. Landmarks inside the chamber:
 
-Start from **Nameless Pass Beacon**:
+- A **statue at the far end**
+- **Martyr's Ash** pickups around or near pillars
+- A **stone pedestal** beside the statue
 
-1. Continue toward **Ruk on the rock**.
-2. Drop to the lower rock surface.
-3. Turn back toward the torch / end of the route.
-4. Look for a **bone arm near the torch**.
-5. Collect the Depleted Gland from the arm.
+The **Thawed Gland** sits on that pedestal.
 
-This route does not use a mandatory boss kill for the pickup.
+[IMAGE: Thawed Gland — statue chamber with pedestal and Martyr's Ash]
 
-## Thawed Gland location
+## Faded Gland — Faded Capital
 
-The **Thawed Gland** is on a **Corrupt Gate route near the Abbey / Valley of the Revered route**.
+From **Citadel Annex Beacon**:
 
-Follow that route until you find a narrow side opening leading into a chamber.
+1. Move or drop into the lower central area instead of continuing upward.
+2. Reach the central space and look for a **well-like stone structure ringed with candles**.
+3. Collect the **Faded Gland** from inside that candle-ringed structure.
 
-Inside, use these landmarks:
+[IMAGE: Faded Gland — candle-ringed well-like structure in Faded Capital]
 
-- a **statue at the far end**
-- **Martyr's Ash** pickups around / near the pillars
-- a **stone pedestal** by the statue
+No specific enemy clear is required by these route descriptions; follow the landmarks above to find each Gland.
 
-The Thawed Gland is on that pedestal.
+## Enabling the Forgotten Tower offering (Night Mode)
 
-## Faded Gland location
+The three-Gland offering only appears when **Night Mode** is active. If you still need to unlock or activate Night Mode, use the [Gloombound Flame and Night Mode guide](/mortal-shell-ii/gloombound-flame/).
 
-The **Faded Gland** is in **Faded Capital**.
+## Where and how to offer the Glands
 
-Start from **Citadel Annex Beacon**:
+Use **Sester's Beacon** as the route anchor for the Forgotten Tower approach.
 
-1. Move / drop into the lower area instead of continuing upward.
-2. Reach the central space.
-3. Look for a **well-like stone structure / dish ringed with candles**.
-4. Collect the Faded Gland from inside that candle-ringed structure.
+1. From Sester's Beacon travel west toward the separate island with the **Forgotten Tower**.
+2. Enter the tower and climb to the upper floor.
+3. Find the corpse with the **Make Offering** interaction and offer **Depleted Gland**, **Thawed Gland**, and **Faded Gland**.
+4. Complete the offering sequence to receive **Seedbearer's Scripture**.
 
-No specific enemy clear is required by this route description.
+If the **Make Offering** prompt does not appear, check the Common Mistakes section below.
 
-## How to enable the Forgotten Tower offering
+Also note: the Forgotten Tower is the same location that contains the weapon pickup covered by the [Axatana guide](/mortal-shell-ii/axatana/), but the Gland offering is a separate interaction.
 
-The three-Gland offering requires **Night Mode**.
+If you want to skip travel time, use beacon fast travel where available — see our [Beacons & Fast Travel guide](/mortal-shell-ii/beacons-fast-travel/) for routing tips.
 
-Use the [Gloombound Flame and Night Mode guide](/mortal-shell-ii/gloombound-flame/) if you still need to unlock or activate Night Mode.
+## Common Mistakes
 
-Once Night Mode is active and all three Glands are in your inventory, head to the Forgotten Tower.
-
-## Where to offer all three Glands
-
-Use **Sester's Beacon** as the route anchor.
-
-From there:
-
-1. Travel west toward the **Forgotten Tower** on the separate island.
-2. Enter the tower.
-3. Climb to the top / upper floor.
-4. Find the body / corpse with the **`Make Offering`** interaction.
-5. Offer Depleted Gland, Thawed Gland, and Faded Gland.
-6. Complete the offering sequence to receive **Seedbearer's Scripture**.
-
-If `Make Offering` does not appear, check two things first:
-
-- **Night Mode is active**
-- all **three named Glands** are still in your inventory
+- Make Offering not appearing: confirm **Night Mode is active** and that **all three named Glands** are still in your inventory.
+- Taking the wrong route: follow the exact route anchors and landmarks above (Nameless Pass, Abbey-side Corrupt Gate route, Citadel Annex) — the Glands are not Revered Glands and will not show up on Revered-specific checks.
 
 ## What Seedbearer's Scripture does
 
-Seedbearer's Scripture provides Cosmic Disease protection in two ways.
+- Active use: cures **Cosmic Disease** and grants **50% Cosmic Disease Mitigation for 30 seconds**.
+- Passive effect: **15% Cosmic Disease Mitigation**.
 
-**Active use**
+This page does not assign a cooldown, charge count, or upgrade path for the Scripture; it documents the pickup and offering method only.
 
-- cures **Cosmic Disease**
-- grants **50% Cosmic Disease Mitigation for 30 seconds**
+## Related
 
-**Passive effect**
-
-- **15% Cosmic Disease Mitigation**
-
-That makes it particularly relevant when later areas put more Cosmic Disease pressure on your route.
-
-This page does not assign a cooldown, charge count, upgrade path, or specific boss strategy to the Scripture.
-
-## Seedbearer's Scripture FAQ
-
-### How many Glands do I need?
-
-Three: **Depleted Gland, Thawed Gland, and Faded Gland**.
-
-### Are these the same as Revered Glands?
-
-No. These are separate quest Glands used for the Seedbearer's Scripture offering.
-
-### Where is Depleted Gland?
-
-In Withered Shoals. Use Nameless Pass Beacon, continue toward Ruk, drop to the lower rock surface, then check the bone arm near the torch.
-
-### Where is Thawed Gland?
-
-In a side chamber on the Corrupt Gate route near the Abbey / Valley of the Revered route. Look for the statue, Martyr's Ash around the pillars, and the stone pedestal beside the statue.
-
-### Where is Faded Gland?
-
-In Faded Capital. Start from Citadel Annex Beacon and search the lower central area for the candle-ringed well-like stone structure.
-
-### Why is Make Offering not appearing?
-
-Confirm that Night Mode is active and that Depleted, Thawed, and Faded Gland are all in your inventory.
-
-### Do I need Night Mode?
-
-Yes. The Forgotten Tower offering is a Night Mode interaction.
-
-### Is Forgotten Tower also where Axatana is?
-
-Yes, but they are separate tasks. The [Axatana guide](/mortal-shell-ii/axatana/) owns the weapon pickup route; this page owns the Night Mode three-Gland offering.
-
-### What does Seedbearer's Scripture do?
-
-Its active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds. Its passive effect provides 15% Cosmic Disease Mitigation.
+- Night Mode / Gloombound Flame: [Gloombound Flame and Night Mode guide](/mortal-shell-ii/gloombound-flame/)
+- Weapon at the same tower: [Axatana guide](/mortal-shell-ii/axatana/)
+- Fast travel help: [Beacons & Fast Travel guide](/mortal-shell-ii/beacons-fast-travel/)
+- Boss reference: [Zmey guide](/mortal-shell-ii/zmey/)

@@ -1,0 +1,33 @@
+---
+import { mapBasemap, mapMarkerById } from '../../../data/map-markers';
+import type { MapRoute } from '../../../data/map-routes';
+
+interface Props {
+	route: MapRoute;
+	compact?: boolean;
+}
+
+const { route, compact = false } = Astro.props;
+const points = route.waypoints
+	.map((waypoint) => mapMarkerById.get(waypoint.markerId))
+	.filter((marker): marker is NonNullable<typeof marker> => Boolean(marker));
+const pointString = points.map((point) => `${point.xNorm * 100},${point.yNorm * 100}`).join(' ');
+---
+
+<div
+	class:list={['map-route-preview', compact && 'map-route-preview--compact']}
+	role="img"
+	aria-label={`${route.name} route preview with ${points.length} numbered stops`}
+>
+	<img src={mapBasemap.image} alt="" loading="lazy" decoding="async" />
+	<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+		{points.length > 1 && <polyline points={pointString} />}
+		{points.map((point, index) => (
+			<g transform={`translate(${point.xNorm * 100} ${point.yNorm * 100})`}>
+				<circle r={compact ? 2.4 : 2.8} />
+				<text y="0.9">{index + 1}</text>
+			</g>
+		))}
+	</svg>
+	<span class="map-route-preview__caption">{points.length} stops · editorial order</span>
+</div>

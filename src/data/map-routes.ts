@@ -29,6 +29,11 @@ export interface MapRoute {
 	optional?: boolean;
 }
 
+/** Canonical first-class Route Workspace URL for a curated map route. */
+export function mapRouteHref(routeId: string): string {
+	return `/mortal-shell-ii/routes/${routeId}/`;
+}
+
 /**
  * These are editorial sequences, not claims of mathematically shortest travel.
  * Keep the list small until more marker coordinates and relationships are

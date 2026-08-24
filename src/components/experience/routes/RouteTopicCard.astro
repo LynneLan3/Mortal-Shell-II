@@ -9,6 +9,7 @@ import { ui } from '../../../lib/ui';
 import { resolveGameAsset } from '../../../lib/assets';
 import CardThumbnail from '../../CardThumbnail.astro';
 import type { GameRoute } from '../../../config/game';
+import { mapRoutes, mapRouteHref } from '../../../data/map-routes';
 
 interface Props {
 	route: GameRoute;
@@ -20,6 +21,11 @@ const { route, number, variant = 'topic' } = Astro.props;
 const t = ui();
 const visualAsset = resolveGameAsset(route.visual, 'route.visual');
 const previewPages = route.pages.slice(0, 3);
+const relatedMapRoutes = route.id === 'world-progression'
+	? mapRoutes.filter((candidate) => ['fainweald-map-fragments', 'mammon-cleanup'].includes(candidate.id))
+	: route.id === 'weapons-resources'
+		? mapRoutes.filter((candidate) => candidate.id === 'fainweald-shells')
+		: [];
 ---
 
 <a
@@ -47,13 +53,19 @@ const previewPages = route.pages.slice(0, 3);
 		</div>
 		<h3 class="exp-route-topic-card__title">{route.title}</h3>
 		<p class="exp-route-topic-card__desc">{route.description}</p>
-		{previewPages.length > 0 && (
+			{previewPages.length > 0 && (
 			<ul class="exp-route-topic-card__preview" aria-label={t.followTheRoute}>
 				{previewPages.map((page) => (
 					<li>{page.title}</li>
 				))}
 			</ul>
-		)}
+			)}
+			{relatedMapRoutes.length > 0 && (
+				<div class="exp-route-topic-card__related">
+					<span>Related Routes</span>
+					{relatedMapRoutes.map((mapRoute) => <a href={mapRouteHref(mapRoute.id)} target="_blank" rel="noopener noreferrer">{mapRoute.name} ↗</a>)}
+				</div>
+			)}
 		<div class="exp-route-topic-card__footer">
 			<span>{t.guideCount(route.pages.length)}</span>
 			<span class="exp-cta-link">{t.openRoute(route.title)}</span>

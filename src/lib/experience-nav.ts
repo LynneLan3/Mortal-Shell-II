@@ -32,6 +32,7 @@ export function experienceNav(): ExperienceNav {
 	const hub = game.hubPath;
 	const homeHref = hubHref(hub);
 	const hotGuidesHref = `${homeHref}#hot-guides`;
+	const byGoalHref = `${homeHref}#by-goal`;
 	const routesHref = pageHref(hub, 'routes');
 	const guidesHref = pageHref(hub, 'guides');
 	const bossesHref = pageHref(hub, 'bosses');
@@ -41,9 +42,10 @@ export function experienceNav(): ExperienceNav {
 	const nav: NavItem[] = [
 		{ label: t.homeNav, href: homeHref },
 		{ label: t.hotGuidesNav, href: hotGuidesHref },
-		{ label: t.routesNav, href: routesHref, activeMatch: [routesHref] },
+		{ label: t.routesNav, href: byGoalHref, activeMatch: [] },
 		{ label: t.guidesNav, href: guidesHref },
 		{ label: 'Bosses', href: bossesHref, activeMatch: [bossesHref] },
+		{ label: 'Routes', href: routesHref, activeMatch: [routesHref] },
 		{ label: 'Map', href: mapHref, activeMatch: [mapHref] },
 	];
 	const footerLinks = [...nav, { label: t.aboutNav, href: aboutHref }];

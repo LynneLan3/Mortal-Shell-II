@@ -6,6 +6,8 @@ import { mapMarkers } from '../../../data/map-markers';
 import { mapRegions, regionIdForMarker } from '../../../data/map-regions';
 import { experienceNav } from '../../../lib/experience-nav';
 import '../../../styles/map.css';
+import '../../../styles/completion.css';
+import '../../../styles/map-simplification.css';
 
 export function getStaticPaths() {
 	return mapRegions.map((region) => ({

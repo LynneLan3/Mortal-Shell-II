@@ -1,19 +1,18 @@
 ---
 import GameShell from '../../../components/experience/GameShell.astro';
-import RouteTaskMap from '../../../components/experience/routes/RouteTaskMap.astro';
+import RouteDiscoveryHub from '../../../components/experience/routes/RouteDiscoveryHub.astro';
 import { game } from '../../../config/game';
 import { ui } from '../../../lib/ui';
 import { experienceNav } from '../../../lib/experience-nav';
-import { orderGoalRoutes } from '../../../lib/experience-homepage';
 import '../../../styles/routes.css';
+import '../../../styles/route-workspace.css';
 
 const t = ui();
 const { nav, footerLinks, homeHref, routesHref } = experienceNav();
-const routes = orderGoalRoutes(game.routes ?? []);
 ---
 
 <GameShell
-	title={`${t.routesNav} | ${game.shortName}`}
+	title={`Routes | ${game.shortName}`}
 	description={t.chooseWhatYoureTryingLede}
 	canonical={new URL(routesHref, game.siteUrl).href}
 	siteTitle={game.shortName}
@@ -25,6 +24,6 @@ const routes = orderGoalRoutes(game.routes ?? []);
 	footerLinks={footerLinks}
 	footerText={game.title}
 >
-	<meta slot="head" name="robots" content="noindex,follow" />
-	<RouteTaskMap routes={routes} />
+	<meta slot="head" name="robots" content="index,follow" />
+	<RouteDiscoveryHub />
 </GameShell>

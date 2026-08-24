@@ -23,17 +23,18 @@ const t = ui();
 const shownRoutes = routes;
 ---
 
-<section class="exp-section exp-home-routes" id="routes" aria-labelledby="exp-home-routes-heading">
+<section class="exp-section exp-home-routes" id="by-goal" aria-labelledby="exp-home-routes-heading">
 	<div class="exp-content">
 		<p class="exp-eyebrow">{t.routesNav}</p>
 		<h2 class="exp-h2" id="exp-home-routes-heading">{t.routesNav}</h2>
 		<p class="exp-lede">{t.routeGroupsLede}</p>
 	</div>
-	<div class="exp-content">
-		<div class="exp-routes">
+		<div class="exp-content">
+			<div class="exp-routes">
 			{shownRoutes.map((route, index) => (
 				<RouteTopicCard route={route} number={routeNumber(index)} />
 			))}
+			</div>
+			<a class="exp-home-routes__product-link" href="/mortal-shell-ii/routes/">Need an ordered map run? Explore Routes <span aria-hidden="true">→</span></a>
 		</div>
-	</div>
 </section>

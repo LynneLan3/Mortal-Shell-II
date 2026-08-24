@@ -1,0 +1,112 @@
+---
+import { mapBasemap, mapMarkerById, type MapMarker } from '../../../data/map-markers';
+import { mapRouteHref, type MapRoute } from '../../../data/map-routes';
+import { toolkitItemByMapMarkerId, toolkitItems } from '../../../data/toolkit-items';
+import { getCanonicalGuideUrlForMapMarker } from '../../../lib/toolkit-map';
+import MapRoutePreview from './MapRoutePreview.astro';
+
+interface Props { route: MapRoute; }
+
+const { route } = Astro.props;
+const markers = route.waypoints.map((waypoint) => mapMarkerById.get(waypoint.markerId)).filter((marker): marker is MapMarker => Boolean(marker));
+const routeItemIds = markers.map((marker) => toolkitItemByMapMarkerId.get(marker.id)?.id ?? '');
+const relatedGuides = markers
+	.map((marker) => ({ marker, href: marker.guideUrl ?? getCanonicalGuideUrlForMapMarker(marker.id) }))
+	.filter((item, index, list) => Boolean(item.href) && list.findIndex((candidate) => candidate.href === item.href) === index);
+const routePayload = {
+	markers: markers.map((marker) => ({ ...marker, toolkitId: toolkitItemByMapMarkerId.get(marker.id)?.id ?? '' })),
+	waypoints: route.waypoints,
+	basemap: mapBasemap,
+};
+---
+
+<section class="route-workspace" data-route-workspace data-storage-key="ms2-toolkit-progress-v1">
+	<script type="application/json" data-route-config set:html={JSON.stringify(routePayload)}></script>
+	<header class="route-workspace__header">
+		<div>
+			<a class="route-workspace__back" href="/mortal-shell-ii/routes/">← All Routes</a>
+			<p class="exp-eyebrow">{route.type} · {route.region}</p>
+			<h1 class="exp-h1">{route.name}</h1>
+		</div>
+		<div class="route-workspace__header-progress"><span>Progress</span><strong data-route-header-progress>0 / {markers.length}</strong></div>
+	</header>
+
+	<div class="route-workspace__grid">
+		<section class="route-workspace__map-panel" aria-label={`${route.name} route map`}>
+			<div class="route-workspace__map-head"><div><p class="exp-eyebrow">Route mode</p><h2>Follow the order</h2></div><span class="route-workspace__map-status">{markers.length} stops</span></div>
+			<div class="route-workspace__map" data-route-map><div class="route-workspace__leaflet" data-route-leaflet aria-label={`${route.name} interactive map`}></div><div class="map-attribution"><span>Basemap: <a href={mapBasemap.sourceUrl} target="_blank" rel="noopener noreferrer">{mapBasemap.sourceName}</a></span><span>Temporary third-party asset · replaceLater</span></div></div>
+			<div class="route-workspace__map-controls"><button type="button" data-route-zoom-out aria-label="Zoom out">−</button><span data-route-zoom-label>World</span><button type="button" data-route-zoom-in aria-label="Zoom in">+</button><button type="button" data-route-fit>Fit route</button></div>
+		</section>
+
+		<aside class="route-workspace__sidebar" aria-label="Route details">
+			<div class="route-workspace__summary"><p class="exp-eyebrow">Why this route</p><p>{route.description}</p><div class="route-workspace__best"><span>Best for</span><strong>{route.goal}</strong></div>{route.requirements && <p class="route-workspace__note"><strong>Route note:</strong> {route.requirements}</p>}</div>
+			<div class="route-workspace__progress"><div><span>Progress</span><strong data-route-sidebar-progress>0 / {markers.length} complete</strong></div><div class="route-workspace__progress-bar"><span data-route-progress-bar></span></div></div>
+			<div class="route-workspace__steps" aria-label="Ordered route steps">
+				<div class="route-workspace__steps-heading"><div><p class="exp-eyebrow">Route detail</p><h2>Next stops</h2></div><span data-route-state>Start here</span></div>
+				<ol>
+					{markers.map((marker, index) => {
+						const item = toolkitItemByMapMarkerId.get(marker.id);
+						const guideUrl = marker.guideUrl ?? item?.guideUrl ?? getCanonicalGuideUrlForMapMarker(marker.id);
+						const waypoint = route.waypoints[index];
+						return <li data-route-step={marker.id} data-route-item-id={item?.id ?? ''} data-route-step-status={waypoint.status ?? (route.optional ? 'optional' : '')}>
+							<div class="route-step__row"><span class="route-step__number">{index + 1}</span><div class="route-step__copy"><strong>{marker.name}</strong><small>{marker.region}</small><span class="route-step__state" data-route-step-state>Next</span></div><label class="route-step__complete"><input type="checkbox" data-route-checkbox={item?.id ?? ''} disabled={!item} /><span>Complete</span></label></div>
+							<div class="route-step__links">{guideUrl && <a href={guideUrl} target="_blank" rel="noopener noreferrer">View Guide <span aria-hidden="true">↗</span></a>}{waypoint.status && <span class="route-step__tag">{waypoint.status.replaceAll('-', ' ')}</span>}{route.optional && !waypoint.status && <span class="route-step__tag">Optional</span>}</div>
+						</li>;
+					})}
+				</ol>
+			</div>
+		</aside>
+	</div>
+
+	<section class="route-workspace__related" aria-labelledby="related-guides-title">
+		<div class="route-workspace__related-heading"><div><p class="exp-eyebrow">Continue with context</p><h2 id="related-guides-title">Related Guides</h2></div><a href="/mortal-shell-ii/guides/" target="_blank" rel="noopener noreferrer">Browse all Guides ↗</a></div>
+		<div class="related-guide-grid">
+			{relatedGuides.map(({ marker, href }) => href && <a class="related-guide-card" href={href} target="_blank" rel="noopener noreferrer">{marker.image && <img src={marker.image} alt="" loading="lazy" decoding="async" />}<span class="related-guide-card__body"><span class="related-guide-card__type">{marker.category} · {marker.region}</span><strong>{marker.name}</strong><span>{marker.description}</span><em>Open Guide ↗</em></span></a>)}
+		</div>
+	</section>
+</section>
+
+<script>
+	import L from 'leaflet';
+	import 'leaflet/dist/leaflet.css';
+	import { normalizedToLeaflet } from '../../../lib/map-coordinates';
+
+	const app = document.querySelector('[data-route-workspace]');
+	if (app) {
+		const configNode = app.querySelector('[data-route-config]');
+		const config = JSON.parse(configNode?.textContent || '{}');
+		const mapElement = app.querySelector('[data-route-leaflet]');
+		const markers = config.markers || [];
+		const waypoints = config.waypoints || [];
+		const mapWidth = config.basemap.width;
+		const mapHeight = config.basemap.height;
+		const storageKey = app.getAttribute('data-storage-key') || 'ms2-toolkit-progress-v1';
+		const markerById = new Map(markers.map((marker) => [marker.id, marker]));
+		const stepNodes = Array.from(app.querySelectorAll('[data-route-step]'));
+		const validIds = new Set(stepNodes.map((node) => node.getAttribute('data-route-item-id')).filter(Boolean));
+		const map = L.map(mapElement, { crs: L.CRS.Simple, zoomControl: false, attributionControl: false, minZoom: -2, maxZoom: 4, zoomSnap: 0.25, zoomDelta: 0.5, maxBoundsViscosity: 0.8 });
+		const imageBounds = [[0, 0], [mapHeight, mapWidth]];
+		L.imageOverlay(config.basemap.image, imageBounds, { opacity: 0.96, interactive: false }).addTo(map);
+		map.setMaxBounds([[-mapHeight * 0.08, -mapWidth * 0.08], [mapHeight * 1.08, mapWidth * 1.08]]);
+		const routePoints = waypoints.map((waypoint) => markerById.get(waypoint.markerId)).filter(Boolean).map((marker) => normalizedToLeaflet(marker, mapWidth, mapHeight));
+		const routeLayer = L.layerGroup().addTo(map);
+		if (routePoints.length > 1) L.polyline(routePoints, { color: '#f2b36b', weight: 4, opacity: 0.9, dashArray: '10 8', interactive: false }).addTo(routeLayer);
+		const markerLayers = new Map();
+		const iconFor = (number) => L.divIcon({ className: 'route-leaflet-marker', html: `<span>${number}</span>`, iconSize: [42, 42], iconAnchor: [21, 21] });
+		const arrowFor = (angle) => L.divIcon({ className: 'route-leaflet-arrow', html: `<span style="transform:rotate(${angle}deg)">➜</span>`, iconSize: [24, 24], iconAnchor: [12, 12] });
+		markers.forEach((marker, index) => { const layer = L.marker(normalizedToLeaflet(marker, mapWidth, mapHeight), { icon: iconFor(index + 1), title: marker.name, riseOnHover: true }).addTo(map); layer.bindTooltip(`${marker.name}<span>${marker.region}</span>`, { direction: 'top', sticky: true, className: 'map-leaflet-tooltip' }); layer.on('click', () => selectStep(marker.id, true)); markerLayers.set(marker.id, layer); });
+		for (let index = 0; index < routePoints.length - 1; index += 1) { const from = routePoints[index]; const to = routePoints[index + 1]; const angle = Math.atan2(to[0] - from[0], to[1] - from[1]) * 180 / Math.PI; L.marker([(from[0] + to[0]) / 2, (from[1] + to[1]) / 2], { icon: arrowFor(angle), interactive: false }).addTo(routeLayer); }
+		let completedIds = new Set();
+		const readState = () => { try { const parsed = JSON.parse(window.localStorage.getItem(storageKey) || '{}'); const ids = Array.isArray(parsed) ? parsed : parsed.completedIds || []; completedIds = new Set(ids.filter((id) => validIds.has(id))); } catch { completedIds = new Set(); } };
+		const saveState = () => { try { const parsed = JSON.parse(window.localStorage.getItem(storageKey) || '{}'); window.localStorage.setItem(storageKey, JSON.stringify({ ...(Array.isArray(parsed) ? {} : parsed), version: 4, completedIds: Array.from(completedIds) })); } catch {} };
+		const currentIndex = () => stepNodes.findIndex((node) => { const id = node.getAttribute('data-route-item-id'); return !id || !completedIds.has(id); });
+		const render = () => { const current = currentIndex(); const completed = stepNodes.filter((node) => { const id = node.getAttribute('data-route-item-id'); return id && completedIds.has(id); }).length; const percent = stepNodes.length ? Math.round(completed / stepNodes.length * 100) : 0; const put = (selector, value) => { const node = app.querySelector(selector); if (node) node.textContent = value; }; put('[data-route-header-progress]', `${completed} / ${stepNodes.length}`); put('[data-route-sidebar-progress]', `${completed} / ${stepNodes.length} complete`); put('[data-route-state]', current < 0 ? 'Complete' : current === 0 ? 'Start here' : 'Current step'); const bar = app.querySelector('[data-route-progress-bar]'); if (bar instanceof HTMLElement) bar.style.width = `${percent}%`; stepNodes.forEach((node, index) => { const id = node.getAttribute('data-route-item-id'); const done = Boolean(id && completedIds.has(id)); const state = node.querySelector('[data-route-step-state]'); if (state) state.textContent = done ? 'Complete' : index === current ? 'Current' : index === current + 1 ? 'Next' : 'Later'; node.classList.toggle('is-complete', done); node.classList.toggle('is-current', !done && index === current); const checkbox = node.querySelector('[data-route-checkbox]'); if (checkbox instanceof HTMLInputElement) checkbox.checked = done; const layer = markerLayers.get(node.getAttribute('data-route-step')); layer?.getElement()?.classList.toggle('is-completed', done); layer?.getElement()?.classList.toggle('is-current', !done && index === current); }); };
+		const selectStep = (id, focus = false) => { const node = app.querySelector(`[data-route-step="${id}"]`); if (!node) return; stepNodes.forEach((candidate) => candidate.classList.toggle('is-selected', candidate === node)); if (focus) { const marker = markerById.get(id); if (marker) map.flyTo(normalizedToLeaflet(marker, mapWidth, mapHeight), Math.max(map.getZoom(), 0.8), { duration: 0.55 }); markerLayers.get(id)?.openTooltip(); } const url = new URL(window.location.href); url.searchParams.set('step', id); window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`); };
+		stepNodes.forEach((node) => { node.addEventListener('click', (event) => { if ((event.target instanceof HTMLInputElement)) return; selectStep(node.getAttribute('data-route-step') || '', true); }); const checkbox = node.querySelector('[data-route-checkbox]'); checkbox?.addEventListener('change', () => { const id = checkbox.getAttribute('data-route-checkbox') || ''; if (!id) return; if (checkbox instanceof HTMLInputElement && checkbox.checked) completedIds.add(id); else completedIds.delete(id); saveState(); render(); }); });
+		map.on('zoomend', () => { const label = app.querySelector('[data-route-zoom-label]'); if (label) label.textContent = `${Math.round(2 ** map.getZoom() * 100)}%`; });
+		app.querySelector('[data-route-zoom-in]')?.addEventListener('click', () => map.zoomIn()); app.querySelector('[data-route-zoom-out]')?.addEventListener('click', () => map.zoomOut()); app.querySelector('[data-route-fit]')?.addEventListener('click', () => map.fitBounds(routePoints.length ? L.latLngBounds(routePoints) : imageBounds, { padding: [28, 28] }));
+		readState(); map.fitBounds(routePoints.length ? L.latLngBounds(routePoints) : imageBounds, { padding: [28, 28], animate: false }); render();
+		const initialStep = new URL(window.location.href).searchParams.get('step'); if (initialStep && markerById.has(initialStep)) selectStep(initialStep, true); else if (currentIndex() >= 0) selectStep(stepNodes[currentIndex()].getAttribute('data-route-step') || '', false);
+		window.addEventListener('storage', () => { readState(); render(); });
+	}
+</script>

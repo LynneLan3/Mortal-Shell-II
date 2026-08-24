@@ -1,0 +1,95 @@
+---
+import { mapRoutes, mapRouteHref } from '../../../data/map-routes';
+import { toolkitItemByMapMarkerId } from '../../../data/toolkit-items';
+import MapRoutePreview from './MapRoutePreview.astro';
+
+const groups = [
+	{ id: 'recommended', label: 'Recommended', routeIds: ['fainweald-shells'] },
+	{ id: 'area-sweep', label: 'Area Sweep', routeIds: ['mammon-cleanup'] },
+	{ id: 'focused', label: 'Focused Objective', routeIds: ['smert-memory'] },
+	{ id: 'collectibles', label: 'Collectibles', routeIds: ['fainweald-map-fragments'] },
+]
+	.map((group) => ({ ...group, routes: group.routeIds.map((id) => mapRoutes.find((route) => route.id === id)).filter(Boolean) }))
+	.filter((group) => group.routes.length > 0);
+
+const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
+	.map((waypoint) => toolkitItemByMapMarkerId.get(waypoint.markerId)?.id)
+	.filter((id): id is string => Boolean(id));
+---
+
+<section class="route-discovery" aria-labelledby="route-discovery-title">
+	<header class="route-discovery__hero">
+		<div>
+			<p class="exp-eyebrow">Player routes</p>
+			<h1 class="exp-h1" id="route-discovery-title">Routes</h1>
+		</div>
+		<a class="route-discovery__map-link" href="/mortal-shell-ii/map/">Free exploration map <span aria-hidden="true">↗</span></a>
+	</header>
+
+	<div class="route-discovery__groups">
+		{groups.map((group) => (
+			<section class="route-discovery__group" aria-labelledby={`route-group-${group.id}`}>
+				<div class="route-discovery__group-heading">
+					<p class="exp-eyebrow">Route library</p>
+					<h2 id={`route-group-${group.id}`}>{group.label}</h2>
+				</div>
+				<div class="route-card-grid">
+					{group.routes.map((route) => {
+						if (!route) return null;
+						const itemIds = routeItems(route);
+						return (
+							<article class="route-card" data-route-card={route.id} data-route-items={itemIds.join(',')}>
+								<MapRoutePreview route={route} />
+								<div class="route-card__body">
+									<div class="route-card__meta"><span>{route.type}</span><span>{route.region}</span></div>
+									<h3>{route.name}</h3>
+									<p class="route-card__stops">{route.waypoints.length} stops · <span data-route-progress>0 / {route.waypoints.length}</span></p>
+									<div class="route-card__progress"><span data-route-progress-bar></span></div>
+									<div class="route-card__copy">
+										<strong>Why this route</strong>
+										<p>{route.description}</p>
+									</div>
+									<div class="route-card__best"><span>Best for</span><strong>{route.goal}</strong></div>
+									<div class="route-card__footer">
+										<span data-route-status>Ready</span>
+										<a class="exp-cta-link" href={mapRouteHref(route.id)}>View Route <span aria-hidden="true">→</span></a>
+									</div>
+								</div>
+							</article>
+						);
+					})}
+				</div>
+			</section>
+		))}
+	</div>
+</section>
+
+<script>
+	const root = document.querySelector('.route-discovery');
+	if (root && !root.hasAttribute('data-route-hub-bound')) {
+		root.setAttribute('data-route-hub-bound', 'true');
+		const storageKey = 'ms2-toolkit-progress-v1';
+		const readCompleted = () => {
+			try {
+				const parsed = JSON.parse(window.localStorage.getItem(storageKey) || '{}');
+				return new Set(Array.isArray(parsed) ? parsed : parsed.completedIds || []);
+			} catch { return new Set(); }
+		};
+		const render = () => {
+			const completed = readCompleted();
+			root.querySelectorAll('[data-route-card]').forEach((card) => {
+				const ids = (card.getAttribute('data-route-items') || '').split(',').filter(Boolean);
+				const done = ids.filter((id) => completed.has(id)).length;
+				const percent = ids.length ? Math.round(done / ids.length * 100) : 0;
+				const progress = card.querySelector('[data-route-progress]');
+				const bar = card.querySelector('[data-route-progress-bar]');
+				const status = card.querySelector('[data-route-status]');
+				if (progress) progress.textContent = `${done} / ${ids.length}`;
+				if (bar instanceof HTMLElement) bar.style.width = `${percent}%`;
+				if (status) status.textContent = percent === 100 ? 'Complete' : done ? `${percent}% underway` : 'Ready';
+			});
+		};
+		render();
+		window.addEventListener('storage', render);
+	}
+</script>

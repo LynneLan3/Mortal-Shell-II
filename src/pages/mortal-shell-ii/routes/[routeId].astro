@@ -1,40 +1,52 @@
 ---
 import GameShell from '../../../components/experience/GameShell.astro';
 import RouteHub from '../../../components/experience/routes/RouteHub.astro';
+import RouteWorkspace from '../../../components/experience/routes/RouteWorkspace.astro';
 import { game, type GameRoute } from '../../../config/game';
+import { mapRoutes, type MapRoute, mapRouteHref } from '../../../data/map-routes';
 import { experienceNav } from '../../../lib/experience-nav';
 import { orderGoalRoutes } from '../../../lib/experience-homepage';
 import '../../../styles/routes.css';
+import '../../../styles/route-workspace.css';
 
 export function getStaticPaths() {
-	return (game.routes ?? []).map((route) => ({
+	const goalRoutes = (game.routes ?? []).map((route) => ({
 		params: { routeId: route.id },
-		props: { route },
+		props: { goalRoute: route },
 	}));
+	const workspaceRoutes = mapRoutes.map((route) => ({
+		params: { routeId: route.id },
+		props: { mapRoute: route },
+	}));
+	return [...goalRoutes, ...workspaceRoutes];
 }
 
 interface Props {
-	route: GameRoute;
+	goalRoute?: GameRoute;
+	mapRoute?: MapRoute;
 }
 
-const { route } = Astro.props;
+const { goalRoute, mapRoute } = Astro.props;
 const { nav, footerLinks, homeHref } = experienceNav();
 const routes = orderGoalRoutes(game.routes ?? []);
+const title = mapRoute?.name ?? goalRoute?.title ?? 'Route';
+const description = mapRoute?.description ?? goalRoute?.description ?? '';
+const href = mapRoute ? mapRouteHref(mapRoute.id) : goalRoute?.href ?? '/mortal-shell-ii/routes/';
 ---
 
 <GameShell
-	title={`${route.title} | ${game.shortName}`}
-	description={route.description}
-	canonical={new URL(route.href, game.siteUrl).href}
+	title={`${title} | ${game.shortName}`}
+	description={description}
+	canonical={new URL(href, game.siteUrl).href}
 	siteTitle={game.shortName}
 	homeHref={homeHref}
 	nav={nav}
-	activePath={route.href}
+	activePath={href}
 	accentColor={game.accentColor}
 	accentForeground={game.accentForeground}
 	footerLinks={footerLinks}
 	footerText={game.title}
 >
 	<meta slot="head" name="robots" content="noindex,follow" />
-	<RouteHub route={route} routes={routes} />
+	{mapRoute ? <RouteWorkspace route={mapRoute} /> : goalRoute && <RouteHub route={goalRoute} routes={routes} />}
 </GameShell>

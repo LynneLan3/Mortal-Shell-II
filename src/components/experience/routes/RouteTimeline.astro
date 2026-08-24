@@ -27,7 +27,7 @@ const t = ui();
 		const mapTargets = getMapTargetsForGuideUrl(page.href);
 		return (
 			<div class="exp-route-step">
-				<a class="exp-route-step__main" href={page.href}>
+					<a class="exp-route-step__main" href={page.href} target="_blank" rel="noopener noreferrer">
 					<span class="exp-number exp-number--md exp-route-step__number">
 						{String(index + 1).padStart(2, '0')}
 					</span>
@@ -53,7 +53,7 @@ const t = ui();
 							{mapTargets.map((target) => {
 								const mapHref = getMapHrefForMarker(target.mapMarkerId, page.href);
 								return mapHref && (
-									<a class="exp-route-step__map-link" href={mapHref}>
+										<a class="exp-route-step__map-link" href={mapHref} target="_blank" rel="noopener noreferrer">
 										Show {target.name} on Map <span aria-hidden="true">↗</span>
 									</a>
 								);

@@ -1,34 +1,49 @@
-# Item 14 research: All Keys & What They Open
+# Item 23 research: All Blackmarrow Keys + Shade Chests
 
 Research date: 2026-08-24 (Asia/Shanghai)
-Item: 14
-Title: All Keys & What They Open
+Item: 23
+Title: All Blackmarrow Keys + Shade Chests
 Slug: `mortal-shell-ii/blackmarrow-keys`
 Action: `expand`
 
 ## Scope and evidence status
 
-This is the Item 14 research checkpoint only. It is not an article draft and it does not create a second Blackmarrow Keys page for Item 23. The only page prepared in this checkout is `src/content/docs/gameplay/blackmarrow-keys.md`; no plan, hub, map, config, or shared file is in scope.
+This is the Item 23 research checkpoint only. It expands the existing Item 14 page at `src/content/docs/gameplay/blackmarrow-keys.md`; it is not an article draft and it does not create a second Blackmarrow Keys page. No plan, hub, map, config, shared file, image, deployment, or writer call is in scope.
 
-The existing page was inspected before this pass. Its current working model says there are eight Blackmarrow Keys, eight Shade chests, and five routed locations. Its original launch-build version preserved an eight-versus-nine key-count conflict, but the later page update changed the frontmatter to `status: confirmed` without a tracked Item 14 research artifact. This research restores the evidence boundary: **eight keys/eight chests is the current local working model, not a fully independently verified all-locations count**.
+The existing page was inspected before this pass. Its current working model says there are eight Blackmarrow Keys, eight Shade chests, and five routed locations. The Item 14 record preserved an eight-versus-nine count conflict. This Item 23 pass keeps **eight keys/eight chests as the current launch-window working model**, not as a fully independently verified all-locations count.
 
-Public-source retrieval was attempted only through direct, read-only `curl` requests to already-known URLs. DNS was unavailable in this worker (`Could not resolve host`), so no new web page was treated as freshly verified. The cross-check below uses the repository's preserved research notes, related pages, Beacon inventory, and existing local route evidence. Unresolved claims stay unresolved.
+Public sources were read on 2026-08-24. AllThingsHow provides detailed route and chest-interaction coverage; GamesRadar+ provides a useful cross-check but reports a conflicting Conquered Temple/Ova location while also acknowledging an incomplete list. The evidence remains launch-window secondary coverage rather than first-party developer documentation, so unresolved claims stay unresolved and the page remains `needs-verification`.
 
 ## Bottom line for the later writer
 
 - A Blackmarrow Key is used in **Marrow Keep** to open a **Shade chest** around the elevator-room area.
 - The local page supports a one-to-one consumption model: one key opens one chest, and the key is consumed.
 - The local Shell research supports **eight permanent Shells** plus Harros as a prologue-only Shell. That makes eight Shade chests plausible, but it does not by itself prove the exact chest order or reconcile the earlier eight-versus-nine key-count conflict.
-- Five route leads are currently usable at landmark level: **Abandoned Outpost / The Collector**, **Shrine of Sorrows**, **Desolate Keep**, **Abbey Entrance**, and **Child's Feeding Grounds**. The first, third, and fourth have only page-level key-route evidence in this checkout; Shrine and Child's Feeding Grounds have stronger related-page support.
-- Three exact key locations remain unconfirmed. Do not manufacture a complete eight-row or nine-row location table, compass coordinates, chest order, or key-to-Shell mapping.
+- Five routes are currently actionable: **Abandoned Outpost / The Collector**, **Shrine of Sorrows**, **Desolate Keep**, the **Abbey Entrance** tower route, and the **Child's Feeding Ground(s)** return route. GamesRadar+ also reports **behind the Ova in the Conquered Temple Beacon**, but no second source confirms whether that is a distinct route or a naming error for Child's Feeding Grounds.
+- Do not manufacture a complete eight-row or nine-row location table, compass coordinates, chest order, or key-to-Shell mapping. Under the eight-key model, the disputed lead and the remaining unknown slots stay explicitly unresolved.
 
 ## What each key opens
 
 | Inventory item | Destination | Cost | Reward | Evidence boundary |
 | --- | --- | --- | --- | --- |
-| Blackmarrow Key | One unopened Shade chest around the Marrow Keep elevator room | One key, consumed | A cosmetic Shade associated with the chest's matching Shell | Supported by the existing Item 14 page; no direct key-specific public page was available locally |
+| Blackmarrow Key | One unopened Shade chest around the Marrow Keep elevator room | One key, consumed | A cosmetic Shade associated with the chest's matching Shell | AllThingsHow and GamesRadar+ agree on the interaction model; exact physical chest order is not established |
 
 The eight chest model is described as corresponding to the eight permanent Shells: Tiel, Proxima, Gragu, Eredrim, Smert, Lazlo, Sariel, and Genessa/Sester Genessa. The repository does **not** record which chest position maps to which Shell, whether the chest order is fixed, or whether the player can choose any unlocked Shell chest. The writer should say “choose an unopened Shade chest for a Shell you have unlocked” only if retaining the current local page wording, and should not invent chest labels.
+
+The August 22 AllThingsHow Shade guide reports the following source-level name mapping. It is useful for matching the interaction prompt, but the physical chest order is still unverified:
+
+| Shell | Reported Shade |
+| --- | --- |
+| Eredrim | King in Yellow |
+| Genessa / Sester Genessa | Porcelain Prime |
+| Gragu | Warden |
+| Lazlo | Second Son |
+| Proxima | Bonegrafted |
+| Sariel | Apocryphal |
+| Smert | Sanguine Prophet |
+| Tiel | Slytherin |
+
+These names are source-reported rather than independently checked against an in-game capture. Devout/Obsidian and beta-related Shades are separate rewards, not Blackmarrow chest matches.
 
 Opening a Shade chest is not the same as unlocking a Shell body. The matching Shell must already be unlocked before the chest can be opened, and the cosmetic can then be selected through **Change Shades** at a Beacon. This is a practical dependency, not evidence that the key opens the Shell itself.
 
@@ -91,6 +106,12 @@ Use **Sanguine Shoreline Beacon** to reach The Lost Child route, then continue t
 
 The route is progression-gated rather than documented as permanently missable. The exact chamber geometry is not a coordinate claim; use “innermost chamber / former Ova location” and the Beacon name.
 
+### Disputed lead: Conquered Temple Beacon / behind the Ova
+
+GamesRadar+ lists “Behind the Ova in the Conquered Temple Beacon” among its Blackmarrow Key locations, but the same short article says remaining keys still need to be found. The local Conquered Temple material confirms the Beacon and dungeon but does not confirm a Blackmarrow Key there. AllThingsHow's detailed five-route list instead places the former-Ova key in Child's Feeding Grounds.
+
+This may be a distinct sixth route or a name mix-up. Until a second source or an in-game capture resolves it, treat it as a conflict note only; do not merge it into the Child's Feeding Grounds route or promote it to a confirmed location.
+
 ## Prerequisites and dependency gates
 
 | Route | Supported prerequisite | Do not overstate |
@@ -104,9 +125,9 @@ The route is progression-gated rather than documented as permanently missable. T
 
 For Beacon travel, the local fast-travel research distinguishes the early Marrow Keep platform route from direct Beacon-to-Beacon travel through Mether's Breath. The practical advice is to activate named Beacons as encountered and use the current Siphon/menu prompt rather than hard-coding a disputed Ova threshold. The exact key route does not require invented coordinates.
 
-## Three unresolved locations
+## Unresolved locations
 
-The evidence set does not identify the remaining three exact key locations. The count of three follows the current local eight-key working model, not a newly verified total. The earlier eight-versus-nine conflict means the writer should not describe these as “the final three in the game” without the qualification.
+The evidence set does not identify every remaining exact key location. AllThingsHow's detailed list leaves three slots open under its eight-key model; GamesRadar+'s disputed Conquered Temple/Ova lead would reduce that apparent gap to two if it is a distinct route. Because the earlier local record also contains an eight-versus-nine conflict, the writer must not describe “the final two” or “the final three” as settled facts.
 
 For a completion checklist, track:
 
@@ -115,6 +136,7 @@ For a completion checklist, track:
 3. Shade chests opened in Marrow Keep.
 4. Permanent Shells unlocked before attempting a matching chest.
 5. The five route leads already checked.
+6. The Conquered Temple/Ova report as disputed, not as a completed route.
 
 This is safer than inferring a missing key from an unopened chest because the exact key-to-chest order is not recorded.
 
@@ -183,25 +205,27 @@ Existing images in other item folders should not be copied into `public/images/b
 
 ## Source URLs and access notes
 
-The following URLs are preserved in the repository's related research and pages. They are source leads for the eventual writer; they were not freshly fetched in this worker because direct DNS retrieval was unavailable.
+1. Sehaj Padda, “Mortal Shell 2: All Blackmarrow Key Locations (Shade Chests),”
+   AllThingsHow, updated 2026-08-18: https://allthings.how/mortal-shell-2-all-blackmarrow-key-locations-shade-chests/
+2. Pallav Pathak, “Mortal Shell 2: How to Unlock Shades With the Blackmarrow Key,”
+   AllThingsHow, updated 2026-08-22: https://allthings.how/mortal-shell-2-how-to-unlock-shades-with-the-blackmarrow-key/
+3. Sehaj Padda, “How to Commune With Chaos and Reach the Desolate Keep in Mortal Shell
+   2,” AllThingsHow, updated 2026-08-19: https://allthings.how/how-to-commune-with-chaos-and-reach-the-desolate-keep-in-mortal-shell-2/
+4. Danielle Rose, “How to get Mortal Shell 2 Shades,” GamesRadar+, accessed 2026-08-24:
+   https://www.gamesradar.com/games/rpg/mortal-shell-2-shades/
+5. Local route owners: `src/content/docs/gameplay/shrine-of-sorrows.md`,
+   `src/content/docs/gameplay/lost-child.md`,
+   `src/content/docs/gameplay/slayer-seal-difficulty.md`,
+   `src/content/docs/gameplay/gloombound-flame.md`, and
+   `src/content/docs/gameplay/beacons-fast-travel.md`.
 
-1. AllThingsHow, fast travel between Beacons: https://allthings.how/mortal-shell-2-how-to-unlock-fast-travel-between-beacons/
-2. AllThingsHow, 49 Beacon locations and cleansing: https://allthings.how/mortal-shell-2-all-49-beacon-locations-and-how-to-cleanse-them/
-3. GameSpot, Ruk's maps and fast-travel Beacons: https://www.gamespot.com/articles/mortal-shell-2-ruks-maps-fast-travel-beacons/
-4. GameSpot, where to go first: https://www.gamespot.com/articles/mortal-shell-2-where-to-go-first/
-5. GameSpot, boss and dungeon route overview: https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/
-6. AllThingsHow, Night Mode activation: https://allthings.how/mortal-shell-2-how-to-turn-on-night-mode-with-the-gloombound-flame/
-7. GameSpot, Night Mode and difficulty cross-check: https://www.gamespot.com/articles/mortal-shell-2-change-difficulty-night-mode/
-8. Steam developer post, Balance Patch 1: https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/
-9. Steam developer post, Hotfix 2.0: https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/
-10. GamesRadar+, Balance Patch 1 summary: https://www.gamesradar.com/games/action-rpg/first-mortal-shell-2-balance-patch-stacks-the-deck-for-players-refunds-for-anyone-who-wasted-glimpses-bosses-nerfed-and-gold-drops-buffed-massively/
-11. Steam, Mortal Shell II official store context: https://store.steampowered.com/app/2584270/Mortal_Shell_II/
-
-**Important source gap:** no key-specific public URL for the Collector, Desolate Keep, Abbey scaffolding, or the exact chest-to-Shell mapping is present in the checkout. Do not fabricate one. The existing Blackmarrow page and related local pages are the current evidence owners until a future worker can fetch and cross-check a launch-build key checklist.
+The external guides are launch-window secondary sources, not first-party developer
+documentation. Their agreement is strongest on Shade chest behavior and the five detailed
+routes; the Conquered Temple/Ova report remains uncorroborated.
 
 ## Repository references inspected
 
-- `src/content/docs/gameplay/blackmarrow-keys.md` — existing Item 14 page, inspected before editing; prior eight-versus-nine conflict and current five-route working model.
+- `src/content/docs/gameplay/blackmarrow-keys.md` — existing Item 14 page, preserved and expanded for Item 23; prior eight-versus-nine conflict and current five-route working model.
 - `content-jobs/shells/research.md` and `content-jobs/shells/article.md` — nine-total/eight-permanent Shell model and Blackmarrow Shellkeeper context.
 - `content-jobs/beacons-fast-travel/research.md` and `src/content/docs/gameplay/beacons-fast-travel.md` — Beacon labels including Abbey Entrance, Abandoned Outpost, Sanguine Shoreline, and Child's Feeding Grounds.
 - `src/content/docs/gameplay/shrine-of-sorrows.md` — Night Mode, Mushroom Village Beacon, full Shrine sequence, Blackmarrow Key reward.

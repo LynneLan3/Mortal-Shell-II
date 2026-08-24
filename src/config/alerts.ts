@@ -105,7 +105,7 @@ playerAlerts.forEach(validateAlert);
 
 export function getLiveUpdateAlert(alerts: readonly GameAlert[] = playerAlerts): GameAlert | undefined {
 	return alerts
-		.filter((alert) => alert.active !== false && (alert.type === 'VERSION_CHANGED' || alert.type === 'KNOWN_ISSUE'))
+		.filter((alert) => alert.active !== false && alert.type === 'VERSION_CHANGED')
 		.sort((a, b) => b.priority - a.priority)[0];
 }
 

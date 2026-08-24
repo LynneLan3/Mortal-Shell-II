@@ -138,10 +138,18 @@
 .exp-home-hero__copy {
 	position: relative;
 	z-index: 1;
+	max-width: none;
+	width: 100%;
+	margin: 0;
+	padding-bottom: 3rem;
+}
+
+.exp-home-hero__content {
+	position: relative;
+	z-index: 1;
 	max-width: var(--xp-content);
 	width: 100%;
 	margin: 0 auto;
-	padding-bottom: 3rem;
 }
 
 .exp-home-hero__kicker { margin: 0 0 1rem; }
@@ -170,63 +178,72 @@
    ═══════════════════════════════════════════════════ */
 
 .exp-alert-strip {
-	border-bottom: 1px solid var(--xp-border-subtle);
-	background: color-mix(in srgb, var(--xp-surface-dark) 88%, var(--xp-accent));
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	background: transparent;
 }
 
 .exp-alert-strip__inner {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 0.85rem 1.5rem;
-	padding-block: 1rem;
+	padding-block: 0.7rem 1.8rem;
 }
 
-@media (min-width: 50rem) {
-	.exp-alert-strip__inner {
-		grid-template-columns: minmax(8rem, 0.25fr) minmax(0, 1.35fr) auto;
-		align-items: center;
-	}
+.exp-home-hero__content .exp-alert-strip .exp-content {
+	max-width: none;
+	padding-inline: 0;
 }
 
-.exp-alert-strip__label,
-.exp-alert-strip__body,
-.exp-alert-strip__actions {
-	display: grid;
-	gap: 0.3rem;
-}
-
-.exp-alert-strip__label h2 {
-	margin: 0;
-	font-size: 0.72rem;
-	font-weight: 800;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--xp-text-bright);
-}
-
-.exp-alert-strip__title {
-	font-size: clamp(1.05rem, 2vw, 1.28rem);
-	font-weight: 760;
-	color: var(--xp-text-bright);
+.exp-alert-strip__link {
+	display: block;
+	min-width: 0;
+	color: inherit;
 	text-decoration: none;
 }
 
-.exp-alert-strip__title:hover,
-.exp-alert-strip__title:focus-visible { color: var(--xp-accent-text); }
-
-.exp-alert-strip__meta,
-.exp-alert-card__meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.6rem 1rem;
-	font-size: var(--xp-text-xs);
-	font-weight: 700;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--xp-text-dim);
+.exp-alert-strip__copy {
+	display: grid;
+	min-width: 0;
 }
 
-.exp-alert-strip__body p,
+.exp-alert-strip__copy {
+	grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+	align-items: baseline;
+	gap: 0.35rem 1rem;
+}
+
+.exp-alert-strip__title,
+.exp-alert-strip__description {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.exp-alert-strip__title {
+	font-size: clamp(1rem, 2vw, 1.2rem);
+	font-weight: 760;
+	color: var(--xp-text-bright);
+}
+
+.exp-alert-strip__description {
+	font-size: var(--xp-text-sm);
+	line-height: 1.45;
+	color: var(--xp-text-muted);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+.exp-alert-strip__link:hover .exp-alert-strip__title,
+.exp-alert-strip__link:focus-visible .exp-alert-strip__title {
+	color: var(--xp-accent-text);
+}
+
+.exp-alert-strip__link:focus-visible {
+	outline: 2px solid var(--xp-accent-text);
+	outline-offset: 3px;
+}
+
 .exp-alert-card p {
 	margin: 0.2rem 0 0;
 	font-size: var(--xp-text-sm);
@@ -234,15 +251,11 @@
 	color: var(--xp-text-muted);
 }
 
-.exp-alert-strip__actions {
-	grid-template-columns: auto auto;
-	align-items: center;
-	gap: 0.8rem;
-}
-
-.exp-alert-strip__source {
-	font-size: var(--xp-text-xs);
-	color: var(--xp-text-dim);
+@media (max-width: 49.99rem) {
+	.exp-alert-strip__copy {
+		grid-template-columns: 1fr;
+		gap: 0.2rem;
+	}
 }
 
 .exp-home-dont-miss {
@@ -289,6 +302,10 @@
 	padding: 1rem 1.05rem;
 	border: 1px solid var(--xp-border);
 	background: color-mix(in srgb, var(--xp-bg) 60%, transparent);
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
 }
 
 .exp-alert-card[data-alert-type='MISSABLE'] { border-top: 2px solid var(--xp-accent); }
@@ -297,22 +314,28 @@
 	margin: 0;
 	font-size: 1rem;
 	line-height: 1.25;
-}
-
-.exp-alert-card h3 a {
 	color: var(--xp-text-bright);
-	text-decoration: none;
 }
 
-.exp-alert-card h3 a:hover,
-.exp-alert-card h3 a:focus-visible { color: var(--xp-accent-text); }
+.exp-alert-card:hover {
+	border-color: var(--xp-accent);
+	background: color-mix(in srgb, var(--xp-bg) 48%, var(--xp-accent) 8%);
+	transform: translateY(-1px);
+}
+
+.exp-alert-card:hover h3,
+.exp-alert-card:focus-visible h3 { color: var(--xp-accent-text); }
+
+.exp-alert-card:focus-visible {
+	outline: 2px solid var(--xp-accent-text);
+	outline-offset: 3px;
+}
 
 .exp-alert-card__cta {
 	margin-top: 0.15rem;
 	font-size: var(--xp-text-sm);
 	font-weight: 700;
 	color: var(--xp-accent-text);
-	text-decoration: none;
 }
 
 /* ═══════════════════════════════════════════════════

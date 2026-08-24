@@ -6,37 +6,15 @@ interface Props {
 }
 
 const { alert } = Astro.props;
-const typeLabel = alert.type.replaceAll('_', ' ');
-const source = alert.sources[0];
-const sourceIsExternal = source?.href.startsWith('http');
 ---
 
 <section class="exp-alert-strip" aria-labelledby="exp-live-update-heading">
 	<div class="exp-content exp-alert-strip__inner">
-		<div class="exp-alert-strip__label">
-			<p class="exp-eyebrow">Live Update</p>
-			<h2 id="exp-live-update-heading">{typeLabel}</h2>
-		</div>
-		<div class="exp-alert-strip__body">
-			<a class="exp-alert-strip__title" href={alert.href}>{alert.title}</a>
-			<div class="exp-alert-strip__meta">
-				{alert.version && <span>{alert.version}</span>}
-				{alert.date && <time datetime={alert.date}>{alert.date}</time>}
-			</div>
-			<p>{alert.consequence}</p>
-		</div>
-		<div class="exp-alert-strip__actions">
-			<a class="exp-cta-link" href={alert.href}>Open guide <span aria-hidden="true">→</span></a>
-			{source && (
-				<a
-					class="exp-alert-strip__source"
-					href={source.href}
-					target={sourceIsExternal ? '_blank' : undefined}
-					rel={sourceIsExternal ? 'noreferrer' : undefined}
-				>
-					Source
-				</a>
-			)}
-		</div>
+		<a class="exp-alert-strip__link" href={alert.href}>
+			<span class="exp-alert-strip__copy">
+				<strong id="exp-live-update-heading" class="exp-alert-strip__title">{alert.title}</strong>
+				<span class="exp-alert-strip__description">{alert.consequence}</span>
+			</span>
+		</a>
 	</div>
 </section>

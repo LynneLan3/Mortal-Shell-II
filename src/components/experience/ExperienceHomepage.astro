@@ -9,7 +9,7 @@
  * absent.
  *
  * Section order:
- *   Hero → Live Update / Don't Miss → Status Strip → By Goal → Beginner
+ *   Hero → Live Update → Status Strip → Don't Miss → By Goal → Beginner
  *   Guide → Hot Launch Guides → Popular Questions → Recently Updated →
  *   supporting sections → About.
  */
@@ -227,6 +227,7 @@ const factIcon = (label: string): IconName => {
 			/>
 		</div>
 	)}
+	<div class="exp-home-hero__content">
 	<div class="exp-home-hero__copy">
 		<p class="exp-eyebrow exp-home-hero__kicker">{t.gameWikiEyebrow}</p>
 		<h1 class="exp-display exp-home-hero__title">{game.hubTitle ?? `${game.name} Guide & Wiki`}</h1>
@@ -244,10 +245,9 @@ const factIcon = (label: string): IconName => {
 			)}
 		</div>
 	</div>
+	{liveUpdateAlert && <ExperienceAlertStrip alert={liveUpdateAlert} />}
+	</div>
 </section>
-
-{liveUpdateAlert && <ExperienceAlertStrip alert={liveUpdateAlert} />}
-{dontMissAlerts.length > 0 && <ExperienceDontMiss alerts={dontMissAlerts} />}
 
 <!-- 02 STATUS STRIP -->
 {statusItems.length > 0 && (
@@ -260,6 +260,8 @@ const factIcon = (label: string): IconName => {
 		))}
 	</dl>
 )}
+
+{dontMissAlerts.length > 0 && <ExperienceDontMiss alerts={dontMissAlerts} />}
 
 <div class="exp-home-flow">
 	<!-- 03 BY GOAL -->

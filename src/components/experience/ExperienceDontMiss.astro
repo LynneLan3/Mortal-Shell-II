@@ -20,15 +20,15 @@ const { alerts } = Astro.props;
 			</header>
 			<div class="exp-alert-grid">
 				{alerts.map((alert) => (
-					<article class="exp-alert-card" data-alert-type={alert.type}>
+					<a class="exp-alert-card" data-alert-type={alert.type} href={alert.href}>
 						<div class="exp-alert-card__meta">
 							<span>{alert.type.replaceAll('_', ' ')}</span>
 							{alert.date && <time datetime={alert.date}>{alert.date}</time>}
 						</div>
-						<h3><a href={alert.href}>{alert.title}</a></h3>
+						<h3>{alert.title}</h3>
 						<p>{alert.consequence}</p>
-						<a class="exp-alert-card__cta" href={alert.href}>Open guide <span aria-hidden="true">→</span></a>
-					</article>
+						<span class="exp-alert-card__cta">Open guide <span aria-hidden="true">→</span></span>
+					</a>
 				))}
 			</div>
 		</div>

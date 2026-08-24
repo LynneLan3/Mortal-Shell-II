@@ -1,11 +1,11 @@
 ---
-title: "Mortal Shell 2 Glimpse Guide: How to Get Glimpses, Farming & Best Uses"
-description: "How Mortal Shell 2 Glimpses work, where progression sources come from, why they are limited, how Shell Bond spending works, and where to collect the Balance Patch 1 map-reveal refund."
+title: "Mortal Shell 2 Resources Explained: Gloom, Glimpses, Shell Points & Resolve"
+description: "Learn what Gloom, Glimpses, Shell Points, and Resolve do in Mortal Shell 2, how each is earned or spent, what death risks, and what Balance Patch 1 changed."
 category: combat-exploration
 slug: mortal-shell-ii/glimpses
 status: needs-verification
 featured: false
-quickAnswer: "Glimpses are a limited Shell-progression resource rather than ordinary Gloom. After Balance Patch 1, Shell-map reveals cost Gloom instead of Glimpses, and Glimpses previously spent on those map reveals are refunded at the Shell Keeper's alcove in Blackmarrow. Keep Glimpses focused on Shell progression rather than paying for map reveals."
+quickAnswer: "Gloom levels the Harbinger and is the only listed resource lost on death; Glimpses raise one Shell’s Bond; Shell Points buy unlocked Shell abilities; Resolve refills through combat and powers combat abilities. After Balance Patch 1, Shell-map reveals use Gloom, not Glimpses."
 related:
   - mortal-shell-ii/shells
   - mortal-shell-ii/proxima
@@ -16,114 +16,135 @@ sidebar:
   label: Glimpses Guide
   order: 17
   badge: Exploration
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
-## Evidence boundary
+## At a glance
 
-This is a launch-window **Exploration Page** for the Glimpses progression cluster. It answers how to get and spend Glimpses without inventing a fixed total or pretending that every source has been mapped.
+Mortal Shell II uses four different progression/combat systems. The safest rule is to match the resource to the screen where you spend it:
 
-The current research supports Glimpses as a limited progression resource connected to Shell Bond upgrades. It does not support a complete Glimpse location database, a universal total, or a simple repeatable route equivalent to ordinary Gloom farming.
+| Resource | What it does | How you build it | Death risk |
+| --- | --- | --- | --- |
+| **Gloom** | Levels the Harbinger at Beacons; after Balance Patch 1, also reveals Shell locations | Enemy and boss rewards, world sources, and repeatable combat | Current launch coverage says carried Gloom drops on death and can be recovered before another death |
+| **Glimpses** | Raises one Shell’s Bond and opens higher Shell ability tiers and memories | Mainly Cleansed Beacons, routes behind Cleansed Gates, rare exploration finds, and limited source-specific rewards | Not reported as a death drop; spending on Bond is the lasting decision |
+| **Shell Points** | Buys individual abilities inside Bond tiers that are already open | Harbinger level-up milestones paid for with Gloom | Allocated points are currently reported as refundable; exact pool behavior is not fully documented |
+| **Resolve** | Powers combat abilities, weapon skills, and some sidearm/Shell effects | Refilled through normal combat; successful melee strikes are the clearest cross-source rule | Combat meter, not a banked currency or death drop |
 
-For ordinary leveling currency, use the [Gloom farming guide](/mortal-shell-ii/gloom-farm/). Glimpses should be treated as a separate Shell-progression decision.
+The short version: **Gloom levels you, Glimpses develop a Shell, Shell Points buy that Shell’s available abilities, and Resolve pays for combat actions.** They are not interchangeable.
 
-## What are Glimpses?
+## What is Gloom used for?
 
-Glimpses are a Shell-focused resource used for Shell progression. They are not interchangeable with Gloom, coins, Tarstones, or weapon upgrade materials.
+**Gloom is the Harbinger-leveling resource.** Rest at a Beacon, choose the level-up option, and spend the amount shown by the current progression screen. The next cost and stat result are safer authorities than a fixed online price table because launch balancing can change them.
 
-The clearest supported use is **Shell Bond upgrades**, which deepen the progression relationship with a Shell you already use. Keep the resource separate from ordinary leveling and map discovery systems.
+You mainly build Gloom by fighting. Current launch coverage also describes world sources and repeatable enemy routes, which is why the dedicated [Gloom farming guide](/mortal-shell-ii/gloom-farm/) owns route timings and source-reported returns.
 
-The [Shells Guide](/mortal-shell-ii/shells/) tracks the currently known Shell boundary, while the [Proxima guide](/mortal-shell-ii/proxima/) covers one documented early Shell route.
+Gloom is the resource to protect before a risky push. If you die, your carried Gloom is left at the death location. You can attempt to recover it, but current launch guides report that a second death before recovery removes the previous drop. Spend at a Beacon when you have enough for a useful upgrade instead of treating a large unspent balance as harmless.
 
-## How to get Glimpses
+### Gloom also reveals Shell locations after Balance Patch 1
 
-Current launch research points to Glimpses coming from progression and exploration rather than one universal farm loop.
+Balance Patch 1 moved Shell-map reveals from **Glimpses to Gloom**. The developer’s [Balance Patch 1 announcement](https://www.reddit.com/r/MortalShell/comments/1vttz2d/balance_patch_1/) says that Glimpses spent on those older Shell-map purchases are refunded in the **Shell Keeper’s alcove in Blackmarrow**.
 
-Use this working model:
+The practical meaning is narrow but important: do not spend a Glimpse on a Shell-map reveal in the patched flow. Use Gloom for the map purchase and reserve Glimpses for Bonding. The developer post described the PC patch as live first, with console rollout to follow, so check your platform’s current build if the menu still shows older behavior.
 
-1. Continue the main progression and explore optional routes.
-2. Check rewards and Shell-related interactions rather than only repeating common enemies.
-3. Save Glimpses until you understand whether the next purchase helps your current Shell or reveals a route you actually want.
-4. Recheck the relevant Shell or progression menu after major world milestones.
+## What are Glimpses used for?
 
-The current evidence does not justify promising that every Glimpse source is renewable, that every area contains a known pickup, or that one route yields a fixed amount. Treat a reported source as a launch-build lead unless it is confirmed by the in-game reward and another current source.
+**Glimpses raise the Bond of a specific Shell.** Go to the Shellkeeper/Bonding interaction, select the Shell you want to develop, and use Glimpses to deepen that Bond. Each Bond step opens more of that Shell’s ability rows and can unlock additional Shell memories.
 
-## Can you farm Glimpses?
+Glimpses are not ordinary Gloom. Current coverage points to these sources:
 
-Not in the same way you farm ordinary Gloom.
+- cleansing Beacons;
+- exploring routes behind Cleansed Gates;
+- rare world exploration finds; and
+- limited, source-specific purchases or rewards, including a reported Merrick purchase.
 
-Gloom is designed around repeatable enemy loops and Beacon resets. Glimpses are a limited Shell-progression resource, so a normal enemy loop should not be presented as an infinite Glimpse farm without direct evidence.
+There is **no confirmed universal infinite Glimpse farm** in the checked launch coverage. Treat a boss, chest, dungeon, or NPC reward as a source-specific lead unless the current game shows the reward directly. The [Shells guide](/mortal-shell-ii/shells/) covers the body-to-Memory unlock loop; this page covers the resource decision after a Shell is available.
 
-If you are searching for a “best Glimpse farm,” first separate three possibilities:
+### Do not trust a fixed Glimpse total without a build qualifier
 
-- a one-time exploration or quest reward,
-- a progression reward that becomes available after a milestone,
-- a truly repeatable source.
+Current guides disagree on the total economy. One guide calculates 27 Glimpses to max one Shell and 216 for eight; another reports more than 20 per Shell and a little over 90 in one playthrough. Those figures do not reconcile and neither is a developer-published economy table.
 
-Current research supports the first two categories more strongly than a universal infinite farm. Do not spend an entire run repeating a Gloom route expecting the same Glimpse result unless the current game UI confirms it.
+Use the reliable decision instead: test a Shell’s playstyle, choose the Shell you expect to use, and spend Bond Glimpses deliberately. The Patch 1 refund only covers Glimpses spent on old Shell-map reveals; it is not evidence that Bond spending is generally refundable.
 
-## What changed for Glimpses in Balance Patch 1?
+## What are Shell Points?
 
-Balance Patch 1 moved **Shell-map reveals from Glimpses to Gloom**.
+**Shell Points buy individual Shell abilities.** They are separate from Glimpses:
 
-If you spent Glimpses on Shell-map reveals before the patch, those map-reveal Glimpses are refunded at the **Shell Keeper's alcove in Blackmarrow**.
+1. Spend Gloom at Beacons to level the Harbinger.
+2. Some Harbinger levels award Shell Points as milestone rewards; they do not appear at every level.
+3. Spend a Glimpse to raise a Shell’s Bond and open a higher ability row.
+4. Spend Shell Points on the abilities inside that unlocked row.
 
-The practical change is that Shell-map discovery no longer competes with Glimpse spending for Shell progression. For the rest of the update, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
+This is a two-key system. A spare Shell Point cannot bypass a Bond gate, and Glimpses do not directly buy Shell Points. Current launch guides report that allocated Shell Points can be refunded and redistributed, while Glimpses spent on Bond remain the more permanent commitment.
 
-## How NG+ affects Glimpses
+Coverage is not consistent enough to promise whether the visible Shell Point pool is shared across every Shell or tracked independently in every menu. The stable practical rule is to select the intended Shell, inspect the current ability screen, and confirm the row and capacity before spending. Do not confuse a refundable ability allocation with a refundable Bond tier.
 
-New Game Plus changes the value of a Glimpse decision because world progression is rebuilt while important character-bound progress can carry over.
+## What is Resolve?
 
-The practical implication is:
+**Resolve is the active combat meter, not an exploration currency.** It sits in the combat HUD and refills as you fight. The clearest cross-source rule is that successful melee strikes build it; current combat coverage also reports additional defensive-action interactions, but the exact triggers and amounts are not stable enough to present as a universal table.
 
-- do not assume a world-based Glimpse opportunity is permanently exhausted across every cycle,
-- do not assume every Glimpse or every purchase is duplicated automatically,
-- treat NG+ as a new route through world sources, not as an instant infinite farm,
-- decide whether you want Shell discovery information now or prefer to carry your current Shell investment into the next cycle.
+Spend Resolve on combat effects such as:
 
-Use the [New Game Plus guide](/mortal-shell-ii/new-game-plus/) for the broader carry-over/reset split. This page keeps its scope on Glimpse decisions and does not repeat the full NG+ guide.
+- weapon skills or special attacks;
+- some Shell abilities; and
+- some sidearm actions or Tarstone effects.
 
-## Early Glimpse strategy
+The official Patch 1 notes are direct evidence that the Caged Hystrix and Triarch Repeater previously had minimum Resolve requirements to fire, and that those minimums were removed. The [sidearms guide](/mortal-shell-ii/sidearms/) owns the weapon-specific details; this page only establishes the shared resource distinction.
 
-For a low-risk first run:
+Do not import original Mortal Shell advice automatically. The current [Resolve evidence guide](https://showu.net/mortal-shell-ii/how-to-earn-resolve/) recommends checking the meter before and after a combat exchange and explicitly leaves exact controls, fixed rewards, and original-game parry rules unconfirmed for Mortal Shell II. In practice, build Resolve through normal combat, watch the meter, and spend it when the current UI shows a meaningful action is available.
 
-1. Keep a reserve instead of spending every Glimpse immediately.
-2. Spend on Shell Bond when you have a clear Shell playstyle commitment.
-3. Use the [Shells Guide](/mortal-shell-ii/shells/) and documented routes such as [Proxima](/mortal-shell-ii/proxima/) for discovery rather than treating Glimpses as ordinary map currency.
-4. Recheck the relevant Shell progression menu after a major milestone or before NG+.
+## What should you spend first?
 
-This approach protects you from a common mistake: treating a limited Shell resource like Gloom and spending it without a clear progression goal.
+Use the resource that matches the problem in front of you:
+
+| Goal | Spend / protect | Practical choice |
+| --- | --- | --- |
+| Increase core survivability or damage | **Gloom** | Return to a Beacon and level before carrying a large balance into a risky route. |
+| Unlock a Shell’s next ability tier | **Glimpses** | Bond the Shell you actually plan to play after testing its basic kit. |
+| Activate an ability in an open tier | **Shell Points** | Check the current row and capacity; use the reported refund option if you are reshaping the build. |
+| Use a weapon, sidearm, or Shell combat effect | **Resolve** | Build it in combat and spend it on the next high-value opening rather than panic-firing. |
+
+For Shell routes and Bonding, use the [Shells guide](/mortal-shell-ii/shells/). For Gloom loops, use [Gloom Farm](/mortal-shell-ii/gloom-farm/). For the complete economy change, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
 
 ## FAQ
 
-### What are Glimpses used for?
+### Are Glimpses and Gloom the same thing?
 
-Glimpses are used for Shell progression, especially Shell Bond upgrades. They are separate from Gloom and from ordinary map discovery after Balance Patch 1.
+No. Gloom pays for Harbinger levels and, after Balance Patch 1, Shell-map reveals. Glimpses raise a particular Shell’s Bond and open its higher ability tiers.
 
-### Can you farm Glimpses like Gloom?
+### Do Glimpses buy Shell Points?
 
-Not according to the current launch research. Glimpses are limited progression resources, not a standard enemy-loop currency with a confirmed infinite farm.
+No. Gloom-funded Harbinger milestones provide Shell Points; Glimpses open the Bond rows where those points can be spent.
 
-### Do Shell-map reveals still cost Glimpses?
+### Can I farm Glimpses like Gloom?
 
-No. After Balance Patch 1, Shell-map reveals cost Gloom instead. Glimpses previously spent on map reveals are refunded at the Shell Keeper's alcove in Blackmarrow.
+Not through a confirmed universal enemy loop. Current coverage treats Glimpses as a scarce progression resource from Beacons, Cleansed Gate exploration, rare world finds, and limited source-specific rewards. More Glimpses may be available in New Game Plus, but the [NG+ guide](/mortal-shell-ii/new-game-plus/) owns the carry-over/reset details.
 
-### Does NG+ give more Glimpses?
+### What happens to Gloom when I die?
 
-NG+ rebuilds world progression and can reopen world-based opportunities, but this page does not promise a fixed extra amount or an infinite Glimpse farm.
+Carried Gloom is dropped at the death location. Recover it before another death if you want it back; current launch coverage says the next death can erase the previous drop.
 
-### Is there a complete Glimpse location list?
+### Can I reset Shell Points?
 
-No. This is an exploration guide to the resource and its decisions, not a complete location database.
+Current independent guides report that allocated Shell Points can be refunded. Treat that as the current guide-supported behavior and follow the refund prompt in your build. Do not assume the Glimpses used to open Bond tiers are refunded with them.
 
-### Are Glimpses the same as Gloom?
+### Does Resolve come from a pickup?
 
-No. Gloom supports ordinary leveling loops, while Glimpses are tied to Shell progression and discovery choices.
+No separate pickup or vendor is established by the checked evidence. Treat Resolve as the combat meter: build it through combat and confirm the gain on the HUD before spending it.
+
+### Is there a fixed number of Glimpses per run?
+
+Not one this page can safely publish. Current guides disagree on per-Shell costs and one-run totals, so use the live Bond prompt and do not treat an online total as universal across builds or patches.
+
+## Evidence boundary
+
+This is an evidence-bounded launch-window resource guide. It intentionally does not provide a complete Glimpse location database, a fixed total Glimpse count, a full Shell Point milestone table, exact Resolve costs/refill rates, or an Item 19 NPC questline list. Those claims require stronger in-game or developer-published evidence than the checked sources provide.
 
 ## Sources
 
-- Launch Glimpse research reviewed for this page — limited resource behavior, Shell Bond, farming boundary, and NG+ impact.
-- [Shells Guide](/mortal-shell-ii/shells/) — current Shell roster boundary and provisional use cases.
-- [Proxima location guide](/mortal-shell-ii/proxima/) — documented Shell route for avoiding duplicate location purchases.
-- [New Game Plus guide](/mortal-shell-ii/new-game-plus/) — character carry-over and world reset context.
-- [Gloom farming guide](/mortal-shell-ii/gloom-farm/) — distinction between Gloom loops and Shell-focused resources.
+- [Cold Symmetry — Balance Patch 1](https://www.reddit.com/r/MortalShell/comments/1vttz2d/balance_patch_1/) — developer-published Shell-map cost/refund and Resolve-requirement changes.
+- [GamesRadar+ — What is Gloom in Mortal Shell 2?](https://www.gamesradar.com/games/rpg/mortal-shell-2-gloom/) — Gloom leveling, death recovery, and patched Shell-map costs.
+- [GamesRadar+ — How to get Mortal Shell 2 Glimpses](https://www.gamesradar.com/games/rpg/mortal-shell-2-glimpse/) — Glimpse sources, scarcity, Bond use, and NG+ context.
+- [GamesRadar+ — Mortal Shell 2 review](https://www.gamesradar.com/games/action-rpg/mortal-shell-2-review/) — Resolve’s combat refill and special-attack role.
+- [AllThingsHow — How to Increase Shell Level and Unlock Shell Abilities](https://allthings.how/mortal-shell-2-how-to-increase-shell-level-and-unlock-shell-abilities/) — Glimpse/Bond and Shell Point distinction.
+- [NerdsChalk — Shell Points Explained and How to Earn Them](https://nerdschalk.com/mortal-shell-2-shell-points-explained-and-how-to-earn-them/) — milestone rewards, Bond gates, and reported point refunds.
+- [ShowU — How to Earn Resolve](https://showu.net/mortal-shell-ii/how-to-earn-resolve/) — current-build uncertainty around exact Resolve gains and controls.

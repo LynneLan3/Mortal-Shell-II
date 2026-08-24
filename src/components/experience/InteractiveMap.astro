@@ -329,7 +329,7 @@ const routeStepStatusLabels = {
 			if (checklistEmpty) checklistEmpty.toggleAttribute('hidden', checklistItems.some((item) => !item.hasAttribute('hidden')));
 			const visibleItems = checklistItems.filter((item) => !item.hasAttribute('hidden')).length;
 			if (count) count.textContent = `${visibleMarkers} mapped · ${visibleItems} tracked`;
-			if (modeStatus) modeStatus.textContent = activeRouteId ? `${routeCard(activeRouteId)?.getAttribute('data-route-name') || 'Route'} · Route Mode` : activeAchievementId ? `${activeAchievement?.name || 'Achievement'} · ${visibleMarkers} remaining targets` : `${visibleMarkers} mapped targets`;
+			if (modeStatus) modeStatus.textContent = activeRouteId ? `${routeCard(activeRouteId)?.getAttribute('data-route-name') || 'Route'} · Route Mode` : activeAchievementId ? `${activeAchievement?.name || 'Achievement'} · ${visibleMarkers} remaining targets` : activeRegionId ? `${regionData.find((region) => region.id === activeRegionId)?.name || 'Region'} · ${visibleMarkers} mapped targets` : query ? `${visibleMarkers} mapped targets` : 'Region overview';
 		}
 
 		function updateActiveJourney() {

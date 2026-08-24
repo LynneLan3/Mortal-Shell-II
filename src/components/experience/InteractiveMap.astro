@@ -34,7 +34,7 @@ const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons
 <section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
 	<script type="application/json" data-map-achievement-json set:html={JSON.stringify(achievementDefinitions.map((achievement) => ({ id: achievement.id, name: achievement.name, category: achievement.category, objectiveIds: achievement.objectiveIds ?? [], total: achievementObjectiveCount(achievement), routeId: achievement.routeId ?? '', guideUrl: achievement.guideUrl ?? '' })))}></script>
 	<header class="map-page__hero">
-		<div><p class="exp-eyebrow">Mortal Shell II Player Toolkit</p><h1 class="exp-h1">Mortal Shell 2 Map Workspace</h1><p class="map-page__lede">Choose a target, filter the world map, and turn a verified marker into your next action. Progress and your active route stay saved on this browser.</p></div>
+		<div><p class="exp-eyebrow">Mortal Shell II Player Toolkit</p><h1 class="exp-h1">Mortal Shell 2 Map Workspace</h1><p class="map-page__lede">Choose a target, filter the world map, and turn a verified marker into your next action. Progress and your active route stay saved on this browser.</p><a class="map-ngplus-entry" href="/mortal-shell-ii/new-game-plus/#before-send-ova"><span>Preparing for NG+?</span> Review what to finish before Send Ova <span aria-hidden="true">→</span></a></div>
 		<a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Browse all guides <span aria-hidden="true">→</span></a>
 	</header>
 

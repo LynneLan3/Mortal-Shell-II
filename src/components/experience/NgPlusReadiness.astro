@@ -1,0 +1,288 @@
+---
+import {
+	READINESS_STORAGE_KEY,
+	criticalReadinessRules,
+	recommendedReadinessRules,
+	safeForNgPlusRules,
+	readinessCategories,
+} from '../../data/ng-plus-readiness';
+import { TOOLKIT_STORAGE_KEY, toolkitItems } from '../../data/toolkit-items';
+
+const trackedRules = recommendedReadinessRules.filter((rule) => rule.toolkitCategory);
+const manualRecommendedRules = recommendedReadinessRules.filter((rule) => rule.statusResolver === 'manual');
+const informationalRecommendedRules = recommendedReadinessRules.filter((rule) => rule.statusResolver === 'informational');
+const categoryRuleByCategory = new Map(trackedRules.map((rule) => [rule.toolkitCategory, rule]));
+const criticalManualCount = criticalReadinessRules.filter((rule) => rule.statusResolver === 'manual').length;
+const mapHref = (markerId: string) => `/mortal-shell-ii/map/?marker=${encodeURIComponent(markerId)}`;
+const guideHref = (guideUrl: string) => guideUrl;
+---
+
+<section
+	id="before-send-ova"
+	class="ngplus-readiness"
+	data-ngplus-readiness
+	data-toolkit-storage-key={TOOLKIT_STORAGE_KEY}
+	data-toolkit-item-ids={JSON.stringify(toolkitItems.map((item) => item.id))}
+	data-readiness-storage-key={READINESS_STORAGE_KEY}
+	aria-labelledby="before-send-ova-title"
+>
+	<header class="ngplus-readiness__header">
+		<div>
+			<p class="ngplus-readiness__eyebrow">Before You Send Ova</p>
+			<h2 id="before-send-ova-title">A calm final check for NG+</h2>
+			<p>Use the existing Player Toolkit progress for cleanup, then confirm the few trophy or patch-sensitive facts the tracker cannot know.</p>
+		</div>
+		<a class="ngplus-readiness__jump" href="#safe-for-ngplus">What is safe to leave? <span aria-hidden="true">↓</span></a>
+	</header>
+
+	<div class="ngplus-readiness__summary" aria-live="polite" data-readiness-summary>
+		<div class="ngplus-readiness__summary-item ngplus-readiness__summary-item--critical">
+			<span>Critical checks</span>
+			<strong data-critical-summary>{criticalManualCount} manual checks need attention</strong>
+		</div>
+		<div class="ngplus-readiness__summary-item">
+			<span>Recommended cleanup</span>
+			<strong data-recommended-summary>Loading tracked cleanup…</strong>
+		</div>
+		<div class="ngplus-readiness__summary-item ngplus-readiness__summary-item--safe">
+			<span>Safe for NG+</span>
+			<strong>Core progression carries over</strong>
+		</div>
+	</div>
+
+	<section class="ngplus-readiness__section" aria-labelledby="ngplus-critical-title">
+		<div class="ngplus-readiness__section-heading">
+			<div><p class="ngplus-readiness__kicker">01 · Decision boundary</p><h3 id="ngplus-critical-title">CRITICAL CHECKS</h3></div>
+			<span class="ngplus-readiness__section-note">Only unresolved facts appear as attention items</span>
+		</div>
+		<div class="ngplus-readiness__cards ngplus-readiness__cards--critical">
+			{criticalReadinessRules.map((rule) => (
+				<article
+					class="ngplus-rule-card"
+					data-readiness-rule={rule.id}
+					data-readiness-tier={rule.tier}
+					data-readiness-resolver={rule.statusResolver}
+					data-readiness-recoverability={rule.recoverability}
+					data-manual-key={rule.manualKey}
+				>
+					<div class="ngplus-rule-card__topline">
+						<span class="ngplus-rule-card__label">Critical</span>
+						{rule.patchSensitive && <span class="ngplus-rule-card__badge">Current-build warning</span>}
+					</div>
+					<h4>{rule.title}</h4>
+					<p>{rule.description}</p>
+					{rule.shortReason && <p class="ngplus-rule-card__reason">{rule.shortReason}</p>}
+					{rule.statusResolver === 'manual' && rule.manualKey && (
+						<label class="ngplus-manual-check">
+							<span>My status</span>
+							<select data-readiness-manual={rule.manualKey} aria-label={`My status for ${rule.title}`}>
+								{rule.manualOptions?.map((option) => <option value={option.value}>{option.label}</option>)}
+							</select>
+						</label>
+					)}
+					<p class="ngplus-rule-card__status" data-readiness-status>
+						{rule.statusResolver === 'informational' ? 'Informational boundary · no completion checkbox' : 'Check trophy or progression status manually'}
+					</p>
+					<div class="ngplus-rule-card__actions">
+						{rule.guideUrl && <a href={guideHref(rule.guideUrl)}>Read Guide <span aria-hidden="true">→</span></a>}
+						{rule.mapMarkerIds?.map((markerId) => <a href={mapHref(markerId)}>Show on Map <span aria-hidden="true">→</span></a>)}
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="ngplus-readiness__section" aria-labelledby="ngplus-recommended-title">
+		<div class="ngplus-readiness__section-heading">
+			<div><p class="ngplus-readiness__kicker">02 · Finish what you want to keep fresh</p><h3 id="ngplus-recommended-title">RECOMMENDED THIS RUN</h3></div>
+			<span class="ngplus-readiness__section-note" data-recommended-detail>{manualRecommendedRules.length + informationalRecommendedRules.length} manual or informational recommendations</span>
+		</div>
+
+		<div class="ngplus-readiness__cards ngplus-readiness__cards--recommended">
+			{recommendedReadinessRules.filter((rule) => !rule.toolkitCategory).map((rule) => (
+				<article class="ngplus-rule-card" data-readiness-rule={rule.id} data-readiness-tier={rule.tier} data-readiness-resolver={rule.statusResolver} data-readiness-recoverability={rule.recoverability} data-manual-key={rule.manualKey}>
+					<div class="ngplus-rule-card__topline"><span class="ngplus-rule-card__label">Recommended</span>{rule.recoverability === 'ng-plus' && <span class="ngplus-rule-card__carry">Repeatable in NG+</span>}</div>
+					<h4>{rule.title}</h4>
+					<p>{rule.description}</p>
+					{rule.shortReason && <p class="ngplus-rule-card__reason">{rule.shortReason}</p>}
+					{rule.statusResolver === 'manual' && rule.manualKey && (
+						<label class="ngplus-manual-check"><span>My status</span><select data-readiness-manual={rule.manualKey} aria-label={`My status for ${rule.title}`}>
+							{rule.manualOptions?.map((option) => <option value={option.value}>{option.label}</option>)}
+						</select></label>
+					)}
+					<p class="ngplus-rule-card__status" data-readiness-status>{rule.statusResolver === 'informational' ? 'Informational recommendation · no tracker state' : 'Manual recommendation · check your current goal'}</p>
+					<div class="ngplus-rule-card__actions">{rule.guideUrl && <a href={guideHref(rule.guideUrl)}>Read Guide <span aria-hidden="true">→</span></a>}</div>
+				</article>
+			))}
+		</div>
+
+		<div class="ngplus-readiness__tracked">
+			<div class="ngplus-readiness__tracked-heading">
+			<div><p class="ngplus-readiness__kicker">Player Toolkit sync</p><h4>Unfinished tracked objectives</h4></div>
+			<p>Completed items stay out of the default view. Marking one complete updates the same Player Toolkit state used by Map and Checklist.</p>
+			</div>
+			<div class="ngplus-readiness__tracked-groups">
+				{readinessCategories.map((category) => {
+					const rule = categoryRuleByCategory.get(category);
+					const items = toolkitItems.filter((item) => item.category === category);
+					return (
+						<section class="ngplus-toolkit-group" data-readiness-toolkit-group={category}>
+							<div class="ngplus-toolkit-group__heading"><div><span>{category}</span><h5>{rule?.title ?? `Unfinished ${category}`}</h5></div><strong data-readiness-group-summary>Loading…</strong></div>
+							<div class="ngplus-toolkit-group__items">
+								{items.map((item) => (
+									<article class="ngplus-toolkit-item" data-toolkit-item-card={item.id} data-toolkit-category={item.category}>
+										<label class="ngplus-toolkit-item__check"><input type="checkbox" data-readiness-toolkit-checkbox={item.id} /><span data-readiness-toolkit-label>Mark Complete</span></label>
+										<div><h6>{item.name}</h6>{item.region && <p>{item.region}</p>}{item.description && <small>{item.description}</small>}</div>
+										<div class="ngplus-toolkit-item__actions">{item.guideUrl && <a href={item.guideUrl}>Read Guide <span aria-hidden="true">→</span></a>}{item.mapMarkerId && <a href={mapHref(item.mapMarkerId)}>Show on Map <span aria-hidden="true">→</span></a>}</div>
+									</article>
+								))}
+							</div>
+							<p class="ngplus-toolkit-group__empty" data-readiness-group-empty hidden>✓ All tracked {category} complete</p>
+						</section>
+					);
+				})}
+			</div>
+		</div>
+	</section>
+
+	<section class="ngplus-readiness__section ngplus-readiness__section--safe" id="safe-for-ngplus" aria-labelledby="safe-for-ngplus-title">
+		<div class="ngplus-readiness__section-heading"><div><p class="ngplus-readiness__kicker">03 · Reduce transition anxiety</p><h3 id="safe-for-ngplus-title">SAFE FOR NG+</h3></div><span class="ngplus-readiness__section-note">Explanatory, not another checklist</span></div>
+		<div class="ngplus-safe-grid">
+			{safeForNgPlusRules.map((rule) => <article class="ngplus-safe-row"><div><h4>{rule.title}</h4><p>{rule.description}</p></div><strong>{rule.carryOver ?? rule.resetBehavior}</strong></article>)}
+		</div>
+	</section>
+
+	<footer class="ngplus-readiness__footer">
+		<p>Unknown manual checks stay unknown. This tool never turns toolkit cleanup into a readiness percentage.</p>
+		<button type="button" data-reset-readiness>Reset NG+ checks</button>
+	</footer>
+</section>
+
+<script>
+	const root = document.querySelector('[data-ngplus-readiness]');
+	if (root) {
+		const toolkitStorageKey = root.getAttribute('data-toolkit-storage-key') || 'ms2-toolkit-progress-v1';
+		const readinessStorageKey = root.getAttribute('data-readiness-storage-key') || 'ms2-ngplus-readiness-v1';
+		const toolkitCards = Array.from(root.querySelectorAll('[data-toolkit-item-card]'));
+		const toolkitCheckboxes = Array.from(root.querySelectorAll('[data-readiness-toolkit-checkbox]'));
+		const manualInputs = Array.from(root.querySelectorAll('[data-readiness-manual]'));
+		const manualKeys = new Set(manualInputs.map((input) => input.getAttribute('data-readiness-manual')).filter(Boolean));
+		const validToolkitIds = new Set(JSON.parse(root.getAttribute('data-toolkit-item-ids') || '[]'));
+		let toolkitState = {};
+		let completedIds = new Set();
+		let readinessState = {};
+
+		function readToolkitState() {
+			try {
+				const raw = window.localStorage.getItem(toolkitStorageKey);
+				if (!raw) return;
+				const parsed = JSON.parse(raw);
+				toolkitState = Array.isArray(parsed) ? { version: 3, completedIds: parsed } : (parsed && typeof parsed === 'object' ? parsed : {});
+				const ids = Array.isArray(toolkitState.completedIds) ? toolkitState.completedIds : [];
+				completedIds = new Set(ids.filter((id) => validToolkitIds.has(id)));
+			} catch { toolkitState = {}; completedIds = new Set(); }
+		}
+
+		function saveToolkitState() {
+			try { window.localStorage.setItem(toolkitStorageKey, JSON.stringify({ ...toolkitState, version: toolkitState.version || 3, completedIds: Array.from(completedIds) })); } catch { /* local state is best effort */ }
+		}
+
+		function readReadinessState() {
+			try {
+				const parsed = JSON.parse(window.localStorage.getItem(readinessStorageKey) || '{}');
+				readinessState = parsed && typeof parsed === 'object' ? parsed : {};
+			} catch { readinessState = {}; }
+		}
+
+		function saveReadinessState() {
+			try { window.localStorage.setItem(readinessStorageKey, JSON.stringify({ version: 1, ...readinessState })); } catch { /* local state is best effort */ }
+		}
+
+		function manualOutcome(value, card) {
+			const isFreshSaveMiss = card?.getAttribute('data-readiness-recoverability') === 'fresh-save-only' && value === 'missed';
+			if (isFreshSaveMiss) return { text: 'Missed on this save · Fresh save required', state: 'missed' };
+			if (value === 'unknown') return { text: 'Check status manually before Send Ova', state: 'unknown' };
+			if (value === 'missing' || value === 'incomplete') return { text: 'Needs attention before Send Ova', state: 'needs-attention' };
+			if (value === 'earned' || value === 'confirmed' || value === 'complete') return { text: 'Confirmed for this check', state: 'confirmed' };
+			return { text: 'Check status manually before Send Ova', state: 'unknown' };
+		}
+
+		function renderManual() {
+			manualInputs.forEach((input) => {
+				const key = input.getAttribute('data-readiness-manual');
+				if (!key || !manualKeys.has(key)) return;
+				const value = readinessState[key] || 'unknown';
+				if (input instanceof HTMLSelectElement) input.value = Array.from(input.options).some((option) => option.value === value) ? value : 'unknown';
+				const card = input.closest('[data-readiness-rule]');
+				const outcome = manualOutcome(value, card);
+				const status = card?.querySelector('[data-readiness-status]');
+				if (status) status.textContent = outcome.text;
+				card?.classList.toggle('is-unresolved', outcome.state === 'unknown' || outcome.state === 'needs-attention');
+				card?.classList.toggle('is-unrecoverable', outcome.state === 'missed');
+				card?.setAttribute('data-readiness-state', outcome.state);
+			});
+		}
+
+		function renderToolkit() {
+			toolkitCards.forEach((card) => {
+				const id = card.getAttribute('data-toolkit-item-card');
+				const complete = Boolean(id && completedIds.has(id));
+				card.toggleAttribute('hidden', complete);
+				card.classList.toggle('is-completed', complete);
+				const checkbox = card.querySelector('[data-readiness-toolkit-checkbox]');
+				if (checkbox instanceof HTMLInputElement) checkbox.checked = complete;
+				const label = card.querySelector('[data-readiness-toolkit-label]');
+				if (label) label.textContent = complete ? 'Completed' : 'Mark Complete';
+			});
+			root.querySelectorAll('[data-readiness-toolkit-group]').forEach((group) => {
+				const category = group.getAttribute('data-readiness-toolkit-group');
+				const cards = toolkitCards.filter((card) => card.getAttribute('data-toolkit-category') === category);
+				const remaining = cards.filter((card) => !completedIds.has(card.getAttribute('data-toolkit-item-card'))).length;
+				const summary = group.querySelector('[data-readiness-group-summary]');
+				if (summary) summary.textContent = remaining ? `${remaining} remaining` : 'All complete';
+				const empty = group.querySelector('[data-readiness-group-empty]');
+				if (empty) empty.toggleAttribute('hidden', remaining !== 0);
+			});
+		}
+
+		function renderSummary() {
+			const criticalCards = Array.from(root.querySelectorAll('[data-readiness-tier="critical"]'));
+			const criticalNeeds = criticalCards.filter((card) => ['unknown', 'needs-attention', 'missed'].includes(card.getAttribute('data-readiness-state') || '')).length;
+			const criticalSummary = root.querySelector('[data-critical-summary]');
+			if (criticalSummary) criticalSummary.textContent = criticalNeeds ? `${criticalNeeds} critical check${criticalNeeds === 1 ? '' : 's'} need attention` : 'No unresolved critical checks';
+			const trackedRemaining = toolkitCards.filter((card) => !completedIds.has(card.getAttribute('data-toolkit-item-card'))).length;
+			const recommendedSummary = root.querySelector('[data-recommended-summary]');
+			if (recommendedSummary) recommendedSummary.textContent = trackedRemaining ? `${trackedRemaining} tracked item${trackedRemaining === 1 ? '' : 's'} unfinished` : 'Tracked cleanup complete';
+			const detail = root.querySelector('[data-recommended-detail]');
+			if (detail) detail.textContent = trackedRemaining ? `${trackedRemaining} tracked item${trackedRemaining === 1 ? '' : 's'} remain · manual recommendations are separate` : 'Tracked cleanup complete · manual recommendations are separate';
+		}
+
+		function render() { readToolkitState(); readReadinessState(); renderManual(); renderToolkit(); renderSummary(); }
+
+		manualInputs.forEach((input) => input.addEventListener('change', () => {
+			const key = input.getAttribute('data-readiness-manual');
+			if (!key || !(input instanceof HTMLSelectElement)) return;
+			readinessState[key] = input.value;
+			saveReadinessState();
+			renderManual();
+			renderSummary();
+		}));
+		toolkitCheckboxes.forEach((input) => input.addEventListener('change', () => {
+			const id = input.getAttribute('data-readiness-toolkit-checkbox');
+			if (!id || !validToolkitIds.has(id)) return;
+			if (input instanceof HTMLInputElement && input.checked) completedIds.add(id); else completedIds.delete(id);
+			saveToolkitState();
+			renderToolkit();
+			renderSummary();
+		}));
+		root.querySelector('[data-reset-readiness]')?.addEventListener('click', () => {
+			if (!window.confirm('Reset only the manual NG+ checks? Player Toolkit progress will be kept.')) return;
+			readinessState = {};
+			try { window.localStorage.removeItem(readinessStorageKey); } catch { /* local state is best effort */ }
+			renderManual();
+			renderSummary();
+		});
+		window.addEventListener('storage', (event) => { if (event.key === toolkitStorageKey || event.key === readinessStorageKey) render(); });
+		render();
+	}
+</script>

@@ -33,6 +33,9 @@
 .map-page__lede { max-width: 48rem; margin: 0.75rem 0 0; color: var(--map-muted); font-size: clamp(0.98rem, 1.5vw, 1.12rem); line-height: 1.6; }
 .map-page__guide-link { flex: 0 0 auto; color: var(--map-route); font-size: var(--xp-text-sm); font-weight: 800; text-decoration: none; }
 .map-page__guide-link:hover { text-decoration: underline; }
+.map-ngplus-entry { display: inline-flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.9rem; color: var(--map-route); font-size: 0.74rem; font-weight: 900; text-decoration: none; }
+.map-ngplus-entry span:first-child { color: var(--map-text); }
+.map-ngplus-entry:hover { text-decoration: underline; }
 
 .completion-hud,
 .map-panel,

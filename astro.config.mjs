@@ -40,6 +40,7 @@ export default defineConfig({
 				'./src/styles/experience.css',
 				'./src/styles/experience-guide.css',
 				'./src/styles/completion.css',
+				'./src/styles/ngplus-readiness.css',
 			],
 			head: [
 				{

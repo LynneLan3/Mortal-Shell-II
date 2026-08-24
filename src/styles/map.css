@@ -51,6 +51,10 @@
 .completion-hud__score p { margin: 0.35rem 0 0; color: var(--map-dim); font-size: var(--xp-text-xs); }
 .completion-hud__actions { display: flex; align-items: center; gap: 0.8rem; }
 .completion-hud__device-note { color: var(--map-dim); font-size: var(--xp-text-xs); }
+.completion-hud__achievement { display: grid; gap: 0.18rem; min-width: 10rem; padding: 0.55rem 0.7rem; border-left: 1px solid var(--map-line); }
+.completion-hud__achievement span { color: var(--map-dim); font-size: 0.62rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+.completion-hud__achievement strong { color: var(--map-text); font-size: 1.05rem; }
+.completion-hud__achievement small { color: var(--map-route); font-size: 0.7rem; font-weight: 900; }
 .completion-hud__bar { height: 0.45rem; margin: 1rem 0 0.85rem; overflow: hidden; border-radius: 999px; background: rgb(255 255 255 / 0.09); }
 .completion-hud__bar span { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--map-route); box-shadow: 0 0 1rem rgb(242 179 107 / 0.55); transition: width 220ms ease; }
 .completion-hud__route { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 0.85rem; border: 1px solid rgb(242 179 107 / 0.24); background: var(--map-route-soft); }

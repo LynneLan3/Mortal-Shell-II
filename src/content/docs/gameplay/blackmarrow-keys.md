@@ -1,11 +1,11 @@
 ---
 title: "Mortal Shell 2 Blackmarrow Keys: Locations, Shade Chests & How to Use Them"
-description: "Track eight Mortal Shell 2 Blackmarrow Keys, eight matching Shade chests in Marrow Keep, and five routed locations without guessing the remaining three."
+description: "Track the current eight-key working model, five landmark routes, and Shade chests in Marrow Keep without hiding the unresolved eight-versus-nine count conflict."
 category: combat-exploration
 slug: mortal-shell-ii/blackmarrow-keys
-status: confirmed
+status: needs-verification
 featured: false
-quickAnswer: "There are eight Blackmarrow Keys and eight matching Shade chests in Marrow Keep. Five key locations are routed directly here; the remaining three stay unconfirmed rather than being guessed."
+quickAnswer: "The current local model is eight Blackmarrow Keys and eight Shade chests in Marrow Keep, with five landmark routes documented. Earlier launch coverage conflicted between eight and nine keys, so three locations remain unconfirmed."
 related:
   - mortal-shell-ii/shrine-of-sorrows
   - mortal-shell-ii/lost-child
@@ -17,16 +17,18 @@ sidebar:
   label: Blackmarrow Keys
   order: 21
   badge: Exploration
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
-There are **eight Blackmarrow Keys** and **eight matching Shade chests** around the Marrow Keep elevator room. One key opens one Shade chest and is consumed. This guide currently routes **five key locations** directly; the remaining three stay unconfirmed rather than being guessed.
+The current local working model is **eight Blackmarrow Keys** and **eight matching Shade chests** around the Marrow Keep elevator room. One key opens one Shade chest and is consumed. This guide currently routes **five key locations** directly; the remaining three stay unconfirmed rather than being guessed.
+
+An earlier launch-build comparison recorded an **eight-versus-nine key-count conflict**. Until a key-specific launch checklist resolves it, treat the eight-key figure as the working model rather than a verified complete location database.
 
 ## What do Blackmarrow Keys open?
 
 Blackmarrow Keys open **Shade chests** around the elevator room in **Marrow Keep**.
 
-There are eight Shade chests, corresponding to the game's eight permanent Shells.
+The local Shell roster supports eight permanent Shells, so the eight-chest model is plausible. The exact chest-to-Shell order is not established here; do not assume that the visible chest order is a key order.
 
 Opening a chest:
 
@@ -41,7 +43,7 @@ For Shell unlock routes, use the [Shells guide](/mortal-shell-ii/shells/).
 
 ## How many Blackmarrow Keys are there?
 
-There are **eight Blackmarrow Keys** in a playthrough.
+The current local working model is **eight Blackmarrow Keys** in a playthrough. Earlier launch coverage reported nine, so this count remains version- and evidence-qualified.
 
 Because each key is consumed by one Shade chest, you need all eight keys to open all eight chests.
 
@@ -119,7 +121,7 @@ This site currently routes **five of the eight** Blackmarrow Keys with enough co
 
 The other three exact locations are intentionally left unconfirmed for now.
 
-That does not change the total: there are eight keys and eight Shade chests. It only means this guide will not fill the remaining three rows with speculative routes.
+That does not change the current working model: eight keys and eight Shade chests. It only means this guide will not fill the remaining three rows with speculative routes or pretend that the eight-versus-nine conflict is resolved.
 
 If you are tracking completion, record:
 
@@ -133,7 +135,7 @@ That makes it easier to identify what is still missing without mixing Blackmarro
 
 ### How many Blackmarrow Keys are there?
 
-Eight.
+The current local working model is eight, but earlier launch coverage conflicted between eight and nine. This page does not claim that the count is independently settled.
 
 ### How many Shade chests are in Marrow Keep?
 

@@ -1,6 +1,6 @@
 ---
-title: "Mortal Shell 2 Balance Patch 1: Patch Notes & Glimpse Refund"
-description: "Mortal Shell 2 Balance Patch 1 changes Shell-map costs, refunds map Glimpses, cuts Tarforge smelting cost, nerfs bosses, buffs weapons, and improves stability."
+title: "Mortal Shell 2 Balance Patch 1: Patch Notes & Update Tracker"
+description: "Mortal Shell 2 Balance Patch 1 changes Shell-map costs, refunds map Glimpses, cuts Tarforge smelting cost, rebalances combat, and improves stability."
 category: combat-exploration
 slug: mortal-shell-ii/balance-patch-1
 status: needs-verification
@@ -18,16 +18,20 @@ sidebar:
   label: Balance Patch 1
   order: 9
   badge: Launch
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-24
 ---
 
-Balance Patch 1 moves Shell-map reveals from Glimpses to Gloom, refunds Glimpses previously spent on those map reveals in Blackmarrow, cuts Tarforge Smelt Equipment Gloom cost by 75%, nerfs several enemies and bosses, and buffs multiple weapons and Tarstones.
+Balance Patch 1 moves Shell-map reveals from Glimpses to Gloom, refunds Glimpses previously spent on those map reveals in Blackmarrow, cuts Tarforge weapon smelting cost by 75%, rebalances several enemies and bosses, and buffs multiple weapons and Tarstones. The official [Balance Patch 1 notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) are the source for the changes below.
 
-## Is Balance Patch 1 live?
+## Mortal Shell 2 update tracker
 
-PC received Balance Patch 1 first. PS5 players have since reported receiving the patch as well.
+| Update | Officially documented status | What it changed |
+| --- | --- | --- |
+| **Hotfix 2.0** — August 18, 2026 | Developer release notes published | Crash, stability, and performance fixes; Beacon-menu Slayer Seal UI lock fix; riposte enemy-weapon stealing fix. See the [official Hotfix 2.0 notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/). |
+| **Balance Patch 1** — August 20, 2026 | **Live on PC** in the developer post; PS5 and Xbox Series were announced as coming shortly | Economy, enemy/boss, weapon, Seal, Tarstone, and miscellaneous fixes listed on this page. |
+| **Larger future patch** | Planned, no date confirmed | Cold Symmetry mentioned future work around Night Mode, Tarstones, PP Items, and more. Treat this as planned scope, not a release schedule. |
 
-Xbox availability is still unconfirmed for this page, so do not assume the patch is live there yet.
+The official Balance Patch 1 post does not provide a current per-platform installation receipt. This page therefore treats PC as confirmed by the post and leaves PS5/Xbox Series rollout **unconfirmed in this record** rather than converting the announcement into a live-status claim.
 
 ## What should you do first after Balance Patch 1?
 
@@ -91,7 +95,7 @@ Several regular enemies also received health reductions:
 
 Rusted Knave also received a fix for its overhead hit detection.
 
-The patch notes contain additional wording about beta enemy health, but this guide does not reinterpret that wording beyond the explicit changes listed above.
+The official notes also say that enemies featured in the beta were restored to their beta HP values, except the Caerinid Spider in Magdalena's area. The named percentages above are the explicit listed changes; the broader beta-HP statement should not be read as a promise that every enemy has the same reduction or that every launch behavior matches the beta.
 
 ## Weapon buffs
 
@@ -136,7 +140,7 @@ Cold Symmetry has said future updates are planned around areas including:
 - PP Items
 - a larger future patch
 
-No release date is confirmed for those updates.
+No release date or final feature list is confirmed for those updates. They are planned, not scheduled.
 
 ## Balance Patch 1 FAQ
 
@@ -158,11 +162,11 @@ Yes. Great Martyr's Blade attack damage increased by **20%**. See the [Great Mar
 
 ### Is Balance Patch 1 on PS5?
 
-PS5 players have reported receiving Balance Patch 1.
+The official post says PS5 rollout was coming shortly after the PC release. It does not provide a current PS5 installation receipt, so this page leaves PS5 availability unconfirmed in its evidence record.
 
 ### Is Balance Patch 1 on Xbox?
 
-Xbox availability is still unconfirmed for this page.
+The official post says Xbox Series rollout was coming shortly after the PC release. It does not provide a current Xbox installation receipt, so this page leaves Xbox availability unconfirmed in its evidence record.
 
 ### Does Balance Patch 1 fix all PC crashes?
 

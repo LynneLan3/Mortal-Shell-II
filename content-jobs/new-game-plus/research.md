@@ -46,3 +46,35 @@ Scope: update `/mortal-shell-ii/new-game-plus/` only. Answer how to start the se
 1. AllThingsHow, “Mortal Shell 2 New Game Plus: What Carries Over and What Resets,” updated 2026-08-18: https://allthings.how/mortal-shell-2-new-game-plus-what-carries-over-and-what-resets/
 2. Local `/mortal-shell-ii/ova/` page and `content-jobs/ova/research.md` — existing route boundary and source-backed `Send Ova` context.
 3. Local `/mortal-shell-ii/peters-perfect-parry/` page — existing missable trophy cross-link and retry boundary.
+
+# Target intent
+
+Improve the existing NG+ page for high-intent queries: does Mortal Shell 2 have NG+, how to start it, what carries over, what resets, and whether weapons / Shells / upgrades reset.
+
+# Confirmed facts
+
+The confirmed carry-over, reset, respawn, Send Ova, and 168-Ovum facts are listed above. Use “reported launch-build behavior” where a direct official save-system reference is unavailable.
+
+# Route / procedure
+
+Finish the final route → return to the Gloom Siphon in Marrow Keep → select Send Ova. Defeating the final boss and selecting Send Ova are separate events; the latter is the irreversible transition.
+
+# Practical player insights
+
+Put the yes/no answer and no-confirmation warning first. Use separate carry-over and reset tables, then a pre-commit checklist covering quests, Beacons, dungeons, weapons, Shells, Tarstones, upgrades, and trophy attempts.
+
+# Conflicting or uncertain facts
+
+Do not promise behavior for every consumable, NPC, map marker, or platform without direct evidence. Preserve the distinction between reported revealed-map carry-over and reported custom-marker clearing.
+
+# Internal-link opportunities
+
+`/mortal-shell-ii/ova/`, `/mortal-shell-ii/zmey/`, `/mortal-shell-ii/peters-perfect-parry/`, `/mortal-shell-ii/shells/`, `/mortal-shell-ii/weapons/`, and `/mortal-shell-ii/beacons-fast-travel/`.
+
+# Image opportunities
+
+Reuse `/images/ova/send-ova-siphon.webp` with its existing provenance comment. No new image is required.
+
+# Sources
+
+AllThingsHow's launch-build NG+ guide, the local Ova guide/research, and the local Peter's Perfect Parry page listed above. Keep their real URLs in the final source section.

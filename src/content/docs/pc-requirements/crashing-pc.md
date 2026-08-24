@@ -9,11 +9,12 @@ quickAnswer: "Hotfix 2.0 is live on Steam but does not fix every crash. If the g
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
+  - mortal-shell-ii/balance-patch-1
 sidebar:
   label: PC Crashes & Hotfix 2.0
   order: 2
   badge: Launch
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-24
 ---
 
 ## Is Mortal Shell 2 crashing after launch?
@@ -31,9 +32,11 @@ Use this short route before trying broad or risky system changes:
 3. **If the crash is random or happens in a menu, dialogue, tarstone screen, or cutscene,** record the trigger and your GPU/driver details before reporting it. These reports do not establish a root cause by themselves.
 4. **If the problem continues,** verify Steam files, check the graphics driver, and file a report with the exact scenario and whether Frame Generation was enabled.
 
-The fixes below are separated by evidence level: Hotfix 2.0 items are official patch notes, the Keyboard Bindings file reset is an official temporary workaround, and Frame Generation off is a community-reported test rather than a confirmed fix.
+The fixes below separate developer-confirmed guidance from player-reported tests. Hotfix 2.0 and the Keyboard Bindings file reset are official/developer-sourced; Frame Generation off is a community-reported test rather than a confirmed fix.
 
-## What does Hotfix 2.0 fix?
+## Official / developer-confirmed fixes or recommendations
+
+### What does Hotfix 2.0 fix?
 
 **Hotfix 2.0 — Release Notes** was posted by developer **XBIGY** on **August 19, 2026** on Steam.
 
@@ -118,7 +121,9 @@ These are the two files specifically named by the developer workaround. Cold Sym
 
 Cold Symmetry is working on a proper fix, so this section should be revisited when the next hotfix lands.
 
-## Why does Mortal Shell 2 crash on loading, after death, or during fast travel?
+## Player-reported workarounds
+
+### Why does Mortal Shell 2 crash on loading, after death, or during fast travel?
 
 **Confirmed observation:** multiple Advanced Access players report crashes on **loading screens** — after death, during map changes, fast travel, and beacon loading.
 
@@ -126,7 +131,7 @@ From the Hotfix threads and Bug Reports (August 17–20, 2026): crashes on **eve
 
 Cold Symmetry has **not** named a dedicated respawn bug. Treat death-to-beacon crashes as loading-screen instability: update, restart, retest.
 
-## Does disabling Frame Generation fix the respawn crash?
+### Does disabling Frame Generation fix the respawn crash?
 
 **Community-reported workaround only.** Cold Symmetry has **not** confirmed this.
 
@@ -135,7 +140,7 @@ Launch-window PC coverage confirms **Frame Generation** is its own graphics opti
 
 Retest the same transition after changing the setting: launch, death-to-respawn, map change, fast travel, or beacon loading. If the crash still occurs with Frame Generation off, record the exact transition rather than treating the test as proof of a different cause.
 
-## Why does Mortal Shell 2 crash randomly in gameplay or menus?
+### Why does Mortal Shell 2 crash randomly in gameplay or menus?
 
 Players still report crashes during dialogue, menus or tarstone screens (some with full PC lockups), after many stable hours, and during cutscenes. These are **symptoms**, not confirmed root causes — do not assume VRAM, DX12, drivers, or memory leaks without evidence for your PC.
 

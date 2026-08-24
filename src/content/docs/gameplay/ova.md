@@ -5,7 +5,7 @@ category: combat-exploration
 slug: mortal-shell-ii/ova
 status: needs-verification
 featured: false
-quickAnswer: "There are six major Corrupted Gates: Glutted Mire, Sanguine Caverns, Prisoners' Domain, Conquered Temple, Withered Shoals, and Faded Citadel. A practical low-backtracking order is Glutted Mire → Sanguine Caverns → Prisoners' Domain, then Withered Shoals → Conquered Temple → Faded Citadel; this is a recommendation, not a forced boss order. After the prologue, use the Ova Nursery's Gloom Siphon to unlock Mether's Breath, and follow the in-game prompt because launch guides disagree on the early threshold."
+quickAnswer: "There are six major Corrupted Gates: Glutted Mire, Sanguine Caverns, Prisoners' Domain, Conquered Temple, Withered Shoals, and Faded Citadel. A practical low-backtracking order is Glutted Mire → Sanguine Caverns → Prisoners' Domain, then Withered Shoals → Conquered Temple → Faded Citadel; this is a recommendation, not a forced boss order. After the prologue, use the Ova Nursery's Gloom Siphon to unlock Mether's Breath. Later, Send Ova starts New Game Plus, so follow the in-game prompt for early thresholds and finish cleanup before choosing it."
 related:
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/new-game-plus
@@ -14,6 +14,7 @@ related:
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/map-fragments
   - mortal-shell-ii/zmey
+  - mortal-shell-ii/endings
   - mortal-shell-ii/balance-patch-1
 sidebar:
   label: Ova Guide
@@ -22,13 +23,13 @@ sidebar:
 lastUpdated: 2026-08-24
 ---
 
-## Quick answer and evidence boundary
+## Quick answer
 
 After the prologue, reach Marrow Keep and enter Fainweald. Cleanse eligible Beacons, collect Ova, then return to the Ova Nursery and use the **Gloom Siphon**. Published launch guides disagree on the early Mether's Breath threshold, so use the in-game unlock prompt as the authority rather than treating one guide's number as universal.
 
 Mether's Breath clears the black corruption growths that block routes and adds direct travel between discovered Beacons. Much later, **168 Ovum** opens the final route; after the underground boss sequence, **Send Ova** is the irreversible choice that starts New Game Plus. The final boss does not by itself force the reset, so finish current-world cleanup before selecting Send Ova.
 
-This page is an evidence-bounded Ova and corruption guide. It does not claim a complete Ova database or invent map coordinates.
+This guide keeps launch-build route uncertainty visible. It does not claim a complete Ova database or invent map coordinates.
 
 ## What Ova does
 

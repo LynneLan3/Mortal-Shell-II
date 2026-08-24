@@ -240,3 +240,35 @@ Sources disagree on whether Mammon has two or three Gates: AltChar's progression
 - Gamer Guides, “Ideal Game Progress Route,” checked 2026-08-24 — gives the recommended Fainweald order, calls Sanguine Caverns an easy second gate, and uses Withered Shoals → Conquered Temple → Faded Citadel for its Mammon route while noting Mammon's gates are flexible: https://www.gamerguides.com/mortal-shell-ii/routes/ideal-game-progress-route
 - AltChar, “Mortal Shell 2: The Complete Progression Guide,” Asmir Kovacevic, published 2026-08-17 — supports a southern-first Fainweald route but says Mammon has only two Gates; retained as the explicit conflict rather than accepted over the three-gate cross-check: https://www.altchar.com/guides/mortal-shell-2-the-complete-progression-guide-aDaUv0P7BNa7
 - Into Indie Games, “Mortal Shell 2 – Walkthrough Part 4: Prisoner's Domain,” Fahad Suleman, checked 2026-08-24 — corroborates Nochtean Gate access and the cleanse-before-entry route: https://intoindiegames.com/walkthroughs/mortal-shell-2-walkthrough-part-4-prisoners-domain/
+
+# Target intent
+
+Correct the existing Ova guide's Send Ova contradiction and make the early Ova / Mether's Breath route, six-gate checklist, 168 Ovum milestone, and NG+ point of no return answer-first.
+
+# Confirmed facts
+
+Use the detailed Item 06 and Item 21 sections above: Send Ova starts NG+, the final boss alone does not force the reset, and the early threshold remains in-game-prompt-led because launch reports conflict.
+
+# Route / procedure
+
+Prologue → Marrow Keep → Fainweald Beacons / Corrupted Gates → Ova Nursery Gloom Siphon → Mether's Breath → corruption walls; later reach 168 Ovum, clear the reported four-boss route ending with Zmey, return to the Siphon, and choose Send Ova only after cleanup.
+
+# Practical player insights
+
+Keep the corruption warning, cleanse-vs-discovery distinction, six-gate recommended order, and pre-Send-Ova checklist visible. Link the detailed route rather than inventing coordinates or fixed early thresholds.
+
+# Conflicting or uncertain facts
+
+Preserve the early threshold range, Ova/Ovum terminology variation, 26-Ova reward qualification, Mammon gate-count conflict, and source-reported carry-over/reset boundary exactly as documented above.
+
+# Internal-link opportunities
+
+`/mortal-shell-ii/new-game-plus/`, `/mortal-shell-ii/zmey/`, `/mortal-shell-ii/endings/`, `/mortal-shell-ii/beacons-fast-travel/`, `/mortal-shell-ii/gloom-farm/`, `/mortal-shell-ii/map-fragments/`, `/mortal-shell-ii/balance-patch-1/`, and `/mortal-shell-ii/peters-perfect-parry/`.
+
+# Image opportunities
+
+Preserve the existing corruption warning, Mether's Breath tutorial, and Send Ova Siphon images with their source comments. Do not add a new map image.
+
+# Sources
+
+Use the full Item 06 and Item 21 source ledgers above, with AllThingsHow / GameSpot route sources and the official Steam patch/hotfix links retained in the final article.

@@ -867,6 +867,20 @@ export const game: GameConfig = {
 					description: 'Early leveling loops and realistic launch-window Gloom returns.',
 					eyebrow: 'Resource',
 				},
+				{
+					pageId: 'troubadours-lute',
+					href: '/mortal-shell-ii/troubadours-lute/',
+					title: "Troubadour's Lute",
+					description: 'Reach the One-Legged Wolf Tavern and complete the Heavy Metal track requirement.',
+					eyebrow: 'Sidearm',
+				},
+				{
+					pageId: 'ballistazooka',
+					href: '/mortal-shell-ii/ballistazooka/',
+					title: 'Ballistazooka',
+					description: "Defeat the Subjugated Guardian at Sentry's Grave to unlock this sidearm.",
+					eyebrow: 'Sidearm',
+				},
 			],
 			fastAnswers: [
 				{
@@ -1134,6 +1148,13 @@ export const game: GameConfig = {
 					title: 'Glimpses',
 					description: 'Choose between Shell Bond upgrades and location information.',
 					eyebrow: 'Resource',
+				},
+				{
+					pageId: 'shell-memories',
+					href: '/mortal-shell-ii/shell-memories/',
+					title: 'Shell Memories',
+					description: 'Track the 40 Shell Memories, Glimpse spending, Genessa’s exception, and NG+ planning.',
+					eyebrow: 'Completion',
 				},
 			],
 			fastAnswers: [

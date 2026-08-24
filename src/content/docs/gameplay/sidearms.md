@@ -17,6 +17,8 @@ related:
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/balance-patch-1
   - mortal-shell-ii/weapons
+  - mortal-shell-ii/troubadours-lute
+  - mortal-shell-ii/ballistazooka
 sidebar:
   label: Sidearms Guide
   order: 27
@@ -48,9 +50,9 @@ This Hub owns the roster and compact location checklist. Detailed dungeon walkth
 | **Naylshotte** | Prologue | Starter acquisition during the Prologue | Hub summary |
 | **Forgotten Crossbow** | Flooded Village | Use the Damp Key for the locked pickup room; Blackridge Pass is a practical route anchor | [Forgotten Crossbow guide](/mortal-shell-ii/forgotten-crossbow/) |
 | **Salvaged Trebuchaxe** | Ravaged Hideout | South / southeast of Gloomshade Grove, on the Bloodcursed Lithopod access route | Hub summary |
-| **Troubadour's Lute** | One-Legged Wolf Tavern | Pickup inside the tavern around the stage area | Hub summary |
+| **Troubadour's Lute** | One-Legged Wolf Tavern | Pickup inside the tavern around the stage area | [Troubadour's Lute guide](/mortal-shell-ii/troubadours-lute/) |
 | **Triarch Repeater** | Blackwell Cavern, Mammon | Use Castigator's Keep as the route anchor | Hub summary |
-| **Ballistazooka** | Sentry's Grave | Near Gate of Mammon; reward tied to Subjugated Guardian | Hub summary |
+| **Ballistazooka** | Sentry's Grave | Near Gate of Mammon; reward tied to Subjugated Guardian | [Ballistazooka guide](/mortal-shell-ii/ballistazooka/) |
 | **Cursed Child** | Revered Beacon route | Near the Sester's Gate / Abbey area | [Cursed Child guide](/mortal-shell-ii/cursed-child/) |
 | **Caged Hystrix** | Chamber of Becoming | Separate pickup near the exit after the Sariel route | [Caged Hystrix guide](/mortal-shell-ii/caged-hystrix/) |
 
@@ -76,7 +78,7 @@ Access is tied to the wider **Bloodcursed Lithopod** route.
 
 ## Troubadour's Lute
 
-The **Troubadour's Lute** is inside the **One-Legged Wolf Tavern**, around the stage area.
+The **Troubadour's Lute** is inside the **One-Legged Wolf Tavern**, around the stage area. Use the [Troubadour's Lute guide](/mortal-shell-ii/troubadours-lute/) for the route and Heavy Metal cleanup.
 
 The tavern is also where the [Gragu guide](/mortal-shell-ii/gragu/) begins, so the two objectives can share the same visit.
 
@@ -90,7 +92,7 @@ Use **Castigator's Keep** as a practical route anchor.
 
 ## Ballistazooka
 
-The **Ballistazooka** is tied to **Sentry's Grave** near the **Gate of Mammon**.
+The **Ballistazooka** is tied to **Sentry's Grave** near the **Gate of Mammon**. Use the [Ballistazooka guide](/mortal-shell-ii/ballistazooka/) for the descent and Subjugated Guardian reward.
 
 Its reward is associated with the **Subjugated Guardian** encounter.
 

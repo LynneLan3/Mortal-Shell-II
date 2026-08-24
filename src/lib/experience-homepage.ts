@@ -9,6 +9,7 @@
 
 import type { CollectionEntry } from 'astro:content';
 import { categoryOf, guideHref, sortGuides } from './guides';
+import type { GameRoute } from '../config/game';
 
 export type GuideEntry = CollectionEntry<'docs'>;
 
@@ -96,4 +97,12 @@ export function deriveRecentViews(guides: readonly GuideEntry[], limit = 3): Rec
 /** Stable zero-padded route number: `01`, `02`, … derived from index. */
 export function routeNumber(index: number): string {
 	return String(index + 1).padStart(2, '0');
+}
+
+const goalRouteOrder = ['weapons-resources', 'world-progression', 'start-launch', 'pc-stability', 'finish-complete'];
+
+/** Stable player-intent order shared by the Homepage and By Goal index. */
+export function orderGoalRoutes(routes: readonly GameRoute[]): GameRoute[] {
+	const rank = new Map(goalRouteOrder.map((id, index) => [id, index]));
+	return [...routes].sort((a, b) => (rank.get(a.id) ?? goalRouteOrder.length) - (rank.get(b.id) ?? goalRouteOrder.length));
 }

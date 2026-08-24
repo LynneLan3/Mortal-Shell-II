@@ -9,9 +9,8 @@
  * absent.
  *
  * Section order:
- *   Hero → Status Strip → Hot Launch Guides → Choose Your Route →
- *   Start Here → Popular Questions → Field Notes → Recently Updated →
- *   Evidence → About (id="about")
+ *   Hero → Status Strip → By Goal → Beginner Guide → Hot Launch Guides →
+ *   Popular Questions → Recently Updated → supporting sections → About.
  */
 import { Image } from 'astro:assets';
 import { game } from '../../config/game';
@@ -22,6 +21,7 @@ import {
 	deriveRecentViews,
 	fieldNotesFrom,
 	hasGuideCover,
+	orderGoalRoutes,
 } from '../../lib/experience-homepage';
 import { experienceNav } from '../../lib/experience-nav';
 import {
@@ -81,6 +81,8 @@ const hotGuides: StartHereView[] = configuredHotGuides?.length
 		}))
 	: [];
 const authorityHubs = game.portal?.authorityHubs ?? [];
+const beginnerGuide = guides.find((entry) => guideHref(entry) === '/mortal-shell-ii/beginner-guide/');
+const beginnerHub = authorityHubs.find((hub) => hub.href === '/mortal-shell-ii/beginner-guide/');
 const orderedHotGuides = sortCardsByImage(hotGuides, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
 
 /* ── Hero CTAs ── */
@@ -134,7 +136,7 @@ const statusItems = (
 	.slice(0, 4);
 
 /* ── Choose Your Route ── */
-const routes = game.routes ?? [];
+const routes = orderGoalRoutes(game.routes ?? []);
 const singleRoute = routes.length === 1 ? routes[0] : undefined;
 const singleRouteStartGuides = singleRoute?.pages ?? [];
 
@@ -251,7 +253,22 @@ const factIcon = (label: string): IconName => {
 )}
 
 <div class="exp-home-flow">
-	<!-- 03 HOT LAUNCH GUIDES -->
+	<!-- 03 BY GOAL -->
+	{routes.length > 1 && <ExperienceRouteShowcase routes={routes} />}
+
+	<!-- 04 CORE GUIDE ENTRY -->
+	{beginnerGuide && beginnerHub && (
+		<section class="exp-section exp-home-beginner" id="beginner-guide" aria-labelledby="exp-home-beginner-heading">
+			<div class="exp-content">
+				<p class="exp-eyebrow">{beginnerHub.badge}</p>
+				<h2 class="exp-h2" id="exp-home-beginner-heading">{beginnerGuide.data.title}</h2>
+				{beginnerGuide.data.description && <p class="exp-lede">{beginnerGuide.data.description}</p>}
+				<AuthorityHubGrid hubs={[beginnerHub]} />
+			</div>
+		</section>
+	)}
+
+	<!-- 05 HOT LAUNCH GUIDES -->
 	{orderedHotGuides.length > 0 && (
 		<section class="exp-section exp-home-hot" id="hot-guides" aria-labelledby="exp-home-hot-heading">
 			<div class="exp-content">
@@ -281,20 +298,6 @@ const factIcon = (label: string): IconName => {
 		</section>
 	)}
 
-	{authorityHubs.length > 0 && (
-		<section class="exp-section exp-home-authority" aria-labelledby="exp-home-authority-heading">
-			<div class="exp-content">
-				<p class="exp-eyebrow">Guide + Wiki</p>
-				<h2 class="exp-h2" id="exp-home-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Hubs'}</h2>
-				{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
-				<AuthorityHubGrid hubs={authorityHubs} />
-			</div>
-		</section>
-	)}
-
-	<!-- 04 ROUTES / PRIMARY PATH -->
-	{routes.length > 1 && <ExperienceRouteShowcase routes={routes} />}
-
 	{singleRoute && (
 		<section class="exp-section exp-home-primary-path" aria-labelledby="exp-home-primary-path-heading">
 			<div class="exp-content">
@@ -318,33 +321,6 @@ const factIcon = (label: string): IconName => {
 				</div>
 			</div>
 		</section>
-	)}
-
-	<!-- 05 START HERE -->
-	{!singleRoute && startHere.length > 0 && (
-		<>
-			<section class="exp-section exp-home-start" aria-labelledby="exp-home-start-heading">
-				<div class="exp-content">
-					<p class="exp-eyebrow">{t.startHere}</p>
-					<h2 class="exp-h2" id="exp-home-start-heading">{t.startHereTitle}</h2>
-					<p class="exp-lede">{t.startHereSectionLede}</p>
-					<div class="exp-start-list">
-						{startHere.map((item) => (
-							<a class="exp-start-item" href={item.href}>
-								<span class="exp-start-item__eyebrow">
-									<svg class="exp-inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-										<Fragment set:html={iconPaths[startIcon(item.title)]} />
-									</svg>
-									{item.label ?? item.badge}
-								</span>
-								<span class="exp-start-item__title">{item.title}</span>
-								<span class="exp-start-item__arrow" aria-hidden="true">→</span>
-							</a>
-						))}
-					</div>
-				</div>
-			</section>
-		</>
 	)}
 
 	<!-- 06 POPULAR QUESTIONS -->
@@ -376,7 +352,50 @@ const factIcon = (label: string): IconName => {
 		</section>
 	)}
 
-	<!-- 07 FIELD NOTES -->
+	<!-- 07 RECENTLY UPDATED -->
+	{recentlyUpdated.length > 0 && (
+	<section class="exp-section exp-home-recent" aria-labelledby="exp-home-recent-heading">
+		<div class="exp-content">
+			<p class="exp-eyebrow">{t.recentlyUpdated}</p>
+			<h2 class="exp-h2" id="exp-home-recent-heading">{t.recentlyUpdated}</h2>
+			<p class="exp-lede">{t.recentlyUpdatedLede}</p>
+			<ul class="exp-recent">
+				{recentlyUpdated.map((item) => (
+					<li>
+						<a class="exp-recent__row" href={item.href}>
+							<span class="exp-recent__main">
+								<span class="exp-recent__title">
+									<svg class="exp-inline-icon exp-recent__icon" aria-hidden="true" viewBox="0 0 24 24">
+										<Fragment set:html={iconPaths.clock} />
+									</svg>
+									{item.title}
+								</span>
+								{item.changeSummary && <span class="exp-recent__change">{item.changeSummary}</span>}
+							</span>
+							<time class="exp-recent__date" datetime={item.date.toISOString()}>
+								{formatUiDate(item.date)}
+							</time>
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+	)}
+
+	<!-- 08 SUPPORTING GUIDE + WIKI HUBS -->
+	{authorityHubs.length > 0 && (
+		<section class="exp-section exp-home-authority" aria-labelledby="exp-home-authority-heading">
+			<div class="exp-content">
+				<p class="exp-eyebrow">Guide + Wiki</p>
+				<h2 class="exp-h2" id="exp-home-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Hubs'}</h2>
+				{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
+				<AuthorityHubGrid hubs={authorityHubs} />
+			</div>
+		</section>
+	)}
+
+	<!-- 09 FIELD NOTES -->
 	{orderedFieldNotes.length > 0 && (
 	<section class="exp-section exp-section--tinted exp-home-notes" aria-labelledby="exp-home-notes-heading">
 		<div class="exp-content">
@@ -415,37 +434,6 @@ const factIcon = (label: string): IconName => {
 					);
 				})}
 			</div>
-		</div>
-	</section>
-	)}
-
-	<!-- 08 RECENTLY UPDATED -->
-	{recentlyUpdated.length > 0 && (
-	<section class="exp-section exp-home-recent" aria-labelledby="exp-home-recent-heading">
-		<div class="exp-content">
-			<p class="exp-eyebrow">{t.recentlyUpdated}</p>
-			<h2 class="exp-h2" id="exp-home-recent-heading">{t.recentlyUpdated}</h2>
-			<p class="exp-lede">{t.recentlyUpdatedLede}</p>
-			<ul class="exp-recent">
-				{recentlyUpdated.map((item) => (
-					<li>
-						<a class="exp-recent__row" href={item.href}>
-							<span class="exp-recent__main">
-								<span class="exp-recent__title">
-									<svg class="exp-inline-icon exp-recent__icon" aria-hidden="true" viewBox="0 0 24 24">
-										<Fragment set:html={iconPaths.clock} />
-									</svg>
-									{item.title}
-								</span>
-								{item.changeSummary && <span class="exp-recent__change">{item.changeSummary}</span>}
-							</span>
-							<time class="exp-recent__date" datetime={item.date.toISOString()}>
-								{formatUiDate(item.date)}
-							</time>
-						</a>
-					</li>
-				))}
-			</ul>
 		</div>
 	</section>
 	)}

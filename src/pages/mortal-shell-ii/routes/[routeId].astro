@@ -3,6 +3,7 @@ import GameShell from '../../../components/experience/GameShell.astro';
 import RouteHub from '../../../components/experience/routes/RouteHub.astro';
 import { game, type GameRoute } from '../../../config/game';
 import { experienceNav } from '../../../lib/experience-nav';
+import { orderGoalRoutes } from '../../../lib/experience-homepage';
 import '../../../styles/routes.css';
 
 export function getStaticPaths() {
@@ -18,7 +19,7 @@ interface Props {
 
 const { route } = Astro.props;
 const { nav, footerLinks, homeHref } = experienceNav();
-const routes = game.routes ?? [];
+const routes = orderGoalRoutes(game.routes ?? []);
 ---
 
 <GameShell

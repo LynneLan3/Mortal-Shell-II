@@ -510,6 +510,7 @@ export const game: GameConfig = {
 				title: 'Start Here & General',
 				description: 'Understand the basics, first-run choices, and retained launch or beta context.',
 				guideOrder: [
+					'/mortal-shell-ii/beginner-guide/',
 					'/mortal-shell-ii/gameplay/',
 					'/mortal-shell-ii/skip-prologue/',
 					'/mortal-shell-ii/release-date/',
@@ -726,7 +727,7 @@ export const game: GameConfig = {
 	routes: [
 		{
 			id: 'start-launch',
-			eyebrow: 'Route 01',
+			eyebrow: 'Goal 03',
 			title: 'Start Your Run',
 			description:
 				'Understand the basics, make first-run choices, and get oriented before committing to a longer route.',
@@ -734,10 +735,10 @@ export const game: GameConfig = {
 			visual: 'experience/route-start-launch.jpg',
 			pages: [
 				{
-					pageId: 'gameplay',
-					href: '/mortal-shell-ii/gameplay/',
-					title: 'Gameplay Overview',
-					description: 'Combat, Shells, weapons, exploration, and single-player scope.',
+					pageId: 'beginner-guide',
+					href: '/mortal-shell-ii/beginner-guide/',
+					title: 'Mortal Shell 2 Beginner Guide',
+					description: 'Quick navigation-first guide for your first 1–3 hours in Mortal Shell 2: what to do, early choices, upgrades, Beacons, and where to go next.',
 					eyebrow: 'Start',
 				},
 				{
@@ -748,32 +749,32 @@ export const game: GameConfig = {
 					eyebrow: 'Start',
 				},
 				{
-					pageId: 'magdalena',
-					href: '/mortal-shell-ii/magdalena/',
-					title: 'Magdalena',
-					description: 'Preserved Open Beta encounter context with an explicit evidence boundary.',
-					eyebrow: 'Reference',
+					pageId: 'shells',
+					href: '/mortal-shell-ii/shells/',
+					title: 'Shells Guide',
+					description: 'Known Shell routes, unlock context, and provisional use cases.',
+					eyebrow: 'Shells',
 				},
 				{
-					pageId: 'release-date',
-					href: '/mortal-shell-ii/release-date/',
-					title: 'Release Context',
-					description: 'Platform and edition timing retained as reference for launch questions.',
-					eyebrow: 'Reference',
+					pageId: 'weapons',
+					href: '/mortal-shell-ii/weapons/',
+					title: 'Weapons Guide',
+					description: 'Known weapons, launch-build locations, upgrade evidence, and practical early routes.',
+					eyebrow: 'Weapons',
 				},
 				{
-					pageId: 'beta-progress-carry-over',
-					href: '/mortal-shell-ii/beta-progress-carry-over/',
-					title: 'Beta Progress Carry Over',
-					description: 'Historical beta reset and reward context for returning players.',
-					eyebrow: 'Reference',
+					pageId: 'healing-upgrades',
+					href: '/mortal-shell-ii/healing-upgrades/',
+					title: 'Healing Upgrades',
+					description: 'Find all 21 Mortal Shell 2 healing upgrades, including every Revered Gland, Synaptic Vessel, Merrick purchase, dungeon gate, and late-route pickup.',
+					eyebrow: 'Survivability',
 				},
 				{
-					pageId: 'open-beta',
-					href: '/mortal-shell-ii/open-beta/',
-					title: 'Open Beta',
-					description: 'Preserved beta access and scope information for returning players.',
-					eyebrow: 'Reference',
+					pageId: 'tarforge',
+					href: '/mortal-shell-ii/tarforge/',
+					title: 'Tarforge Guide',
+					description: 'Find all five Mortal Shell 2 Tarforge parts: Muradean Actuator, Obsidian Lathe, Etching Needles, Foundry Stone and Endless Core.',
+					eyebrow: 'Upgrades',
 				},
 			],
 			fastAnswers: [
@@ -793,7 +794,7 @@ export const game: GameConfig = {
 		},
 		{
 			id: 'pc-stability',
-			eyebrow: 'Route 02',
+			eyebrow: 'Goal 04',
 			title: 'Fix PC Problems',
 			description:
 				'Check the listed PC requirements, then work through the current Hotfix 2.0 crash and stability guidance.',
@@ -832,7 +833,7 @@ export const game: GameConfig = {
 		},
 		{
 			id: 'weapons-resources',
-			eyebrow: 'Route 03',
+			eyebrow: 'Goal 01',
 			title: 'Get Stronger',
 			description:
 				'Find early weapons, upgrade Tarstones, activate Night Mode, and farm Gloom with realistic expectations.',
@@ -859,6 +860,27 @@ export const game: GameConfig = {
 					title: 'Glimpses & Resources',
 					description: 'Understand Gloom, Glimpses, Shell Points, and Resolve before spending upgrade resources.',
 					eyebrow: 'Resources',
+				},
+				{
+					pageId: 'shells',
+					href: '/mortal-shell-ii/shells/',
+					title: 'Shells Guide',
+					description: 'Known Shell routes, unlock context, and provisional use cases.',
+					eyebrow: 'Shells',
+				},
+				{
+					pageId: 'healing-upgrades',
+					href: '/mortal-shell-ii/healing-upgrades/',
+					title: 'Healing Upgrades',
+					description: 'Find all 21 Mortal Shell 2 healing upgrades, including every Revered Gland, Synaptic Vessel, Merrick purchase, dungeon gate, and late-route pickup.',
+					eyebrow: 'Survivability',
+				},
+				{
+					pageId: 'tarforge',
+					href: '/mortal-shell-ii/tarforge/',
+					title: 'Tarforge Guide',
+					description: 'Find all five Mortal Shell 2 Tarforge parts: Muradean Actuator, Obsidian Lathe, Etching Needles, Foundry Stone and Endless Core.',
+					eyebrow: 'Upgrades',
 				},
 				{
 					pageId: 'great-martyrs-blade',
@@ -935,13 +957,41 @@ export const game: GameConfig = {
 		},
 		{
 			id: 'world-progression',
-			eyebrow: 'Route 04',
+			eyebrow: 'Goal 02',
 			title: 'Explore & Unlock',
 			description:
 				'Follow the recommended Prologue → Fainweald → Mammon → Unfound Path spine, while keeping gate order and Ova thresholds version-qualified.',
 			href: '/mortal-shell-ii/routes/world-progression/',
 			visual: 'experience/route-world-progression.jpg',
 			pages: [
+				{
+					pageId: 'interactive-map',
+					href: '/mortal-shell-ii/map/',
+					title: 'Interactive Map',
+					description: 'Clickable world map for locations, Shells, bosses, and points of interest.',
+					eyebrow: 'Map',
+				},
+				{
+					pageId: 'beacons-fast-travel',
+					href: '/mortal-shell-ii/beacons-fast-travel/',
+					title: 'Beacons & Fast Travel',
+					 description: "How Beacons, Mether's Breath, and fast travel work in the launch build.",
+					eyebrow: 'Travel',
+				},
+				{
+					pageId: 'map-fragments',
+					href: '/mortal-shell-ii/map-fragments/',
+					title: 'Map Fragments',
+					description: 'Find all 11 launch-window map fragments and reveal route-critical sections.',
+					eyebrow: 'Map',
+				},
+				{
+					pageId: 'shells',
+					href: '/mortal-shell-ii/shells/',
+					title: 'Shells Guide',
+					description: 'Known Shell routes, unlock context, and provisional use cases.',
+					eyebrow: 'Shells',
+				},
 				{
 					pageId: 'ova',
 					href: '/mortal-shell-ii/ova/',
@@ -950,18 +1000,18 @@ export const game: GameConfig = {
 					eyebrow: 'Progression',
 				},
 				{
-					pageId: 'beacons-fast-travel',
-					href: '/mortal-shell-ii/beacons-fast-travel/',
-					title: 'Beacons & Fast Travel',
-					description: "How Beacons, Mether's Breath, and fast travel work in the launch build.",
-					eyebrow: 'Travel',
+					pageId: 'bosses',
+					href: '/mortal-shell-ii/bosses/',
+					title: 'Bosses',
+					description: 'Boss pages and fight overviews.',
+					eyebrow: 'Bosses',
 				},
 				{
-					pageId: 'shells',
-					href: '/mortal-shell-ii/shells/',
-					title: 'Shells Guide',
-					description: 'Known Shell routes, unlock context, and provisional use cases.',
-					eyebrow: 'Shells',
+					pageId: 'weapons',
+					href: '/mortal-shell-ii/weapons/',
+					title: 'Weapons Guide',
+					description: 'Known weapons, launch-build locations, upgrade evidence, and practical early routes.',
+					eyebrow: 'Weapons',
 				},
 				{
 					pageId: 'sester-genessa',
@@ -976,13 +1026,6 @@ export const game: GameConfig = {
 					title: 'Eredrim',
 					description: 'Reach The Warden through Citadel of Penance and inhabit Eredrim.',
 					eyebrow: 'Shell Unlock',
-				},
-				{
-					pageId: 'map-fragments',
-					href: '/mortal-shell-ii/map-fragments/',
-					title: 'Map Fragments',
-					description: 'Find all 11 launch-window map fragments and reveal route-critical sections.',
-					eyebrow: 'Map',
 				},
 				{
 					pageId: 'blackmarrow-keys',
@@ -1143,7 +1186,7 @@ export const game: GameConfig = {
 		},
 		{
 			id: 'finish-complete',
-			eyebrow: 'Route 05',
+			eyebrow: 'Goal 05',
 			title: 'Finish & Complete',
 			description:
 				'Handle endings, NG+, difficult optional goals, and the completion questions that matter late in a run.',

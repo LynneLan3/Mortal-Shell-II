@@ -1,6 +1,6 @@
 ---
 /**
- * ExperienceRouteShowcase — homepage "Choose Your Route" section (V2.2-E1).
+ * ExperienceRouteShowcase — homepage "By Goal" section (V2.2-E1).
  *
  * Consumes `game.routes` only. Route numbers are derived from array index
  * (`01`, `02`, …). `route.visual` is optional: when absent a content-only
@@ -20,14 +20,13 @@ interface Props {
 
 const { routes } = Astro.props;
 const t = ui();
-const shownRoutes = routes.slice(0, 4);
-const hiddenRouteCount = Math.max(routes.length - shownRoutes.length, 0);
+const shownRoutes = routes;
 ---
 
 <section class="exp-section exp-home-routes" id="routes" aria-labelledby="exp-home-routes-heading">
 	<div class="exp-content">
-		<p class="exp-eyebrow">{t.chooseYourRoute}</p>
-		<h2 class="exp-h2" id="exp-home-routes-heading">{t.chooseYourRouteTitle}</h2>
+		<p class="exp-eyebrow">{t.routesNav}</p>
+		<h2 class="exp-h2" id="exp-home-routes-heading">{t.routesNav}</h2>
 		<p class="exp-lede">{t.routeGroupsLede}</p>
 	</div>
 	<div class="exp-content">
@@ -36,12 +35,5 @@ const hiddenRouteCount = Math.max(routes.length - shownRoutes.length, 0);
 				<RouteTopicCard route={route} number={routeNumber(index)} />
 			))}
 		</div>
-		{hiddenRouteCount > 0 && (
-			<p class="exp-home-routes__more">
-				<a class="exp-cta-link" href={shownRoutes[0]?.href.replace(/routes\/[^/]+\/$/, 'routes/') ?? '#routes'}>
-					{t.moreGuidesCount(hiddenRouteCount)}
-				</a>
-			</p>
-		)}
 	</div>
 </section>

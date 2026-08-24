@@ -339,16 +339,47 @@
 
 .achievement-card-grid {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 0.8rem;
 }
 
 .achievement-card {
 	position: relative;
+	overflow: hidden;
 	padding: 1rem;
 	border: 1px solid rgba(142, 154, 165, 0.22);
 	background: var(--completion-panel);
+	cursor: pointer;
 	transition: border-color 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+.achievement-card[hidden] { display: none !important; }
+
+.achievement-card:focus-visible {
+	outline: 2px solid var(--completion-amber);
+	outline-offset: 3px;
+}
+
+.achievement-card__media {
+	width: calc(100% + 2rem);
+	margin: -1rem -1rem 0.9rem;
+	aspect-ratio: 16 / 9;
+	border-bottom: 1px solid rgba(226, 184, 109, 0.2);
+	background: #0b0f14;
+}
+
+.achievement-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.achievement-card__media--fallback {
+	display: grid;
+	place-items: center;
+	color: var(--completion-amber);
+	font-size: 2.4rem;
+	background: radial-gradient(circle at 50% 45%, rgba(226, 184, 109, 0.2), transparent 62%), #0b0f14;
 }
 
 .achievement-card:hover,
@@ -514,6 +545,9 @@
 .achievement-card__map-link,
 .achievement-card__action,
 .achievement-card__guide {
+	display: inline-flex;
+	min-height: 2.35rem;
+	align-items: center;
 	color: var(--completion-amber);
 	font-size: 0.68rem;
 	font-weight: 800;
@@ -585,6 +619,59 @@
 	text-align: center;
 }
 
+.completion-workspace__pagination {
+	display: grid;
+	gap: 0.75rem;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(142, 154, 165, 0.16);
+}
+
+.completion-workspace__pagination-summary {
+	color: var(--completion-muted);
+	font-size: 0.72rem;
+	text-align: center;
+}
+
+.completion-workspace__pagination-controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+}
+
+.completion-workspace__pagination button {
+	min-width: 2.15rem;
+	min-height: 2.15rem;
+	padding: 0.4rem 0.6rem;
+	border: 1px solid rgba(142, 154, 165, 0.28);
+	background: transparent;
+	color: var(--completion-muted);
+	font: inherit;
+	font-size: 0.72rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.completion-workspace__pagination button:hover:not(:disabled),
+.completion-workspace__pagination button:focus-visible,
+.completion-workspace__pagination button.is-active {
+	border-color: var(--completion-amber);
+	background: rgba(226, 184, 109, 0.1);
+	color: var(--completion-amber);
+}
+
+.completion-workspace__pagination button:disabled {
+	cursor: not-allowed;
+	opacity: 0.38;
+}
+
+.completion-workspace__page-ellipsis {
+	padding: 0 0.2rem;
+	color: var(--completion-muted);
+}
+
 .completion-workspace__footer {
 	display: flex;
 	align-items: center;
@@ -617,6 +704,7 @@
 
 @media (max-width: 70rem) {
 	.completion-workspace__categories { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.achievement-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 58rem) {

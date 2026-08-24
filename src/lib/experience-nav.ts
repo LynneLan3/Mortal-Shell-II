@@ -12,6 +12,7 @@
  */
 import type { NavItem, FooterLink } from '../components/experience/GameShell.astro';
 import { game } from '../config/game';
+import { mapRoutes } from '../data/map-routes';
 import { hubHref, pageHref } from './paths';
 import { ui } from './ui';
 
@@ -38,14 +39,18 @@ export function experienceNav(): ExperienceNav {
 	const bossesHref = pageHref(hub, 'bosses');
 	const mapHref = pageHref(hub, 'map');
 	const aboutHref = `${homeHref}#about`;
+	const byGoalSubpageMatches = [
+		...(game.routes ?? []).map((route) => pageHref(hub, `routes/${route.id}`)),
+		...mapRoutes.map((route) => pageHref(hub, `routes/${route.id}`)),
+	];
 
 	const nav: NavItem[] = [
 		{ label: t.homeNav, href: homeHref },
 		{ label: t.hotGuidesNav, href: hotGuidesHref },
-		{ label: t.routesNav, href: byGoalHref, activeMatch: [] },
+		{ label: t.routesNav, href: byGoalHref, activeMatch: byGoalSubpageMatches },
 		{ label: t.guidesNav, href: guidesHref },
 		{ label: 'Bosses', href: bossesHref, activeMatch: [bossesHref] },
-		{ label: 'Routes', href: routesHref, activeMatch: [routesHref] },
+		{ label: 'Routes', href: routesHref, activeMatch: [] },
 		{ label: 'Map', href: mapHref, activeMatch: [mapHref] },
 	];
 	const footerLinks = [...nav, { label: t.aboutNav, href: aboutHref }];

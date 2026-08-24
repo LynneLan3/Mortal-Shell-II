@@ -28,47 +28,50 @@ const relatedMapRoutes = route.id === 'world-progression'
 		: [];
 ---
 
-<a
+<article
 	class:list={[
 		'exp-route-topic-card',
 		`exp-route-topic-card--${variant}`,
 		!visualAsset && 'exp-route-topic-card--text',
 	]}
-	href={route.href}
 >
-	{visualAsset && (
-		<CardThumbnail
-			className="exp-route-topic-card__visual"
-			image={visualAsset}
-			alt={`${route.title} route visual`}
-			sizes="(min-width: 50rem) 50vw, 100vw"
-		/>
-	)}
-	<div class="exp-route-topic-card__body">
-		<div class="exp-route-topic-card__meta">
-			<span class="exp-route-topic-card__number">{number}</span>
-			<span class="exp-route-topic-card__eyebrow">
-				Goal {number}
-			</span>
-		</div>
-		<h3 class="exp-route-topic-card__title">{route.title}</h3>
-		<p class="exp-route-topic-card__desc">{route.description}</p>
+	<a class="exp-route-topic-card__link" href={route.href}>
+		{visualAsset ? (
+			<CardThumbnail
+				className="exp-route-topic-card__visual"
+				image={visualAsset}
+				alt={`${route.title} route visual`}
+				sizes="(min-width: 50rem) 50vw, 100vw"
+			/>
+		) : (
+			<div class="exp-route-topic-card__visual exp-route-topic-card__visual--fallback" aria-hidden="true">◈</div>
+		)}
+		<div class="exp-route-topic-card__body">
+			<div class="exp-route-topic-card__meta">
+				<span class="exp-route-topic-card__number">{number}</span>
+				<span class="exp-route-topic-card__eyebrow">
+					Goal {number}
+				</span>
+			</div>
+			<h3 class="exp-route-topic-card__title">{route.title}</h3>
+			<p class="exp-route-topic-card__desc">{route.description}</p>
 			{previewPages.length > 0 && (
-			<ul class="exp-route-topic-card__preview" aria-label={t.followTheRoute}>
-				{previewPages.map((page) => (
-					<li>{page.title}</li>
-				))}
-			</ul>
+				<ul class="exp-route-topic-card__preview" aria-label={t.followTheRoute}>
+					{previewPages.map((page) => (
+						<li>{page.title}</li>
+					))}
+				</ul>
 			)}
-			{relatedMapRoutes.length > 0 && (
-				<div class="exp-route-topic-card__related">
-					<span>Related Routes</span>
-					{relatedMapRoutes.map((mapRoute) => <a href={mapRouteHref(mapRoute.id)} target="_blank" rel="noopener noreferrer">{mapRoute.name} ↗</a>)}
-				</div>
-			)}
-		<div class="exp-route-topic-card__footer">
-			<span>{t.guideCount(route.pages.length)}</span>
-			<span class="exp-cta-link">{t.openRoute(route.title)}</span>
+			<div class="exp-route-topic-card__footer">
+				<span>{t.guideCount(route.pages.length)}</span>
+				<span class="exp-cta-link">{t.openRoute(route.title)}</span>
+			</div>
 		</div>
-	</div>
-</a>
+	</a>
+	{relatedMapRoutes.length > 0 && (
+		<div class="exp-route-topic-card__related">
+			<span>Related Routes</span>
+			{relatedMapRoutes.map((mapRoute) => <a href={mapRouteHref(mapRoute.id)} target="_blank" rel="noopener noreferrer">{mapRoute.name} ↗</a>)}
+		</div>
+	)}
+</article>

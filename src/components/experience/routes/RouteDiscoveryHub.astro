@@ -12,6 +12,8 @@ const groups = [
 	.map((group) => ({ ...group, routes: group.routeIds.map((id) => mapRoutes.find((route) => route.id === id)).filter(Boolean) }))
 	.filter((group) => group.routes.length > 0);
 
+const routeCards = groups.flatMap((group) => group.routes.map((route) => ({ route, category: group.id })));
+
 const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 	.map((waypoint) => toolkitItemByMapMarkerId.get(waypoint.markerId)?.id)
 	.filter((id): id is string => Boolean(id));
@@ -26,41 +28,36 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 		<a class="route-discovery__map-link" href="/mortal-shell-ii/map/">Free exploration map <span aria-hidden="true">↗</span></a>
 	</header>
 
-	<div class="route-discovery__groups">
-		{groups.map((group) => (
-			<section class="route-discovery__group" aria-labelledby={`route-group-${group.id}`}>
-				<div class="route-discovery__group-heading">
-					<p class="exp-eyebrow">Route library</p>
-					<h2 id={`route-group-${group.id}`}>{group.label}</h2>
-				</div>
-				<div class="route-card-grid">
-					{group.routes.map((route) => {
-						if (!route) return null;
-						const itemIds = routeItems(route);
-						return (
-							<article class="route-card" data-route-card={route.id} data-route-items={itemIds.join(',')}>
-								<MapRoutePreview route={route} />
-								<div class="route-card__body">
-									<div class="route-card__meta"><span>{route.type}</span><span>{route.region}</span></div>
-									<h3>{route.name}</h3>
-									<p class="route-card__stops">{route.waypoints.length} stops · <span data-route-progress>0 / {route.waypoints.length}</span></p>
-									<div class="route-card__progress"><span data-route-progress-bar></span></div>
-									<div class="route-card__copy">
-										<strong>Why this route</strong>
-										<p>{route.description}</p>
-									</div>
-									<div class="route-card__best"><span>Best for</span><strong>{route.goal}</strong></div>
-									<div class="route-card__footer">
-										<span data-route-status>Ready</span>
-										<a class="exp-cta-link" href={mapRouteHref(route.id)}>View Route <span aria-hidden="true">→</span></a>
-									</div>
-								</div>
-							</article>
-						);
-					})}
-				</div>
-			</section>
-		))}
+	<nav class="route-discovery__filters" aria-label="Filter routes" data-route-filters>
+		<span class="route-discovery__filter-label">Route library</span>
+		<button class="route-filter is-active" type="button" data-route-filter-button="all" aria-pressed="true">All</button>
+		{groups.map((group) => <button class="route-filter" type="button" data-route-filter-button={group.id} aria-pressed="false">{group.label}</button>)}
+	</nav>
+
+	<div class="route-card-grid" data-route-grid>
+		{routeCards.map(({ route, category }) => {
+			const itemIds = routeItems(route);
+			return (
+				<a class="route-card" href={mapRouteHref(route.id)} data-route-card={route.id} data-route-category={category} data-route-items={itemIds.join(',')}>
+					<MapRoutePreview route={route} />
+					<div class="route-card__body">
+						<div class="route-card__meta"><span>{route.type}</span><span>{route.region}</span></div>
+						<h3>{route.name}</h3>
+						<p class="route-card__stops">{route.waypoints.length} stops · <span data-route-progress>0 / {route.waypoints.length}</span></p>
+						<div class="route-card__progress"><span data-route-progress-bar></span></div>
+						<div class="route-card__copy">
+							<strong>Why this route</strong>
+							<p>{route.description}</p>
+						</div>
+						<div class="route-card__best"><span>Best for</span><strong>{route.goal}</strong></div>
+						<div class="route-card__footer">
+							<span data-route-status>Ready</span>
+							<span class="exp-cta-link">View Route <span aria-hidden="true">→</span></span>
+						</div>
+					</div>
+				</a>
+			);
+		})}
 	</div>
 </section>
 
@@ -75,9 +72,21 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 				return new Set(Array.isArray(parsed) ? parsed : parsed.completedIds || []);
 			} catch { return new Set(); }
 		};
+		const filterButtons = Array.from(root.querySelectorAll('[data-route-filter-button]'));
+		const routeCards = Array.from(root.querySelectorAll('[data-route-card]'));
+		const applyFilter = (filter) => {
+			filterButtons.forEach((button) => {
+				const active = button.getAttribute('data-route-filter-button') === filter;
+				button.classList.toggle('is-active', active);
+				button.setAttribute('aria-pressed', String(active));
+			});
+			routeCards.forEach((card) => {
+				card.hidden = filter !== 'all' && card.getAttribute('data-route-category') !== filter;
+			});
+		};
 		const render = () => {
 			const completed = readCompleted();
-			root.querySelectorAll('[data-route-card]').forEach((card) => {
+			routeCards.forEach((card) => {
 				const ids = (card.getAttribute('data-route-items') || '').split(',').filter(Boolean);
 				const done = ids.filter((id) => completed.has(id)).length;
 				const percent = ids.length ? Math.round(done / ids.length * 100) : 0;
@@ -89,7 +98,9 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 				if (status) status.textContent = percent === 100 ? 'Complete' : done ? `${percent}% underway` : 'Ready';
 			});
 		};
+		filterButtons.forEach((button) => button.addEventListener('click', () => applyFilter(button.getAttribute('data-route-filter-button') || 'all')));
 		render();
+		applyFilter('all');
 		window.addEventListener('storage', render);
 	}
 </script>

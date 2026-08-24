@@ -170,6 +170,7 @@
 	color: var(--xp-text-muted);
 	text-decoration: none;
 	border-radius: 6px;
+	border: 1px solid transparent;
 	transition: color 120ms, background 120ms;
 }
 
@@ -182,7 +183,9 @@
 .exp-topbar__link[aria-current='page'],
 .exp-topbar__link.is-active {
 	color: var(--xp-accent-text);
-	background: color-mix(in srgb, var(--xp-accent) 12%, transparent);
+	border-color: color-mix(in srgb, var(--xp-accent) 42%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 18%, transparent);
+	box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--xp-accent) 70%, transparent);
 }
 
 /* Search trigger */
@@ -684,7 +687,6 @@
 .exp-route-topic-card {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr;
 	min-width: 0;
 	height: 100%;
 	overflow: hidden;
@@ -695,11 +697,29 @@
 	transition: border-color 140ms, background 140ms, transform 140ms;
 }
 
+.exp-route-topic-card__link {
+	display: grid;
+	grid-template-rows: auto 1fr;
+	min-width: 0;
+	color: inherit;
+	text-decoration: none;
+}
+
 .exp-route-topic-card:hover,
 .exp-route-topic-card:focus-visible {
 	border-color: color-mix(in srgb, var(--xp-accent) 54%, var(--xp-border));
 	background: color-mix(in srgb, var(--xp-surface) 52%, transparent);
 	transform: translateY(-1px);
+}
+
+.exp-route-topic-card:focus-within {
+	border-color: color-mix(in srgb, var(--xp-accent) 54%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-surface) 52%, transparent);
+}
+
+.exp-route-topic-card__link:focus-visible {
+	outline: 2px solid var(--xp-accent-text);
+	outline-offset: -2px;
 }
 
 .exp-route-topic-card__visual {
@@ -717,6 +737,16 @@
 	object-fit: cover;
 	opacity: 0.84;
 	transition: opacity 140ms, transform 200ms;
+}
+
+.exp-route-topic-card__visual--fallback {
+	display: grid;
+	place-items: center;
+	color: var(--xp-accent-text);
+	font-size: 2rem;
+	background:
+		radial-gradient(circle at 50% 20%, color-mix(in srgb, var(--xp-accent) 26%, transparent), transparent 62%),
+		var(--xp-surface-dark);
 }
 
 .exp-route-topic-card:hover .exp-route-topic-card__visual img,
@@ -809,6 +839,33 @@
 	border-top: 1px solid var(--xp-border);
 	color: var(--xp-text-muted);
 	font-size: var(--xp-text-sm);
+}
+
+.exp-route-topic-card__related {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35rem 0.75rem;
+	padding: 0.65rem 1.2rem 0.8rem;
+	border-top: 1px solid var(--xp-border-subtle);
+	background: color-mix(in srgb, var(--xp-surface) 24%, transparent);
+	font-size: var(--xp-text-xs);
+}
+
+.exp-route-topic-card__related > span {
+	color: var(--xp-text-dim);
+	font-weight: 700;
+}
+
+.exp-route-topic-card__related a {
+	color: var(--xp-accent-text);
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.exp-route-topic-card__related a:hover,
+.exp-route-topic-card__related a:focus-visible {
+	text-decoration: underline;
 }
 
 .exp-route-topic-card--primary {

@@ -59,11 +59,20 @@
 	}
 }
 
+.map-page,
+.map-workspace,
+.map-control-center {
+	background-color: var(--xp-bg);
+}
+
 .map-panel,
 .map-viewport,
 .map-leaflet,
-.map-leaflet .leaflet-container {
-	background-color: var(--map-ink);
+.map-leaflet .leaflet-container,
+.map-leaflet .leaflet-map-pane,
+.map-leaflet .leaflet-tile-pane,
+.map-leaflet .leaflet-overlay-pane {
+	background: var(--map-ink);
 }
 
 .map-control-center[data-map-tools-panel] .map-control-section--detail {

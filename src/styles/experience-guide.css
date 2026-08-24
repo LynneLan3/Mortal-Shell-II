@@ -128,6 +128,85 @@ body:has(.exp-guide-frame) .exp-topbar {
 	color: var(--xp-text-muted);
 }
 
+.guide-map-action {
+	display: grid;
+	gap: 0.45rem;
+	max-width: var(--xp-guide-reading);
+	margin: 0 0 2rem;
+}
+
+.guide-map-action__kicker {
+	font-size: 0.65rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--xp-accent-text);
+}
+
+.guide-map-action__link {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	min-width: 0;
+	padding: 0.85rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--xp-accent) 46%, var(--xp-border));
+	background: color-mix(in srgb, var(--xp-accent) 8%, var(--xp-surface));
+	color: var(--xp-text-bright);
+	text-decoration: none;
+	transition: border-color 140ms, background 140ms, transform 140ms;
+}
+
+.guide-map-action__link:hover,
+.guide-map-action__link:focus-visible {
+	border-color: var(--xp-accent-text);
+	background: color-mix(in srgb, var(--xp-accent) 15%, var(--xp-surface));
+	transform: translateY(-1px);
+}
+
+.guide-map-action__link:focus-visible {
+	outline: 2px solid var(--xp-accent-text);
+	outline-offset: 3px;
+}
+
+.guide-map-action__icon {
+	display: grid;
+	flex: 0 0 2rem;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	border: 1px solid color-mix(in srgb, var(--xp-accent) 62%, var(--xp-border));
+	border-radius: 50%;
+	color: var(--xp-accent-text);
+	font-size: 1.2rem;
+}
+
+.guide-map-action__copy {
+	display: grid;
+	gap: 0.15rem;
+	min-width: 0;
+}
+
+.guide-map-action__copy strong,
+.guide-map-action__copy span {
+	overflow-wrap: anywhere;
+}
+
+.guide-map-action__copy strong {
+	font-size: 0.95rem;
+}
+
+.guide-map-action__copy span {
+	font-size: var(--xp-text-sm);
+	color: var(--xp-text-muted);
+}
+
+.guide-map-action__arrow {
+	margin-inline-start: auto;
+	flex: 0 0 auto;
+	font-size: 1.15rem;
+	color: var(--xp-accent-text);
+}
+
 .exp-next-step {
 	max-width: var(--xp-guide-wide);
 	margin: 0 auto;

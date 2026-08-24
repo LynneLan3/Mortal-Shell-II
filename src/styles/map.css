@@ -92,6 +92,17 @@
 	scrollbar-width: thin;
 }
 
+.map-guide-context {
+	margin: 0 0 0.75rem;
+	padding: 0.7rem 0.85rem;
+	border: 1px solid color-mix(in srgb, var(--xp-accent) 42%, var(--xp-border));
+	border-radius: 7px;
+	background: color-mix(in srgb, var(--xp-accent) 9%, var(--xp-surface-tinted));
+	color: var(--xp-text-bright);
+	font-size: var(--xp-text-sm);
+	font-weight: 700;
+}
+
 .map-category-chip {
 	flex: 0 0 auto;
 	padding: 0.45rem 0.7rem;

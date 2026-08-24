@@ -5,6 +5,7 @@ import { ui, formatUiDate } from '../../lib/ui';
 import { experienceNav } from '../../lib/experience-nav';
 import { routeHref } from '../../lib/routes';
 import { loadGuideContent } from '../../lib/guide-content';
+import GuideMapAction from './GuideMapAction.astro';
 
 const { entry } = Astro.locals.starlightRoute;
 const t = ui();
@@ -43,6 +44,7 @@ const routeLink = route ? routeHref(game.hubPath, route.id) : undefined;
 				)}
 			</div>
 		)}
+		<GuideMapAction />
 	</header>
 </div>
 

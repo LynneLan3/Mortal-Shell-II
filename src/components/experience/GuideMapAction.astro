@@ -1,0 +1,29 @@
+---
+import { game } from '../../config/game';
+import { getGuideMapKey, getMapTargetsForGuideUrl } from '../../lib/toolkit-map';
+
+const targets = getMapTargetsForGuideUrl(Astro.url.pathname);
+const mapPath = `${game.hubPath}map/`;
+const guideKey = getGuideMapKey(Astro.url.pathname);
+const href = targets.length === 1
+	? `${mapPath}?marker=${encodeURIComponent(targets[0].mapMarkerId)}`
+	: `${mapPath}?guide=${encodeURIComponent(guideKey)}`;
+const title = targets.length === 1
+	? 'View on Map'
+	: `View ${targets.length} locations on Map`;
+const detail = targets.length === 1 ? targets[0].name : `${guideKey.split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} Guide`;
+---
+
+{targets.length > 0 && (
+	<div class="guide-map-action" aria-label="Player Toolkit map action">
+		<span class="guide-map-action__kicker">Player Toolkit</span>
+		<a class="guide-map-action__link" href={href}>
+			<span class="guide-map-action__icon" aria-hidden="true">⌖</span>
+			<span class="guide-map-action__copy">
+				<strong>{title}</strong>
+				<span>{detail}</span>
+			</span>
+			<span class="guide-map-action__arrow" aria-hidden="true">→</span>
+		</a>
+	</div>
+)}

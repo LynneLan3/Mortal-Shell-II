@@ -6,6 +6,10 @@ import {
 	toolkitItems,
 	toolkitItemByMapMarkerId,
 } from '../../data/toolkit-items';
+import {
+	getCanonicalGuideUrlForMapMarker,
+	getMapGuideGroups,
+} from '../../lib/toolkit-map';
 
 interface Props {
 	markers: readonly MapMarker[];
@@ -14,6 +18,10 @@ interface Props {
 const { markers } = Astro.props;
 const mappedItemCount = markers.filter((marker) => toolkitItemByMapMarkerId.has(marker.id)).length;
 const trackerCountLabel = `${toolkitItems.length} tracked items`;
+const mapGuideGroups = getMapGuideGroups();
+const mapGuideGroupByMarkerId = new Map(
+	mapGuideGroups.flatMap((group) => group.targets.map((target) => [target.mapMarkerId, group.key] as const)),
+);
 ---
 
 <section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
@@ -87,6 +95,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 	</div>
 
 	<section id="toolkit-map-view" class="toolkit-view" role="tabpanel" aria-labelledby="toolkit-tab-map" data-toolkit-panel="map">
+		<p class="map-guide-context" data-map-guide-context hidden></p>
 		<div class="map-layout">
 			<section class="map-panel" aria-label="Interactive world map">
 				<div class="map-panel__header">
@@ -115,6 +124,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 									data-map-marker-category={marker.category}
 									data-map-marker-region={marker.region}
 									data-toolkit-id={item?.id}
+									data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)}
 									aria-label={`Open details for ${marker.name}`}
 								>
 									<span class="map-marker__dot" aria-hidden="true"></span>
@@ -141,6 +151,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 				</div>
 				{markers.map((marker) => {
 					const item = toolkitItemByMapMarkerId.get(marker.id);
+					const guideUrl = getCanonicalGuideUrlForMapMarker(marker.id);
 					return (
 						<article class="map-detail" data-map-detail={marker.id} hidden>
 							<p class="map-panel__eyebrow">{marker.category}</p>
@@ -152,7 +163,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 							<p>{marker.description}</p>
 							{item && <label class="toolkit-complete-control"><input type="checkbox" data-toolkit-checkbox={item.id} /><span data-toolkit-checkbox-label>Mark complete</span></label>}
 							{marker.image && <img class="map-detail__image" src={marker.image} alt="" loading="lazy" decoding="async" />}
-							{marker.guideUrl && <a class="map-detail__link" href={marker.guideUrl}>Read Guide <span aria-hidden="true">→</span></a>}
+						{guideUrl && <a class="map-detail__link" href={guideUrl}>Read Guide <span aria-hidden="true">→</span></a>}
 							<a class="map-detail__source" href={marker.source} target="_blank" rel="noreferrer">Research source <span aria-hidden="true">↗</span></a>
 						</article>
 					);
@@ -218,8 +229,10 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 		const zoomLabel = app.querySelector('[data-map-zoom-label]');
 		const zoomIn = app.querySelector('[data-map-zoom-in]');
 		const zoomOut = app.querySelector('[data-map-zoom-out]');
+		const guideContext = app.querySelector('[data-map-guide-context]');
 		const checklistItems = Array.from(app.querySelectorAll('[data-toolkit-item]'));
 		const checkboxes = Array.from(app.querySelectorAll('[data-toolkit-checkbox]'));
+		const validGuideKeys = new Set(markerButtons.map((marker) => marker.getAttribute('data-map-guide-key')).filter(Boolean));
 		const validIds = new Set(checklistItems.map((item) => item.getAttribute('data-toolkit-item')).filter(Boolean));
 		let zoom = 1;
 		let dragging = false;
@@ -228,6 +241,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 		let scrollStartX = 0;
 		let scrollStartY = 0;
 		let activeCategory = 'all';
+		let activeGuideKey = '';
 		let completedIds = new Set();
 
 		function readProgress() {
@@ -273,7 +287,9 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 				const name = marker.textContent?.toLowerCase() ?? '';
 				const region = marker.getAttribute('data-map-marker-region')?.toLowerCase() ?? '';
 				const markerCategory = marker.getAttribute('data-map-marker-category') ?? '';
-				const matches = (activeCategory === 'all' || markerCategory === activeCategory) && (name.includes(query) || region.includes(query)) && !(shouldHideCompleted && id && completedIds.has(id));
+				const markerGuideKey = marker.getAttribute('data-map-guide-key') ?? '';
+				const matchesGuide = !activeGuideKey || markerGuideKey === activeGuideKey;
+				const matches = matchesGuide && (activeCategory === 'all' || markerCategory === activeCategory) && (name.includes(query) || region.includes(query)) && !(shouldHideCompleted && id && completedIds.has(id));
 				marker.toggleAttribute('hidden', !matches);
 				if (matches) visibleMarkers += 1;
 			});
@@ -350,7 +366,30 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 			const url = new URL(window.location.href);
 			if (id) url.searchParams.set('marker', id);
 			else url.searchParams.delete('marker');
+			url.searchParams.delete('guide');
 			window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+		}
+
+		function setGuideUrl(key) {
+			const url = new URL(window.location.href);
+			if (key) url.searchParams.set('guide', key);
+			else url.searchParams.delete('guide');
+			url.searchParams.delete('marker');
+			window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+		}
+
+		function setGuideContext(key) {
+			activeGuideKey = key;
+			if (!(guideContext instanceof HTMLElement)) return;
+			if (!key) {
+				guideContext.hidden = true;
+				guideContext.textContent = '';
+				return;
+			}
+			const count = markerButtons.filter((marker) => marker.getAttribute('data-map-guide-key') === key).length;
+			const label = key.split('-').filter(Boolean).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+			guideContext.textContent = `${count} location${count === 1 ? '' : 's'} from ${label} Guide`;
+			guideContext.hidden = false;
 		}
 
 		function showDetail(id, reveal = false) {
@@ -369,11 +408,27 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 			if (!markerId || !markerButtons.some((marker) => marker.getAttribute('data-map-marker-button') === markerId)) return;
 			if (search instanceof HTMLInputElement) search.value = '';
 			if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false;
+			setGuideContext('');
 			setCategory('all');
 			setMode('map');
 			applyFilters();
 			setMarkerUrl(markerId);
 			showDetail(markerId, true);
+		}
+
+		function revealGuideTargets(guideKey) {
+			if (!guideKey || !validGuideKeys.has(guideKey)) return false;
+			if (search instanceof HTMLInputElement) search.value = '';
+			if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false;
+			setCategory('all');
+			setMode('map');
+			setGuideContext(guideKey);
+			setGuideUrl(guideKey);
+			details.forEach((detail) => { detail.hidden = true; });
+			if (empty) empty.hidden = false;
+			markerButtons.forEach((marker) => marker.classList.remove('is-selected'));
+			applyFilters();
+			return true;
 		}
 
 		function setZoom(nextZoom) {
@@ -420,6 +475,7 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 		});
 		markerButtons.forEach((marker) => marker.addEventListener('click', () => {
 			const markerId = marker.getAttribute('data-map-marker-button') || '';
+			setGuideContext('');
 			setMarkerUrl(markerId);
 			showDetail(markerId);
 		}));
@@ -449,7 +505,9 @@ const trackerCountLabel = `${toolkitItems.length} tracked items`;
 			viewport.addEventListener('pointercancel', stopDragging);
 		}
 		const initialMarker = new URL(window.location.href).searchParams.get('marker');
+		const initialGuide = new URL(window.location.href).searchParams.get('guide');
 		updateProgressUI();
-		if (initialMarker) revealAndShowMarker(initialMarker);
+		if (initialMarker && markerButtons.some((marker) => marker.getAttribute('data-map-marker-button') === initialMarker)) revealAndShowMarker(initialMarker);
+		else if (initialGuide) revealGuideTargets(initialGuide);
 	}
 </script>

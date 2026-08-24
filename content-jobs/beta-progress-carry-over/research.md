@@ -2,6 +2,8 @@
 
 Update the existing `/mortal-shell-ii/beta-progress-carry-over/` page for the post-launch query cluster around beta save transfer, beta rewards, Prologue skip eligibility, and what resets. Do not create a second beta, rewards, or Flayed Harbinger page.
 
+- The full game is released as of 2026-08-20. Replace pre-launch framing with launch-era answers; do not say to prepare for launch or wait for release.
+
 # Confirmed facts
 
 - The official developer-marked Steam answer says the Open Beta save data does **not** transfer to the full game.

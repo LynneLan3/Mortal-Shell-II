@@ -7,7 +7,7 @@ const JOBS_ROOT = path.join(PROJECT_ROOT, 'content-jobs');
 const PROMPT_FILE = path.join(PROJECT_ROOT, 'scripts', 'prompts', 'game-guide-writer.md');
 const DEFAULT_APIMART_BASE_URL = 'https://api.apimart.ai/v1';
 const DEFAULT_TIMEOUT_MS = 60_000;
-const MAX_TOKENS = 6_000;
+const MAX_TOKENS = 8_000;
 
 function relativePath(filePath) {
 	return path.relative(PROJECT_ROOT, filePath) || '.';
@@ -19,10 +19,15 @@ function fail(message) {
 
 function parseArgs(argv) {
 	const dryRun = argv.includes('--dry-run');
+	const formatArg = argv.find((arg) => arg.startsWith('--format='));
+	const format = formatArg ? formatArg.slice('--format='.length) : 'article';
 	const positional = argv.filter((arg) => !arg.startsWith('--'));
 
 	if (positional.length !== 1) {
-		fail('Usage: npm run article -- <slug> [--dry-run]');
+		fail('Usage: npm run article -- <slug> [--dry-run] [--format=page-package]');
+	}
+	if (!['article', 'page-package'].includes(format)) {
+		fail(`Invalid format "${format}". Use article or page-package.`);
 	}
 
 	const [slug] = positional;
@@ -30,7 +35,7 @@ function parseArgs(argv) {
 		fail(`Invalid slug "${slug}". Use lowercase letters, numbers, hyphens, or underscores.`);
 	}
 
-	return { dryRun, slug };
+	return { dryRun, format, slug };
 }
 
 function firstEnv(names) {
@@ -115,6 +120,34 @@ function extractText(payload) {
 	}
 
 	return '';
+}
+
+function parsePagePackage(text) {
+	const normalized = text
+		.trim()
+		.replace(/^```(?:json)?\s*/i, '')
+		.replace(/\s*```$/i, '')
+		.trim();
+	let value;
+	try {
+		value = JSON.parse(normalized);
+	} catch {
+		fail('APIMart page package was not valid JSON.');
+	}
+	if (!value || typeof value !== 'object' || Array.isArray(value)) {
+		fail('APIMart page package must be a JSON object.');
+	}
+	for (const field of ['title', 'description', 'quickAnswer', 'articleMarkdown']) {
+		if (typeof value[field] !== 'string' || !value[field].trim()) {
+			fail(`APIMart page package is missing a non-empty ${field}.`);
+		}
+	}
+	if (!Array.isArray(value.faq) || value.faq.some((item) =>
+		!item || typeof item.question !== 'string' || !item.question.trim()
+		|| typeof item.answer !== 'string' || !item.answer.trim())) {
+		fail('APIMart page package faq must be an array of question/answer objects.');
+	}
+	return value;
 }
 
 async function fetchWithTimeout(url, options, timeoutMs) {
@@ -202,29 +235,37 @@ async function readRequired(filePath, label) {
 }
 
 async function main() {
-	const { dryRun, slug } = parseArgs(process.argv.slice(2));
+	const { dryRun, format, slug } = parseArgs(process.argv.slice(2));
 	const jobDir = path.join(JOBS_ROOT, slug);
 	const researchFile = path.join(jobDir, 'research.md');
 	const articleFile = path.join(jobDir, 'article.md');
+	const packageFile = path.join(jobDir, 'page.json');
 
 	const research = await readRequired(researchFile, 'Research file');
-	const prompt = await readRequired(PROMPT_FILE, 'Writer prompt');
+	const promptFile = format === 'page-package'
+		? path.join(PROJECT_ROOT, 'scripts', 'prompts', 'game-guide-page-package.md')
+		: PROMPT_FILE;
+	const prompt = await readRequired(promptFile, 'Writer prompt');
 	const config = resolveConfig({ requireComplete: !dryRun });
 
 	if (dryRun) {
 		console.log('dry-run: PASS');
 		console.log(`input file: ${relativePath(researchFile)}`);
-		console.log(`prompt file: ${relativePath(PROMPT_FILE)}`);
+		console.log(`prompt file: ${relativePath(promptFile)}`);
+		console.log(`format: ${format}`);
 		console.log('API call: skipped');
 		return;
 	}
 
-	const article = await requestArticle(config, prompt, research);
+	const responseText = await requestArticle(config, prompt, research);
+	const pagePackage = format === 'page-package' ? parsePagePackage(responseText) : null;
+	const article = pagePackage?.articleMarkdown ?? responseText;
 	await mkdir(jobDir, { recursive: true });
 	const temporaryFile = `${articleFile}.tmp-${process.pid}`;
 	try {
 		await writeFile(temporaryFile, `${article}\n`, 'utf8');
 		await rename(temporaryFile, articleFile);
+		if (pagePackage) await writeFile(packageFile, `${JSON.stringify(pagePackage, null, 2)}\n`, 'utf8');
 	} finally {
 		await rm(temporaryFile, { force: true });
 	}
@@ -232,6 +273,7 @@ async function main() {
 	console.log(`model: ${config.model.value}`);
 	console.log(`input file: ${relativePath(researchFile)}`);
 	console.log(`output file: ${relativePath(articleFile)}`);
+	if (pagePackage) console.log(`metadata file: ${relativePath(packageFile)}`);
 	console.log(`output character count: ${article.length}`);
 }
 

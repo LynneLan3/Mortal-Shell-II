@@ -1,0 +1,86 @@
+{
+  "title": "Mortal Shell II Guide & Wiki",
+  "description": "Central hub for Mortal Shell II guides, interactive map, shells, weapons, bosses, routes, and database pages.",
+  "quickAnswer": "This Guides hub collects Mortal Shell II resources: Beginner Guide, Interactive Map, Shells, Weapons, Bosses, Walkthrough/Routes, NG+, Achievements, and Upgrades. Use the authority cards below to jump to the page you need.",
+  "faq": [
+    {
+      "question": "Where can I find the Beginner Guide?",
+      "answer": "The Beginner Guide is linked from this hub at /mortal-shell-ii/beginner-guide/ and is the recommended starting point."
+    },
+    {
+      "question": "Is there an interactive map for Mortal Shell II?",
+      "answer": "Yes — open the Interactive Map at /mortal-shell-ii/map/ from the hub to locate shells, bosses, and notable sites."
+    },
+    {
+      "question": "Where are the Shells and Weapons references?",
+      "answer": "Shells and Weapons are documented in the hub at /mortal-shell-ii/shells/ and /mortal-shell-ii/weapons/ respectively."
+    },
+    {
+      "question": "Does the hub link to boss and route information?",
+      "answer": "Yes — Bosses are grouped at /mortal-shell-ii/bosses/ and world-progression routes are at /mortal-shell-ii/routes/world-progression/."
+    },
+    {
+      "question": "Where can I read about NG+ and Tarforge upgrades?",
+      "answer": "NG+ guidance is at /mortal-shell-ii/new-game-plus/ and Tarforge/Upgrades are covered at /mortal-shell-ii/tarforge/."
+    }
+  ],
+  "articleMarkdown": "Welcome — this Guides hub is the central gateway to Mortal Shell II help: concise how-tos, the interactive map, shell and weapon database pages, boss references, routes and progression, NG+, trophies, and Tarforge upgrades.\n\nQuick links\n\n- Beginner Guide — /mortal-shell-ii/beginner-guide/\n- Interactive Map — /mortal-shell-ii/map/\n- Shells — /mortal-shell-ii/shells/\n- Weapons — /mortal-shell-ii/weapons/\n- Bosses — /mortal-shell-ii/bosses/\n- Walkthrough / Routes — /mortal-shell-ii/routes/world-progression/\n- Achievements — /mortal-shell-ii/trophies/\n- NG+ — /mortal-shell-ii/new-game-plus/\n- Upgrades (Tarforge) — /mortal-shell-ii/tarforge/\n\n[IMAGE: Hub overview screenshot placeholder]\n\nAuthority cards (use these to jump)\n\n- Beginner Guide — /mortal-shell-ii/beginner-guide/ — Start here for early-game tips and recommended first steps.\n- Interactive Map — /mortal-shell-ii/map/ — Full, clickable world map for locations and points of interest.\n- Shells — /mortal-shell-ii/shells/ — Reference list of shells and where to find them.\n- Weapons — /mortal-shell-ii/weapons/ — Weapon stats, locations, and overview.\n- Bosses — /mortal-shell-ii/bosses/ — Boss pages and summaries.\n- Walkthrough / Routes — /mortal-shell-ii/routes/world-progression/ — Suggested world-progression routes and route planning.\n- Achievements — /mortal-shell-ii/trophies/ — Trophy and achievement checklist.\n- NG+ — /mortal-shell-ii/new-game-plus/ — New Game+ notes and considerations.\n- Upgrades (Tarforge) — /mortal-shell-ii/tarforge/ — Tarforge upgrade pages and related info.\n\nHow to use this hub\n\n1. New players: open the Beginner Guide (/mortal-shell-ii/beginner-guide/) first. It is the recommended starting point linked from the homepage and Guides hub.\n2. Use the Interactive Map (/mortal-shell-ii/map/) to locate shells, bosses, and upgrade resources as you follow a route.\n3. Consult Shells (/mortal-shell-ii/shells/) and Weapons (/mortal-shell-ii/weapons/) pages when choosing builds.\n4. Follow the Walkthrough / Routes (/mortal-shell-ii/routes/world-progression/) for suggested progression order and to find key areas in sequence.\n5. When preparing for replay or late-game, read NG+ (/mortal-shell-ii/new-game-plus/) and Tarforge (/mortal-shell-ii/tarforge/).\n\nSuggested route (fast reference)\n\n1. Read the Beginner Guide (/mortal-shell-ii/beginner-guide/).\n2. Open the Interactive Map (/mortal-shell-ii/map/) and mark your immediate objectives.\n3. Prioritize a shell and a weapon page to focus your build (/mortal-shell-ii/shells/, /mortal-shell-ii/weapons/).\n4. Use the Routes page (/mortal-shell-ii/routes/world-progression/) to follow a world-progression plan.\n5. Consult Bosses (/mortal-shell-ii/bosses/) before major fights.\n\nCommon mistakes\n\n- Skipping the Beginner Guide: many early-game questions are covered there — start with it to avoid confusion.\n- Ignoring the map: locations matter for progression and upgrades; use /mortal-shell-ii/map/.\n- Jumping between sources without a route: pick a world-progression route on /mortal-shell-ii/routes/world-progression/ and follow it.\n\nRelated hub relationships (site graph)\n\n- The homepage links to the Beginner Guide, Skip Prologue (see homepage links), Shells, Weapons, Map, and Routes.\n- The Guides list includes Magdalena and Bosses; Magdalena pages also cross-link to Bosses and specific world routes.\n- Beta Carry Over, Skip Prologue, and the Beginner Guide are connected in the guide network (see the Beginner Guide and homepage links).\n\nIf you can't find a page listed in the cards, check the Guides index on the site; the hub groups existing guides by topic and adds direct links to the most-used pages.\n",
+  "sectionTitle": "Mortal Shell II Guide + Wiki + Map + Database",
+  "sectionDescription": "Concise hub module linking guides, the interactive map, shell and weapon databases, bosses, routes, NG+, trophies, and Tarforge upgrades.",
+  "authorityHubs": [
+    {
+      "label": "Beginner Guide",
+      "href": "/mortal-shell-ii/beginner-guide/",
+      "description": "Start here for early-game orientation and recommended first steps.",
+      "badge": "Guide"
+    },
+    {
+      "label": "Interactive Map",
+      "href": "/mortal-shell-ii/map/",
+      "description": "Clickable world map for locations, shells, bosses, and points of interest.",
+      "badge": "Map"
+    },
+    {
+      "label": "Shells",
+      "href": "/mortal-shell-ii/shells/",
+      "description": "Shell reference pages and location pointers.",
+      "badge": "Database"
+    },
+    {
+      "label": "Weapons",
+      "href": "/mortal-shell-ii/weapons/",
+      "description": "Weapon listings, stats, and where to find them.",
+      "badge": "Database"
+    },
+    {
+      "label": "Bosses",
+      "href": "/mortal-shell-ii/bosses/",
+      "description": "Boss pages and fight overviews.",
+      "badge": "Wiki"
+    },
+    {
+      "label": "Walkthrough / Routes",
+      "href": "/mortal-shell-ii/routes/world-progression/",
+      "description": "World-progression routes and suggested order of play.",
+      "badge": "Guide"
+    },
+    {
+      "label": "Achievements",
+      "href": "/mortal-shell-ii/trophies/",
+      "description": "Trophy and achievement checklist and tracking.",
+      "badge": "Wiki"
+    },
+    {
+      "label": "NG+",
+      "href": "/mortal-shell-ii/new-game-plus/",
+      "description": "New Game+ notes and considerations for replays.",
+      "badge": "Guide"
+    },
+    {
+      "label": "Upgrades (Tarforge)",
+      "href": "/mortal-shell-ii/tarforge/",
+      "description": "Tarforge upgrade pages and upgrade paths.",
+      "badge": "Database"
+    }
+  ]
+}

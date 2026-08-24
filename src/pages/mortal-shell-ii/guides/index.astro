@@ -5,14 +5,15 @@ import { game } from '../../../config/game';
 import { ui } from '../../../lib/ui';
 import { experienceNav } from '../../../lib/experience-nav';
 import '../../../styles/guides-index.css';
+import ExperienceStructuredData from '../../../components/ExperienceStructuredData.astro';
 
 const t = ui();
 const { nav, footerLinks, homeHref, guidesHref } = experienceNav();
 ---
 
-<GameShell
-	title={`${t.allGuides} | ${game.shortName}`}
-	description="All Mortal Shell II guides grouped by player route."
+	<GameShell
+	title={`${game.portal?.authorityPageTitle ?? t.allGuides} | ${game.shortName}`}
+	description={game.portal?.authorityPageDescription ?? 'All Mortal Shell II guides grouped by player route.'}
 	canonical={new URL(guidesHref, game.siteUrl).href}
 	siteTitle={game.shortName}
 	homeHref={homeHref}
@@ -23,6 +24,15 @@ const { nav, footerLinks, homeHref, guidesHref } = experienceNav();
 	footerLinks={footerLinks}
 	footerText={game.title}
 >
-	<meta slot="head" name="robots" content="noindex,follow" />
+	<ExperienceStructuredData
+		slot="head"
+		title={`${game.portal?.authorityPageTitle ?? t.allGuides} | ${game.shortName}`}
+		description={game.portal?.authorityPageDescription ?? 'All Mortal Shell II guides grouped by player route.'}
+		canonical={new URL(guidesHref, game.siteUrl).href}
+		breadcrumbs={[
+			{ name: game.name, href: new URL(game.hubPath, game.siteUrl).href },
+			{ name: t.allGuides, href: new URL(guidesHref, game.siteUrl).href },
+		]}
+	/>
 	<GuideTopicIndex />
 </GameShell>

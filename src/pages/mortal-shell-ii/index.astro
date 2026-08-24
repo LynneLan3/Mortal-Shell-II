@@ -4,6 +4,7 @@ import ExperienceHomepage from '../../components/experience/ExperienceHomepage.a
 import { game } from '../../config/game';
 import { experienceNav } from '../../lib/experience-nav';
 import '../../styles/experience-homepage.css';
+import ExperienceStructuredData from '../../components/ExperienceStructuredData.astro';
 
 const { nav, footerLinks, homeHref } = experienceNav();
 ---
@@ -21,5 +22,12 @@ const { nav, footerLinks, homeHref } = experienceNav();
 	footerLinks={footerLinks}
 	footerText={game.title}
 >
+	<ExperienceStructuredData
+		slot="head"
+		title={game.hubTitle ?? `${game.name} Guide & Wiki`}
+		description={game.description}
+		canonical={new URL(game.hubPath, game.siteUrl).href}
+		breadcrumbs={[{ name: game.name, href: new URL(game.hubPath, game.siteUrl).href }]}
+	/>
 	<ExperienceHomepage />
 </GameShell>

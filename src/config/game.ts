@@ -59,6 +59,13 @@ export interface GameHubStartHereItem {
 	badge?: string;
 }
 
+export interface GameAuthorityHub {
+	label: string;
+	href: string;
+	description: string;
+	badge: 'Guide' | 'Wiki' | 'Map' | 'Database';
+}
+
 export interface GameHubStatusItem {
 	label: string;
 	value: string;
@@ -110,6 +117,11 @@ export interface GamePortalConfig {
 	statusItems?: readonly GameHubStatusItem[];
 	startHere?: readonly GameHubStartHereItem[];
 	hotGuides?: readonly GameHubStartHereItem[];
+	authorityHubs?: readonly GameAuthorityHub[];
+	authorityPageTitle?: string;
+	authorityPageDescription?: string;
+	authoritySectionTitle?: string;
+	authoritySectionDescription?: string;
 	guideTopicGroups?: readonly GameGuideTopicGroup[];
 	guideVisuals?: Readonly<Record<string, GameGuideVisual>>;
 	categoryHotOrder?: Readonly<Record<string, readonly string[]>>;
@@ -406,6 +418,21 @@ export const game: GameConfig = {
 				badge: 'Endgame',
 			},
 		],
+		authorityHubs: [
+			{ label: 'Beginner Guide', href: '/mortal-shell-ii/beginner-guide/', description: 'Start here for early-game orientation and recommended first steps.', badge: 'Guide' },
+			{ label: 'Interactive Map', href: '/mortal-shell-ii/map/', description: 'Clickable world map for locations, Shells, bosses, and points of interest.', badge: 'Map' },
+			{ label: 'Shells', href: '/mortal-shell-ii/shells/', description: 'Shell reference pages and location pointers.', badge: 'Database' },
+			{ label: 'Weapons', href: '/mortal-shell-ii/weapons/', description: 'Weapon listings, stats, and where to find them.', badge: 'Database' },
+			{ label: 'Bosses', href: '/mortal-shell-ii/bosses/', description: 'Boss pages and fight overviews.', badge: 'Wiki' },
+			{ label: 'Walkthrough / Routes', href: '/mortal-shell-ii/routes/world-progression/', description: 'World-progression routes and suggested order of play.', badge: 'Guide' },
+			{ label: 'Achievements', href: '/mortal-shell-ii/trophies/', description: 'Trophy and achievement checklist and tracking.', badge: 'Wiki' },
+			{ label: 'NG+', href: '/mortal-shell-ii/new-game-plus/', description: 'New Game+ notes and considerations for replays.', badge: 'Guide' },
+			{ label: 'Upgrades (Tarforge)', href: '/mortal-shell-ii/tarforge/', description: 'Tarforge upgrade pages and upgrade paths.', badge: 'Database' },
+		],
+		authorityPageTitle: 'Mortal Shell II Guide & Wiki',
+		authorityPageDescription: 'Central hub for Mortal Shell II guides, interactive map, Shells, weapons, bosses, routes, and database pages.',
+		authoritySectionTitle: 'Mortal Shell II Guide + Wiki + Map + Database',
+		authoritySectionDescription: 'Concise hub module linking guides, the interactive map, Shell and weapon databases, bosses, routes, NG+, trophies, and Tarforge upgrades.',
 		guideTopicGroups: [
 			{
 				id: 'weapons-resources',

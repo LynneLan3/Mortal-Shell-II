@@ -1,0 +1,59 @@
+---
+import { game } from '../config/game';
+import { categoryHref, categoryOf } from '../lib/guides';
+
+const entry = Astro.locals.starlightRoute.entry;
+const pathname = Astro.url.pathname;
+const category = categoryOf(entry);
+const canonical = new URL(pathname, game.siteUrl).href;
+const homeUrl = new URL(game.hubPath, game.siteUrl).href;
+const breadcrumbItems = [
+	{ name: game.name, item: homeUrl },
+	...(category ? [{ name: category.label, item: new URL(categoryHref(category.id), game.siteUrl).href }] : []),
+	{ name: entry.data.title, item: canonical },
+].map((item, index) => ({
+		'@type': 'ListItem',
+		position: index + 1,
+		name: item.name,
+		item: item.item,
+	}));
+
+const dateModified = entry.data.lastUpdated instanceof Date
+	? entry.data.lastUpdated.toISOString()
+	: undefined;
+
+const graph: Record<string, unknown>[] = [
+	{
+		'@type': 'Article',
+		'@id': `${canonical}#article`,
+		headline: entry.data.title,
+		description: entry.data.description,
+		mainEntityOfPage: canonical,
+		url: canonical,
+		...(dateModified ? { dateModified, datePublished: dateModified } : {}),
+		author: { '@type': 'Organization', name: game.name, url: game.siteUrl },
+		publisher: { '@type': 'Organization', name: game.name, url: game.siteUrl },
+	},
+	{
+		'@type': 'BreadcrumbList',
+		'@id': `${canonical}#breadcrumb`,
+		itemListElement: breadcrumbItems,
+	},
+];
+
+if (entry.data.faq?.length) {
+	graph.push({
+		'@type': 'FAQPage',
+		'@id': `${canonical}#faq`,
+		mainEntity: entry.data.faq.map((item) => ({
+			'@type': 'Question',
+			name: item.question,
+			acceptedAnswer: { '@type': 'Answer', text: item.answer },
+		})),
+	});
+}
+
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={jsonLd} />

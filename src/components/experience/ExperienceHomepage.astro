@@ -33,6 +33,7 @@ import {
 } from '../../lib/ui';
 import ExperienceRouteShowcase from './ExperienceRouteShowcase.astro';
 import RouteTopicCard from './routes/RouteTopicCard.astro';
+import AuthorityHubGrid from './AuthorityHubGrid.astro';
 
 const t = ui();
 const guides = await getGuides();
@@ -79,6 +80,7 @@ const hotGuides: StartHereView[] = configuredHotGuides?.length
 			badge: item.badge,
 		}))
 	: [];
+const authorityHubs = game.portal?.authorityHubs ?? [];
 const orderedHotGuides = sortCardsByImage(hotGuides, (item) => resolveCardImage({ href: item.href, title: item.title, image: item.image, imageAlt: item.imageAlt }));
 
 /* ── Hero CTAs ── */
@@ -275,6 +277,17 @@ const factIcon = (label: string): IconName => {
 						</a>
 					))}
 				</div>
+			</div>
+		</section>
+	)}
+
+	{authorityHubs.length > 0 && (
+		<section class="exp-section exp-home-authority" aria-labelledby="exp-home-authority-heading">
+			<div class="exp-content">
+				<p class="exp-eyebrow">Guide + Wiki</p>
+				<h2 class="exp-h2" id="exp-home-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Hubs'}</h2>
+				{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
+				<AuthorityHubGrid hubs={authorityHubs} />
 			</div>
 		</section>
 	)}

@@ -1,0 +1,40 @@
+---
+import { game } from '../config/game';
+
+interface Breadcrumb {
+	name: string;
+	href: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	canonical: string;
+	breadcrumbs: readonly Breadcrumb[];
+}
+
+const { title, description, canonical, breadcrumbs } = Astro.props;
+const graph = [
+	{
+		'@type': 'WebPage',
+		'@id': `${canonical}#webpage`,
+		url: canonical,
+		name: title,
+		description,
+		isPartOf: { '@type': 'WebSite', name: game.name, url: game.siteUrl },
+	},
+	{
+		'@type': 'BreadcrumbList',
+		'@id': `${canonical}#breadcrumb`,
+		itemListElement: breadcrumbs.map((item, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			name: item.name,
+			item: item.href,
+		})),
+	},
+];
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={jsonLd} />

@@ -1,12 +1,16 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
 import Analytics from '../Analytics.astro';
+import GuideStructuredData from '../GuideStructuredData.astro';
 import { isExperienceGuide } from '../../lib/experience-guide';
 
 const isExperience = isExperienceGuide(
 	Astro.locals.starlightRoute.entry,
 	Astro.url.pathname,
 ) && Astro.locals.starlightRoute.entry.id !== 'privacy';
+const isDocument = Astro.locals.starlightRoute.entry.data.template !== 'splash'
+	&& Astro.locals.starlightRoute.entry.id !== '404'
+	&& !Astro.locals.starlightRoute.entry.id.endsWith('/404');
 ---
 
 {
@@ -38,6 +42,7 @@ const isExperience = isExperienceGuide(
 	)
 }
 <Default />
+{isDocument && <GuideStructuredData />}
 {
 	isExperience && (
 		<script is:inline>

@@ -17,6 +17,10 @@ export const collections = {
 					thumbnail: z.string().optional(),
 					imageAlt: z.string().optional(),
 					quickAnswer: z.string().optional(),
+					faq: z.array(z.object({
+						question: z.string(),
+						answer: z.string(),
+					})).optional(),
 					related: z.array(z.string()).optional(),
 					role: z.string().optional(),
 					eyebrow: z.string().optional(),

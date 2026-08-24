@@ -13,6 +13,7 @@ import type { GuideEntry } from '../../lib/guides';
 import { ui } from '../../lib/ui';
 import { resolveEntryCardImage, sortCardsByImage } from '../../lib/assets';
 import CardThumbnail from '../CardThumbnail.astro';
+import AuthorityHubGrid from './AuthorityHubGrid.astro';
 
 const t = ui();
 const guides = (await getGuides()).filter((entry) => Boolean(categoryOf(entry)));
@@ -84,6 +85,15 @@ if (unassigned.length > 0) {
 			<p class="exp-lede">Browse the guide library by topic. Use By Goal when you want a recommended player route instead.</p>
 		</div>
 	</header>
+
+	{game.portal?.authorityHubs && game.portal.authorityHubs.length > 0 && (
+		<section class="exp-content exp-guide-authority" aria-labelledby="exp-guide-authority-heading">
+			<p class="exp-eyebrow">Guide + Wiki</p>
+			<h2 class="exp-h2" id="exp-guide-authority-heading">{game.portal?.authoritySectionTitle ?? 'Core Hubs'}</h2>
+			{game.portal?.authoritySectionDescription && <p class="exp-lede">{game.portal.authoritySectionDescription}</p>}
+			<AuthorityHubGrid hubs={game.portal.authorityHubs} />
+		</section>
+	)}
 
 	<div class="exp-content exp-guide-topic-index__groups">
 		{groups.map((group, index) => (

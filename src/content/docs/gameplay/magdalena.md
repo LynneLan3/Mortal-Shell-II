@@ -9,6 +9,7 @@ quickAnswer: In the current Open Beta, Magdalena, the Lady of the Woods, is the 
 related:
   - mortal-shell-ii/gameplay
   - mortal-shell-ii/open-beta
+  - mortal-shell-ii/glutted-mire
 sidebar:
   order: 2
   badge: Open Beta

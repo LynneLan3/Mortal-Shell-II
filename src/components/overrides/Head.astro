@@ -1,5 +1,6 @@
 ---
 import Default from '@astrojs/starlight/components/Head.astro';
+import VercelAnalytics from '@vercel/analytics/astro';
 import Analytics from '../Analytics.astro';
 import GuideStructuredData from '../GuideStructuredData.astro';
 import { isExperienceGuide } from '../../lib/experience-guide';
@@ -52,3 +53,4 @@ const isDocument = Astro.locals.starlightRoute.entry.data.template !== 'splash'
 	)
 }
 <Analytics />
+<VercelAnalytics />

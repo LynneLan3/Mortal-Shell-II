@@ -24,9 +24,6 @@ function isNoindexUtilityUrl(page) {
 export default defineConfig({
 	site: game.siteUrl,
 	trailingSlash: 'always',
-	webAnalytics: {
-		enabled: true,
-	},
 	integrations: [
 		starlight({
 			title: game.shortName,

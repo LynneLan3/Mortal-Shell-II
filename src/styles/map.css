@@ -415,3 +415,296 @@
 	.map-surface { min-width: 30rem; }
 	.map-panel__header { align-items: flex-start; flex-direction: column; }
 }
+
+/* Player Toolkit V2 */
+.toolkit-progress {
+	margin: 1.5rem 0;
+	padding: 1.1rem 1.2rem 1.25rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 12px;
+	background: linear-gradient(135deg, color-mix(in srgb, var(--xp-accent) 10%, var(--xp-surface-tinted)), var(--xp-surface-tinted));
+}
+
+.toolkit-progress__header,
+.toolkit-progress__category-line,
+.checklist-header,
+.toolkit-item__topline {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.toolkit-progress__header h2,
+.checklist-header h2 {
+	margin: 0.25rem 0 0;
+	font-size: clamp(1.2rem, 2vw, 1.55rem);
+	color: var(--xp-text-bright);
+}
+
+.toolkit-progress__actions {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+
+.toolkit-progress__device-note,
+.checklist-header__note {
+	font-size: var(--xp-text-xs);
+	color: var(--xp-text-dim);
+}
+
+.toolkit-secondary-action,
+.toolkit-map-link {
+	min-height: 2.35rem;
+	padding: 0.45rem 0.7rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 7px;
+	background: transparent;
+	color: var(--xp-text-muted);
+	font: inherit;
+	cursor: pointer;
+}
+
+.toolkit-secondary-action:hover,
+.toolkit-secondary-action:focus-visible,
+.toolkit-map-link:hover,
+.toolkit-map-link:focus-visible {
+	border-color: var(--xp-accent-text);
+	color: var(--xp-text-bright);
+}
+
+.toolkit-progress__overall {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 0.75rem;
+	margin-top: 1.1rem;
+	font-size: var(--xp-text-sm);
+	font-weight: 700;
+	color: var(--xp-accent-text);
+}
+
+.toolkit-progress__bar {
+	height: 0.6rem;
+	overflow: hidden;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--xp-text) 12%, transparent);
+}
+
+.toolkit-progress__bar span {
+	display: block;
+	width: 0;
+	height: 100%;
+	border-radius: inherit;
+	background: var(--xp-accent);
+	box-shadow: 0 0 0.75rem color-mix(in srgb, var(--xp-accent) 60%, transparent);
+	transition: width 180ms ease;
+}
+
+.toolkit-progress__categories {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.85rem;
+	margin-top: 1.15rem;
+}
+
+.toolkit-progress__category-line {
+	align-items: center;
+	font-size: var(--xp-text-xs);
+	color: var(--xp-text-muted);
+}
+
+.toolkit-progress__category-line strong { color: var(--xp-text-bright); }
+
+.toolkit-progress__bar--small {
+	height: 0.3rem;
+	margin-top: 0.45rem;
+}
+
+.toolkit-view-tabs {
+	display: inline-flex;
+	gap: 0.25rem;
+	margin: 0.25rem 0 1rem;
+	padding: 0.25rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 9px;
+	background: var(--xp-surface-tinted);
+}
+
+.toolkit-view-tab {
+	min-width: 7.5rem;
+	min-height: 2.7rem;
+	padding: 0.55rem 1rem;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: var(--xp-text-muted);
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.toolkit-view-tab:hover,
+.toolkit-view-tab:focus-visible,
+.toolkit-view-tab.is-active {
+	background: color-mix(in srgb, var(--xp-accent) 18%, transparent);
+	color: var(--xp-accent-text);
+}
+
+.toolkit-filters {
+	display: grid;
+	grid-template-columns: minmax(14rem, 1.5fr) minmax(11rem, 0.8fr) auto auto 1fr;
+	align-items: end;
+	gap: 0.85rem;
+	padding: 1rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 12px;
+	background: var(--xp-surface-tinted);
+}
+
+.toolkit-filter label,
+.toolkit-filters > .toolkit-filter > label {
+	display: block;
+	margin-bottom: 0.4rem;
+	font-size: var(--xp-text-xs);
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--xp-text-dim);
+}
+
+.toolkit-filter__checkbox {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	min-height: 2.7rem;
+	color: var(--xp-text-muted);
+	font-size: var(--xp-text-sm);
+	cursor: pointer;
+}
+
+.toolkit-filter__checkbox input,
+.toolkit-complete-control input {
+	width: 1.2rem;
+	height: 1.2rem;
+	accent-color: var(--xp-accent);
+}
+
+.toolkit-filters .map-toolbar__count { justify-self: end; }
+
+.toolkit-view[hidden] { display: none; }
+
+.map-marker__status {
+	position: absolute;
+	display: none;
+	place-items: center;
+	width: 1rem;
+	height: 1rem;
+	border: 2px solid #06110f;
+	border-radius: 50%;
+	background: #5ee3af;
+	color: #06110f;
+	font-size: 0.65rem;
+	font-weight: 900;
+}
+
+.map-marker.is-completed .map-marker__dot {
+	background: #5ee3af;
+	border-color: #d4fff0;
+	box-shadow: 0 0 0 0.3rem rgb(94 227 175 / 0.2), 0 0 1rem rgb(94 227 175 / 0.8);
+}
+
+.map-marker.is-completed .map-marker__status { display: grid; top: -0.1rem; right: -0.1rem; }
+
+.toolkit-complete-control {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	margin-top: 1rem;
+	padding: 0.65rem 0.75rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 7px;
+	background: color-mix(in srgb, var(--xp-bg) 65%, transparent);
+	color: var(--xp-text-bright);
+	font-size: var(--xp-text-sm);
+	cursor: pointer;
+}
+
+.toolkit-complete-control--card { margin-top: 0; padding: 0; border: 0; background: transparent; }
+.toolkit-complete-control:hover { border-color: var(--xp-accent-text); }
+.toolkit-complete-control input { flex: 0 0 auto; }
+
+.checklist-header {
+	align-items: end;
+	margin: 0 0 1rem;
+}
+
+.checklist-header__note { max-width: 34rem; margin: 0; line-height: 1.5; text-align: right; }
+
+.toolkit-checklist {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.85rem;
+}
+
+.toolkit-item {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	padding: 1rem;
+	border: 1px solid var(--xp-border);
+	border-radius: 10px;
+	background: var(--xp-surface-tinted);
+}
+
+.toolkit-item.is-completed { border-color: color-mix(in srgb, #5ee3af 42%, var(--xp-border)); }
+.toolkit-item[hidden] { display: none; }
+.toolkit-item__topline { align-items: center; }
+.toolkit-item__category { color: var(--xp-accent-text); font-size: var(--xp-text-xs); font-weight: 700; }
+.toolkit-item h3 { margin: 0.9rem 0 0; color: var(--xp-text-bright); font-size: 1rem; line-height: 1.35; }
+.toolkit-item__region { margin: 0.45rem 0 0; color: var(--xp-text-dim); font-size: var(--xp-text-xs); }
+.toolkit-item__description { margin: 0.7rem 0 0; color: var(--xp-text-muted); font-size: var(--xp-text-sm); line-height: 1.5; }
+.toolkit-item__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem; margin-top: auto; padding-top: 0.9rem; }
+.toolkit-item__actions .map-detail__link { margin-top: 0; }
+.toolkit-map-link { min-height: 0; padding: 0; border: 0; color: var(--xp-accent-text); font-size: var(--xp-text-sm); }
+.toolkit-map-link:hover { text-decoration: underline; }
+.toolkit-empty { padding: 2rem; border: 1px dashed var(--xp-border); border-radius: 10px; color: var(--xp-text-muted); text-align: center; }
+
+.map-control:focus-visible,
+.map-reset:focus-visible,
+.map-category-chip:focus-visible,
+.map-controls button:focus-visible,
+.map-marker:focus-visible,
+.map-detail__link:focus-visible,
+.toolkit-view-tab:focus-visible,
+.toolkit-secondary-action:focus-visible,
+.toolkit-map-link:focus-visible,
+.toolkit-filter__checkbox:focus-within,
+.toolkit-complete-control:focus-within {
+	outline: 2px solid var(--xp-accent-text);
+	outline-offset: 2px;
+}
+
+@media (max-width: 55rem) {
+	.toolkit-filters { grid-template-columns: 1fr 1fr; }
+	.toolkit-filter--search { grid-column: 1 / -1; }
+	.toolkit-filters .map-toolbar__count { justify-self: start; }
+	.toolkit-checklist { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 34rem) {
+	.toolkit-progress__header,
+	.toolkit-progress__actions,
+	.checklist-header { align-items: flex-start; flex-direction: column; }
+	.toolkit-progress__actions { gap: 0.55rem; }
+	.toolkit-progress__categories { grid-template-columns: 1fr 1fr; }
+	.toolkit-view-tabs { display: flex; width: 100%; }
+	.toolkit-view-tab { flex: 1; min-width: 0; }
+	.toolkit-filters { grid-template-columns: 1fr; }
+	.toolkit-filter--search { grid-column: auto; }
+	.toolkit-filters .map-toolbar__count { justify-self: start; }
+	.toolkit-filters .map-reset { width: 100%; }
+	.toolkit-checklist { grid-template-columns: 1fr; }
+	.checklist-header__note { text-align: left; }
+}

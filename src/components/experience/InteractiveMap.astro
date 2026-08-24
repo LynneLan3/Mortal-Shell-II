@@ -29,6 +29,15 @@ const workspaceCategories = [
 	{ id: 'Other', label: 'Other', icon: markerIcons.Other },
 ].map((category) => ({ ...category, total: Math.max(toolkitItems.filter((item) => item.category === category.id).length, markers.filter((marker) => marker.category === category.id).length) }));
 const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons.Other;
+const regionIdForMarker = (marker: MapMarker) => marker.region.toLowerCase().includes('mammon') ? 'mammon' : 'fainweald';
+const regionDefinitions = [
+	{ id: 'fainweald', name: 'Fainweald', left: 8, top: 12, width: 56, height: 43, description: 'Verified Shell and map-fragment coverage in the Fainweald area.' },
+	{ id: 'mammon', name: 'Ruins of Mammon', left: 25, top: 48, width: 61, height: 43, description: 'Verified map-station coverage and curated objectives around Mammon.' },
+] as const;
+const regionStats = regionDefinitions.map((region) => {
+	const regionMarkers = markers.filter((marker) => regionIdForMarker(marker) === region.id);
+	return { ...region, markerCount: regionMarkers.length, shells: regionMarkers.filter((marker) => marker.category === 'Shells').length, fragments: regionMarkers.filter((marker) => marker.category === 'Map Fragments').length, bosses: regionMarkers.filter((marker) => marker.category === 'Bosses').length };
+});
 const routeStepStatusLabels = {
 	optional: 'Optional',
 	missable: 'Missable',
@@ -39,12 +48,13 @@ const routeStepStatusLabels = {
 
 <section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
 	<script type="application/json" data-map-achievement-json set:html={JSON.stringify(achievementDefinitions.map((achievement) => ({ id: achievement.id, name: achievement.name, category: achievement.category, objectiveIds: achievement.objectiveIds ?? [], total: achievementObjectiveCount(achievement), routeId: achievement.routeId ?? '', guideUrl: achievement.guideUrl ?? '' })))}></script>
+	<script type="application/json" data-map-region-json set:html={JSON.stringify(regionStats)}></script>
 	<header class="map-page__hero">
-		<div><p class="exp-eyebrow">Mortal Shell II Player Toolkit</p><h1 class="exp-h1">Mortal Shell 2 Map Workspace</h1><p class="map-page__lede">Choose a target, filter the world map, and turn a verified marker into your next action. Progress and your active route stay saved on this browser.</p><a class="map-ngplus-entry" href="/mortal-shell-ii/new-game-plus/#before-send-ova"><span>Preparing for NG+?</span> Review what to finish before Send Ova <span aria-hidden="true">→</span></a></div>
-		<a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Browse all guides <span aria-hidden="true">→</span></a>
+		<div><p class="exp-eyebrow">Mortal Shell II / World Map</p><h1 class="exp-h1">Explore the world first.</h1><p class="map-page__lede">Select a region to reveal its verified targets. Search, route planning, and your saved completion progress remain available in the light controls.</p></div>
+		<div class="map-page__hero-actions"><button class="map-toolbar-button" type="button" data-map-tools-toggle aria-expanded="false">Search &amp; layers</button><button class="map-toolbar-button" type="button" data-map-progress-toggle aria-expanded="false">Progress</button><a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Guides <span aria-hidden="true">→</span></a></div>
 	</header>
 
-	<section class="completion-hud" aria-labelledby="completion-hud-heading">
+	<section class="completion-hud" data-map-secondary-ui aria-labelledby="completion-hud-heading">
 		<div class="completion-hud__main"><div class="completion-hud__identity"><p class="map-panel__eyebrow">Completion HUD</p><div class="completion-hud__score"><strong data-progress-overall-percent>0%</strong><div><h2 id="completion-hud-heading"><span data-progress-total>0</span> / {toolkitItems.length} tracked objectives</h2><p>Browser-local progress · no account required</p></div></div></div><div class="completion-hud__achievement"><span>Achievement Completion</span><strong><span data-progress-achievements-done>0</span> / {achievementDefinitions.length}</strong><small data-progress-achievement-percent>0%</small></div><div class="completion-hud__actions"><span class="completion-hud__device-note">Saved locally on this device</span><button class="toolkit-secondary-action" type="button" data-reset-progress>Reset progress</button></div></div>
 		<div class="completion-hud__bar" aria-label="Overall completion progress"><span data-progress-overall-bar></span></div>
 		<div class="completion-hud__route" data-route-summary><div><p data-route-summary-kicker>Next recommended</p><strong data-route-summary-name>Fainweald Shells</strong></div><div class="completion-hud__route-state"><span data-route-summary-progress>0 / 5</span><span data-route-summary-next>Choose a route to start</span></div></div>
@@ -53,16 +63,18 @@ const routeStepStatusLabels = {
 
 	<div class="map-workspace">
 		<section class="map-panel map-panel--canvas" aria-label="Interactive world map">
-			<div class="map-panel__header"><div><p class="map-panel__eyebrow">Map surface</p><h2>Verified locations</h2></div><div class="map-panel__status-group"><span class="map-status" data-map-mode-status>All mapped targets</span><span class="map-status map-status--quiet">{markers.length} curated markers</span></div></div>
-			<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport><div class="map-surface" data-map-surface>
-				<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
-				<div class="map-attribution"><span>Basemap: {mapBasemap.sourceName}</span>{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}</div>
-				{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); return <button class="map-marker" type="button" style={`left: ${marker.x}%; top: ${marker.y}%;`} data-map-marker-button={marker.id} data-map-marker-category={marker.category} data-map-marker-region={marker.region} data-map-marker-name={marker.name} data-toolkit-id={item?.id} data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)} aria-label={`Open ${marker.category} details for ${marker.name}`}><span class="map-marker__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><span class="map-marker__route-number" aria-hidden="true" hidden></span><span class="map-marker__status" aria-hidden="true">✓</span><span class="map-marker__label">{marker.name}</span></button>; })}
-			</div></div>
-			<div class="map-controls" aria-label="Map zoom controls"><button type="button" data-map-zoom-out aria-label="Zoom out">−</button><span data-map-zoom-label>100%</span><button type="button" data-map-zoom-in aria-label="Zoom in">+</button><span class="map-controls__hint">Drag to inspect the map · numbered points appear in Route Mode</span></div>
+				<div class="map-panel__header"><div><p class="map-panel__eyebrow">World map</p><h2>Choose a region</h2><p class="map-panel__subline">Hover for coverage. Click to enter the region map.</p></div><div class="map-panel__status-group"><span class="map-status" data-map-mode-status>Region overview</span><span class="map-status map-status--quiet">{regionDefinitions.length} core regions</span></div></div>
+				<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport><div class="map-surface" data-map-surface>
+					<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
+					<div class="map-regions" aria-label="Core world regions">{regionStats.map((region) => <button class="map-region" type="button" style={`left:${region.left}%;top:${region.top}%;width:${region.width}%;height:${region.height}%;`} data-map-region={region.id} aria-label={`Enter ${region.name} region map`}><span class="map-region__name">{region.name}</span><span class="map-region__stats">{region.markerCount} mapped · {region.shells} Shells · {region.fragments} fragments</span></button>)}</div>
+					<div class="map-attribution"><span>Basemap: {mapBasemap.sourceName}</span>{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}</div>
+					{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); return <button class="map-marker" type="button" style={`left: ${marker.x}%; top: ${marker.y}%;`} data-map-marker-button={marker.id} data-map-marker-category={marker.category} data-map-marker-region={marker.region} data-map-marker-region-id={regionIdForMarker(marker)} data-map-marker-name={marker.name} data-toolkit-id={item?.id} data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)} aria-label={`Open ${marker.category} details for ${marker.name}`}><span class="map-marker__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><span class="map-marker__route-number" aria-hidden="true" hidden></span><span class="map-marker__status" aria-hidden="true">✓</span><span class="map-marker__label">{marker.name}</span></button>; })}
+				</div></div>
+				<div class="map-controls" aria-label="Map zoom controls"><button type="button" data-map-zoom-out aria-label="Zoom out">−</button><span data-map-zoom-label>100%</span><button type="button" data-map-zoom-in aria-label="Zoom in">+</button><span class="map-controls__hint">Drag to inspect the map · numbered points appear in Route Mode</span></div>
+				<div class="map-region-summary" data-map-region-summary hidden><div><p class="map-panel__eyebrow">Region map</p><h3 data-map-region-name>Region</h3><p data-map-region-description>Select a region to reveal its verified targets.</p></div><div class="map-region-summary__stats"><span><strong data-map-region-marker-count>0</strong> mapped</span><span><strong data-map-region-shells>0</strong> Shells</span><span><strong data-map-region-fragments>0</strong> fragments</span></div><button class="map-clear-button" type="button" data-map-all-regions>All regions</button></div>
 		</section>
 
-		<aside class="map-control-center" aria-label="Map Control Center">
+		<aside class="map-control-center" data-map-tools-panel aria-label="Map tools and secondary workspace">
 			<section class="map-control-section map-control-section--search"><div class="map-control-section__heading"><div><p class="map-panel__eyebrow">Control Center</p><h2>Find your next objective</h2></div><span class="map-toolbar__count" data-toolkit-count>{toolkitItems.length} tracked</span></div><label class="map-search" for="toolkit-search"><span class="map-search__icon" aria-hidden="true">⌕</span><input id="toolkit-search" type="search" placeholder="Search locations, bosses, shells..." autocomplete="off" data-toolkit-search /></label><p class="map-guide-context" data-map-guide-context hidden></p><div class="map-achievement-context" data-map-achievement-context hidden><p class="map-panel__eyebrow">Achievement</p><h3 data-map-achievement-name>Achievement</h3><div class="map-achievement-context__progress"><strong data-map-achievement-progress>0 / 0 complete</strong><span data-map-achievement-remaining>0 remaining</span></div><p data-map-achievement-note>Only targets for this achievement are highlighted on the map.</p><a data-map-achievement-dashboard href="/mortal-shell-ii/trophies/">Open Completion Dashboard <span aria-hidden="true">→</span></a></div></section>
 
 			<section class="map-control-section" aria-labelledby="map-filter-heading"><div class="map-control-section__title-row"><h3 id="map-filter-heading">Filters</h3><button class="map-clear-button" type="button" data-toolkit-reset>Clear</button></div><div class="map-category-controls"><button class="map-category-control is-active" type="button" data-map-category="all"><span class="map-category-control__icon" aria-hidden="true">✦</span><span class="map-category-control__copy"><strong>All targets</strong><small>{toolkitItems.length} tracked</small></span><span class="map-category-control__count" data-category-count="all">0 / {toolkitItems.length}</span></button>{workspaceCategories.map((category) => <button class="map-category-control" type="button" data-map-category={category.id}><span class="map-category-control__icon" aria-hidden="true">{category.icon}</span><span class="map-category-control__copy"><strong>{category.label}</strong><small>{category.total ? `${category.total} tracked` : 'No tracked items yet'}</small></span><span class="map-category-control__count" data-category-count={category.id}>0 / {category.total}</span></button>)}</div><label class="map-hide-completed"><input type="checkbox" data-hide-completed /><span>Hide completed</span></label></section>
@@ -157,11 +169,14 @@ const routeStepStatusLabels = {
 		const storageKey = app.getAttribute('data-storage-key') || 'ms2-toolkit-progress-v1';
 		const achievementJson = app.querySelector('[data-map-achievement-json]');
 		const achievementData = achievementJson ? JSON.parse(achievementJson.textContent || '[]') : [];
+		const regionJson = app.querySelector('[data-map-region-json]');
+		const regionData = regionJson ? JSON.parse(regionJson.textContent || '[]') : [];
 		const achievements = new Map(achievementData.map((achievement) => [achievement.id, achievement]));
 		const search = app.querySelector('[data-toolkit-search]');
 		const hideCompleted = app.querySelector('[data-hide-completed]');
 		const count = app.querySelector('[data-toolkit-count]');
 		const categoryButtons = Array.from(app.querySelectorAll('[data-map-category]'));
+		const regionButtons = Array.from(app.querySelectorAll('[data-map-region]'));
 		const markerButtons = Array.from(app.querySelectorAll('[data-map-marker-button]'));
 		const details = Array.from(app.querySelectorAll('[data-map-detail]'));
 		const routeCards = Array.from(app.querySelectorAll('[data-map-route-card]'));
@@ -185,6 +200,9 @@ const routeStepStatusLabels = {
 		const resumeActiveRouteButton = app.querySelector('[data-resume-active-route]');
 		const achievementContext = app.querySelector('[data-map-achievement-context]');
 		const routeCompletionFeedback = app.querySelector('[data-route-completion-feedback]');
+		const regionSummary = app.querySelector('[data-map-region-summary]');
+		const toolsToggle = app.querySelector('[data-map-tools-toggle]');
+		const progressToggle = app.querySelector('[data-map-progress-toggle]');
 		let completedIds = new Set();
 		let manualAchievementProgress = {};
 		let activeCategory = 'all';
@@ -195,6 +213,7 @@ const routeStepStatusLabels = {
 		let completionCategory = 'all';
 		let completionHideCompleted = false;
 		let activeMarkerId = '';
+		let activeRegionId = '';
 		let zoom = 1;
 		let dragging = false;
 		let dragStartX = 0;
@@ -233,6 +252,21 @@ const routeStepStatusLabels = {
 		function routeProgress(routeId) { const steps = routeStepNodes(routeId); const currentIndex = steps.findIndex((step) => { const itemId = step.getAttribute('data-route-item-id'); return itemId && !completedIds.has(itemId); }); return { steps, currentIndex, current: currentIndex >= 0 ? steps[currentIndex] : undefined, next: currentIndex >= 0 ? steps[currentIndex + 1] : undefined, complete: currentIndex < 0 }; }
 		function routeCurrentMarkerId(routeId) { return routeProgress(routeId).current?.getAttribute('data-route-waypoint') || ''; }
 		function setUrl(params) { const url = new URL(window.location.href); Object.entries(params).forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key)); window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`); }
+		function setRegionContext(id, updateUrl = true) {
+			activeRegionId = regionButtons.some((button) => button.getAttribute('data-map-region') === id) ? id : '';
+			activeRouteId = ''; activeGuideKey = ''; activeAchievementId = ''; activeMarkerId = ''; activeCategory = 'all';
+			regionButtons.forEach((button) => button.classList.toggle('is-selected', button.getAttribute('data-map-region') === activeRegionId));
+			if (regionSummary instanceof HTMLElement) {
+				const region = regionData.find((item) => item.id === activeRegionId);
+				regionSummary.hidden = !region;
+				if (region) {
+					const put = (selector, value) => { const node = regionSummary.querySelector(selector); if (node) node.textContent = String(value); };
+					put('[data-map-region-name]', region.name); put('[data-map-region-description]', region.description); put('[data-map-region-marker-count]', region.markerCount); put('[data-map-region-shells]', region.shells); put('[data-map-region-fragments]', region.fragments);
+				}
+			}
+			if (updateUrl) setUrl({ region: activeRegionId, marker: '', route: '', guide: '', achievement: '' });
+			applyFilters();
+		}
 		function setGuideContext(key) { activeGuideKey = key; if (!(guideContext instanceof HTMLElement)) return; if (!key) { guideContext.hidden = true; guideContext.textContent = ''; return; } const targetCount = markerButtons.filter((marker) => marker.getAttribute('data-map-guide-key') === key).length; const label = key.split('-').filter(Boolean).map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' '); guideContext.textContent = `${targetCount} location${targetCount === 1 ? '' : 's'} from ${label} Guide`; guideContext.hidden = false; }
 		function achievementProgress(achievement) { const ids = achievement?.objectiveIds || []; const total = Number(achievement?.total || (ids.length || 1)); const done = ids.length ? ids.filter((id) => completedIds.has(id)).length : Math.max(0, Math.min(total, Number(manualAchievementProgress[achievement.id] || 0))); return { done, total, remaining: Math.max(0, total - done), complete: done >= total }; }
 		function setAchievementContext(id) { activeAchievementId = achievements.has(id) ? id : ''; if (!(achievementContext instanceof HTMLElement)) return; const achievement = achievements.get(activeAchievementId); achievementContext.hidden = !achievement; if (!achievement) return; const progress = achievementProgress(achievement); const put = (selector, value) => { const node = achievementContext.querySelector(selector); if (node) node.textContent = String(value); }; put('[data-map-achievement-name]', achievement.name); put('[data-map-achievement-progress]', `${progress.done} / ${progress.total} complete`); put('[data-map-achievement-remaining]', `${progress.remaining} remaining`); const link = achievementContext.querySelector('[data-map-achievement-dashboard]'); if (link) link.setAttribute('href', `/mortal-shell-ii/trophies/#${achievement.id}`); }
@@ -272,9 +306,12 @@ const routeStepStatusLabels = {
 			markerButtons.forEach((marker) => {
 				const markerId = marker.getAttribute('data-map-marker-button') || '';
 				const itemId = marker.getAttribute('data-toolkit-id');
+				const markerRegionId = marker.getAttribute('data-map-marker-region-id') || '';
 				const haystack = `${marker.getAttribute('data-map-marker-name') || ''} ${marker.getAttribute('data-map-marker-region') || ''} ${marker.getAttribute('data-map-marker-category') || ''}`.toLowerCase();
 				const achievementMatch = !activeAchievementId || activeAchievementObjectives.has(itemId);
-				const matches = achievementMatch && (!activeRouteId || activeRouteMarkers.has(markerId)) && (!activeGuideKey || marker.getAttribute('data-map-guide-key') === activeGuideKey) && (activeCategory === 'all' || marker.getAttribute('data-map-marker-category') === activeCategory) && haystack.includes(query) && !(shouldHideCompleted && itemId && completedIds.has(itemId));
+				const hasMarkerMode = Boolean(activeRegionId || query || activeRouteId || activeGuideKey || activeAchievementId || activeMarkerId);
+				const regionMatch = !activeRegionId || markerRegionId === activeRegionId;
+				const matches = hasMarkerMode && regionMatch && achievementMatch && (!activeRouteId || activeRouteMarkers.has(markerId)) && (!activeGuideKey || marker.getAttribute('data-map-guide-key') === activeGuideKey) && (activeCategory === 'all' || marker.getAttribute('data-map-marker-category') === activeCategory) && haystack.includes(query) && !(shouldHideCompleted && itemId && completedIds.has(itemId));
 				marker.toggleAttribute('hidden', !matches);
 				marker.classList.toggle('is-outside-route', Boolean(activeRouteId && !activeRouteMarkers.has(markerId)));
 				marker.classList.toggle('is-achievement-target', Boolean(activeAchievementId && achievementMatch && itemId && !completedIds.has(itemId)));
@@ -381,6 +418,10 @@ const routeStepStatusLabels = {
 		readState();
 		checkboxes.forEach((checkbox) => checkbox.addEventListener('change', () => toggleCompletion(checkbox.getAttribute('data-toolkit-checkbox'))));
 		categoryButtons.forEach((button) => button.addEventListener('click', () => setCategory(button.getAttribute('data-map-category') || 'all')));
+		regionButtons.forEach((button) => button.addEventListener('click', () => setRegionContext(button.getAttribute('data-map-region') || '')));
+		app.querySelector('[data-map-all-regions]')?.addEventListener('click', () => setRegionContext(''));
+		toolsToggle?.addEventListener('click', () => { const open = app.toggleAttribute('data-map-tools-open'); toolsToggle.setAttribute('aria-expanded', String(open)); });
+		progressToggle?.addEventListener('click', () => { const open = app.toggleAttribute('data-map-progress-open'); progressToggle.setAttribute('aria-expanded', String(open)); });
 		search?.addEventListener('input', () => { saveState(); applyFilters(); }); hideCompleted?.addEventListener('change', () => { saveState(); applyFilters(); });
 		app.querySelector('[data-reset-progress]')?.addEventListener('click', () => { if (!window.confirm('Reset all Player Toolkit completion progress on this device?')) return; completedIds = new Set(); manualAchievementProgress = {}; try { window.localStorage.removeItem(storageKey); } catch (error) { /* keep UI usable */ } saveState(); updateProgressUI(); });
 		app.querySelector('[data-toolkit-reset]')?.addEventListener('click', () => { if (search instanceof HTMLInputElement) search.value = ''; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = false; activeGuideKey = ''; setGuideContext(''); setCategory('all'); setZoom(1); saveState(); applyFilters(); });
@@ -398,7 +439,8 @@ const routeStepStatusLabels = {
 		if (viewport instanceof HTMLElement) { viewport.addEventListener('pointerdown', (event) => { if (event.pointerType !== 'mouse' || event.button !== 0) return; dragging = true; dragStartX = event.clientX; dragStartY = event.clientY; scrollStartX = viewport.scrollLeft; scrollStartY = viewport.scrollTop; viewport.setPointerCapture(event.pointerId); }); viewport.addEventListener('pointermove', (event) => { if (!dragging) return; viewport.scrollLeft = scrollStartX - (event.clientX - dragStartX); viewport.scrollTop = scrollStartY - (event.clientY - dragStartY); }); const stopDragging = () => { dragging = false; }; viewport.addEventListener('pointerup', stopDragging); viewport.addEventListener('pointercancel', stopDragging); }
 
 		updateProgressUI();
-		const initialUrl = new URL(window.location.href); const initialMarker = initialUrl.searchParams.get('marker'); const initialGuide = initialUrl.searchParams.get('guide'); const initialRoute = initialUrl.searchParams.get('route'); const initialAchievement = initialUrl.searchParams.get('achievement');
+		const initialUrl = new URL(window.location.href); const initialRegion = initialUrl.searchParams.get('region'); const initialMarker = initialUrl.searchParams.get('marker'); const initialGuide = initialUrl.searchParams.get('guide'); const initialRoute = initialUrl.searchParams.get('route'); const initialAchievement = initialUrl.searchParams.get('achievement');
+		if (initialRegion) setRegionContext(initialRegion, false);
 		if (initialAchievement && achievements.has(initialAchievement)) setAchievementContext(initialAchievement); else if (activeAchievementId) setAchievementContext(activeAchievementId);
 		updateProgressUI();
 		const initialAchievementDefinition = achievements.get(activeAchievementId);

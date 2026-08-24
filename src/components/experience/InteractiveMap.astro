@@ -4,10 +4,11 @@ import { TOOLKIT_CATEGORIES, TOOLKIT_STORAGE_KEY, toolkitItems, toolkitItemByMap
 import { mapRoutes } from '../../data/map-routes';
 import { achievementDefinitions, achievementObjectiveCount } from '../../data/achievement-definitions';
 import { getCanonicalGuideUrlForMapMarker, getMapGuideGroups } from '../../lib/toolkit-map';
+import { mapRegions, regionIdForMarker } from '../../data/map-regions';
 
-interface Props { markers: readonly MapMarker[]; }
+interface Props { markers: readonly MapMarker[]; regionId?: string; }
 
-const { markers } = Astro.props;
+const { markers, regionId = '' } = Astro.props;
 const mapGuideGroups = getMapGuideGroups();
 const mapGuideGroupByMarkerId = new Map(mapGuideGroups.flatMap((group) => group.targets.map((target) => [target.mapMarkerId, group.key] as const)));
 const routeIdsByMarkerId = new Map<string, string[]>();
@@ -16,7 +17,7 @@ const relatedAchievementsByObjectiveId = new Map<string, typeof achievementDefin
 achievementDefinitions.forEach((achievement) => (achievement.objectiveIds ?? []).forEach((objectiveId) => relatedAchievementsByObjectiveId.set(objectiveId, [...(relatedAchievementsByObjectiveId.get(objectiveId) ?? []), achievement])));
 const markerIcons: Record<string, string> = {
 	Shells: '◇', Weapons: '⚔', Sidearms: '➹', Bosses: '☠', 'Map Fragments': '▧', NPCs: '♙', Dungeons: '⌂',
-	Beacons: '✦', Keys: '⌑', Tarforge: '♢', 'Night Mode': '☾', 'Corrupted Gates': '⌁', Other: '•',
+	Beacons: '✦', Keys: '⌑', Tarforge: '♢', 'Night Mode': '☾', 'Corrupted Gates': '⌁', Quests: '◇', Secrets: '◈', Other: '•',
 };
 const workspaceCategories = [
 	{ id: 'Shells', label: 'Shells', icon: markerIcons.Shells },
@@ -24,17 +25,17 @@ const workspaceCategories = [
 	{ id: 'Sidearms', label: 'Sidearms', icon: markerIcons.Sidearms },
 	{ id: 'Map Fragments', label: 'Map Fragments', icon: markerIcons['Map Fragments'] },
 	{ id: 'Bosses', label: 'Bosses', icon: markerIcons.Bosses },
+	{ id: 'Beacons', label: 'Beacons / Stations', icon: markerIcons.Beacons },
+	{ id: 'Keys', label: 'Keys', icon: markerIcons.Keys },
 	{ id: 'NPCs', label: 'NPCs', icon: markerIcons.NPCs },
 	{ id: 'Dungeons', label: 'Dungeons', icon: markerIcons.Dungeons },
+	{ id: 'Tarforge', label: 'Upgrades', icon: markerIcons.Tarforge },
+	{ id: 'Quests', label: 'Quests', icon: markerIcons.Quests },
+	{ id: 'Secrets', label: 'Secrets', icon: markerIcons.Secrets },
 	{ id: 'Other', label: 'Other', icon: markerIcons.Other },
 ].map((category) => ({ ...category, total: Math.max(toolkitItems.filter((item) => item.category === category.id).length, markers.filter((marker) => marker.category === category.id).length) }));
 const getMarkerIcon = (category: string) => markerIcons[category] ?? markerIcons.Other;
-const regionIdForMarker = (marker: MapMarker) => marker.region.toLowerCase().includes('mammon') ? 'mammon' : 'fainweald';
-const regionDefinitions = [
-	{ id: 'fainweald', name: 'Fainweald', left: 8, top: 12, width: 56, height: 43, description: 'Verified Shell and map-fragment coverage in the Fainweald area.' },
-	{ id: 'mammon', name: 'Ruins of Mammon', left: 25, top: 48, width: 61, height: 43, description: 'Verified map-station coverage and curated objectives around Mammon.' },
-] as const;
-const regionStats = regionDefinitions.map((region) => {
+const regionStats = mapRegions.map((region) => {
 	const regionMarkers = markers.filter((marker) => regionIdForMarker(marker) === region.id);
 	return { ...region, markerCount: regionMarkers.length, shells: regionMarkers.filter((marker) => marker.category === 'Shells').length, fragments: regionMarkers.filter((marker) => marker.category === 'Map Fragments').length, bosses: regionMarkers.filter((marker) => marker.category === 'Bosses').length };
 });
@@ -46,13 +47,16 @@ const routeStepStatusLabels = {
 } as const;
 ---
 
-<section class="map-page" data-map-app data-storage-key={TOOLKIT_STORAGE_KEY}>
+<section class:list={['map-page', regionId && 'map-page--region']} data-map-app data-map-region-page={regionId || undefined} data-storage-key={TOOLKIT_STORAGE_KEY}>
 	<script type="application/json" data-map-achievement-json set:html={JSON.stringify(achievementDefinitions.map((achievement) => ({ id: achievement.id, name: achievement.name, category: achievement.category, objectiveIds: achievement.objectiveIds ?? [], total: achievementObjectiveCount(achievement), routeId: achievement.routeId ?? '', guideUrl: achievement.guideUrl ?? '' })))}></script>
 	<script type="application/json" data-map-region-json set:html={JSON.stringify(regionStats)}></script>
-	<header class="map-page__hero">
+	{regionId ? <header class="map-page__hero map-page__hero--region">
+		<div><a class="map-back-link" href="/mortal-shell-ii/map/">← World map</a><p class="exp-eyebrow">Mortal Shell II / Region Map</p><h1 class="exp-h1">{mapRegions.find((region) => region.id === regionId)?.name ?? regionId}</h1><p class="map-page__lede">Verified locations for this region. Use Search &amp; layers to narrow the markers without losing local progress.</p></div>
+		<div class="map-page__hero-actions"><button class="map-toolbar-button" type="button" data-map-tools-toggle aria-expanded="false">Search &amp; layers</button><button class="map-toolbar-button" type="button" data-map-progress-toggle aria-expanded="false">Progress</button><a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Guides <span aria-hidden="true">→</span></a></div>
+	</header> : <header class="map-page__hero">
 		<div><p class="exp-eyebrow">Mortal Shell II / World Map</p><h1 class="exp-h1">Explore the world first.</h1><p class="map-page__lede">Select a region to reveal its verified targets. Search, route planning, and your saved completion progress remain available in the light controls.</p></div>
 		<div class="map-page__hero-actions"><button class="map-toolbar-button" type="button" data-map-tools-toggle aria-expanded="false">Search &amp; layers</button><button class="map-toolbar-button" type="button" data-map-progress-toggle aria-expanded="false">Progress</button><a class="map-page__guide-link" href="/mortal-shell-ii/guides/">Guides <span aria-hidden="true">→</span></a></div>
-	</header>
+	</header>}
 
 	<section class="completion-hud" data-map-secondary-ui aria-labelledby="completion-hud-heading">
 		<div class="completion-hud__main"><div class="completion-hud__identity"><p class="map-panel__eyebrow">Completion HUD</p><div class="completion-hud__score"><strong data-progress-overall-percent>0%</strong><div><h2 id="completion-hud-heading"><span data-progress-total>0</span> / {toolkitItems.length} tracked objectives</h2><p>Browser-local progress · no account required</p></div></div></div><div class="completion-hud__achievement"><span>Achievement Completion</span><strong><span data-progress-achievements-done>0</span> / {achievementDefinitions.length}</strong><small data-progress-achievement-percent>0%</small></div><div class="completion-hud__actions"><span class="completion-hud__device-note">Saved locally on this device</span><button class="toolkit-secondary-action" type="button" data-reset-progress>Reset progress</button></div></div>
@@ -62,11 +66,11 @@ const routeStepStatusLabels = {
 	</section>
 
 	<div class="map-workspace">
-		<section class="map-panel map-panel--canvas" aria-label="Interactive world map">
-				<div class="map-panel__header"><div><p class="map-panel__eyebrow">World map</p><h2>Choose a region</h2><p class="map-panel__subline">Hover for coverage. Click to enter the region map.</p></div><div class="map-panel__status-group"><span class="map-status" data-map-mode-status>Region overview</span><span class="map-status map-status--quiet">{regionDefinitions.length} core regions</span></div></div>
+		<section class="map-panel map-panel--canvas" aria-label={regionId ? 'Interactive region map' : 'Interactive world map'}>
+				<div class="map-panel__header"><div><p class="map-panel__eyebrow">{regionId ? 'Region map' : 'World map'}</p><h2>{regionId ? 'Verified locations' : 'Choose a region'}</h2><p class="map-panel__subline">{regionId ? 'Select a marker to open its compact detail.' : 'Hover for coverage. Click to enter the region map.'}</p></div><div class="map-panel__status-group"><span class="map-status" data-map-mode-status>{regionId ? 'Region map' : 'Region overview'}</span><span class="map-status map-status--quiet">{regionId ? `${markers.length} curated markers` : `${mapRegions.length} core regions`}</span></div></div>
 				<div class="map-viewport" tabindex="0" aria-label="Map viewport" data-map-viewport><div class="map-surface" data-map-surface>
 					<img class="map-basemap" src={mapBasemap.image} alt="Mortal Shell II world map showing Fainweald north of the Marrow Keep and the Ruins of Mammon to the south." width="960" height="960" loading="eager" decoding="async" />
-					<div class="map-regions" aria-label="Core world regions">{regionStats.map((region) => <button class="map-region" type="button" style={`left:${region.left}%;top:${region.top}%;width:${region.width}%;height:${region.height}%;`} data-map-region={region.id} aria-label={`Enter ${region.name} region map`}><span class="map-region__name">{region.name}</span><span class="map-region__stats">{region.markerCount} mapped · {region.shells} Shells · {region.fragments} fragments</span></button>)}</div>
+					{!regionId && <div class="map-regions" aria-label="Core world regions">{regionStats.map((region) => <a class="map-region" href={region.href} style={`left:${region.left}%;top:${region.top}%;width:${region.width}%;height:${region.height}%;`} data-map-region={region.id} aria-label={`Enter ${region.name} region map`}><span class="map-region__name">{region.name}</span><span class="map-region__stats">{region.markerCount} mapped · {region.shells} Shells · {region.fragments} fragments</span></a>)}</div>}
 					<div class="map-attribution"><span>Basemap: {mapBasemap.sourceName}</span>{mapBasemap.replaceLater && <span>Temporary third-party asset · replaceLater</span>}</div>
 					{markers.map((marker) => { const item = toolkitItemByMapMarkerId.get(marker.id); return <button class="map-marker" type="button" style={`left: ${marker.x}%; top: ${marker.y}%;`} data-map-marker-button={marker.id} data-map-marker-category={marker.category} data-map-marker-region={marker.region} data-map-marker-region-id={regionIdForMarker(marker)} data-map-marker-name={marker.name} data-toolkit-id={item?.id} data-map-guide-key={mapGuideGroupByMarkerId.get(marker.id)} aria-label={`Open ${marker.category} details for ${marker.name}`}><span class="map-marker__icon" aria-hidden="true">{getMarkerIcon(marker.category)}</span><span class="map-marker__route-number" aria-hidden="true" hidden></span><span class="map-marker__status" aria-hidden="true">✓</span><span class="map-marker__label">{marker.name}</span></button>; })}
 				</div></div>
@@ -75,7 +79,7 @@ const routeStepStatusLabels = {
 		</section>
 
 		<aside class="map-control-center" data-map-tools-panel aria-label="Map tools and secondary workspace">
-			<section class="map-control-section map-control-section--search"><div class="map-control-section__heading"><div><p class="map-panel__eyebrow">Search / Layers</p><h2>Find your next objective</h2></div><span class="map-toolbar__count" data-toolkit-count>{toolkitItems.length} tracked</span></div><label class="map-search" for="toolkit-search"><span class="map-search__icon" aria-hidden="true">⌕</span><input id="toolkit-search" type="search" placeholder="Search locations, bosses, shells..." autocomplete="off" data-toolkit-search /></label><div class="map-layer-controls" aria-label="Map layers"><label><input type="checkbox" data-map-layer-regions checked /><span>Regions</span></label><label><input type="checkbox" data-map-layer-markers checked /><span>Locations</span></label><button class="map-clear-button" type="button" data-map-advanced-toggle aria-expanded="false">More workspace</button></div><p class="map-guide-context" data-map-guide-context hidden></p><div class="map-achievement-context" data-map-achievement-context hidden><p class="map-panel__eyebrow">Achievement</p><h3 data-map-achievement-name>Achievement</h3><div class="map-achievement-context__progress"><strong data-map-achievement-progress>0 / 0 complete</strong><span data-map-achievement-remaining>0 remaining</span></div><p data-map-achievement-note>Only targets for this achievement are highlighted on the map.</p><a data-map-achievement-dashboard href="/mortal-shell-ii/trophies/">Open Completion Dashboard <span aria-hidden="true">→</span></a></div></section>
+			<section class="map-control-section map-control-section--search"><div class="map-control-section__heading"><div><p class="map-panel__eyebrow">Search / Layers</p><h2>Find your next objective</h2></div><span class="map-toolbar__count" data-toolkit-count>{toolkitItems.length} tracked</span></div><label class="map-search" for="toolkit-search"><span class="map-search__icon" aria-hidden="true">⌕</span><input id="toolkit-search" type="search" placeholder="Search locations, bosses, shells..." autocomplete="off" data-toolkit-search /></label><div class="map-layer-controls" aria-label="Map layers">{!regionId && <label><input type="checkbox" data-map-layer-regions checked /><span>Regions</span></label>}<label><input type="checkbox" data-map-layer-markers checked /><span>Locations</span></label><button class="map-clear-button" type="button" data-map-advanced-toggle aria-expanded="false">More workspace</button></div><p class="map-guide-context" data-map-guide-context hidden></p><div class="map-achievement-context" data-map-achievement-context hidden><p class="map-panel__eyebrow">Achievement</p><h3 data-map-achievement-name>Achievement</h3><div class="map-achievement-context__progress"><strong data-map-achievement-progress>0 / 0 complete</strong><span data-map-achievement-remaining>0 remaining</span></div><p data-map-achievement-note>Only targets for this achievement are highlighted on the map.</p><a data-map-achievement-dashboard href="/mortal-shell-ii/trophies/">Open Completion Dashboard <span aria-hidden="true">→</span></a></div></section>
 
 			<section class="map-control-section" aria-labelledby="map-filter-heading"><div class="map-control-section__title-row"><h3 id="map-filter-heading">Filters</h3><button class="map-clear-button" type="button" data-toolkit-reset>Clear</button></div><div class="map-category-controls"><button class="map-category-control is-active" type="button" data-map-category="all"><span class="map-category-control__icon" aria-hidden="true">✦</span><span class="map-category-control__copy"><strong>All targets</strong><small>{toolkitItems.length} tracked</small></span><span class="map-category-control__count" data-category-count="all">0 / {toolkitItems.length}</span></button>{workspaceCategories.map((category) => <button class="map-category-control" type="button" data-map-category={category.id}><span class="map-category-control__icon" aria-hidden="true">{category.icon}</span><span class="map-category-control__copy"><strong>{category.label}</strong><small>{category.total ? `${category.total} tracked` : 'No tracked items yet'}</small></span><span class="map-category-control__count" data-category-count={category.id}>0 / {category.total}</span></button>)}</div><label class="map-hide-completed"><input type="checkbox" data-hide-completed /><span>Hide completed</span></label></section>
 
@@ -171,6 +175,7 @@ const routeStepStatusLabels = {
 		const achievementData = achievementJson ? JSON.parse(achievementJson.textContent || '[]') : [];
 		const regionJson = app.querySelector('[data-map-region-json]');
 		const regionData = regionJson ? JSON.parse(regionJson.textContent || '[]') : [];
+		const pageRegionId = app.getAttribute('data-map-region-page') || '';
 		const achievements = new Map(achievementData.map((achievement) => [achievement.id, achievement]));
 		const search = app.querySelector('[data-toolkit-search]');
 		const hideCompleted = app.querySelector('[data-hide-completed]');
@@ -216,7 +221,7 @@ const routeStepStatusLabels = {
 		let completionCategory = 'all';
 		let completionHideCompleted = false;
 		let activeMarkerId = '';
-		let activeRegionId = '';
+		let activeRegionId = pageRegionId;
 		let zoom = 1;
 		let dragging = false;
 		let dragStartX = 0;
@@ -256,7 +261,7 @@ const routeStepStatusLabels = {
 		function routeCurrentMarkerId(routeId) { return routeProgress(routeId).current?.getAttribute('data-route-waypoint') || ''; }
 		function setUrl(params) { const url = new URL(window.location.href); Object.entries(params).forEach(([key, value]) => value ? url.searchParams.set(key, value) : url.searchParams.delete(key)); window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`); }
 		function setRegionContext(id, updateUrl = true) {
-			activeRegionId = regionButtons.some((button) => button.getAttribute('data-map-region') === id) ? id : '';
+			activeRegionId = regionData.some((region) => region.id === id) ? id : '';
 			activeRouteId = ''; activeGuideKey = ''; activeAchievementId = ''; activeMarkerId = ''; activeCategory = 'all';
 			regionButtons.forEach((button) => button.classList.toggle('is-selected', button.getAttribute('data-map-region') === activeRegionId));
 			if (regionSummary instanceof HTMLElement) {
@@ -425,7 +430,7 @@ const routeStepStatusLabels = {
 		checkboxes.forEach((checkbox) => checkbox.addEventListener('change', () => toggleCompletion(checkbox.getAttribute('data-toolkit-checkbox'))));
 		categoryButtons.forEach((button) => button.addEventListener('click', () => setCategory(button.getAttribute('data-map-category') || 'all')));
 		regionButtons.forEach((button) => button.addEventListener('click', () => setRegionContext(button.getAttribute('data-map-region') || '')));
-		app.querySelector('[data-map-all-regions]')?.addEventListener('click', () => setRegionContext(''));
+		app.querySelector('[data-map-all-regions]')?.addEventListener('click', () => { if (pageRegionId) window.location.assign('/mortal-shell-ii/map/'); else setRegionContext(''); });
 		toolsToggle?.addEventListener('click', () => { const open = app.toggleAttribute('data-map-tools-open'); toolsToggle.setAttribute('aria-expanded', String(open)); });
 		progressToggle?.addEventListener('click', () => { const open = app.toggleAttribute('data-map-progress-open'); progressToggle.setAttribute('aria-expanded', String(open)); });
 		advancedToggle?.addEventListener('click', () => setAdvancedOpen(!app.hasAttribute('data-map-advanced-open')));
@@ -449,7 +454,7 @@ const routeStepStatusLabels = {
 		updateProgressUI();
 		applyLayerVisibility();
 		const initialUrl = new URL(window.location.href); const initialRegion = initialUrl.searchParams.get('region'); const initialMarker = initialUrl.searchParams.get('marker'); const initialGuide = initialUrl.searchParams.get('guide'); const initialRoute = initialUrl.searchParams.get('route'); const initialAchievement = initialUrl.searchParams.get('achievement');
-		if (initialRegion) setRegionContext(initialRegion, false);
+		if (pageRegionId) setRegionContext(pageRegionId, false); else if (initialRegion) setRegionContext(initialRegion, false);
 		if (initialAchievement && achievements.has(initialAchievement)) setAchievementContext(initialAchievement); else if (activeAchievementId) setAchievementContext(activeAchievementId);
 		updateProgressUI();
 		const initialAchievementDefinition = achievements.get(activeAchievementId);

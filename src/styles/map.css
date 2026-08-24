@@ -117,6 +117,12 @@
 .map-marker[data-map-marker-category="Map Fragments"] .map-marker__icon { border-radius: 0.15rem; background: #377d80; }
 .map-marker[data-map-marker-category="Bosses"] .map-marker__icon { border-radius: 0.2rem 0.65rem 0.2rem 0.65rem; background: #9c4b54; }
 .map-marker[data-map-marker-category="Sidearms"] .map-marker__icon { border-radius: 999px; background: #a56b3d; }
+.map-marker[data-map-marker-category="Weapons"] .map-marker__icon { border-radius: 0.2rem; background: #456d9a; }
+.map-marker[data-map-marker-category="Beacons"] .map-marker__icon { border-radius: 50% 0.2rem 50% 0.2rem; background: #b07a3e; }
+.map-marker[data-map-marker-category="Dungeons"] .map-marker__icon { border-radius: 0.2rem; background: #5e697b; }
+.map-marker[data-map-marker-category="NPCs"] .map-marker__icon { border-radius: 50%; background: #4e826e; }
+.map-marker[data-map-marker-category="Keys"] .map-marker__icon { border-radius: 50% 0.2rem 0.2rem 0.2rem; background: #8a6f45; }
+.map-marker[data-map-marker-category="Tarforge"] .map-marker__icon { border-radius: 0.2rem 50% 0.2rem 50%; background: #8e4f79; }
 .map-marker:hover .map-marker__icon, .map-marker.is-selected .map-marker__icon { transform: scale(1.22); box-shadow: 0 0 0 0.32rem rgb(242 179 107 / 0.24), 0 0 1.4rem rgb(242 179 107 / 0.72); }
 .map-marker.is-completed .map-marker__icon { border-color: var(--map-done); background: #1d5c55; }
 .map-marker.is-outside-route { opacity: 0.16; filter: grayscale(0.8); }
@@ -362,6 +368,8 @@
 /* Map-first shell: the reliable basemap is the primary workspace surface. */
 .map-page { position: relative; max-width: 112rem; }
 .map-page__hero { align-items: center; margin-bottom: 1rem; }
+.map-back-link { display: inline-flex; margin-bottom: 0.55rem; color: var(--map-muted); font-size: var(--xp-text-xs); font-weight: 800; text-decoration: none; }
+.map-back-link:hover, .map-back-link:focus-visible { color: var(--map-route); text-decoration: underline; text-underline-offset: 0.2em; }
 .map-page__lede { max-width: 42rem; margin-top: 0.45rem; font-size: 0.95rem; }
 .map-page__hero-actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 0.55rem; }
 .map-toolbar-button { min-height: 2.35rem; padding: 0.45rem 0.75rem; border: 1px solid var(--map-line); border-radius: 0.35rem; background: var(--map-panel); color: var(--map-text); font: inherit; font-size: var(--xp-text-xs); font-weight: 850; cursor: pointer; }
@@ -392,6 +400,9 @@
 .map-page:not([data-map-advanced-open]) .map-tracker { display: none; }
 .map-page[data-map-regions-hidden] .map-regions { display: none; }
 .map-page[data-map-markers-hidden] .map-marker { display: none; }
+.map-page--region[data-map-region-page="fainweald"] .map-surface { transform-origin: center 37%; }
+.map-page--region[data-map-region-page="mammon"] .map-surface { transform-origin: center 68%; }
+.map-page--region .map-surface { --map-scale: 1.35; }
 .map-layer-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.7rem; padding-top: 0.65rem; border-top: 1px solid var(--map-line-soft); }
 .map-layer-controls label { display: inline-flex; align-items: center; gap: 0.3rem; color: var(--map-muted); font-size: var(--xp-text-xs); font-weight: 750; }
 .map-layer-controls input { accent-color: var(--map-route); }

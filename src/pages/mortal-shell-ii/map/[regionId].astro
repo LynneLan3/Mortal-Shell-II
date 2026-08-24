@@ -1,0 +1,37 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import InteractiveMap from '../../../components/experience/InteractiveMap.astro';
+import { game } from '../../../config/game';
+import { mapMarkers } from '../../../data/map-markers';
+import { mapRegions, regionIdForMarker } from '../../../data/map-regions';
+import { experienceNav } from '../../../lib/experience-nav';
+import '../../../styles/map.css';
+
+export function getStaticPaths() {
+	return mapRegions.map((region) => ({
+		params: { regionId: region.id },
+		props: { region },
+	}));
+}
+
+const { region } = Astro.props;
+const markers = mapMarkers.filter((marker) => regionIdForMarker(marker) === region.id);
+const mapPath = `${game.hubPath}map/${region.id}/`;
+const { nav, footerLinks, homeHref } = experienceNav();
+---
+
+<GameShell
+	title={`${region.name} Map — Mortal Shell 2 | ${game.shortName}`}
+	description={`Verified ${region.name} map with guide-backed locations, marker filters, and local completion tracking.`}
+	canonical={new URL(mapPath, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={`${game.hubPath}map/`}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<InteractiveMap markers={markers} regionId={region.id} />
+</GameShell>

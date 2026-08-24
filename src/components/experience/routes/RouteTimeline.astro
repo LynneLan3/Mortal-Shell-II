@@ -8,6 +8,8 @@
  */
 import { ui } from '../../../lib/ui';
 import { resolveGameAsset } from '../../../lib/assets';
+import { getMapHrefForMarker } from '../../../lib/map-navigation';
+import { getMapTargetsForGuideUrl } from '../../../lib/toolkit-map';
 import CardThumbnail from '../../CardThumbnail.astro';
 import type { GameRoutePage } from '../../../config/game';
 
@@ -19,29 +21,110 @@ const { pages } = Astro.props;
 const t = ui();
 ---
 
-<div class="exp-route-guide-grid">
+<div class="exp-route-guide-grid" data-planner-map-progress>
 	{pages.map((page, index) => {
 		const image = resolveGameAsset(page.image, 'route.page.image');
+		const mapTargets = getMapTargetsForGuideUrl(page.href);
 		return (
-			<a class="exp-route-step" href={page.href}>
-				<span class="exp-number exp-number--md exp-route-step__number">
-					{String(index + 1).padStart(2, '0')}
-				</span>
-				<div class="exp-route-step__body">
-					{page.eyebrow && <span class="exp-route-step__eyebrow">{page.eyebrow}</span>}
-					<span class="exp-route-step__title">{page.title}</span>
-					<span class="exp-route-step__desc">{page.description}</span>
-					<span class="exp-cta-link exp-route-step__cta">{t.readGuide}</span>
-				</div>
-				{image && (
-					<CardThumbnail
-						className="exp-route-step__visual"
-						image={image}
-						alt={`${page.title} preview`}
-						sizes="(min-width: 58rem) 22rem, 100vw"
-					/>
+			<div class="exp-route-step">
+				<a class="exp-route-step__main" href={page.href}>
+					<span class="exp-number exp-number--md exp-route-step__number">
+						{String(index + 1).padStart(2, '0')}
+					</span>
+					<div class="exp-route-step__body">
+						{page.eyebrow && <span class="exp-route-step__eyebrow">{page.eyebrow}</span>}
+						<span class="exp-route-step__title">{page.title}</span>
+						<span class="exp-route-step__desc">{page.description}</span>
+						<span class="exp-cta-link exp-route-step__cta">{t.readGuide}</span>
+					</div>
+					{image && (
+						<CardThumbnail
+							className="exp-route-step__visual"
+							image={image}
+							alt={`${page.title} preview`}
+							sizes="(min-width: 58rem) 22rem, 100vw"
+						/>
+					)}
+				</a>
+				{mapTargets.length > 0 && (
+					<div class="exp-route-step__map-tools">
+						<div class="exp-route-step__map-links">
+							<span class="exp-route-step__map-label">Map targets</span>
+							{mapTargets.map((target) => {
+								const mapHref = getMapHrefForMarker(target.mapMarkerId, page.href);
+								return mapHref && (
+									<a class="exp-route-step__map-link" href={mapHref}>
+										Show {target.name} on Map <span aria-hidden="true">↗</span>
+									</a>
+								);
+							})}
+						</div>
+						<div class="exp-route-step__progress" data-planner-step-progress={page.pageId}>
+							<span>Planner progress</span>
+							<strong data-planner-progress-summary>0 / {mapTargets.length} mapped complete</strong>
+							<div class="exp-route-step__checks">
+								{mapTargets.map((target) => (
+									<label>
+										<input type="checkbox" data-planner-checkbox={target.itemId} />
+										<span>{target.name}</span>
+									</label>
+								))}
+							</div>
+						</div>
+					</div>
 				)}
-			</a>
+			</div>
 		);
 	})}
 </div>
+
+<script>
+	const plannerRoot = document.querySelector('[data-planner-map-progress]');
+	if (plannerRoot && !plannerRoot.hasAttribute('data-planner-map-bound')) {
+		plannerRoot.setAttribute('data-planner-map-bound', 'true');
+		const storageKey = 'ms2-toolkit-progress-v1';
+		const inputs = Array.from(plannerRoot.querySelectorAll('[data-planner-checkbox]'));
+		function readCompleted() {
+			try {
+				const raw = window.localStorage.getItem(storageKey);
+				if (!raw) return new Set();
+				const parsed = JSON.parse(raw);
+				return new Set(Array.isArray(parsed) ? parsed : (parsed?.completedIds || []));
+			} catch (error) {
+				return new Set();
+			}
+		}
+		function writeCompleted(completed) {
+			try {
+				const raw = window.localStorage.getItem(storageKey);
+				const parsed = raw ? JSON.parse(raw) : {};
+				const next = Array.isArray(parsed) ? { version: 3 } : { ...parsed, version: 3 };
+				window.localStorage.setItem(storageKey, JSON.stringify({ ...next, completedIds: Array.from(completed) }));
+			} catch (error) {
+				/* keep the route planner usable when storage is unavailable */
+			}
+		}
+		function renderPlannerProgress() {
+			const completed = readCompleted();
+			inputs.forEach((input) => {
+				if (input instanceof HTMLInputElement) input.checked = completed.has(input.getAttribute('data-planner-checkbox') || '');
+			});
+			plannerRoot.querySelectorAll('[data-planner-step-progress]').forEach((step) => {
+				const stepInputs = Array.from(step.querySelectorAll('[data-planner-checkbox]'));
+				const done = stepInputs.filter((input) => input instanceof HTMLInputElement && input.checked).length;
+				const summary = step.querySelector('[data-planner-progress-summary]');
+				if (summary) summary.textContent = `${done} / ${stepInputs.length} mapped complete`;
+			});
+		}
+		inputs.forEach((input) => input.addEventListener('change', () => {
+			const completed = readCompleted();
+			const itemId = input.getAttribute('data-planner-checkbox') || '';
+			if (input instanceof HTMLInputElement && input.checked) completed.add(itemId);
+			else completed.delete(itemId);
+			writeCompleted(completed);
+			renderPlannerProgress();
+		}));
+		window.addEventListener('storage', renderPlannerProgress);
+		renderPlannerProgress();
+	}
+</script>

@@ -9,6 +9,7 @@
  */
 import RouteFastAnswers from './RouteFastAnswers.astro';
 import RouteTimeline from './RouteTimeline.astro';
+import MapRoutePlanner from './MapRoutePlanner.astro';
 import { Image } from 'astro:assets';
 import { ui } from '../../../lib/ui';
 import { resolveGameAsset } from '../../../lib/assets';
@@ -67,6 +68,8 @@ const visualAsset = resolveGameAsset(route.visual, 'route.visual');
 		</div>
 	</div>
 </section>
+
+{route.id === 'world-progression' && <MapRoutePlanner />}
 
 {otherRoutes.length > 0 && (
 	<section class="exp-section">

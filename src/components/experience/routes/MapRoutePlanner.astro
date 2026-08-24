@@ -1,0 +1,30 @@
+---
+import { mapRoutes } from '../../../data/map-routes';
+import { getMapHrefForMarker } from '../../../lib/map-navigation';
+
+const mapRouteCards = mapRoutes.map((route) => ({
+	...route,
+	mapHref: getMapHrefForMarker(route.waypoints[0]?.markerId || '', route.guide) || '/mortal-shell-ii/map/',
+}));
+---
+
+<section class="exp-section exp-map-route-planner" aria-labelledby="map-route-planner-heading">
+	<div class="exp-content">
+		<p class="exp-eyebrow">Map route mode</p>
+		<h2 class="exp-h2" id="map-route-planner-heading">Plan order, then open the map.</h2>
+		<p class="exp-lede">Use the Planner for sequence and the Region Map for position. Each curated route keeps its marker order, completion state, and guide handoff together.</p>
+		<div class="exp-map-route-planner__grid">
+			{mapRouteCards.map((route) => (
+				<article class="exp-map-route-planner__card" id={`map-route-${route.id}`}>
+					<p class="exp-map-route-planner__meta">{route.type} · {route.region}</p>
+					<h3>{route.name}</h3>
+					<p>{route.description}</p>
+					<div class="exp-map-route-planner__actions">
+						<a class="exp-cta-link" href={route.mapHref}>Open route on Map <span aria-hidden="true">→</span></a>
+						{route.guide && <a href={route.guide}>Read guide <span aria-hidden="true">↗</span></a>}
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

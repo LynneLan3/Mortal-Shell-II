@@ -24,6 +24,7 @@ export interface MapRoute {
 	goal: string;
 	waypoints: readonly MapRouteWaypoint[];
 	guide?: string;
+	plannerHref?: string;
 	requirements?: string;
 	optional?: boolean;
 }
@@ -40,6 +41,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		description: 'Complete the mapped Shell and Map Fragment objectives in the Ruins of Mammon while you are already in the southern region.',
 		type: 'Nearby Cleanup',
 		region: 'Ruins of Mammon',
+		plannerHref: '/mortal-shell-ii/routes/world-progression/#map-route-mammon-cleanup',
 		goal: 'Finish the currently mapped Mammon objectives as one curated area sweep.',
 		optional: true,
 		guide: '/mortal-shell-ii/map-fragments/',
@@ -60,6 +62,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		description: 'Work through the currently mapped Fainweald Shell markers in a clear west-to-east editorial sequence.',
 		type: 'Goal Route',
 		region: 'Fainweald',
+		plannerHref: '/mortal-shell-ii/routes/world-progression/#map-route-fainweald-shells',
 		goal: 'Complete the five mapped Fainweald Shell objectives.',
 		guide: '/mortal-shell-ii/shells/',
 		requirements: 'Open each linked Shell guide for its Memory or encounter requirement.',
@@ -77,6 +80,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		description: 'Follow the existing Smert guide as a focused story checkpoint at Prophet’s Rest.',
 		type: 'Story / Quest Route',
 		region: 'Fainweald · Prophet’s Rest',
+		plannerHref: '/mortal-shell-ii/routes/world-progression/#map-route-smert-memory',
 		goal: 'Complete the mapped Smert Shell and Memory sequence.',
 		guide: '/mortal-shell-ii/smert/',
 		requirements: 'Use the guide for the three blood pools, The Convert, and the Hierarch encounter.',
@@ -88,6 +92,7 @@ export const mapRoutes: readonly MapRoute[] = [
 		description: 'Use the verified Ruk map-station markers to complete the current Fainweald fragment coverage.',
 		type: 'Goal Route',
 		region: 'Fainweald',
+		plannerHref: '/mortal-shell-ii/routes/world-progression/#map-route-fainweald-map-fragments',
 		goal: 'Complete the five mapped Fainweald Map Fragment objectives.',
 		optional: true,
 		guide: '/mortal-shell-ii/map-fragments/',

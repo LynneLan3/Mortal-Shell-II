@@ -108,3 +108,41 @@ This page does not assign a cooldown, charge count, or upgrade path for the Scri
 - Weapon at the same tower: [Axatana guide](/mortal-shell-ii/axatana/)
 - Fast travel help: [Beacons & Fast Travel guide](/mortal-shell-ii/beacons-fast-travel/)
 - Boss reference: [Zmey guide](/mortal-shell-ii/zmey/)
+
+## Seedbearer's Scripture FAQ
+
+### How many Glands do I need?
+
+Three: **Depleted Gland, Thawed Gland, and Faded Gland**.
+
+### Are these the same as Revered Glands?
+
+No. These are separate quest Glands used for the Seedbearer's Scripture offering.
+
+### Where is Depleted Gland?
+
+In Withered Shoals. Use Nameless Pass Beacon, continue toward Ruk, drop to the lower rock surface, then check the bone arm near the torch.
+
+### Where is Thawed Gland?
+
+In a side chamber on the Corrupt Gate route near the Abbey / Valley of the Revered route. Look for the statue, Martyr's Ash around the pillars, and the stone pedestal beside the statue.
+
+### Where is Faded Gland?
+
+In Faded Capital. Start from Citadel Annex Beacon and search the lower central area for the candle-ringed well-like stone structure.
+
+### Why is Make Offering not appearing?
+
+Confirm that Night Mode is active and that Depleted, Thawed, and Faded Gland are all in your inventory.
+
+### Do I need Night Mode?
+
+Yes. The Forgotten Tower offering is a Night Mode interaction.
+
+### Is Forgotten Tower also where Axatana is?
+
+Yes, but they are separate tasks. The [Axatana guide](/mortal-shell-ii/axatana/) owns the weapon pickup route; this page owns the Night Mode three-Gland offering.
+
+### What does Seedbearer's Scripture do?
+
+Its active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds. Its passive effect provides 15% Cosmic Disease Mitigation.

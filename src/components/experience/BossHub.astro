@@ -5,7 +5,6 @@ import HubSubnav from './HubSubnav.astro';
 import { getPortalProminence } from '../../lib/hub-prominence';
 import { bossEntities } from '../../data/game-entities';
 import BossCard from './BossCard.astro';
-import { planBossRows } from '../../lib/boss-layout';
 
 const relatedRoutes = [
 	{
@@ -29,22 +28,33 @@ const bosses = bossEntities.map((entity) => ({
 const progressionOrder = ['Prologue', 'Fainweald', 'Mammon', 'The Unfound Path', 'Endgame / Zmey', 'Optional / Other'] as const;
 const hotSignals = getPortalProminence(game.portal);
 const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.href)).slice(0, 4).map((boss) => boss.href));
+const bossImageOverrides: Record<string, string> = {
+	'/mortal-shell-ii/droeg-the-conqueror/': '/images/droeg-the-conqueror/droeg-arena.webp',
+	'/mortal-shell-ii/hexapod/': '/images/hexapod/hexapod-arena.webp',
+	'/mortal-shell-ii/isaac-the-scholar-prince/': '/images/isaac-the-scholar-prince/isaac-boss.webp',
+	'/mortal-shell-ii/orrem-discarded-golem/': '/images/orrem-discarded-golem/orrem-discarded-golem-flaming-axes.webp',
+	'/mortal-shell-ii/monolith/': '/images/monolith/monolith-arena.png',
+	'/mortal-shell-ii/malborn-offspring/': '/images/malborn-offspring/malborn-phase-one.png',
+	'/mortal-shell-ii/zmey/': '/images/zmey/zmey-arena.png',
+	'/mortal-shell-ii/nameless-captive/': '/images/nameless-captive/sword-combo.jpg',
+};
 const bossGroups = progressionOrder
 	.map((group) => {
 		const groupBosses = bosses.filter((boss) => boss.progressionGroup === group).sort((a, b) => a.progressionPosition - b.progressionPosition);
 		const cards = groupBosses.map((boss) => {
-			const image = resolveCardImage({ href: boss.href, title: boss.name });
+			const image = resolveCardImage({
+				href: boss.href,
+				title: boss.name,
+				image: bossImageOverrides[boss.href],
+				imageAlt: `${boss.name} encounter`,
+			});
 			return {
 				boss,
 				image,
 				featured: bossHotHrefs.has(boss.href),
-				hasImage: Boolean(image),
-				descriptionLength: boss.description.length,
-				areaLength: boss.area.length,
-				rewardLength: boss.reward.length,
 			};
 		});
-		return { group, bosses: groupBosses, cards, rows: planBossRows(cards) };
+		return { group, bosses: groupBosses, cards };
 	})
 	.filter((group) => group.bosses.length > 0);
 const progressionGroups = progressionOrder.slice(0, 5);
@@ -93,13 +103,20 @@ const progressionGroups = progressionOrder.slice(0, 5);
 				<h2 class="exp-h2" id="boss-guides-heading">Bosses with a guide</h2>
 				<p class="exp-lede">Every card below links to an existing guide. Region, progression position, reward/outcome, and required status use the shared boss entity data; route order remains flexible where the evidence does not establish a hard gate.</p>
 			</header>
+			<div class="exp-boss-filters" role="group" aria-label="Filter boss guides">
+				<button class="exp-boss-filter is-active" type="button" data-boss-filter="all" aria-pressed="true">All</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="Prologue" aria-pressed="false">Prologue</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="Fainweald" aria-pressed="false">Fainweald</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="Mammon" aria-pressed="false">Mammon</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="The Unfound Path" aria-pressed="false">The Unfound Path</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="Endgame / Zmey" aria-pressed="false">Endgame</button>
+				<button class="exp-boss-filter" type="button" data-boss-filter="Optional / Other" aria-pressed="false">Optional</button>
+			</div>
 			{bossGroups.map((group) => (
-				<section id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}`} class="exp-boss-group hub-scroll-target" aria-labelledby={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>
+				<section id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}`} class="exp-boss-group hub-scroll-target" data-boss-group={group.group} aria-labelledby={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>
 					<h3 class="exp-h3" id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>{group.group}</h3>
 					<div class="exp-boss-layout">
-						{group.rows.map((row) => <div class:list={['exp-boss-row', `exp-boss-row--${row.type}`]}>
-							{row.cards.map((card) => <BossCard boss={card.value.boss} image={card.value.image} variant={card.variant} mediaSide={card.mediaSide} featured={card.value.featured} />)}
-						</div>)}
+						{group.cards.map((card) => <BossCard boss={card.boss} image={card.image} featured={card.featured} />)}
 					</div>
 				</section>
 			))}
@@ -128,3 +145,23 @@ const progressionGroups = progressionOrder.slice(0, 5);
 		</aside>
 	</div>
 </section>
+
+<script>
+	const bossHub = document.querySelector('.exp-boss-hub');
+	if (bossHub && !bossHub.hasAttribute('data-boss-filters-bound')) {
+		bossHub.setAttribute('data-boss-filters-bound', 'true');
+		const buttons = Array.from(bossHub.querySelectorAll('[data-boss-filter]'));
+		const groups = Array.from(bossHub.querySelectorAll('[data-boss-group]'));
+		buttons.forEach((button) => button.addEventListener('click', () => {
+			const filter = button.getAttribute('data-boss-filter') || 'all';
+			buttons.forEach((item) => {
+				const active = item === button;
+				item.classList.toggle('is-active', active);
+				item.setAttribute('aria-pressed', String(active));
+			});
+			groups.forEach((group) => {
+				group.hidden = filter !== 'all' && group.getAttribute('data-boss-group') !== filter;
+			});
+		}));
+	}
+</script>

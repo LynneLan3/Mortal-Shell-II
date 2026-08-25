@@ -11,21 +11,24 @@ const { route, compact = false } = Astro.props;
 const points = route.waypoints
 	.map((waypoint) => mapMarkerById.get(waypoint.markerId))
 	.filter((marker): marker is NonNullable<typeof marker> => Boolean(marker));
-const pointString = points.map((point) => `${point.xNorm * 100},${point.yNorm * 100}`).join(' ');
+const pointString = points.map((point) => `${point.xNorm * mapBasemap.width},${point.yNorm * mapBasemap.height}`).join(' ');
+const markerRadius = Math.min(mapBasemap.width, mapBasemap.height) * (compact ? 0.024 : 0.028);
+const textOffset = mapBasemap.height * 0.009;
 ---
 
 <div
 	class:list={['map-route-preview', compact && 'map-route-preview--compact']}
+	style={`--map-aspect-ratio: ${mapBasemap.width} / ${mapBasemap.height}`}
 	role="img"
 	aria-label={`${route.name} route preview with ${points.length} numbered stops`}
 >
 	<img src={mapBasemap.image} alt="" loading="lazy" decoding="async" />
-	<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+	<svg viewBox={`0 0 ${mapBasemap.width} ${mapBasemap.height}`} preserveAspectRatio="none" aria-hidden="true">
 		{points.length > 1 && <polyline points={pointString} />}
 		{points.map((point, index) => (
-			<g transform={`translate(${point.xNorm * 100} ${point.yNorm * 100})`}>
-				<circle r={compact ? 2.4 : 2.8} />
-				<text y="0.9">{index + 1}</text>
+			<g transform={`translate(${point.xNorm * mapBasemap.width} ${point.yNorm * mapBasemap.height})`}>
+				<circle r={markerRadius} />
+				<text y={textOffset} style={`font-size: ${mapBasemap.width * 0.03}px`}>{index + 1}</text>
 			</g>
 		))}
 	</svg>

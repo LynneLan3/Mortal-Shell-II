@@ -3,62 +3,40 @@ import type { CardImage } from '../../lib/assets';
 import type { BossEntity } from '../../data/game-entities';
 import CardThumbnail from '../CardThumbnail.astro';
 import HubProminenceBadge from './HubProminenceBadge.astro';
-import type { BossCardVariant } from '../../lib/boss-layout';
 
 interface Props {
 	boss: BossEntity;
 	image?: CardImage;
-	variant: BossCardVariant;
-	mediaSide?: 'left' | 'right';
 	featured?: boolean;
 }
 
-const { boss, image, variant, mediaSide = 'right', featured = false } = Astro.props;
+const { boss, image, featured = false } = Astro.props;
 const routeLabel = boss.relatedRouteIds[0]?.replace('/mortal-shell-ii/routes/', '').replace(/\/$/, '').replaceAll('-', ' ') ?? 'Guide context';
-const fullFacts = [
-	{ label: 'Position', value: String(boss.progressionPosition) },
-	{ label: 'Region / area', value: boss.area },
-	{ label: 'Required / optional', value: boss.requiredStatus },
-	{ label: 'Reward / outcome', value: boss.reward },
-	{ label: 'Related route', value: routeLabel },
-];
-const compactFacts = [
-	{ label: 'Region / area', value: boss.area },
-	{ label: 'Status', value: boss.requiredStatus },
-	{ label: 'Route', value: routeLabel },
-];
-const facts = variant === 'compact' ? compactFacts : fullFacts;
-const wideNoImage = variant === 'wide' && !image;
 ---
 
 <a
 	class:list={[
 		'exp-boss-card',
-		`exp-boss-card--${variant}`,
 		image && 'exp-boss-card--has-image',
-		image && `exp-boss-card--media-${mediaSide}`,
+		!image && 'exp-boss-card--no-media',
 		featured && 'exp-boss-card--featured',
 	]}
 	href={boss.guideUrl ?? '/'}
 >
-	{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} sizes="(min-width: 50rem) 25vw, 100vw" />}
+	{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} sizes="(min-width: 50rem) 38vw, 100vw" />}
 	<div class="exp-boss-card__body">
 		<div class="exp-boss-card__topline">
-			<p class="exp-boss-card__kind">{boss.kind}</p>
+			<p class="exp-boss-card__kind">{boss.region} · {boss.requiredStatus}</p>
 			{featured && <HubProminenceBadge prominence="hot" />}
 		</div>
 		<h3 class="exp-boss-card__title">{boss.name}</h3>
 		<p class="exp-boss-card__description">{boss.description}</p>
-		{!wideNoImage && <dl class:list={['exp-boss-card__facts', variant === 'compact' && 'exp-boss-card__facts--compact']}>
-			{facts.map((fact) => <div class="exp-boss-card__fact"><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
-		</dl>}
-		{!wideNoImage && <span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>}
-	</div>
-	{wideNoImage && <aside class="exp-boss-card__wide-meta">
-		<p class="exp-boss-card__wide-kicker">Quick facts</p>
 		<dl class="exp-boss-card__facts">
-			{fullFacts.map((fact) => <div class="exp-boss-card__fact"><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+			<div class="exp-boss-card__fact"><dt>Area</dt><dd>{boss.area}</dd></div>
+			<div class="exp-boss-card__fact"><dt>Status</dt><dd>{boss.requiredStatus}</dd></div>
+			<div class="exp-boss-card__fact"><dt>Route</dt><dd>{routeLabel}</dd></div>
+			<div class="exp-boss-card__fact"><dt>Reward</dt><dd>{boss.reward}</dd></div>
 		</dl>
 		<span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>
-	</aside>}
+	</div>
 </a>

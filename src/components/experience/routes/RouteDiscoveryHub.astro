@@ -3,7 +3,6 @@ import { mapRoutes, mapRouteHref } from '../../../data/map-routes';
 import { toolkitItemByMapMarkerId } from '../../../data/toolkit-items';
 import MapRoutePreview from './MapRoutePreview.astro';
 import HubSubnav from '../HubSubnav.astro';
-import { cardDensity, hasFeatureLast } from '../../../lib/card-density';
 
 const groups = [
 	{ id: 'progression', label: 'Progression', purpose: 'Progression' },
@@ -15,8 +14,6 @@ const groups = [
 	.filter((group) => group.routes.length > 0);
 
 const routeCards = groups.flatMap((group) => group.routes.map((route) => ({ route, category: group.id })));
-const density = cardDensity(routeCards.length, 2);
-const featureLast = hasFeatureLast(routeCards.length, 2);
 
 const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 	.map((waypoint) => toolkitItemByMapMarkerId.get(waypoint.markerId)?.id)
@@ -39,24 +36,24 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 		ariaLabel="Filter routes"
 	/>
 
-	<div class:list={['route-card-grid', `route-card-grid--${density}`, featureLast && 'route-card-grid--feature-last']} data-route-grid>
-		{routeCards.map(({ route, category }, index) => {
+	<div class="route-card-grid" data-route-grid>
+		{routeCards.map(({ route, category }) => {
 			const itemIds = routeItems(route);
 			return (
-				<a class:list={['route-card', featureLast && index === routeCards.length - 1 && 'route-card--wide']} href={mapRouteHref(route.id)} data-route-card={route.id} data-route-category={category} data-route-items={itemIds.join(',')}>
+				<a class="route-card" href={mapRouteHref(route.id)} data-route-card={route.id} data-route-category={category} data-route-items={itemIds.join(',')}>
 					<MapRoutePreview route={route} />
 					<div class="route-card__body">
-						<div class="route-card__meta"><span>{route.type}</span><span>{route.region}</span></div>
+						<p class="route-card__type">{route.type}</p>
 						<h3>{route.name}</h3>
 						<p class="route-card__stops">{route.waypoints.length} stops · <span data-route-progress>0 / {route.waypoints.length}</span></p>
 						<div class="route-card__progress"><span data-route-progress-bar></span></div>
-						<div class="route-card__copy">
-							<strong>Why this route</strong>
-							<p>{route.description}</p>
-						</div>
-						<div class="route-card__best"><span>Best for</span><strong>{route.goal}</strong></div>
+						<p class="route-card__copy">{route.description}</p>
+						<dl class="route-card__facts">
+							<div><dt>Region</dt><dd>{route.region}</dd></div>
+							<div><dt>Route type</dt><dd>{route.type}</dd></div>
+							<div><dt>Progress</dt><dd data-route-status>Ready</dd></div>
+						</dl>
 						<div class="route-card__footer">
-							<span data-route-status>Ready</span>
 							<span class="exp-cta-link">View Route <span aria-hidden="true">→</span></span>
 						</div>
 					</div>

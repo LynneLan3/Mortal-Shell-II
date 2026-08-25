@@ -77,6 +77,18 @@
 	color: var(--xp-text-muted);
 }
 
+.exp-boss-progression__steps--feature-last .exp-boss-progression__step--wide {
+	grid-column: 1 / -1;
+}
+
+@media (min-width: 42rem) {
+	.exp-boss-progression__step--wide {
+		grid-template-columns: auto minmax(0, 1fr) auto;
+		align-items: center;
+	}
+	.exp-boss-progression__step--wide .exp-boss-progression__number { grid-row: auto; }
+}
+
 .exp-boss-group {
 	display: grid;
 	gap: 0.75rem;
@@ -93,11 +105,12 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 0.85rem;
+	align-items: start;
 }
 
 .exp-boss-card {
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto auto;
 	min-width: 0;
 	overflow: hidden;
 	border: 1px solid var(--xp-border);
@@ -125,6 +138,8 @@
 
 .exp-boss-card__media {
 	width: 100%;
+	aspect-ratio: 16 / 9;
+	height: auto;
 	min-width: 0;
 	overflow: hidden;
 	border-bottom: 1px solid var(--xp-border);
@@ -133,9 +148,9 @@
 
 .exp-boss-card__body {
 	display: grid;
-	grid-template-rows: auto auto 1fr auto auto;
+	grid-template-rows: auto auto auto auto;
 	gap: 0.55rem;
-	min-height: 100%;
+	align-content: start;
 	padding: 1.15rem;
 }
 
@@ -172,11 +187,17 @@
 
 .exp-boss-card__facts {
 	display: grid;
-	grid-template-columns: max-content 1fr;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 0.25rem 0.65rem;
 	margin: 0.35rem 0 0;
 	font-size: var(--xp-text-xs);
 	line-height: 1.45;
+}
+
+.exp-boss-card__fact {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	gap: 0.65rem;
 }
 
 .exp-boss-card__facts dt {
@@ -255,6 +276,39 @@
 }
 
 @media (min-width: 50rem) {
+	.exp-boss-card--wide {
+		grid-column: 1 / -1;
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: 1fr;
+		align-items: stretch;
+	}
+
+	.exp-boss-card--wide .exp-boss-card__body {
+		grid-column: 1 / -1;
+		grid-row: 1;
+		grid-template-areas:
+			"topline topline"
+			"title title"
+			"description description"
+			"facts link";
+		grid-template-columns: minmax(0, 1fr) auto;
+		align-content: start;
+	}
+
+	.exp-boss-card--wide .exp-boss-card__topline { grid-area: topline; }
+	.exp-boss-card--wide .exp-boss-card__title { grid-area: title; }
+	.exp-boss-card--wide .exp-boss-card__description { grid-area: description; max-width: 58rem; }
+	.exp-boss-card--wide .exp-boss-card__facts { grid-area: facts; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem 1rem; }
+	.exp-boss-card--wide .exp-boss-card__fact { display: block; }
+	.exp-boss-card--wide .exp-boss-card__fact:nth-child(n+4) { grid-column: span 1; }
+	.exp-boss-card--wide .exp-boss-card__fact dt { margin-bottom: 0.12rem; }
+	.exp-boss-card--wide .exp-boss-card__link { grid-area: link; align-self: end; justify-self: end; margin-top: 0.45rem; white-space: nowrap; }
+	.exp-boss-card--wide.exp-boss-card--has-image { grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr); }
+	.exp-boss-card--wide.exp-boss-card--has-image .exp-boss-card__body { grid-column: 1; }
+	.exp-boss-card--wide .exp-boss-card__media { grid-column: 2; grid-row: 1; height: 100%; min-height: 100%; border-right: 0; border-bottom: 0; border-left: 1px solid var(--xp-border); }
+}
+
+@media (min-width: 50rem) {
 	.exp-boss-hub__hero {
 		padding-block: 4rem 1.75rem;
 	}
@@ -272,4 +326,12 @@
 	.exp-boss-progression__steps {
 		grid-template-columns: 1fr;
 	}
+}
+
+@media (max-width: 49.99rem) {
+	.exp-boss-card--wide { grid-column: 1; }
+}
+
+@media (min-width: 42rem) and (max-width: 49.99rem) {
+	.exp-boss-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

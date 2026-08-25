@@ -38,6 +38,7 @@ import RouteTopicCard from './routes/RouteTopicCard.astro';
 import AuthorityHubGrid from './AuthorityHubGrid.astro';
 import ExperienceAlertStrip from './ExperienceAlertStrip.astro';
 import ExperienceDontMiss from './ExperienceDontMiss.astro';
+import { cardDensity, hasFeatureLast } from '../../lib/card-density';
 
 const t = ui();
 const guides = await getGuides();
@@ -169,6 +170,8 @@ const fieldNotes = curatedFieldNotes.length > 0
 		});
 const orderedFieldNotes = sortCardsByImage(fieldNotes, (entry) => resolveEntryCardImage(entry, guideHref(entry)));
 const firstNoteWithCover = orderedFieldNotes.find((entry) => Boolean(resolveEntryCardImage(entry, guideHref(entry))) || hasGuideCover(entry));
+const fieldNotesDensity = cardDensity(orderedFieldNotes.length, 3);
+const fieldNotesFeatureLast = hasFeatureLast(orderedFieldNotes.length, 3);
 
 /* ── Evidence ── */
 const evidenceConfig = game.portal?.evidence;
@@ -409,14 +412,15 @@ const factIcon = (label: string): IconName => {
 			<p class="exp-eyebrow">{t.fieldNotes}</p>
 			<h2 class="exp-h2" id="exp-home-notes-heading">{t.moreToExplore}</h2>
 			<p class="exp-lede">{t.fieldNotesLede}</p>
-			<div class:list={['exp-field-notes', !firstNoteWithCover && 'exp-field-notes--text']}>
-				{orderedFieldNotes.map((note) => {
+			<div class:list={['exp-field-notes', !firstNoteWithCover && 'exp-field-notes--text', `exp-field-notes--density-${fieldNotesDensity}`, fieldNotesFeatureLast && 'exp-field-notes--feature-last']}>
+				{orderedFieldNotes.map((note, noteIndex) => {
 					const href = guideHref(note);
 					return (
 						<a
 							class:list={[
 								'exp-field-card',
 								note === firstNoteWithCover && 'exp-field-card--primary',
+								fieldNotesFeatureLast && noteIndex === orderedFieldNotes.length - 1 && 'exp-field-card--wide',
 							]}
 							href={href}
 						>

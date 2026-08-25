@@ -187,11 +187,12 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 0.75rem;
+	align-items: start;
 }
 
 .exp-guide-topic-card {
 	display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto auto;
 	gap: 0;
 	min-width: 0;
 	min-height: 0;
@@ -255,9 +256,9 @@
 
 .exp-guide-topic-card__body {
 	display: grid;
-	grid-template-rows: auto auto 1fr auto;
+	grid-template-rows: auto auto auto auto;
 	gap: 0.35rem;
-	min-height: 8rem;
+	align-content: start;
 	padding: 0.8rem 0.9rem 0.85rem;
 }
 
@@ -304,9 +305,22 @@
 		gap: 0.7rem;
 	}
 
-	.exp-guide-topic-grid--visual {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+	.exp-guide-topic-grid--single { grid-template-columns: 1fr; }
+	.exp-guide-topic-grid--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.exp-guide-topic-grid--balanced,
+	.exp-guide-topic-grid--dense,
+	.exp-guide-topic-grid--odd { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.exp-guide-topic-grid--feature-last .exp-guide-topic-card--wide { grid-column: 1 / -1; }
+
+	.exp-guide-topic-card--wide {
+		grid-template-columns: minmax(0, 1fr);
+		grid-template-rows: 1fr;
 	}
+
+	.exp-guide-topic-card--wide.exp-guide-topic-card--image { grid-template-columns: minmax(0, 1.25fr) minmax(13rem, 0.75fr); }
+	.exp-guide-topic-card--wide .exp-guide-topic-card__body { grid-column: 1 / -1; grid-row: 1; }
+	.exp-guide-topic-card--wide.exp-guide-topic-card--image .exp-guide-topic-card__body { grid-column: 1; }
+	.exp-guide-topic-card--wide .exp-guide-topic-card__visual { grid-column: 2; grid-row: 1; height: 100%; min-height: 100%; border-left: 1px solid var(--xp-border); }
 }
 
 @media (max-width: 42rem) {
@@ -318,4 +332,17 @@
 	.exp-guide-spotlight__grid {
 		grid-template-columns: 1fr;
 	}
+}
+
+@media (max-width: 49.99rem) {
+	.exp-guide-topic-card--wide { grid-column: 1; }
+}
+
+@media (min-width: 42rem) and (max-width: 49.99rem) {
+	.exp-guide-topic-grid,
+	.exp-guide-topic-grid--balanced,
+	.exp-guide-topic-grid--dense,
+	.exp-guide-topic-grid--odd { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.exp-guide-topic-grid--single { grid-template-columns: 1fr; }
+	.exp-guide-topic-grid--feature-last .exp-guide-topic-card--wide { grid-column: 1 / -1; }
 }

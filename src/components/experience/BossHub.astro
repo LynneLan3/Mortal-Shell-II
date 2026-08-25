@@ -6,6 +6,7 @@ import HubSubnav from './HubSubnav.astro';
 import { getPortalProminence } from '../../lib/hub-prominence';
 import HubProminenceBadge from './HubProminenceBadge.astro';
 import { bossEntities } from '../../data/game-entities';
+import { cardDensity, hasFeatureLast } from '../../lib/card-density';
 
 const relatedRoutes = [
 	{
@@ -30,6 +31,9 @@ const progressionOrder = ['Prologue', 'Fainweald', 'Mammon', 'The Unfound Path',
 const bossGroups = progressionOrder
 	.map((group) => ({ group, bosses: bosses.filter((boss) => boss.progressionGroup === group).sort((a, b) => a.progressionPosition - b.progressionPosition) }))
 	.filter((group) => group.bosses.length > 0);
+const progressionGroups = progressionOrder.slice(0, 5);
+const progressionDensity = cardDensity(progressionGroups.length, 2);
+const progressionFeatureLast = hasFeatureLast(progressionGroups.length, 2);
 const hotSignals = getPortalProminence(game.portal);
 const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.href)).slice(0, 4).map((boss) => boss.href));
 ---
@@ -60,9 +64,9 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 				<h2 class="exp-h2" id="recommended-progression-heading">Recommended progression</h2>
 				<p class="exp-lede">Use this as a region-first backbone rather than a mandatory numbered route: Prologue → Fainweald → Mammon → The Unfound Path → Endgame / Zmey. Optional and boss-linked encounters stay labeled instead of being presented as required gates.</p>
 			</header>
-			<div class="exp-boss-progression__steps">
-				{progressionOrder.slice(0, 5).map((group, index) => (
-					<a class="exp-boss-progression__step" href={`#boss-group-${group.toLowerCase().replace(/[^a-z]+/g, '-')}`}>
+			<div class:list={['exp-boss-progression__steps', `exp-boss-progression__steps--${progressionDensity}`, progressionFeatureLast && 'exp-boss-progression__steps--feature-last']}>
+				{progressionGroups.map((group, index) => (
+					<a class:list={['exp-boss-progression__step', progressionFeatureLast && index === progressionGroups.length - 1 && 'exp-boss-progression__step--wide']} href={`#boss-group-${group.toLowerCase().replace(/[^a-z]+/g, '-')}`}>
 						<span class="exp-boss-progression__number">{String(index + 1).padStart(2, '0')}</span>
 						<strong>{group}</strong>
 						<span>{bossGroups.find((item) => item.group === group)?.bosses.length ?? 0} guide{(bossGroups.find((item) => item.group === group)?.bosses.length ?? 0) === 1 ? '' : 's'}</span>
@@ -77,14 +81,18 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 				<h2 class="exp-h2" id="boss-guides-heading">Bosses with a guide</h2>
 				<p class="exp-lede">Every card below links to an existing guide. Region, progression position, reward/outcome, and required status use the shared boss entity data; route order remains flexible where the evidence does not establish a hard gate.</p>
 			</header>
-			{bossGroups.map((group) => (
+			{bossGroups.map((group) => {
+				const density = cardDensity(group.bosses.length, 2);
+				const featureLast = hasFeatureLast(group.bosses.length, 2);
+				return (
 				<section id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}`} class="exp-boss-group hub-scroll-target" aria-labelledby={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>
 					<h3 class="exp-h3" id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>{group.group}</h3>
-					<div class="exp-boss-grid">
-						{group.bosses.map((boss) => {
+					<div class:list={['exp-boss-grid', `exp-boss-grid--${density}`, featureLast && 'exp-boss-grid--feature-last']}>
+						{group.bosses.map((boss, bossIndex) => {
 							const image = resolveCardImage({ href: boss.href, title: boss.name });
+							const isWide = featureLast && bossIndex === group.bosses.length - 1;
 							return (
-								<a class="exp-boss-card" href={boss.href}>
+								<a class:list={['exp-boss-card', image && 'exp-boss-card--has-image', isWide && 'exp-boss-card--wide']} href={boss.href}>
 									{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} />}
 									<div class="exp-boss-card__body">
 										<div class="exp-boss-card__topline">
@@ -94,11 +102,11 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 										<h3 class="exp-boss-card__title">{boss.name}</h3>
 										<p class="exp-boss-card__description">{boss.description}</p>
 										<dl class="exp-boss-card__facts">
-											<dt>Position</dt><dd>{boss.progressionPosition}</dd>
-											<dt>Region / area</dt><dd>{boss.area}</dd>
-											<dt>Required / optional</dt><dd>{boss.requiredStatus}</dd>
-											<dt>Reward / outcome</dt><dd>{boss.reward}</dd>
-											<dt>Related route</dt><dd>{boss.relatedRouteIds[0]?.replace('/mortal-shell-ii/routes/', '').replace(/\/$/, '').replaceAll('-', ' ') ?? 'Guide context'}</dd>
+											<div class="exp-boss-card__fact"><dt>Position</dt><dd>{boss.progressionPosition}</dd></div>
+											<div class="exp-boss-card__fact"><dt>Region / area</dt><dd>{boss.area}</dd></div>
+											<div class="exp-boss-card__fact"><dt>Required / optional</dt><dd>{boss.requiredStatus}</dd></div>
+											<div class="exp-boss-card__fact"><dt>Reward / outcome</dt><dd>{boss.reward}</dd></div>
+											<div class="exp-boss-card__fact"><dt>Related route</dt><dd>{boss.relatedRouteIds[0]?.replace('/mortal-shell-ii/routes/', '').replace(/\/$/, '').replaceAll('-', ' ') ?? 'Guide context'}</dd></div>
 										</dl>
 										<span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>
 									</div>
@@ -107,7 +115,8 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 						})}
 					</div>
 				</section>
-			))}
+				);
+			})}
 		</section>
 
 		<section id="related-routes" class="exp-boss-hub__related hub-scroll-target" aria-labelledby="related-routes-heading">

@@ -13,6 +13,7 @@ import type { GameRoute } from '../../config/game';
 import { game } from '../../config/game';
 import { routeNumber } from '../../lib/experience-homepage';
 import { ui } from '../../lib/ui';
+import { cardDensity, hasFeatureLast } from '../../lib/card-density';
 import RouteTopicCard from './routes/RouteTopicCard.astro';
 
 interface Props {
@@ -22,6 +23,8 @@ interface Props {
 const { routes } = Astro.props;
 const t = ui();
 const shownRoutes = routes;
+const density = cardDensity(shownRoutes.length, 2);
+const featureLast = hasFeatureLast(shownRoutes.length, 2);
 const sectionCopy = game.portal?.homepageSections?.['recommended-routes'];
 const sectionTitle = sectionCopy?.title ?? t.routesNav;
 const sectionNavLabel = sectionCopy?.navLabel ?? sectionTitle;
@@ -36,9 +39,9 @@ const sectionNavLabel = sectionCopy?.navLabel ?? sectionTitle;
 			: <p class="exp-lede">{t.routeGroupsLede}</p>}
 	</div>
 		<div class="exp-content">
-			<div class="exp-routes">
+			<div class:list={['exp-routes', `exp-routes--${density}`, featureLast && 'exp-routes--feature-last']}>
 			{shownRoutes.map((route, index) => (
-				<RouteTopicCard route={route} number={routeNumber(index)} />
+				<RouteTopicCard route={route} number={routeNumber(index)} variant={featureLast && index === shownRoutes.length - 1 ? 'wide' : 'topic'} />
 			))}
 			</div>
 			<a class="exp-home-routes__product-link" href="/mortal-shell-ii/routes/">Need an ordered map run? Explore Routes <span aria-hidden="true">→</span></a>

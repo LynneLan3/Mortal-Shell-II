@@ -3,6 +3,7 @@ import { mapRoutes, mapRouteHref } from '../../../data/map-routes';
 import { toolkitItemByMapMarkerId } from '../../../data/toolkit-items';
 import MapRoutePreview from './MapRoutePreview.astro';
 import HubSubnav from '../HubSubnav.astro';
+import { cardDensity, hasFeatureLast } from '../../../lib/card-density';
 
 const groups = [
 	{ id: 'progression', label: 'Progression', purpose: 'Progression' },
@@ -14,6 +15,8 @@ const groups = [
 	.filter((group) => group.routes.length > 0);
 
 const routeCards = groups.flatMap((group) => group.routes.map((route) => ({ route, category: group.id })));
+const density = cardDensity(routeCards.length, 2);
+const featureLast = hasFeatureLast(routeCards.length, 2);
 
 const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 	.map((waypoint) => toolkitItemByMapMarkerId.get(waypoint.markerId)?.id)
@@ -36,11 +39,11 @@ const routeItems = (route: (typeof mapRoutes)[number]) => route.waypoints
 		ariaLabel="Filter routes"
 	/>
 
-	<div class="route-card-grid" data-route-grid>
-		{routeCards.map(({ route, category }) => {
+	<div class:list={['route-card-grid', `route-card-grid--${density}`, featureLast && 'route-card-grid--feature-last']} data-route-grid>
+		{routeCards.map(({ route, category }, index) => {
 			const itemIds = routeItems(route);
 			return (
-				<a class="route-card" href={mapRouteHref(route.id)} data-route-card={route.id} data-route-category={category} data-route-items={itemIds.join(',')}>
+				<a class:list={['route-card', featureLast && index === routeCards.length - 1 && 'route-card--wide']} href={mapRouteHref(route.id)} data-route-card={route.id} data-route-category={category} data-route-items={itemIds.join(',')}>
 					<MapRoutePreview route={route} />
 					<div class="route-card__body">
 						<div class="route-card__meta"><span>{route.type}</span><span>{route.region}</span></div>

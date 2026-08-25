@@ -17,6 +17,7 @@ import AuthorityHubGrid from './AuthorityHubGrid.astro';
 import HubSubnav from './HubSubnav.astro';
 import HubProminenceBadge from './HubProminenceBadge.astro';
 import { getPortalProminence, prominenceForHref } from '../../lib/hub-prominence';
+import { cardDensity, hasFeatureLast } from '../../lib/card-density';
 
 const t = ui();
 const guides = (await getGuides()).filter((entry) => Boolean(categoryOf(entry)));
@@ -167,19 +168,23 @@ const libraryFilters = [
 	)}
 
 	<div class="exp-content exp-guide-topic-index__groups">
-		{groups.map((group, index) => (
+		{groups.map((group, index) => {
+			const density = cardDensity(group.entries.length, 3);
+			const featureLast = hasFeatureLast(group.entries.length, 3);
+			return (
 			<section class="exp-guide-topic-group hub-scroll-target" id={group.id} aria-labelledby={`${group.id}-heading`} data-guide-library-group>
 				<header class="exp-guide-topic-group__head">
 					<p class="exp-eyebrow">Topic {String(index + 1).padStart(2, '0')}</p>
 					<h2 class="exp-h2" id={`${group.id}-heading`}>{group.title}</h2>
 					<p class="exp-lede">{group.description}</p>
 				</header>
-				<div class:list={['exp-guide-topic-grid', group.entries.some((entry) => Boolean(visualForEntry(entry).image)) && 'exp-guide-topic-grid--visual']}>
+				<div class:list={['exp-guide-topic-grid', `exp-guide-topic-grid--${density}`, featureLast && 'exp-guide-topic-grid--feature-last']}>
 					{group.entries.map((entry, entryIndex) => {
 						const visual = visualForEntry(entry);
 						const libraryCategory = guideLibraryCategoryOf(entry);
+						const isWide = featureLast && entryIndex === group.entries.length - 1;
 						return (
-							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image']} href={guideHref(entry)} data-guide-library-card data-guide-library-category={libraryCategory} hidden={entryIndex >= 8}>
+							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image', isWide && 'exp-guide-topic-card--wide']} href={guideHref(entry)} data-guide-library-card data-guide-library-category={libraryCategory} hidden={entryIndex >= 8}>
 								{visual.image && <CardThumbnail className="exp-guide-topic-card__visual" image={visual.image} alt={visual.alt ?? ''} />}
 								<span class="exp-guide-topic-card__body">
 									<span class="exp-guide-topic-card__meta">{categoryOf(entry)?.label ?? t.guidesNav}</span>
@@ -193,7 +198,8 @@ const libraryFilters = [
 				</div>
 				{group.entries.length > 8 && <button class="exp-guide-topic-group__more" type="button" data-guide-library-more>Show all {group.entries.length} guides</button>}
 			</section>
-		))}
+			);
+		})}
 	</div>
 </section>
 

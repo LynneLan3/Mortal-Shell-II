@@ -1,17 +1,20 @@
 ---
 import type { GameAuthorityHub } from '../../config/game';
+import { cardDensity, hasFeatureLast } from '../../lib/card-density';
 
 interface Props {
 	hubs: readonly GameAuthorityHub[];
 }
 
 const { hubs } = Astro.props;
+const density = cardDensity(hubs.length, 3);
+const featureLast = hasFeatureLast(hubs.length, 3);
 ---
 
 {hubs.length > 0 && (
-	<div class="exp-authority-grid">
-		{hubs.map((hub) => (
-			<a class="exp-authority-card" href={hub.href}>
+	<div class:list={['exp-authority-grid', `exp-authority-grid--${density}`, featureLast && 'exp-authority-grid--feature-last']}>
+		{hubs.map((hub, index) => (
+			<a class:list={['exp-authority-card', featureLast && index === hubs.length - 1 && 'exp-authority-card--wide']} href={hub.href}>
 				<span class="exp-authority-card__label">{hub.label}</span>
 				<span class="exp-authority-card__description">{hub.description}</span>
 				<span class="exp-authority-card__arrow" aria-hidden="true">→</span>
@@ -23,13 +26,14 @@ const { hubs } = Astro.props;
 <style is:global>
 	.exp-authority-grid {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		grid-template-columns: 1fr;
 		gap: 0.75rem;
+		align-items: start;
 	}
 	.exp-authority-card {
 		display: grid;
 		gap: 0.5rem;
-		min-height: 6.5rem;
+		min-width: 0;
 		padding: 1rem;
 		border: 1px solid color-mix(in srgb, var(--game-accent, #7c3aed) 30%, transparent);
 		background: color-mix(in srgb, var(--sl-color-gray-6, #1a1f28) 72%, transparent);
@@ -62,7 +66,22 @@ const { hubs } = Astro.props;
 		color: var(--game-accent, #7c3aed);
 		font-size: 1.1rem;
 	}
-	@media (max-width: 760px) {
+	@media (min-width: 50rem) {
+		.exp-authority-grid--single { grid-template-columns: 1fr; }
+		.exp-authority-grid--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.exp-authority-grid--balanced,
+		.exp-authority-grid--dense,
+		.exp-authority-grid--odd { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+		.exp-authority-grid--feature-last .exp-authority-card--wide { grid-column: 1 / -1; }
+		.exp-authority-card--wide {
+			grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.4fr) auto;
+			align-items: center;
+		}
+		.exp-authority-card--wide .exp-authority-card__arrow { align-self: center; }
+	}
+	@media (min-width: 42rem) and (max-width: 49.99rem) {
 		.exp-authority-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+		.exp-authority-grid--single { grid-template-columns: 1fr; }
+		.exp-authority-grid--feature-last .exp-authority-card--wide { grid-column: 1 / -1; }
 	}
 </style>

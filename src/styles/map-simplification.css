@@ -14,14 +14,24 @@
 .map-panel__subline, .map-route-strip, .map-control-section--routes, .map-tracker { display: none !important; }
 .map-progress-modal { width: min(96rem, calc(100% - 2rem)); max-width: none; max-height: calc(100vh - 2rem); padding: 0; border: 1px solid var(--map-line); background: var(--map-ink); color: var(--map-text); }
 .map-progress-modal::backdrop { background: rgb(3 6 9 / 0.78); backdrop-filter: blur(4px); }
-.map-progress-modal__inner { max-height: calc(100vh - 2rem); overflow: auto; }
-.map-progress-modal__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--map-line); background: var(--map-panel); }
+.map-progress-modal__inner { display: flex; flex-direction: column; height: calc(100vh - 2rem); max-height: calc(100vh - 2rem); overflow: hidden; }
+.map-progress-modal__head { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex: 0 0 auto; padding: 1rem 1.25rem; border-bottom: 1px solid var(--map-line); background: var(--map-panel); box-shadow: 0 0.45rem 1rem rgb(3 6 9 / 0.24); }
+.map-progress-modal__title { min-width: 0; }
 .map-progress-modal__head h2 { margin: 0.25rem 0 0; color: var(--map-text); }
-.map-progress-modal__head button { width: 2rem; height: 2rem; border: 1px solid var(--map-line); background: transparent; color: var(--map-muted); font-size: 1.4rem; cursor: pointer; }
-.map-progress-modal__head button:hover { border-color: var(--map-route); color: var(--map-route); }
+.map-progress-modal__actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.55rem; margin-left: auto; }
+.map-progress-modal__action,
+.map-progress-modal__close { min-height: 2.2rem; border: 1px solid var(--map-line); background: transparent; color: var(--map-muted); font: inherit; font-size: var(--xp-text-xs); font-weight: 800; cursor: pointer; white-space: nowrap; }
+.map-progress-modal__action { padding: 0.4rem 0.7rem; }
+.map-progress-modal__action:hover,
+.map-progress-modal__close:hover { border-color: var(--map-route); color: var(--map-route); }
+.map-progress-modal__action--reset { border-color: rgb(255 255 255 / 0.1); color: var(--map-dim); font-weight: 700; }
+.map-progress-modal__action--cancel { background: rgb(255 255 255 / 0.035); }
+.map-progress-modal__action--confirm { border-color: var(--map-route); background: var(--map-route); color: var(--map-ink); }
+.map-progress-modal__action--confirm:hover { border-color: #ffd19a; background: #ffd19a; color: var(--map-ink); }
+.map-progress-modal__close { width: 2.2rem; padding: 0; font-size: 1.4rem; line-height: 1; }
+.map-progress-modal__content { min-height: 0; overflow-y: auto; }
 .map-progress-modal .completion-workspace { max-width: none; margin: 0; padding: 1rem 1.25rem 2rem; }
 .map-progress-modal .completion-workspace__hero { margin-top: 0; }
-.map-progress-modal .completion-workspace__footer { margin-bottom: 0; }
 
 /* Desktop map workspace: keep the canvas dominant and make controls a stable
    reading column instead of a floating drawer. */
@@ -110,7 +120,9 @@
 	}
 	.map-page .map-toolbar-button[data-map-tools-toggle] { display: none; }
 	.map-progress-modal { width: calc(100% - 1rem); max-height: calc(100vh - 1rem); }
-	.map-progress-modal__inner { max-height: calc(100vh - 1rem); }
+	.map-progress-modal__inner { height: calc(100vh - 1rem); max-height: calc(100vh - 1rem); }
+	.map-progress-modal__head { align-items: flex-start; flex-wrap: wrap; padding: 0.75rem; }
+	.map-progress-modal__actions { flex: 1 1 100%; justify-content: flex-start; margin-left: 0; }
 	.map-progress-modal .completion-workspace { padding: 0.75rem; }
 	.map-progress-modal .completion-workspace__hero, .map-progress-modal .completion-workspace__next, .map-progress-modal .completion-workspace__route, .map-progress-modal .completion-workspace__controls, .map-progress-modal .completion-workspace__list { padding: 0.9rem; }
 }

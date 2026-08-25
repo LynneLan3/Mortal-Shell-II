@@ -155,7 +155,7 @@ const clientData = {
 			</nav>
 		</section>
 
-	<footer class="completion-workspace__footer"><span>Browser-local completion state · compatible with the Player Toolkit map.</span>{draft ? <div class="completion-workspace__draft-actions"><button type="button" data-completion-reset>Reset draft</button><button type="button" data-completion-cancel>Cancel</button><button type="button" data-completion-confirm>Confirm</button></div> : <button type="button" data-completion-reset>Reset completion state</button>}</footer>
+	{!draft && <footer class="completion-workspace__footer"><span>Browser-local completion state · compatible with the Player Toolkit map.</span><button type="button" data-completion-reset>Reset completion state</button></footer>}
 </section>
 
 <script>
@@ -297,9 +297,10 @@ const clientData = {
 		cards.forEach((card) => { card.addEventListener('click', (event) => { if (!isSecondaryTarget(event.target)) toggleCard(card); }); card.addEventListener('keydown', (event) => { if ((event.key === 'Enter' || event.key === ' ') && !isSecondaryTarget(event.target)) { event.preventDefault(); toggleCard(card); } }); });
 		app.querySelectorAll('[data-achievement-reveal]').forEach((button) => button.addEventListener('click', () => { const card = button.closest('[data-achievement-card]'); if (!(card instanceof HTMLElement)) return; card.classList.add('is-revealed'); const achievement = achievements.get(card.getAttribute('data-achievement-card') || ''); if (achievement) { const title = card.querySelector('[data-achievement-title]'); const description = card.querySelector('[data-achievement-description]'); if (title) title.textContent = achievement.name; if (description) description.textContent = achievement.description; } button.remove(); }));
 		app.querySelectorAll('[data-achievement-manual-input]').forEach((input) => input.addEventListener('input', () => { const card = input.closest('[data-achievement-card]'); const id = card?.getAttribute('data-achievement-card'); const achievement = id ? achievements.get(id) : undefined; if (!id || !achievement) return; manualProgress[id] = Math.max(0, Math.min(Number(achievement.total || 0), Number(input.value || 0))); if (!draftMode) saveState(); render(); }));
-		app.querySelector('[data-completion-reset]')?.addEventListener('click', () => { if (draftMode) { completedIds = new Set(); manualProgress = {}; render(); return; } if (!window.confirm('Reset all completion progress on this device?')) return; completedIds = new Set(); manualProgress = {}; saveState(); render(); });
-		app.querySelector('[data-completion-cancel]')?.addEventListener('click', () => window.dispatchEvent(new CustomEvent('ms2-completion-draft-cancel')));
-		app.querySelector('[data-completion-confirm]')?.addEventListener('click', persistDraft);
+		const actionRoot = draftMode ? document : app;
+		actionRoot.querySelector('[data-completion-reset]')?.addEventListener('click', () => { if (draftMode) { completedIds = new Set(); manualProgress = {}; render(); return; } if (!window.confirm('Reset all completion progress on this device?')) return; completedIds = new Set(); manualProgress = {}; saveState(); render(); });
+		actionRoot.querySelector('[data-completion-cancel]')?.addEventListener('click', () => window.dispatchEvent(new CustomEvent('ms2-completion-draft-cancel')));
+		actionRoot.querySelector('[data-completion-confirm]')?.addEventListener('click', persistDraft);
 		if (draftMode) window.addEventListener('ms2-completion-draft-open', () => { readState(); app.querySelectorAll('[data-completion-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-filter') === activeFilter)); app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-category-filter') === activeCategory)); render(); });
 		if (draftMode) window.addEventListener('ms2-completion-draft-cancel', () => { readState(); render(); });
 		if (draftMode) window.addEventListener('ms2-completion-draft-reset', () => { readState(); render(); });

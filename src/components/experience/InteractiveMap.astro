@@ -62,7 +62,7 @@ const mapPayload = {
 		</aside>
 	</div>
 
-		<dialog class="map-progress-modal" data-map-progress-dialog aria-labelledby="map-progress-title"><div class="map-progress-modal__inner"><div class="map-progress-modal__head"><div><p class="map-panel__eyebrow">Completion</p><h2 id="map-progress-title">Progress</h2></div><button type="button" data-map-progress-close aria-label="Close progress">×</button></div><AchievementWorkspace draft /></div></dialog>
+		<dialog class="map-progress-modal" data-map-progress-dialog aria-labelledby="map-progress-title"><div class="map-progress-modal__inner"><header class="map-progress-modal__head"><div class="map-progress-modal__title"><p class="map-panel__eyebrow">Completion</p><h2 id="map-progress-title">Progress</h2></div><div class="map-progress-modal__actions"><button type="button" class="map-progress-modal__action map-progress-modal__action--reset" data-completion-reset>Reset Draft</button><button type="button" class="map-progress-modal__action map-progress-modal__action--cancel" data-completion-cancel>Cancel</button><button type="button" class="map-progress-modal__action map-progress-modal__action--confirm" data-completion-confirm>Confirm</button><button type="button" class="map-progress-modal__close" data-map-progress-close aria-label="Close progress">×</button></div></header><div class="map-progress-modal__content"><AchievementWorkspace draft /></div></div></dialog>
 	<p class="map-note">Coordinates use one normalized data contract: <code>xNorm</code>/<code>yNorm</code> from the basemap top-left. The current {mapBasemap.width}×{mapBasemap.height} basemap remains a temporary third-party LootMap asset; Basemap debt is NOT CLEARED.</p>
 </section>
 

@@ -5,7 +5,7 @@ category: game-info
 slug: mortal-shell-ii/beta-progress-carry-over
 status: confirmed
 featured: true
-quickAnswer: "Your Open Beta save does NOT transfer. Two documented launch entitlements do: The Flayed Harbinger cosmetic (Steam dev reply: triggered after >30 minutes of play) and an optional Prologue skip (PlayStation: progress beyond Marrow Keep). Currency, weapons, Shells, collectibles and other items found in the Beta reset at launch."
+quickAnswer: "Your Open Beta save does NOT transfer. Two documented launch entitlements do: The Flayed Harbinger cosmetic (Steam dev reply: triggered after >30 minutes of play) and an optional Prologue skip (PlayStation: progress beyond Marrow Keep). Currency, weapons, Shells, collectibles and other items found in the Beta reset at launch. If a Steam reward is missing, use the developer-confirmed relaunch and Library workaround below."
 faq:
   - question: "Does my Open Beta save transfer to the full game?"
     answer: "No. The developer confirmed Open Beta save data will not transfer to the full release."
@@ -58,18 +58,35 @@ lastUpdated: 2026-08-24
 2. On Steam: the developer reply identifies more-than-30-minutes played in the Open Beta as the trigger for The Flayed Harbinger. On PlayStation the listing advertises the cosmetic as the Beta bonus but does not publish a numeric threshold.
 3. To earn the Prologue-skip entitlement: in PlayStation copy, progress beyond Marrow Keep during the Open Beta; the Steam developer reply also confirms a qualifying Beta player can skip the Prologue. For exact in-game menu prompts and the skip decision, use [mortal-shell-ii/skip-prologue/](/mortal-shell-ii/skip-prologue/).
 
+## Steam reward not showing?
+
+Developer-confirmed Steam troubleshooting
+
+1. Confirm the same Steam account was used for the Open Beta.
+2. Exit and relaunch the full game once.
+3. Make sure Mortal Shell II Open Beta is still added to the Steam Library.
+4. Relaunch the full game again.
+5. If the unlock still does not register, developer guidance says to start reinstalling the Beta, pause the download at about 7%, then relaunch the full game.
+6. Once the rewards appear in the full game, the Beta can be uninstalled.
+
+Notes on the Steam steps and Library state
+
+- The developer's pinned Known Issues and post-launch Steam replies list keeping the Beta in the Library or partially installed as a workaround that can affect whether the retail game detects and grants the entitlement. This is platform-specific Steam troubleshooting — it is not a save transfer and it does not restore Beta save data, weapons, Shells, currency, collectibles, or other Beta progress.
+- Do not treat a Library or partial-install state as moving your Beta save into the retail game; the workaround only helps the retail game detect that you originally qualified.
+
 ## Platform differences and verification limits
 
 - The Steam developer reply is the clearest single-source clarification: save data will not transfer and >30 minutes of Beta play unlocks the Flayed Harbinger. That numeric threshold is not independently verified on consoles in the checked sources.
 - The PlayStation Open Beta listing confirms the Flayed Harbinger bonus, ties Prologue-skip eligibility to progressing beyond Marrow Keep, and lists what resets at launch.
 - No checked first-party source established a platform-specific exception that restores a Beta save on any console or PC.
-- Note: community troubleshooting reports about Steam library visibility or partial re-downloads are Steam-specific and are only troubleshooting for store/library behavior — they are not evidence of save transfer. See secondary coverage (GamesRadar) if you need details about Steam-specific library workarounds.
+- Note: the Steam Library and partial-download sequence is a developer-confirmed entitlement-detection workaround, not evidence of save transfer. It applies only to Steam; GamesRadar remains secondary background coverage.
 
 ## Common mistakes
 
 - Assuming your Beta character, inventory, or completed dungeons transfer. (They do not.)
 - Treating "select progress carries forward" in storefront copy as a full save migration. It refers to the limited entitlements above.
-- Deleting or reinstalling the Beta thinking it will change whether you earned the unlocks. The unlocks are based on the qualifying Beta activity when it was available; uninstalling later does not restore a deleted entitlement.
+- Uninstalling or reinstalling the Beta does not change whether you originally qualified for the rewards. Eligibility is determined by how you played the Open Beta, not by later reinstall actions.
+- Steam developer reports confirm that the Beta's Library / install state can affect whether the retail game currently detects and grants the entitlement. This is a detection/workaround detail on Steam only and is separate from actual eligibility.
 - Using Steam library visibility steps as a cross-platform fix. Those steps are Steam-specific troubleshooting and do not create save migration.
 
 ## If you skipped the Prologue — read this next

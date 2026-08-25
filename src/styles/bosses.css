@@ -314,7 +314,7 @@
 }
 
 .exp-boss-card--has-image {
-	grid-template-columns: minmax(8rem, 0.44fr) minmax(0, 0.56fr);
+	grid-template-columns: minmax(8rem, 0.45fr) minmax(0, 0.55fr);
 	grid-template-areas: 'media body';
 }
 

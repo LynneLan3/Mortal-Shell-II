@@ -6,6 +6,7 @@
  * either in `GameShell` or inside the Starlight shell on Experience Guide pages.
  */
 import type { NavItem } from './GameShell.astro';
+import { game } from '../../config/game';
 import { getGuides, guideHref } from '../../lib/guides';
 
 interface Props {
@@ -29,6 +30,12 @@ const localSearchData = (await getGuides()).map((entry) => ({
 }));
 const localSearchJson = JSON.stringify(localSearchData).replace(/</g, '\\u003c');
 const isDev = import.meta.env.DEV;
+const searchShortcuts = [
+	...(game.portal?.hotGuides ?? []).slice(0, 3).map((item) => ({ title: item.title, href: item.href })),
+	...nav
+		.filter((item) => /bosses|route|map/i.test(item.label))
+		.map((item) => ({ title: item.label, href: item.href })),
+];
 
 function isActive(item: NavItem): boolean {
 	if (!activePath) return false;
@@ -46,42 +53,52 @@ function isActive(item: NavItem): boolean {
 		<a class="exp-topbar__brand" href={homeHref}>
 			{siteTitle}
 		</a>
-		<nav class="exp-topbar__nav" aria-label="Main navigation">
-			{nav.map((item) => (
-				<a
-					class:list={['exp-topbar__link', isActive(item) && 'is-active']}
-					href={item.href}
-					data-exp-nav-link
-					data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
-					data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
-					data-exp-nav-recommended-routes={item.href.endsWith('#recommended-routes') ? 'true' : undefined}
-					data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
-					aria-current={isActive(item) ? 'page' : undefined}
+		<div class="exp-topbar__actions">
+			<nav class="exp-topbar__nav" aria-label="Main navigation">
+				{nav.map((item) => (
+					<a
+						class:list={['exp-topbar__link', isActive(item) && 'is-active']}
+						href={item.href}
+						data-exp-nav-link
+						data-exp-nav-home={item.href === homeHref ? 'true' : undefined}
+						data-exp-nav-hot={item.href.endsWith('#hot-guides') ? 'true' : undefined}
+						data-exp-nav-recommended-routes={item.href.endsWith('#recommended-routes') ? 'true' : undefined}
+						data-exp-nav-server-active={isActive(item) ? 'true' : 'false'}
+						aria-current={isActive(item) ? 'page' : undefined}
+					>
+						{item.label}
+					</a>
+				))}
+				<button
+					class="exp-topbar__search-trigger"
+					type="button"
+					aria-label="Search"
+					data-exp-search-open
 				>
-					{item.label}
-				</a>
-			))}
+					Search <kbd>/</kbd>
+				</button>
+			</nav>
 			<button
-				class="exp-topbar__search-trigger"
+				class="exp-topbar__mobile-search"
 				type="button"
 				aria-label="Search"
 				data-exp-search-open
 			>
-				Search <kbd>/</kbd>
+				<span aria-hidden="true">⌕</span> Search
 			</button>
-		</nav>
-		<button
-			class="exp-topbar__mobile-toggle"
-			type="button"
-			aria-label="Menu"
-			aria-expanded="false"
-			data-exp-mobile-toggle
-		>
-			☰ Menu
-		</button>
+			<button
+				class="exp-topbar__mobile-toggle"
+				type="button"
+				aria-label="Menu"
+				aria-expanded="false"
+				data-exp-mobile-toggle
+			>
+				<span aria-hidden="true">☰</span>
+			</button>
+		</div>
 	</div>
 </header>
-<nav class="exp-mobile-nav" aria-label="Mobile navigation" data-exp-mobile-nav>
+<nav class="exp-mobile-nav" aria-label="Mobile navigation" aria-hidden="true" data-exp-mobile-nav>
 	{nav.map((item) => (
 		<a
 			class:list={['exp-topbar__link', isActive(item) && 'is-active']}
@@ -96,20 +113,24 @@ function isActive(item: NavItem): boolean {
 			{item.label}
 		</a>
 	))}
-	<button
-		class="exp-topbar__search-trigger"
-		type="button"
-		style="margin-top: 0.5rem;"
-		data-exp-search-open
-	>
-		Search
-	</button>
 </nav>
 
 {/* Search overlay (Pagefind) */}
 <div class="exp-search-overlay" data-exp-search-overlay data-exp-search-dev={isDev ? 'true' : 'false'}>
-	<div class="exp-search-dialog" data-exp-search-dialog>
+	<div class="exp-search-dialog" data-exp-search-dialog role="dialog" aria-modal="true" aria-label="Search Mortal Shell II">
+		<div class="exp-search-dialog__header">
+			<p class="exp-search-dialog__title">Search Mortal Shell II</p>
+			<button class="exp-search-dialog__close" type="button" aria-label="Close search" data-exp-search-close>Close</button>
+		</div>
 		<div id="exp-pagefind-container"></div>
+		{searchShortcuts.length > 0 && (
+			<div class="exp-search-shortcuts" data-exp-search-shortcuts>
+				<p class="exp-search-shortcuts__label">Popular searches</p>
+				<div class="exp-search-shortcuts__links">
+					{searchShortcuts.map((item) => <a href={item.href}>{item.title}</a>)}
+				</div>
+			</div>
+		)}
 	</div>
 </div>
 <script type="application/json" data-exp-search-data set:html={localSearchJson}></script>
@@ -154,11 +175,26 @@ function isActive(item: NavItem): boolean {
 
 		var toggle = document.querySelector('[data-exp-mobile-toggle]');
 		var mobileNav = document.querySelector('[data-exp-mobile-nav]');
+		function closeMobileNav() {
+			if (!mobileNav || !toggle) return;
+			mobileNav.setAttribute('data-open', 'false');
+			mobileNav.setAttribute('aria-hidden', 'true');
+			toggle.setAttribute('aria-expanded', 'false');
+		}
+		function openMobileNav() {
+			if (!mobileNav || !toggle) return;
+			mobileNav.setAttribute('data-open', 'true');
+			mobileNav.setAttribute('aria-hidden', 'false');
+			toggle.setAttribute('aria-expanded', 'true');
+		}
 		if (toggle && mobileNav) {
 			toggle.addEventListener('click', function () {
 				var open = mobileNav.getAttribute('data-open') === 'true';
-				mobileNav.setAttribute('data-open', open ? 'false' : 'true');
-				toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+				if (open) closeMobileNav();
+				else openMobileNav();
+			});
+			mobileNav.querySelectorAll('a').forEach(function (link) {
+				link.addEventListener('click', closeMobileNav);
 			});
 		}
 
@@ -199,9 +235,11 @@ function isActive(item: NavItem): boolean {
 
 			function renderResults() {
 				var query = input.value.trim().toLowerCase();
+				var shortcuts = document.querySelector('[data-exp-search-shortcuts]');
+				if (shortcuts) shortcuts.toggleAttribute('hidden', Boolean(query));
 				results.innerHTML = '';
 				if (!query) {
-					message.textContent = 'Type a topic or question to search the guide library.';
+					message.textContent = 'Search the guide library or choose a popular guide.';
 					return;
 				}
 
@@ -246,8 +284,18 @@ function isActive(item: NavItem): boolean {
 			renderResults();
 		}
 
+		function syncSearchShortcuts(input) {
+			var shortcuts = document.querySelector('[data-exp-search-shortcuts]');
+			if (!shortcuts || !input || input.getAttribute('data-shortcuts-bound') === 'true') return;
+			input.setAttribute('data-shortcuts-bound', 'true');
+			input.addEventListener('input', function () {
+				shortcuts.toggleAttribute('hidden', Boolean(input.value.trim()));
+			});
+		}
+
 		function openSearch() {
 			if (!overlay) return;
+			closeMobileNav();
 			overlay.setAttribute('data-open', 'true');
 			if (!pfInit) {
 				pfInit = true;
@@ -268,13 +316,19 @@ function isActive(item: NavItem): boolean {
 						showLocalSearch();
 					}
 					var input = document.querySelector('#exp-pagefind-container input');
-					if (input) input.focus();
+					if (input) {
+						syncSearchShortcuts(input);
+						input.focus();
+					}
 				};
 				script.onerror = showLocalSearch;
 				document.head.appendChild(script);
 			} else {
 				var input = document.querySelector('#exp-pagefind-container input');
-				if (input) input.focus();
+				if (input) {
+					syncSearchShortcuts(input);
+					input.focus();
+				}
 			}
 		}
 
@@ -285,6 +339,7 @@ function isActive(item: NavItem): boolean {
 		triggers.forEach(function (btn) {
 			btn.addEventListener('click', openSearch);
 		});
+		document.querySelector('[data-exp-search-close]')?.addEventListener('click', closeSearch);
 
 		if (overlay) {
 			overlay.addEventListener('click', function (e) {
@@ -299,7 +354,10 @@ function isActive(item: NavItem): boolean {
 				e.preventDefault();
 				openSearch();
 			}
-			if (e.key === 'Escape') closeSearch();
+			if (e.key === 'Escape') {
+				closeSearch();
+				closeMobileNav();
+			}
 		});
 	})();
 </script>

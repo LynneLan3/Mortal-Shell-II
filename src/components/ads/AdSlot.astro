@@ -1,0 +1,77 @@
+---
+interface Props {
+	name: string;
+	placement?: number;
+	minHeight?: string;
+}
+
+const {
+	name,
+	placement = 0.35,
+	minHeight = '250px',
+} = Astro.props;
+---
+
+<div
+	class="ad-slot"
+	data-ad-slot={name}
+	data-ad-placement={placement}
+	style={`--ad-slot-min-height: ${minHeight}`}
+	aria-label="Advertisement"
+>
+	<slot />
+</div>
+
+<script is:inline>
+	(function () {
+		var slots = document.querySelectorAll('[data-ad-slot]');
+		slots.forEach(function (slot) {
+			var article = slot.closest('[data-exp-guide-article]');
+			if (!article) return;
+
+			var contentNodes = Array.prototype.slice.call(article.children).filter(function (node) {
+				return node !== slot && !(node instanceof HTMLScriptElement);
+			});
+			if (!contentNodes.length) return;
+
+			var contentHeight = contentNodes.reduce(function (height, node) {
+				return Math.max(height, node.offsetTop + node.offsetHeight);
+			}, 0);
+			var placement = Number(slot.getAttribute('data-ad-placement')) || 0.35;
+			var targetOffset = contentHeight * Math.min(0.4, Math.max(0.3, placement));
+			var anchor = contentNodes.find(function (node) {
+				return node.offsetTop >= targetOffset;
+			});
+
+			if (anchor) article.insertBefore(slot, anchor);
+			else article.appendChild(slot);
+		});
+	})();
+</script>
+
+<style>
+	.ad-slot {
+		box-sizing: border-box;
+		width: 100%;
+		min-width: 0;
+		max-width: 100%;
+		min-height: var(--ad-slot-min-height, 250px);
+		margin: 2.5rem 0;
+		overflow: hidden;
+		contain: layout paint;
+	}
+
+	.ad-slot :global(iframe),
+	.ad-slot :global(img),
+	.ad-slot :global(video),
+	.ad-slot :global(table) {
+		max-width: 100%;
+	}
+
+	@media (max-width: 640px) {
+		.ad-slot {
+			min-height: 220px;
+			margin: 2rem 0;
+		}
+	}
+</style>

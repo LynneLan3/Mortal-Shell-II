@@ -3,6 +3,7 @@ import Default from '@astrojs/starlight/components/MarkdownContent.astro';
 import { isExperienceGuide } from '../../lib/experience-guide';
 import { loadGuideContent } from '../../lib/guide-content';
 import ExperienceGuideNextQuestions from '../experience/ExperienceGuideNextQuestions.astro';
+import NativeAd from '../ads/NativeAd.astro';
 
 const entry = Astro.locals.starlightRoute.entry;
 const isExperience = isExperienceGuide(entry, Astro.url.pathname);
@@ -39,6 +40,7 @@ const totalHeadings = headings.length;
 			<div class:list={['exp-guide-body-grid', totalHeadings > 1 && 'exp-guide-body-grid--with-toc']}>
 				<article class="exp-guide-prose" data-exp-guide-article>
 					<slot />
+					{entry.id !== 'privacy' && <NativeAd />}
 				</article>
 				{totalHeadings > 1 && (
 					<aside class="exp-guide-toc" aria-labelledby="exp-guide-toc-title">

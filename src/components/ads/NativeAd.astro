@@ -1,0 +1,11 @@
+---
+import AdSlot from './AdSlot.astro';
+
+const adScript = 'https://pl31017060.profitableratecpmnetwork.com/c6910232957079784045cb952f04febc/invoke.js';
+const containerId = 'container-c6910232957079784045cb952f04febc';
+---
+
+<AdSlot name="adsterra-native-banner" minHeight="250px">
+	<script async="async" data-cfasync="false" src={adScript}></script>
+	<div id={containerId} data-adsterra-container></div>
+</AdSlot>

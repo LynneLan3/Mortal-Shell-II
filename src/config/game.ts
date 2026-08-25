@@ -497,6 +497,7 @@ export const game: GameConfig = {
 					'/mortal-shell-ii/hall-of-illusions/',
 					'/mortal-shell-ii/lucian-thirsting-knight/',
 					'/mortal-shell-ii/shells/',
+					'/mortal-shell-ii/npc-questlines/',
 					'/mortal-shell-ii/lazlo/',
 					'/mortal-shell-ii/unfound-path/',
 					'/mortal-shell-ii/glutted-mire/',

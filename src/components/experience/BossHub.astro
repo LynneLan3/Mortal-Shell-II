@@ -1,143 +1,11 @@
 ---
 import CardThumbnail from '../CardThumbnail.astro';
-import { resolveCardImage, sortCardsByImage } from '../../lib/assets';
+import { resolveCardImage } from '../../lib/assets';
 import { game } from '../../config/game';
 import HubSubnav from './HubSubnav.astro';
 import { getPortalProminence } from '../../lib/hub-prominence';
 import HubProminenceBadge from './HubProminenceBadge.astro';
-
-const bosses = [
-	{
-		name: 'Tar Golem',
-		kind: 'Boss / trophy encounter',
-		area: "Disciple's Grotto · Prologue",
-		description: "Take the Prologue encounter to minimum health for the missable No, You Still Can't Win trophy.",
-		href: '/mortal-shell-ii/tar-golem/',
-	},
-	{
-		name: 'Magdalena, the Lady of the Woods',
-		kind: 'Boss Guide · Open Beta',
-		area: 'Sunken Village · Open Beta route',
-		description: 'Use the existing beta guide for the named encounter, route context, and the limits of what the preview confirms.',
-		href: '/mortal-shell-ii/magdalena/',
-	},
-	{
-		name: 'Lucian the Thirsting Knight',
-		kind: 'Boss Guide',
-		area: 'Hidden Keep · Stonebled Gate',
-		description: 'Follow the Hidden Keep route and prepare for Lucian’s invisible second phase.',
-		href: '/mortal-shell-ii/lucian-thirsting-knight/',
-	},
-	{
-		name: 'The Lost Child',
-		kind: 'Boss Guide',
-		area: 'Sanguine Caverns · Fainweald',
-		description: 'Reach the arena from Sanguine Shoreline Beacon and manage Digest & Excrete and Belching Breath.',
-		href: '/mortal-shell-ii/lost-child/',
-	},
-	{
-		name: 'Sariel the Endless',
-		kind: 'Boss / Shell route',
-		area: 'Chamber of Becoming · Silent Steps · Mammon',
-		description: 'Destroy all four revival tablets before completing the Sariel route and Shell unlock.',
-		href: '/mortal-shell-ii/sariel/',
-	},
-	{
-		name: 'Vrannic the Grand Illusionist',
-		kind: 'Boss Guide',
-		area: 'Hall of Illusions · Mushroom Village Gate · Fainweald',
-		description: 'Solve the illusion-doorway route, find Vrannic above the room, and identify the real target.',
-		href: '/mortal-shell-ii/hall-of-illusions/',
-	},
-	{
-		name: 'The Nameless Captive',
-		kind: 'Boss / trophy encounter',
-		area: "Captive's End · Prisoner's Domain · Fainweald",
-		optional: 'Optional trophy objective',
-		description: "Wait out the long sword strings, handle the second-phase attacks, and attempt Peter's Perfect Parry before killing the boss if you still need the seven-hit headspin challenge.",
-		href: '/mortal-shell-ii/nameless-captive/',
-	},
-	{
-		name: 'Droeg the Conqueror',
-		kind: 'Boss Guide',
-		area: 'Conquered Temple · Mammon',
-		description: 'Reach Droeg through Ovate’s Chamber, survive the red-glow Frostfire barrage, and claim Conqueror’s Reward plus the optional Frostshard Stone route.',
-		href: '/mortal-shell-ii/droeg-the-conqueror/',
-	},
-	{
-		name: 'Hexapod',
-		kind: 'Boss Guide',
-		area: 'Withered Shoals · Ruins of Mammon',
-		description: 'Reach the void below Ruk from Nameless Pass Beacon, read the red-warning tells, and claim Hexapod Core for Axatana.',
-		href: '/mortal-shell-ii/hexapod/',
-	},
-	{
-		name: 'Isaac the Scholar Prince',
-		kind: 'Boss Guide',
-		area: 'Faded Citadel · Ashen Sanctum',
-		description: 'Use Citadel Atrium Beacon, let Isaac finish his strings, and handle the conditional Riposte transition before claiming Scholar’s Wormstone.',
-		href: '/mortal-shell-ii/isaac-the-scholar-prince/',
-	},
-	{
-		name: 'Orrem the Discarded Golem',
-		kind: 'Boss Guide',
-		area: 'Bridge of Procession · The Unfound Path',
-		description: 'Cleanse the Bridge of Procession Beacon, save a heal for Reclaimed form, and survive the flaming-axe and tail phases.',
-		href: '/mortal-shell-ii/orrem-discarded-golem/',
-	},
-	{
-		name: 'The Monolith',
-		kind: 'Boss Guide',
-		area: 'Obsidian Vault · The Unfound Path',
-		description: 'Use the Obsidian Vault Beacon, punish the exposed center after each slam, and sever the red gland after the kill.',
-		href: '/mortal-shell-ii/monolith/',
-	},
-	{
-		name: 'Malborn Offspring',
-		kind: 'Boss Guide',
-		area: "Faithful's Shelter · The Unfound Path",
-		description: 'Read the delayed cleaving strings, dodge red-circle attacks, and keep attacking through the slow resurrection before the lightning phase.',
-		href: '/mortal-shell-ii/malborn-offspring/',
-	},
-	{
-		name: 'Zmey the Unbidden',
-		kind: 'Boss Guide',
-		area: 'Hidden Nave · The Unfound Path',
-		description: 'Reach the final arena through the Hidden Nave Beacon, dodge Cosmic Flame tells, and treat the Send Ova choice as a consequential ending decision.',
-		href: '/mortal-shell-ii/zmey/',
-	},
-	{
-		name: 'Vellen, High Lord of Mammon',
-		kind: 'Boss / Shell route',
-		area: 'High Lord’s Courtyard · Outskirts of Mammon',
-		optional: 'Lazlo unlock route',
-		description: 'Reach the High Lord’s Courtyard, read Vellen’s arena tells, and interact with Lazlo’s remains after the fight to complete the unlock Memory.',
-		href: '/mortal-shell-ii/vellen-lazlo/',
-	},
-	{
-		name: 'The Warden',
-		kind: 'Boss / Shell route',
-		area: 'Citadel of Penance',
-		optional: 'Optional Shell unlock route',
-		description: "Reach The Warden as part of Eredrim’s unlock route, then inhabit the Shell after the encounter.",
-		href: '/mortal-shell-ii/eredrim/',
-	},
-	{
-		name: 'Prophet of Profane Infinities',
-		kind: 'Boss-linked guide',
-		area: 'Obsidianite Mines · Mammon',
-		description: 'Reach the end of the Obsidianite Mines route to defeat the encounter tied to the Obsidian Hammer.',
-		href: '/mortal-shell-ii/obsidian-hammer/',
-	},
-	{
-		name: 'The Hierarch',
-		kind: 'Boss / Shell route',
-		area: "Prophet's Rest · Outskirts of Nochte · Fainweald",
-		optional: 'Optional Shell unlock route',
-		description: 'Complete the three-blood-pool ritual and The Convert Memory before the Hierarch encounter.',
-		href: '/mortal-shell-ii/smert/',
-	},
-];
+import { bossEntities } from '../../data/game-entities';
 
 const relatedRoutes = [
 	{
@@ -152,7 +20,16 @@ const relatedRoutes = [
 	},
 ];
 
-const orderedBosses = sortCardsByImage(bosses, (boss) => resolveCardImage({ href: boss.href, title: boss.name }));
+const bosses = bossEntities.map((entity) => ({
+	...entity,
+	href: entity.guideUrl ?? '/',
+	kind: `${entity.progressionGroup} · ${entity.requiredStatus}`,
+	optional: entity.requiredStatus === 'Required' ? undefined : entity.requiredStatus,
+}));
+const progressionOrder = ['Prologue', 'Fainweald', 'Mammon', 'The Unfound Path', 'Endgame / Zmey', 'Optional / Other'] as const;
+const bossGroups = progressionOrder
+	.map((group) => ({ group, bosses: bosses.filter((boss) => boss.progressionGroup === group).sort((a, b) => a.progressionPosition - b.progressionPosition) }))
+	.filter((group) => group.bosses.length > 0);
 const hotSignals = getPortalProminence(game.portal);
 const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.href)).slice(0, 4).map((boss) => boss.href));
 ---
@@ -169,6 +46,7 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 	<HubSubnav
 		items={[
 			{ id: 'overview', label: 'Overview' },
+			{ id: 'recommended-progression', label: 'Recommended Progression' },
 			{ id: 'boss-guides', label: 'Boss Guides' },
 			{ id: 'related-routes', label: 'Related Routes' },
 		]}
@@ -176,37 +54,60 @@ const bossHotHrefs = new Set(bosses.filter((boss) => hotSignals.hot.has(boss.hre
 	/>
 
 	<div class="exp-content exp-boss-hub__body">
+		<section id="recommended-progression" class="exp-boss-progression hub-scroll-target" aria-labelledby="recommended-progression-heading">
+			<header class="exp-boss-hub__section-head">
+				<p class="exp-eyebrow">Route backbone</p>
+				<h2 class="exp-h2" id="recommended-progression-heading">Recommended progression</h2>
+				<p class="exp-lede">Use this as a region-first backbone rather than a mandatory numbered route: Prologue → Fainweald → Mammon → The Unfound Path → Endgame / Zmey. Optional and boss-linked encounters stay labeled instead of being presented as required gates.</p>
+			</header>
+			<div class="exp-boss-progression__steps">
+				{progressionOrder.slice(0, 5).map((group, index) => (
+					<a class="exp-boss-progression__step" href={`#boss-group-${group.toLowerCase().replace(/[^a-z]+/g, '-')}`}>
+						<span class="exp-boss-progression__number">{String(index + 1).padStart(2, '0')}</span>
+						<strong>{group}</strong>
+						<span>{bossGroups.find((item) => item.group === group)?.bosses.length ?? 0} guide{(bossGroups.find((item) => item.group === group)?.bosses.length ?? 0) === 1 ? '' : 's'}</span>
+					</a>
+				))}
+			</div>
+		</section>
+
 		<section id="boss-guides" class="hub-scroll-target" aria-labelledby="boss-guides-heading">
 			<header class="exp-boss-hub__section-head">
 				<p class="exp-eyebrow">Existing coverage</p>
 				<h2 class="exp-h2" id="boss-guides-heading">Bosses with a guide</h2>
-				<p class="exp-lede">Every card below links to an existing guide. Region, area, and optional status appear only where the current guide supports them.</p>
+				<p class="exp-lede">Every card below links to an existing guide. Region, progression position, reward/outcome, and required status use the shared boss entity data; route order remains flexible where the evidence does not establish a hard gate.</p>
 			</header>
-			<div class="exp-boss-grid">
-				{orderedBosses.map((boss) => {
-					const image = resolveCardImage({ href: boss.href, title: boss.name });
-					return (
-						<a class="exp-boss-card" href={boss.href}>
-							{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} />}
-							<div class="exp-boss-card__body">
-								<div class="exp-boss-card__topline">
-									<p class="exp-boss-card__kind">{boss.kind}</p>
-									{bossHotHrefs.has(boss.href) && <HubProminenceBadge prominence="hot" />}
-								</div>
-								<h3 class="exp-boss-card__title">{boss.name}</h3>
-								<p class="exp-boss-card__description">{boss.description}</p>
-								{(boss.area || boss.optional) && (
-									<dl class="exp-boss-card__facts">
-										{boss.area && <><dt>Region / area</dt><dd>{boss.area}</dd></>}
-										{boss.optional && <><dt>Required / optional</dt><dd>{boss.optional}</dd></>}
-									</dl>
-								)}
-								<span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>
-							</div>
-						</a>
-					);
-				})}
-			</div>
+			{bossGroups.map((group) => (
+				<section id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}`} class="exp-boss-group hub-scroll-target" aria-labelledby={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>
+					<h3 class="exp-h3" id={`boss-group-${group.group.toLowerCase().replace(/[^a-z]+/g, '-')}-heading`}>{group.group}</h3>
+					<div class="exp-boss-grid">
+						{group.bosses.map((boss) => {
+							const image = resolveCardImage({ href: boss.href, title: boss.name });
+							return (
+								<a class="exp-boss-card" href={boss.href}>
+									{image && <CardThumbnail className="exp-boss-card__media" image={image.src} alt={image.alt} />}
+									<div class="exp-boss-card__body">
+										<div class="exp-boss-card__topline">
+											<p class="exp-boss-card__kind">{boss.kind}</p>
+											{bossHotHrefs.has(boss.href) && <HubProminenceBadge prominence="hot" />}
+										</div>
+										<h3 class="exp-boss-card__title">{boss.name}</h3>
+										<p class="exp-boss-card__description">{boss.description}</p>
+										<dl class="exp-boss-card__facts">
+											<dt>Position</dt><dd>{boss.progressionPosition}</dd>
+											<dt>Region / area</dt><dd>{boss.area}</dd>
+											<dt>Required / optional</dt><dd>{boss.requiredStatus}</dd>
+											<dt>Reward / outcome</dt><dd>{boss.reward}</dd>
+											<dt>Related route</dt><dd>{boss.relatedRouteIds[0]?.replace('/mortal-shell-ii/routes/', '').replace(/\/$/, '').replaceAll('-', ' ') ?? 'Guide context'}</dd>
+										</dl>
+										<span class="exp-boss-card__link">View Guide <span aria-hidden="true">→</span></span>
+									</div>
+								</a>
+							);
+						})}
+					</div>
+				</section>
+			))}
 		</section>
 
 		<section id="related-routes" class="exp-boss-hub__related hub-scroll-target" aria-labelledby="related-routes-heading">

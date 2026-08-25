@@ -7,7 +7,7 @@
  * the topic library here.
  */
 import { game } from '../../config/game';
-import { categoryOf, getGuides, guideHref, sortGuides } from '../../lib/guides';
+import { categoryOf, getGuides, guideHref, guideLibraryCategoryLabels, guideLibraryCategoryOf, sortGuides } from '../../lib/guides';
 import type { GameGuideVisual, GameGuideVisualIcon } from '../../config/game';
 import type { GuideEntry } from '../../lib/guides';
 import { ui } from '../../lib/ui';
@@ -102,6 +102,10 @@ const subnavItems = [
 	{ id: 'overview', label: 'Overview' },
 	...groups.map((group) => ({ id: group.id, label: group.title })),
 ];
+const libraryFilters = [
+	{ id: 'all', label: 'All' },
+	...(['exploration', 'shells', 'weapons', 'bosses', 'items', 'completion', 'fixes'] as const).map((id) => ({ id, label: guideLibraryCategoryLabels[id] })),
+];
 ---
 
 <section class="exp-guide-topic-index">
@@ -114,6 +118,18 @@ const subnavItems = [
 	</header>
 
 	<HubSubnav items={subnavItems} ariaLabel="Guide sections" />
+
+	<section class="exp-content exp-guide-library-filter" aria-labelledby="exp-guide-library-filter-heading">
+		<div>
+			<p class="exp-eyebrow">Search by intent</p>
+			<h2 class="exp-h2" id="exp-guide-library-filter-heading">Filter the guide library</h2>
+		</div>
+		<div class="exp-guide-library-filter__buttons" role="toolbar" aria-label="Filter guides by category">
+			{libraryFilters.map((filter, index) => (
+				<button class="exp-guide-library-filter__button" class:list={index === 0 && 'is-active'} type="button" data-guide-library-filter={filter.id} aria-pressed={index === 0 ? 'true' : 'false'}>{filter.label}</button>
+			))}
+		</div>
+	</section>
 
 	{spotlight.length > 0 && <section class="exp-content exp-guide-spotlight" aria-labelledby="exp-guide-spotlight-heading">
 		<header class="exp-guide-spotlight__head">
@@ -152,17 +168,18 @@ const subnavItems = [
 
 	<div class="exp-content exp-guide-topic-index__groups">
 		{groups.map((group, index) => (
-			<section class="exp-guide-topic-group hub-scroll-target" id={group.id} aria-labelledby={`${group.id}-heading`}>
+			<section class="exp-guide-topic-group hub-scroll-target" id={group.id} aria-labelledby={`${group.id}-heading`} data-guide-library-group>
 				<header class="exp-guide-topic-group__head">
 					<p class="exp-eyebrow">Topic {String(index + 1).padStart(2, '0')}</p>
 					<h2 class="exp-h2" id={`${group.id}-heading`}>{group.title}</h2>
 					<p class="exp-lede">{group.description}</p>
 				</header>
 				<div class:list={['exp-guide-topic-grid', group.entries.some((entry) => Boolean(visualForEntry(entry).image)) && 'exp-guide-topic-grid--visual']}>
-					{group.entries.map((entry) => {
+					{group.entries.map((entry, entryIndex) => {
 						const visual = visualForEntry(entry);
+						const libraryCategory = guideLibraryCategoryOf(entry);
 						return (
-							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image']} href={guideHref(entry)}>
+							<a class:list={['exp-guide-topic-card', visual.image && 'exp-guide-topic-card--image']} href={guideHref(entry)} data-guide-library-card data-guide-library-category={libraryCategory} hidden={entryIndex >= 8}>
 								{visual.image && <CardThumbnail className="exp-guide-topic-card__visual" image={visual.image} alt={visual.alt ?? ''} />}
 								<span class="exp-guide-topic-card__body">
 									<span class="exp-guide-topic-card__meta">{categoryOf(entry)?.label ?? t.guidesNav}</span>
@@ -174,7 +191,50 @@ const subnavItems = [
 						);
 					})}
 				</div>
+				{group.entries.length > 8 && <button class="exp-guide-topic-group__more" type="button" data-guide-library-more>Show all {group.entries.length} guides</button>}
 			</section>
 		))}
 	</div>
 </section>
+
+<script>
+	const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-guide-library-filter]'));
+	const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-guide-library-group]'));
+
+	function updateGuideLibrary(filter: string) {
+		filterButtons.forEach((button) => {
+			const active = button.dataset.guideLibraryFilter === filter;
+			button.classList.toggle('is-active', active);
+			button.setAttribute('aria-pressed', String(active));
+		});
+
+		groups.forEach((group) => {
+			const cards = Array.from(group.querySelectorAll<HTMLElement>('[data-guide-library-card]'));
+			const more = group.querySelector<HTMLButtonElement>('[data-guide-library-more]');
+			let visibleCount = 0;
+			cards.forEach((card, index) => {
+				const matches = filter === 'all' || card.dataset.guideLibraryCategory === filter;
+				const withinInitialPage = index < 8;
+				card.hidden = !matches || (more?.dataset.expanded !== 'true' && !withinInitialPage);
+				if (matches) visibleCount += 1;
+			});
+			group.hidden = visibleCount === 0;
+			if (more) {
+				more.hidden = visibleCount <= 8;
+				more.textContent = more.dataset.expanded ? 'Show fewer guides' : `Show all ${visibleCount} guides`;
+			}
+		});
+	}
+
+	filterButtons.forEach((button) => {
+		button.addEventListener('click', () => updateGuideLibrary(button.dataset.guideLibraryFilter ?? 'all'));
+	});
+
+	document.querySelectorAll<HTMLButtonElement>('[data-guide-library-more]').forEach((button) => {
+		button.addEventListener('click', () => {
+			button.dataset.expanded = button.dataset.expanded === 'true' ? 'false' : 'true';
+			const activeFilter = document.querySelector<HTMLButtonElement>('[data-guide-library-filter].is-active')?.dataset.guideLibraryFilter ?? 'all';
+			updateGuideLibrary(activeFilter);
+		});
+	});
+</script>

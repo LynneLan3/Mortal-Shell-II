@@ -5,12 +5,12 @@ import MapRoutePreview from './MapRoutePreview.astro';
 import HubSubnav from '../HubSubnav.astro';
 
 const groups = [
-	{ id: 'recommended', label: 'Recommended', routeIds: ['fainweald-shells'] },
-	{ id: 'area-sweep', label: 'Area Sweep', routeIds: ['mammon-cleanup'] },
-	{ id: 'focused', label: 'Focused Objective', routeIds: ['smert-memory'] },
-	{ id: 'collectibles', label: 'Collectibles', routeIds: ['fainweald-map-fragments'] },
+	{ id: 'progression', label: 'Progression', purpose: 'Progression' },
+	{ id: 'power', label: 'Power', purpose: 'Power' },
+	{ id: 'completion', label: 'Completion', purpose: 'Completion' },
+	{ id: 'area-sweep', label: 'Area Sweep', purpose: 'Area Sweep' },
 ]
-	.map((group) => ({ ...group, routes: group.routeIds.map((id) => mapRoutes.find((route) => route.id === id)).filter(Boolean) }))
+	.map((group) => ({ ...group, routes: mapRoutes.filter((route) => route.purpose === group.purpose) }))
 	.filter((group) => group.routes.length > 0);
 
 const routeCards = groups.flatMap((group) => group.routes.map((route) => ({ route, category: group.id })));

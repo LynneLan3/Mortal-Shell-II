@@ -5,6 +5,73 @@ export { categoryHref, categoryIdFromPath, isCategoryLandingPath } from './categ
 
 export type GuideEntry = CollectionEntry<'docs'>;
 
+export type GuideLibraryCategory = 'exploration' | 'shells' | 'weapons' | 'bosses' | 'items' | 'completion' | 'fixes';
+
+export const guideLibraryCategoryLabels: Record<GuideLibraryCategory, string> = {
+	exploration: 'Exploration',
+	shells: 'Shells',
+	weapons: 'Weapons',
+	bosses: 'Bosses',
+	items: 'Items',
+	completion: 'Completion',
+	fixes: 'Fixes / Troubleshooting',
+};
+
+const shellGuideSlugs = new Set(['shells', 'shell-memories', 'tiel', 'proxima', 'gragu', 'eredrim', 'smert', 'lazlo', 'sariel', 'sester-genessa']);
+const weaponGuideSlugs = new Set([
+	'weapons',
+	'sidearms',
+	'axe-dagger',
+	'veterans-battle-axe',
+	'great-martyrs-blade',
+	'obsidian-hammer',
+	'axatana',
+	'black-needle',
+	'clockwork-scythe',
+	'forgotten-crossbow',
+	'cursed-child',
+	'caged-hystrix',
+	'ballistazooka',
+	'makeshift-projectile',
+	'salvaged-trebuchaxe',
+	'triarch-repeater',
+	'troubadours-lute',
+]);
+const bossGuideSlugs = new Set([
+	'bosses',
+	'tar-golem',
+	'magdalena',
+	'lucian-thirsting-knight',
+	'lost-child',
+	'sariel',
+	'hall-of-illusions',
+	'nameless-captive',
+	'droeg-the-conqueror',
+	'hexapod',
+	'isaac-the-scholar-prince',
+	'orrem-discarded-golem',
+	'monolith',
+	'malborn-offspring',
+	'zmey',
+	'vellen-lazlo',
+	'eredrim',
+	'obsidian-hammer',
+	'smert',
+]);
+const completionGuideSlugs = new Set(['trophies', 'endings', 'new-game-plus', 'ova', 'ascension', 'map-fragments', 'blackmarrow-keys', 'skip-prologue', 'beta-progress-carry-over']);
+const fixesGuideSlugs = new Set(['crashing-pc', 'system-requirements', 'pc-requirements']);
+
+export function guideLibraryCategoryOf(entry: GuideEntry): GuideLibraryCategory {
+	const slug = guideHref(entry).replace(/^\/mortal-shell-ii\//, '').replace(/\/$/, '');
+	if (shellGuideSlugs.has(slug)) return 'shells';
+	if (weaponGuideSlugs.has(slug)) return 'weapons';
+	if (bossGuideSlugs.has(slug)) return 'bosses';
+	if (completionGuideSlugs.has(slug)) return 'completion';
+	if (fixesGuideSlugs.has(slug)) return 'fixes';
+	if (/tar|gloom|glimpse|healing|seedbearer|beacon|flame|night|fragment|key|stone|memory|seal|ova/.test(slug)) return 'items';
+	return 'exploration';
+}
+
 export function isGuidePage(entry: GuideEntry) {
 	return entry.data.template !== 'splash';
 }

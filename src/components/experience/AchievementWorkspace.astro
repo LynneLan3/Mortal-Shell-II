@@ -7,6 +7,11 @@ import {
 import { mapMarkerById } from '../../data/map-markers';
 import { mapRoutes } from '../../data/map-routes';
 import { TOOLKIT_CATEGORIES, toolkitItemById, toolkitItems } from '../../data/toolkit-items';
+import { getCanonicalMapProgress } from '../../lib/toolkit-progress';
+
+interface Props { draft?: boolean; }
+
+const { draft = false } = Astro.props;
 
 const storageKey = 'ms2-toolkit-progress-v1';
 const mappedObjectiveIds = new Set(toolkitItems.filter((item) => item.mapMarkerId).map((item) => item.id));
@@ -31,7 +36,7 @@ const clientData = {
 };
 ---
 
-<section class="completion-workspace" data-achievement-workspace data-storage-key={storageKey} aria-labelledby="completion-workspace-title">
+<section class="completion-workspace" data-achievement-workspace data-storage-key={storageKey} data-completion-draft={draft ? 'true' : undefined} aria-labelledby="completion-workspace-title">
 	<script type="application/json" data-achievement-json set:html={JSON.stringify(clientData)}></script>
 	<header class="completion-workspace__hero">
 		<div class="completion-workspace__hero-main">
@@ -48,9 +53,9 @@ const clientData = {
 		</div>
 		<div class="completion-workspace__hero-side">
 			<div class="completion-workspace__world-stat">
-			<span>World Objectives</span>
-			<strong><span data-completion-objectives-done>0</span> / {toolkitItems.length}</strong>
-			<small>mapped and guide-backed targets</small>
+			<span>Map Progress</span>
+			<strong><span data-completion-map-done>0</span> / <span data-completion-map-total>{getCanonicalMapProgress([]).total}</span></strong>
+			<small>mapped objectives</small>
 			</div>
 			<div class="completion-workspace__attention">
 				<div><span>MISSABLE</span><strong data-completion-missable>0 remaining</strong></div>
@@ -150,10 +155,12 @@ const clientData = {
 			</nav>
 		</section>
 
-	<footer class="completion-workspace__footer"><span>Browser-local completion state · compatible with the Player Toolkit map.</span><button type="button" data-completion-reset>Reset completion state</button></footer>
+	<footer class="completion-workspace__footer"><span>Browser-local completion state · compatible with the Player Toolkit map.</span>{draft ? <div class="completion-workspace__draft-actions"><button type="button" data-completion-reset>Reset draft</button><button type="button" data-completion-cancel>Cancel</button><button type="button" data-completion-confirm>Confirm</button></div> : <button type="button" data-completion-reset>Reset completion state</button>}</footer>
 </section>
 
-<script is:inline>
+<script>
+	import { getCanonicalMapProgress, mergeToolkitProgressState, readToolkitProgressState } from '../../lib/toolkit-progress';
+
 	(() => {
 		const app = document.querySelector('[data-achievement-workspace]');
 		if (!(app instanceof HTMLElement)) return;
@@ -161,6 +168,7 @@ const clientData = {
 		if (!(json instanceof HTMLScriptElement)) return;
 		const data = JSON.parse(json.textContent || '{}');
 		const storageKey = app.getAttribute('data-storage-key') || 'ms2-toolkit-progress-v1';
+		const draftMode = app.getAttribute('data-completion-draft') === 'true';
 		const cards = Array.from(app.querySelectorAll('[data-completion-card]'));
 		const objectives = new Map((data.objectives || []).map((item) => [item.id, item]));
 		const achievements = new Map((data.achievements || []).map((item) => [item.id, item]));
@@ -175,28 +183,9 @@ const clientData = {
 		const search = app.querySelector('[data-completion-search]');
 		const hideCompleted = app.querySelector('[data-completion-hide-completed]');
 
-		function readState() {
-			try {
-				const raw = window.localStorage.getItem(storageKey);
-				if (!raw) return;
-				const parsed = JSON.parse(raw);
-				if (Array.isArray(parsed)) completedIds = new Set(parsed);
-				else {
-					if (Array.isArray(parsed?.completedIds)) completedIds = new Set(parsed.completedIds);
-					if (parsed?.achievementProgress && typeof parsed.achievementProgress === 'object') manualProgress = { ...parsed.achievementProgress };
-					if (parsed?.completionFilter) activeFilter = parsed.completionFilter;
-					if (parsed?.completionCategory) activeCategory = parsed.completionCategory;
-					if (parsed?.completionHideCompleted === true && hideCompleted instanceof HTMLInputElement) hideCompleted.checked = true;
-				}
-			if (!validCategories.has(activeCategory)) activeCategory = activeCategory === 'Story' || activeCategory === 'Exploration' ? 'Achievements' : 'all';
-			} catch (error) { completedIds = new Set(); manualProgress = {}; }
-		}
-		function saveState() {
-			const state = { version: 3, completedIds: Array.from(completedIds), achievementProgress: manualProgress, activeRouteId: readRouteId(), completionFilter: activeFilter, completionCategory: activeCategory, completionHideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked };
-			try { window.localStorage.setItem(storageKey, JSON.stringify(state)); } catch (error) { /* local storage is optional */ }
-			window.dispatchEvent(new CustomEvent('ms2-completion-state-changed', { detail: { completedIds: state.completedIds } }));
-		}
-		function readRouteId() { try { const raw = window.localStorage.getItem(storageKey); const parsed = raw ? JSON.parse(raw) : {}; return parsed?.activeRouteId || ''; } catch (error) { return ''; } }
+		function readState() { const state = readToolkitProgressState(window.localStorage, storageKey); completedIds = new Set(state.completedIds); manualProgress = { ...state.achievementProgress }; activeFilter = validCategories.has(state.completionFilter) ? state.completionFilter : 'all'; activeCategory = validCategories.has(state.completionCategory) ? state.completionCategory : 'all'; if (hideCompleted instanceof HTMLInputElement) hideCompleted.checked = state.completionHideCompleted; }
+		function saveState(notify = true) { const state = mergeToolkitProgressState({ completedIds: Array.from(completedIds), achievementProgress: manualProgress, completionFilter: activeFilter, completionCategory: activeCategory, completionHideCompleted: hideCompleted instanceof HTMLInputElement && hideCompleted.checked }, window.localStorage, storageKey); if (notify) window.dispatchEvent(new CustomEvent('ms2-completion-state-changed', { detail: { completedIds: state.completedIds } })); return state; }
+		function persistDraft() { const state = saveState(false); window.dispatchEvent(new CustomEvent('ms2-completion-state-changed', { detail: { completedIds: state.completedIds } })); window.dispatchEvent(new CustomEvent('ms2-completion-draft-confirmed')); }
 		function progressFor(achievement) {
 			const ids = achievement.objectiveIds || [];
 			const total = Number(achievement.total || (ids.length || 1));
@@ -238,7 +227,7 @@ const clientData = {
 		function updateHero() {
 			const overall = allProgress(); const percent = overall.total ? Math.round(overall.done / overall.total * 100) : 0;
 			const put = (selector, value) => { const node = app.querySelector(selector); if (node) node.textContent = String(value); };
-			put('[data-completion-overall-percent]', `${percent}%`); put('[data-completion-achievements-done]', overall.done); put('[data-completion-objectives-done]', completedIds.size);
+			const mapProgress = getCanonicalMapProgress(completedIds); put('[data-completion-overall-percent]', `${percent}%`); put('[data-completion-achievements-done]', overall.done); put('[data-completion-map-done]', mapProgress.done); put('[data-completion-map-total]', mapProgress.total);
 			const bar = app.querySelector('[data-completion-overall-bar]'); if (bar instanceof HTMLElement) bar.style.width = `${percent}%`;
 			const missable = Array.from(achievements.values()).filter((achievement) => achievement.missable && !progressFor(achievement).complete).length;
 			const hidden = Array.from(achievements.values()).filter((achievement) => achievement.hidden && !progressFor(achievement).complete).length;
@@ -297,18 +286,23 @@ const clientData = {
 				const progress = progressFor(achievement); const nextComplete = !progress.complete;
 				if (achievement.objectiveIds?.length) achievement.objectiveIds.forEach((id) => nextComplete ? completedIds.add(id) : completedIds.delete(id)); else manualProgress[achievement.id] = nextComplete ? progress.total : 0;
 			}
-			saveState(); render();
+			if (!draftMode) saveState(); render();
 		}
 		function isSecondaryTarget(target) { return target instanceof Element && Boolean(target.closest('a,button,input,textarea,select')); }
 		function render() { cards.forEach((card) => updateCard(card)); updateHero(); applyFilters(); }
-		app.querySelectorAll('[data-completion-filter]').forEach((button) => button.addEventListener('click', () => { activeFilter = button.getAttribute('data-completion-filter') || 'all'; app.querySelectorAll('[data-completion-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); saveState(); applyFilters(true); }));
-		app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.addEventListener('click', () => { activeCategory = button.getAttribute('data-completion-category-filter') || 'all'; app.querySelectorAll('[data-completion-category-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); saveState(); applyFilters(true); }));
-		search?.addEventListener('input', () => { saveState(); applyFilters(true); }); hideCompleted?.addEventListener('change', () => { saveState(); applyFilters(true); });
+		app.querySelectorAll('[data-completion-filter]').forEach((button) => button.addEventListener('click', () => { activeFilter = button.getAttribute('data-completion-filter') || 'all'; app.querySelectorAll('[data-completion-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); if (!draftMode) saveState(); applyFilters(true); }));
+		app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.addEventListener('click', () => { activeCategory = button.getAttribute('data-completion-category-filter') || 'all'; app.querySelectorAll('[data-completion-category-filter]').forEach((candidate) => candidate.classList.toggle('is-active', candidate === button)); if (!draftMode) saveState(); applyFilters(true); }));
+		search?.addEventListener('input', () => { if (!draftMode) saveState(); applyFilters(true); }); hideCompleted?.addEventListener('change', () => { if (!draftMode) saveState(); applyFilters(true); });
 		const previousPage = app.querySelector('[data-completion-page-prev]'); const nextPage = app.querySelector('[data-completion-page-next]'); previousPage?.addEventListener('click', () => { if (currentPage > 1) { currentPage -= 1; applyFilters(); } }); nextPage?.addEventListener('click', () => { currentPage += 1; applyFilters(); });
 		cards.forEach((card) => { card.addEventListener('click', (event) => { if (!isSecondaryTarget(event.target)) toggleCard(card); }); card.addEventListener('keydown', (event) => { if ((event.key === 'Enter' || event.key === ' ') && !isSecondaryTarget(event.target)) { event.preventDefault(); toggleCard(card); } }); });
 		app.querySelectorAll('[data-achievement-reveal]').forEach((button) => button.addEventListener('click', () => { const card = button.closest('[data-achievement-card]'); if (!(card instanceof HTMLElement)) return; card.classList.add('is-revealed'); const achievement = achievements.get(card.getAttribute('data-achievement-card') || ''); if (achievement) { const title = card.querySelector('[data-achievement-title]'); const description = card.querySelector('[data-achievement-description]'); if (title) title.textContent = achievement.name; if (description) description.textContent = achievement.description; } button.remove(); }));
-		app.querySelectorAll('[data-achievement-manual-input]').forEach((input) => input.addEventListener('input', () => { const card = input.closest('[data-achievement-card]'); const id = card?.getAttribute('data-achievement-card'); const achievement = id ? achievements.get(id) : undefined; if (!id || !achievement) return; manualProgress[id] = Math.max(0, Math.min(Number(achievement.total || 0), Number(input.value || 0))); saveState(); render(); }));
-		app.querySelector('[data-completion-reset]')?.addEventListener('click', () => { if (!window.confirm('Reset all completion progress on this device?')) return; completedIds = new Set(); manualProgress = {}; saveState(); render(); });
+		app.querySelectorAll('[data-achievement-manual-input]').forEach((input) => input.addEventListener('input', () => { const card = input.closest('[data-achievement-card]'); const id = card?.getAttribute('data-achievement-card'); const achievement = id ? achievements.get(id) : undefined; if (!id || !achievement) return; manualProgress[id] = Math.max(0, Math.min(Number(achievement.total || 0), Number(input.value || 0))); if (!draftMode) saveState(); render(); }));
+		app.querySelector('[data-completion-reset]')?.addEventListener('click', () => { if (draftMode) { completedIds = new Set(); manualProgress = {}; render(); return; } if (!window.confirm('Reset all completion progress on this device?')) return; completedIds = new Set(); manualProgress = {}; saveState(); render(); });
+		app.querySelector('[data-completion-cancel]')?.addEventListener('click', () => window.dispatchEvent(new CustomEvent('ms2-completion-draft-cancel')));
+		app.querySelector('[data-completion-confirm]')?.addEventListener('click', persistDraft);
+		if (draftMode) window.addEventListener('ms2-completion-draft-open', () => { readState(); app.querySelectorAll('[data-completion-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-filter') === activeFilter)); app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-category-filter') === activeCategory)); render(); });
+		if (draftMode) window.addEventListener('ms2-completion-draft-cancel', () => { readState(); render(); });
+		if (draftMode) window.addEventListener('ms2-completion-draft-reset', () => { readState(); render(); });
 		readState();
 		app.querySelectorAll('[data-completion-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-filter') === activeFilter));
 		app.querySelectorAll('[data-completion-category-filter]').forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-completion-category-filter') === activeCategory));

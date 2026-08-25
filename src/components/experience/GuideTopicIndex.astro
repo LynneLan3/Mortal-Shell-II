@@ -128,7 +128,7 @@ const subnavItems = [
 				const entry = item.entry;
 				const visual = visualForEntry(entry);
 				return (
-					<a class="exp-guide-spotlight__card" href={guideHref(entry)}>
+					<a class:list={['exp-guide-spotlight__card', visual.image && 'exp-guide-spotlight__card--image']} href={guideHref(entry)}>
 						{visual.image && <CardThumbnail className="exp-guide-spotlight__visual" image={visual.image} alt={visual.alt ?? ''} />}
 						<span class="exp-guide-spotlight__body">
 							<HubProminenceBadge prominence={item.prominence} />

@@ -541,6 +541,7 @@
 .completion-workspace__footer {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 1rem;
 	margin-top: 0.85rem;
@@ -555,6 +556,27 @@
 .completion-workspace__footer button:hover {
 	border-color: var(--completion-red);
 	color: var(--completion-red);
+}
+
+.completion-workspace__draft-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+}
+
+.completion-workspace__draft-actions button {
+	min-width: 5rem;
+	padding: 0.45rem 0.7rem;
+	border: 1px solid var(--completion-line);
+	background: transparent;
+	font: inherit;
+	cursor: pointer;
+}
+
+.completion-workspace__draft-actions button:last-child {
+	border-color: var(--completion-red);
+	background: var(--completion-red);
+	color: var(--completion-bg);
 }
 
 .sr-only {

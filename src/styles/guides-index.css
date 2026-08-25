@@ -40,13 +40,17 @@
 .exp-guide-spotlight__card {
 	position: relative;
 	display: grid;
-	grid-template-columns: 5.5rem minmax(0, 1fr);
+	grid-template-columns: minmax(0, 1fr);
 	min-width: 0;
 	border: 1px solid var(--xp-border);
 	background: color-mix(in srgb, var(--xp-surface) 68%, transparent);
 	color: inherit;
 	text-decoration: none;
 	transition: border-color 150ms, background 150ms, transform 150ms;
+}
+
+.exp-guide-spotlight__card--image {
+	grid-template-columns: 5.5rem minmax(0, 1fr);
 }
 
 .exp-guide-spotlight__card:hover,

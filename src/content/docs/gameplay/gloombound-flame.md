@@ -1,11 +1,11 @@
 ---
-title: "Mortal Shell 2 Gloombound Flame Location & Night Mode Guide"
-description: "Find the Mortal Shell 2 Gloombound Flame, light the Light Extinguished Lantern at Marrow Keep, speak with Thestus, and enter Night Mode."
+title: "Mortal Shell 2 Gloombound Flame — Fainweald & Night Mode"
+description: "Find the Gloombound Flame in Fainweald (Great Arbiter arena), use it to light the LIGHT EXTINGUISHED LANTERN, summon Thestus and select CALL FORTH THE NIGHT."
 category: combat-exploration
 slug: mortal-shell-ii/gloombound-flame
 status: confirmed
 featured: true
-quickAnswer: The Gloombound Flame is near Widow's Overlook in the Great Arbiter of Flesh arena, beside a ritual stone / stone marker. Launch gameplay video evidence shows you can grab it while Great Arbiter is still alive. Return to the top of Marrow Keep, interact with `LIGHT EXTINGUISHED LANTERN`, summon Thestus, then choose `CALL FORTH THE NIGHT` to activate Night Mode.
+quickAnswer: The Gloombound Flame is beside the ritual stone inside the Great Arbiter of Flesh arena in Fainweald (near Widow's Overlook Beacon). Pick it up, return to the top of Marrow Keep, interact with the LIGHT EXTINGUISHED LANTERN, summon Thestus and choose CALL FORTH THE NIGHT to enable Night Mode.
 related:
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/shrine-of-sorrows
@@ -17,7 +17,7 @@ sidebar:
   label: Gloombound Flame
   order: 4
   badge: Launch
-lastUpdated: 2026-08-23
+lastUpdated: 2026-08-26
 ---
 
 ## Where is the Gloombound Flame in Mortal Shell 2?
@@ -71,55 +71,47 @@ It is separate from the **Slayer Seal**. The Slayer Seal is the easier combat op
 
 For general combat, Shells, weapons, and exploration context, see the [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/).
 
-## Light Extinguished Lantern: How to Light It
+## How to Unlock Night Mode
 
-After you pick up the Gloombound Flame, the supported activation chain is:
-
-1. Return to **Marrow Keep**.
-2. Go to the **top of Marrow Keep**, around the tower / elevator area.
-3. Interact with the object whose video prompt reads `LIGHT EXTINGUISHED LANTERN`.
-4. Use the Gloombound Flame to light the lantern.
-5. **Thestus** appears beside the lit lantern.
-6. Speak with Thestus.
-7. Choose `CALL FORTH THE NIGHT`.
-8. Confirm the prompt that says `Enable increased difficulty.`
+1. Go to Fainweald → Widow's Overlook Beacon → Great Arbiter of Flesh arena. The Gloombound Flame sits next to a ritual stone/stone marker inside the arena. [IMAGE: Gloombound Flame beside ritual stone in Great Arbiter arena]
+2. Pick up the Gloombound Flame. (Launch footage shows this is possible even if the Great Arbiter is still alive — gameplay-observed/video-supported.)
+3. Return to the top of Marrow Keep.
+4. Interact with the `LIGHT EXTINGUISHED LANTERN` and use the Gloombound Flame to light it. This is required before Thestus will appear.
+5. Summon Thestus at the lantern; when he appears choose `CALL FORTH THE NIGHT` (the prompt reads “Enable increased difficulty.”) Night Mode is then active.
 
 <figure>
   <img src="/images/gloombound-flame/marrow-keep-call-forth-night.webp" alt="Thestus at Marrow Keep with the Call Forth the Night option used to activate Night Mode in Mortal Shell 2." width="1280" height="720" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />
   <figcaption>After lighting the Marrow Keep lantern, talk to Thestus and choose Call Forth the Night. Gameplay footage via Esoterickk.</figcaption>
 </figure>
 
-Esoterickk's video directly shows the `LIGHT EXTINGUISHED LANTERN` prompt, Thestus appearing, and the `CALL FORTH THE NIGHT` confirmation. Gamer Guides' transcript also supports the chain from Gloombound Flame to Marrow Keep, lantern, Thestus, and Night Mode toggle.
+## What Changes in Night Mode
 
-## Where is Thestus?
+Confirmed / source-supported:
 
-For Night Mode, **Thestus** is tied to the top of **Marrow Keep**.
+- Night Mode increases overall difficulty and adds extra hazards and encounters. This is supported by launch coverage and the existing page evidence.
+- Night Mode can yield more rewards / Gloom and adds night-only content (extra encounters and a night-only merchant are source-supported in launch coverage). Exact multipliers and exact Gloom amounts are not published; avoid treating those numbers as confirmed.
+- The Shrine of Sorrows dungeon is a Night Mode-only dungeon per launch coverage.
+- Seedbearer's Scripture is a separate Night Mode-only objective requiring Depleted, Thawed, and Faded Glands at the Forgotten Tower — see the existing Seedbearer's Scripture page (/mortal-shell-ii/seedbearers-scripture/) for its route.
 
-He appears after you bring the Gloombound Flame back to Marrow Keep and light the extinguished lantern at the top of the tower / elevator area. The current evidence supports that activation location; it does not support a separate Thestus route or a full NPC story breakdown.
+Community-reported discoveries (unconfirmed / anecdotal):
 
-## How to turn Night Mode off
+- Players on community forums report additional night-only small dungeons near Mushroom Village, a night vendor near the abandoned outpost selling Glimpses / Tarstones / thorium, and more overworld enemies or Glimpses around Shell locations. Treat these as player-reported and not developer-confirmed.
+- Some players report unquantified increases to currency/rewards and tougher enemy behavior (reduced stagger, extra moves). These reports conflict and remain anecdotal.
 
-Night Mode is reversible through Thestus.
+## How to Return to Day Mode
 
-Gamer Guides' transcript says speaking with Thestus lets you toggle Night Mode on and off. Current secondary launch guides report that you can return to Thestus and choose `Seek Daylight` to switch back.
+- Return to the top of Marrow Keep and interact with Thestus. The community and secondary launch coverage indicate Thestus can reverse Night Mode; the specific prompt to `SEEK DAYLIGHT` is supported by secondary sources but was not locally video-verified. Treat reversal via Thestus as source-supported but label the exact UI text and behavior as secondary-source supported.
 
-Evidence level for `Seek Daylight`: **secondary-source supported / not locally video-verified** in the Esoterickk footage or Gamer Guides transcript checked for this page.
+## Common mistakes
 
-## What changes in Night Mode?
+- Do not assume interacting with an unlit lantern alone will summon Thestus; you must use the Gloombound Flame to light the `LIGHT EXTINGUISHED LANTERN` first.
+- Avoid citing exact reward multipliers or Gloom percentages — those figures are not published in official patch notes and remain unconfirmed.
 
-The current evidence supports these Night Mode changes:
+Evidence and community threads:
 
-- **Increased difficulty:** Gamer Guides calls Night Mode a toggleable harder difficulty, and Esoterickk's overlay says enemies become more threatening.
-- **More rewards / Gloom:** Gamer Guides says Night Mode grants more rewards and more Gloom from enemies; Esoterickk's overlay also says rewards increase.
-- **Extra hazards:** Gamer Guides describes additional hazards, including examples that are not present during the day.
-- **Additional encounters:** Gamer Guides describes more minibosses and night-only enemy encounters.
-- **Night-related content:** Gamer Guides reports at least one night-only merchant, quest content, and dungeon-style content.
-
-The [Shrine of Sorrows](/mortal-shell-ii/shrine-of-sorrows/) is a Night Mode-only dungeon near Mushroom Village.
-
-[Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/) is another Night Mode-only objective: collect the Depleted, Thawed, and Faded Glands, then offer them at the top of the Forgotten Tower.
-
-This page intentionally does **not** publish exact stat multipliers or exact Gloom percentages. The available number examples are creator-reported / player-tested estimates, not official values.
+- Official developer Balance Patch 1 (2026-08-20): https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/
+- Reddit player report (player discoveries): https://www.reddit.com/r/MortalShell/comments/1vwwutf/just_beat_the_game_for_the_first_time_have_some/
+- Reddit loot/discussion thread (community-reported loot differences): https://www.reddit.com/r/MortalShell/comments/1vwwu9t/how_much_better_is_the_loot_in_night_mode/
 
 ## Is Night Mode worth using?
 

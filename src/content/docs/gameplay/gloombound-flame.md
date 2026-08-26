@@ -1,11 +1,20 @@
 ---
-title: "Mortal Shell 2 Gloombound Flame — Fainweald & Night Mode"
-description: "Find the Gloombound Flame in Fainweald (Great Arbiter arena), use it to light the LIGHT EXTINGUISHED LANTERN, summon Thestus and select CALL FORTH THE NIGHT."
+title: "Mortal Shell 2 Gloombound Flame: How to Get It & Unlock Night Mode"
+description: "Find Gloombound Flame in Fainweald's Great Arbiter arena, light Marrow Keep's lantern, summon Thestus, and unlock Night Mode."
 category: combat-exploration
 slug: mortal-shell-ii/gloombound-flame
 status: confirmed
 featured: true
-quickAnswer: The Gloombound Flame is beside the ritual stone inside the Great Arbiter of Flesh arena in Fainweald (near Widow's Overlook Beacon). Pick it up, return to the top of Marrow Keep, interact with the LIGHT EXTINGUISHED LANTERN, summon Thestus and choose CALL FORTH THE NIGHT to enable Night Mode.
+quickAnswer: Gloombound Flame is in Fainweald inside the Great Arbiter of Flesh arena (near the Widow's Overlook Beacon); pick it up beside the ritual stone — use it to light the Marrow Keep LIGHT EXTINGUISHED LANTERN, which summons Thestus and enables Night Mode.
+faq:
+  - question: "Where is the Gloombound Flame?"
+    answer: "Inside Fainweald's Great Arbiter of Flesh arena, beside the ritual stone near the Widow's Overlook Beacon."
+  - question: "How do I get the Gloombound Flame?"
+    answer: "Enter the Great Arbiter arena in Fainweald and pick up the Flame next to the stone marker; gameplay footage shows it can be picked up while the boss is still alive (video-supported)."
+  - question: "How do I unlock Night Mode?"
+    answer: "Take the Gloombound Flame to the top of Marrow Keep, use it to light the LIGHT EXTINGUISHED LANTERN, then speak to Thestus and choose CALL FORTH THE NIGHT."
+  - question: "What is the LIGHT EXTINGUISHED LANTERN?"
+    answer: "A lantern interaction at the top of Marrow Keep you must light with the Gloombound Flame; lighting it is required for Thestus to appear and offer Night Mode."
 related:
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/shrine-of-sorrows

@@ -1,11 +1,22 @@
 ---
-title: "Mortal Shell 2 Conquered Temple Walkthrough"
-description: "Clear Conquered Temple from Sester's Gate through Winterglass Lake and Ovate's Chamber to Droeg, with Beacon landmarks and no map coordinates."
+title: "Mortal Shell 2 Conquered Temple: How to Unlock the Gate & Reach Droeg"
+description: "Cleanse Sester's Gate to open Conquered Temple, use Winterglass Lake → Urrig → Ovate's Chamber Beacons, then cross the traversal gate/elevator to face Droeg."
 category: combat-exploration
 slug: mortal-shell-ii/conquered-temple
 status: needs-verification
 featured: false
-quickAnswer: "Cleanse Sester's Gate to open Conquered Temple, use Winterglass Lake and Ovate's Chamber as route checks, defeat Urrig, then cross the active traversal route to Droeg. Afterward cleanse Conqueror's Hoard, collect the Ova, and follow the praying-statue and giant-stone-hands landmarks to the optional Frostshard Stone."
+quickAnswer: "Cleanse the Sester's Gate Beacon in Sester's Refuge to clear the Corrupted Gate into Conquered Temple. Inside, follow the interior route through the altar/multi-level structure to Winterglass Lake Beacon, push onward to Urrig (repair bridge, bat area, fork, narrow bridge landmarks), then use the Jump Pad/elevator to reach and cleanse Ovate's Chamber Beacon. From Ovate's Chamber take the visible traversal gate or elevator across the gap into the frozen arena to fight Droeg the Conqueror. After the fight activate the Conqueror's Hoard Beacon and collect the Ova; the Frostshard Stone is optional beyond the arena (cold valley route)."
+faq:
+  - question: "How do I unlock access to Conquered Temple?"
+    answer: "Cleanse the Sester's Gate Beacon in Sester's Refuge — doing so clears the Corrupted Gate that leads into Conquered Temple."
+  - question: "Which Beacons lead to Droeg?"
+    answer: "Key Conquered Temple Beacons are Winterglass Lake (interior stair/altar area), Ovate's Chamber (last respawn before Droeg), and the post-boss Conqueror's Hoard Beacon."
+  - question: "Are the linked dungeons required to reach Droeg?"
+    answer: "No. Mornefrost Grave (opened by cleansing Winterglass Lake) and Pilfered Crypt (opened by cleansing Ovate's Chamber) are optional dungeon branches."
+  - question: "Can I summon help for Droeg?"
+    answer: "Yes — a green summon sign before the arena can be unlocked to spend one Glimpse for the Gragu summon, but it is optional and not required for progression."
+  - question: "How do I avoid Droeg's red-warning projectile while he appears staggered?"
+    answer: "The red-warning volley is a homing Blazing Frostfire attack, not a safe free-hit. Sprint or move sideways until the volley ends, then re-engage. See the Droeg boss page for full mechanics."
 related:
   - mortal-shell-ii/droeg-the-conqueror
   - mortal-shell-ii/ova

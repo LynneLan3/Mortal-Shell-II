@@ -2,6 +2,13 @@
 
 ## Job contract
 
+## Locked CTR copy contract
+
+- The `title` field must be exactly: `Mortal Shell 2 Seedbearer's Scripture: How to Get It + All 3 Gland Locations`.
+- The visible H1 uses the same page title in this site architecture; keep the H1 promise centered on `How to Get Seedbearer's Scripture — All 3 Gland Locations`, not a Zmey guide or a gland-only page.
+- The `description` and `quickAnswer` must name Depleted Gland, Thawed Gland, and Faded Gland, explain the Night Mode/Forgotten Tower offering, and keep Scripture acquisition primary.
+- The FAQ must retain the acquisition, all-three-locations, `Insufficient Materials`, and Depleted Gland-use intents.
+
 - **Existing canonical page:** `/mortal-shell-ii/seedbearers-scripture/`
 - **Primary intent:** Seedbearer's Scripture acquisition in Mortal Shell II / Mortal Shell 2.
 - **Secondary intent:** all three quest Glands, Night Mode, Forgotten Tower offering, and what the Depleted Gland is for.

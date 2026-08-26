@@ -1,23 +1,32 @@
-### Quick note on Depleted Gland
-The Depleted Gland is not a standalone item — it is one of the three quest Glands required (Depleted Gland, Thawed Gland, Faded Gland) to obtain Seedbearer's Scripture.
+## Quick acquisition summary
 
-[VIDEO: LunarGaming — full walkthrough of collecting all three Glands, Night Mode offering, and Forgotten Tower sequence (embed: https://www.youtube.com/embed/Q0GTsG38y5c)]
+1. Collect the three quest Glands: Depleted Gland, Thawed Gland, and Faded Gland.
+   - Depleted Gland — Nameless Pass / Ruk (torch-side bone arm).
+   - Thawed Gland — Abbey / Valley of the Revered Corrupt Gate route (statue chamber, Martyr's Ash pedestal).
+   - Faded Gland — Citadel Annex (candle-ringed well-like structure).
+2. Switch the world to Night Mode.
+3. At the Forgotten Tower, use the upper interaction and offer all three Glands to receive Seedbearer's Scripture.
 
-### Why You Want Seedbearer's Scripture Before Zmey
-Zmey can apply Cosmic Disease during the final encounter; Cosmic Disease interferes with your Shell and can significantly disrupt combat flow. Seedbearer's Scripture is the direct preparation tool for that status: active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds, while simply carrying it gives a passive 15% Cosmic Disease Mitigation. Obtain and equip/use the Scripture before entering the Zmey fight to reduce disease-related disruption and damage. For the full Zmey route and fight breakdown, see /mortal-shell-ii/zmey/.
+> Note: the Depleted Gland is one of the three quest Glands required for this offering.
 
-### "Insufficient Materials" troubleshooting
-- Requirement: You must have all three quest Glands — Depleted Gland, Thawed Gland, and Faded Gland — to proceed with the offering.
-- Night Mode: The offering at the Forgotten Tower only works during Night Mode; if it's daytime the upper interaction will not accept the offering.
-- What "Insufficient Materials" means: that message indicates one or more of the three required Glands is missing from your inventory. The offering cannot be completed until you have the full set and the game is in Night Mode.
+[VIDEO: LunarGaming walkthrough covering all three Glands, Night Mode, and the Forgotten Tower offering]
 
-Common mistakes:
-1. Reaching the Forgotten Tower during daytime and expecting the offering to work. Make sure the world is in Night Mode.  
-2. Finding one Gland (often the Depleted Gland) and assuming it's unrelated — all three named Glands are required for the Scripture offering.
+<iframe loading="lazy" width="560" height="315" src="https://www.youtube.com/embed/Q0GTsG38y5c" title="LunarGaming - Seedbearer's Scripture walkthrough" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Integration notes for the existing guide
-- Keep the three established route anchors (Nameless Pass / Ruk torch-arm for Depleted; Abbey/Valley of the Revered route for Thawed; Citadel Annex candle-ring well for Faded).  
-- The offering occurs at the upper interaction in the Forgotten Tower and requires Night Mode plus the three Glands.  
-- Scripture effects (preserve these values): active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds; passive effect provides 15% Cosmic Disease Mitigation.
+## Why You Want Seedbearer's Scripture Before Zmey
 
-If you encounter other issues that look like equipment disappearing or unrelated bugs during the Zmey encounter, consult the dedicated Zmey troubleshooting/fight page at /mortal-shell-ii/zmey/ — that page covers fight bugs and build-specific advice beyond the Scripture acquisition and its disease mitigation role.
+Zmey's Cosmic Flame can apply the status Cosmic Disease during the final boss encounter. Cosmic Disease disrupts your Shell/combat state and makes the fight harder to manage — the Scripture is the direct mitigation option provided by the quest chain. Seedbearer's Scripture's active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds; its passive effect provides 15% Cosmic Disease Mitigation. Obtain the Scripture before entering the Zmey fight so you have the immediate cure and the short mitigation window available. For the full Zmey fight route, attacks, and troubleshooting (including unrelated equipment/bug reports), see /mortal-shell-ii/zmey/.
+
+## "Insufficient Materials" troubleshooting
+
+- The Forgotten Tower offering requires all three quest Glands: Depleted Gland, Thawed Gland, and Faded Gland.
+- The offering also requires the game to be in Night Mode when you interact.
+- If the tower shows “Insufficient Materials”, one or more of the three named Glands is not in your inventory or you are not in Night Mode. The game will not proceed until the full set is present and the Night Mode condition is met.
+
+## Common mistakes
+
+- Going to the Forgotten Tower during daytime — the offering only works in Night Mode.
+- Finding only one Gland and assuming it completes the objective — you must collect Depleted, Thawed, and Faded Gland.
+- Assuming Depleted Gland is a throwaway pickup — it is required for the Scripture offer.
+
+<!-- Integration note: place these blocks into the existing page near the top acquisition summary, after the three gland route anchors, and before the final-boss prep section. -->

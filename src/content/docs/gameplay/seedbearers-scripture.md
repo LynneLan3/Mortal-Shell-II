@@ -1,20 +1,20 @@
 ---
-title: "Seedbearer's Scripture — Depleted/Thawed/Faded Glands for Zmey"
+title: "Mortal Shell 2 Seedbearer's Scripture: How to Get It + All 3 Gland Locations"
 slug: mortal-shell-ii/seedbearers-scripture
 category: combat-exploration
-description: "Offer Depleted, Thawed, and Faded Glands at the Forgotten Tower (Night Mode) to get Seedbearer's Scripture; it cures Cosmic Disease and helps vs Zmey."
+description: "Offer Depleted, Thawed, and Faded Gland at the Forgotten Tower in Night Mode to obtain Seedbearer's Scripture; it helps vs Zmey's Cosmic Disease."
 status: confirmed
 featured: true
-quickAnswer: "Collect the Depleted, Thawed, and Faded Glands and offer them at the upper interaction in the Forgotten Tower during Night Mode to obtain Seedbearer's Scripture. Its active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds (passive 15%), so get it before facing Zmey to reduce disease disruption."
+quickAnswer: "Collect the Depleted Gland, Thawed Gland, and Faded Gland, then in Night Mode offer all three at the upper interaction in the Forgotten Tower to receive Seedbearer's Scripture. The Scripture cures Cosmic Disease on use and grants 50% Cosmic Disease Mitigation for 30 seconds (15% passive), so take it before facing Zmey."
 faq:
-  - question: "How do I obtain Seedbearer's Scripture?"
-    answer: "Bring the three quest Glands — Depleted Gland, Thawed Gland, and Faded Gland — to the Forgotten Tower and offer them at the tower's upper interaction while the world is in Night Mode."
-  - question: "What does Seedbearer's Scripture do against Cosmic Disease?"
-    answer: "Active use cures Cosmic Disease and grants 50% Cosmic Disease Mitigation for 30 seconds; its passive effect provides 15% Cosmic Disease Mitigation."
-  - question: "Why does the Forgotten Tower show Insufficient Materials?"
-    answer: "That message appears when one or more required quest items are missing — you must have the Depleted Gland, Thawed Gland, and Faded Gland to proceed, and be in Night Mode."
+  - question: "How do I get Seedbearer's Scripture?"
+    answer: "Find Depleted Gland, Thawed Gland, and Faded Gland, then in Night Mode offer all three at the upper interaction in the Forgotten Tower to receive the Scripture."
+  - question: "Where are all three Glands (Depleted, Thawed, Faded)?"
+    answer: "Depleted: Nameless Pass / Ruk (torch-side bone arm). Thawed: Abbey / Valley of the Revered Corrupt Gate route — statue chamber / Martyr's Ash pedestal. Faded: Citadel Annex (candle‑ringed well‑like structure)."
+  - question: "Why does the Forgotten Tower say “Insufficient Materials”?"
+    answer: "The offering requires all three quest Glands — Depleted Gland, Thawed Gland, and Faded Gland — and Night Mode; the message appears when one or more of those items are missing."
   - question: "What is the Depleted Gland for?"
-    answer: "The Depleted Gland is one of the three quest Glands required to offer at the Forgotten Tower in Night Mode to receive Seedbearer's Scripture."
+    answer: "The Depleted Gland is one of the three quest Glands required to offer at the Forgotten Tower in Night Mode and obtain Seedbearer's Scripture."
 related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/axatana

@@ -1,5 +1,12 @@
 # Item 41 research: Conquered Temple Walkthrough
 
+## Locked CTR copy contract for MS2 Intent Alignment V1
+
+- The `title` field must be exactly: `Mortal Shell 2 Conquered Temple: How to Unlock the Gate & Reach Droeg`.
+- The visible H1 uses the same page title in this site architecture; keep the H1 promise centered on `How to Unlock Conquered Temple & Reach Droeg`.
+- The `description` and `quickAnswer` must answer the Sester's Gate unlock step, the route through named Beacons, and the final Droeg destination. Do not lead with or use `Conquered Temple Walkthrough` as the main SERP promise.
+- Keep optional Frostshard Stone and optional dungeons secondary to the gate-unlock and Droeg route.
+
 Research date: 2026-08-24
 Item: 41
 Title: Conquered Temple Walkthrough

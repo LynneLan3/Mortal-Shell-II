@@ -1,11 +1,22 @@
 ---
-title: "Mortal Shell 2 Nameless Captive Boss Guide: Location, Attacks & Rewards"
-description: "Find the Nameless Captive in Prisoner's Domain, learn when to punish his sword strings and red-warning attacks, complete Peter's Perfect Parry, and claim Captive's Scabstone for the Great Martyr's Blade."
+title: "Mortal Shell 2 Nameless Captive Location & How to Beat It"
+description: "Find Nameless Captive at Captive's End in Prisoner's Domain, then survive its sword strings and red-warning attacks to beat it."
 category: combat-exploration
 slug: mortal-shell-ii/nameless-captive
 status: needs-verification
 featured: false
-quickAnswer: "Reach Captive's End in Prisoner's Domain through the western / northwest Corrupted Gate, wait out the Nameless Captive's full sword strings, dodge the red-warning attacks, and attempt Peter's Perfect Parry with the Untarnished Seal before killing him if you want the trophy."
+quickAnswer: "Location: Captive's End in Prisoner's Domain (Fainweald). Reach it through the western/northwest Corrupted Gate after cleansing the Nochtean Gate beacon, passing Executioner's Pulpit and Tishina's Confessor. To beat the Nameless Captive, let its full sword strings finish, only take short punish windows, dodge red-warning attacks, and keep central arena space."
+faq:
+  - question: "Where is the Nameless Captive located?"
+    answer: "At Captive's End inside Prisoner's Domain in Fainweald."
+  - question: "How do I reach and trigger the Nameless Captive fight?"
+    answer: "Enter via the western/northwest Corrupted Gate after cleansing the Nochtean Gate beacon, then pass Executioner's Pulpit and Tishina's Confessor to arrive at Captive's End."
+  - question: "What's the core strategy to beat the Nameless Captive?"
+    answer: "Survive the complete sword combo, wait for recovery, land a short punish, dodge red-warning attacks, and avoid crowding the edges—keep space in the center."
+  - question: "What rewards drop from the Nameless Captive?"
+    answer: "Defeating the Nameless Captive gives Captive's Scabstone (for the Great Martyr's Blade) and unlocks the Headcase trophy."
+  - question: "Can I parry the Nameless Captive's red-warning attacks?"
+    answer: "No—red-warning attacks should be dodged rather than parried. Only attempt the specialized Peter's Perfect Parry method if you've set up the Untarnished Seal and can perform the full seven-hit sequence pre-kill."
 related:
   - mortal-shell-ii/peters-perfect-parry
   - mortal-shell-ii/eredrim

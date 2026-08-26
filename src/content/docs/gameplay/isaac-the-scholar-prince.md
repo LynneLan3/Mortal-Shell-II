@@ -25,6 +25,8 @@ Isaac, the Scholar Prince is the major boss at the end of the **Faded Citadel** 
 
 At roughly half health, Isaac kneels and presents a Riposte transition. Current guide reporting says that taking the Riposte removes his shield and starts a faster three-sword phase; avoiding it may preserve the more readable shield phase. Treat that skip as a conditional, patch-sensitive technique rather than a guaranteed mechanic. Defeating Isaac rewards **Scholar's Wormstone**, a Tarstone associated with the [Clockwork Scythe](/mortal-shell-ii/clockwork-scythe/), and spawns the post-fight **Scholar-Prince's Chamber Beacon** with Ova.
 
+> Need the full route through Faded Citadel? Follow the [Faded Citadel walkthrough](/mortal-shell-ii/faded-citadel/) for the Ashen Sanctum, Beacon, Solnir, and Isaac approach.
+
 ## How to reach Isaac the Scholar Prince
 
 1. Reach the Mammon region and enter the **Gate of Infinity** route into Faded Citadel.

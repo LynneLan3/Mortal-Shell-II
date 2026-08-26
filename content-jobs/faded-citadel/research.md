@@ -1,10 +1,28 @@
-# Item 43 research: Faded Citadel Walkthrough
+# Item 43 research: Faded Citadel Route / Walkthrough hub
 
-Research date: 2026-08-24
+Research date: 2026-08-26
 Item: 43
 Title: Faded Citadel Walkthrough
 Slug: `mortal-shell-ii/faded-citadel`
-Scope: Item 43 only — no writer CLI, GPT, APIMart, image download, deployment, push, or shared-file change
+Scope: Upgrade the existing Faded Citadel page into the route / walkthrough hub for the Faded Citadel → Ashen Sanctum → Isaac cluster. Do not create `/ashen-sanctum/`, a Scholar's Wormstone page, or a new map marker.
+
+## Writer brief
+
+Target intent: `Mortal Shell 2 Faded Citadel Walkthrough — Ashen Sanctum Route, Beacons & Isaac` (do not copy this wording mechanically if the final title remains intent-complete).
+
+The final APIMart page package must answer the route in the first screen with this progression:
+
+`Gate of Infinity` → `Ashen Sanctum` → `Citadel Annex` → `Blue Flame / Servant sections` → `Citadel Atrium` → `Solnir` → `Isaac` → `Scholar-Prince's Chamber`
+
+Use short route nodes or numbered steps, not an article wall. The first-screen route summary and numbered route must visibly include the optional Solnir stop between Citadel Atrium and Isaac, as its own numbered route step before the Isaac step. Include clear sections for entering Faded Citadel, Ashen Sanctum, Citadel Annex, the Faded Gland and Hushed Sanctum side objectives, the blue-flame blocker, Citadel Atrium, the optional Solnir stop, reaching Isaac, and post-boss Beacon progress. Add a direct troubleshooting H2 such as `Why can't I damage enemies in Faded Citadel?` explaining that blue-flame protection is the blocker and that the player must handle the corresponding Flame/protection mechanic before expecting normal damage. Explicitly say that Solnir is optional and not required for the Isaac route. The Solnir location is only source-reported as between two blue flames; do not invent a Beacon, compass direction, room number, or fixed placement. Existing Tarstones research lists **Solnir Shard** as Solnir's reported reward; preserve that relationship without adding an unsupported quantity or combat guide.
+
+Also include the **Summoning Stone** as a Don't Miss item: existing Tarstones research places it in an Ashen Sanctum sarcophagus at Gate of Infinity. Do not invent a more precise turn-by-turn route or claim that collecting it is required.
+
+Add a compact, scannable Beacon Progress block for: Citadel Annex → Citadel Atrium → Scholar-Prince's Chamber. Each node should state its role and the next direction, with side-objective warnings where supported. The visible `Don't Miss` block must include Summoning Stone, Faded Gland, Hushed Sanctum / Stillblade's Stone, Solnir / Solnir Shard, and Scholar-Prince's Chamber Ova only with the evidence limits stated below. Link Isaac's page for combat, the Seedbearer's Scripture page for the Faded Gland objective, and the relevant Beacon/Tarstones/Ova pages where useful. Do not change Isaac or Seedbearer title/meta.
+
+Metadata target: make the title clearly intent-complete by naming Faded Citadel, walkthrough/route, Ashen Sanctum, and Isaac while staying concise; keep the description under 160 characters and mention the route hub. In the article body, every section label must be a real Markdown H2 beginning at column one with `## `; use these exact H2 topics where applicable: `Quick route`, `Entering Faded Citadel`, `Ashen Sanctum`, `Citadel Annex`, `Faded Gland`, `Blue-flame`, `Why can't I damage enemies in Faded Citadel?`, `Citadel Atrium`, `Solnir`, `Reaching Isaac`, `Post-boss`, `Beacon Progress`, `Don't Miss`, `Common mistakes`, `Related pages`, and `Sources`. Do not render these labels as plain text. Use Markdown links with the exact supplied site paths for every internal link. Every internal link must use the complete form `[descriptive link text](/mortal-shell-ii/exact-slug/)`; never output a path as plain text, `[path]` without `(path)`, or a bare URL. Do not emit `[IMAGE: ...]` markers: this item has no approved image asset. Do not include local source file paths in the article; refer to local evidence generically if needed.
+
+End with a concise `## Sources` section containing Markdown links to the checked external sources listed in this brief, with one short description per source. Keep the source section factual and do not add new sources.
 
 ## Evidence boundary
 
@@ -55,6 +73,12 @@ No image is proposed. The route is answerable with named Beacons and environment
 - AllThingsHow's Seedbearer's Scripture guide places the **Faded Gland** below Citadel Annex: rest at Annex, turn away from the normal ascent, drop into the lower courtyard, clear the dual-sword enemies, and inspect the candle-ringed stone dish in the center.
 - The Faded Gland is an optional side objective for the Seedbearer's Scripture. It is not evidence of a required step for entering Faded Citadel or defeating Isaac. Include it as an optional Annex-area stop only, with no coordinates.
 
+### Optional Solnir stop and Summoning Stone
+
+- Existing boss-index research lists **Solnir, the Gloom Seeker** as an optional encounter in Faded Citadel, reported **between two blue flames**. No dependable Beacon is exposed in the checked text. Treat it as a route-side stop, not a required Isaac prerequisite, and do not expand it into a full boss guide.
+- Existing Tarstones research lists **Solnir Shard** as the reported Solnir reward. The route page may name the shard relationship, but must not invent a quantity or unverified effect.
+- Existing Tarstones research places **Summoning Stone** in an **Ashen Sanctum sarcophagus at Gate of Infinity**. Mention it as a missable check if it fits naturally in the Ashen Sanctum node; do not claim a precise route beyond that landmark.
+
 ## Conflicts and uncertainty to preserve
 
 1. **Overworld approach to Gate of Infinity:** GameSpot uses Castigator's Keep, the lift, Starved Harridan, pylons, Ruk, and the blue-flame lantern; AllThingsHow frames the route as the Vestige of Infinity entrance. These are not safe grounds for a universal compass route. Use **Gate of Infinity Beacon** and the visible Corrupted Gate as the confirmation.
@@ -70,8 +94,9 @@ No image is proposed. The route is answerable with named Beacons and environment
 - `/mortal-shell-ii/ova/` — Ova collection, Corrupted Gate progression, and Siphon thresholds.
 - `/mortal-shell-ii/beacons-fast-travel/` — named Beacon inventory and activate/cleanse/travel distinctions.
 - `/mortal-shell-ii/tarstones/` — Stillblade's Stone and Scholar's Wormstone context, if needed.
+- `/mortal-shell-ii/seedbearers-scripture/` — the existing Gland offering page for the optional Faded Gland objective.
 
-The article should not create an Isaac card, change the shared route hub, add a map marker, or create a separate Faded Gland page.
+The article should not create an Isaac card, change the shared route hub, add a map marker, create a separate Faded Gland page, or create `/ashen-sanctum/`.
 
 ## Sources and URLs
 

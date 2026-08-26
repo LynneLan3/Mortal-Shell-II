@@ -5,7 +5,7 @@ category: combat-exploration
 slug: mortal-shell-ii/endings
 status: needs-verification
 featured: false
-quickAnswer: "Mortal Shell II has a main ending and a Baghead secret ending route. Baghead's route leads through Desolate Peak and Gloomshade Grove; the key puzzle answer is to return with “nothing,” which means putting Special Moonshine back if you took it. The Bag Holder trophy is tied to this secret route, and completing it does not prevent you from continuing the main story."
+quickAnswer: "Mortal Shell II has two documented endings: the main ending and Baghead's secret ending. Complete Baghead's route through Desolate Peak and Gloomshade Grove first if you want both endings in one playthrough; the key answer is “nothing,” which means putting Special Moonshine back if you took it. Baghead does not lock the save, and defeating Zmey does not end the run. The main ending and New Game Plus begin only when you return to the Gloom Siphon in Marrow Keep and select Send Ova, so make Send Ova your last step."
 related:
   - mortal-shell-ii/map-fragments
   - mortal-shell-ii/beacons-fast-travel
@@ -14,7 +14,7 @@ sidebar:
   label: Endings Guide
   order: 15
   badge: Exploration
-lastUpdated: 2026-08-22
+lastUpdated: 2026-08-27
 ---
 
 ## Spoiler warning
@@ -25,7 +25,7 @@ This page discusses the main ending, Baghead's secret ending, the core Baghead p
 
 This is a launch-window **Exploration Page**, not a complete lore archive. It covers the two ending routes currently supported by the research: the main ending and Baghead's secret ending.
 
-The page intentionally avoids expanding unverified lore, naming a final boss where the launch evidence is inconsistent, or treating every dialogue variation as a separate ending. The useful distinction is route, puzzle condition, trophy outcome, and whether the main story remains available afterward.
+The page intentionally avoids expanding unverified lore, treating every dialogue variation as a separate ending, or presenting unsupported ending branches. The useful distinction is route, puzzle condition, trophy outcome, and whether the main story remains available afterward.
 
 ## How many endings does Mortal Shell 2 have?
 
@@ -38,11 +38,9 @@ This page does not claim that every dialogue difference creates a separate endin
 
 ## Main ending
 
-The main ending is the standard campaign conclusion. Continue the central progression route and complete the final story sequence shown by your current build.
+The main ending is the standard campaign conclusion. Finish [The Unfound Path](/mortal-shell-ii/unfound-path/) and defeat [Zmey, the Unbidden](/mortal-shell-ii/zmey/). Defeating Zmey is not the point of no return: current-cycle free roam and cleanup remain available. When ready, return to the **Gloom Siphon** in **Marrow Keep** and choose **Send Ova** to trigger the main ending and [New Game Plus](/mortal-shell-ii/new-game-plus/). **Send Ova is irreversible and is currently reported to have no confirmation prompt.**
 
-If you still have optional exploration to finish, consider completing it before the final commitment point. Use the [Map Fragments guide](/mortal-shell-ii/map-fragments/) for route visibility and the [Beacon locations guide](/mortal-shell-ii/beacons-fast-travel/) for travel infrastructure.
-
-The exact final-boss naming is not expanded here because launch sources use inconsistent descriptions. That does not change the practical recommendation: finish any optional weapons, Shell unlocks, Tarstone experiments, Beacons, or collectibles you want before committing to the main ending sequence.
+Finish any optional weapons, Shell unlocks, Tarstone experiments, Beacons, or collectibles you want before committing. Use the [Map Fragments guide](/mortal-shell-ii/map-fragments/) for route visibility and the [Beacon locations guide](/mortal-shell-ii/beacons-fast-travel/) for travel infrastructure.
 
 ## Baghead secret ending
 
@@ -76,7 +74,7 @@ Keep the trophy check separate from speculation about hidden lore or a complete 
 
 Yes. Current research supports that completing the Baghead secret ending does not permanently block continued main-story play.
 
-This makes the secret route a practical optional objective rather than a reason to abandon the save. If you are still working toward the main ending, return to the normal progression route after the Baghead sequence and continue the campaign.
+This makes the secret route a practical optional objective rather than a reason to abandon the save. If you want both endings in one playthrough, complete Baghead before using **Send Ova**. If you are still working toward the main ending, return to the normal progression route after the Baghead sequence and continue the campaign.
 
 Before starting a new cycle, use the [New Game Plus guide](/mortal-shell-ii/new-game-plus/) to separate retained character progress from reset world state.
 
@@ -87,7 +85,7 @@ Use this short preparation checklist:
 - collect any weapon or Shell you want before the final route,
 - finish the Beacon and map work that will make optional areas easier to revisit,
 - complete Tarstone experiments if you want the current run's progression record,
-- decide whether you want the main ending or Baghead route first,
+- complete Baghead first if you want both endings in one playthrough, then finish cleanup before Send Ova,
 - keep a save or backup point before the Baghead puzzle if your platform/build supports it,
 - do not assume Night Mode changes the ending route unless current evidence explicitly says so.
 
@@ -119,9 +117,9 @@ Current research supports continuing the main story afterward.
 
 Do not assume it does. Current evidence does not support presenting Night Mode as a universal ending requirement.
 
-### Is there a complete ending lore explanation here?
+### Does defeating Zmey end the game?
 
-No. This page intentionally limits itself to the supported routes, puzzle condition, trophy, and continuation behavior.
+No. Defeating Zmey still leaves the current cycle available for exploration. The irreversible transition is selecting **Send Ova** at the Gloom Siphon in Marrow Keep, which advances the save into the ending / New Game Plus sequence.
 
 ## Sources
 

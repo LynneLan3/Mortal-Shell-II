@@ -1,143 +1,128 @@
 ---
-title: "Mortal Shell 2 Faded Citadel Walkthrough"
-description: "Follow Faded Citadel from Gate of Infinity through Citadel Annex and Citadel Atrium to Isaac, using Beacon and landmark checks instead of map coordinates."
+title: "Faded Citadel walkthrough — Ashen Sanctum route to Isaac"
+description: "Step-by-step Faded Citadel → Ashen Sanctum → Isaac route hub, beacons, side objectives, and post-boss handoff."
 category: combat-exploration
 slug: mortal-shell-ii/faded-citadel
 status: needs-verification
 featured: false
-quickAnswer: "Cleanse Gate of Infinity in Mammon to open Faded Citadel. Follow Ashen Sanctum to Citadel Annex, clear Hushed Sanctum if desired, continue past the blue-flame and Servant route to Citadel Atrium, then follow Ruk and the Lazlo summon landmark to Isaac. After the fight, activate Scholar-Prince's Chamber and collect the Ova. Current sources disagree on some overworld turns and reward totals, so use named Beacons rather than coordinates."
+quickAnswer: "Route: Gate of Infinity Beacon → Ashen Sanctum → Citadel Annex → blue-flame / Servant sections → Citadel Atrium → (optional) Solnir → Isaac → Scholar‑Prince's Chamber. Cleanse Gate of Infinity if blocked, activate/cleanse Citadel Annex for Hushed Sanctum rewards, follow the main path and use the Atrium/Annex Beacons as route checks. Solnir is optional and reported between two blue flames."
+faq:
+  - question: "Do I have to fight Solnir to reach Isaac?"
+    answer: "No. Solnir is an optional stop reported between two blue flames; it is not required to reach or fight Isaac."
+  - question: "Why can't I damage enemies in the Faded Citadel?"
+    answer: "Blue-flame protection on parts of the route prevents normal damage. Handle the flame/protection mechanic (or clear the protecting element) before expecting regular damage."
+  - question: "Where is the Summoning Stone?"
+    answer: "The Summoning Stone is reported to sit in an Ashen Sanctum sarcophagus at Gate of Infinity — check the Ashen Sanctum approach for the sarcophagus."
+  - question: "What do I get for cleansing Citadel Annex?"
+    answer: "Cleansing Citadel Annex (entering Hushed Sanctum and touching the corrupted crystal core) yields the Stillblade's Stone as the Hushed Sanctum/Tarstone reward."
+  - question: "What should I do after defeating Isaac?"
+    answer: "Activate or cleanse the Scholar‑Prince's Chamber Beacon and collect its Ova before leaving; use the Ova and Beacon guides for the next progression steps."
 related:
   - mortal-shell-ii/isaac-the-scholar-prince
   - mortal-shell-ii/ova
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/tarstones
+  - mortal-shell-ii/seedbearers-scripture
 sidebar:
   label: Faded Citadel
   order: 43
   badge: Exploration
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-26
 ---
 
-The reliable **Faded Citadel** route is **Gate of Infinity → Citadel Annex → Citadel Atrium → Isaac, the Scholar Prince → Scholar-Prince's Chamber**. Cleanse Gate of Infinity in Mammon to open the Corrupted Gate, climb through **Ashen Sanctum**, and use the named Beacons and landmarks to stay on the main path. After Isaac, activate the post-boss Beacon and collect its Ova before leaving.
+## Quick route
 
-This guide uses Beacon labels, environmental landmarks, and explicit uncertainty where current walkthroughs differ. It does not use map coordinates.
+Answer-first numbered route (showing the optional Solnir stop):
 
-## Faded Citadel route at a glance
+1. Reach the Gate of Infinity Beacon in Mammon and cleanse it if the Faded Citadel entrance is blocked.
+2. Enter Faded Citadel and climb through the Ashen Sanctum (egg-filled cave → staircase → balcony → Laterite pickup → stone platform) to the Citadel Annex Beacon.
+3. Activate Citadel Annex. To take the Annex reward, choose Cleanse Beacon and clear the Hushed Sanctum sequence (bridge → caster/spider rooms → red rift → high ledge → touch the corrupted core) for the Stillblade's Stone.
+4. Continue on the main path from Citadel Annex. Use the tree/chest/stairs-left landmark to find the descent to Citadel Atrium Beacon. Watch for blue-flame zones and Servants en route.
+5. From Citadel Atrium, continue the only available path toward the boss approach. When Ruk and the Lazlo summon sign appear, decide whether to spend 1 Glimpse, then drop to Isaac's arena.
+6. Optional: stop for Solnir (reported between two blue flames). This is a route-side optional fight and not required to reach Isaac.
+7. Fight Isaac, the Scholar Prince — use the dedicated guide for combat specifics: [Isaac, the Scholar Prince guide](/mortal-shell-ii/isaac-the-scholar-prince/).
+8. After Isaac, activate/cleanse Scholar‑Prince's Chamber Beacon and collect its Ova before leaving. See the Ova and Beacons guides for handoff steps.
 
-1. Reach and cleanse **Gate of Infinity Beacon** if the Faded Citadel entrance is blocked.
-2. Enter Faded Citadel and climb through Ashen Sanctum to **Citadel Annex Beacon**.
-3. Optionally cleanse Citadel Annex through **Hushed Sanctum** and collect **Stillblade's Stone**.
-4. Continue past the main-path blue-flame and Servant encounter to **Citadel Atrium Beacon**.
-5. Follow the route deeper, speak with **Ruk** if desired, activate the optional **Lazlo** summon, and drop into Isaac's arena.
-6. Defeat **Isaac, the Scholar Prince**. Use the dedicated [Isaac guide](/mortal-shell-ii/isaac-the-scholar-prince/) for combat details.
-7. Activate/cleanse **Scholar-Prince's Chamber Beacon** and collect the post-boss Ova. Use the [Ova guide](/mortal-shell-ii/ova/) for the wider progression loop.
+## Entering Faded Citadel
 
-## Before entering Faded Citadel
+Start at the Gate of Infinity Beacon in Mammon. Sources agree Gate of Infinity must be cleansed if the entrance is still blocked; use the Beacon label and the visible Corrupted Gate to confirm access rather than an overworld turn-by-turn path. Overworld approaches vary between guides, so treat the Beacon as the reliable confirmation.
 
-### Cleanse Gate of Infinity
+## Ashen Sanctum
 
-Faded Citadel is the southern Mammon Corrupted Gate. Its overworld access check is **Gate of Infinity Beacon**: open the Beacon menu and choose the cleanse interaction if the route is still corrupted. Cleansing the Beacon is the step that opens the Faded Citadel entrance.
+Ashen Sanctum is the main interior approach inside Faded Citadel. The consistent landmarks in current coverage are: an egg-filled cave, a staircase to a balcony, a Laterite pickup near the balcony, and a stone platform opening that leads toward Citadel Annex. The Summoning Stone is reported in an Ashen Sanctum sarcophagus at Gate of Infinity — treat this as a missable check while you pass the Ashen Sanctum approach.
 
-The approach descriptions vary. One current route starts from **Castigator's Keep**, uses the lift, passes the **Starved Harridan**, and crosses the pylon area toward the blue-flame-protected Beacon. Other coverage describes the same access as the **Vestige of Infinity** entrance. These descriptions do not establish one universal compass route, so use the Gate of Infinity label and the visible Corrupted Gate as your confirmation.
+## Citadel Annex
 
-The wider Mammon gate order is flexible. You do not need to treat Faded Citadel as a mandatory final gate; the [Ova guide](/mortal-shell-ii/ova/) tracks the six-gate progression and its threshold uncertainty.
+Follow the stone platform opening to the Citadel Annex Beacon and activate it. If you choose to Cleanse the Annex Beacon you are sent into Hushed Sanctum — a separate cleanse dungeon with its own rooms and objectives. The Annex → Hushed Sanctum chain is a deliberate side route and not an alternate name for the main Ashen Sanctum area.
 
-## Complete Faded Citadel walkthrough
+When you pick Cleanse Beacon at Citadel Annex, the expected Hushed Sanctum sequence reported by sources is: cross a narrow bridge (ranged caster), move through a tunnel with melee enemies and spiders, climb stairs past a teleporting lightning caster, clear a large pillared spider room, perform a platforming/drop section into a circular arena, use a red rift to reach a high ledge guarded by a mage and a chest, then interact with the corrupted crystal core. A final "Beacon Cleansed" message confirms completion.
 
-### 1. Reach Citadel Annex
+## Faded Gland
 
-Enter the opened Corrupted Gate and climb through **Ashen Sanctum**. The useful route checks are environmental rather than directional:
+An optional objective reported in local coverage sits below Citadel Annex. From the Annex rest point, turn away from the normal ascent, drop to the lower courtyard, clear dual-sword enemies, and inspect a candle-ringed stone dish to get the Faded Gland. This is part of the Seedbearer's Scripture offering; see the Seedbearer's Scripture page for full context: [Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/).
 
-- Move through the early citadel path and the cave filled with eggs.
-- Take the staircase up to the balcony.
-- Collect the nearby **Laterite**.
-- Walk up the stairs and follow the stone platform around to the opening containing **Citadel Annex Beacon**.
+## Blue-flame
 
-Activate the Beacon before pushing farther. If the menu offers travel through [Mether's Breath](/mortal-shell-ii/ova/), the Beacon has become part of your travel network; activating, cleansing, and travelling are separate Beacon actions. See [Beacons and fast travel](/mortal-shell-ii/beacons-fast-travel/) if the menu does not match your expectation.
+Blue-flame zones and the Servants of the Scholar‑Prince are encountered on the main approach to the boss in current coverage. Guides place the blue flames and Servants at slightly different points in the prose, but they belong to the same main-path sequence between Annex and the Atrium/boss approach. Follow the next visible Beacon and the main route rather than forcing a single fixed room order.
 
-### 2. Optional: cleanse the Citadel Annex through Hushed Sanctum
+## Why can't I damage enemies in Faded Citadel?
 
-The Annex Beacon's cleanse is a compact combat dungeon called **Hushed Sanctum**. Choose **Cleanse Beacon** when you are ready, then use this landmark chain:
+Blue-flame protection is the usual blocker. Parts of the route and some enemies are protected by blue-flame mechanics that prevent normal damage or change how damage applies. You must handle the blue-flame/protection mechanic (or clear the protecting element) before enemy health behaves normally. Expect Servant encounters and protective lanterns or flames on the way to Atrium and the boss area; resolving those is required to proceed and to damage normally.
 
-1. Cross the first narrow bridge and close on the ranged caster.
-2. Clear the tunnel's melee enemies and spider-like creatures before advancing.
-3. Climb the stairs and defeat the teleporting lightning caster.
-4. In the large pillared room, use the pillars to break line of sight while thinning the spider group.
-5. Work through the platforming section and drop to the lower ledge.
-6. Drop into the circular arena, cross to the **red rift**, and use it to reach the high platform.
-7. Defeat the mage guarding the chest and collect **Stillblade's Stone**.
-8. Return to the corrupted crystal core and interact with it. The **Beacon Cleansed** notification confirms the Annex is complete.
+## Citadel Atrium
 
-Do not leave immediately after opening the chest. The core interaction is the final cleanse step. Hushed Sanctum is the Annex's Beacon dungeon; it is not an alternate name for the main Ashen Sanctum route.
+Citadel Atrium is the second interior Beacon on the main Faded Citadel route. From Citadel Annex, the commonly reported landmark chain is: open the chest near a tree, take the stairs down on the chest's left, then continue down the main path until you reach the Atrium Beacon. Use the Beacon label as your route check: activate it and continue deeper along the only available path toward the boss descent.
 
-### 3. Follow the main path to Citadel Atrium
+## Solnir
 
-From Citadel Annex, continue along the main route until you reach a **chest near a tree**. Take the stairs down on the **left** of that chest and follow the descending path. **Citadel Atrium Beacon** is on the main route at the end of this descent.
+Solnir, the Gloom Seeker, is an optional encounter reported in the Faded Citadel. Sources place Solnir "between two blue flames" but do not give a dependable Beacon or fixed room. Treat Solnir as optional: you may clear it for the reported Solnir Shard reward, but it is not required for the Isaac route or to reach the Scholar‑Prince's Chamber.
 
-Along the approach, current guides also report blue-flame sections and the **Servants of the Scholar-Prince** encounter. Clear the enemies and extinguish the blue flames when the route presents them. Sources agree that Citadel Annex is the first interior Beacon and Citadel Atrium is the second, but their prose places the Servants and blue-flame rooms at slightly different points in the sequence. If your room order differs from a guide, follow the next visible Beacon label rather than searching for an invented turn.
+## Reaching Isaac
 
-Activate Citadel Atrium before continuing. It is the practical pre-fight checkpoint for the final descent.
+Continue past Citadel Atrium along the main path. Near the final approach you will encounter Ruk and the Lazlo summon sign; at that point you may spend 1 Glimpse to activate Lazlo before dropping into Isaac's arena. For specific combat phases, timing, and disputed Riposte/patch-sensitive mechanics, use the dedicated boss guide: [Isaac, the Scholar Prince guide](/mortal-shell-ii/isaac-the-scholar-prince/).
 
-### 4. Optional: collect the Faded Gland below Citadel Annex
+## Post-boss
 
-If you are collecting the three Glands for the Seedbearer's Scripture, the **Faded Gland** is near Citadel Annex and does not require the Isaac fight:
+Defeat Isaac, then activate or cleanse the Scholar‑Prince's Chamber Beacon and collect its Ova before leaving. Guides report Ova in the post-boss Beacon; do not assume a fixed quantity — collect the in-game Ova prompt and follow the [Ova guide](/mortal-shell-ii/ova/) and the [Beacons and fast travel guide](/mortal-shell-ii/beacons-fast-travel/) for next steps.
 
-1. Rest at Citadel Annex, then turn around instead of climbing the usual route.
-2. Drop into the lower courtyard and deal with the dual-sword enemies.
-3. Inspect the central stone dish ringed with candles. The Faded Gland is inside it.
+## Beacon Progress
 
-This is an optional side objective, not a gate requirement. For the full night-mode offering sequence and the other Glands, use the relevant endgame guidance from the [Ova progression page](/mortal-shell-ii/ova/).
+Citadel Annex → Citadel Atrium → Scholar‑Prince's Chamber (compact progress checks):
 
-### 5. Reach Isaac's arena
+- Citadel Annex — role: first interior Beacon; next: choose Cleanse to enter Hushed Sanctum for Stillblade's Stone or continue the main path to Atrium. Warning: if you skip the corrupted core in Hushed Sanctum the Beacon will not show "Cleansed."
+- Citadel Atrium — role: second interior Beacon and main-route descent marker; next: continue the single path toward the boss approach (watch for blue-flame zones and Servant encounters).
+- Scholar‑Prince's Chamber — role: post-boss Beacon and Ova handoff; next: collect Ova and follow Ova/Beacon guides for progression.
 
-From Citadel Atrium, continue down the only available route toward the boss approach. **Ruk** is reported near the final descent and provides optional story context. A **Lazlo** summon sign is also reported nearby; activating it costs **1 Glimpse** and is optional.
+## Don't Miss
 
-When you are ready, drop into the arena. The dedicated [Isaac, the Scholar Prince guide](/mortal-shell-ii/isaac-the-scholar-prince/) covers the shield phase, the reported Riposte transition, three-sword pressure, Scholar's Wormstone, and the **Nightmare Fuel** achievement. This walkthrough does not turn version-sensitive fight behavior into a fixed route requirement.
+- Summoning Stone — reported in an Ashen Sanctum sarcophagus at Gate of Infinity (missable while passing the Ashen Sanctum approach). See Tarstones context: [Tarstones](/mortal-shell-ii/tarstones/).
+- Faded Gland — optional Seedbearer objective below Citadel Annex; see [Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/).
+- Hushed Sanctum / Stillblade's Stone — reward for cleansing Citadel Annex (touching the corrupted crystal core) reported as the Stillblade's Stone (a Tarstone). See [Tarstones](/mortal-shell-ii/tarstones/).
+- Solnir / Solnir Shard — Solnir is an optional route-side encounter reportedly between two blue flames; the Solnir Shard is listed as the reported reward. This encounter is optional and not required for the Isaac route.
+- Scholar‑Prince's Chamber Ova — collect the post-boss Ova after defeating Isaac; do not rely on a fixed quantity listed here — use the in-game prompt and the [Ova guide](/mortal-shell-ii/ova/).
 
-### 6. Finish the Faded Citadel after Isaac
+## Common mistakes
 
-Defeating Isaac causes the post-boss **Scholar-Prince's Chamber Beacon** to appear. Activate it, complete its cleanse interaction when available, and collect the Ova before fast travelling away. Current major-boss checklists repeatedly report 26 Ova for this kind of post-boss Beacon, but the fixed number is not needed to confirm route completion; use the in-game reward prompt.
+- Skipping Gate of Infinity cleanse: if the Gate of Infinity Beacon is blocked the Faded Citadel entrance may be inaccessible. Use the Beacon label to confirm access.
+- Taking the Hushed Sanctum chest and leaving: the Hushed Sanctum requires touching the corrupted crystal core to register the Beacon as Cleansed; merely taking a chest is not enough.
+- Expecting to damage through blue flames: blue-flame protection will prevent regular damage until the mechanic is handled.
+- Treating Solnir as mandatory: Solnir is optional and reported between two blue flames; you can skip it and still reach Isaac.
+- Assuming fixed Ova counts: sources report Ova at the post-boss Beacon, but do not rely on a single fixed number in this route guide.
 
-Isaac's reward is **Scholar's Wormstone**, associated with the [Clockwork Scythe](/mortal-shell-ii/clockwork-scythe/). For the next progression decision, return to [Ova and corruption progression](/mortal-shell-ii/ova/) rather than assuming Faded Citadel must be the last gate you clear.
+## Related pages
 
-## Route uncertainties and common mistakes
-
-### Gate of Infinity approach directions do not match
-
-Current guides use different Mammon landmarks around the same access route. The reliable check is **Gate of Infinity Beacon → cleanse → Faded Citadel**, not a fixed compass bearing or coordinate.
-
-### Ashen Sanctum and Hushed Sanctum are different
-
-**Ashen Sanctum** is the main Faded Citadel approach and Isaac-area name in current coverage. **Hushed Sanctum** is the separate cleanse dungeon entered from Citadel Annex. If a guide sends you to a red rift, a chest, and a corrupted crystal core, it is describing Hushed Sanctum.
-
-### The Servants appear at a different point in another guide
-
-The stable facts are the named Beacons and the Servants/blue-flame encounter on the main route. Exact room sequencing is not consistent enough to publish as a mandatory turn-by-turn map. Continue toward the next Beacon label and activate Citadel Atrium when you reach it.
-
-### Do not leave before the post-boss Beacon
-
-Isaac's death is not the final route check. Search for **Scholar-Prince's Chamber**, activate/cleanse it, and collect the Ova. If you are unsure whether a Beacon has been cleansed, see [Beacons and fast travel](/mortal-shell-ii/beacons-fast-travel/) and follow the in-game Beacon state.
-
-### No coordinates are used here
-
-External map pages use coordinate systems that are not calibrated against this repository's map data. This walkthrough intentionally uses named Beacons and landmarks only.
-
-## Faded Citadel checklist
-
-- [ ] Gate of Infinity Beacon cleansed and Faded Citadel opened.
-- [ ] Citadel Annex reached and activated.
-- [ ] Hushed Sanctum cleared, Stillblade's Stone collected, and Annex core cleansed if desired.
-- [ ] Citadel Atrium reached and activated.
-- [ ] Optional Faded Gland collected below Citadel Annex if pursuing Seedbearer's Scripture.
-- [ ] Ruk and the Lazlo summon checked before the Isaac drop.
-- [ ] Isaac defeated; dedicated boss-route details reviewed if needed.
-- [ ] Scholar-Prince's Chamber activated/cleansed and its Ova collected.
+- [Isaac, the Scholar Prince guide](/mortal-shell-ii/isaac-the-scholar-prince/)
+- [Ova guide](/mortal-shell-ii/ova/)
+- [Beacons and fast travel](/mortal-shell-ii/beacons-fast-travel/)
+- [Tarstones](/mortal-shell-ii/tarstones/)
+- [Seedbearer's Scripture](/mortal-shell-ii/seedbearers-scripture/)
 
 ## Sources
 
-- [GameSpot — All Ruk's Maps And Fast Travel Beacons In Mortal Shell 2](https://www.gamespot.com/articles/mortal-shell-2-ruks-maps-fast-travel-beacons/) — Mammon landmarks, Gate of Infinity, blue-flame protection, and the Faded Citadel access requirement.
-- [GameSpot — All Bosses In Mortal Shell 2 And How To Beat Them](https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/) — six Corrupted Gates, Isaac's Faded Citadel identity, major-boss Beacon/Ova context, and the Isaac handoff.
-- [AllThingsHow — How to Cleanse the Citadel Annex Beacon](https://allthings.how/mortal-shell-2-how-to-cleanse-the-citadel-annex-beacon-hushed-sanctum/) — Annex landmarks, Hushed Sanctum route, Stillblade's Stone, and cleanse confirmation.
-- [AllThingsHow — Citadel Atrium Beacon Location](https://allthings.how/mortal-shell-2-citadel-atrium-beacon-location-in-the-faded-citadel/) — Beacon order and the tree/chest/stairs route to Citadel Atrium.
-- [AllThingsHow — Seedbearer's Scripture](https://allthings.how/mortal-shell-2-how-to-get-seedbearers-scripture-before-the-final-boss/) — optional Faded Gland route below Citadel Annex.
-- [GamingProMax — Isaac the Scholar Prince Boss Guide](https://gamingpromax.com/isaac-the-scholar-prince-boss-guide-mortal-shell-2/) — Servants, Citadel Atrium, Ruk, Lazlo, and Isaac route cross-check.
+- [GameSpot — All Ruk's Maps And Fast Travel Beacons In Mortal Shell 2](https://www.gamespot.com/articles/mortal-shell-2-ruks-maps-fast-travel-beacons/) — Mammon overworld route, Gate of Infinity Beacon access and blue-flame cleansing note.
+- [GameSpot — All Bosses In Mortal Shell 2 And How To Beat Them](https://www.gamespot.com/articles/mortal-shell-2-all-bosses-how-to-defeat/) — confirms Faded Citadel/Isaac identity and post-boss Beacon context.
+- [AllThingsHow — How to Cleanse the Citadel Annex Beacon (Hushed Sanctum)](https://allthings.how/mortal-shell-2-how-to-cleanse-the-citadel-annex-beacon-hushed-sanctum/) — Citadel Annex landmarks, Hushed Sanctum route, and Stillblade's Stone reward.
+- [AllThingsHow — Citadel Atrium Beacon Location in the Faded Citadel](https://allthings.how/mortal-shell-2-citadel-atrium-beacon-location-in-the-faded-citadel/) — Atrium Beacon placement and tree/chest/stairs landmark chain.
+- [AllThingsHow — All 49 Beacon Locations and How to Cleanse Them](https://allthings.how/mortal-shell-2-all-49-beacon-locations-and-how-to-cleanse-them/) — three-Beacon inventory and post-boss Beacon/Ova checklist.
+- [AllThingsHow — How to Get Seedbearer's Scripture Before the Final Boss](https://allthings.how/mortal-shell-2-how-to-get-seedbearers-scripture-before-the-final-boss/) — Faded Gland optional objective below Citadel Annex.
+- [GamingProMax — Isaac the Scholar Prince Boss Guide](https://gamingpromax.com/isaac-the-scholar-prince-boss-guide-mortal-shell-2/) — route cross-check for Ashen Sanctum, Servants, Citadel Atrium, Ruk, Lazlo summon sign, and reward notes.

@@ -76,6 +76,8 @@ From **Citadel Annex Beacon**:
 
 No specific enemy clear is required by these route descriptions; follow the landmarks above to find each Gland.
 
+For the wider route through this area, see the [Faded Citadel walkthrough](/mortal-shell-ii/faded-citadel/) before continuing toward Isaac.
+
 <p><strong>Video walkthrough:</strong> <a href="https://www.youtube.com/watch?v=Q0GTsG38y5c" target="_blank" rel="noreferrer">LunarGaming</a> — full walkthrough of collecting all three Glands, Night Mode offering, and Forgotten Tower sequence.</p>
 <div style="position: relative; width: 100%; max-width: 960px; aspect-ratio: 16 / 9; margin: 1.5rem 0;">
 	<iframe

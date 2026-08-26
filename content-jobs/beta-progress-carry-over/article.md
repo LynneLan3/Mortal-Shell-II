@@ -1,65 +1,56 @@
-Immediate summary
+Beta save/progress vs. Beta-player benefits
 
-- Beta save/progress: does NOT transfer. Do not expect story progress, levels, inventory, weapons, Shells, currency, collectibles, or dungeon/map state to carry over.
-- Beta-player benefits: documented launch entitlements are limited to The Flayed Harbinger cosmetic and an optional Prologue skip. "Select progress carrying forward" in storefront copy refers to these bounded benefits, not a full save migration.
+- Beta save/progress: does not transfer. The developer-marked Steam reply states that Open Beta save data will not transfer to the full game. Do not expect story progress, levels, inventory, weapons, Shells, currency, collectibles, map or dungeon state to be restored from the Beta.
+- Beta-player benefits: limited launch entitlements are documented. These are unlocked in the full game, but unlocking them does not restore normal Beta progression or items.
 
-[IMAGE: Beta-to-release illustration — cosmetic and prologue skip icons]
+What carries over (verified)
 
-What officially carries over (the narrow list)
+- The Flayed Harbinger — Steam developer reply: playing the Open Beta for more than 30 minutes automatically unlocks The Flayed Harbinger cosmetic for the full game. The PlayStation Open Beta listing also presents The Flayed Harbinger as the Open Beta bonus. Boundary: the numeric time threshold is explicitly published on Steam by the developer but is not independently verified for consoles in the checked sources.
 
-1. The Flayed Harbinger (cosmetic)
-   - Steam developer-marked reply: playing the Open Beta for more than 30 minutes automatically unlocks The Flayed Harbinger.
-   - PlayStation Open Beta copy also lists The Flayed Harbinger as an Open Beta bonus.
-   - Boundary: the Steam >30-minute threshold is from the developer reply and is not independently verified for consoles in the checked sources.
+- Prologue skip — PlayStation Open Beta listing: progressing beyond Marrow Keep in the Open Beta unlocks the option to skip the Prologue in the full game. The developer-marked Steam reply also confirms that qualifying Beta players can skip the Prologue. Boundary: the skip is an optional entitlement in the retail game, not a transfer of Beta save progress or inventory. See /mortal-shell-ii/skip-prologue/ for the decision, exact guide boundaries, and confirmed trophy consequences.
 
-2. Optional Prologue skip
-   - PlayStation listing: players who progress beyond Marrow Keep in the Open Beta unlock the option to skip the Prologue in the full game.
-   - A Steam developer reply confirms qualifying Beta players can skip the Prologue in the full game.
-   - Boundary: the skip is an option presented in the full game; menu labels and exact behavior are not published in the checked first-party sources. See our dedicated guidance at /mortal-shell-ii/skip-prologue/ for the decision and confirmed trophy consequences.
+What does NOT carry over (verified examples)
 
-What does NOT carry over (explicitly listed by PlayStation and developer sources)
+- The PlayStation Open Beta listing explicitly says the following reset at launch: currency, weapons, Shells, collectibles, and other items discovered during the Open Beta. The Steam developer reply also says save data will not transfer. These are confirmed resets; do not assume additional unlisted flags are carried forward.
 
-- The developer reply plainly states: save data will not transfer to the full release.
-- The PlayStation Open Beta listing explicitly says the following reset at launch: currency, weapons, Shells, collectibles, and other items discovered during the Open Beta.
-- Do not assume other Beta state (map completion, dungeon flags, quest state) is preserved — the checked first-party sources do not verify those as transfers.
+Platform differences and source notes
 
-How to secure the documented Beta benefits (practical steps)
+- Steam developer reply (developer-marked) gives a "more than 30 minutes" threshold for the Flayed Harbinger and confirms the Prologue-skip entitlement. Treat that numeric threshold as a Steam-sourced rule; it is not independently confirmed for PlayStation/Xbox by the checked first-party sources.
+- PlayStation storefront copy links the Prologue skip to progressing beyond Marrow Keep and lists specific resets. Both first-party sources describe bounded Beta benefits; they do not describe a full save migration.
+- No platform-specific exception to the "save data will not transfer" statement was verified in the checked sources.
 
-1. Play the official Open Beta on your platform while it was available. (The full game is now released; these benefits are entitlements at launch if you met the Beta criteria.)
-2. On Steam: the developer reply identifies more-than-30-minutes played in the Open Beta as the trigger for The Flayed Harbinger. On PlayStation the listing advertises the cosmetic as the Beta bonus but does not publish a numeric threshold.
-3. To earn the Prologue-skip entitlement: in PlayStation copy, progress beyond Marrow Keep during the Open Beta; the Steam developer reply also confirms a qualifying Beta player can skip the Prologue. For exact in-game menu prompts and the skip decision, use /mortal-shell-ii/skip-prologue/.
+[IMAGE: Beta reward popup and Prologue skip option]
 
-Platform differences and verification limits
+Steam reward not showing?
 
-- The Steam developer reply is the clearest single-source clarification: save data will not transfer and >30 minutes of Beta play unlocks the Flayed Harbinger. That numeric threshold is not independently verified on consoles in the checked sources.
-- The PlayStation Open Beta listing confirms the Flayed Harbinger bonus, ties Prologue-skip eligibility to progressing beyond Marrow Keep, and lists what resets at launch.
-- No checked first-party source established a platform-specific exception that restores a Beta save on any console or PC.
-- Note: community troubleshooting reports about Steam library visibility or partial re-downloads are Steam-specific and are only troubleshooting for store/library behavior — they are not evidence of save transfer. See secondary coverage (GamesRadar) if you need details about Steam-specific library workarounds.
+Developer-confirmed Steam troubleshooting
 
-Common mistakes
+1. Confirm the same Steam account was used for the Open Beta.
+2. Exit and relaunch the full game once.
+3. Make sure Mortal Shell II Open Beta is still added to the Steam Library.
+4. Relaunch the full game again.
+5. If the unlock still does not register, developer guidance says to start reinstalling the Beta, pause the download at about 7%, then relaunch the full game.
+6. Once the rewards appear in the full game, the Beta can be uninstalled.
 
-- Assuming your Beta character, inventory, or completed dungeons transfer. (They do not.)
-- Treating "select progress carries forward" in storefront copy as a full save migration. It refers to the limited entitlements above.
-- Deleting or reinstalling the Beta thinking it will change whether you earned the unlocks. The unlocks are based on the qualifying Beta activity when it was available; uninstalling later does not restore a deleted entitlement.
-- Using Steam library visibility steps as a cross-platform fix. Those steps are Steam-specific troubleshooting and do not create save migration.
+Notes on the Steam steps and Library state
 
-If you skipped the Prologue — read this next
+- The developer's pinned Known Issues and post-launch Steam replies list keeping the Beta in the Library or partially installed as a workaround that can affect whether the retail game detects and grants the entitlement. This is platform-specific Steam troubleshooting — it is not a save transfer and it does not restore Beta save data, weapons, Shells, currency, collectibles, or other Beta progress.
+- Do not treat a Library or partial-install state as moving your Beta save into the retail game; the workaround only helps the retail game detect that you originally qualified.
 
-- If you are deciding whether to use the Prologue skip in the full game, see /mortal-shell-ii/skip-prologue/ for the eligibility, consequences, and trophy confirmation.
+Common mistakes (updated)
 
-Related pages
+- Uninstalling or reinstalling the Beta does not change whether you originally qualified for the rewards. Eligibility is determined by how you played the Open Beta, not by later reinstall actions.
+- Steam developer reports confirm that the Beta's Library / install state can affect whether the retail game currently detects and grants the entitlement. This is a detection/workaround detail on Steam only and is separate from actual eligibility.
 
-- Open Beta overview: /mortal-shell-ii/open-beta/
-- Skip Prologue details and decision: /mortal-shell-ii/skip-prologue/
-- Prevent confusion with New Game Plus: /mortal-shell-ii/new-game-plus/
-- Launch context (past event): /mortal-shell-ii/release-date/
-- If you need a progression boundary reference for late-game systems (separate from Beta): /mortal-shell-ii/ova/
+Where to go next
 
-Notes and sources
+- Read the Skip Prologue guide for the decision and what skipping bypasses: /mortal-shell-ii/skip-prologue/
+- See what the Open Beta contained: /mortal-shell-ii/open-beta/
+- Don't confuse Beta → retail entitlements with New Game+ mechanics: /mortal-shell-ii/new-game-plus/
+- For launch context: /mortal-shell-ii/release-date/
 
-- Developer-marked Steam community reply confirming "save data will not transfer," the >30-minute Flayed Harbinger trigger, and Prologue-skip confirmation.
-- PlayStation Open Beta listing confirming the Flayed Harbinger bonus, Marrow Keep tie to Prologue-skip eligibility, and the explicit reset list (currency, weapons, Shells, collectibles, other items).
-- Official Steam Open Beta product page retained for the Open Beta scope.
-- GamesRadar coverage noted as secondary reporting for Steam-library troubleshooting and how players claimed Beta rewards post-launch.
+Sources
 
-[IMAGE: Screenshot mockup showing Flayed Harbinger cosmetic and Prologue skip prompt]
+- Steam developer-marked reply (developer): Open Beta save data will not transfer; >30 minutes grants The Flayed Harbinger and confirms the Prologue skip.
+- PlayStation Open Beta listing: lists The Flayed Harbinger, ties Prologue skip to progressing beyond Marrow Keep, and explicitly lists currency, weapons, Shells, collectibles and other items discovered during the Beta as resetting.
+- Official Steam Open Beta product page and secondary reporting on Steam-library workarounds (GamesRadar) were consulted for troubleshooting context.

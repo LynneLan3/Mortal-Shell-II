@@ -5,7 +5,7 @@ category: game-info
 slug: mortal-shell-ii/skip-prologue
 status: confirmed
 featured: true
-quickAnswer: "Unlock: progress past Marrow Keep in the Open Beta, then choose the optional Prologue skip during the full-game start flow if the unlock appears. Should you skip: first-time and completion-focused players should usually play the Prologue; returning Beta players who want a faster start may consider skipping. What you miss/keep: the skip bypasses two confirmed Prologue trophy opportunities and is not a Beta inventory transfer—Beta currency, weapons, Shells, and collectibles reset."
+quickAnswer: "Unlock: progress past Marrow Keep in the Open Beta, then choose the optional Prologue skip during the full-game start flow if the unlock appears. Should you skip: first-time and completion-focused players should usually play the Prologue; returning Beta players who want a faster start may consider skipping. What you miss/keep: the skip bypasses two confirmed Prologue trophy opportunities and is not a Beta inventory transfer—Beta currency, weapons, Shells, and collectibles reset. If a Steam unlock is missing, use the developer-confirmed workaround below."
 faq:
   - question: "How do I unlock the Prologue skip?"
     answer: "Progress beyond Marrow Keep in the Open Beta. If that condition is met, the full-game start flow can offer an optional Prologue skip; choose it to begin beyond the Prologue."
@@ -67,9 +67,20 @@ lastUpdated: 2026-08-24
 2. Expecting New Game Plus to restore skipped Prologue opportunities — it begins at Marrow Keep and won’t replay those moments.
 3. Searching for specific start-flow menu text here — exact UI wording and timing aren’t published; follow the in-game prompts if you unlocked the feature.
 
-## Secondary: Steam unlock troubleshooting (community reports — not official)
+### Steam: Prologue Skip or Beta Reward Not Showing
 
-- If you believe the Prologue skip should be available but don’t see it, community troubleshooting steps reported on Steam include verifying game files, restarting the client, and confirming you actually progressed past Marrow Keep in the Open Beta. These steps are community-sourced and secondary; they are not official fixes. Keep an eye on official developer channels or the Steam announcement for authoritative guidance.
+This is a developer-confirmed Steam workaround for detection/entitlement issues. Follow these steps in order:
+
+1. Confirm you used the same Steam account for the Open Beta.
+2. Exit and relaunch the full game once.
+3. Make sure Mortal Shell II Open Beta is still added to the Steam Library.
+4. Relaunch the full game.
+5. If the unlock still does not register, developer guidance says to start reinstalling the Beta, then pause the install around 7%, and relaunch the full game.
+6. Once the rewards appear in the full game, the Beta can be uninstalled.
+
+The developer's pinned Known Issues also lists having the Beta present in the Library or partially installed as a workaround. This is entitlement detection/troubleshooting only: it does not restore the Beta save, weapons, Shells, currency, collectibles, or other Beta progress.
+
+Eligibility note: PlayStation Store copy states progressing beyond Marrow Keep unlocks the optional Prologue skip; later Steam developer replies say 30+ minutes in the Open Beta qualifies for The Flayed Harbinger and the Prologue skip. Both first-party claims are reported here and are not reconciled.
 
 [IMAGE: Prologue decision point]
 

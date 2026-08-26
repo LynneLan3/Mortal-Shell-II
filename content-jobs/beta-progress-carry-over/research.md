@@ -13,6 +13,29 @@ Update the existing `/mortal-shell-ii/beta-progress-carry-over/` page for the po
 - The existing page's direct distinction is correct: beta benefits are launch entitlements/unlocks, not a restored beta save.
 - The Steam-library re-add / partial-download steps are troubleshooting reports for Steam only. They are not evidence of save transfer and must not be presented as console instructions.
 
+# Post-launch Steam reward detection troubleshooting (required addition)
+
+Add a conspicuous section titled exactly `Steam reward not showing?` after the existing benefit-securing guidance, or in the nearest equivalent position. Write it for ordinary players, not as a research note. The section must give this direct sequence:
+
+The exact visible heading in `articleMarkdown` must be `Steam reward not showing?` (including the question mark). Do not substitute a broader heading such as "Developer-confirmed Steam troubleshooting".
+
+1. Confirm the same Steam account was used for the Open Beta.
+2. Exit and relaunch the full game once.
+3. Make sure Mortal Shell II Open Beta is still added to the Steam Library.
+4. Relaunch the full game again.
+5. If the unlock still does not register, developer guidance says to start reinstalling the Beta, pause the download at about 7%, then relaunch the full game.
+6. Once the rewards appear in the full game, the Beta can be uninstalled.
+
+Label this as developer-confirmed Steam troubleshooting. The developer's pinned Known Issues also lists keeping the Beta in the Library or partially installed as a workaround. Do not call any Library or partial-install state a save transfer, and state that it does not restore Beta save data, weapons, Shells, currency, collectibles, or other Beta progress.
+
+The generated integration block must also replace the old misleading Common Mistakes point with two separate player-facing points: (a) uninstalling or reinstalling the Beta does **not** change whether the player originally qualified for the rewards; (b) Steam developer reports confirm that the Beta's Library / install state can affect whether the retail game currently detects and grants the entitlement. Keep these as separate concepts and do not say reinstalling changes eligibility.
+
+The page must preserve the first-party eligibility conflict instead of resolving it: storefront copy says progress beyond Marrow Keep unlocks the optional Prologue skip, while later Steam developer replies say 30+ minutes in the Open Beta qualifies for The Flayed Harbinger and the Prologue skip. Present both source claims with their source labels; do not make them sound like one identical universal threshold.
+
+## Integration boundary
+
+Return a valid page-package JSON, but `articleMarkdown` must contain only integration-ready replacement/addition blocks for this existing page. Do not rewrite the page's title, description, existing carry-over explanation, or unrelated sections. Keep the existing title and description unchanged at integration time. A short Quick Answer addition is allowed only if it does not displace the existing save-transfer and benefit answer.
+
 # Beta save vs Beta rewards distinction
 
 Make this distinction visible immediately:
@@ -53,6 +76,7 @@ The official PlayStation listing explicitly says these reset at launch: currency
 - The Steam developer reply gives the >30-minute Flayed Harbinger threshold, while the PlayStation listing says only to play the Beta. Do not claim the exact number is console-confirmed.
 - The exact Prologue-skip menu prompt and post-skip spawn details are not published in the checked first-party sources; defer to the dedicated Skip Prologue page for current practical guidance.
 - GamesRadar's Steam-library workaround is secondary evidence and should remain clearly labeled as Steam-specific troubleshooting.
+- The new Library / partial-download sequence is supported by post-launch Steam developer replies and the pinned Known Issues; it supersedes the old community-only label for this specific workaround. Keep GamesRadar as secondary context only if it is still useful.
 
 # Internal-link opportunities
 

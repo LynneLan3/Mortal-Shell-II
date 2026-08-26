@@ -2,6 +2,14 @@
 
 ## Job contract
 
+## Locked CTR copy contract
+
+- The `title` field must be exactly: `Mortal Shell 2 Gloombound Flame: How to Get It & Unlock Night Mode`.
+- The `description` must be 160 characters or fewer; prefer: `Find Gloombound Flame in Fainweald's Great Arbiter arena, light Marrow Keep's lantern, summon Thestus, and unlock Night Mode.`
+- The visible H1 uses the same page title in this site architecture; keep the H1 promise centered on `How to Get Gloombound Flame & Unlock Night Mode`, not `Guide` or `Complete Guide`.
+- The `quickAnswer` must begin with the Flame location/acquisition and immediately state that the Flame lights the Marrow Keep `LIGHT EXTINGUISHED LANTERN`, summons Thestus, and enables Night Mode.
+- The FAQ must include natural questions covering: where the Flame is, how to get it, how to unlock Night Mode, and what the Light Extinguished Lantern is.
+
 - **Existing canonical page:** `/mortal-shell-ii/gloombound-flame/`
 - **Integration mode:** bounded in-place patch only. Do not create `/night-mode/`, do not change the slug, and do not rewrite the existing guide wholesale.
 - **Primary intent:** Gloombound Flame location.

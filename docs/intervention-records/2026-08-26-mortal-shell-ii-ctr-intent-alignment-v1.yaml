@@ -1,0 +1,82 @@
+intervention_id: "2026-08-26-mortal-shell-ii-ctr-intent-alignment-v1"
+decision_id: "2026-08-26|Mortal Shell II|CONTENT_OPTIMIZE|ms2-ctr-intent-alignment-v1"
+site_id: "mortal-shell-ii"
+lifecycle: GROWTH
+action: UPDATE_PAGE
+status: READY_FOR_RELEASE
+
+urls:
+  - "/mortal-shell-ii/gloombound-flame/"
+  - "/mortal-shell-ii/seedbearers-scripture/"
+  - "/mortal-shell-ii/nameless-captive/"
+  - "/mortal-shell-ii/conquered-temple/"
+  - "/mortal-shell-ii/new-game-plus/"
+
+intent_contract:
+  gloombound_flame: "GET + UNLOCK"
+  seedbearers_scripture: "GET + ALL_LOCATIONS"
+  nameless_captive: "FIND + BEAT"
+  conquered_temple: "UNLOCK + ROUTE"
+  new_game_plus: "CARRY_OVER + RESET + START"
+
+change_summary:
+  modified_fields:
+    - "SEO title / visible H1"
+    - "Meta description"
+    - "Quick Answer"
+    - "Necessary FAQ structured-data fields"
+  preserved:
+    - "Canonical URLs and existing page bodies"
+    - "Existing factual boundaries, images, routes, and internal-link structure"
+    - "All pages outside the five-page P0 scope"
+  writer_pipeline: "APIMart page-package via npm run article -- <slug> --format=page-package"
+
+research_baseline:
+  source: "Supplied MS2 Intent Mapping / Goal objective"
+  site_impressions: 5460
+  site_clicks: 49
+  site_ctr: "0.9%"
+  site_average_position: 7.7
+  query_families:
+    - "location"
+    - "how to"
+    - "what carries over"
+    - "how to start"
+    - "not enough"
+    - "call forth the night"
+    - "ending explained"
+  seedbearers_page_signal:
+    impressions: 346
+    clicks: 1
+    ctr: "0.29%"
+    source: "content-jobs/seedbearers-scripture/research.md"
+
+production_baseline:
+  canonical_domain: "https://mortalshell2guide.com"
+  deployment_id: "dpl_8PFSz89iqbWvmyeZ8K5xWWPADaKD"
+  deployment_status: READY
+  deployed_version: "b474e64"
+  deployed_version_basis: "origin/main and live canonical title checks"
+  observed_at: "2026-08-26T10:19:33+08:00"
+  note: "The five live pages still showed the pre-experiment Entity/Guide/Walkthrough SERP framing at baseline capture."
+
+implementation_reference:
+  repository: "LynneLan3/Mortal-Shell-II"
+  branch: "review/seedbearers-scripture-wip"
+  pre_change_head: "82320cc66ca004d6d03a7ab7e803c9e7512f6cf8"
+  planned_commit_message: "feat: align ms2 p0 pages with search intent"
+
+observation_horizons:
+  - D7
+  - D14
+  - D30
+primary_metrics:
+  - clicks
+  - impressions
+  - CTR
+  - average position
+secondary_metrics:
+  - intent-query coverage
+  - ranking stability
+
+# Outcome is intentionally omitted until the D7/D14/D30 observation windows complete.

@@ -1,5 +1,13 @@
 # Research: New Game Plus (UPDATE)
 
+## Locked CTR copy contract for MS2 Intent Alignment V1
+
+- The `title` field must be exactly: `Mortal Shell 2 New Game Plus: What Carries Over, What Resets & How to Start`.
+- The `description` must be 160 characters or fewer; prefer: `Start NG+ with Send Ova; see what carries over, what resets, and what to finish before the irreversible choice.`
+- The visible H1 uses the same page title in this site architecture; keep the H1 promise centered on `Mortal Shell 2 New Game Plus — What Carries Over & What Resets`.
+- The `description` and `quickAnswer` must answer all three tasks: how to start with `Send Ova`, what carries over, and what resets. Keep scaling and NG+2/NG+3 secondary.
+- Do not target Beta save, Beta transfer, or Beta progress carry-over intent; this page is retail NG+ only.
+
 Scope: update `/mortal-shell-ii/new-game-plus/` only. Answer how to start the second run, what carries over, what resets, and what to finish before `Send Ova`. Do not turn this into a complete ending, trophy, or map guide.
 
 ## Confirmed facts

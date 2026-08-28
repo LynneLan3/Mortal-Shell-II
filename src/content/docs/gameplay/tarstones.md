@@ -6,6 +6,9 @@ slug: mortal-shell-ii/tarstones
 status: needs-verification
 featured: false
 quickAnswer: "Tarstones are four-category equipment for Shell builds: Support, Combat, Infusion, and Ability. Unlock Temper Tarstones by taking the Etching Needles from Glutted Mire to Franz at the Marrow Keep Tarforge; equipped compatible stones gain XP from kills, then use coins and Tarcores to temper them. Launch sources disagree on whether the collection contains 73 or 75 entries, so this page labels its location tables as source-reported rather than a final verified count."
+faq:
+  - question: "Why is the Shattering Stone chest already open?"
+    answer: "Developers have acknowledged a known bug where the Collapsed Mine chest for the Shattering Stone can be found open with the stone missing. On August 24 developer XBIGY said the team has a “potential fix” slated for an upcoming patch — this does not mean the fix has shipped. Multiple player reports exist and there is no verified guaranteed player-side workaround according to the evidence available. Reports are inconsistent about whether the issue affects the all-Tarstones achievement."
 related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/shells
@@ -192,6 +195,12 @@ The following index combines the launch-window records checked for this page. It
 | Scholar's Wormstone | Sir Isaac, the Scholar-Prince, Faded Citadel Gate |
 | Solnir Shard | Solnir, the Gloom Seeker, Faded Citadel Gate |
 | Hexapod Core | Withered Shoals Gate boss |
+
+### Shattering Stone chest already open?
+
+The normal location is still the **Collapsed Mine** chest at the left dead-end of the split path. If you reach that chest for the first time and it is already open while **Shattering Stone** is missing from your inventory, multiple player reports describe this as a currently known bug. Mortal Shell II developers have acknowledged the issue.
+
+On August 24, developer XBIGY said the team has a **potential fix** planned for an upcoming patch. That does not mean the fix has already shipped. As of the available evidence, there is no verified, guaranteed player-side workaround. Reports are also inconsistent about whether a missing Shattering Stone affects the all-Tarstones achievement, so the achievement impact cannot be stated definitively either way.
 
 ## Missable and special-mode warnings
 

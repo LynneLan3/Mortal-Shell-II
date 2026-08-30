@@ -5,7 +5,7 @@ category: combat-exploration
 slug: mortal-shell-ii/tarstones
 status: needs-verification
 featured: false
-quickAnswer: "Tarstones are four-category equipment for Shell builds: Support, Combat, Infusion, and Ability. Unlock Temper Tarstones by taking the Etching Needles from Glutted Mire to Franz at the Marrow Keep Tarforge; equipped compatible stones gain XP from kills, then use coins and Tarcores to temper them. Launch sources disagree on whether the collection contains 73 or 75 entries, so this page labels its location tables as source-reported rather than a final verified count."
+quickAnswer: "Tarstones are four-category equipment for Shell builds: Support, Combat, Infusion, and Ability. The Week 1 Update makes Glimpses and Tarcores non-finite, allows every Shell and Tarstone to be upgraded in one playthrough, and adds repeatable Fragile Tarstones. Unlock Temper Tarstones by taking the Etching Needles from Glutted Mire to Franz at the Marrow Keep Tarforge; equipped compatible stones gain XP from kills, then use coins and Tarcores to temper them."
 faq:
   - question: "Why is the Shattering Stone chest already open?"
     answer: "Developers have acknowledged a known bug where the Collapsed Mine chest for the Shattering Stone can be found open with the stone missing. On August 24 developer XBIGY said the team has a “potential fix” slated for an upcoming patch — this does not mean the fix has shipped. Multiple player reports exist and there is no verified guaranteed player-side workaround according to the evidence available. Reports are inconsistent about whether the issue affects the all-Tarstones achievement."
@@ -20,7 +20,7 @@ sidebar:
   label: Tarstones Guide
   order: 13
   badge: Exploration
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
 
 ## Current scope
@@ -30,6 +30,12 @@ This is a launch-window **Tarstones database and build guide**. It lists reporte
 The collection total is currently disputed: [GamesRadar+ reports 75 Tarstones](https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/), while [AllThings.How reports 73 Tarstones, fragments, and mementos](https://allthings.how/mortal-shell-2-every-tarstone-location-for-the-stoned-trophy/) and says the menu has two empty slots. Their detailed records also differ in names and locations. The tables below are therefore a **source-reported database**, not proof of a final 73- or 75-entry in-game total.
 
 For the wider upgrade station, see the [Tarforge guide](/mortal-shell-ii/tarforge/). For a Gloom-focused use case, see the [Gloom farming guide](/mortal-shell-ii/gloom-farm/). Weapon and Shell context belongs in the [Weapons Guide](/mortal-shell-ii/weapons/) and [Shells Guide](/mortal-shell-ii/shells/).
+
+## Week 1 Update: Tarstone economy changes
+
+The [official Week 1 Update](https://store.steampowered.com/news/app/2584270/view/690892955941077484) changes the resource loop: **Glimpses and Tarcores are no longer finite**, so every Shell and Tarstone can be upgraded in one playthrough. **Fragile Tarstones are not unique** and can appear multiple times. Tarstones also yield more Tarcores when broken, and saves with upgraded Tarstones receive compensatory Tarcores.
+
+For shopping, **Merrick sells Tarstones and Mether's Severance** and restocks with progression; his later stock can include Glimpse Stones, Egon's Stones, and Tarcores. **The Collector can also carry Tarcores.** The update confirms the progression behavior, but not an exact restock schedule or guaranteed availability at every progression state.
 
 ## What are Tarstones in Mortal Shell 2?
 
@@ -68,7 +74,7 @@ Current launch guides agree on the important part of the loop:
 3. At **10,000 XP**, use the Tarforge and pay **100 coins** for the next level; the reported reward is one **Tarcore**.
 4. At the next **20,000-XP** threshold, the reported higher/max step costs **six Tarcores**.
 
-An inventory Tarstone does not earn XP merely because you own it. If you are testing a new stone, equip it before the route or fight that should level it. Because Tarcores are limited, a practical strategy is to raise several low-investment stones to the first threshold, then spend six Tarcores on the stones that actually fit your build.
+An inventory Tarstone does not earn XP merely because you own it. If you are testing a new stone, equip it before the route or fight that should level it. The Week 1 economy change removes the old finite-Tarcore constraint, so you can continue upgrading other stones instead of treating the first investment as permanently exclusive.
 
 These are launch-window reported values, not a promise that every future patch will preserve the same thresholds or costs.
 
@@ -118,6 +124,8 @@ The following index combines the launch-window records checked for this page. It
 | Acolyte's Stone | Merrick, Marrow Keep |
 | Unwieldy Stone | Merrick, Marrow Keep; reported price: 2,000 coins |
 | Hand of Rock | Barkeep at the tavern near One Legged Wolf |
+
+The Week 1 Update also confirms that Merrick's stock expands with progression beyond these launch-window records, including **Tarstones, Mether's Severance, Glimpse Stones, Egon's Stones, and Tarcores** at the relevant progression states. The Collector can also carry Tarcores. Do not read that as a guarantee that every item is available on the first visit.
 
 ### Chest, trial, dungeon, and puzzle records
 
@@ -238,7 +246,7 @@ No. Current launch guides report that a Tarstone gains XP from enemy kills only 
 
 ### What is Tarcore used for?
 
-Tarcore is part of the higher Tarstone tempering economy. The reported launch loop is one Tarcore after the 10,000-XP/100-coin step, then six Tarcores for the next 20,000-XP step.
+Tarcore is part of the higher Tarstone tempering economy. The reported launch loop is one Tarcore after the 10,000-XP/100-coin step, then six Tarcores for the next 20,000-XP step. After the Week 1 Update, Tarcores are no longer finite and Tarstones yield more when broken.
 
 ### What is the best early Tarstone?
 
@@ -254,6 +262,7 @@ No. It is a launch-window, source-reconciled database of reported names and acqu
 
 ## Sources
 
+- [Mortal Shell II — The Week 1 Update is Available Now](https://store.steampowered.com/news/app/2584270/view/690892955941077484) — official August 29, 2026 economy, Fragile Tarstone, vendor, respec, and compensation changes.
 - [Balance Patch 1 — official Mortal Shell II Steam notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — patch-sensitive Tarstone changes.
 - [The best Mortal Shell 2 Tarstones and their locations — GamesRadar+](https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/) — categories, slot framing, best-pick examples, and a partial location list.
 - [How to Upgrade the Tarforge in Mortal Shell 2 — GameSpot](https://www.gamespot.com/articles/mortal-shell-2-tarforge-weapons-tarstones-upgrades/) — Etching Needles, XP, coin, and Tarcore mechanics.

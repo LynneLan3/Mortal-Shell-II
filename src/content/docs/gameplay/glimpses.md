@@ -5,7 +5,7 @@ category: combat-exploration
 slug: mortal-shell-ii/glimpses
 status: needs-verification
 featured: false
-quickAnswer: "Gloom levels the Harbinger and is the only listed resource lost on death; Glimpses raise one Shell’s Bond; Shell Points buy unlocked Shell abilities; Resolve refills through combat and powers combat abilities. After Balance Patch 1, Shell-map reveals use Gloom, not Glimpses."
+quickAnswer: "Gloom levels the Harbinger and is the only listed resource lost on death; Glimpses raise one Shell’s Bond; Shell Points buy unlocked Shell abilities; Resolve refills through combat and powers combat abilities. After the Week 1 Update, Glimpses are no longer finite, and after Balance Patch 1, Shell-map reveals use Gloom, not Glimpses."
 related:
   - mortal-shell-ii/shells
   - mortal-shell-ii/proxima
@@ -16,7 +16,7 @@ sidebar:
   label: Glimpses Guide
   order: 17
   badge: Exploration
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
 
 ## At a glance
@@ -117,7 +117,7 @@ No. Gloom-funded Harbinger milestones provide Shell Points; Glimpses open the Bo
 
 ### Can I farm Glimpses like Gloom?
 
-Not through a confirmed universal enemy loop. Current coverage treats Glimpses as a scarce progression resource from Beacons, Cleansed Gate exploration, rare world finds, and limited source-specific rewards. More Glimpses may be available in New Game Plus, but the [NG+ guide](/mortal-shell-ii/new-game-plus/) owns the carry-over/reset details.
+The Week 1 Update confirms that **Glimpses are no longer finite**, so a single playthrough is no longer capped by the old economy. This does not establish one universal enemy farming loop or an exact acquisition route: continue using the in-game progression and vendor prompts. More Glimpses may be available in New Game Plus, but the [NG+ guide](/mortal-shell-ii/new-game-plus/) owns the carry-over/reset details.
 
 ### What happens to Gloom when I die?
 
@@ -133,7 +133,7 @@ No separate pickup or vendor is established by the checked evidence. Treat Resol
 
 ### Is there a fixed number of Glimpses per run?
 
-Not one this page can safely publish. Current guides disagree on per-Shell costs and one-run totals, so use the live Bond prompt and do not treat an online total as universal across builds or patches.
+The Week 1 Update confirms there is no finite per-run Glimpse cap. Current guides still disagree on per-Shell costs, so use the live Bond prompt and do not treat an online total as universal across builds or patches.
 
 ## Evidence boundary
 

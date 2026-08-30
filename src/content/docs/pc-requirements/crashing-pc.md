@@ -5,7 +5,7 @@ category: pc-requirements
 slug: mortal-shell-ii/crashing-pc
 status: needs-verification
 featured: true
-quickAnswer: "Hotfix 2.0 is live on Steam but does not fix every crash. If the game crashes on loading, try turning Frame Generation off. The Keyboard Bindings menu crash has a developer-acknowledged workaround — delete two settings files as described below. Update first, then retest."
+quickAnswer: "The Week 1 Update includes substantial crash and stability fixes, removes some settings implicated in graphics-driver crashes, and adds crash diagnostics, but it does not guarantee every crash is fixed. Confirm your Mortal Shell II build is updated first, then retest; the existing Keyboard Bindings and loading-crash troubleshooting remains below."
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
@@ -14,8 +14,12 @@ sidebar:
   label: PC Crashes & Hotfix 2.0
   order: 2
   badge: Launch
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
+
+## Current Week 1 crash status
+
+The **Week 1 Update (August 29, 2026)** includes substantial crash and stability fixes across spawning, audio, attribute changes, UI loading, save loading, and shutdown. It also removes some settings implicated in graphics-driver crashes and adds crash diagnostics. **Mortal Shell II crashing is not completely fixed by this note.** If you are still crashing, first confirm Steam has installed the latest update, restart Steam, and retest the same action before using the troubleshooting below.
 
 ## Is Mortal Shell 2 crashing after launch?
 
@@ -230,6 +234,7 @@ Launch-window players most often report repeated crashes on loading screens, fas
 
 ## Sources
 
+- [Mortal Shell II — The Week 1 Update is Available Now](https://store.steampowered.com/news/app/2584270/view/690892955941077484) — official August 29, 2026 crash, stability, graphics-driver settings, and diagnostics changes.
 - [Hotfix 2.0 — Release Notes (Steam Community)](https://steamcommunity.com/app/2584270) — official release notes: misc crash fixes, stability and performance improvements; Slayer Seal beacon-menu UI lock fix; riposte enemy-weapon steal fix; posted August 19, 2026
 - [Crash on keyboards binding menu (Fix Instructions)](https://steamcommunity.com/app/2584270/discussions/0/418424310691125754/) — Cold Symmetry developer post by XBIGY, August 17, 2026, 9:32 AM PDT
 - [Hotfix 1.0 — Crashes and Optimization fixes](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/) — Cold Symmetry developer post, August 17, 2026

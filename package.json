@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node ./scripts/stabilize-home-hero.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "article": "node ./scripts/generate-article.mjs",

@@ -1,0 +1,32 @@
+{
+  "title": "Mortal Shell II — Known Issues & Troubleshooting Hub",
+  "description": "Navigation hub for Mortal Shell II bug, stuck, and not-working issues with direct links to the correct fixes and pages.",
+  "quickAnswer": "This hub directs common \"something is broken\" queries to the correct help pages — crashes go to the Crashing on PC page; beacon/cleanse, Isaac boss, save/progress, Tarstones, Hushed Sanctum, and Slayer Seal each have their own routed pages.",
+  "faq": [
+    {
+      "question": "I can't cleanse a Beacon or fast-travel — where do I go?",
+      "answer": "See Beacons and fast travel for troubleshooting, and check Hushed Sanctum if the issue appears tied to that area: /mortal-shell-ii/beacons-fast-travel/ and /mortal-shell-ii/hushed-sanctum/."
+    },
+    {
+      "question": "My attacks don't damage Isaac (boss) — what now?",
+      "answer": "Route to the Isaac, the Scholar Prince page for boss-specific information and troubleshooting: /mortal-shell-ii/isaac-the-scholar-prince/."
+    },
+    {
+      "question": "The game keeps crashing on my PC — where should I look?",
+      "answer": "Crashes and stability/hotfix details are handled on the Crashing on PC page: /mortal-shell-ii/crashing-pc/."
+    },
+    {
+      "question": "My Shattering Stone chest is missing or already opened.",
+      "answer": "See Tarstones — there is a Week 1 bug note regarding Shattering Stone chests: /mortal-shell-ii/tarstones/."
+    },
+    {
+      "question": "I have save, progress, or beta carry‑over problems.",
+      "answer": "Check the Beta progress carry-over and Skip Prologue pages for known issues and routing: /mortal-shell-ii/beta-progress-carry-over/ and /mortal-shell-ii/skip-prologue/."
+    },
+    {
+      "question": "I'm concerned about Slayer Seal or achievement problems.",
+      "answer": "See the Slayer Seal difficulty page for details and guidance: /mortal-shell-ii/slayer-seal-difficulty/."
+    }
+  ],
+  "articleMarkdown": "[IMAGE: Flowchart showing symptom clusters pointing to their destination pages]\n\nQuick hub: use this page when something in Mortal Shell II is broken, stuck, or not behaving as expected. Below are the common symptom clusters and the single best page to open next. Follow the short steps for routing.\n\nPC crash, hotfix, stability\n\n1. If the game crashes, freezes, or you need stability/hotfix info, open: /mortal-shell-ii/crashing-pc/\n2. This hub does not replace that page — use it for crash-specific guidance only.\n\nBeacon cleanse stuck / can't cleanse\n\n1. Start at: /mortal-shell-ii/beacons-fast-travel/\n2. If the problem appears tied to the Hushed Sanctum location, also open: /mortal-shell-ii/hushed-sanctum/\n\nIsaac no damage / boss issue\n\n1. For enemy/boss-specific problems where attacks do no damage or mechanics appear broken, open: /mortal-shell-ii/isaac-the-scholar-prince/\n\nHushed Sanctum stuck\n\n1. For being stuck in or blocked by anything in the Hushed Sanctum, open: /mortal-shell-ii/hushed-sanctum/\n\nSave / progress / beta carry-over\n\n1. For save corruption, missing progress, or issues from the beta carry-over, open: /mortal-shell-ii/beta-progress-carry-over/\n2. If your problem relates to starting or skipping early content, also check: /mortal-shell-ii/skip-prologue/\n\nShattering Stone chest open / missing\n\n1. For Shattering Stone / Tarstones chest problems, open: /mortal-shell-ii/tarstones/\n2. Note: there is a Week 1 bug note regarding Shattering Stone chests on that page.\n\nSlayer Seal / achievement concerns\n\n1. For anything tied to the Slayer Seal or achievement-related difficulty, open: /mortal-shell-ii/slayer-seal-difficulty/\n\nIf you're not sure which applies\n\n1. Scan the symptom list above and open the matching page. Each routed page contains the detailed troubleshooting or developer notes relevant to that symptom cluster.\n\nCommon mistakes\n\n- Searching this hub for crash hotfixes — crashes are routed once to /mortal-shell-ii/crashing-pc/; do not expect crash hotfix details elsewhere on this hub.\n- Trying a single page for both beacon cleansing and Hushed Sanctum issues — use the Beacons and Hushed Sanctum pages as noted.\n- Assuming the Tarstones chest problem is permanent — the Tarstones page includes a Week 1 bug note; check that page for details.\n\nIf none of the routed pages match your problem, re-check the short list above and open the closest match. Each linked page is the intended next step for that specific symptom cluster."
+}

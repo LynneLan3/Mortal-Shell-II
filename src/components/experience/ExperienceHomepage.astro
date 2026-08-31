@@ -222,12 +222,15 @@ const factIcon = (label: string): IconName => {
 			<Image
 				src={heroImage}
 				alt={game.heroAlt ?? game.name}
-				width={3840}
-				height={1240}
-				widths={[1280, 1920, 2560, 3840]}
-				sizes="100vw"
+				width={1920}
+				height={620}
+				widths={[640, 960, 1280, 1920]}
+				sizes="(max-width: 768px) 100vw, 1280px"
 				loading="eager"
 				fetchpriority="high"
+				decoding="async"
+				format="webp"
+				quality={72}
 				style={{ objectPosition: heroPosition }}
 			/>
 		</div>

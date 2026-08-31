@@ -1,12 +1,24 @@
 ---
 import GameShell from '../../components/experience/GameShell.astro';
 import ExperienceHomepage from '../../components/experience/ExperienceHomepage.astro';
+import { getImage } from 'astro:assets';
 import { game } from '../../config/game';
+import { resolveGameAsset } from '../../lib/assets';
 import { experienceNav } from '../../lib/experience-nav';
 import '../../styles/experience-homepage.css';
 import ExperienceStructuredData from '../../components/ExperienceStructuredData.astro';
 
 const { nav, footerLinks, homeHref } = experienceNav();
+const heroImage = resolveGameAsset(game.heroImage, 'game.heroImage');
+const heroPreload = heroImage
+	? await getImage({
+			src: heroImage,
+			width: 1280,
+			height: 414,
+			format: 'webp',
+			quality: 72,
+		})
+	: undefined;
 ---
 
 <GameShell
@@ -29,5 +41,16 @@ const { nav, footerLinks, homeHref } = experienceNav();
 		canonical={new URL(game.hubPath, game.siteUrl).href}
 		breadcrumbs={[{ name: game.name, href: new URL(game.hubPath, game.siteUrl).href }]}
 	/>
+	{heroPreload && (
+		<link
+			slot="head"
+			rel="preload"
+			as="image"
+			href={heroPreload.src}
+			fetchpriority="high"
+			imagesrcset={heroPreload.srcSet?.attribute}
+			imagesizes="(max-width: 768px) 100vw, 1280px"
+		/>
+	)}
 	<ExperienceHomepage />
 </GameShell>

@@ -15,6 +15,7 @@ related:
   - mortal-shell-ii/gloom-farm
   - mortal-shell-ii/hall-of-illusions
   - mortal-shell-ii/tarforge
+  - mortal-shell-ii/blackmarrow-keys
   - mortal-shell-ii/balance-patch-1
 sidebar:
   label: Tarstones Guide

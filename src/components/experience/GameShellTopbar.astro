@@ -7,8 +7,6 @@
  */
 import type { NavItem } from './GameShell.astro';
 import { game } from '../../config/game';
-import { getGuides, guideHref } from '../../lib/guides';
-
 interface Props {
 	siteTitle: string;
 	homeHref: string;
@@ -18,17 +16,7 @@ interface Props {
 
 const { siteTitle, homeHref, nav, activePath = '' } = Astro.props;
 
-const localSearchData = (await getGuides()).map((entry) => ({
-	title: entry.data.title,
-	description: entry.data.description ?? '',
-	href: guideHref(entry),
-	text: [entry.data.title, entry.data.description, entry.data.quickAnswer, entry.body]
-		.filter(Boolean)
-		.join(' ')
-		.replace(/\s+/g, ' ')
-		.slice(0, 5000),
-}));
-const localSearchJson = JSON.stringify(localSearchData).replace(/</g, '\\u003c');
+const searchIndexPath = `${game.hubPath}search-index.json`;
 const isDev = import.meta.env.DEV;
 const searchShortcuts = [
 	...(game.portal?.hotGuides ?? []).slice(0, 3).map((item) => ({ title: item.title, href: item.href })),
@@ -133,9 +121,7 @@ function isActive(item: NavItem): boolean {
 		)}
 	</div>
 </div>
-<script type="application/json" data-exp-search-data set:html={localSearchJson}></script>
-
-<script is:inline>
+<script is:inline define:vars={{ searchIndexPath, isDev }}>
 	(function () {
 		function syncHashNav() {
 			var homeLink = document.querySelector('[data-exp-nav-home]');
@@ -202,13 +188,34 @@ function isActive(item: NavItem): boolean {
 		var triggers = document.querySelectorAll('[data-exp-search-open]');
 		var pfInit = false;
 		var localSearchData = [];
-		var localSearchDataNode = document.querySelector('[data-exp-search-data]');
-		if (localSearchDataNode) {
-			try {
-				localSearchData = JSON.parse(localSearchDataNode.textContent || '[]');
-			} catch (error) {
-				localSearchData = [];
+		var searchIndexLoaded = false;
+
+		function loadPagefindCss() {
+			if (document.querySelector('link[data-exp-pagefind-css]')) return;
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = '/pagefind/pagefind-ui.css';
+			link.setAttribute('data-exp-pagefind-css', 'true');
+			document.head.appendChild(link);
+		}
+
+		function ensureSearchIndex(callback) {
+			if (searchIndexLoaded) {
+				callback();
+				return;
 			}
+			fetch(searchIndexPath, { credentials: 'same-origin' })
+				.then(function (response) { return response.ok ? response.json() : []; })
+				.then(function (data) {
+					localSearchData = Array.isArray(data) ? data : [];
+					searchIndexLoaded = true;
+					callback();
+				})
+				.catch(function () {
+					localSearchData = [];
+					searchIndexLoaded = true;
+					callback();
+				});
 		}
 
 		function showLocalSearch() {
@@ -297,39 +304,44 @@ function isActive(item: NavItem): boolean {
 			if (!overlay) return;
 			closeMobileNav();
 			overlay.setAttribute('data-open', 'true');
-			if (!pfInit) {
-				pfInit = true;
-				if (overlay.getAttribute('data-exp-search-dev') === 'true') {
-					showLocalSearch();
-					return;
-				}
-				var script = document.createElement('script');
-				script.src = '/pagefind/pagefind-ui.js';
-				script.onload = function () {
-					if (typeof PagefindUI !== 'undefined') {
-						new PagefindUI({
-							element: '#exp-pagefind-container',
-							showSubResults: true,
-							showImages: false,
-						});
-					} else {
+			ensureSearchIndex(function () {
+				if (!pfInit) {
+					pfInit = true;
+					if (isDev) {
 						showLocalSearch();
+						return;
 					}
+					loadPagefindCss();
+					var script = document.createElement('script');
+					script.src = '/pagefind/pagefind-ui.js';
+					script.onload = function () {
+						if (typeof PagefindUI !== 'undefined') {
+							new PagefindUI({
+								element: '#exp-pagefind-container',
+								showSubResults: true,
+								showImages: false,
+							});
+						} else {
+							showLocalSearch();
+						}
+						var input = document.querySelector('#exp-pagefind-container input');
+						if (input) {
+							syncSearchShortcuts(input);
+							input.focus();
+						}
+					};
+					script.onerror = showLocalSearch;
+					document.head.appendChild(script);
+				} else {
 					var input = document.querySelector('#exp-pagefind-container input');
 					if (input) {
 						syncSearchShortcuts(input);
 						input.focus();
+					} else if (isDev) {
+						showLocalSearch();
 					}
-				};
-				script.onerror = showLocalSearch;
-				document.head.appendChild(script);
-			} else {
-				var input = document.querySelector('#exp-pagefind-container input');
-				if (input) {
-					syncSearchShortcuts(input);
-					input.focus();
 				}
-			}
+			});
 		}
 
 		function closeSearch() {

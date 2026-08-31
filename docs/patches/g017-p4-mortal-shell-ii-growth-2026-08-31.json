@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "hotword-research-patch-v1",
+  "patchId": "g017-p4-mortal-shell-ii-growth-2026-08-31",
+  "siteId": "mortal-shell-ii",
+  "reason": "Post-launch growth patch: mobile performance, blackmarrow indexing support, Hushed Sanctum + Known Issues pages, homepage freshness auto-generation.",
+  "recordedAt": "2026-08-31T06:54:00Z",
+  "priority": "P0",
+  "source_identity": {
+    "type": "existing-site-research-patch",
+    "site_id": "mortal-shell-ii",
+    "repo": "/Users/lanling/Code/hot_words_websites/Mortal Shell II",
+    "production": "https://mortalshell2guide.com/mortal-shell-ii/",
+    "decisionId": "2026-08-26|Mortal Shell II|CONTENT_OPTIMIZE|ms2-ctr-intent-alignment-v1",
+    "attributionMode": "OBSERVATIONAL_ONLY"
+  },
+  "patch_reason": "Improve traffic without touching winner-page intent; resource-load performance only; add GSC-target pages and hub discovery for under-indexed URLs.",
+  "target": {
+    "canonical_site_id": "mortal-shell-ii",
+    "game_name": "Mortal Shell II",
+    "intervention_class": "existing-site-research-patch"
+  },
+  "research_delta": {
+    "new_queries": ["mortal shell 2 hushed sanctum"],
+    "new_pages": ["hushed-sanctum", "known-issues"],
+    "indexing_support": ["blackmarrow-keys"],
+    "performance_scope": "resource-loading-only"
+  },
+  "evidence_delta": {
+    "gsc_signals": ["mortal shell 2 hushed sanctum"],
+    "sources_added": [
+      "content-jobs/hushed-sanctum/research.md",
+      "content-jobs/known-issues/research.md"
+    ]
+  },
+  "freshness_delta": {
+    "homepage_recently_updated": "derive from guide lastUpdated (removed fixed Aug 23 curation)",
+    "pages_with_lastUpdated": [
+      "/mortal-shell-ii/hushed-sanctum/",
+      "/mortal-shell-ii/known-issues/"
+    ]
+  },
+  "asset_delta": {
+    "performance": [
+      "homepage hero webp/srcset/preload",
+      "deferred pagefind css/js",
+      "external search-index.json"
+    ],
+    "content": [
+      "src/content/docs/gameplay/hushed-sanctum.md",
+      "src/content/docs/pc-requirements/known-issues.md"
+    ]
+  },
+  "affected_urls": [
+    "/mortal-shell-ii/",
+    "/mortal-shell-ii/blackmarrow-keys/",
+    "/mortal-shell-ii/hushed-sanctum/",
+    "/mortal-shell-ii/known-issues/",
+    "/mortal-shell-ii/guides/",
+    "/mortal-shell-ii/tarstones/"
+  ],
+  "protected_urls": [
+    "/mortal-shell-ii/crashing-pc/",
+    "/mortal-shell-ii/conquered-temple/",
+    "/mortal-shell-ii/shrine-of-sorrows/",
+    "/mortal-shell-ii/beta-progress-carry-over/",
+    "/mortal-shell-ii/gloom-farm/",
+    "/mortal-shell-ii/tar-golem/",
+    "/mortal-shell-ii/seedbearers-scripture/",
+    "/mortal-shell-ii/gloombound-flame/",
+    "/mortal-shell-ii/skip-prologue/",
+    "/mortal-shell-ii/endings/",
+    "/mortal-shell-ii/black-needle/",
+    "/mortal-shell-ii/illusory-walls/"
+  ],
+  "observation_horizons": ["D1", "D3", "D7", "D14"],
+  "patch_timestamp": "2026-08-31T06:54:00Z"
+}

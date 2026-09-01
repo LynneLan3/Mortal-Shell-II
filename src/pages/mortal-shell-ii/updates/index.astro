@@ -1,0 +1,41 @@
+---
+import GameShell from '../../../components/experience/GameShell.astro';
+import UpdatesHub from '../../../components/experience/UpdatesHub.astro';
+import ExperienceStructuredData from '../../../components/ExperienceStructuredData.astro';
+import { game } from '../../../config/game';
+import { experienceNav } from '../../../lib/experience-nav';
+import { pageHref } from '../../../lib/paths';
+import '../../../styles/updates-hub.css';
+
+const { nav, footerLinks, homeHref } = experienceNav();
+const updatesHref = pageHref(game.hubPath, 'updates');
+const title = 'Mortal Shell II Updates & Patch Notes';
+const description =
+	'Track Mortal Shell II Week 1 Update and Balance Patch 1 changes, see which guides are affected, and find patch-aware build and resource advice.';
+---
+
+<GameShell
+	title={`${title} | ${game.shortName}`}
+	description={description}
+	canonical={new URL(updatesHref, game.siteUrl).href}
+	siteTitle={game.shortName}
+	homeHref={homeHref}
+	nav={nav}
+	activePath={updatesHref}
+	accentColor={game.accentColor}
+	accentForeground={game.accentForeground}
+	footerLinks={footerLinks}
+	footerText={game.title}
+>
+	<ExperienceStructuredData
+		slot="head"
+		title={`${title} | ${game.shortName}`}
+		description={description}
+		canonical={new URL(updatesHref, game.siteUrl).href}
+		breadcrumbs={[
+			{ name: game.name, href: new URL(game.hubPath, game.siteUrl).href },
+			{ name: 'Updates', href: new URL(updatesHref, game.siteUrl).href },
+		]}
+	/>
+	<UpdatesHub />
+</GameShell>

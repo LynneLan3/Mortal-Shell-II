@@ -1,0 +1,119 @@
+---
+import { affectedGuides, formatUpdatePlatformStatus, gameUpdates, getCurrentMajorUpdate } from '../../config/updates';
+import { formatUiDate } from '../../lib/ui';
+import HubSubnav from './HubSubnav.astro';
+
+const currentUpdate = getCurrentMajorUpdate();
+---
+
+<section class="exp-updates-hub">
+	<header class="exp-updates-hub__hero hub-scroll-target" id="overview">
+		<div class="exp-content">
+			<p class="exp-eyebrow">Version awareness</p>
+			<h1 class="exp-h1">Mortal Shell II Updates &amp; Patch Notes</h1>
+			<p class="exp-lede">
+				Track what changed, which guides are affected, and what launch-era advice is now wrong. This hub routes you to actionable guides — not a raw changelog dump.
+			</p>
+		</div>
+	</header>
+
+	<HubSubnav
+		items={[
+			{ id: 'overview', label: 'Overview' },
+			{ id: 'current-update', label: 'Current Update' },
+			{ id: 'latest-updates', label: 'Latest Updates' },
+			{ id: 'guide-impacts', label: 'Guide Impacts' },
+		]}
+		ariaLabel="Updates sections"
+	/>
+
+	<div class="exp-content exp-updates-hub__body">
+		{currentUpdate && (
+			<section id="current-update" class="exp-updates-current hub-scroll-target" aria-labelledby="current-update-heading">
+				<header class="exp-updates-hub__section-head">
+					<p class="exp-eyebrow">Current major update</p>
+					<h2 class="exp-h2" id="current-update-heading">{currentUpdate.title}</h2>
+				</header>
+				<div class="exp-updates-current__panel">
+					<div class="exp-updates-current__meta">
+						<span class="exp-updates-current__date">{formatUiDate(new Date(currentUpdate.date))}</span>
+						<span class="exp-updates-current__status">{formatUpdatePlatformStatus(currentUpdate.platformStatus)}</span>
+					</div>
+					<p class="exp-updates-current__summary">{currentUpdate.summary}</p>
+					<p class="exp-updates-current__consequence">{currentUpdate.playerConsequence}</p>
+					<div class="exp-updates-tags" aria-label="Impacted systems">
+						{currentUpdate.impactTags.map((tag) => (
+							<span class="exp-updates-tag">{tag}</span>
+						))}
+					</div>
+					<a class="exp-btn exp-btn--primary" href={currentUpdate.href}>
+						Read {currentUpdate.title} details →
+					</a>
+				</div>
+			</section>
+		)}
+
+		<section id="latest-updates" class="hub-scroll-target" aria-labelledby="latest-updates-heading">
+			<header class="exp-updates-hub__section-head">
+				<p class="exp-eyebrow">Patch history</p>
+				<h2 class="exp-h2" id="latest-updates-heading">Latest updates</h2>
+				<p class="exp-lede">Newest first. Each card shows player impact and links to affected guides.</p>
+			</header>
+			<div class="exp-updates-grid">
+				{gameUpdates.map((update) => (
+					<article class="exp-updates-card">
+						<div class="exp-updates-card__head">
+							<h3 class="exp-updates-card__title">
+								<a href={update.href}>{update.title}</a>
+							</h3>
+							<time class="exp-updates-card__date" datetime={update.date}>
+								{formatUiDate(new Date(update.date))}
+							</time>
+						</div>
+						<p class="exp-updates-card__status">{formatUpdatePlatformStatus(update.platformStatus)}</p>
+						<div class="exp-updates-tags">
+							{update.impactTags.map((tag) => (
+								<span class="exp-updates-tag">{tag}</span>
+							))}
+						</div>
+						<p class="exp-updates-card__consequence">{update.playerConsequence}</p>
+						{update.guideImpacts.length > 0 && (
+							<div class="exp-updates-card__guides">
+								<span class="exp-updates-card__guides-label">What this changes in our guides</span>
+								<ul>
+									{update.guideImpacts.map((guide) => (
+										<li>
+											<a href={guide.href}>{guide.label}</a>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
+						<a class="exp-updates-card__cta" href={update.href}>
+							Read update <span aria-hidden="true">→</span>
+						</a>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section id="guide-impacts" class="hub-scroll-target" aria-labelledby="guide-impacts-heading">
+			<header class="exp-updates-hub__section-head">
+				<p class="exp-eyebrow">Guide routing</p>
+				<h2 class="exp-h2" id="guide-impacts-heading">What changed in your guides?</h2>
+				<p class="exp-lede">Jump directly into evergreen guides that need patch-aware reading.</p>
+			</header>
+			<div class="exp-updates-guide-grid">
+				{affectedGuides.map((guide) => (
+					<a class="exp-updates-guide-card" href={guide.href}>
+						<span class="exp-updates-guide-card__title">{guide.label}</span>
+						<span class="exp-updates-guide-card__updates">
+							{guide.updateIds.map((id) => gameUpdates.find((entry) => entry.id === id)?.title ?? id).join(' · ')}
+						</span>
+						<span class="exp-updates-guide-card__cta" aria-hidden="true">→</span>
+					</a>
+				))}
+			</div>
+		</section>
+	</div>
+</section>

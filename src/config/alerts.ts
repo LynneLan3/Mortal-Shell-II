@@ -29,18 +29,34 @@ export interface GameAlert {
 
 export const playerAlerts: readonly GameAlert[] = [
 	{
+		id: 'week-1-update',
+		type: 'VERSION_CHANGED',
+		title: 'Week 1 Update',
+		version: 'Week 1 Update',
+		date: '2026-08-29',
+		consequence: 'New respec + renewable Tarcores/Glimpses + Fragile Tarstones. Read what changed →',
+		href: '/mortal-shell-ii/updates/week-1-update/',
+		sources: [
+			{ label: 'Official Week 1 Update', href: 'https://store.steampowered.com/news/app/2584270/view/690892955941077484' },
+			{ label: 'Week 1 Update guide', href: '/mortal-shell-ii/updates/week-1-update/' },
+			{ label: 'Updates hub', href: '/mortal-shell-ii/updates/' },
+		],
+		priority: 110,
+	},
+	{
 		id: 'balance-patch-1',
 		type: 'VERSION_CHANGED',
 		title: 'Balance Patch 1',
 		version: 'Balance Patch 1',
 		date: '2026-08-20',
 		consequence: 'Patch 1 changes Glimpse refunds, Tarforge costs, enemy balance, weapon behavior, and launch stability.',
-		href: '/mortal-shell-ii/balance-patch-1/',
+		href: '/mortal-shell-ii/updates/balance-patch-1/',
 		sources: [
 			{ label: 'Official Balance Patch 1 notes', href: 'https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/' },
-			{ label: 'Balance Patch 1 guide', href: '/mortal-shell-ii/balance-patch-1/' },
+			{ label: 'Balance Patch 1 guide', href: '/mortal-shell-ii/updates/balance-patch-1/' },
 		],
 		priority: 100,
+		active: false,
 	},
 	{
 		id: 'no-you-still-cant-win',

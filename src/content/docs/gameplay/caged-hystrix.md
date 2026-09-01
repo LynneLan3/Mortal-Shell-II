@@ -11,7 +11,7 @@ related:
   - mortal-shell-ii/clockwork-scythe
   - mortal-shell-ii/sidearms
   - mortal-shell-ii/tarforge
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Caged Hystrix
   order: 26
@@ -65,7 +65,7 @@ The [Sidearms guide](/mortal-shell-ii/sidearms/) tracks Caged Hystrix as one of 
 
 ## What Balance Patch 1 changed for Caged Hystrix
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) removed the **minimum Resolve requirement to fire Caged Hystrix**.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) removed the **minimum Resolve requirement to fire Caged Hystrix**.
 
 That is the confirmed Patch 1 change used by this guide. It does not imply a new damage value, rate of fire, scaling curve, or upgrade table.
 

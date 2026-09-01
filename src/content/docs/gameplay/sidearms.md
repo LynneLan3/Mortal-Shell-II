@@ -15,7 +15,7 @@ related:
   - mortal-shell-ii/forgotten-crossbow
   - mortal-shell-ii/cursed-child
   - mortal-shell-ii/tarforge
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/weapons
   - mortal-shell-ii/troubadours-lute
   - mortal-shell-ii/ballistazooka
@@ -90,7 +90,7 @@ The **Triarch Repeater** is in **Blackwell Cavern** in Mammon. Use the [Triarch 
 
 Use **Castigator's Keep** as a practical route anchor.
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) removed the minimum Resolve requirement to fire the Triarch Repeater.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) removed the minimum Resolve requirement to fire the Triarch Repeater.
 
 ## Ballistazooka
 

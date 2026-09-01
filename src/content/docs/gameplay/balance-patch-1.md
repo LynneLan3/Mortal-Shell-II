@@ -2,11 +2,23 @@
 title: "Mortal Shell 2 Balance Patch 1: Patch Notes & Update Tracker"
 description: "Mortal Shell 2 Balance Patch 1 changes Shell-map costs, refunds map Glimpses, cuts Tarforge smelting cost, rebalances combat, and improves stability."
 category: combat-exploration
-slug: mortal-shell-ii/balance-patch-1
+slug: mortal-shell-ii/updates/balance-patch-1
 status: needs-verification
 featured: true
-quickAnswer: "Balance Patch 1 moves Shell-map reveals from Glimpses to Gloom, refunds Glimpses previously spent on those reveals in Blackmarrow, cuts Tarforge Smelt Equipment cost by 75%, changes enemy and weapon balance, and adds crash, bug, and performance fixes."
+quickAnswer: "Balance Patch 1 shifts Shell-map reveals to Gloom and refunds eligible map Glimpses in Blackmarrow, cuts Tarforge smelt Gloom cost by 75%, buffs several weapons and Tarstones, and nerfs named bosses and enemies. PC is confirmed live; PS5 and Xbox installs remain unconfirmed in this record."
+faq:
+  - question: "Where do I collect refunded Glimpses after Balance Patch 1?"
+    answer: "At the Shell Keeper's alcove in Blackmarrow. The refund applies to Glimpses previously spent on Shell-map reveals."
+  - question: "Is Tarforge smelting cheaper now?"
+    answer: "Yes. The Gloom cost of Smelt Equipment at the Tarforge was reduced by 75%."
+  - question: "Which weapons received direct buffs in Balance Patch 1?"
+    answer: "Confirmed changes include Great Martyr's Blade attack damage +20%, Troubadour's Lute attack damage +100%, Caged Hystrix and Triarch Repeater no longer requiring minimum Resolve to fire, and improved light-attack tracking for Axatana, Black Needle, and Clockwork Scythe."
+  - question: "Which bosses and enemies were nerfed?"
+    answer: "Named changes include The Lost Child (damage -10%, health -15%) and Monolith (damage -19%, health -10%, some attack timings adjusted), plus HP reductions for several regular enemies listed on this page."
+  - question: "Is Balance Patch 1 live on PS5 and Xbox?"
+    answer: "The official post says the patch was live on PC and coming shortly to PS5 and Xbox Series. This page leaves console installation unconfirmed in its evidence record."
 related:
+  - mortal-shell-ii/updates/week-1-update
   - mortal-shell-ii/glimpses
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/weapons
@@ -18,8 +30,10 @@ sidebar:
   label: Balance Patch 1
   order: 9
   badge: Launch
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
+
+Balance Patch 1 is the August 20, 2026 economy and combat rebalance. For the newer post-launch changes — renewable Glimpses and Tarcores, Shell respec, and Fragile Tarstones — see the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/). For all patches in one place, use the [Updates hub](/mortal-shell-ii/updates/).
 
 Balance Patch 1 moves Shell-map reveals from Glimpses to Gloom, refunds Glimpses previously spent on those map reveals in Blackmarrow, cuts Tarforge weapon smelting cost by 75%, rebalances several enemies and bosses, and buffs multiple weapons and Tarstones. The official [Balance Patch 1 notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) are the source for the changes below.
 
@@ -108,6 +122,8 @@ Several weapons and sidearms were changed in Balance Patch 1.
 - **Axatana:** light-attack tracking improved
 - [**Black Needle**](/mortal-shell-ii/black-needle/): light-attack tracking improved
 - [**Clockwork Scythe**](/mortal-shell-ii/clockwork-scythe/): light-attack tracking improved
+
+Players have debated whether these changes make the game easier or simply rebalance underused tools. That is community sentiment, not a verified mechanical claim.
 
 Use the [Weapons guide](/mortal-shell-ii/weapons/) for the current weapon index and the [Sidearms guide](/mortal-shell-ii/sidearms/) for the Sidearm roster. The [Great Martyr's Blade guide](/mortal-shell-ii/great-martyrs-blade/) and [Axatana guide](/mortal-shell-ii/axatana/) cover their individual acquisition routes.
 

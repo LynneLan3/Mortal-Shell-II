@@ -11,7 +11,7 @@ related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/skip-prologue
   - mortal-shell-ii/release-date
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/crashing-pc
 sidebar:
   label: Slayer Seal & Difficulty
@@ -32,7 +32,7 @@ If you want the game easier, you are looking for the Slayer Seal. If you want it
 
 Balance Patch 1 did not add an Easy / Normal / Hard menu. Its official notes say beta enemies were broadly restored to their beta HP values, while several named bosses and enemies also received specific health or damage reductions. That makes the current baseline different from early launch or pre-patch guides, but it does not make every encounter uniformly easier or harder.
 
-The Slayer Seal can still be useful after Patch 1 because its value is in the combat tools it grants: easier Break / Riposte pressure and some Health and Resolve recovery. Choose it for that playstyle, not because the patch creates a conventional difficulty setting. The [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) lists the named changes; future Night Mode work mentioned by the team is not a current mechanic specification.
+The Slayer Seal can still be useful after Patch 1 because its value is in the combat tools it grants: easier Break / Riposte pressure and some Health and Resolve recovery. Choose it for that playstyle, not because the patch creates a conventional difficulty setting. The [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) lists the named changes; future Night Mode work mentioned by the team is not a current mechanic specification.
 
 ## What is the Slayer Seal?
 

@@ -16,11 +16,13 @@ related:
   - mortal-shell-ii/black-needle
   - mortal-shell-ii/clockwork-scythe
   - mortal-shell-ii/gloom-farm
+  - mortal-shell-ii/updates/balance-patch-1
+  - mortal-shell-ii/updates/week-1-update
 sidebar:
   label: Weapons Guide
   order: 11
   badge: Exploration
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
 
 ## Evidence boundary
@@ -133,7 +135,7 @@ The current local patch record supports these direct primary-weapon changes:
 - **Black Needle:** light-attack tracking improved.
 - **Clockwork Scythe:** light-attack tracking improved.
 
-The patch summary does not provide exact tracking or damage values for the latter three, so do not infer a full tier shift. Old Open Beta or pre-patch rankings should be treated as dated opinions. See the [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for economy, enemy, Tarstone, sidearm, and platform-rollout caveats.
+The patch summary does not provide exact tracking or damage values for the latter three, so do not infer a full tier shift. Old Open Beta or pre-patch rankings should be treated as dated opinions. See the [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) for economy, enemy, Tarstone, sidearm, and platform-rollout caveats. The later [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) changed Riposte scaling separately — that is a combat-system change, not a direct weapon-damage table entry here.
 
 ## Shell synergy: what is actually supported?
 
@@ -191,6 +193,6 @@ Not necessarily. Older Open Beta material places it at a different location. Use
 - [Axe & Dagger location guide](/mortal-shell-ii/axe-dagger/) — local launch route and Open Beta location warning.
 - [Mortal Shell II gameplay guide](/mortal-shell-ii/gameplay/) — official gameplay boundary and upgrade context.
 - [Tarforge guide](/mortal-shell-ii/tarforge/) — local upgrade-part and material-recovery contract.
-- [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) — local current weapon and economy changes.
+- [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) — local current weapon and economy changes.
 - [Shells guide](/mortal-shell-ii/shells/) — Shell progression and the evidence boundary against unsupported weapon pairings.
 - Local transcripts and evidence captures under `research/youtube/axatana/` and `research/youtube/great-martyrs-blade/`.

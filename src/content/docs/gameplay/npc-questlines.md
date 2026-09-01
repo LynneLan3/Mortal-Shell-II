@@ -111,7 +111,7 @@ Genessa's Bonding interaction is also an exception in current coverage: check Ge
 
 ### Zhirelle the Shellkeeper
 
-**Zhirelle** is a system NPC, not a conventional item quest. She can reveal most Shell locations and handles Bonding for the permanent Shell roster. After [Balance Patch 1](/mortal-shell-ii/balance-patch-1/), Shell-location reveals use Gloom rather than Glimpses in the checked PC coverage, while Glimpses remain the scarce Bond resource. The [Shells guide](/mortal-shell-ii/shells/) keeps the roster and Bonding details in one place.
+**Zhirelle** is a system NPC, not a conventional item quest. She can reveal most Shell locations and handles Bonding for the permanent Shell roster. After [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/), Shell-location reveals use Gloom rather than Glimpses in the checked PC coverage, while Glimpses remain the scarce Bond resource. The [Shells guide](/mortal-shell-ii/shells/) keeps the roster and Bonding details in one place.
 
 ### Thestus and Night Mode
 

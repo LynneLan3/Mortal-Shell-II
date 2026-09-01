@@ -18,7 +18,7 @@ related:
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/ova
   - mortal-shell-ii/slayer-seal-difficulty
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   order: 1
   badge: Confirmed
@@ -137,7 +137,7 @@ The [Glimpses guide](/mortal-shell-ii/glimpses/) and [Tarforge guide](/mortal-sh
 
 ## Pitfalls and patch-sensitive details
 
-- **Do not confuse beta and launch routes.** Balance Patch 1 changed Shell-map spending from Glimpse to Gloom, refunded eligible old spending, increased gold drops, reduced weapon-smelting cost, changed enemy/boss values, improved several weapon behaviors, and changed Guard/Tarstone behavior. The [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) has the detailed list.
+- **Do not confuse beta and launch routes.** Balance Patch 1 changed Shell-map spending from Glimpse to Gloom, refunded eligible old spending, increased gold drops, reduced weapon-smelting cost, changed enemy/boss values, improved several weapon behaviors, and changed Guard/Tarstone behavior. The [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) has the detailed list.
 - **Do not equip the Slayer Seal casually.** Picking it up is different from switching to it; the achievement consequence is tied to equipping/switching in current launch coverage.
 - **Buy from time-sensitive vendors before leaving their quest branches.** Current launch guides report that some events can remove vendors, but they do not establish one universal schedule.
 - **Leave Night Mode for later unless you want the challenge.** The Gloombound Flame → Marrow Keep lantern → Thestus chain is optional; use the [Gloombound Flame guide](/mortal-shell-ii/gloombound-flame/) for the exact route.

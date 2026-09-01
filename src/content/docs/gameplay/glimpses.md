@@ -11,7 +11,8 @@ related:
   - mortal-shell-ii/proxima
   - mortal-shell-ii/new-game-plus
   - mortal-shell-ii/gloom-farm
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/week-1-update
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Glimpses Guide
   order: 17
@@ -103,7 +104,7 @@ Use the resource that matches the problem in front of you:
 | Activate an ability in an open tier | **Shell Points** | Check the current row and capacity; use the reported refund option if you are reshaping the build. |
 | Use a weapon, sidearm, or Shell combat effect | **Resolve** | Build it in combat and spend it on the next high-value opening rather than panic-firing. |
 
-For Shell routes and Bonding, use the [Shells guide](/mortal-shell-ii/shells/). For Gloom loops, use [Gloom Farm](/mortal-shell-ii/gloom-farm/). For the complete economy change, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
+For Shell routes and Bonding, use the [Shells guide](/mortal-shell-ii/shells/). For Gloom loops, use [Gloom Farm](/mortal-shell-ii/gloom-farm/). For the complete economy change, see [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) and the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/).
 
 ## FAQ
 

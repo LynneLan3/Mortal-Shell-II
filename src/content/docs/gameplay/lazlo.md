@@ -114,7 +114,7 @@ Do not treat the following as universally confirmed:
 - The idea that defeating Vellen alone completes the Shell unlock without the post-fight interaction and Memory step
 - A universal Shell tier ranking based on current guide opinions
 
-Patch-sensitive values should be rechecked against [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) before treating an old build list as current.
+Patch-sensitive values should be rechecked against [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) before treating an old build list as current.
 
 ## FAQ
 

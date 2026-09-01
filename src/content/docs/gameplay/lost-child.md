@@ -9,7 +9,7 @@ quickAnswer: "Reach The Lost Child through Sanguine Caverns from Sanguine Shorel
 related:
   - mortal-shell-ii/lucian-thirsting-knight
   - mortal-shell-ii/tiel
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/blackmarrow-keys
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/obsidian-hammer
@@ -93,7 +93,7 @@ The same positioning also helps against arm swipes, body / leap slams, and the b
 
 ## What Balance Patch 1 changed
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) changed The Lost Child directly:
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) changed The Lost Child directly:
 
 - **Base Damage reduced by 10%**
 - **Maximum Health reduced by 15%**

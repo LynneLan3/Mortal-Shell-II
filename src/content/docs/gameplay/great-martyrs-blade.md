@@ -14,7 +14,7 @@ related:
   - mortal-shell-ii/gloombound-flame
   - mortal-shell-ii/slayer-seal-difficulty
   - mortal-shell-ii/magdalena
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Great Martyr's Blade
   order: 8
@@ -147,7 +147,7 @@ Balance Patch 1 increased the Great Martyr's Blade's **attack damage by 20%**. T
 
 The practical change is that the blade's slower, higher-commitment swings now have a stronger payoff when you can create a safe opening. Old launch wording that calls it simply “weak” is outdated; the +20% buff improves its value, but does not prove it is the best weapon for every Shell, build, or player.
 
-For the full current-patch list, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/). For the wider roster, use the [Weapons guide](/mortal-shell-ii/weapons/).
+For the full current-patch list, see [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/). For the wider roster, use the [Weapons guide](/mortal-shell-ii/weapons/).
 
 ## Optional tip for the large rolling enemy
 

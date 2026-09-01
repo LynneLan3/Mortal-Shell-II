@@ -17,6 +17,16 @@
       "source": "/",
       "destination": "/mortal-shell-ii/",
       "permanent": true
+    },
+    {
+      "source": "/mortal-shell-ii/balance-patch-1/",
+      "destination": "/mortal-shell-ii/updates/balance-patch-1/",
+      "permanent": true
+    },
+    {
+      "source": "/mortal-shell-ii/balance-patch-1",
+      "destination": "/mortal-shell-ii/updates/balance-patch-1/",
+      "permanent": true
     }
   ]
 }

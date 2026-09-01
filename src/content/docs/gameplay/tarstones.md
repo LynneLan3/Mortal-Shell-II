@@ -16,7 +16,8 @@ related:
   - mortal-shell-ii/hall-of-illusions
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/blackmarrow-keys
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/week-1-update
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Tarstones Guide
   order: 13
@@ -37,6 +38,8 @@ For the wider upgrade station, see the [Tarforge guide](/mortal-shell-ii/tarforg
 The [official Week 1 Update](https://store.steampowered.com/news/app/2584270/view/690892955941077484) changes the resource loop: **Glimpses and Tarcores are no longer finite**, so every Shell and Tarstone can be upgraded in one playthrough. **Fragile Tarstones are not unique** and can appear multiple times. Tarstones also yield more Tarcores when broken, and saves with upgraded Tarstones receive compensatory Tarcores.
 
 For shopping, **Merrick sells Tarstones and Mether's Severance** and restocks with progression; his later stock can include Glimpse Stones, Egon's Stones, and Tarcores. **The Collector can also carry Tarcores.** The update confirms the progression behavior, but not an exact restock schedule or guaranteed availability at every progression state.
+
+**Current version:** Economy changed in the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) → [see what changed](/mortal-shell-ii/updates/#guide-impacts).
 
 ## What are Tarstones in Mortal Shell 2?
 
@@ -91,7 +94,7 @@ The official Balance Patch 1 notes name five current Tarstone changes:
 | **Clerik's Stone** | Buffed | Re-check it when its current effect fits your Shell or weapon; the official note gives no numeric detail. |
 | **Squall Stone** | Buffed | Re-test it against the encounter or weapon it already supports; do not treat the buff as a universal ranking. |
 
-Balance Patch 1 does not provide exact numeric values for these Tarstone changes. The safe update is therefore to mark these five stones as patch-sensitive and revisit old recommendations, not to manufacture old-versus-new percentages. See the [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for the complete patch context and [Tarforge](/mortal-shell-ii/tarforge/) for the upgrade station route.
+Balance Patch 1 does not provide exact numeric values for these Tarstone changes. The safe update is therefore to mark these five stones as patch-sensitive and revisit old recommendations, not to manufacture old-versus-new percentages. See the [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) for the complete patch context and [Tarforge](/mortal-shell-ii/tarforge/) for the upgrade station route.
 
 ## Best Tarstones by goal
 

@@ -15,7 +15,7 @@ related:
   - mortal-shell-ii/map-fragments
   - mortal-shell-ii/zmey
   - mortal-shell-ii/endings
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Ova Guide
   order: 18
@@ -113,7 +113,7 @@ The practical loop is:
 3. Claim the post-boss Beacon and its reported Ova.
 4. Return to Marrow Keep and use the Siphon.
 
-For a late-boss example, see the [Zmey guide](/mortal-shell-ii/zmey/). For the version-sensitive list of changes, see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
+For a late-boss example, see the [Zmey guide](/mortal-shell-ii/zmey/). For the version-sensitive list of changes, see [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/).
 
 ## All Corrupted Gates and recommended order
 

@@ -11,7 +11,7 @@ related:
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/ova
   - mortal-shell-ii/gragu
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/trophies
 sidebar:
   label: "Troubadour's Lute"
@@ -64,7 +64,7 @@ No checked source establishes a required song order, a kill condition, or a part
 
 ## Patch notes and the old beta location
 
-Cold Symmetry's **Balance Patch 1** post dated August 20, 2026 lists **“Troubador's Lute Attack Damage +100%”** under Weapons. The developer post uses the “Troubador” spelling; the item and current guide sources use “Troubadour.” This is a direct damage buff and does not by itself document a change to Confusion or to the Heavy Metal requirement. See the [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for the wider update status.
+Cold Symmetry's **Balance Patch 1** post dated August 20, 2026 lists **“Troubador's Lute Attack Damage +100%”** under Weapons. The developer post uses the “Troubador” spelling; the item and current guide sources use “Troubadour.” This is a direct damage buff and does not by itself document a change to Confusion or to the Heavy Metal requirement. See the [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) for the wider update status.
 
 Launch coverage says the Lute was moved from an open-beta Mushroom Village chest, opened through offering stations, to the One-Legged Wolf Tavern. That location change is not listed in the checked official Balance Patch 1 note, so treat it as a beta-versus-launch correction supported by current launch guides. If an older guide sends you to the chest, use the tavern-stage route instead.
 

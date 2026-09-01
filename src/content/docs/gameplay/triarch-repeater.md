@@ -13,7 +13,7 @@ related:
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/ova
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Triarch Repeater
   order: 30

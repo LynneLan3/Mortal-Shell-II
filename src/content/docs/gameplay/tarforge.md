@@ -9,7 +9,7 @@ quickAnswer: "The Tarforge is in Marrow Keep and is managed by Franz. Its main u
 related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/tarstones
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/sidearms
 sidebar:
   label: Tarforge Guide
@@ -82,7 +82,7 @@ Return it to Franz to unlock **Smelt Equipment**.
 
 Smelt Equipment lets you recover weapon and sidearm upgrade materials from gear you no longer want to keep upgraded.
 
-Balance Patch 1 made this function cheaper to use: the Gloom cost of Smelt Equipment was reduced by **75%**. See [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) for the other economy, boss, weapon, and Tarstone changes.
+Balance Patch 1 made this function cheaper to use: the Gloom cost of Smelt Equipment was reduced by **75%**. See [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) for the other economy, boss, weapon, and Tarstone changes.
 
 ## Endless Core location — remove the upgrade cap
 

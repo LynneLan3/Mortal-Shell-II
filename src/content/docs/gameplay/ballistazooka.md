@@ -13,7 +13,7 @@ related:
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/withered-shoals
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Ballistazooka
   order: 29
@@ -68,7 +68,7 @@ The Ballistazooka's individual achievement is tied to the unlock. The checked so
 
 Cold Symmetry's August 20, 2026 **Balance Patch 1** lists changes to other weapons, removes minimum Resolve requirements from Caged Hystrix and Triarch Repeater, and changes the economy and enemies. The checked official weapon section does not list a direct Ballistazooka damage, cost, or behavior change. That is a dated patch snapshot, not a guarantee about every later build or platform.
 
-The patch also changes broader Mammon economy details, including increased gold drops. Do not turn that into a Ballistazooka-specific price claim. Check the current in-game weapon and Tarforge menus if your build differs from the launch window. See the local [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for the wider note.
+The patch also changes broader Mammon economy details, including increased gold drops. Do not turn that into a Ballistazooka-specific price claim. Check the current in-game weapon and Tarforge menus if your build differs from the launch window. See the local [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) for the wider note.
 
 ## Common mistakes
 

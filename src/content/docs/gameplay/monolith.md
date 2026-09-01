@@ -13,7 +13,7 @@ related:
   - mortal-shell-ii/black-needle
   - mortal-shell-ii/axatana
   - mortal-shell-ii/orrem-discarded-golem
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Monolith Boss
   order: 32
@@ -105,7 +105,7 @@ No Monolith-specific missable trophy is confirmed in the reviewed sources. That 
 
 Walk to the **red gland** hanging in the arena and use the sever interaction. Wait for the transition or other progression confirmation before leaving. This clears the Obsidian Vault branch's tendril contribution.
 
-The remaining Unfound Path guardians are [Orrem](/mortal-shell-ii/orrem-discarded-golem/) and Malborn Offspring. After the three branch tendrils are resolved, the endgame route continues toward Zmey the Unbidden. The broader boss sequence belongs in the [Bosses guide](/mortal-shell-ii/bosses/), while [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) covers the current patch context.
+The remaining Unfound Path guardians are [Orrem](/mortal-shell-ii/orrem-discarded-golem/) and Malborn Offspring. After the three branch tendrils are resolved, the endgame route continues toward Zmey the Unbidden. The broader boss sequence belongs in the [Bosses guide](/mortal-shell-ii/bosses/), while [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) covers the current patch context.
 
 <!-- Image source: All Things How, Mortal Shell 2: How to Beat The Monolith in the Obsidian Vault. Third-party gameplay image; retained without cropping or watermark removal. -->
 <img src="/images/monolith/monolith-gland.png" alt="Monolith arena view showing the fleshy red gland after the boss encounter." width="1024" height="693" loading="lazy" decoding="async" style="max-width: 100%; height: auto;" />

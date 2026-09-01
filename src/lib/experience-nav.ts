@@ -20,6 +20,7 @@ export interface ExperienceNav {
 	nav: NavItem[];
 	footerLinks: FooterLink[];
 	homeHref: string;
+	updatesHref: string;
 	hotGuidesHref: string;
 	routesHref: string;
 	guidesHref: string;
@@ -32,6 +33,7 @@ export function experienceNav(): ExperienceNav {
 	const t = ui();
 	const hub = game.hubPath;
 	const homeHref = hubHref(hub);
+	const updatesHref = pageHref(hub, 'updates');
 	const hotGuidesHref = `${homeHref}#hot-guides`;
 	const recommendedRoutesHref = `${homeHref}#recommended-routes`;
 	const routesHref = pageHref(hub, 'routes');
@@ -46,6 +48,7 @@ export function experienceNav(): ExperienceNav {
 
 	const nav: NavItem[] = [
 		{ label: t.homeNav, href: homeHref },
+		{ label: 'Updates', href: updatesHref, activeMatch: [updatesHref, pageHref(hub, 'updates/week-1-update'), pageHref(hub, 'updates/balance-patch-1')] },
 		{ label: t.hotGuidesNav, href: hotGuidesHref },
 		{ label: 'Start Here', href: recommendedRoutesHref, activeMatch: [] },
 		{ label: t.guidesNav, href: guidesHref },
@@ -59,6 +62,7 @@ export function experienceNav(): ExperienceNav {
 		nav,
 		footerLinks,
 		homeHref,
+		updatesHref,
 		hotGuidesHref,
 		routesHref,
 		guidesHref,

@@ -13,7 +13,7 @@ related:
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/forgotten-crossbow
   - mortal-shell-ii/ova
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Hexapod Boss
   order: 32
@@ -140,7 +140,7 @@ The checked sources do not prove a single mandatory next boss order. Choose the 
 
 ## Patch and version notes
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) reporting checked through GamesRadar names direct boss changes for The Lost Child and Monolith, along with economy, weapon, Tarstone, enemy, and stability changes. It does **not** list a direct Hexapod health, damage, phase, or attack-timing adjustment.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) reporting checked through GamesRadar names direct boss changes for The Lost Child and Monolith, along with economy, weapon, Tarstone, enemy, and stability changes. It does **not** list a direct Hexapod health, damage, phase, or attack-timing adjustment.
 
 The safe claim is therefore: **the checked Balance Patch 1 notes do not list a direct Hexapod adjustment**. That does not guarantee the encounter will remain unchanged in future updates, and it does not resolve the conflicting Gloom totals or phase labels above.
 

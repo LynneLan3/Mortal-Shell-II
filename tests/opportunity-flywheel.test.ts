@@ -12,7 +12,7 @@ import {
 
 const inventory: PageInventoryEntry[] = [
 	{ url: '/mortal-shell-ii/skip-prologue/', title: 'Skip Prologue', kind: 'guide' },
-	{ url: '/mortal-shell-ii/balance-patch-1/', title: 'Balance Patch 1', kind: 'guide' },
+	{ url: '/mortal-shell-ii/updates/balance-patch-1/', title: 'Balance Patch 1', kind: 'guide' },
 	{ url: '/mortal-shell-ii/beginner-guide/', title: 'Mortal Shell 2 Beginner Guide', kind: 'guide' },
 	{ url: '/mortal-shell-ii/shells/', title: 'Shells Guide', kind: 'guide' },
 	{ url: '/mortal-shell-ii/map/fainweald/', title: 'Fainweald', kind: 'region' },
@@ -61,7 +61,7 @@ test('routes release evidence to an alert plus existing-page refresh', () => {
 	}, inventory, coverage);
 	assert.equal(decision.chosenActionType, 'HOMEPAGE_ALERT');
 	assert.deepEqual(decision.secondaryActionTypes, ['CONTENT_REFRESH']);
-	assert.equal(decision.matchedExistingUrl, '/mortal-shell-ii/balance-patch-1/');
+	assert.equal(decision.matchedExistingUrl, '/mortal-shell-ii/updates/balance-patch-1/');
 });
 
 test('classifies verified route and marker opportunities without writing content', () => {

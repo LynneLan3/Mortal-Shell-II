@@ -14,7 +14,7 @@ related:
   - mortal-shell-ii/sester-genessa
   - mortal-shell-ii/tarstones
   - mortal-shell-ii/weapons
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Malborn Offspring
   order: 32
@@ -157,7 +157,7 @@ One checked passage spells the post-fight return point as “Chamof of the Forsa
 
 ## Patch and version notes
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) lists direct changes for The Lost Child and The Monolith, plus economy, weapon, Tarstone, Seal, and general fixes. The checked developer notes do not list a direct Malborn Offspring health, damage, animation, lightning, or reward change.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) lists direct changes for The Lost Child and The Monolith, plus economy, weapon, Tarstone, Seal, and general fixes. The checked developer notes do not list a direct Malborn Offspring health, damage, animation, lightning, or reward change.
 
 Hotfix 2.0 lists crash, stability, performance, Slayer Seal menu, and riposte weapon-stealing fixes. It also does not list a Malborn-specific balance change.
 

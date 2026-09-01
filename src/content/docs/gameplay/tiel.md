@@ -11,7 +11,7 @@ related:
   - mortal-shell-ii/proxima
   - mortal-shell-ii/glimpses
   - mortal-shell-ii/tarforge
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Tiel Location
   order: 13
@@ -119,4 +119,4 @@ The supported evidence uses the Great Arbiter as a route landmark; it does not e
 
 ### Do Shell-map reveals still cost Glimpses?
 
-No. After [Balance Patch 1](/mortal-shell-ii/balance-patch-1/), Shell-map reveals cost **Gloom instead of Glimpses**. The [Glimpses guide](/mortal-shell-ii/glimpses/) covers the Patch 1 refund and the current Glimpse role.
+No. After [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/), Shell-map reveals cost **Gloom instead of Glimpses**. The [Glimpses guide](/mortal-shell-ii/glimpses/) covers the Patch 1 refund and the current Glimpse role.

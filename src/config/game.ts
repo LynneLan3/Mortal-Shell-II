@@ -247,6 +247,13 @@ export const game: GameConfig = {
 		],
 		hotGuides: [
 			{
+				title: 'Week 1 Update',
+				description: 'New respec + renewable Tarcores/Glimpses + Fragile Tarstones. See what changed in your guides.',
+				href: '/mortal-shell-ii/updates/week-1-update/',
+				label: 'Priority 01',
+				badge: 'Patch',
+			},
+			{
 				title: 'Tar Golem',
 				description: "Take the Prologue Tar Golem to minimum health for No, You Still Can't Win before the missable encounter is gone.",
 				href: '/mortal-shell-ii/tar-golem/',
@@ -354,8 +361,8 @@ export const game: GameConfig = {
 			{
 				title: 'Balance Patch 1',
 				description: 'Patch 1 changes Glimpse refunds, Tarforge costs, enemy balance, weapon behavior, and launch stability.',
-				href: '/mortal-shell-ii/balance-patch-1/',
-				label: 'Priority 16',
+				href: '/mortal-shell-ii/updates/balance-patch-1/',
+				label: 'Priority 17',
 				badge: 'Patch Notes',
 			},
 			{
@@ -465,7 +472,8 @@ export const game: GameConfig = {
 				title: 'Weapons & Resources',
 				description: 'Find weapons, improve your damage, and manage the resources that shape an early run.',
 				guideOrder: [
-					'/mortal-shell-ii/balance-patch-1/',
+					'/mortal-shell-ii/updates/week-1-update/',
+					'/mortal-shell-ii/updates/balance-patch-1/',
 					'/mortal-shell-ii/weapons/',
 					'/mortal-shell-ii/veterans-battle-axe/',
 					'/mortal-shell-ii/great-martyrs-blade/',
@@ -562,7 +570,8 @@ export const game: GameConfig = {
 		guideVisuals: {
 			'/mortal-shell-ii/shrine-of-sorrows/': { icon: 'map' },
 			'/mortal-shell-ii/lost-child/': { icon: 'sword' },
-			'/mortal-shell-ii/balance-patch-1/': { icon: 'refresh' },
+			'/mortal-shell-ii/updates/balance-patch-1/': { icon: 'refresh' },
+			'/mortal-shell-ii/updates/week-1-update/': { icon: 'refresh' },
 			'/mortal-shell-ii/weapons/': { icon: 'sword' },
 			'/mortal-shell-ii/great-martyrs-blade/': {
 				image: '/images/great-martyrs-blade/great-martyrs-blade-acquired.png',
@@ -638,7 +647,7 @@ export const game: GameConfig = {
 				'/mortal-shell-ii/smert/',
 				'/mortal-shell-ii/gragu/',
 				'/mortal-shell-ii/caged-hystrix/',
-				'/mortal-shell-ii/balance-patch-1/',
+				'/mortal-shell-ii/updates/balance-patch-1/',
 				'/mortal-shell-ii/weapons/',
 				'/mortal-shell-ii/tiel/',
 				'/mortal-shell-ii/tarforge/',
@@ -711,8 +720,25 @@ export const game: GameConfig = {
 			'/mortal-shell-ii/peters-perfect-parry/',
 			'/mortal-shell-ii/blackmarrow-keys/',
 		],
+		recentUpdates: [
+			{
+				title: 'Week 1 Update',
+				href: '/mortal-shell-ii/updates/week-1-update/',
+				date: '2026-08-29',
+				changeSummary: 'Renewable Glimpses/Tarcores, Shell respec, Fragile Tarstones, crash fixes',
+				tag: 'Patch',
+			},
+			{
+				title: 'Balance Patch 1',
+				href: '/mortal-shell-ii/updates/balance-patch-1/',
+				date: '2026-08-20',
+				changeSummary: 'Gloom map costs, weapon buffs, Tarforge smelting -75% Gloom',
+				tag: 'Patch',
+			},
+		],
 		featuredOrder: [
-			'mortal-shell-ii/balance-patch-1',
+			'mortal-shell-ii/updates/week-1-update',
+			'mortal-shell-ii/updates/balance-patch-1',
 			'mortal-shell-ii/crashing-pc',
 			'mortal-shell-ii/skip-prologue',
 			'mortal-shell-ii/gloombound-flame',

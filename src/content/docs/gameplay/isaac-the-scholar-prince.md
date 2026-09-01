@@ -13,7 +13,7 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/clockwork-scythe
   - mortal-shell-ii/ova
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Isaac the Scholar Prince
   order: 32
@@ -141,7 +141,7 @@ The checked sources do not establish a single mandatory next Corrupted Gate boss
 
 ## Patch notes and version cautions
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) lists direct boss changes for The Lost Child and Monolith, but the checked developer post does **not** list a direct Isaac health, damage, or timing adjustment. It does list improved light-attack tracking for Clockwork Scythe.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) lists direct boss changes for The Lost Child and Monolith, but the checked developer post does **not** list a direct Isaac health, damage, or timing adjustment. It does list improved light-attack tracking for Clockwork Scythe.
 
 The checked **Hotfix 2.0** notes focus on crash, stability, performance, Slayer Seal menu, and enemy-weapon-stealing fixes; they do not list an Isaac-specific balance change.
 

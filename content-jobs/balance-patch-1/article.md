@@ -1,87 +1,79 @@
-Answer — what you can act on right now
-- Shell-map purchases now cost Gloom (not Glimpses), and any Glimpses you already spent on Shell maps can be refunded from the Shell Keeper's alcove in Blackmarrow (per the developer Steam post).
-- Tarforge smelting costs 75% less Gloom.
-- Enemy Gold drops have been significantly increased; Mammon-area enemies now drop double Gold (developer post).
-- Several named enemies and bosses had HP and damage reduced (see Confirmed changes), and a number of weapons, Seals, and Tarstones were buffed or adjusted (see Weapons, Seals, Tarstones).
-Source: Cold Symmetry “Balance Patch 1 — Patch Notes” (Steam, posted 2026-08-20). See the “Update tracker” below for the hotfix that preceded this patch.
+Update tracker
 
-Update tracker (compact)
-- 2026-08-18 — Hotfix 2.0 — stability/crash fixes, UI fix for equipping Slayer Seal from the Beacon menu, and a fix for stealing enemy weapons during ripostes. (Steam / Mortal Shell II dev post, posted by XBIGY)
-  - Link: https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/
-- 2026-08-20 — Balance Patch 1 — economy changes, enemy/boss adjustments, weapon/Seal/Tarstone changes, Tarforge and Gold changes, miscellaneous fixes. (Steam / Cold Symmetry dev post, posted by smithbodie)
-  - Link: https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/
+| Entry | Notes |
+|---|---|
+| Balance Patch 1 (decision summary) | Economy changes (Shell-map uses Gloom, Glimpses refunded), Tarforge smelt cost −75% Gloom, weapon and Tarstone adjustments, multiple boss/enemy nerfs. PC live; PS5/Xbox pending verification. |
+| Hotfix 2.0 (Aug 18, 2026) | Misc crash/stability/performance fixes; Slayer Seal beacon-menu UI fix; riposte weapon-steal fix. Tracked separately. |
 
-Status (official-source facts)
-- Patch content: confirmed in the Balance Patch 1 Steam post (see links above).
-- Platform rollout: the Balance Patch 1 post explicitly states the patch was “live on PC” and was “coming to PlayStation 5 and Xbox Series shortly.” This record treats PC availability as confirmed and PS5/Xbox Series rollout as unconfirmed — the developer announcement does not provide a console-installation receipt or final rollout confirmation here.
-- Page state: needs-verification (kept until console rollout is confirmed by the developer or platform receipts).
+[Visit the updates hub](/mortal-shell-ii/updates/) for the full tracker and the Week 1 follow-up.
 
-Confirmed changes (from the Balance Patch 1 developer post)
-Economy
-- Shell-map locations now cost Gloom instead of Glimpses.
-- Glimpses previously spent on Shell maps are refundable at the Shell Keeper's alcove in Blackmarrow.
-- Enemy Gold drops were significantly increased; enemies in Mammon now drop double Gold.
-- Tarforge weapon smelting costs 75% less Gloom.
+[IMAGE: Patch thumbnail — balance overview]
 
-Enemies and bosses (developer’s framing: many enemies were restored toward their beta HP values; the post lists both the broad framing and specific adjustments)
-- Broad framing: enemies present in the beta were restored to their beta HP values, with the developer calling this the overarching direction.
-- Specific listed adjustments from the post:
-  - The Lost Child: base damage −10%; maximum health −15%.
-  - Monolith: base damage −19%; maximum health −10%; some attacks retimed.
-  - Mace Cultist: maximum health −21.1%.
-  - Caerinid Spider (Magdalena area): maximum health −33.3%. The developer notes this enemy remains a threatening, non-respawning presence.
-  - Infested Stalker: maximum health −52.4%.
-  - Rusted Knave (Halberd): maximum health −20.8%; overhead-strike hit detection fixed.
-- Keep both the beta-restoration framing and the itemized percentages — the post presents both.
+What to do first (decision checklist)
 
-Weapons, Seals, and Tarstones
-- Weapon changes called out in the post:
-  - Great Martyr's Blade: attack damage +20%.
-  - Troubadour's Lute: attack damage +100%.
-  - Caged Hystrix and Triarch Repeater: no minimum Resolve requirement to fire.
-  - Axatana, Black Needle, Clockwork Scythe: improved light-attack tracking.
-  - Guard can now be used while walking.
-- Tarstones / Stones:
-  - Parasitic Stone, Grudge Stone, Clerik's Stone, and Squall Stone were buffed (developer text; no numeric values provided).
-  - Bulwark Stone received a significant Damage Reduction increase (developer text; no numeric value provided).
-- The post lists Tarstone buffs but does not provide exact numbers — do not assume numeric values beyond “buffed” or “significant” where the developer did not specify.
+1. Check the Shell Keeper's alcove in Blackmarrow to claim any refund for Glimpses spent on Shell-map reveals. See /mortal-shell-ii/glimpses/ for context.
+2. If you planned smelts, the Tarforge smelt cost is 75% cheaper in Gloom — consider completing planned equipment smelts at the Tarforge: /mortal-shell-ii/tarforge/.
+3. Re-evaluate loadouts that relied on now-buffed weapons or Tarstones before deciding long-term respecs; Week 1 follow-up will cover renewable Glimpses/Tarcores and respec options: /mortal-shell-ii/updates/week-1-update/.
+4. If you saw crashes or UI issues, check the crash tracker: /mortal-shell-ii/crashing-pc/.
 
-Miscellaneous
-- The post includes miscellaneous crash fixes, bug fixes, and performance updates. This supports that fixes were included, not that every crash or performance issue is resolved for every player.
-- Keep the existing PC crash guide for unresolved or differently caused crashes (the Balance Patch 1 post does not claim to fix all crash cases).
+Economy changes (decision-focused)
 
-Hotfix 2.0 (separate, dated update — do not conflate with Balance Patch 1)
-- Posted 2026-08-18, Hotfix 2.0 lists:
-  - Miscellaneous crash fixes, stability improvements, and performance improvements.
-  - Fix: equipping Slayer Seal from the Beacon menu no longer locks the UI.
-  - Fix: players “stealing” enemy weapons during ripostes addressed.
-- Treat this as the most-recent prior developer patch documented separately from Balance Patch 1.
+- Shell-map reveals now spend Gloom instead of Glimpses. This changes how you budget for map reveals.
+- Refund: Glimpses you previously spent on Shell-map reveals are refundable at the Shell Keeper's alcove in Blackmarrow (go claim before making further economy decisions).
+- Enemy Gold drops have been increased; enemies tied to Mammon now drop double Gold — consider this when planning farming runs.
+- Tarforge smelting equipment costs 75% less Gloom. If you have pending smelts, prioritize them while the economy is favorable: /mortal-shell-ii/tarforge/.
 
-Quick procedures (numbered steps)
-1. Refund Glimpses spent on Shell maps:
-   1. Go to Blackmarrow.
-   2. Locate and interact with the Shell Keeper's alcove.
-   3. Use the alcove’s refund option to reclaim Glimpses spent on Shell maps (per the Balance Patch 1 post).
-2. Use the cheaper Tarforge smelting:
-   1. Open Tarforge smelting as you normally would.
-   2. Observe that Gloom cost to smelt weapons is reduced by 75% (per the Balance Patch 1 post).
-   3. Smelt the weapon(s) you want at the reduced cost.
-Note: the post states the 75% reduction; it does not alter or specify Tarforge mechanics beyond the reduced Gloom cost.
+Weapon changes — what matters for loadouts
 
-Common mistakes
-- Treating console rollout as completed: the official post states Balance Patch 1 was “live on PC” and “coming to PlayStation 5 and Xbox Series shortly.” Do not assume PS5/Xbox Series players have the patch until Cold Symmetry or the platform provides a confirmation/receipt.
-- Expecting every crash or performance issue to be fixed: the post lists crash and performance fixes, but that does not guarantee every player’s crash is resolved.
-- Conflating Hotfix 2.0 and Balance Patch 1: they are separate developer posts with separate dates and scopes; Hotfix 2.0’s fixes should not be reattributed to Balance Patch 1 unless the developer states so.
-- Treating “buffed” or “significant increase” as a specific numeric change: the developer post sometimes uses non-numeric terms for Tarstone and Stone changes; do not invent or assume exact values.
+Confirmed, player-facing weapon adjustments (use linked weapon pages to review movesets and test):
 
-What happens next (developer statements and limits)
-- The Balance Patch 1 post says a larger follow-up patch is in the works. The developer mentions planned extensions to Night Mode, Tarstones, PP Items, and more, but provides no date, build number, or feature-complete list in that post. Treat these as planned, not scheduled.
-- Console rollout (PS5 and Xbox Series) status remains unconfirmed here — watch the developer’s Steam announcements or official platform release notes for a console-installation receipt to move this page out of needs-verification.
+- Great Martyr's Blade: attack damage +20% — see /mortal-shell-ii/great-martyrs-blade/.
+- Troubadour's Lute: attack damage +100% — useful for players who rely on Lute damage.
+- Caged Hystrix and Triarch Repeater: the minimum Resolve requirement to fire has been removed — see /mortal-shell-ii/caged-hystrix/ for details.
+- Axatana, Black Needle, Clockwork Scythe: improved light-attack tracking — check /mortal-shell-ii/axatana/, /mortal-shell-ii/black-needle/, and /mortal-shell-ii/clockwork-scythe/.
+- Guard can now be used while walking — this affects stance and mobility across melee and sidearm play; see /mortal-shell-ii/sidearms/ and /mortal-shell-ii/weapons/ for how guard interacting with sidearms and stances changes approach.
 
-Sources
-- Cold Symmetry developer post — “Balance Patch 1 - Patch Notes” (Steam, posted 2026-08-20): https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/
-- Mortal Shell II developer post — “Hotfix 2.0 - Release Notes” (Steam, posted 2026-08-18): https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/
+Community note: players are debating whether these changes make the game easier or simply rebalance underused tools. That's community sentiment, not a mechanical claim.
 
-Metadata (for maintainers)
-- lastUpdated: 2026-08-24
-- page status: needs-verification (console rollout unconfirmed)
+Tarstones
+
+- Several Tarstones were buffed in this patch. The affected stones are: Parasitic Stone, Grudge Stone, Bulwark Stone, Clerik's Stone, and Squall Stone.
+- The official note did not publish exact percentage figures; treat their effects as broadly improved until you can test them in your build. See /mortal-shell-ii/tarstones/ for listings and in-game testing suggestions.
+
+Boss and enemy nerfs (named changes)
+
+- Lost Child: base damage −10%, max health −15%. See planning notes at /mortal-shell-ii/lost-child/.
+- Monolith: base damage −19%, max health −10%, and some attack timings adjusted (timing changes may affect parry/riposte windows).
+- Other enemy HP reductions (named): Mace Cultist −21.1%, Caerinid Spider −33.3%, Infested Stalker −52.4%, Rusted Knave −20.8%.
+- The patch also includes language about "Beta HP restoration framing" for several enemies; the Caerinid Spider in the Magdalena area is an explicit exception to that restoration.
+
+Gameplay implications
+
+- Economy: shifting Shell-map cost to Gloom plus the Glimpses refund reduces long-term cost of map reveals but temporarily changes how players spend both currencies.
+- Faster access to smelts (−75% Gloom) lowers the barrier to retooling equipment, so deciding which items to smelt sooner is a priority.
+- Weapon and Tarstone buffs make several previously underused options more viable; test them in short runs before committing to respecs. For respec and renewable resource changes, see the Week 1 follow-up: /mortal-shell-ii/updates/week-1-update/.
+
+Common mistakes to avoid
+
+- Assuming all Tarstones received numerical details: the patch lists which Tarstones were buffed but not exact percentages — test before assuming power ceilings.
+- Spending refunded Glimpses immediately on new reveals: consider the Week 1 follow-up changes (renewable Glimpses/Tarcores, respec) before making long-term economy decisions.
+- Treating console installs as complete: official messaging lists the patch as live on PC; PS5/Xbox installs are described as "coming shortly" and remain unverified.
+
+Crash fixes & hotfixes
+
+- Hotfix 2.0 (August 18, 2026) is tracked separately and focuses on crash/stability/performance fixes, a Slayer Seal beacon-menu UI fix, and a riposte weapon-steal fix. If you experienced these problems, check the hotfix entry in the updates hub: /mortal-shell-ii/updates/ and see /mortal-shell-ii/crashing-pc/ for PC crash guidance.
+
+Where to read more
+
+- Weekly follow-up with renewable Glimpses/Tarcores and respec options: /mortal-shell-ii/updates/week-1-update/
+- Updates hub and tracker: /mortal-shell-ii/updates/
+- Weapon reference pages: /mortal-shell-ii/weapons/ and specific weapon pages linked above.
+- Tarforge and Tarstones: /mortal-shell-ii/tarforge/ and /mortal-shell-ii/tarstones/.
+
+Sources and verification status
+
+- Official patch notes (developer post): patch is listed as live on PC; PS5/Xbox noted as "coming shortly" and console install remains unconfirmed (page status: needs-verification). Hotfix 2.0 (Aug 18, 2026) listed separately for crash/UI fixes.
+
+[IMAGE: Screenshot of Tarforge smelt menu showing reduced cost]
+
+

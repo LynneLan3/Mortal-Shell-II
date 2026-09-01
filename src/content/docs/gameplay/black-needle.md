@@ -10,7 +10,7 @@ related:
   - mortal-shell-ii/weapons
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/beacons-fast-travel
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Black Needle
   order: 15
@@ -82,7 +82,7 @@ For upgrading primary weapons, see the [Tarforge guide](/mortal-shell-ii/tarforg
 
 ## What Balance Patch 1 changed for Black Needle
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) improved **Black Needle light-attack tracking**.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) improved **Black Needle light-attack tracking**.
 
 That is the confirmed Patch 1 change this guide uses. It does not infer additional changes to damage, range, scaling, or Needle Storm.
 

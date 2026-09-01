@@ -12,7 +12,7 @@ related:
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/ova
   - mortal-shell-ii/new-game-plus
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Ascension Trophy
   order: 34
@@ -121,7 +121,7 @@ For broader cleanup, return to the [Trophies and Achievements guide](/mortal-she
 
 The checked Cold Symmetry [Balance Patch 1 notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) list economy, boss, enemy, weapon, Tarstone, and stability changes, but no direct change to Ascension, Mether's Flesh, the fish interaction, or Mango Sanctuary. The official [Hotfix 2.0 notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/) list crash/stability, Slayer Seal UI, and riposte weapon fixes, but no Ascension/Mango change.
 
-This is a checked launch-window observation, not a guarantee about future patches or simultaneous platform rollout. See the local [Balance Patch 1 guide](/mortal-shell-ii/balance-patch-1/) for the wider update context.
+This is a checked launch-window observation, not a guarantee about future patches or simultaneous platform rollout. See the local [Balance Patch 1 guide](/mortal-shell-ii/updates/balance-patch-1/) for the wider update context.
 
 ## Sources
 

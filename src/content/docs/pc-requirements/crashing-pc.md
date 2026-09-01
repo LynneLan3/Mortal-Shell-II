@@ -9,7 +9,8 @@ quickAnswer: "The Week 1 Update includes substantial crash and stability fixes, 
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/week-1-update
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: PC Crashes & Hotfix 2.0
   order: 2
@@ -20,6 +21,8 @@ lastUpdated: 2026-08-30
 ## Current Week 1 crash status
 
 The **Week 1 Update (August 29, 2026)** includes substantial crash and stability fixes across spawning, audio, attribute changes, UI loading, save loading, and shutdown. It also removes some settings implicated in graphics-driver crashes and adds crash diagnostics. **Mortal Shell II crashing is not completely fixed by this note.** If you are still crashing, first confirm Steam has installed the latest update, restart Steam, and retest the same action before using the troubleshooting below.
+
+**Current version:** [Week 1 Update crash status](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes) · [Updates hub](/mortal-shell-ii/updates/)
 
 ## Is Mortal Shell 2 crashing after launch?
 

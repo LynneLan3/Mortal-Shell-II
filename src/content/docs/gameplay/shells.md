@@ -11,7 +11,8 @@ related:
   - mortal-shell-ii/proxima
   - mortal-shell-ii/tiel
   - mortal-shell-ii/glimpses
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/week-1-update
+  - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/eredrim
   - mortal-shell-ii/sester-genessa
   - mortal-shell-ii/smert
@@ -40,7 +41,7 @@ For every permanent Shell, the practical loop is:
 1. Reach the Shell's body or encounter.
 2. Interact with it and complete the first Shell Memory or unlock sequence.
 3. Return to the Shellkeeper at Marrow Keep when you want to raise that Shell's Bond.
-4. Spend **Glimpses** on Bonding to open higher perk tiers. Shell-map reveals are a separate **Gloom** expense after [Balance Patch 1](/mortal-shell-ii/balance-patch-1/).
+4. Spend **Glimpses** on Bonding to open higher perk tiers. Shell-map reveals are a separate **Gloom** expense after [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/).
 
 This page is a route and decision guide, not an objective S/A/B combat tier list. Current sources support a few playstyle and timing recommendations, but not a complete, tested stat comparison for every Shell.
 
@@ -191,11 +192,19 @@ Tiel and Proxima descriptions differ slightly between sources on whether the fir
 
 Keep **Sester's Censer / Sester's Chalice** as a deliberate uncertainty until the in-game prompt or a stronger primary source resolves the naming. The unlock dependency—Sester Secundus, return to Genessa, Memory—is the stable part.
 
+## Week 1 Update: Shell respec
+
+The [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) adds **Mether's Severance**. Give it to **Zhirelle** to reset a Shell's progression and **refund spent Glimpses** on that Shell's Bond.
+
+**Player impact:** You no longer need to treat early Bond spending as permanently locked for the whole run. Respec does not replace Shell Memory routes or unlock requirements — it resets Bond investment on a Shell you already own.
+
+**Current version:** [Week 1 Shell respec details](/mortal-shell-ii/updates/week-1-update/#b-shell-respec) · [Updates hub](/mortal-shell-ii/updates/)
+
 ## Balance Patch 1 and Shell planning
 
 Balance Patch 1 moved **Shell-map reveals from Glimpses to Gloom** and refunds Glimpses previously spent on those reveals at the Shell Keeper's alcove in Blackmarrow. That matters when planning a collection: map discovery no longer competes with Bonding for the same Glimpse budget.
 
-The patch also changed enemy, weapon, Tarstone, and economy balance. Therefore, old beta or pre-patch “best Shell” claims should be treated as dated opinions unless their test conditions are clear. See [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) and [Glimpses](/mortal-shell-ii/glimpses/) for the site's current resource notes.
+The patch also changed enemy, weapon, Tarstone, and economy balance. Therefore, old beta or pre-patch “best Shell” claims should be treated as dated opinions unless their test conditions are clear. See [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) and [Glimpses](/mortal-shell-ii/glimpses/) for the site's current resource notes.
 
 ## FAQ
 

@@ -17,12 +17,21 @@ related:
   - mortal-shell-ii/cursed-child
   - mortal-shell-ii/shrine-of-sorrows
   - mortal-shell-ii/lost-child
+  - mortal-shell-ii/updates/week-1-update
 sidebar:
   label: Beacons & Fast Travel
   order: 10
   badge: Launch
-lastUpdated: 2026-08-24
+lastUpdated: 2026-08-30
 ---
+
+## Week 1 Update: new Beacons
+
+The [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) adds **new Beacons** and adjusts navigation pacing in supported areas.
+
+**Player impact:** Launch walkthrough directions may differ slightly from current Beacon coverage. Do not assume every route changed — verify Beacons against your current build and use this page's checklist as the baseline.
+
+**Current version:** [Week 1 exploration changes](/mortal-shell-ii/updates/week-1-update/#d-exploration) · [Updates hub](/mortal-shell-ii/updates/)
 
 ## How do you unlock fast travel in Mortal Shell 2?
 

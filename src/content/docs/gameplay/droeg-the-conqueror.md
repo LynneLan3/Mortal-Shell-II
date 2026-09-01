@@ -12,7 +12,7 @@ related:
   - mortal-shell-ii/black-needle
   - mortal-shell-ii/ova
   - mortal-shell-ii/tarstones
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Droeg the Conqueror
   order: 31
@@ -142,7 +142,7 @@ The checked guides describe the other Mammon gate bosses as route-flexible. No s
 
 ## Patch notes and version cautions
 
-[Balance Patch 1](/mortal-shell-ii/balance-patch-1/) and the checked developer patch reporting list direct changes for other bosses, economy, weapons, Tarstones, enemies, and stability. They do **not** list a direct Droeg health, damage, or attack-timing change. Hotfix 2.0's Steam notes likewise focus on crashes, stability, UI, and a weapon-stealing fix rather than Droeg.
+[Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) and the checked developer patch reporting list direct changes for other bosses, economy, weapons, Tarstones, enemies, and stability. They do **not** list a direct Droeg health, damage, or attack-timing change. Hotfix 2.0's Steam notes likewise focus on crashes, stability, UI, and a weapon-stealing fix rather than Droeg.
 
 That means the safe claim is: **the checked Patch 1 and Hotfix 2.0 notes do not list a direct Droeg adjustment**. Future updates may still change the encounter or source-specific reward numbers.
 

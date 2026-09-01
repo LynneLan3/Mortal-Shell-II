@@ -14,7 +14,7 @@ related:
   - mortal-shell-ii/tiel
   - mortal-shell-ii/sester-genessa
   - mortal-shell-ii/new-game-plus
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Zmey Boss
   order: 32
@@ -160,7 +160,7 @@ Defeating Zmey does not by itself require an immediate NG+ start according to th
 
 ## Patch status and uncertainty
 
-The current site [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) page documents economy, weapon, selected boss, and stability changes. The checked patch material does not identify a direct Zmey health, damage, reward, or animation adjustment. That is a statement about the checked notes, not a guarantee that later platform or hotfix differences do not exist.
+The current site [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) page documents economy, weapon, selected boss, and stability changes. The checked patch material does not identify a direct Zmey health, damage, reward, or animation adjustment. That is a statement about the checked notes, not a guarantee that later platform or hotfix differences do not exist.
 
 Keep these claims qualified when updating this page:
 

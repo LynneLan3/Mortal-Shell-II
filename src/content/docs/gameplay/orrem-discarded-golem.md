@@ -12,7 +12,7 @@ related:
   - mortal-shell-ii/sariel
   - mortal-shell-ii/tiel
   - mortal-shell-ii/tarstones
-  - mortal-shell-ii/balance-patch-1
+  - mortal-shell-ii/updates/balance-patch-1
 sidebar:
   label: Orrem Boss
   order: 32
@@ -124,7 +124,7 @@ The safest general loop is **read the tell → survive the complete sequence →
 
 ## Patch and version cautions
 
-The checked **Balance Patch 1** reporting names changes to other bosses, including The Lost Child and the Monolith, but does not name Orrem. **Hotfix 2.0** lists crash, stability, performance, Slayer Seal menu, and riposte weapon-stealing fixes; it does not list an Orrem health, damage, animation, or reward change. The safe claim is that the checked notes do not document a direct Orrem adjustment. Future patches may still change the fight or its rewards; see [Balance Patch 1](/mortal-shell-ii/balance-patch-1/) for the wider patch context.
+The checked **Balance Patch 1** reporting names changes to other bosses, including The Lost Child and the Monolith, but does not name Orrem. **Hotfix 2.0** lists crash, stability, performance, Slayer Seal menu, and riposte weapon-stealing fixes; it does not list an Orrem health, damage, animation, or reward change. The safe claim is that the checked notes do not document a direct Orrem adjustment. Future patches may still change the fight or its rewards; see [Balance Patch 1](/mortal-shell-ii/updates/balance-patch-1/) for the wider patch context.
 
 ## Sources
 

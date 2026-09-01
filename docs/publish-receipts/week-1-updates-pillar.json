@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "hotword-publish-receipt-v1",
+  "common": {
+    "site": "Mortal Shell II",
+    "siteId": "mortal-shell-ii",
+    "game": "Mortal Shell II",
+    "batchId": "mortal-shell-ii|week-1-updates-pillar|e70085f",
+    "commitSha": "e70085f",
+    "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+    "productionUrl": "https://mortalshell2guide.com",
+    "deployedAt": "2026-09-01T07:00:15.000Z",
+    "lifecyclePhase": "PUBLISHED",
+    "action": "CONTENT_EXPANSION",
+    "sourceRefs": [
+      "content-jobs/week-1-update/research.md",
+      "content-jobs/balance-patch-1/research.md",
+      "content-jobs/week-1-update/page.json",
+      "content-jobs/balance-patch-1/page.json"
+    ]
+  },
+  "interventions": [
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|updates-hub",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "CREATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/updates/",
+      "affectedUrls": [],
+      "reason": "Updates hub — version-awareness layer linking patches to affected guides.",
+      "sourceRefs": ["content-jobs/week-1-update/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|week-1-update",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "CREATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/updates/week-1-update/",
+      "affectedUrls": [
+        "/mortal-shell-ii/tarstones/",
+        "/mortal-shell-ii/glimpses/",
+        "/mortal-shell-ii/shells/",
+        "/mortal-shell-ii/beacons-fast-travel/",
+        "/mortal-shell-ii/crashing-pc/"
+      ],
+      "reason": "Week 1 Update decision guide — economy, respec, exploration, combat, and stability changes.",
+      "sourceRefs": ["content-jobs/week-1-update/page.json"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|balance-patch-1",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/updates/balance-patch-1/",
+      "affectedUrls": ["/mortal-shell-ii/balance-patch-1/"],
+      "reason": "Canonical migration to /updates/balance-patch-1/ with 301 from legacy URL; APIMart polish.",
+      "sourceRefs": ["content-jobs/balance-patch-1/page.json"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|tarstones",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/tarstones/",
+      "affectedUrls": [],
+      "reason": "Week 1 economy block — non-finite Glimpses/Tarcores, Fragile Tarstones, Merrick stock.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|crashing-pc",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/crashing-pc/",
+      "affectedUrls": [],
+      "reason": "Week 1 crash/stability context — confirm version before troubleshooting.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|shells",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/shells/",
+      "affectedUrls": [],
+      "reason": "Week 1 Shell respec via Mether's Severance and Zhirelle.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|glimpses",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/glimpses/",
+      "affectedUrls": [],
+      "reason": "Week 1 removes finite per-run Glimpse cap; links to Updates hub.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|weapons",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/weapons/",
+      "affectedUrls": [],
+      "reason": "Patch-aware weapon section — Balance Patch 1 facts vs Week 1 Riposte distinction.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    },
+    {
+      "interventionId": "mortal-shell-ii|week-1-updates-pillar|beacons-fast-travel",
+      "site": "Mortal Shell II",
+      "siteId": "mortal-shell-ii",
+      "action": "UPDATE_PAGE",
+      "primaryUrl": "/mortal-shell-ii/beacons-fast-travel/",
+      "affectedUrls": [],
+      "reason": "Week 1 new Beacons and navigation pacing note.",
+      "sourceRefs": ["content-jobs/week-1-evergreen-sections/research.md"],
+      "commitSha": "e70085f",
+      "deploymentUrl": "https://mortal-shell-fpy7rqvc2-lynnelan3s-projects.vercel.app",
+      "productionUrl": "https://mortalshell2guide.com",
+      "deployedAt": "2026-09-01T07:00:15.000Z"
+    }
+  ],
+  "launchReceiptKey": "mortal-shell-ii|week-1-updates-pillar|e70085f",
+  "templateVersion": "legacy-astro-starlight",
+  "publishedPageCount": 9,
+  "analyticsReadiness": {
+    "ga4": "READY",
+    "vercelAnalytics": "READY"
+  },
+  "indexNowStatus": "NOT_RUN"
+}

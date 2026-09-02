@@ -7,6 +7,7 @@ status: needs-verification
 featured: false
 quickAnswer: "Start from Sester's Gate Beacon, follow the lower route to Revered Beacon, move from cover to cover around the tracking golden light, break its upper light source and collect Cursed Child."
 related:
+  - mortal-shell-ii/revered-beacon
   - mortal-shell-ii/sidearms
   - mortal-shell-ii/beacons-fast-travel
   - mortal-shell-ii/tarforge
@@ -15,7 +16,7 @@ sidebar:
   label: Cursed Child
   order: 8
   badge: Launch
-lastUpdated: 2026-08-23
+lastUpdated: 2026-09-02
 ---
 
 **Cursed Child** is a Sidearm inside **Revered Beacon** near the Sester's Gate / Sester's Abbey area in Mammon. Start from **Sester's Gate Beacon**, follow the lower route to Revered Beacon, use solid cover to avoid the sweeping golden light, climb toward the central tower, and break the light source to make the Sidearm collectible.
@@ -27,6 +28,8 @@ Cursed Child is obtained in **Revered Beacon** in Mammon.
 Use **Sester's Gate Beacon** as the clearest route anchor. The dungeon's main obstacle is a sweeping / tracking **golden light** that drains health while you remain exposed.
 
 Once you reach the upper light source and break it, Cursed Child becomes collectible there.
+
+For the full dungeon entrance and light-puzzle route, see the [Revered Beacon guide](/mortal-shell-ii/revered-beacon/).
 
 ## Fast route from Sester's Gate to Revered Beacon
 

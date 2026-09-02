@@ -14,6 +14,7 @@ related:
   - mortal-shell-ii/caged-hystrix
   - mortal-shell-ii/forgotten-crossbow
   - mortal-shell-ii/cursed-child
+  - mortal-shell-ii/revered-beacon
   - mortal-shell-ii/tarforge
   - mortal-shell-ii/updates/balance-patch-1
   - mortal-shell-ii/weapons
@@ -55,7 +56,7 @@ This Hub owns the roster and compact location checklist. Detailed dungeon walkth
 | **Troubadour's Lute** | One-Legged Wolf Tavern | Pickup inside the tavern around the stage area | [Troubadour's Lute guide](/mortal-shell-ii/troubadours-lute/) |
 | **Triarch Repeater** | Blackwell Cavern, Mammon | Use Castigator's Keep as the route anchor | [Triarch Repeater guide](/mortal-shell-ii/triarch-repeater/) |
 | **Ballistazooka** | Sentry's Grave | Near Gate of Mammon; reward tied to Subjugated Guardian | [Ballistazooka guide](/mortal-shell-ii/ballistazooka/) |
-| **Cursed Child** | Revered Beacon route | Near the Sester's Gate / Abbey area | [Cursed Child guide](/mortal-shell-ii/cursed-child/) |
+| **Cursed Child** | Revered Beacon route | Clear Revered Beacon near Sester's Gate | [Revered Beacon guide](/mortal-shell-ii/revered-beacon/) · [Cursed Child guide](/mortal-shell-ii/cursed-child/) |
 | **Caged Hystrix** | Chamber of Becoming | Separate pickup near the exit after the Sariel route | [Caged Hystrix guide](/mortal-shell-ii/caged-hystrix/) |
 
 ## Naylshotte
@@ -102,9 +103,9 @@ Its reward is associated with the **Subjugated Guardian** encounter.
 
 The **Cursed Child** is on the **Revered Beacon** route near the **Sester's Gate / Abbey** area.
 
-This Hub keeps that location at the route-summary level rather than inventing a longer dungeon path.
+Use the [Revered Beacon guide](/mortal-shell-ii/revered-beacon/) for the dungeon entrance, golden-light traversal, and upper light-source puzzle.
 
-Use the detailed [Cursed Child guide](/mortal-shell-ii/cursed-child/) for the Revered Beacon golden-light route and upper light-source puzzle.
+Use the [Cursed Child guide](/mortal-shell-ii/cursed-child/) for weapon stats, Tarstones, build context, and sidearm role.
 
 ## Caged Hystrix
 

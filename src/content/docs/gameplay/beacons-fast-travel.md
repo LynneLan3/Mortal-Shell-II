@@ -146,7 +146,7 @@ The table below is intentionally conservative. It covers useful overworld route 
     <tr>
       <td>Sester's Gate</td>
       <td>Sester's Abbey / Mammon route</td>
-      <td>Sester's Bastion / Black Needle and Revered Beacon / Cursed Child. See the <a href="/mortal-shell-ii/black-needle/">Black Needle guide</a> and <a href="/mortal-shell-ii/cursed-child/">Cursed Child guide</a>.</td>
+      <td>Sester's Bastion / Black Needle and Revered Beacon / Cursed Child. See the <a href="/mortal-shell-ii/black-needle/">Black Needle guide</a>, <a href="/mortal-shell-ii/revered-beacon/">Revered Beacon guide</a>, and <a href="/mortal-shell-ii/cursed-child/">Cursed Child guide</a>.</td>
       <td>Not yet verified</td>
       <td>Local route guides</td>
     </tr>

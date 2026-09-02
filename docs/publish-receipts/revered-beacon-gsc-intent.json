@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "deployment-receipt-v1",
+  "receiptKey": "mortal-shell-ii|revered-beacon-gsc-intent|9108c2f",
+  "interventionId": "receipt-mortal-shell-ii|revered-beacon-gsc-intent|9108c2f",
+  "siteId": "mortal-shell-ii",
+  "siteName": "Mortal Shell II",
+  "batchId": "mortal-shell-ii|revered-beacon-gsc-intent|9108c2f",
+  "commitSHA": "9108c2f",
+  "deploymentURL": "https://mortal-shell-i4iqubxm0-lynnelan3s-projects.vercel.app",
+  "productionURL": "https://mortalshell2guide.com",
+  "productionDeployedAt": "2026-09-02T12:58:06.000Z",
+  "lifecyclePhase": "PUBLISHED",
+  "action": "CONTENT_EXPANSION",
+  "reason": "GSC revered beacon query cluster — dedicated dungeon/location page split from Cursed Child weapon intent.",
+  "sourceRefs": [
+    "content-jobs/revered-beacon/research.md",
+    "content-jobs/revered-beacon/page.json",
+    "commit:9108c2f",
+    "deploy:https://mortal-shell-i4iqubxm0-lynnelan3s-projects.vercel.app"
+  ],
+  "observationHorizons": ["D1", "D3", "D7", "D14"],
+  "affectedPages": [
+    {
+      "path": "/mortal-shell-ii/revered-beacon/",
+      "pageRole": "NEW_PAGE",
+      "action": "CREATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/revered-beacon/",
+      "triggerType": "gsc_location_intent",
+      "triggerQueries": [
+        "revered beacon",
+        "mortal shell 2 revered beacon",
+        "revered beacon location",
+        "revered beacon mortal shell 2",
+        "how to get to revered beacon",
+        "revered beacon light",
+        "revered beacon cursed child",
+        "revered beacon dungeon"
+      ],
+      "triggerSummary": "GSC impressions on revered beacon with poor intent match on Cursed Child page; ranking on page 1 with 0 clicks.",
+      "sourceRefs": ["content-jobs/revered-beacon/research.md"],
+      "reason": "New dungeon walkthrough page — Sester's Gate route, golden-light traversal, Cursed Child reward handoff."
+    },
+    {
+      "path": "/mortal-shell-ii/cursed-child/",
+      "pageRole": "EXISTING_PAGE_UPDATE",
+      "action": "UPDATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/cursed-child/",
+      "triggerType": "intent_deduplication",
+      "triggerQueries": ["revered beacon cursed child"],
+      "triggerSummary": "Append-only cross-link to Revered Beacon guide; weapon page retains sidearm/build ownership.",
+      "sourceRefs": ["src/content/docs/gameplay/cursed-child.md"],
+      "reason": "Acquisition section links to Revered Beacon for full dungeon route without URL/canonical change."
+    }
+  ]
+}

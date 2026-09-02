@@ -5,7 +5,7 @@ category: pc-requirements
 slug: mortal-shell-ii/crashing-pc
 status: needs-verification
 featured: true
-quickAnswer: "The Week 1 Update includes substantial crash and stability fixes, removes some settings implicated in graphics-driver crashes, and adds crash diagnostics, but it does not guarantee every crash is fixed. Confirm your Mortal Shell II build is updated first, then retest; the existing Keyboard Bindings and loading-crash troubleshooting remains below."
+quickAnswer: "Hotfix 3 (Sept 1, 2026, PC) fixed several targeted bugs but does not guarantee every crash, freeze, or performance issue is resolved. Confirm Steam has installed the Week 1 Update and Hotfix 3, follow official mod/engine.ini precautions if problems started after patching, then use the symptom-specific troubleshooting below."
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
@@ -15,8 +15,38 @@ sidebar:
   label: PC Crashes & Hotfix 2.0
   order: 2
   badge: Launch
-lastUpdated: 2026-08-30
+lastUpdated: 2026-09-02
 ---
+
+## After Hotfix 3 — Current PC Status
+
+**Hotfix 3** (Steam PC hotfix, **September 1, 2026**) is the latest PC hotfix after the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/). Crashes, freezes, and performance issues may still persist for some players. The developer confirmed targeted fixes but did **not** claim to resolve every crash or performance report.
+
+### What Hotfix 3 fixed (official)
+
+- Devout / Pre-Order Shell Shades not appearing
+- Opening world map while using FSR
+- Citadel Annex giant-spider traversal issue
+- Some enemies not reacting to the player
+- Several collision issues
+- Minibeacon lens flare / visual issues
+
+### What Hotfix 3 did not confirm
+
+- The developer did not state that Hotfix 3 fixed all crashes, freezes, or performance regressions.
+- Community reports after Hotfix 3 still include stutter, 1% low drops, general performance degradation, and severe frame drops on some Steam Deck units.
+
+### If the problem started after Week 1 or Hotfix 3
+
+Follow these steps in order:
+
+1. Confirm Steam installed the **Week 1 Update** and **Hotfix 3** (no pending download). Restart Steam, then relaunch.
+2. Follow official Week 1 update precautions: **remove or disable mods** before updating, and ensure **`engine.ini` is not read-only** — the official note says a read-only `engine.ini` can affect frame generation.
+3. Retest the exact trigger (loading crash, freeze, won't start, stutter after patch).
+4. Match your symptom to the sections below (Keyboard Bindings, loading crashes, random gameplay crashes).
+5. If the issue persists, file a bug report with GPU/driver details and whether Frame Generation was enabled.
+
+**Current version:** [Updates hub](/mortal-shell-ii/updates/) · [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) · [Week 1 crash notes](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes)
 
 ## Current Week 1 crash status
 
@@ -174,6 +204,22 @@ This page **does not** recommend Open Beta workarounds such as `-dx11`, registry
 File a [bug report](https://steamcommunity.com/app/2584270/discussions/3/) with when the crash happens, your GPU and driver, and whether Frame Generation was enabled. Reply on the [Hotfix threads](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/) so Cold Symmetry can track remaining cases. There is no public Hotfix 2.1 timeline.
 
 ## FAQ
+
+### Did Hotfix 3 fix Mortal Shell II crashes?
+
+Hotfix 3 fixed the specific issues listed in the official notes above, but the developer did **not** claim it fixed all crashes. Community reports of crashes and performance issues continue.
+
+### Why is Mortal Shell II freezing after the latest patch?
+
+The developer did not confirm a universal freeze fix. If freezing began after the Week 1 Update or Hotfix 3, confirm your build is updated, remove/disable mods, ensure `engine.ini` is not read-only, restart Steam, retest, then file a bug report with system details.
+
+### Why won't Mortal Shell II start after updating?
+
+Start failures can be tied to mods or a read-only `engine.ini` among other factors. Follow the official precautions above, restart Steam to confirm the update applied, then retest.
+
+### Is the Week 1 Update live on PS5 and Xbox?
+
+**PC:** live. **PS5:** available (rolled out September 1, 2026). **Xbox:** officially delayed per the last confirmed status — checked September 2, 2026. See the [Week 1 Update guide](/mortal-shell-ii/updates/week-1-update/#platform-availability--current-rollout).
 
 ### Is Mortal Shell 2 crashing on PC?
 

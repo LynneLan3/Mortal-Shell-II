@@ -36,11 +36,31 @@ export const currentMajorUpdateId = 'week-1-update';
 
 export const gameUpdates: readonly GameUpdateEntry[] = [
 	{
+		id: 'hotfix-3',
+		title: 'Hotfix 3',
+		href: '/mortal-shell-ii/crashing-pc/',
+		date: '2026-09-01',
+		platformStatus: { pc: 'live' },
+		impactTags: ['Stability', 'Traversal', 'Visual', 'Combat'],
+		playerConsequence:
+			'Several targeted PC bugs are fixed, but crashes, freezes, and performance issues may still occur.',
+		summary:
+			'PC hotfix (Sept 1): Devout/Pre-Order Shell Shades visibility, FSR world-map issue, Citadel Annex giant-spider traversal, some enemies not reacting, collision fixes, and Minibeacon lens-flare visuals. Does not claim all crashes or performance problems are resolved.',
+		guideImpacts: [
+			{ label: 'PC Crashes & Stability', href: '/mortal-shell-ii/crashing-pc/' },
+			{ label: 'Faded Citadel Route', href: '/mortal-shell-ii/faded-citadel/' },
+		],
+	},
+	{
 		id: 'week-1-update',
 		title: 'Week 1 Update',
 		href: '/mortal-shell-ii/updates/week-1-update/',
 		date: '2026-08-29',
-		platformStatus: { pc: 'live' },
+		platformStatus: {
+			pc: 'live',
+			ps5: 'Available (Sept 1, 2026)',
+			xbox: 'Delayed — latest confirmed status as of Sept 2, 2026',
+		},
 		impactTags: ['Tarstones', 'Shell Respec', 'Economy', 'Exploration', 'Combat', 'Performance'],
 		playerConsequence: 'Your launch-build resource planning is now outdated.',
 		summary:
@@ -107,7 +127,7 @@ export const affectedGuides: readonly AffectedGuideEntry[] = [
 	{
 		label: 'PC Crashes & Stability',
 		href: '/mortal-shell-ii/crashing-pc/',
-		updateIds: ['week-1-update', 'balance-patch-1'],
+		updateIds: ['hotfix-3', 'week-1-update', 'balance-patch-1'],
 	},
 	{
 		label: 'Tarforge Upgrades',

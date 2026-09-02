@@ -27,7 +27,7 @@ sidebar:
   label: Faded Citadel
   order: 43
   badge: Exploration
-lastUpdated: 2026-08-26
+lastUpdated: 2026-09-02
 ---
 
 ## Quick route
@@ -56,6 +56,8 @@ Ashen Sanctum is the main interior approach inside Faded Citadel. The consistent
 Follow the stone platform opening to the Citadel Annex Beacon and activate it. If you choose to Cleanse the Annex Beacon you are sent into Hushed Sanctum — a separate cleanse dungeon with its own rooms and objectives. The Annex → Hushed Sanctum chain is a deliberate side route and not an alternate name for the main Ashen Sanctum area.
 
 When you pick Cleanse Beacon at Citadel Annex, the expected Hushed Sanctum sequence reported by sources is: cross a narrow bridge (ranged caster), move through a tunnel with melee enemies and spiders, climb stairs past a teleporting lightning caster, clear a large pillared spider room, perform a platforming/drop section into a circular arena, use a red rift to reach a high ledge guarded by a mage and a chest, then interact with the corrupted crystal core. A final "Beacon Cleansed" message confirms completion.
+
+**Current version note:** PC Hotfix 3 (September 1, 2026) lists the Citadel Annex giant-spider traversal issue as fixed on PC.
 
 ## Faded Gland
 

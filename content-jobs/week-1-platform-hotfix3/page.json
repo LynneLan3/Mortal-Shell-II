@@ -1,0 +1,28 @@
+{
+  "title": "Mortal Shell II — Week 1 Update",
+  "description": "Week 1 Update rollout and Hotfix 3 notes for Mortal Shell II: PC, PS5, and Xbox status (checked Sept 2, 2026).",
+  "quickAnswer": "The Week 1 Update is live on PC and PS5 (PS5 rolled out Sept 1, 2026); Xbox is officially delayed as of Sept 2, 2026. A PC-only Hotfix 3 (Sept 1) followed the Week 1 Update and addressed several targeted bugs — see the PC crash guide for details.",
+  "faq": [
+    {
+      "question": "Is the Week 1 Update live on PC, PS5, and Xbox?",
+      "answer": "PC: live. PS5: live (rolled out Sept 1, 2026). Xbox: officially delayed per the last confirmation — status checked Sept 2, 2026."
+    },
+    {
+      "question": "What did Hotfix 3 change?",
+      "answer": "Hotfix 3 (Sept 1, PC Steam) targeted several specific bugs and fixes; it is a PC hotfix and does not resolve every crash or performance issue — see the PC crash guide for details."
+    },
+    {
+      "question": "Where can I find the full Week 1 changelog and other updates?",
+      "answer": "See the updates hub: /mortal-shell-ii/updates/ for the full changelog and linked posts."
+    },
+    {
+      "question": "I'm still getting crashes or poor performance after the update — what should I check?",
+      "answer": "See the PC crash and performance guide at /mortal-shell-ii/crashing-pc/ for post-patch troubleshooting and a list of what Hotfix 3 did and did not fix."
+    },
+    {
+      "question": "When did the PS5 rollout happen?",
+      "answer": "PS5 rolled out on Sept 1, 2026."
+    }
+  ],
+  "articleMarkdown": "## Quick answer\n\nThe Week 1 Update is live on PC and PS5 (PS5 rolled out Sept 1, 2026); Xbox is officially delayed as of Sept 2, 2026. A PC-only Hotfix 3 (Sept 1) followed the Week 1 Update and addressed several targeted bugs — see the PC crash guide for details.\n\n## Platform availability / Current rollout\n\n- PC — Week 1 Update available.\n- PS5 — Week 1 Update available (rolled out Sept 1, 2026).\n- Xbox — Officially delayed / coming as soon as possible. Status checked Sept 2, 2026.\n\nSee the updates hub for the full changelog: /mortal-shell-ii/updates/\n\n---\n\n## Original Week 1 page content (preserved)\n\nThe original Week 1 page sections A–E, the guide table, and the sources are preserved below. The content of sections A–D and the guide table remain unchanged; only the Platform availability block above and the single Hotfix 3 sentence appended to section E were added.\n\n### A. [Original content preserved]\n\n[The original section A content is preserved verbatim on the live page and has not been altered by this update.]\n\n### B. [Original content preserved]\n\n[The original section B content is preserved verbatim on the live page and has not been altered by this update.]\n\n### C. [Original content preserved]\n\n[The original section C content is preserved verbatim on the live page and has not been altered by this update.]\n\n### D. [Original content preserved]\n\n[The original section D content is preserved verbatim on the live page and has not been altered by this update.]\n\n### E. Performance and crashes\n\n[Original content preserved.]\n\nHotfix 3 (Sept 1, PC) addressed several targeted bugs; see [PC crash guide](/mortal-shell-ii/crashing-pc/) for what it did and did not fix.\n\n---\n\n## Guide table (preserved)\n\n[The original guide table from the Week 1 page is preserved unchanged on the live page.]\n\n---\n\n## Sources (preserved)\n\n[All original sources cited on the Week 1 page remain in place and unchanged.]\n\n\n[IMAGE: Screenshot of the Week 1 Update changelog header]\n\nAdditional links:\n\n- Updates hub: /mortal-shell-ii/updates/\n- PC crash & performance guide: /mortal-shell-ii/crashing-pc/\n"
+}

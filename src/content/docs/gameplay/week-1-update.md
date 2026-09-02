@@ -5,16 +5,16 @@ category: combat-exploration
 slug: mortal-shell-ii/updates/week-1-update
 status: needs-verification
 featured: true
-quickAnswer: "Released August 29, 2026 on PC. The Week 1 Update makes Glimpses and Tarcores non-finite, adds Shell respec via Mether's Severance, introduces repeatable Fragile Tarstones, and includes substantial crash fixes — but it does not fix every crash."
+quickAnswer: "Released August 29, 2026 on PC; PS5 rolled out September 1, 2026. Xbox remains delayed per last official confirmation (checked September 2, 2026). The Week 1 Update makes Glimpses and Tarcores non-finite, adds Shell respec via Mether's Severance, introduces repeatable Fragile Tarstones, and includes substantial crash fixes — but it does not fix every crash. PC Hotfix 3 (Sept 1) followed with targeted bug fixes."
 faq:
   - question: "Is the Week 1 Update live on PC and consoles?"
-    answer: "The update is live on PC per the official Steam announcement (August 29, 2026). PS5 and Xbox rollout is not confirmed in this site's evidence record."
+    answer: "PC: live (August 29, 2026). PS5: live (rolled out September 1, 2026). Xbox: officially delayed per last confirmation — status checked September 2, 2026."
   - question: "Are Glimpses and Tarcores still limited in one playthrough?"
     answer: "No. Glimpses and Tarcores are no longer finite, so every Shell and Tarstone can be upgraded in one playthrough. Fragile Tarstones can appear repeatedly."
   - question: "How does Shell respec work after Week 1?"
     answer: "Obtain Mether's Severance, give it to Zhirelle, and follow the respec prompt. Spent Glimpses on that Shell's Bond are refunded per the official note."
   - question: "Did Week 1 fix all crashes?"
-    answer: "No. The update includes extensive crash and stability fixes plus improved diagnostics, but continuing crashes are still possible. Confirm your build is updated first."
+    answer: "No. The update includes extensive crash and stability fixes plus improved diagnostics, but continuing crashes are still possible. PC Hotfix 3 (Sept 1) added targeted fixes — see the PC crash guide for what it did and did not fix."
   - question: "How does Week 1 relate to Balance Patch 1?"
     answer: "Balance Patch 1 (August 20, 2026) changed Shell-map costs, weapons, and bosses. Week 1 adds renewable resources, respec, Fragile Tarstones, and more fixes. See the Balance Patch 1 guide at /mortal-shell-ii/updates/balance-patch-1/."
 related:
@@ -28,12 +28,12 @@ sidebar:
   label: Week 1 Update
   order: 8
   badge: Patch
-lastUpdated: 2026-08-30
+lastUpdated: 2026-09-02
 ---
 
 The **Week 1 Update** is Mortal Shell II's first major post-launch patch. It changes how you plan resources, whether early Shell Bonding is permanent, and how much crash troubleshooting you should do before blaming your PC setup.
 
-The biggest player-facing changes are the **resource economy** (Glimpses and Tarcores are no longer finite), **Shell respec** through Mether's Severance, **Fragile Tarstones** and expanded vendor stock, **exploration Beacons**, **Riposte and combat refinements**, and **extensive crash and stability fixes**. PC players can install this now; console rollout is not confirmed in this record. This page explains what changed, who it affects, and which guides to use now.
+The biggest player-facing changes are the **resource economy** (Glimpses and Tarcores are no longer finite), **Shell respec** through Mether's Severance, **Fragile Tarstones** and expanded vendor stock, **exploration Beacons**, **Riposte and combat refinements**, and **extensive crash and stability fixes**. This page explains what changed, who it affects, and which guides to use now.
 
 For the full update index, see [Mortal Shell II Updates & Patch Notes](/mortal-shell-ii/updates/).
 
@@ -41,13 +41,23 @@ For the full update index, see [Mortal Shell II Updates & Patch Notes](/mortal-s
 
 **When:** August 29, 2026 — [official Steam announcement](https://store.steampowered.com/news/app/2584270/view/690892955941077484).
 
-**PC status:** Live per the official post. PS5 and Xbox Series rollout is not confirmed in this site's evidence record.
+**PC status:** Live per the official post.
 
 **What to do first:**
 
 1. If you limited Tarstone or Glimpse spending because resources felt finite, revisit your [Tarstones](/mortal-shell-ii/tarstones/) and [Glimpses](/mortal-shell-ii/glimpses/) plans.
 2. If you committed to a Shell Bond path you regret, look for **Mether's Severance** and the Zhirelle respec flow in the [Shells guide](/mortal-shell-ii/shells/).
-3. If the game still crashes, confirm Steam installed this update before using the [PC crash guide](/mortal-shell-ii/crashing-pc/).
+3. If the game still crashes, confirm Steam installed the Week 1 Update and PC Hotfix 3 before using the [PC crash guide](/mortal-shell-ii/crashing-pc/).
+
+## Platform availability / Current rollout
+
+| Platform | Status |
+| --- | --- |
+| PC | Week 1 Update available (August 29, 2026) |
+| PS5 | Week 1 Update available (rolled out September 1, 2026) |
+| Xbox | Officially delayed / coming as soon as possible — latest confirmed status checked September 2, 2026 |
+
+Do not assume Xbox has shipped unless a stronger official source confirms it after this check date.
 
 ## Biggest gameplay changes
 
@@ -98,9 +108,9 @@ The Week 1 Update adds **new Beacons** and adjusts navigation pacing in supporte
 
 The Week 1 Update includes **extensive crash and stability fixes**, improved diagnostics, and changes to some graphics-related settings implicated in driver crashes.
 
-**Player impact:** Update before deep troubleshooting. Crashes can still occur after this patch — the update improves stability; it does not guarantee every crash scenario is resolved.
+**Player impact:** Update before deep troubleshooting. Crashes can still occur after this patch — the update improves stability; it does not guarantee every crash scenario is resolved. **PC Hotfix 3** (September 1, 2026) addressed several targeted bugs afterward; see the [PC crash guide](/mortal-shell-ii/crashing-pc/) for what Hotfix 3 did and did not fix.
 
-See the [PC crash guide](/mortal-shell-ii/crashing-pc/) for current symptom routing and the Week 1 status block at the top of that page.
+See the [PC crash guide](/mortal-shell-ii/crashing-pc/) for current symptom routing and the Hotfix 3 status block at the top of that page.
 
 ## What this changes in our guides
 
@@ -118,6 +128,10 @@ See the [PC crash guide](/mortal-shell-ii/crashing-pc/) for current symptom rout
 
 Yes. The [official Steam post](https://store.steampowered.com/news/app/2584270/view/690892955941077484) announces the Week 1 Update for the PC build checked on August 29, 2026.
 
+### Is the Week 1 Update live on PS5 and Xbox?
+
+**PS5:** Yes — rolled out September 1, 2026. **Xbox:** Officially delayed per the last confirmed status; checked September 2, 2026. See [Platform availability](#platform-availability--current-rollout) above.
+
 ### Are Glimpses still scarce?
 
 They are no longer **finite per run**. You can still prioritize which Shell to Bond first, but the old hard cap that blocked full Shell and Tarstone upgrading in one playthrough is removed.
@@ -128,7 +142,7 @@ Obtain **Mether's Severance**, give it to **Zhirelle**, and follow the respec pr
 
 ### Did this fix all crashes?
 
-No. The patch includes substantial crash and stability work, but continuing crashes are still possible. Confirm your build is updated, then use the [PC crash guide](/mortal-shell-ii/crashing-pc/).
+No. The patch includes substantial crash and stability work, but continuing crashes are still possible. Confirm your build includes the Week 1 Update and PC Hotfix 3, then use the [PC crash guide](/mortal-shell-ii/crashing-pc/).
 
 ### How does Week 1 relate to Balance Patch 1?
 

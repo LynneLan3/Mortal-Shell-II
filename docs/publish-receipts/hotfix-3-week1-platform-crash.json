@@ -5,17 +5,19 @@
   "siteId": "mortal-shell-ii",
   "siteName": "Mortal Shell II",
   "batchId": "mortal-shell-ii|hotfix-3-week1-platform-crash|8820274",
-  "commitSHA": "8820274",
-  "deploymentURL": "https://mortal-shell-tx8zyfbht-lynnelan3s-projects.vercel.app",
+  "commitSHA": "a8a6216",
+  "deploymentURL": "https://mortal-shell-a3bmhqgce-lynnelan3s-projects.vercel.app",
   "productionURL": "https://mortalshell2guide.com",
-  "productionDeployedAt": "2026-09-02T06:26:08.000Z",
+  "productionDeployedAt": "2026-09-02T06:42:25.000Z",
   "lifecyclePhase": "PUBLISHED",
   "action": "CONTENT_EXPANSION",
   "reason": "Hotfix 3 PC status on Updates hub, Week 1 console rollout refresh, and append-only crash/performance intent capture on crashing-pc.",
   "sourceRefs": [
     "content-jobs/hotfix-3-crash-status/research.md",
     "content-jobs/week-1-platform-hotfix3/research.md",
-    "src/config/updates.ts"
+    "src/config/updates.ts",
+    "commit:a8a6216",
+    "deploy:https://mortal-shell-a3bmhqgce-lynnelan3s-projects.vercel.app"
   ],
   "affectedPages": [
     {

@@ -10,6 +10,7 @@
  */
 import '../../styles/experience.css';
 import { game } from '../../config/game';
+import AdcashAutotag from '../AdcashAutotag.astro';
 import AdSenseVerification from '../AdSenseVerification.astro';
 import Analytics from '../Analytics.astro';
 import SocialMeta from '../SocialMeta.astro';
@@ -77,6 +78,7 @@ const {
 	{description && <meta name="description" content={description} />}
 	{canonical && <link rel="canonical" href={canonical} />}
 	<AdSenseVerification />
+	<AdcashAutotag />
 	<SocialMeta />
 	<Analytics />
 	<slot name="head" />

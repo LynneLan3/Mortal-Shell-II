@@ -1,0 +1,49 @@
+---
+/**
+ * Site-wide Adcash Autotag: load aclib.js once in <head>, then runAutoTag.
+ * Autotag may serve Pop-under / Interstitial / In-Page Push / Video Slider.
+ * Display Banner zone 12101514 is intentionally not used here.
+ *
+ * Production-only. Hostname check skips Autotag on non-production hosts so
+ * local preview does not fire Auto formats.
+ */
+import {
+	ADCASH_AUTOTAG_ZONE_ID,
+	ADCASH_LIB_SRC,
+	isAdcashAutotagRuntimeEnabled,
+} from '../lib/adcash';
+import { game } from '../config/game';
+
+const enabled = isAdcashAutotagRuntimeEnabled();
+const siteHost = enabled ? new URL(game.siteUrl).hostname : '';
+const zoneId = ADCASH_AUTOTAG_ZONE_ID;
+---
+
+{
+	enabled && (
+		<>
+			<script id="aclib" type="text/javascript" src={ADCASH_LIB_SRC} is:inline />
+			<script is:inline define:vars={{ siteHost, zoneId }}>
+				(function () {
+					try {
+						if (location.hostname !== siteHost) return;
+					} catch (error) {
+						return;
+					}
+					function run() {
+						var aclib = window.aclib;
+						if (aclib && typeof aclib.runAutoTag === 'function') {
+							aclib.runAutoTag({ zoneId: zoneId });
+						}
+					}
+					if (window.aclib) {
+						run();
+						return;
+					}
+					var el = document.getElementById('aclib');
+					if (el) el.addEventListener('load', run);
+				})();
+			</script>
+		</>
+	)
+}

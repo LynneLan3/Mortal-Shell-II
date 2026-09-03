@@ -14,7 +14,7 @@ sidebar:
   label: Endings Guide
   order: 15
   badge: Exploration
-lastUpdated: 2026-08-27
+lastUpdated: 2026-09-03
 ---
 
 ## Spoiler warning
@@ -42,6 +42,44 @@ The main ending is the standard campaign conclusion. Finish [The Unfound Path](/
 
 Finish any optional weapons, Shell unlocks, Tarstone experiments, Beacons, or collectibles you want before committing. Use the [Map Fragments guide](/mortal-shell-ii/map-fragments/) for route visibility and the [Beacon locations guide](/mortal-shell-ii/beacons-fast-travel/) for travel infrastructure.
 
+## How to Reach Desolate Peak
+
+Desolate Peak is in western Fainweald and is reached through a **Bone Gate**, not by fast-travelling directly to Baghead. Current reliable guides do **not** document a Beacon sitting directly beside Baghead, the Illusionist's Cache entrance, or the Crypt Key pickup. The most useful nearby Beacons are **Widow's Overlook** and **Outskirts of Nochte**; from either one, travel to a Bone Gate and pass through it to enter Desolate Peak.
+
+### Nearest useful Beacons
+
+There is no clearly documented **Desolate Peak Beacon**. **Widow's Overlook** and **Outskirts of Nochte** are the nearest practical fast-travel anchors. See the [Beacon locations and fast travel guide](/mortal-shell-ii/beacons-fast-travel/) for travel mechanics and the full launch checklist.
+
+### From Widow's Overlook
+
+1. Start at **Widow's Overlook Beacon**.
+2. Travel **north**.
+3. **Curve west** toward the **Citadel of Penance** side.
+4. Find the **Bone Gate south of the Citadel of Penance**.
+5. Use the Bone Gate to reach **Desolate Peak**.
+6. When the area name changes to Desolate Peak, look for **Baghead** and the **large ruined structure** as confirmation landmarks.
+
+### From Outskirts of Nochte
+
+1. Start at **Outskirts of Nochte Beacon**.
+2. Move **north** toward the Citadel / western Fainweald Bone Gate approach.
+3. Use the Bone Gate to arrive at **Desolate Peak**.
+
+Both routes are supported by current guides; neither is the only possible entrance.
+
+### Confirm you are in Desolate Peak
+
+Stable landmarks in the area:
+
+- **Baghead** on his throne / stone seat
+- The **ruined building directly opposite or near Baghead**
+- The **Illusionist's Cache** entrance inside that structure
+- The **Crypt Key** pickup area in the same building cluster
+
+If you can see Baghead and the ruined building containing the Illusionist's Cache entrance, you are in the correct Desolate Peak area. For Crypt Key pickup details, see the [Crypt Key guide](/mortal-shell-ii/crypt-key-hall-of-echoes/).
+
+Once you confirm those landmarks, continue with the Baghead secret-ending steps below.
+
 ## Baghead secret ending
 
 Baghead's secret ending is a separate route connected to **Desolate Peak** and **Gloomshade Grove**.
@@ -56,7 +94,7 @@ If you picked up **Special Moonshine**, put it back before completing the releva
 
 The safe sequence is:
 
-1. Reach the Baghead route through the Desolate Peak / Gloomshade Grove area.
+1. Reach Baghead using the [Desolate Peak route above](#how-to-reach-desolate-peak).
 2. Follow the interaction until the return item question or requirement appears.
 3. If Special Moonshine is in your possession, return it to its original place.
 4. Complete the interaction with the “nothing” result.
@@ -97,9 +135,21 @@ The [Weapons Guide](/mortal-shell-ii/weapons/) and [Shells Guide](/mortal-shell-
 
 The current research supports the main campaign ending and Baghead's secret ending.
 
-### Where is Baghead?
+### What is the nearest Beacon to Desolate Peak?
 
-The secret route is associated with Desolate Peak and Gloomshade Grove. Use the surrounding Beacon and map context to reach the area.
+There is no Beacon directly beside Desolate Peak. The nearest useful Beacons are **Widow's Overlook** and **Outskirts of Nochte**; from either, travel to a nearby Bone Gate and pass through it. See the [Beacon locations guide](/mortal-shell-ii/beacons-fast-travel/) and the [How to Reach Desolate Peak](#how-to-reach-desolate-peak) section above.
+
+### How do you reach Desolate Peak in Mortal Shell 2?
+
+Fast-travel to **Widow's Overlook** or **Outskirts of Nochte**, travel toward the **Citadel of Penance** approach, find the **Bone Gate** (commonly the gate south of the Citadel), and use it to enter Desolate Peak. See the step-by-step routes above.
+
+### Can you fast travel directly to Desolate Peak?
+
+No. Current reliable guides do not document a Desolate Peak Beacon or a fast-travel point directly to Baghead. Fast-travel to a nearby Beacon, then walk to a Bone Gate.
+
+### Where is Baghead in Desolate Peak?
+
+Baghead sits in western Fainweald's Desolate Peak, near the ruined building that contains the **Illusionist's Cache** entrance and the **Crypt Key** pickup area. If you see Baghead and that structure, you are in the correct spot.
 
 ### What should I bring back for Baghead?
 

@@ -22,7 +22,7 @@ The **Crypt Key** is in the ruined structure at **Desolate Peak**, beside **Bagh
 
 ## Where is the Crypt Key?
 
-Travel to **Desolate Peak** in western Fainweald and find Baghead's throne. Enter the ruined building directly opposite him. The entrance to **Illusionist's Cache** is inside that structure.
+Travel to **Desolate Peak** in western Fainweald and find Baghead's throne. For Beacon and Bone Gate routes, see the [Endings guide — How to Reach Desolate Peak](/mortal-shell-ii/endings/#how-to-reach-desolate-peak). Enter the ruined building directly opposite him. The entrance to **Illusionist's Cache** is inside that structure.
 
 Inspect the **table, shelf, or counter around and above the Illusionist's Cache entrance**. Current launch guides describe the exact pickup surface differently, but they agree on the building and dungeon-entrance landmark. A nearby **Tattered Note** can help confirm that you are searching the intended structure. Interact with the key to add **Crypt Key** to your inventory.
 

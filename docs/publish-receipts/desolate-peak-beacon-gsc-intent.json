@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "deployment-receipt-v1",
+  "receiptKey": "mortal-shell-ii|desolate-peak-beacon-gsc-intent|26f165e",
+  "interventionId": "receipt-mortal-shell-ii|desolate-peak-beacon-gsc-intent|26f165e",
+  "siteId": "mortal-shell-ii",
+  "siteName": "Mortal Shell II",
+  "batchId": "mortal-shell-ii|desolate-peak-beacon-gsc-intent|26f165e",
+  "commitSHA": "26f165e",
+  "deploymentURL": "https://mortal-shell-19c5esp0y-lynnelan3s-projects.vercel.app",
+  "productionURL": "https://mortalshell2guide.com",
+  "productionDeployedAt": "2026-09-03T00:47:21.000Z",
+  "lifecyclePhase": "PUBLISHED",
+  "action": "CONTENT_OPTIMIZE",
+  "reason": "GSC desolate peak beacon query cluster — append-only Desolate Peak navigation on Endings page.",
+  "sourceRefs": [
+    "content-jobs/endings-desolate-peak-navigation/research.md",
+    "content-jobs/endings-desolate-peak-navigation/article.md",
+    "commit:26f165e",
+    "deploy:https://mortal-shell-19c5esp0y-lynnelan3s-projects.vercel.app"
+  ],
+  "observationHorizons": ["D1", "D3", "D7", "D14"],
+  "affectedPages": [
+    {
+      "path": "/mortal-shell-ii/endings/",
+      "pageRole": "EXISTING_PAGE_UPDATE",
+      "action": "UPDATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/endings/",
+      "triggerType": "gsc_navigation_intent",
+      "triggerQueries": [
+        "desolate peak beacon",
+        "desolate peak location",
+        "how to reach desolate peak",
+        "mortal shell 2 desolate peak",
+        "baghead desolate peak",
+        "desolate peak bone gate"
+      ],
+      "triggerSummary": "GSC impressions +166.67% on desolate peak beacon with 0 clicks; Endings page weak intent match.",
+      "sourceRefs": ["content-jobs/endings-desolate-peak-navigation/research.md"],
+      "reason": "Append How to Reach Desolate Peak section — Bone Gate routes from Widow's Overlook and Outskirts of Nochte, nearest Beacon answer, arrival landmarks, FAQ."
+    }
+  ]
+}

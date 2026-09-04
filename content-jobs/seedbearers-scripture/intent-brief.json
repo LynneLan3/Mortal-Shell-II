@@ -1,0 +1,26 @@
+{
+  "primaryQuery": "mortal shell 2 seedbearer's scripture",
+  "queryCluster": [
+    "mortal shell 2 seed bearers scripture",
+    "mortal shell 2 seedbearer's scripture",
+    "mortal shell 2 seedbearer scripture",
+    "seedbearer's scripture mortal shell 2"
+  ],
+  "userJob": "Find exactly how to obtain Seedbearer's Scripture and understand its immediate requirement and purpose.",
+  "intentOwnerStatus": "NARROW",
+  "serpPromise": "Explain immediately that Seedbearer's Scripture requires the three quest Glands, Night Mode, and the Forgotten Tower offering, while keeping individual Gland-location searches outside the primary SERP promise.",
+  "secondaryIntents": [
+    {
+      "query": "mortal shell 2 depleted gland location",
+      "action": "SPLIT"
+    },
+    {
+      "query": "mortal shell 2 thawed gland location",
+      "action": "SPLIT"
+    },
+    {
+      "query": "mortal shell 2 faded gland location",
+      "action": "SPLIT"
+    }
+  ]
+}

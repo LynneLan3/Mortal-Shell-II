@@ -1,0 +1,21 @@
+{
+  "primaryQuery": "mortal shell 2 nameless captive location",
+  "queryCluster": [
+    "mortal shell 2 nameless captive location",
+    "mortal shell 2 nameless captive",
+    "nameless captive mortal shell 2"
+  ],
+  "userJob": "Find where the Nameless Captive is and get the immediate strategy needed to beat the boss.",
+  "intentOwnerStatus": "KEEP",
+  "serpPromise": "Give the Captive's End / Prisoner's Domain location first, then concise fight guidance.",
+  "secondaryIntents": [
+    {
+      "query": "peter's perfect parry nameless captive",
+      "action": "MOVE"
+    },
+    {
+      "query": "captive's scabstone",
+      "action": "KEEP_SUPPORTING"
+    }
+  ]
+}

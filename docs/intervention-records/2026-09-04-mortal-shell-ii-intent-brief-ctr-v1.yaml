@@ -1,0 +1,104 @@
+intervention_id: "2026-09-04-mortal-shell-ii-intent-brief-ctr-v1"
+decision_id: "2026-09-04|Mortal Shell II|CONTENT_OPTIMIZE|intent-brief-ctr-v1"
+site_id: "mortal-shell-ii"
+lifecycle: GROWTH
+action: UPDATE_PAGE
+status: READY_FOR_PRODUCTION_PUBLISH
+
+experiment: intent-brief-ctr-v1
+gscAsOf: 2026-08-24
+serpAsOf: 2026-09-04
+
+outcome_evaluation_rule: >
+  Post-publish success/failure must be judged only with post-deploy GSC data.
+  Do not use the 2026-08-24 Query→Page baseline to judge this launch's outcome.
+
+evidence_boundary: >
+  This experiment does not claim post-2026-08-26 CTR failure because detailed
+  Query→Page GSC currently ends at 2026-08-24.
+
+urls:
+  - "/mortal-shell-ii/beta-progress-carry-over/"
+  - "/mortal-shell-ii/seedbearers-scripture/"
+  - "/mortal-shell-ii/nameless-captive/"
+
+page_decisions:
+  beta-progress-carry-over:
+    action: CHANGE
+    owner: KEEP
+    apply: APPLY
+    fields: [title, description, quickAnswer]
+  seedbearers-scripture:
+    action: CHANGE
+    owner: NARROW
+    apply: APPLY
+    fields: [title, description, quickAnswer]
+  nameless-captive:
+    action: HOLD
+    owner: KEEP
+    apply: HOLD
+    fields: []
+    note: "HOLD CONTROL — Writer candidate identical to production; no cosmetic rewrite."
+
+intent_briefs:
+  - "content-jobs/beta-progress-carry-over/intent-brief.json"
+  - "content-jobs/seedbearers-scripture/intent-brief.json"
+  - "content-jobs/nameless-captive/intent-brief.json"
+
+writer_pipeline: >
+  Shared Writer + Intent Brief V1 + APIMart via
+  hotword-control-center/scripts/shared-article-writer.mjs
+  (mode=update, model=gpt-5-mini)
+
+writer_candidates:
+  - "content-jobs/beta-progress-carry-over/writer-candidate-ctr-v1.md"
+  - "content-jobs/seedbearers-scripture/writer-candidate-ctr-v1.md"
+  - "content-jobs/nameless-captive/writer-candidate-ctr-v1.md"
+
+change_summary:
+  modified_fields:
+    - "SEO title"
+    - "Meta description"
+    - "quickAnswer"
+  preserved:
+    - "Canonical URLs / slugs"
+    - "Body copy, FAQ, H2/H3, images, videos, related, category, schema"
+    - "Seedbearer gland route body content (supporting only; no SPLIT pages)"
+    - "Nameless Captive production file completely unchanged"
+  publishing:
+    - "commit"
+    - "push current branch"
+    - "vercel production deploy"
+    - "existing publish-receipt writeback"
+
+gsc_baseline_as_of_2026-08-24:
+  beta-progress-carry-over:
+    page: "1 click / 144 impressions / 0.69% CTR / position 7.9"
+  seedbearers-scripture:
+    page: "3 clicks / 418 impressions / 0.72% CTR / position 7.9"
+  nameless-captive:
+    page: "1 click / 54 impressions / 1.85% CTR / position 8.4"
+
+observation_horizons:
+  - D7
+  - D14
+primary_metrics:
+  - clicks
+  - impressions
+  - CTR
+  - average position
+
+implementation_reference:
+  repository: "LynneLan3/Mortal-Shell-II"
+  branch: "codex/week-1-update"
+  local_only: false
+
+# Outcome intentionally omitted until D7/D14 observation windows complete.
+# Judge outcome only with post-deploy GSC, never the 2026-08-24 baseline alone.
+
+beta_title_revision:
+  revised_at: "2026-09-04"
+  status: APPLY
+  old_candidate_title: "No — Mortal Shell II Open Beta Progress Does Not Carry Over"
+  revised_candidate_title: "Mortal Shell II Beta Progress: What Resets and What You Keep"
+  reason: "Removed redundant No/Does Not stacking; title now carries resets/what-remains SERP promise without promoting skip-prologue as primary intent."

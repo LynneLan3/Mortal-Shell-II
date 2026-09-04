@@ -1,0 +1,22 @@
+{
+  "primaryQuery": "does mortal shell 2 beta progress carry over",
+  "queryCluster": [
+    "mortal shell 2 beta progress carry over",
+    "does mortal shell 2 beta progress carry over",
+    "mortal shell 2 beta carry over",
+    "mortal shell 2 beta save transfer"
+  ],
+  "userJob": "Immediately confirm whether Open Beta save progress transfers to the full game, then understand what resets and which limited benefits remain.",
+  "intentOwnerStatus": "KEEP",
+  "serpPromise": "Answer No immediately, then clearly separate what resets from the limited Beta benefits that remain available.",
+  "secondaryIntents": [
+    {
+      "query": "mortal shell 2 skip prologue",
+      "action": "MOVE"
+    },
+    {
+      "query": "mortal shell 2 flayed harbinger not showing",
+      "action": "KEEP_SUPPORTING"
+    }
+  ]
+}

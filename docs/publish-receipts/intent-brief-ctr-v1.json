@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "deployment-receipt-v1",
+  "receiptKey": "mortal-shell-ii|intent-brief-ctr-v1|6753daf",
+  "interventionId": "2026-09-04-mortal-shell-ii-intent-brief-ctr-v1",
+  "siteId": "mortal-shell-ii",
+  "siteName": "Mortal Shell II",
+  "batchId": "mortal-shell-ii|intent-brief-ctr-v1|6753daf",
+  "commitSHA": "6753dafc4bf1f6213c3d50c6577615b33536a36b",
+  "deploymentId": "dpl_21VD8TWQUwXZgQjPuUx3fEjCtWVZ",
+  "deploymentURL": "https://mortal-shell-9texnexy6-lynnelan3s-projects.vercel.app",
+  "productionURL": "https://mortalshell2guide.com",
+  "productionDeployedAt": "2026-09-04T08:16:57.000Z",
+  "lifecyclePhase": "PUBLISHED",
+  "action": "CONTENT_OPTIMIZE",
+  "reason": "Intent Brief CTR v1 — Shared Writer Layer 2/3 SERP promise alignment for Beta Progress (KEEP) and Seedbearer's Scripture (NARROW); Nameless Captive held as control.",
+  "sourceRefs": [
+    "docs/intervention-records/2026-09-04-mortal-shell-ii-intent-brief-ctr-v1.yaml",
+    "docs/intervention-records/2026-09-04-intent-brief-ctr-v1-decision-log.md",
+    "content-jobs/beta-progress-carry-over/intent-brief.json",
+    "content-jobs/seedbearers-scripture/intent-brief.json",
+    "content-jobs/nameless-captive/intent-brief.json",
+    "commit:6753daf",
+    "deploy:https://mortal-shell-9texnexy6-lynnelan3s-projects.vercel.app"
+  ],
+  "observationHorizons": ["D7", "D14"],
+  "outcomeEvaluationRule": "Judge post-publish success only with post-deploy GSC data. Do not use the 2026-08-24 Query→Page baseline to judge this launch.",
+  "gscBaselineAsOf": "2026-08-24",
+  "serpAsOf": "2026-09-04",
+  "affectedPages": [
+    {
+      "path": "/mortal-shell-ii/beta-progress-carry-over/",
+      "pageRole": "EXISTING_PAGE_UPDATE",
+      "action": "UPDATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/beta-progress-carry-over/",
+      "triggerType": "gsc_ctr_intent",
+      "triggerQueries": [
+        "mortal shell 2 beta progress carry over",
+        "does mortal shell 2 beta progress carry over",
+        "mortal shell 2 beta carry over",
+        "mortal shell 2 beta save transfer"
+      ],
+      "triggerSummary": "GSC as-of 2026-08-24: 1 click / 144 impressions / 0.69% CTR / pos 7.9. SERP needs Yes/No then resets vs limited retained benefits.",
+      "sourceRefs": [
+        "content-jobs/beta-progress-carry-over/intent-brief.json",
+        "src/content/docs/game-info/beta-progress-carry-over.md"
+      ],
+      "reason": "APPLY KEEP — title/description/quickAnswer only; skip-prologue remains MOVE secondary."
+    },
+    {
+      "path": "/mortal-shell-ii/seedbearers-scripture/",
+      "pageRole": "EXISTING_PAGE_UPDATE",
+      "action": "UPDATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/seedbearers-scripture/",
+      "triggerType": "gsc_ctr_intent",
+      "triggerQueries": [
+        "mortal shell 2 seed bearers scripture",
+        "mortal shell 2 seedbearer's scripture",
+        "mortal shell 2 seedbearer scripture",
+        "seedbearer's scripture mortal shell 2"
+      ],
+      "triggerSummary": "GSC as-of 2026-08-24: 3 clicks / 418 impressions / 0.72% CTR / pos 7.9. Narrow primary SERP promise away from SPLIT gland-location intents.",
+      "sourceRefs": [
+        "content-jobs/seedbearers-scripture/intent-brief.json",
+        "src/content/docs/gameplay/seedbearers-scripture.md"
+      ],
+      "reason": "APPLY NARROW — title/description/quickAnswer only; gland route body retained; no SPLIT pages."
+    },
+    {
+      "path": "/mortal-shell-ii/nameless-captive/",
+      "pageRole": "HOLD_CONTROL",
+      "action": "WATCH",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/nameless-captive/",
+      "triggerType": "gsc_ctr_intent",
+      "triggerQueries": [
+        "mortal shell 2 nameless captive location",
+        "mortal shell 2 nameless captive",
+        "nameless captive mortal shell 2"
+      ],
+      "triggerSummary": "GSC as-of 2026-08-24: 1 click / 54 impressions / 1.85% CTR / pos 8.4. Existing Location & How to Beat promise already matches SERP.",
+      "sourceRefs": [
+        "content-jobs/nameless-captive/intent-brief.json",
+        "src/content/docs/gameplay/nameless-captive.md"
+      ],
+      "reason": "HOLD CONTROL — production file unchanged; no cosmetic rewrite."
+    }
+  ]
+}

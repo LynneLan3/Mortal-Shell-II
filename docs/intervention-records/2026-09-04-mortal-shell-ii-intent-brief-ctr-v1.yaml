@@ -3,7 +3,7 @@ decision_id: "2026-09-04|Mortal Shell II|CONTENT_OPTIMIZE|intent-brief-ctr-v1"
 site_id: "mortal-shell-ii"
 lifecycle: GROWTH
 action: UPDATE_PAGE
-status: READY_FOR_PRODUCTION_PUBLISH
+status: PUBLISHED
 
 experiment: intent-brief-ctr-v1
 gscAsOf: 2026-08-24
@@ -70,6 +70,19 @@ change_summary:
     - "push current branch"
     - "vercel production deploy"
     - "existing publish-receipt writeback"
+
+production_publish:
+  commit_sha: "6753dafc4bf1f6213c3d50c6577615b33536a36b"
+  deployment_id: "dpl_21VD8TWQUwXZgQjPuUx3fEjCtWVZ"
+  deployment_url: "https://mortal-shell-9texnexy6-lynnelan3s-projects.vercel.app"
+  production_url: "https://mortalshell2guide.com"
+  production_deployed_at: "2026-09-04T08:16:57.000Z"
+  alias: "https://mortalshell2guide.com"
+  receipt: "docs/publish-receipts/intent-brief-ctr-v1.json"
+  verified_titles:
+    beta-progress-carry-over: "Mortal Shell II Beta Progress: What Resets and What You Keep"
+    seedbearers-scripture: "Mortal Shell 2 Seedbearer's Scripture: How to Get It (3 Glands)"
+    nameless-captive: "Mortal Shell 2 Nameless Captive Location & How to Beat It (unchanged)"
 
 gsc_baseline_as_of_2026-08-24:
   beta-progress-carry-over:

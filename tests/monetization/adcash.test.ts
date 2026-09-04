@@ -35,12 +35,16 @@ test('Adcash Autotag mounts once in shared Head and GameShell (not Display zone 
 	assert.doesNotMatch(autotag, /runBanner/i);
 });
 
-test('fixed Adsterra native banner remains; no overlapping global Auto script present', () => {
+test('Adsterra Native Banner config preserved but soft-offline; no overlapping Auto script', () => {
 	const nativeAd = readFileSync(path.join(ROOT, 'src/components/ads/NativeAd.astro'), 'utf8');
+	const adsterra = readFileSync(path.join(ROOT, 'src/lib/adsterra.ts'), 'utf8');
+	assert.match(adsterra, /ADSTERRA_ENABLED\s*=\s*false/);
 	assert.match(
-		nativeAd,
-		/src=\{adScript\}|https:\/\/pl31017060\.profitableratecpmnetwork\.com\/c6910232957079784045cb952f04febc\/invoke\.js/,
+		adsterra,
+		/https:\/\/pl31017060\.profitableratecpmnetwork\.com\/c6910232957079784045cb952f04febc\/invoke\.js/,
 	);
-	assert.match(nativeAd, /container-c6910232957079784045cb952f04febc|adsterra-native-banner/);
+	assert.match(adsterra, /container-c6910232957079784045cb952f04febc/);
+	assert.match(nativeAd, /isAdsterraRuntimeEnabled/);
+	assert.match(nativeAd, /enabled &&/);
 	assert.doesNotMatch(nativeAd, /popunder|interstitial|aclib|runAutoTag/i);
 });

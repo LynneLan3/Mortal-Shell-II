@@ -32,9 +32,28 @@ export interface AffectedGuideEntry {
 	updateIds: readonly string[];
 }
 
-export const currentMajorUpdateId = 'week-1-update';
+export const currentMajorUpdateId = 'september-5-update';
 
 export const gameUpdates: readonly GameUpdateEntry[] = [
+	{
+		id: 'september-5-update',
+		title: 'Sep. 5 Update',
+		href: '/mortal-shell-ii/updates/september-5-update/',
+		date: '2026-09-05',
+		platformStatus: {
+			pc: 'live',
+			ps5: 'Live per the official update announcement',
+			xbox: 'Live per the official update announcement',
+		},
+		impactTags: ['Adaptive Difficulty', 'Combat', 'Stability', 'Performance'],
+		playerConsequence: 'Adaptive Difficulty is optional and off by default; crash fixes and optimisations do not guarantee every issue is resolved.',
+		summary:
+			'Adds Experimental Adaptive Difficulty, balance and bug fixes, and several crash fixes and optimisations. Sustained success can raise enemy damage, health, and break resistance beyond the original highest standard difficulty; repeated deaths can reduce pressure.',
+		guideImpacts: [
+			{ label: 'Adaptive Difficulty', href: '/mortal-shell-ii/adaptive-difficulty/' },
+			{ label: 'PC Crashes & Stability', href: '/mortal-shell-ii/crashing-pc/' },
+		],
+	},
 	{
 		id: 'hotfix-3',
 		title: 'Hotfix 3',
@@ -127,7 +146,12 @@ export const affectedGuides: readonly AffectedGuideEntry[] = [
 	{
 		label: 'PC Crashes & Stability',
 		href: '/mortal-shell-ii/crashing-pc/',
-		updateIds: ['hotfix-3', 'week-1-update', 'balance-patch-1'],
+		updateIds: ['september-5-update', 'hotfix-3', 'week-1-update', 'balance-patch-1'],
+	},
+	{
+		label: 'Adaptive Difficulty',
+		href: '/mortal-shell-ii/adaptive-difficulty/',
+		updateIds: ['september-5-update'],
 	},
 	{
 		label: 'Tarforge Upgrades',

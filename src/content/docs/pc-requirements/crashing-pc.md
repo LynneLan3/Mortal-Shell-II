@@ -1,22 +1,39 @@
 ---
-title: "Mortal Shell 2 Crashing on PC? Hotfix 2.0, Crash Fixes & Known Issues"
-description: "Mortal Shell 2 Hotfix 2.0 crash, stability, and performance fixes are live. See what Hotfix 2.0 fixes, the Keyboard Bindings workaround, remaining crash reports, and how to report a bug."
+title: "Mortal Shell 2 Crashing on PC? Sep. 5 Update, Crash Fixes & Known Issues"
+description: "The Sep. 5 Mortal Shell 2 update adds crash fixes and optimisations, but does not resolve every crash, save/load failure, freeze, or FPS regression. See current PC symptoms, official guidance, and remaining crash reports."
 category: pc-requirements
 slug: mortal-shell-ii/crashing-pc
 status: needs-verification
 featured: true
-quickAnswer: "Hotfix 3 (Sept 1, 2026, PC) fixed several targeted bugs but does not guarantee every crash, freeze, or performance issue is resolved. Confirm Steam has installed the Week 1 Update and Hotfix 3, follow official mod/engine.ini precautions if problems started after patching, then use the symptom-specific troubleshooting below."
+quickAnswer: "The Sept. 5, 2026 update added crash fixes and optimisations but does not claim every crash, save/load failure, freeze, or performance regression is resolved. Confirm the latest Steam build, distinguish the symptom, then use the matching troubleshooting route below."
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
   - mortal-shell-ii/updates/week-1-update
   - mortal-shell-ii/updates/balance-patch-1
 sidebar:
-  label: PC Crashes & Hotfix 2.0
+  label: PC Crashes & Sep. 5 Update
   order: 2
   badge: Launch
-lastUpdated: 2026-09-02
+lastUpdated: 2026-09-06
 ---
+
+## Current Status After the Sep. 5 Update
+
+The **September 5, 2026 update** added **“several crash fixes and optimisations,”** plus performance and lighting changes. Its official notes do **not** claim that every crash, save/load failure, freeze, or performance problem is resolved. This guide remains the right place to separate the symptom and test the next step.
+
+### Problem router
+
+| Symptom after the Sep. 5 update | Current status | Next step |
+| --- | --- | --- |
+| Normal crash | Some crash fixes shipped; not all crashes are confirmed fixed | Use the existing crash troubleshooting below |
+| Freeze, stutter, or much worse FPS | Players still report performance degradation after the update | Retest the same scene, then follow the existing performance checks below |
+| Crash while loading a save | Week 1 included save-loading crash fixes, but not every loading case is confirmed resolved | Treat it as a loading crash and use the loading-screen route below |
+| **LOAD SAVE** will not work after the update | A player report exists, but there is not enough evidence to call this a widespread patch bug or confirmed save corruption | Do not delete saves or apply an unverified recovery step; report the exact failure |
+
+One Steam player reported an FPS drop from about **50–60 to 15–20** after the update and said updating the **NVIDIA App** restored performance. That is one player's report, not an official or universal fix. The earlier developer shader-cache troubleshooting remains the higher-priority documented suggestion; rebuilding a shader cache did not resolve that player's case.
+
+See the [Sep. 5 update page](/mortal-shell-ii/updates/september-5-update/) and [updates hub](/mortal-shell-ii/updates/) for the broader patch context. For a crash that began after updating, first confirm Steam finished the update, restart Steam, and retest the exact trigger before changing settings or files.
 
 ## After Hotfix 3 — Current PC Status
 
@@ -293,3 +310,6 @@ Launch-window players most often report repeated crashes on loading screens, fas
 - [Mortal Shell II dev Q&A on crashes](https://www.gamerfuzion.com/mortal-shell-2-dev-qa-difficulty-slayer-seal/) — pre-launch developer comments
 - [Destructoid graphics settings guide](https://www.destructoid.com/best-mortal-shell-2-graphics-settings-for-no-lag-and-max-fps/) — confirms Frame Generation as a separate PC option, August 17, 2026
 - [GamingTrend review in progress](https://gamingtrend.com/reviews/mortal-shell-ii-review-in-progress/) — PS5 review-build Gloom loss report
+- [LOAD SAVE not working after today's patch](https://steamcommunity.com/app/2584270/discussions/0/581681621355226644/) — player report after the Sep. 5 update; no confirmed fix
+- [Performance degradation / crashes after the update](https://steamcommunity.com/app/2584270/discussions/0/581681621355223073/) — player report including a 50–60 to 15–20 FPS drop and an individual NVIDIA App update result
+- [New Update Out Now](https://steamcommunity.com/app/2584270/discussions/0/581681621355213340/) — official Sep. 5 update wording and performance/lighting changes

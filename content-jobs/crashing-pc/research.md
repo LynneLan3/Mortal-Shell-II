@@ -1,4 +1,48 @@
-# Target intent
+# Sep. 5 current-status refresh — APIMart page-package brief
+
+- Slug: `mortal-shell-ii/crashing-pc`
+- Canonical URL: `/mortal-shell-ii/crashing-pc/`
+- Action: UPDATE_PAGE, APPEND_ONLY freshness refresh at the top; preserve all existing historical Hotfix / Week 1 material and the exact Keyboard Bindings procedure.
+
+## OFFICIAL CONFIRMED
+
+- The Sep. 5 official update is live on PC, PS5, and Xbox.
+- Its stability wording is only: “Several crash fixes and optimisations.”
+- The update does not claim all crashes, freezes, or performance issues are resolved.
+- Week 1 official crash/stability facts remain valid: fixes involving enemy spawning, audio, attribute changes, interface loading, save loading, shutdown; removal of some graphics-driver-crash-related settings; and added crash diagnostics / diagnostic context.
+- Week 1 official performance facts remain valid: shader-compilation hitch work; tar gate cleansing frame-rate-drop work; dungeon lighting/effects/final-boss optimisations; reduced background work for weapons, hit detection, and movement; frame-generation rework; and optional Increased Geometry Budgets, default OFF.
+- The existing developer Keyboard Bindings workaround remains limited to that specific settings-menu crash.
+
+## COMMUNITY REPORTED
+
+- After Sep. 5, some players still report performance degradation, FPS drops, stuttering/freezing, and performance worsening during play.
+- A Steam performance-degradation/crashes discussion has about 31 replies and includes a report of FPS starting normally, gradually dropping after several minutes, then possibly freezing or crashing.
+- Some players report new load/save problems after the update, including a save that would not load.
+- One player reported FPS falling from about 50–60 to 15–20 after Sep. 5 and recovering after updating the NVIDIA App. This is not an official or universal fix; include only as a brief community report if the existing community section can hold it.
+- Do not label these symptoms as a memory leak, VRAM leak, shader leak, driver fault, or confirmed patch regression.
+
+## DO NOT CLAIM
+
+- Do not say crashes are fixed, save-loading crashes are fixed, performance problems are fixed, or Sep. 5 caused confirmed save corruption.
+- Do not create or link `/load-save-fix/`, `/stuttering/`, `/fps-drop/`, `/performance/`, or `/crashes-after-update/`.
+- Do not add unverified save-recovery steps.
+
+## Required current-status refresh
+
+- Add or replace the top current-status block with `## Current Status After the Sep. 5 Update`.
+- Core answer: Sep. 5 includes additional crash fixes and optimisations; it does not claim all crashes/freezes/performance issues are resolved; players still report crashes and performance degradation; distinguish crash, freeze, FPS degradation, and load/save failure before troubleshooting.
+- Add a compact Problem Router after Current Status:
+  - normal crashes → existing crash troubleshooting;
+  - freezes/FPS worsening → current community-reported symptom and existing performance troubleshooting;
+  - loading-save crashes → Week 1 did address save-loading crash cases, but not every case;
+  - save will not load after Sep. 5 → some player reports, insufficient evidence for a confirmed widespread patch bug, no speculative recovery steps.
+- Link the Sep. 5 update page `/mortal-shell-ii/updates/september-5-update/` and `/mortal-shell-ii/updates/`.
+- Keep existing NVIDIA/AMD sections and evidence labels; developer shader-cache advice remains a potential fix, not guaranteed.
+- Keep the existing canonical URL and no new media.
+
+---
+
+# Prior research retained
 
 Update the existing `/mortal-shell-ii/crashing-pc/` guide for the post-Balance-Patch-1 PC state. Give a fast decision path, separate official/developer-confirmed information from player-reported workarounds, and do not create another crash page.
 

@@ -18,7 +18,6 @@ related:
   - mortal-shell-ii/blackmarrow-keys
   - mortal-shell-ii/updates/week-1-update
   - mortal-shell-ii/updates/balance-patch-1
-  - mortal-shell-ii/updates/september-5-update
 sidebar:
   label: Tarstones Guide
   order: 13
@@ -107,7 +106,7 @@ There is no verified universal best Tarstone. The right pick depends on your She
 | Early sustain | **Unwieldy Stone** | A Resolve-powered charged heavy attack and reported healing-on-kill at higher levels make it a strong utility pick. | Merrick in Marrow Keep; AllThings.How reports 2,000 coins. |
 | General melee crits | **Auspicious Stone** | Reported to increase melee Critical Chance and work as an accessible early melee option. | Mushroom Village offering chest. |
 | Frequent guaranteed crits | **Grudge Stone** | Reported guaranteed-crit interval improves from every tenth attack toward every fifth at higher levels. | Chest near the Citadel of Penance. |
-| Axe & Dagger / Axatana light combo | **Duality Stone** | Still grants an extra light-attack hit for compatible dual-wield weapons and remains useful for fast light-combo, hit-count, and status-based builds. Community reports around Sep. 5 indicate substantially lower Resolve generation — Resolve-focused players should compare alternatives before treating Duality as an auto-pick. | Ravaged Tomb near Nochtean Gate. |
+| Axe & Dagger / Axatana light combo | **Duality Stone** | Still grants an extra light-attack hit for compatible dual-wield weapons and remains useful for fast light-combo, hit-count and status-based builds. However, multiple community reports around Sep. 5 indicate substantially lower Resolve generation — Resolve-focused players should compare alternatives before treating Duality as an auto-pick. | Ravaged Tomb near Nochtean Gate. |
 | Sidearm Fragile setup | **Enfeebling Stone** | Reported to apply Fragile stacks through sidearm projectiles. | Trial east of the Outskirts of Mammon. |
 | Defensive clears | **Bulwark Stone** | Official Balance Patch 1 says its damage reduction increased significantly; no stable numeric value is published here. | Citadel of Penance. |
 | Sidearm burn infusion | **Emberseed Stone** | Useful only with a compatible sidearm; GameSpot specifically describes equipment restrictions for infusion stones. | Passenger's Shrine / Mushroom Village route. |
@@ -116,19 +115,16 @@ Use the [Weapons Guide](/mortal-shell-ii/weapons/) and [Shells Guide](/mortal-sh
 
 ## Sep. 5 Duality Stone current state
 
-Duality Stone still adds the extra light-attack hit for its compatible dual-wield weapons, but players report substantially lower Resolve generation after the Sep. 5 update. The change was not documented in the official patch notes.
-
-See the [Sep. 5 update](/mortal-shell-ii/updates/september-5-update/) for the broader patch context.
+Duality Stone still adds the extra light-attack hit for its compatible dual-wield weapons, but players report substantially lower Resolve generation after the Sep. 5 update. The change was not documented in the official Sep. 5 patch notes.
 
 What this means in practice:
-
 - Still useful: Duality remains valuable for fast dual-wield light-combo builds, hit-count builds, and status-application strategies that benefit from an extra attack.
 - Resolve-focused caution: Several community reports say Duality now generates much less Resolve; Resolve-dependent Axatana or Axe & Dagger builds should consider alternatives and re-test before committing.
-- Community-tested numbers: Some player tests circulating after Sep. 5 report Resolve generation around **25%**. Treat that figure as community-tested only — it is **not listed or confirmed by the developer**.
+- Community-tested numbers: Some player tests posted in community threads report Resolve generation around 25% after the Sep. 5 update — label: community-tested and **not developer-confirmed**. No official patch note lists a Duality change.
 
 ### What to use instead of Duality Stone?
 
-For players prioritizing Resolve on Axatana / Axe & Dagger after the reported Sep. 5 change, community discussion has pointed to **Zealot's Stone** as a Resolve-oriented alternative. This is a community recommendation, not an official ranking. Zealot's Stone is listed in the Boss and encounter rewards table below (Giant knight at Besieged Ruins, High Lord's Courtyard); test it in your build before treating it as a default swap.
+For players prioritizing Resolve on Axatana / Axe & Dagger after the reported Sep. 5 change, community discussion has pointed to **Zealot's Stone** as a Resolve-oriented alternative. This is a community recommendation, not an official ranking. Zealot's Stone is reported in the Boss and encounter rewards table above (Giant knight at Besieged Ruins, High Lord's Courtyard); test it in your build to confirm the practical benefit for your playstyle.
 
 ## Source-reported Tarstones database
 
@@ -271,7 +267,7 @@ Tarcore is part of the higher Tarstone tempering economy. The reported launch lo
 
 ### What is the best early Tarstone?
 
-Choose by goal: Gloombound Stone for Gloom farming, Unwieldy Stone for early sustain, Auspicious or Grudge for melee crits, and Enfeebling for a compatible sidearm Fragile setup. Duality remains a useful early pick for Axe & Dagger / Axatana light-combo or hit-count builds, but community reports after Sep. 5 say its Resolve generation may be reduced — if your build relies on Resolve, compare alternatives before locking it in. None is a verified universal best.
+Choose by goal: Gloombound Stone for Gloom farming, Unwieldy Stone for early sustain, Auspicious or Grudge for melee crits. Duality remains a useful early pick for Axe & Dagger / Axatana light-combo or hit-count builds, but recent community reports suggest its Resolve generation may be reduced — if your build relies on Resolve, compare alternatives (for example, the community-recommended Zealot's Stone) before locking it in. None is a verified universal best.
 
 ### Is Berserker's Stone missable?
 
@@ -283,32 +279,12 @@ No. It is a launch-window, source-reconciled database of reported names and acqu
 
 ### Was Duality Stone nerfed?
 
-Official Sep. 5 patch notes do not list any Duality Stone change. Multiple community reports around Sep. 5–6 claim Duality's Resolve generation dropped substantially. Those reports are community-sourced and are not developer-confirmed.
+Official Sep. 5 patch notes do not list any Duality Stone change. However, multiple community reports around Sep. 5–6 claim Duality's Resolve generation dropped substantially. Those reports are community-sourced and are not developer-confirmed.
 
 ### How much Resolve does Duality Stone generate now?
 
-Some community-tested posts circulating after Sep. 5 report Resolve generation near ~25%. That figure is community-tested and **not listed or confirmed by the developer**. The Sep. 5 official notes do not publish a numeric Resolve change for Duality.
+Some community-tested posts circulating around Sep. 5 report Resolve generation near ~25% after the update; these figures are community-tested and **not developer-confirmed**. The Sep. 5 official notes do not publish a numeric Resolve change for Duality.
 
 ### Is Duality Stone still good?
 
-Yes for its remaining job: Duality still adds the extra light-attack hit for compatible dual-wield weapons and remains useful for fast light-combo, hit-count, and status-oriented builds. Resolve-focused builds now have stronger reason to compare alternatives after the community-reported Sep. 5 Resolve drop.
-
-### What should I use instead of Duality Stone?
-
-Current community discussion points to **Zealot's Stone** as a Resolve-oriented alternative for Axatana / Axe & Dagger players. Treat that as a community recommendation, not an official best-in-slot ranking, and re-test in your own build.
-
-## Sources
-
-- [New Update Out Now — official Sep. 5 Mortal Shell II Steam announcement](https://steamcommunity.com/app/2584270/discussions/0/581681621355213340/) — official Sep. 5 update context; Duality Stone is not listed among the documented changes.
-- [Sep. 5 update guide](/mortal-shell-ii/updates/september-5-update/) — local patch context for Adaptive Difficulty, balance, and crash/stability wording.
-- [Mortal Shell II — The Week 1 Update is Available Now](https://store.steampowered.com/news/app/2584270/view/690892955941077484) — official August 29, 2026 economy, Fragile Tarstone, vendor, respec, and compensation changes.
-- [Balance Patch 1 — official Mortal Shell II Steam notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — patch-sensitive Tarstone changes.
-- [The best Mortal Shell 2 Tarstones and their locations — GamesRadar+](https://www.gamesradar.com/games/rpg/mortal-shell-2-tarstones/) — categories, slot framing, best-pick examples, and a partial location list.
-- [How to Upgrade the Tarforge in Mortal Shell 2 — GameSpot](https://www.gamespot.com/articles/mortal-shell-2-tarforge-weapons-tarstones-upgrades/) — Etching Needles, XP, coin, and Tarcore mechanics.
-- [Every Tarstone Location for the Stoned trophy — AllThings.How](https://allthings.how/mortal-shell-2-every-tarstone-location-for-the-stoned-trophy/) — source-reported collection checklist and missable warning.
-- [Best Early Tarstones to Prioritize — AllThings.How](https://allthings.how/best-early-tarstones-to-prioritize-in-mortal-shell-2/) — early-pick effects and locations.
-- [Etching Needles and Temper Tarstones — AllThings.How](https://allthings.how/mortal-shell-2-how-to-get-the-etching-needles-and-temper-tarstones/) — corroborating upgrade route and costs.
-- [Gloombound Stone location — AllThings.How](https://allthings.how/gloombound-stone-tarstone-location-in-mortal-shell-2-farm-more-gloom/) — Gloom farming effect cross-check.
-- [Tarforge guide](/mortal-shell-ii/tarforge/) — local five-part Tarforge context.
-- [Gloom farming guide](/mortal-shell-ii/gloom-farm/) — local Gloombound Stone and farming boundary.
-- [Balance Patch 1 — official Mortal Shell II patch notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — Parasitic, Grudge, Bulwark, Clerik's, and Squall changes, posted 2026-08-20.
+Yes — Duality still provides the extra light-attack hit for compatible dual-wield weapons and remains useful for fast light-combo, hit-count, and status-oriented builds

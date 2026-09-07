@@ -1,0 +1,22 @@
+{
+  "primaryQuery": "mortal shell 2 duality stone nerf",
+  "queryCluster": [
+    "mortal shell 2 duality stone nerf",
+    "mortal shell 2 duality stone",
+    "duality stone replacement mortal shell 2",
+    "mortal shell 2 tarstones"
+  ],
+  "userJob": "Confirm whether Duality Stone was nerfed after Sep. 5, what still works, and what Resolve-focused Axatana / Axe & Dagger players can try instead.",
+  "intentOwnerStatus": "KEEP",
+  "serpPromise": "State the post-Sep. 5 Duality Stone current state first, then keep the Tarstones database and goal-based picks useful.",
+  "secondaryIntents": [
+    {
+      "query": "duality stone replacement mortal shell 2",
+      "action": "KEEP_SUPPORTING"
+    },
+    {
+      "query": "mortal shell 2 best tarstones",
+      "action": "KEEP_SUPPORTING"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+---
+/**
+ * Site-wide Adsterra Social Bar / global Profitablerate script.
+ * Production-only. Hostname check skips non-production hosts.
+ * Native Banner remains on NativeAd.astro + ADSTERRA_ENABLED.
+ */
+import {
+	ADSTERRA_SOCIAL_BAR_SRC,
+	isAdsterraSocialBarRuntimeEnabled,
+} from '../lib/adsterra';
+import { game } from '../config/game';
+
+const enabled = isAdsterraSocialBarRuntimeEnabled();
+const siteHost = enabled ? new URL(game.siteUrl).hostname : '';
+const scriptSrcs = enabled ? [ADSTERRA_SOCIAL_BAR_SRC] : [];
+---
+
+{
+	enabled && (
+		<script is:inline define:vars={{ scriptSrcs, siteHost }}>
+			(function () {
+				try {
+					if (location.hostname !== siteHost) return;
+				} catch (error) {
+					return;
+				}
+				for (var i = 0; i < scriptSrcs.length; i++) {
+					var script = document.createElement('script');
+					script.async = true;
+					script.setAttribute('data-cfasync', 'false');
+					script.src = scriptSrcs[i];
+					document.head.appendChild(script);
+				}
+			})();
+		</script>
+	)
+}

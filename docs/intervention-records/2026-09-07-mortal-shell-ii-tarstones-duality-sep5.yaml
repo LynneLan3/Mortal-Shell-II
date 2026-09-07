@@ -1,0 +1,82 @@
+intervention_id: "2026-09-07-mortal-shell-ii-tarstones-duality-sep5"
+decision_id: "2026-09-07|Mortal Shell II|UPDATE_PAGE|tarstones-duality-sep5"
+site_id: "mortal-shell-ii"
+lifecycle: GROWTH
+action: UPDATE_PAGE
+status: PUBLISHED
+
+experiment: tarstones-duality-sep5
+researchAsOf: 2026-09-07
+
+outcome_evaluation_rule: >
+  Post-publish success/failure must be judged with post-deploy GSC data
+  for Duality nerf / replacement queries landing on /mortal-shell-ii/tarstones/.
+  Do not invent Duality standalone-page demand from this receipt alone.
+
+evidence_boundary: >
+  Official Sep. 5 notes do not list Duality Stone. Resolve ≈25% is
+  community-tested only and not developer-confirmed. Community 80% damage
+  was intentionally omitted from Quick Answer and public body.
+
+urls:
+  - "/mortal-shell-ii/tarstones/"
+
+page_decisions:
+  tarstones:
+    action: APPEND_ONLY
+    owner: KEEP
+    apply: APPLY
+    note: >
+      Keep Tarstones as intent owner. Do not create /duality-stone/,
+      /duality-stone-nerf/, or /best-tarstones/ until GSC/Hotword OS shows
+      an independent query cluster.
+
+writer_pipeline: >
+  Shared Writer + Intent Brief + APIMart via
+  shared-dev-skills/article-writer/scripts/shared-article-writer.mjs
+  (mode=update, model=gpt-5-mini); truncated candidate repaired from research.
+
+source_artifacts:
+  - "content-jobs/tarstones/research-duality-sep5.md"
+  - "content-jobs/tarstones/intent-brief.json"
+  - "content-jobs/tarstones/writer-candidate-duality-sep5.md"
+  - "content-jobs/tarstones/integration-note-duality-sep5.md"
+
+change_summary:
+  modified:
+    - "quickAnswer Duality Sep. 5 note"
+    - "Best Tarstones Duality row (conditional, not auto-pick)"
+    - "Sep. 5 Duality Stone current state block"
+    - "What to use instead of Duality Stone (Zealot's Stone community recommendation)"
+    - "Duality FAQ entries"
+    - "Sources Sep. 5 official + local update links"
+  preserved:
+    - "Canonical URL / slug"
+    - "Tarstones database tables"
+    - "Tempering / Week 1 / Balance Patch 1 sections"
+    - "No Duality standalone page"
+
+publishing:
+  - "commit"
+  - "push current branch"
+  - "vercel production deploy"
+  - "publish-receipt ledger writeback"
+
+production_publish:
+  commit_sha: "84aa7e9"
+  deployment_id: "dpl_Hsi9ZxFAmJgt6cjrH8AbK6x1eZW4"
+  deployment_url: "https://mortal-shell-56lfihn3l-lynnelan3s-projects.vercel.app"
+  production_url: "https://mortalshell2guide.com"
+  production_deployed_at: "2026-09-07T09:33:56.000Z"
+  alias: "https://mortalshell2guide.com"
+  receipt: "docs/publish-receipts/tarstones-duality-sep5.json"
+  verified_path: "/mortal-shell-ii/tarstones/"
+
+observation_horizons:
+  - D7
+  - D14
+primary_metrics:
+  - clicks
+  - impressions
+  - ctr
+  - position

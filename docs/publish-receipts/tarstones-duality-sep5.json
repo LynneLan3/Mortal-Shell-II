@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "deployment-receipt-v1",
+  "receiptKey": "mortal-shell-ii|tarstones-duality-sep5|84aa7e9",
+  "interventionId": "receipt-mortal-shell-ii|tarstones-duality-sep5|84aa7e9",
+  "siteId": "mortal-shell-ii",
+  "siteName": "Mortal Shell II",
+  "batchId": "mortal-shell-ii|tarstones-duality-sep5|84aa7e9",
+  "commitSHA": "84aa7e9",
+  "deploymentId": "dpl_Hsi9ZxFAmJgt6cjrH8AbK6x1eZW4",
+  "deploymentURL": "https://mortal-shell-56lfihn3l-lynnelan3s-projects.vercel.app",
+  "productionURL": "https://mortalshell2guide.com",
+  "productionDeployedAt": "2026-09-07T09:33:56.000Z",
+  "lifecyclePhase": "PUBLISHED",
+  "action": "UPDATE_PAGE",
+  "reason": "APPEND_ONLY Tarstones guide refresh for community-reported Sep. 5 Duality Stone Resolve generation drop; no Duality standalone page.",
+  "sourceRefs": [
+    "content-jobs/tarstones/research-duality-sep5.md",
+    "content-jobs/tarstones/intent-brief.json",
+    "content-jobs/tarstones/integration-note-duality-sep5.md",
+    "src/content/docs/gameplay/tarstones.md",
+    "commit:84aa7e9",
+    "deploy:https://mortal-shell-56lfihn3l-lynnelan3s-projects.vercel.app"
+  ],
+  "observationHorizons": ["D7", "D14"],
+  "affectedPages": [
+    {
+      "path": "/mortal-shell-ii/tarstones/",
+      "pageRole": "EXISTING_PAGE_UPDATE",
+      "action": "UPDATE_PAGE",
+      "primaryURL": "https://mortalshell2guide.com/mortal-shell-ii/tarstones/",
+      "triggerType": "community_patch_intent",
+      "triggerQueries": [
+        "mortal shell 2 duality stone nerf",
+        "mortal shell 2 duality stone",
+        "duality stone replacement mortal shell 2",
+        "mortal shell 2 tarstones"
+      ],
+      "triggerSummary": "Sep. 5–6 Reddit/Steam community reports of Duality Stone Resolve generation drop; replacement intent for Axatana / Axe & Dagger Combat Tarstone alternatives. Official Sep. 5 notes do not list Duality.",
+      "sourceRefs": [
+        "content-jobs/tarstones/research-duality-sep5.md",
+        "content-jobs/tarstones/intent-brief.json"
+      ],
+      "reason": "Sep. 5 Duality current-state block, conditional Best-row revision, Zealot's Stone community replacement note, Duality FAQ; 25% Resolve labeled community-tested only; no 80% damage in Quick Answer; no new Duality URL."
+    }
+  ]
+}

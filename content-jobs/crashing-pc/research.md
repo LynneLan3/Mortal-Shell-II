@@ -90,4 +90,5 @@ Update the existing `/mortal-shell-ii/crashing-pc/` guide for the post-Balance-P
 
 - XBIGY, [Hotfix 2.0 - Release Notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178328609/) — official crash/stability/performance and named UI/riposte fixes, posted 2026-08-18.
 - Cold Symmetry, [Balance Patch 1 - Patch Notes](https://steamcommunity.com/app/2584270/discussions/0/582805931178489108/) — official miscellaneous crash/performance update and patch context, posted 2026-08-20.
+- Cold Symmetry, [New Update Out Now](https://steamcommunity.com/app/2584270/discussions/0/581681621355213340/) — official Sep. 5, 2026 update; the Crashes and Stability wording is “Several crash fixes and optimisations.”
 - Existing local crashing-PC page and its developer workaround / bug-report source links — exact Keyboard Bindings procedure and current player-report boundaries.

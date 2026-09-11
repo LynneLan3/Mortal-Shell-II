@@ -5,7 +5,7 @@ category: pc-requirements
 slug: mortal-shell-ii/crashing-pc
 status: needs-verification
 featured: true
-quickAnswer: "The Sept. 5, 2026 update added crash fixes and optimisations but does not claim every crash, save/load failure, freeze, or performance regression is resolved. Confirm the latest Steam build, distinguish the symptom, then use the matching troubleshooting route below."
+quickAnswer: "The Sept. 5, 2026 official update is the latest verified crash/stability evidence: it includes several crash fixes and optimisations, but does not claim every PC crash, save/load failure, freeze, or performance regression is resolved. Confirm the current Steam build, distinguish the symptom, then use the matching troubleshooting route below."
 related:
   - mortal-shell-ii/system-requirements
   - mortal-shell-ii/release-date
@@ -15,7 +15,7 @@ sidebar:
   label: PC Crashes & Sep. 5 Update
   order: 2
   badge: Launch
-lastUpdated: 2026-09-06
+lastUpdated: 2026-09-11
 ---
 
 ## Current Status After the Sep. 5 Update
@@ -35,9 +35,9 @@ One Steam player reported an FPS drop from about **50–60 to 15–20** after th
 
 See the [Sep. 5 update page](/mortal-shell-ii/updates/september-5-update/) and [updates hub](/mortal-shell-ii/updates/) for the broader patch context. For a crash that began after updating, first confirm Steam finished the update, restart Steam, and retest the exact trigger before changing settings or files.
 
-## After Hotfix 3 — Current PC Status
+## Historical Hotfix 3 — September 1 PC Context
 
-**Hotfix 3** (Steam PC hotfix, **September 1, 2026**) is the latest PC hotfix after the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/). Crashes, freezes, and performance issues may still persist for some players. The developer confirmed targeted fixes but did **not** claim to resolve every crash or performance report.
+**Hotfix 3** (Steam PC hotfix, **September 1, 2026**) was an earlier patch after the [Week 1 Update](/mortal-shell-ii/updates/week-1-update/). The **September 5, 2026 official update** is the latest verified crash/stability evidence; it includes several crash fixes and optimisations. Crashes, freezes, and performance issues may still persist because the official notes do **not** claim every crash or performance report is resolved.
 
 ### What Hotfix 3 fixed (official)
 
@@ -57,19 +57,19 @@ See the [Sep. 5 update page](/mortal-shell-ii/updates/september-5-update/) and [
 
 Follow these steps in order:
 
-1. Confirm Steam installed the **Week 1 Update** and **Hotfix 3** (no pending download). Restart Steam, then relaunch.
+1. Confirm Steam installed the **September 5 update** and has no pending download. Restart Steam, then relaunch. The Week 1 Update and Hotfix 3 remain historical patch context.
 2. Follow official Week 1 update precautions: **remove or disable mods** before updating, and ensure **`engine.ini` is not read-only** — the official note says a read-only `engine.ini` can affect frame generation.
 3. Retest the exact trigger (loading crash, freeze, won't start, stutter after patch).
 4. Match your symptom to the sections below (Keyboard Bindings, loading crashes, random gameplay crashes).
 5. If the issue persists, file a bug report with GPU/driver details and whether Frame Generation was enabled.
 
-**Current version:** [Updates hub](/mortal-shell-ii/updates/) · [Week 1 Update](/mortal-shell-ii/updates/week-1-update/) · [Week 1 crash notes](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes)
+**Current version:** [Sep. 5 update](/mortal-shell-ii/updates/september-5-update/) · [Updates hub](/mortal-shell-ii/updates/) · [Week 1 crash notes](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes)
 
 ## Current Week 1 crash status
 
 The **Week 1 Update (August 29, 2026)** includes substantial crash and stability fixes across spawning, audio, attribute changes, UI loading, save loading, and shutdown. It also removes some settings implicated in graphics-driver crashes and adds crash diagnostics. **Mortal Shell II crashing is not completely fixed by this note.** If you are still crashing, first confirm Steam has installed the latest update, restart Steam, and retest the same action before using the troubleshooting below.
 
-**Current version:** [Week 1 Update crash status](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes) · [Updates hub](/mortal-shell-ii/updates/)
+**Current version:** [Sep. 5 update](/mortal-shell-ii/updates/september-5-update/) · [Week 1 Update crash status](/mortal-shell-ii/updates/week-1-update/#e-performance-and-crashes) · [Updates hub](/mortal-shell-ii/updates/)
 
 ## Is Mortal Shell 2 crashing after launch?
 
@@ -86,7 +86,7 @@ Use this short route before trying broad or risky system changes:
 3. **If the crash is random or happens in a menu, dialogue, tarstone screen, or cutscene,** record the trigger and your GPU/driver details before reporting it. These reports do not establish a root cause by themselves.
 4. **If the problem continues,** verify Steam files, check the graphics driver, and file a report with the exact scenario and whether Frame Generation was enabled.
 
-The fixes below separate developer-confirmed guidance from player-reported tests. Hotfix 2.0 and the Keyboard Bindings file reset are official/developer-sourced; Frame Generation off is a community-reported test rather than a confirmed fix.
+The fixes below separate developer-confirmed guidance from player-reported tests. The Sep. 5 update, Hotfix 2.0, and the Keyboard Bindings file reset are official/developer-sourced; Frame Generation off is a community-reported test rather than a confirmed fix.
 
 ## Official / developer-confirmed fixes or recommendations
 
@@ -115,12 +115,12 @@ On **August 17, 2026 at 4:35 PM PDT**, developer **XBIGY** posted [**Hotfix 1.0 
 
 **Hotfix 1.0 is not the same as the pre-launch day-one patch.** Press-supplied notes ([GamerFuzion](https://www.gamerfuzion.com/mortal-shell-2-day-one-patch-notes/), August 16) describe earlier crash fixes plus **frame generation / FSR timing fixes**. Use the Hotfix threads if crashes started after August 17.
 
-## How to make sure Hotfix 2.0 is installed
+## How to make sure the current update is installed
 
 1. Open **Steam**.
 2. Go to **Library → Mortal Shell II → Properties → Updates** and confirm automatic updates are enabled.
 3. If Steam shows a pending download, let it finish.
-4. **Restart Steam**, then launch the game once to confirm the build updated.
+4. **Restart Steam**, then launch the game once to confirm the current build updated.
 5. Retest the exact situation that crashed before (death loading, fast travel, a specific boss, and so on).
 
 Steam does not expose a simple public build number in the Hotfix posts, so the practical check is: **no pending update + a clean relaunch**.
@@ -129,7 +129,7 @@ Steam does not expose a simple public build number in the Hotfix posts, so the p
 
 | Issue | Current status | What to try |
 | --- | --- | --- |
-| General launch crashes | Hotfix 2.0 released on Steam (Aug 19); Hotfix 1.0 earlier | Update game, restart Steam, then retest |
+| General launch crashes | Sep. 5 update is the latest verified crash/stability evidence; earlier hotfixes remain historical | Update game, restart Steam, then retest |
 | Slayer Seal beacon-menu UI lock | **Fixed in Hotfix 2.0** (official) | Update to Hotfix 2.0 and retest equipping the seal |
 | Riposte enemy-weapon steal | **Fixed in Hotfix 2.0** (official) | Update to Hotfix 2.0 and retest riposte |
 | Keyboard Bindings menu crash | Developer acknowledged; not named in Hotfix 2.0 | Official temporary settings-file workaround |
@@ -151,7 +151,7 @@ Official wording: the team has received **several reports** of crashes when open
 
 This is a **developer-acknowledged** PC issue. It is not the same as the still-unconfirmed respawn / loading crashes, and it is not the community-reported Frame Generation workaround.
 
-Hotfix 1.0 shipped later that same day and said it should address several crashes, but that post **did not name Keyboard Bindings**. Hotfix 2.0 (August 19, 2026) also does **not** name Keyboard Bindings in its release notes. The dedicated workaround thread has not been updated to mark the crash as fixed. As of August 20, 2026, the settings-file workaround is still the current official guidance.
+Hotfix 1.0 shipped later that same day and said it should address several crashes, but that post **did not name Keyboard Bindings**. Hotfix 2.0 (August 19, 2026) also does **not** name Keyboard Bindings in its release notes. The dedicated workaround thread has not been updated to mark the crash as fixed. The Sep. 5 update notes do not name Keyboard Bindings, so the two-file procedure remains the current official guidance for that specific settings-menu crash in the supplied evidence.
 
 ### Official temporary workaround
 
@@ -216,19 +216,19 @@ For this pattern, first confirm the current Steam build and reproduce once with 
 
 This page **does not** recommend Open Beta workarounds such as `-dx11`, registry edits, DLL downloads, DDU, disabling security software, or deleting AppData/shader caches unless Cold Symmetry documents them for the **current launch build**.
 
-## What to do if the game still crashes after Hotfix 2.0
+## What to do if the game still crashes after the Sep. 5 update
 
-File a [bug report](https://steamcommunity.com/app/2584270/discussions/3/) with when the crash happens, your GPU and driver, and whether Frame Generation was enabled. Reply on the [Hotfix threads](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/) so Cold Symmetry can track remaining cases. There is no public Hotfix 2.1 timeline.
+File a [bug report](https://steamcommunity.com/app/2584270/discussions/3/) with when the crash happens, your GPU and driver, and whether Frame Generation was enabled. Reply on the [Hotfix threads](https://steamcommunity.com/app/2584270/discussions/0/418424310691158574/) so Cold Symmetry can track remaining cases. The supplied evidence does not confirm a permanent fix or future Hotfix 2.1 timeline.
 
 ## FAQ
 
-### Did Hotfix 3 fix Mortal Shell II crashes?
+### Did Hotfix 3 or the Sep. 5 update fix Mortal Shell II crashes?
 
-Hotfix 3 fixed the specific issues listed in the official notes above, but the developer did **not** claim it fixed all crashes. Community reports of crashes and performance issues continue.
+Hotfix 3 fixed the specific issues listed in its official notes, and the Sep. 5 update added **several crash fixes and optimisations**. Neither update claims that all crashes, freezes, loading failures, or performance issues are resolved; community reports continue.
 
-### Why is Mortal Shell II freezing after the latest patch?
+### Why is Mortal Shell II freezing after the Sep. 5 update?
 
-The developer did not confirm a universal freeze fix. If freezing began after the Week 1 Update or Hotfix 3, confirm your build is updated, remove/disable mods, ensure `engine.ini` is not read-only, restart Steam, retest, then file a bug report with system details.
+The developer did not confirm a universal freeze fix. If freezing began after the Sep. 5 update, confirm your build is updated, remove/disable mods, ensure `engine.ini` is not read-only, restart Steam, retest, then file a bug report with system details.
 
 ### Why won't Mortal Shell II start after updating?
 
@@ -240,11 +240,11 @@ Start failures can be tied to mods or a read-only `engine.ini` among other facto
 
 ### Is Mortal Shell 2 crashing on PC?
 
-Some players yes, especially on loading screens. Hotfix 2.0 (August 19, 2026) ships crash, stability, and performance fixes but does not guarantee stability.
+Some players still report crashes, especially on loading screens. The Sep. 5 official update includes several crash fixes and optimisations but does not guarantee that every PC crash or stability issue is resolved.
 
 ### Is there a Mortal Shell 2 crash hotfix?
 
-Yes — **Hotfix 2.0** on Steam, posted August 19, 2026. Hotfix 1.0 shipped earlier on August 17.
+The **Sep. 5 update** is the latest verified crash/stability update. Hotfix 2.0 and Hotfix 1.0 are earlier Steam patches with historical crash-fix notes.
 
 ### What does Hotfix 2.0 fix?
 
@@ -258,9 +258,9 @@ Yes. Official release notes: "Equipping Slayer Seal from the beacon menu no long
 
 Yes. Official release notes include a fix for player "stealing" enemy weapons during ripostes.
 
-### How do I install Hotfix 2.0?
+### How do I install the latest Mortal Shell 2 PC update?
 
-Let Steam update, restart Steam, relaunch. No manual download.
+Let Steam install the Sep. 5 update, restart Steam, and relaunch. No manual download is needed.
 
 ### Why does Mortal Shell 2 crash when I respawn?
 
@@ -276,15 +276,15 @@ Use the **official temporary workaround**: close the game, then delete only `Enh
 
 ### Is the Keyboard Bindings crash permanently fixed?
 
-No permanent fix has been announced or released as of August 20, 2026. Neither Hotfix 1.0 nor Hotfix 2.0 named this issue, and the developer workaround thread is still the current official guidance.
+The Sep. 5 update notes do not name Keyboard Bindings, and no permanent fix is confirmed in the supplied evidence. The developer workaround thread remains the current official guidance for this specific issue.
 
 ### Should I turn off Frame Generation?
 
 Try it as a **community-reported workaround** if loading crashes persist. Not an official fix.
 
-### Does Hotfix 2.0 fix the respawn crash?
+### Does the Sep. 5 update fix the respawn crash?
 
-Unknown. Official wording is misc crash fixes plus stability and performance improvements; loading crashes were still reported after the patch.
+Unknown. Official wording is **“Several crash fixes and optimisations”**; the notes do not claim every respawn or loading crash is resolved, and player reports continue.
 
 ### Can I recover Gloom lost after a crash?
 
@@ -292,7 +292,7 @@ No confirmed official method.
 
 ### Why does Mortal Shell 2 keep crashing?
 
-Launch-window players most often report repeated crashes on loading screens, fast travel, and beacon loading. Start by confirming Hotfix 2.0 is installed, restart Steam, retest the exact crash, then try Frame Generation off if loading crashes persist. If it keeps crashing, file a bug report with your GPU, driver, and when it happens.
+Players continue to report repeated crashes on loading screens, fast travel, and beacon loading. Start by confirming the Sep. 5 update is installed, restart Steam, retest the exact crash, then try Frame Generation off as a community-reported test if loading crashes persist. If it keeps crashing, file a bug report with your GPU, driver, and when it happens.
 
 ### Where can I report Mortal Shell 2 crashes?
 

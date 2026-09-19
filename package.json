@@ -12,14 +12,17 @@
     "flywheel": "tsx ./scripts/opportunity-flywheel.ts",
     "test:flywheel": "tsx --test tests/opportunity-flywheel.test.ts",
     "indexnow": "tsx ./scripts/indexnow-submit.ts",
-    "test:indexnow": "tsx --test tests/indexnow/submit.test.ts"
+    "test:indexnow": "tsx --test tests/indexnow/submit.test.ts",
+    "publish:production": "node scripts/publish-production-entry.mjs",
+    "validate:generated": "npm run build"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.7",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.1.6",
     "leaflet": "^1.9.4",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
     "tsx": "^4.23.12"

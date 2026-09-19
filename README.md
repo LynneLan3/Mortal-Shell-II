@@ -49,21 +49,17 @@ npx serve .
 
 ---
 
-## 2. 如何部署到 Vercel
+## 2. 如何部署到 Production
 
-**Vercel CLI**
+Production 交付只有一条固定路径，由 Vercel Git Integration 拥有，不可选择：
 
-```bash
-npm install -g vercel   # 只需安装一次
-cd "/Users/lanling/Code/hot_words_websites/Mortal Shell II"
-vercel                  # 按提示登录 + 确认项目，选默认选项即可
-vercel --prod           # 正式发布到生产环境
-```
+1. commit 生产改动
+2. push / merge 到 `main`
+3. Vercel Git Integration 为该 commit SHA 创建 Production 部署
+4. 合并后只用只读方式核对：Production 部署的 commit SHA 与已合并的 `main` SHA 一致
 
-**或通过 GitHub 连接 Vercel**
-
-1. 推送到 `LynneLan3/Mortal-Shell-II`
-2. 打开 vercel.com → New Project → 选择该仓库 → Deploy（纯静态，无需改构建配置）
+**不要**运行 `vercel --prod` 或 `vercel deploy --prod`，也不要在 CLI 与 Git 之间二选一。
+本仓库没有 CLI Production 回退路径：如果 Git 触发的 Production 缺失或失败，就停下排查 Git 流程，不要手动补一次部署。
 
 ---
 
@@ -100,7 +96,7 @@ grep -rl "旧域名" . --include="*.html" --include="*.xml" --include="*.txt" \
 1. 打开 [Google Search Console](https://search.google.com/search-console)
 2. 选择「网址前缀」类型
 3. 输入正式 URL
-4. 推荐 **HTML 标签验证**：把验证 meta 加到 `index.html` 的 `<head>`，重新部署后点「验证」
+4. 推荐 **HTML 标签验证**：把验证 meta 加到 `index.html` 的 `<head>`，按第 2 节的 Git 路径发布后点「验证」
 
 ---
 

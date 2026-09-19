@@ -1,0 +1,20 @@
+# Mortal Shell II — minimal deployment identity for the shared Git-owned
+# Vercel publisher. This legacy site keeps its own Astro build; it is not a
+# generated-site spec. Identity values mirror the existing Vercel project
+# (.vercel/project.json) and src/config/game.ts.
+
+site:
+  id: mortal-shell-ii
+  shortName: Mortal Shell II
+  siteUrl: https://mortalshell2guide.com/
+
+game:
+  name: Mortal Shell II
+
+deployment:
+  provider: vercel
+  orgId: "team_yAOizMTSVuT0RJATgFdAlQuG"
+  projectId: "prj_coqY8Fdiyw57pbSOAOYLOdPE2EC8"
+  projectName: "mortal-shell-ii"
+  productionUrl: https://mortalshell2guide.com/
+  productionBranch: main
